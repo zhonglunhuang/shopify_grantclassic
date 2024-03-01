@@ -1,0 +1,36 @@
+<div class="{% if section.settings.include_horizontal_margins %}container{% endif %} {% if section.settings.include_vertical_margins %}vertical-breather{% endif %}">
+  {%- for block in section.blocks -%}
+    {%- render block -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Apps",
+  "class": "shopify-section--apps",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_horizontal_margins",
+      "label": "Include horizontal margins",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "include_vertical_margins",
+      "label": "Include vertical margins",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ]
+}
+{% endschema %}

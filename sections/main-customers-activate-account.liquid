@@ -1,0 +1,41 @@
+<section>
+  <div class="container">
+    <div class="page-header">
+      <div class="page-header__text-wrapper text-container">
+        <h1 class="heading h2">{{ 'customer.activate_account.title' | t }}</h1>
+        <p>{{ 'customer.activate_account.instructions' | t }}</p>
+      </div>
+    </div>
+
+    <div class="page-content page-content--small">
+      {%- form 'activate_customer_password', name: 'activate', class: 'form', id: 'activate-customer-password' -%}
+        {%- if form.errors -%}
+          <div class="banner banner--error form__banner" id="login-form-error">
+            <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+            <div class="banner__content">{{ form.errors | default_errors }}</div>
+          </div>
+        {%- endif -%}
+
+        <div class="input">
+          <input type="password" id="customer[password]" class="input__field" name="customer[password]" required="required" autocomplete="new-password">
+          <label for="customer[password]" class="input__label">{{ 'customer.activate_account.password' | t }}</label>
+        </div>
+
+        <div class="input">
+          <input type="password" id="customer[password]" class="input__field" name="customer[password_confirmation]" required="required" autocomplete="new-password">
+          <label for="customer[password_confirmation]" class="input__label">{{ 'customer.activate_account.password_confirmation' | t }}</label>
+        </div>
+
+        <button type="submit" class="form__submit button button--primary button--full">{{ 'customer.activate_account.submit' | t }}</button>
+        <button type="submit" name="decline" class="form__secondary-action text--subdued link">{{- 'customer.activate_account.cancel' | t -}}</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer activate account",
+  "class": "shopify-section--main-customers-activate-account"
+}
+{% endschema %}

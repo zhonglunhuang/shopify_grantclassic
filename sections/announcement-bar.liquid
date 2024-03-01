@@ -1,0 +1,290 @@
+<style>
+  :root {
+    --enable-sticky-announcement-bar: {% if section.settings.announcement_bar_position == 'non_sticky' or section.settings.announcement_bar_position == 'sticky_desktop' %}0{% else %}1{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} {
+    --heading-color: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --text-color: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --primary-button-background: {{ section.settings.button_background.red }}, {{ section.settings.button_background.green }}, {{ section.settings.button_background.blue }};
+    --primary-button-text-color: {{ section.settings.button_text_color.red }}, {{ section.settings.button_text_color.green }}, {{ section.settings.button_text_color.blue }};
+    --section-background: {{ section.settings.background.red }}, {{ section.settings.background.green }}, {{ section.settings.background.blue }};
+    z-index: 5; /* Make sure it goes over header */
+
+    {%- if section.settings.announcement_bar_position == 'sticky' or section.settings.announcement_bar_position == 'sticky_mobile' -%}
+      position: -webkit-sticky;
+      position: sticky;
+    {%- else -%}
+      position: relative;
+    {%- endif -%}
+
+    top: 0;
+  }
+
+  @media screen and (min-width: 741px) {
+    :root {
+      --enable-sticky-announcement-bar: {% if section.settings.announcement_bar_position == 'non_sticky' or section.settings.announcement_bar_position == 'sticky_mobile' %}0{% else %}1{% endif %};
+    }
+
+    #shopify-section-{{ section.id }} {
+      {%- if section.settings.announcement_bar_position == 'sticky' or section.settings.announcement_bar_position == 'sticky_desktop' -%}
+        position: -webkit-sticky;
+        position: sticky;
+      {%- else -%}
+        position: relative;
+      {%- endif -%}
+    }
+  }
+</style>
+
+{%- if section.blocks.size > 0 -%}
+  <section>
+    <announcement-bar {% if section.blocks.size > 1 and section.settings.autoplay %}auto-play cycle-speed="{{ section.settings.cycle_speed | escape }}"{% endif %} class="announcement-bar {% if section.blocks.size > 1 %}announcement-bar--multiple{% endif %}">
+      {%- if section.blocks.size > 1 -%}
+        <button data-action="prev" class="tap-area tap-area--large">
+          <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+          {% render 'icon' with 'nav-arrow-left-small', direction_aware: true %}
+        </button>
+      {%- endif -%}
+
+      <div class="announcement-bar__list">
+        {%- for block in section.blocks -%}
+          {%- assign has_extra_content = false -%}
+
+          {%- if block.settings.content != blank or block.settings.image != blank -%}
+            {%- assign has_extra_content = true -%}
+          {%- endif -%}
+
+          <announcement-bar-item {% unless forloop.first %}hidden{% endunless %} {% if has_extra_content %}has-content{% endif %} class="announcement-bar__item" {{ block.shopify_attributes }}>
+            {%- case section.settings.announcement_text_size -%}
+              {%- when 'small' -%}
+                {%- assign text_size_class = 'text--xsmall' -%}
+              {%- when 'normal' -%}
+                {%- assign text_size_class = 'text--small' -%}
+              {%- when 'large' -%}
+                {%- assign text_size_class = '' -%}
+            {%- endcase -%}
+
+            <div class="announcement-bar__message {{ text_size_class }}">
+              {%- if block.settings.content != blank or block.settings.image != blank -%}
+                {%- if block.settings.learn_more_text != blank -%}
+                  <p>{{ block.settings.text | escape }} <button class="link" data-action="open-content">{{ block.settings.learn_more_text | escape }}</button></p>
+                {%- else -%}
+                  <button class="link" data-action="open-content">{{ block.settings.text | escape }}</button>
+                {%- endif -%}
+              {%- else -%}
+                <p>{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.content != blank or block.settings.image != blank -%}
+              <div hidden class="announcement-bar__content {% if block.settings.image != blank %}has-image{% endif %}">
+                <div class="announcement-bar__content-overlay"></div>
+
+                <div class="announcement-bar__content-overflow">
+                  <div class="announcement-bar__content-inner">
+                    <button type="button" class="announcement-bar__close-button tap-area" data-action="close-content">
+                      <span class="visually-hidden">{{ 'general.accessibility.close' | t }}</span>
+                      {%- render 'icon' with 'close' -%}
+                    </button>
+
+                    {%- if block.settings.image != blank -%}
+                      <img class="announcement-bar__content-image" loading="lazy" sizes="{% if block.settings.content != blank %}50vw{% else %}100vw{% endif %}" {% render 'image-attributes', image: block.settings.image, sizes: '400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' %}>
+                    {%- endif -%}
+
+                    {%- if block.settings.content != blank -%}
+                      <div class="announcement-bar__content-text-wrapper">
+                        <div class="announcement-bar__content-text text-container">
+                          {%- if block.settings.title != blank -%}
+                            <h3 class="heading h5">{{ block.settings.title | escape }}</h3>
+                          {%- endif -%}
+
+                          {%- if block.settings.content != blank -%}
+                            {{- block.settings.content -}}
+                          {%- endif -%}
+
+                          {%- if block.settings.button_text != blank -%}
+                            <div class="button-wrapper">
+                              <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_text | escape }}</a>
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          </announcement-bar-item>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <button data-action="next" class="tap-area tap-area--large">
+          <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+          {% render 'icon' with 'nav-arrow-right-small', direction_aware: true %}
+        </button>
+      {%- endif -%}
+    </announcement-bar>
+  </section>
+
+  <script>
+    document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "shopify-section--announcement-bar",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Announce something here"
+        },
+        {
+          "type": "text",
+          "id": "learn_more_text",
+          "label": "Learn more text",
+          "default": "Learn more",
+          "info": "Add details below to show this text."
+        },
+        {
+          "type": "header",
+          "content": "Details"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1400 x 800px .jpg recommended (if content is set), 2400 x 800 .jpg recommended (if no content)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "announcement_bar_position",
+      "label": "Position",
+      "options": [
+        {
+          "value": "non_sticky",
+          "label": "Non sticky"
+        },
+        {
+          "value": "sticky_desktop",
+          "label": "Sticky on desktop only"
+        },
+        {
+          "value": "sticky_mobile",
+          "label": "Sticky on mobile only"
+        },
+        {
+          "value": "sticky",
+          "label": "Sticky everywhere"
+        }
+      ],
+      "default": "non_sticky"
+    },
+    {
+      "type": "select",
+      "id": "announcement_text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between messages",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change message every",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#1e2d7d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#1e2d7d"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "message"
+      }
+    ]
+  }
+}
+{% endschema %}

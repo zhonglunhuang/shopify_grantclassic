@@ -1,0 +1,73 @@
+html,
+body,
+* {
+    font-family: 'Noto Sans TC', system-ui, sans-serif !important;
+    letter-spacing: 0 !important;
+}
+
+html.js {
+    padding-bottom: 0;
+}
+
+:root {
+    --gc-red: #EB3B3B;
+    --gc-dark: #2D2D2D;
+    --gc-grey: #565656;
+    --gc-lightGrey: #979797;
+}
+
+/* page,blog content */
+#ako-content h1{
+  font-size:36px;
+  font-weight: initial;
+}
+#ako-content h2{
+  font-size:28px;
+  font-weight: initial;
+}
+#ako-content h3{
+  font-size:26px;
+  font-weight: initial;
+}
+#ako-content h4{
+  font-size:22px;
+  font-weight: initial;
+}
+#ako-content h5{
+  font-size:20px;
+  font-weight: initial;
+}
+#ako-content h6{
+  font-size:18px; 
+  font-weight: initial;
+}
+#ako-content p{
+  font-size:16px;
+}
+#ako-content blockquote h3{
+  font-size:22px;
+  font-weight: initial;
+}
+@media screen and (max-width: 740px) {
+  #ako-content h1{
+  font-size:24px;
+}
+  #ako-content h2{
+  font-size:22px;
+}
+#ako-content h3{
+  font-size:20px;
+}
+#ako-content h4{
+  font-size:18px;
+}
+#ako-content h5{
+  font-size:16px;
+}
+#ako-content h6{
+  font-size:16px; 
+}
+#ako-content p{
+  font-size:15px;
+}
+}

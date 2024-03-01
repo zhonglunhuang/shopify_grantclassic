@@ -1,0 +1,318 @@
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 60,
+        "quick_links": ""
+      }
+    },
+    "e5aed347-f474-4b66-b335-1a6390c5d889": {
+      "type": "multi-column",
+      "blocks": {
+        "e569cd8f-c914-4396-9f95-b303e95fabef": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20230515_logo.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>双貓大藥房 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-双貓大藥房聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "01ea7ea8-8d8e-4728-ac9e-4609375e0378": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/679f9053-31e9-4ced-ba5b-553da5dcf83f.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>小雞崴力 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-小雞威力聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "3d20c1ff-1442-4226-9ecc-31ae32935df5": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/83ca8069-dc23-40c1-89d8-a861fa18ecba.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>摳迪捏妮八 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-摳迪捏妮八聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "3ec4a541-bdb8-4035-965b-4911b3567a3d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2f1beecd732f7a401642cf62a08a414b.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>醜白兔<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-醜白兔聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "61bbfde3-73ce-4db3-af33-d8d3cf388396": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3066b39c-1dc5-4493-966a-8a28ca55ecf1.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>倒呱 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-倒呱聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "07839bdd-1125-4b12-98e0-172f85c93313": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/f263cf2578eb04bd46e652d893d05a93.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>麥考艾裘 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-麥考艾裘聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "c5643d5d-5728-4a1a-b190-83df9cc2483f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/86c27525-855f-4555-88e4-b95210d45a0f.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>虎豹屋敷 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-虎豹屋敷聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "c3fc9d08-e66f-430d-b444-c1653caf64c1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LINE_ALBUM__LOGO_231129_2.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>小室插畫 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-小室插畫聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "template--16672968638707__e5aed347-f474-4b66-b335-1a6390c5d889-item-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bcf4c263-176b-49de-826d-df6cf3091066.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>緩緩 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-緩緩聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "5d9480ef-1cde-46e7-9f0c-d3d455623974": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4c600f78-2709-48e5-9e24-57b01b538fa7.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>BOPOMOO <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-波波畝聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "249477cd-9e9d-4bda-b53d-da7c483faf07": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/18bf816e-cc08-4939-9938-c7c848f0b658.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>無謂君 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-無謂君聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "c85d918e-4b64-4afa-bdf2-6ac86f67289f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/e6b1bc1996ac87e618d84ae2ec14c530.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>椪椪與好朋友<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-椪椪與好朋友聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        },
+        "item_itEkdJ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b5af73b4963a5b72632550b32074a6e5.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Ｍousystory 小鼠手札<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/mousystory小鼠手札",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "e569cd8f-c914-4396-9f95-b303e95fabef",
+        "01ea7ea8-8d8e-4728-ac9e-4609375e0378",
+        "3d20c1ff-1442-4226-9ecc-31ae32935df5",
+        "3ec4a541-bdb8-4035-965b-4911b3567a3d",
+        "61bbfde3-73ce-4db3-af33-d8d3cf388396",
+        "07839bdd-1125-4b12-98e0-172f85c93313",
+        "c5643d5d-5728-4a1a-b190-83df9cc2483f",
+        "c3fc9d08-e66f-430d-b444-c1653caf64c1",
+        "template--16672968638707__e5aed347-f474-4b66-b335-1a6390c5d889-item-1",
+        "5d9480ef-1cde-46e7-9f0c-d3d455623974",
+        "249477cd-9e9d-4bda-b53d-da7c483faf07",
+        "c85d918e-4b64-4afa-bdf2-6ac86f67289f",
+        "item_itEkdJ"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "small",
+        "desktop_item_size": "pico",
+        "spacing": "tight",
+        "background": "#f5f5f5",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "2359323d-c24e-4fdb-9bea-36c457a6b29a": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner-01.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "shopify:\/\/products\/gc-g極鏡-iphone14-13系列-黑邊霧面磨砂玻璃螢幕保護貼",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "de157ef0-9703-43e8-ab8b-c0d047277eb8": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/314371390_1721536321564350_582657814897899238_n.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "shopify:\/\/products\/gc-sticker-004",
+            "link_style": "link",
+            "text_position": "middle_left",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        }
+      },
+      "block_order": [
+        "2359323d-c24e-4fdb-9bea-36c457a6b29a",
+        "de157ef0-9703-43e8-ab8b-c0d047277eb8"
+      ],
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 40,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_color_swatch": true,
+        "open_first_filter_group": true,
+        "filter_position": "always_visible",
+        "promotion_position": "top",
+        "promotion_height": "small"
+      }
+    },
+    "f2d656a6-a654-44dd-af3b-c35e7c81a937": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "subheading": "",
+        "title": "曾經瀏覽過的商品",
+        "products_count": 10,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "e5aed347-f474-4b66-b335-1a6390c5d889",
+    "main",
+    "f2d656a6-a654-44dd-af3b-c35e7c81a937"
+  ]
+}

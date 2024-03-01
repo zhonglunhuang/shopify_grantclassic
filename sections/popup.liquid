@@ -1,0 +1,166 @@
+{%- if section.settings.enable -%}
+  {%- if section.settings.image != blank -%}
+    <style>
+      @media screen and (max-width: 999px) {
+        .modal__close-button {
+          color: rgb(255, 255, 255);
+        }
+      }
+    </style>
+  {%- endif -%}
+
+  {%- assign should_appear_automatically = false -%}
+
+  {%- unless section.settings.show_only_on_index and request.page_type != 'index' -%}
+    {%- unless section.settings.show_only_for_visitors and customer -%}
+      {%- assign should_appear_automatically = true -%}
+    {%- endunless -%}
+  {%- endunless -%}
+
+  <modal-content section="{{ section.id }}" {% if section.settings.show_only_once %}only-once{% endif %} {% if should_appear_automatically %}apparition-delay="{{ section.settings.apparition_delay }}"{% endif %} id="newsletter-popup" class="modal">
+    <div class="modal__overlay"></div>
+
+    <div class="modal__content">
+      <button type="button" class="modal__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon' with 'close' -%}
+      </button>
+
+      <div class="newsletter-modal {% if section.settings.image_position == 'right' %}newsletter-modal--reverse{% endif %}">
+        {%- if section.settings.image != blank -%}
+          <img class="newsletter-modal__image" loading="lazy" sizes="(max-width: 740px) 100vw, 500px" {% render 'image-attributes', image: section.settings.image, sizes: '300,400,500,600,700,800,900,1000' %}>
+        {%- endif -%}
+
+        <div class="newsletter-modal__content {% if section.settings.image != blank %}newsletter-modal__content--extra{% endif %} text-container text--center">
+          {%- if section.settings.title != blank -%}
+            <h2 class="heading h5">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            {{- section.settings.content -}}
+          {%- endif -%}
+
+          {%- form 'customer', id: newsletter_id, class: 'form newsletter-modal__form' -%}
+            {%- if form.posted_successfully? -%}
+              <script>
+                window.addEventListener('DOMContentLoaded', () => {
+                  document.getElementById('newsletter-popup').open = true;
+                });
+              </script>
+
+              <div class="form__banner banner banner--success">
+                <span class="banner__ribbon">{% render 'icon' with 'form-success' %}</span>
+                <p class="banner__content">{{ 'general.newsletter.success' | t }}</p>
+              </div>
+            {%- else -%}
+            {%- if form.errors -%}
+              <div class="form__banner banner banner--error">
+                <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+                <p class="banner__content">{{ form.errors.messages['email'] }}</p>
+              </div>
+            {%- endif -%}
+
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="hidden" name="contact[context]" value="{{ newsletter_id }}">
+
+              <div class="input">
+                <input type="email" id="newsletter[{{ section.id }}][contact][email]" name="contact[email]" class="input__field" required>
+                <label for="newsletter[{{ section.id }}][contact][email]" class="input__label">{{ 'general.newsletter.email' | t }}</label>
+              </div>
+
+              <div class="input">
+                <button type="submit" is="loader-button" class="button button--primary button--full">{{ 'general.newsletter.subscribe' | t }}</button>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  </modal-content>
+{%- else -%}
+  <style>
+    [aria-controls="newsletter-popup"] {
+      display: none; /* Allows to hide the toggle icon in the header if the section is disabled */
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Popup",
+  "class": "shopify-section--popup",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "apparition_delay",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Delay until the popup appears",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_on_index",
+      "label": "Show only on home page",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_for_visitors",
+      "label": "Disable for account holders",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_once",
+      "label": "Show once to visitors",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1000 x 1000px .jpg recommended"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Get 10% off"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>Promotions, new products and sales. Directly to your inbox.</p>"
+    }
+  ]
+}
+{% endschema %}

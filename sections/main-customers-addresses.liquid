@@ -1,0 +1,471 @@
+<section>
+  <div class="link-bar hidden-phone">
+    <div class="container">
+      <div class="link-bar__wrapper">
+        <ul class="link-bar__linklist list--unstyled" role="list">
+          <li class="link-bar__link-item">
+            <a href="{{ routes.account_url }}" class="link-bar__link link--animated">{{ 'customer.orders.title' | t }}</a>
+          </li>
+
+          <li class="link-bar__link-item">
+            <a href="{{ routes.account_addresses_url }}" class="link-bar__link link--animated text--underlined">{{ 'customer.addresses.title' | t }}</a>
+          </li>
+
+          <li class="link-bar__link-item">
+            <a href="{{ routes.account_logout_url }}" class="link-bar__link link--animated text--subdued" data-no-instant>{{ 'customer.logout.title' | t }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-toolbar hidden-tablet-and-up">
+    <button is="toggle-button" class="mobile-toolbar__item" aria-expanded="false" aria-controls="account-links-popover">{{- 'customer.addresses.title' | t -}} {%- render 'icon' with 'chevron' -%}</button>
+  </div>
+
+  <popover-content id="account-links-popover" class="popover">
+    <span class="popover__overlay"></span>
+
+    <header class="popover__header">
+      <span class="popover__title heading h6">{{- 'customer.general.title' | t -}}</span>
+
+      <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon' with 'close' -%}
+      </button>
+    </header>
+
+    <div class="popover__content">
+      <div class="popover__choice-list">
+        <a href="{{ routes.account_url }}" class="popover__choice-item">
+          <span class="popover__choice-label">{{ 'customer.orders.title' | t }}</span>
+        </a>
+
+        <a href="{{ routes.account_addresses_url }}" class="popover__choice-item">
+          <span class="popover__choice-label" aria-current="true">{{ 'customer.addresses.title' | t }}</span>
+        </a>
+
+        <a href="{{ routes.account_logout_url }}" class="popover__choice-item text--subdued" data-no-instant>
+          <span class="popover__choice-label">{{ 'customer.logout.title' | t }}</span>
+        </a>
+      </div>
+    </div>
+  </popover-content>
+
+  <div class="account account--addresses">
+    <div class="container container--small">
+      <div class="page-header page-header--small">
+        <div class="page-header__text-wrapper text-container">
+          <h1 class="heading h4">{{ 'customer.addresses.title' | t }} <span class="bubble-count bubble-count--top">{{ customer.addresses_count }}</span></h1>
+
+          {%- if customer.addresses_count == 0 -%}
+            <p class="text--subdued">{{ 'customer.addresses.no_address' | t }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="page-content">
+        <div class="account__block-list">
+          {%- for block in section.blocks -%}
+            <div class="account__block-item" {{ block.shopify_attributes }}>
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {%- render block -%}
+
+                {%- when 'liquid' -%}
+                  {{- block.settings.liquid -}}
+
+                {%- when 'addresses' -%}
+                  {%- paginate customer.addresses by 8 -%}
+                    <div class="account__addresses-list">
+                      {%- for address in customer.addresses -%}
+                        <div class="account__address">
+                          {%- if address.id == customer.default_address.id -%}
+                            <span class="account__address-title heading heading--small">{{ 'customer.addresses.default_address' | t }}</span>
+                          {%- else -%}
+                            {%- assign address_index = forloop.index | plus: paginate.current_offset -%}
+                            <span class="account__address-title heading heading--small">{{ 'customer.addresses.address_count' | t: count: address_index }}</span>
+                          {%- endif -%}
+
+                          <div class="account__address-details">
+                            {{- address | format_address -}}
+                          </div>
+
+                          <div class="account__address-actions">
+                            <button class="link text--subdued" is="toggle-button" aria-controls="drawer-address-{{ address.id }}" aria-expanded="false">{{ 'customer.addresses.edit' | t }}</button>
+
+                            <form method="post" action="{{ address.url }}">
+                              <input type="hidden" name="_method" value="delete">
+                              <button class="link text--subdued" is="confirm-button" data-message="{{ 'customer.addresses.delete_confirm' | t | escape }}">{{ 'customer.addresses.delete' | t }}</button>
+                            </form>
+                          </div>
+                        </div>
+                      {%- endfor -%}
+
+                      <button is="toggle-button" class="account__address account__address--empty link text--subdued" aria-controls="drawer-new-address" aria-expanded="false">
+                        {%- render 'icon' with 'picto-address-pin' -%}
+                        {{- 'customer.addresses.add_new' | t -}}
+                      </button>
+                    </div>
+
+                    {%- render 'pagination', paginate: paginate -%}
+                  {%- endpaginate -%}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%}We render all the offscreen elements used to create and edit the addresses{%- endcomment -%}
+
+  <drawer-content id="drawer-new-address" class="drawer drawer--large" initial-focus-selector="[type='text']:first-child">
+    <span class="drawer__overlay"></span>
+
+    <header class="drawer__header">
+      <h3 class="drawer__title heading h6">{{ 'customer.addresses.add_new' | t }}</h3>
+      
+      <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon' with 'close' -%}
+      </button>
+    </header>
+
+    <div class="drawer__content drawer__content--padded-start">
+      {%- form 'customer_address', customer.new_address, class: 'form' -%}
+        {%- if form.errors -%}
+          <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', () => {
+              document.getElementById('drawer-new-address').open = true;
+            });
+          </script>
+
+          <div class="form__banner banner banner--error">
+            <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+            <div class="banner__content">
+              {{- form.errors | default_errors -}}
+            </div>
+          </div>
+        {%- else -%}
+          <p class="form__info">{{ 'customer.addresses.fill_address' | t }}</p>
+        {%- endif -%}
+        
+        {%- if request.locale.iso_code == 'ja' -%}
+          <div class="input-row">
+            <div class="input">
+              <input id="address-new[last_name]" type="text" class="input__field input__field--text {% if form.last_name != blank %}is-filled{% endif %}" name="address[last_name]" value="{{ form.last_name }}">
+              <label for="address-new[last_name]" class="input__label">{{ 'customer.addresses.last_name' | t }}</label>
+            </div>
+
+            <div class="input">
+              <input id="address-new[first_name]" type="text" class="input__field input__field--text {% if form.first_name != blank %}is-filled{% endif %}" name="address[first_name]" value="{{ form.first_name }}">
+              <label for="address-new[first_name]" class="input__label">{{ 'customer.addresses.first_name' | t }}</label>
+            </div>
+          </div>
+
+          <div class="input">
+            <input id="address-new[zip]" type="text" class="input__field input__field--text {% if form.zip != blank %}is-filled{% endif %}" name="address[zip]" value="{{ form.zip }}">
+            <label for="address-new[zip]" class="input__label">{{ 'customer.addresses.zip' | t }}</label>
+          </div>
+
+          <div class="input">
+            <div class="select-wrapper is-filled">
+              <select is="country-selector" class="select" name="address[country]" id="address-new[country]" aria-owns="address-new-province-container">{{ all_country_option_tags }}</select>
+              {%- render 'icon', icon: 'chevron' -%}
+            </div>
+
+            <label for="address-new[country]" class="input__label">{{ 'customer.addresses.country' | t }}</label>
+          </div>
+
+          <div id="address-new-province-container" class="input" hidden>
+            <div class="select-wrapper is-filled">
+              <select class="select" name="address[province]" id="address-new[province]"></select>
+              {%- render 'icon', icon: 'chevron' -%}
+            </div>
+
+            <label for="address-new[province]" class="input__label">{{ 'customer.addresses.province' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[city]" type="text" class="input__field input__field--text {% if form.city != blank %}is-filled{% endif %}" name="address[city]" value="{{ form.city }}">
+            <label for="address-new[city]" class="input__label">{{ 'customer.addresses.city' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[address1]" type="text" class="input__field input__field--text {% if form.address1 != blank %}is-filled{% endif %}" name="address[address1]" value="{{ form.address1 }}">
+            <label for="address-new[address1]" class="input__label">{{ 'customer.addresses.address1' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[address2]" type="text" class="input__field input__field--text {% if form.address2 != blank %}is-filled{% endif %}" name="address[address2]" value="{{ form.address2 }}">
+            <label for="address-new[address2]" class="input__label">{{ 'customer.addresses.address2' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[company]" type="text" class="input__field input__field--text {% if form.company != blank %}is-filled{% endif %}" name="address[company]" value="{{ form.company }}">
+            <label for="address-new[company]" class="input__label">{{ 'customer.addresses.company' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[phone]" type="text" class="input__field input__field--text {% if form.phone != blank %}is-filled{% endif %}" name="address[phone]" value="{{ form.phone }}">
+            <label for="address-new[phone]" class="input__label">{{ 'customer.addresses.phone' | t }}</label>
+          </div>
+        {%- else -%}
+          <div class="input-row">
+            <div class="input">
+              <input id="address-new[first_name]" type="text" class="input__field input__field--text {% if form.first_name != blank %}is-filled{% endif %}" name="address[first_name]" value="{{ form.first_name }}">
+              <label for="address-new[first_name]" class="input__label">{{ 'customer.addresses.first_name' | t }}</label>
+            </div>
+
+            <div class="input">
+              <input id="address-new[last_name]" type="text" class="input__field input__field--text {% if form.last_name != blank %}is-filled{% endif %}" name="address[last_name]" value="{{ form.last_name }}">
+              <label for="address-new[last_name]" class="input__label">{{ 'customer.addresses.last_name' | t }}</label>
+            </div>
+          </div>
+
+          <div class="input">
+            <input id="address-new[company]" type="text" class="input__field input__field--text {% if form.company != blank %}is-filled{% endif %}" name="address[company]" value="{{ form.company }}">
+            <label for="address-new[company]" class="input__label">{{ 'customer.addresses.company' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[phone]" type="text" class="input__field input__field--text {% if form.phone != blank %}is-filled{% endif %}" name="address[phone]" value="{{ form.phone }}">
+            <label for="address-new[phone]" class="input__label">{{ 'customer.addresses.phone' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[address1]" type="text" class="input__field input__field--text {% if form.address1 != blank %}is-filled{% endif %}" name="address[address1]" value="{{ form.address1 }}">
+            <label for="address-new[address1]" class="input__label">{{ 'customer.addresses.address1' | t }}</label>
+          </div>
+
+          <div class="input">
+            <input id="address-new[address2]" type="text" class="input__field input__field--text {% if form.address2 != blank %}is-filled{% endif %}" name="address[address2]" value="{{ form.address2 }}">
+            <label for="address-new[address2]" class="input__label">{{ 'customer.addresses.address2' | t }}</label>
+          </div>
+
+          <div class="input-row">
+            <div class="input">
+              <input id="address-new[city]" type="text" class="input__field input__field--text {% if form.city != blank %}is-filled{% endif %}" name="address[city]" value="{{ form.city }}">
+              <label for="address-new[city]" class="input__label">{{ 'customer.addresses.city' | t }}</label>
+            </div>
+
+            <div class="input">
+              <input id="address-new[zip]" type="text" class="input__field input__field--text {% if form.zip != blank %}is-filled{% endif %}" name="address[zip]" value="{{ form.zip }}">
+              <label for="address-new[zip]" class="input__label">{{ 'customer.addresses.zip' | t }}</label>
+            </div>
+          </div>
+
+          <div class="input">
+            <div class="select-wrapper is-filled">
+              <select is="country-selector" class="select" name="address[country]" id="address-new[country]" aria-owns="address-new-province-container">{{ all_country_option_tags }}</select>
+              {%- render 'icon' with 'chevron' -%}
+            </div>
+
+            <label for="address-new[country]" class="input__label">{{ 'customer.addresses.country' | t }}</label>
+          </div>
+
+          <div id="address-new-province-container" class="input" hidden>
+            <div class="select-wrapper is-filled">
+              <select class="select" name="address[province]" id="address-new[province]"></select>
+              {%- render 'icon' with 'chevron' -%}
+            </div>
+
+            <label for="address-new[province]" class="input__label">{{ 'customer.addresses.province' | t }}</label>
+          </div>
+        {%- endif -%}
+
+        <div class="input input--checkbox">
+          <div class="checkbox-container">
+            <input type="checkbox" class="checkbox" name="address[default]" id="address-new[default]" value="0">
+            <label for="address-new[default]" class="text--subdued">{{ 'customer.addresses.set_default' | t }}</label>
+          </div>
+        </div>
+
+        <button type="submit" is="loader-button" class="form__submit button button--primary button--full">{{ 'customer.addresses.add_new' | t }}</button>
+      {%- endform -%}
+    </div>
+  </drawer-content>
+
+  {%- paginate customer.addresses by 8 -%}
+    {%- for address in customer.addresses -%}
+      <drawer-content id="drawer-address-{{ address.id }}" class="drawer drawer--large">
+        <span class="drawer__overlay"></span>
+
+        <header class="drawer__header">
+          <h3 class="drawer__title heading h6">{{ 'customer.addresses.edit' | t }}</h3>
+
+          <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+            {%- render 'icon' with 'close' -%}
+          </button>
+        </header>
+
+        <div class="drawer__content drawer__content--padded-start">
+          {% form 'customer_address', address, class: 'form' %}
+            <p class="form__info">{{ 'customer.addresses.fill_address' | t }}</p>
+
+            {%- if request.locale.iso_code == 'ja' -%}
+              <div class="input-row">
+                <div class="input">
+                  <input id="address-{{ address.id }}[last_name]" type="text" class="input__field input__field--text {% if form.last_name != blank %}is-filled{% endif %}" name="address[last_name]" value="{{ form.last_name }}">
+                  <label for="address-{{ address.id }}[last_name]" class="input__label">{{ 'customer.addresses.last_name' | t }}</label>
+                </div>
+
+                <div class="input">
+                  <input id="address-{{ address.id }}[first_name]" type="text" class="input__field input__field--text {% if form.first_name != blank %}is-filled{% endif %}" name="address[first_name]" value="{{ form.first_name }}">
+                  <label for="address-{{ address.id }}[first_name]" class="input__label">{{ 'customer.addresses.first_name' | t }}</label>
+                </div>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[zip]" type="text" class="input__field input__field--text {% if form.zip != blank %}is-filled{% endif %}" name="address[zip]" value="{{ form.zip }}">
+                <label for="address-{{ address.id }}[zip]" class="input__label">{{ 'customer.addresses.zip' | t }}</label>
+              </div>
+
+              <div class="input">
+                <div class="select-wrapper is-filled">
+                  <select is="country-selector" class="select" name="address[country]" id="address-{{ address.id }}[country]" data-default="{{ form.country }}" aria-owns="address-{{ address.id }}-province-container">{{ all_country_option_tags }}</select>
+                  {%- render 'icon', icon: 'chevron' -%}
+                </div>
+
+                <label for="address-{{ address.id }}[country]" class="input__label">{{ 'customer.addresses.country' | t }}</label>
+              </div>
+
+              <div id="address-{{ address.id }}-province-container" class="input" hidden>
+                <div class="select-wrapper is-filled">
+                  <select class="select" name="address[province]" id="address-{{ address.id }}[province]" data-default="{{ form.province }}"></select>
+                  {%- render 'icon', icon: 'chevron' -%}
+                </div>
+
+                <label for="address-{{ address.id }}[province]" class="input__label">{{ 'customer.addresses.province' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[city]" type="text" class="input__field input__field--text {% if form.city != blank %}is-filled{% endif %}" name="address[city]" value="{{ form.city }}">
+                <label for="address-{{ address.id }}[city]" class="input__label">{{ 'customer.addresses.city' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[address1]" type="text" class="input__field input__field--text {% if form.address1 != blank %}is-filled{% endif %}" name="address[address1]" value="{{ form.address1 }}">
+                <label for="address-{{ address.id }}[address1]" class="input__label">{{ 'customer.addresses.address1' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[address2]" type="text" class="input__field input__field--text {% if form.address2 != blank %}is-filled{% endif %}" name="address[address2]" value="{{ form.address2 }}">
+                <label for="address-{{ address.id }}[address2]" class="input__label">{{ 'customer.addresses.address2' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[company]" type="text" class="input__field input__field--text {% if form.company != blank %}is-filled{% endif %}" name="address[company]" value="{{ form.company }}">
+                <label for="address-{{ address.id }}[company]" class="input__label">{{ 'customer.addresses.company' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[phone]" type="text" class="input__field input__field--text {% if form.phone != blank %}is-filled{% endif %}" name="address[phone]" value="{{ form.phone }}">
+                <label for="address-{{ address.id }}[phone]" class="input__label">{{ 'customer.addresses.phone' | t }}</label>
+              </div>
+            {%- else -%}
+              <div class="input-row">
+                <div class="input">
+                  <input id="address-{{ address.id }}[first_name]" type="text" class="input__field input__field--text {% if form.first_name != blank %}is-filled{% endif %}" name="address[first_name]" value="{{ form.first_name }}">
+                  <label for="address-{{ address.id }}[first_name]" class="input__label">{{ 'customer.addresses.first_name' | t }}</label>
+                </div>
+
+                <div class="input">
+                  <input id="address-{{ address.id }}[last_name]" type="text" class="input__field input__field--text {% if form.last_name != blank %}is-filled{% endif %}" name="address[last_name]" value="{{ form.last_name }}">
+                  <label for="address-{{ address.id }}[last_name]" class="input__label">{{ 'customer.addresses.last_name' | t }}</label>
+                </div>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[company]" type="text" class="input__field input__field--text {% if form.company != blank %}is-filled{% endif %}" name="address[company]" value="{{ form.company }}">
+                <label for="address-{{ address.id }}[company]" class="input__label">{{ 'customer.addresses.company' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[phone]" type="text" class="input__field input__field--text {% if form.phone != blank %}is-filled{% endif %}" name="address[phone]" value="{{ form.phone }}">
+                <label for="address-{{ address.id }}[phone]" class="input__label">{{ 'customer.addresses.phone' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[address1]" type="text" class="input__field input__field--text {% if form.address1 != blank %}is-filled{% endif %}" name="address[address1]" value="{{ form.address1 }}">
+                <label for="address-{{ address.id }}[address1]" class="input__label">{{ 'customer.addresses.address1' | t }}</label>
+              </div>
+
+              <div class="input">
+                <input id="address-{{ address.id }}[address2]" type="text" class="input__field input__field--text {% if form.address2 != blank %}is-filled{% endif %}" name="address[address2]" value="{{ form.address2 }}">
+                <label for="address-{{ address.id }}[address2]" class="input__label">{{ 'customer.addresses.address2' | t }}</label>
+              </div>
+
+              <div class="input-row">
+                <div class="input">
+                  <input id="address-{{ address.id }}[city]" type="text" class="input__field input__field--text {% if form.city != blank %}is-filled{% endif %}" name="address[city]" value="{{ form.city }}">
+                  <label for="address-{{ address.id }}[city]" class="input__label">{{ 'customer.addresses.city' | t }}</label>
+                </div>
+
+                <div class="input">
+                  <input id="address-{{ address.id }}[zip]" type="text" class="input__field input__field--text {% if form.zip != blank %}is-filled{% endif %}" name="address[zip]" value="{{ form.zip }}">
+                  <label for="address-{{ address.id }}[zip]" class="input__label">{{ 'customer.addresses.zip' | t }}</label>
+                </div>
+              </div>
+
+              <div class="input">
+                <div class="select-wrapper is-filled">
+                  <select is="country-selector" class="select" name="address[country]" id="address-{{ address.id }}[country]" data-default="{{ form.country }}" aria-owns="address-{{ address.id }}-province-container">{{ all_country_option_tags }}</select>
+                  {%- render 'icon', icon: 'chevron' -%}
+                </div>
+
+                <label for="address-{{ address.id }}[country]" class="input__label">{{ 'customer.addresses.country' | t }}</label>
+              </div>
+
+              <div id="address-{{ address.id }}-province-container" class="input" hidden>
+                <div class="select-wrapper is-filled">
+                  <select class="select" name="address[province]" id="address-{{ address.id }}[province]" data-default="{{ form.province }}"></select>
+                  {%- render 'icon', icon: 'chevron' -%}
+                </div>
+
+                <label for="address-{{ address.id }}[province]" class="input__label">{{ 'customer.addresses.province' | t }}</label>
+              </div>
+            {%- endif -%}
+
+            <div class="input input--checkbox">
+              <div class="checkbox-container">
+                <input type="checkbox" class="checkbox" id="address-{{ address.id }}[default]" name="address[default]" {% if address.id == customer.default_address.id %}value="1" checked{% endif %}>
+                <label for="address-{{ address.id }}[default]" class="text--subdued">{{ 'customer.addresses.set_default' | t }}</label>
+              </div>
+            </div>
+
+            <button type="submit" is="loader-button" class="form__submit button button--primary button--full">{{ 'customer.addresses.save' | t }}</button>
+          {% endform %}
+        </div>
+      </drawer-content>
+    {%- endfor -%}
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{
+  "name": "Customer addresses",
+  "class": "shopify-section--main-customers-addresses",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "liquid",
+      "name": "Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+    },
+    {
+      "type": "addresses",
+      "name": "Address list",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

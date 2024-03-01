@@ -1,0 +1,231 @@
+{%- assign heading_font_italic = settings.heading_font | font_modify: 'style', 'italic' -%}
+
+{%- comment -%}
+  IMPLEMENTATION NOTE: for the main font we first try the 600 variation if it exists, as it provides a less "bold" look. If
+  the semi-bold variation does not exist we try the 500 variation, and if not found we fallback to the "bolder" variation.
+{%- endcomment -%}
+
+{%- assign text_font_italic = settings.text_font | font_modify: 'style', 'italic' -%}
+{%- assign text_font_bold = settings.text_font | font_modify: 'weight', '600' -%}
+
+{%- unless text_font_bold -%}
+  {%- assign text_font_bold = settings.text_font | font_modify: 'weight', '500' -%}
+{%- endunless -%}
+
+{%- unless text_font_bold -%}
+  {%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
+{%- endunless -%}
+
+{%- assign text_font_bold_italic = text_font_bold | font_modify: 'style', 'italic' -%}
+
+{%- comment -%}
+We only preload the main variations of the custom fonts rather than all the variations, as per recommendation by Shopify.
+It seems that preloading all the variations upfront can cause performance issue and delay the loading of more important
+other resources, such as CSS or JS
+{%- endcomment -%}
+
+{%- unless settings.heading_font.system? -%}
+  <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+{%- endunless -%}
+
+{%- unless settings.text_font.system? -%}
+  <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+{%- endunless -%}
+
+<style>
+  /* Typography (heading) */
+  {{ settings.heading_font | font_face: font_display: 'swap' }}
+
+  {%- if heading_font_italic -%}
+    {{ heading_font_italic | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  /* Typography (body) */
+  {{ settings.text_font | font_face: font_display: 'swap' }}
+
+  {%- if text_font_italic -%}
+    {{ text_font_italic | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  {%- if text_font_bold -%}
+    {{ text_font_bold | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  {%- if text_font_bold_italic -%}
+    {{ text_font_bold_italic | font_face: font_display: 'swap' }}
+  {%- endif -%}
+
+  :root {
+    {%- assign border_color = settings.background | color_mix: settings.text_color, 85 -%}
+    {%- assign border_color_darker = settings.background | color_mix: settings.text_color, 60 -%}
+    {%- assign success_background = settings.background | color_mix: settings.success_color, 80 -%}
+    {%- assign error_background = settings.background | color_mix: settings.error_color, 93 -%}
+    {%- assign product_custom_label_brightness = settings.product_custom_label_background | color_brightness -%}
+    {%- assign product_custom_label_2_brightness = settings.product_custom_label_2_background | color_brightness -%}
+
+    --heading-color: {{ settings.heading_color.red }}, {{ settings.heading_color.green }}, {{ settings.heading_color.blue }};
+    --text-color: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+    --background: {{ settings.background.red }}, {{ settings.background.green }}, {{ settings.background.blue }};
+    --secondary-background: {{ settings.secondary_background.red }}, {{ settings.secondary_background.green }}, {{ settings.secondary_background.blue }};
+    --border-color: {{ border_color.red }}, {{ border_color.green }}, {{ border_color.blue }};
+    --border-color-darker: {{ border_color_darker.red }}, {{ border_color_darker.green }}, {{ border_color_darker.blue }};
+    --success-color: {{ settings.success_color.red }}, {{ settings.success_color.green }}, {{ settings.success_color.blue }};
+    --success-background: {{ success_background.red }}, {{ success_background.green }}, {{ success_background.blue }};
+    --error-color: {{ settings.error_color.red }}, {{ settings.error_color.green }}, {{ settings.error_color.blue }};
+    --error-background: {{ error_background.red }}, {{ error_background.green }}, {{ error_background.blue }};
+    --primary-button-background: {{ settings.primary_button_background.red }}, {{ settings.primary_button_background.green }}, {{ settings.primary_button_background.blue }};
+    --primary-button-text-color: {{ settings.primary_button_text_color.red }}, {{ settings.primary_button_text_color.green }}, {{ settings.primary_button_text_color.blue }};
+    --secondary-button-background: {{ settings.secondary_button_background.red }}, {{ settings.secondary_button_background.green }}, {{ settings.secondary_button_background.blue }};
+    --secondary-button-text-color: {{ settings.secondary_button_text_color.red }}, {{ settings.secondary_button_text_color.green }}, {{ settings.secondary_button_text_color.blue }};
+    --product-star-rating: {{ settings.product_rating_color.red }}, {{ settings.product_rating_color.green }}, {{ settings.product_rating_color.blue }};
+    --product-on-sale-accent: {{ settings.product_on_sale_accent.red }}, {{ settings.product_on_sale_accent.green }}, {{ settings.product_on_sale_accent.blue }};
+    --product-sold-out-accent: {{ settings.product_sold_out_accent.red }}, {{ settings.product_sold_out_accent.green }}, {{ settings.product_sold_out_accent.blue }};
+    --product-custom-label-background: {{ settings.product_custom_label_background.red }}, {{ settings.product_custom_label_background.green }}, {{ settings.product_custom_label_background.blue }};
+    --product-custom-label-text-color: {% if product_custom_label_brightness < 150 %}255, 255, 255{% else %}0, 0, 0{% endif %};
+    --product-custom-label-2-background: {{ settings.product_custom_label_2_background.red }}, {{ settings.product_custom_label_2_background.green }}, {{ settings.product_custom_label_2_background.blue }};
+    --product-custom-label-2-text-color: {% if product_custom_label_2_brightness < 150 %}255, 255, 255{% else %}0, 0, 0{% endif %};
+    --product-low-stock-text-color: {{ settings.product_low_stock_text_color.red }}, {{ settings.product_low_stock_text_color.green }}, {{ settings.product_low_stock_text_color.blue }};
+    --product-in-stock-text-color: {{ settings.product_in_stock_text_color.red }}, {{ settings.product_in_stock_text_color.green }}, {{ settings.product_in_stock_text_color.blue }};
+    --loading-bar-background: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+
+    /* We duplicate some "base" colors as root colors, which is useful to use on drawer elements or popover without. Those should not be overridden to avoid issues */
+    --root-heading-color: {{ settings.heading_color.red }}, {{ settings.heading_color.green }}, {{ settings.heading_color.blue }};
+    --root-text-color: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+    --root-background: {{ settings.background.red }}, {{ settings.background.green }}, {{ settings.background.blue }};
+    --root-border-color: {{ border_color.red }}, {{ border_color.green }}, {{ border_color.blue }};
+    --root-primary-button-background: {{ settings.primary_button_background.red }}, {{ settings.primary_button_background.green }}, {{ settings.primary_button_background.blue }};
+    --root-primary-button-text-color: {{ settings.primary_button_text_color.red }}, {{ settings.primary_button_text_color.green }}, {{ settings.primary_button_text_color.blue }};
+
+    --base-font-size: {{ settings.text_font_size }}px;
+    --heading-font-family: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+    --heading-font-weight: {{ settings.heading_font.weight }};
+    --heading-font-style: {{ settings.heading_font.style }};
+    --heading-text-transform: {{ settings.heading_text_transform }};
+    --text-font-family: {{ settings.text_font.family }}, {{ settings.text_font.fallback_families }};
+    --text-font-weight: {{ settings.text_font.weight }};
+    --text-font-style: {{ settings.text_font.style }};
+    --text-font-bold-weight: {{ text_font_bold.weight | default: '700' }};
+
+    /* Typography (font size) */
+    --heading-xxsmall-font-size: {% if settings.heading_font_size == 'small' %}10px{% else %}11px{% endif %};
+    --heading-xsmall-font-size: {% if settings.heading_font_size == 'small' %}10px{% else %}11px{% endif %};
+    --heading-small-font-size: {% if settings.heading_font_size == 'small' %}11px{% elsif settings.heading_font_size == 'medium' %}12px{% else %}13px{% endif %};
+    --heading-large-font-size: {% if settings.heading_font_size == 'small' %}32px{% elsif settings.heading_font_size == 'medium' %}36px{% else %}40px{% endif %};
+    --heading-h1-font-size: {% if settings.heading_font_size == 'small' %}32px{% elsif settings.heading_font_size == 'medium' %}36px{% else %}40px{% endif %};
+    --heading-h2-font-size: {% if settings.heading_font_size == 'small' %}28px{% elsif settings.heading_font_size == 'medium' %}30px{% else %}32px{% endif %};
+    --heading-h3-font-size: {% if settings.heading_font_size == 'small' %}26px{% elsif settings.heading_font_size == 'medium' %}26px{% else %}28px{% endif %};
+    --heading-h4-font-size: {% if settings.heading_font_size == 'small' %}22px{% elsif settings.heading_font_size == 'medium' %}24px{% else %}26px{% endif %};
+    --heading-h5-font-size: {% if settings.heading_font_size == 'small' %}18px{% elsif settings.heading_font_size == 'medium' %}20px{% else %}22px{% endif %};
+    --heading-h6-font-size: {% if settings.heading_font_size == 'small' %}16px{% elsif settings.heading_font_size == 'medium' %}16px{% else %}18px{% endif %};
+
+    /* Control the look and feel of the theme by changing radius of various elements */
+    --button-border-radius: {{ settings.button_border_radius }}px;
+    --block-border-radius: {% if settings.block_border_radius == 'none' %}0{% elsif settings.block_border_radius == 'small' %}8{% elsif settings.block_border_radius == 'medium' %}16{% else %}32{% endif %}px;
+    --block-border-radius-reduced: {% if settings.block_border_radius == 'none' %}0{% elsif settings.block_border_radius == 'small' %}4{% elsif settings.block_border_radius == 'medium' %}8{% else %}16{% endif %}px;
+    --color-swatch-border-radius: {% if settings.round_color_swatches %}100%{% else %}0px{% endif %};
+
+    /* Button size */
+    --button-height: 48px;
+    --button-small-height: 40px;
+
+    /* Form related */
+    --form-input-field-height: 48px;
+    --form-input-gap: 16px;
+    --form-submit-margin: 24px;
+
+    /* Product listing related variables */
+    --product-list-block-spacing: 32px;
+
+    /* Video related */
+    --play-button-background: {{ settings.background.red }}, {{ settings.background.green }}, {{ settings.background.blue }};
+    --play-button-arrow: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+
+    /* RTL support */
+    --transform-logical-flip: {% if direction == 'ltr' %}1{% else %}-1{% endif %};
+    --transform-origin-start: {% if direction == 'ltr' %}left{% else %}right{% endif %};
+    --transform-origin-end: {% if direction == 'ltr' %}right{% else %}left{% endif %};
+
+    /* Other */
+    --zoom-cursor-svg-url: url({{ 'zoom-cursor.svg' | asset_url }});
+    --arrow-right-svg-url: url({{ 'arrow-right.svg' | asset_url }});
+    --arrow-left-svg-url: url({{ 'arrow-left.svg' | asset_url }});
+
+    /* Some useful variables that we can reuse in our CSS. Some explanation are needed for some of them:
+       - container-max-width-minus-gutters: represents the container max width without the edge gutters
+       - container-outer-width: considering the screen width, represent all the space outside the container
+       - container-outer-margin: same as container-outer-width but get set to 0 inside a container
+       - container-inner-width: the effective space inside the container (minus gutters)
+       - grid-column-width: represents the width of a single column of the grid
+       - vertical-breather: this is a variable that defines the global "spacing" between sections, and inside the section
+                            to create some "breath" and minimum spacing
+     */
+    --container-max-width: 1600px;
+    --container-gutter: 24px;
+    --container-max-width-minus-gutters: calc(var(--container-max-width) - (var(--container-gutter)) * 2);
+    --container-outer-width: max(calc((100vw - var(--container-max-width-minus-gutters)) / 2), var(--container-gutter));
+    --container-outer-margin: var(--container-outer-width);
+    --container-inner-width: calc(100vw - var(--container-outer-width) * 2);
+
+    --grid-column-count: 10;
+    --grid-gap: 24px;
+    --grid-column-width: calc((100vw - var(--container-outer-width) * 2 - var(--grid-gap) * (var(--grid-column-count) - 1)) / var(--grid-column-count));
+
+    --vertical-breather: {% if settings.vertical_spacing == 'small' %}28px{% elsif settings.vertical_spacing == 'medium' %}36px{% else %}48px{% endif %};
+    --vertical-breather-tight: {% if settings.vertical_spacing == 'small' %}28px{% elsif settings.vertical_spacing == 'medium' %}36px{% else %}48px{% endif %};
+
+    /* Shopify related variables */
+    --payment-terms-background-color: {{ settings.background }};
+  }
+
+  @media screen and (min-width: 741px) {
+    :root {
+      --container-gutter: 40px;
+      --grid-column-count: 20;
+      --vertical-breather: {% if settings.vertical_spacing == 'small' %}40px{% elsif settings.vertical_spacing == 'medium' %}48px{% else %}64px{% endif %};
+      --vertical-breather-tight: {% if settings.vertical_spacing == 'small' %}40px{% elsif settings.vertical_spacing == 'medium' %}48px{% else %}64px{% endif %};
+
+      /* Typography (font size) */
+      --heading-xsmall-font-size: {% if settings.heading_font_size == 'small' %}11px{% elsif settings.heading_font_size == 'medium' %}12px{% else %}13px{% endif %};
+      --heading-small-font-size: {% if settings.heading_font_size == 'small' %}12px{% elsif settings.heading_font_size == 'medium' %}13px{% else %}14px{% endif %};
+      --heading-large-font-size: {% if settings.heading_font_size == 'small' %}48px{% elsif settings.heading_font_size == 'medium' %}52px{% else %}58px{% endif %};
+      --heading-h1-font-size: {% if settings.heading_font_size == 'small' %}48px{% elsif settings.heading_font_size == 'medium' %}48px{% else %}58px{% endif %};
+      --heading-h2-font-size: {% if settings.heading_font_size == 'small' %}36px{% elsif settings.heading_font_size == 'medium' %}38px{% else %}44px{% endif %};
+      --heading-h3-font-size: {% if settings.heading_font_size == 'small' %}30px{% elsif settings.heading_font_size == 'medium' %}32px{% else %}36px{% endif %};
+      --heading-h4-font-size: {% if settings.heading_font_size == 'small' %}22px{% elsif settings.heading_font_size == 'medium' %}24px{% else %}28px{% endif %};
+      --heading-h5-font-size: {% if settings.heading_font_size == 'small' %}18px{% elsif settings.heading_font_size == 'medium' %}20px{% else %}22px{% endif %};
+      --heading-h6-font-size: {% if settings.heading_font_size == 'small' %}16px{% elsif settings.heading_font_size == 'medium' %}18px{% else %}20px{% endif %};
+
+      /* Form related */
+      --form-input-field-height: 52px;
+      --form-submit-margin: 32px;
+
+      /* Button size */
+      --button-height: 52px;
+      --button-small-height: 44px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    :root {
+      --vertical-breather: {% if settings.vertical_spacing == 'small' %}48px{% elsif settings.vertical_spacing == 'medium' %}64px{% else %}80px{% endif %};
+      --vertical-breather-tight: {% if settings.vertical_spacing == 'small' %}48px{% elsif settings.vertical_spacing == 'medium' %}48px{% else %}64px{% endif %};
+      --product-list-block-spacing: 48px;
+
+      /* Typography */
+      --heading-large-font-size: {% if settings.heading_font_size == 'small' %}58px{% elsif settings.heading_font_size == 'medium' %}64px{% else %}72px{% endif %};
+      --heading-h1-font-size: {% if settings.heading_font_size == 'small' %}50px{% elsif settings.heading_font_size == 'medium' %}56px{% else %}62px{% endif %};
+      --heading-h2-font-size: {% if settings.heading_font_size == 'small' %}44px{% elsif settings.heading_font_size == 'medium' %}48px{% else %}54px{% endif %};
+      --heading-h3-font-size: {% if settings.heading_font_size == 'small' %}32px{% elsif settings.heading_font_size == 'medium' %}36px{% else %}40px{% endif %};
+      --heading-h4-font-size: {% if settings.heading_font_size == 'small' %}26px{% elsif settings.heading_font_size == 'medium' %}30px{% else %}34px{% endif %};
+      --heading-h5-font-size: {% if settings.heading_font_size == 'small' %}22px{% elsif settings.heading_font_size == 'medium' %}24px{% else %}26px{% endif %};
+      --heading-h6-font-size: {% if settings.heading_font_size == 'small' %}16px{% elsif settings.heading_font_size == 'medium' %}18px{% else %}18px{% endif %};
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    :root {
+      --vertical-breather: {% if settings.vertical_spacing == 'small' %}48px{% elsif settings.vertical_spacing == 'medium' %}64px{% else %}90px{% endif %};
+      --vertical-breather-tight: {% if settings.vertical_spacing == 'small' %}48px{% elsif settings.vertical_spacing == 'medium' %}48px{% else %}64px{% endif %};
+    }
+  }
+</style>

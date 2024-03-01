@@ -1,0 +1,219 @@
+{%- comment -%}
+  IMPLEMENTATION NOTE: This section is similar to the dynamic "Newsletter" section embedded in the home page. This
+  one is however statically included in every pages.
+{%- endcomment -%}
+
+{%- if section.settings.show_section -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      {%- if section.settings.text_background == 'rgba(0,0,0,0)' -%}
+        {%- assign section_block_background = settings.background -%}
+      {%- else -%}
+        {%- assign section_block_background = section.settings.text_background -%}
+      {%- endif -%}
+
+      {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+        {%- assign heading_color = settings.heading_color -%}
+        {%- assign text_color = settings.text_color -%}
+      {%- else -%}
+        {%- assign heading_color = section.settings.text_color -%}
+        {%- assign text_color = section.settings.text_color -%}
+      {%- endif -%}
+
+      {%- if section.settings.button_background == 'rgba(0,0,0,0)' -%}
+        {%- assign button_background = settings.primary_button_background -%}
+      {%- else -%}
+        {%- assign button_background = section.settings.button_background -%}
+      {%- endif -%}
+
+      {%- if section.settings.button_text_color == 'rgba(0,0,0,0)' -%}
+        {%- assign button_text_color = settings.primary_button_text_color -%}
+      {%- else -%}
+        {%- assign button_text_color = section.settings.button_text_color -%}
+      {%- endif -%}
+
+      --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+      --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+      --primary-button-background: {{ button_background.red }}, {{ button_background.green }}, {{ button_background.blue }};
+      --primary-button-text-color: {{ button_text_color.red }}, {{ button_text_color.green }}, {{ button_text_color.blue }};
+      --section-block-background: {{ section_block_background.red }}, {{ section_block_background.green }}, {{ section_block_background.blue }};
+    }
+  </style>
+
+  <section class="section section--flush">
+    <image-with-text-block {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="image-with-text-block image-with-text-block--small image-with-text-block--cover">
+      <div class="image-with-text-block__image-wrapper">
+        {%- if section.settings.image != blank -%}
+          <img class="image-with-text-block__image" {% if section.settings.reveal_on_scroll %}reveal{% endif %} loading="lazy" sizes="(max-width: 999px) 100vw, 72vw" {% render 'image-attributes', image: section.settings.image, sizes: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' %}>
+        {%- else -%}
+          {%- capture image_classes -%}image-with-text-block__image image-with-text-block__image--placeholder placeholder-background{%- endcapture -%}
+          {{- 'lifestyle-1' | placeholder_svg_tag: image_classes -}}
+        {%- endif -%}
+      </div>
+
+      <div class="container container--flush">
+        {%- assign text_position = section.settings.text_position | split: '_' | last -%}
+
+        <div {% if section.settings.reveal_on_scroll %}reveal{% endif %} class="image-with-text-block__content image-with-text-block__content--tight content-box content-box--small content-box--text-{{ section.settings.text_alignment}} content-box--{{ text_position }} text-container">
+          {%- if section.settings.subheading != blank -%}
+            <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            {{- section.settings.content -}}
+          {%- endif -%}
+
+          {%- assign newsletter_id = 'newsletter-' | append: section.id -%}
+
+          {%- form 'customer', id: newsletter_id, class: 'form newsletter__form' -%}
+            {%- if form.posted_successfully? -%}
+              <script>
+                window.addEventListener('DOMContentLoaded', () => {
+                  if (history.scrollRestoration) {
+                    history.scrollRestoration = 'manual'; // Prevent the browser to scroll on captcha page
+                  }
+
+                  document.getElementById('shopify-section-{{ section.id }}').scrollIntoView();
+                });
+              </script>
+
+              <div class="form__banner banner banner--success">
+                <span class="banner__ribbon">{% render 'icon' with 'form-success' %}</span>
+                <p class="banner__content">{{ 'general.newsletter.success' | t }}</p>
+              </div>
+            {%- else -%}
+              {%- if form.errors -%}
+                <div class="form__banner banner banner--error">
+                  <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+                  <p class="banner__content">{{ form.errors.messages['email'] }}</p>
+                </div>
+              {%- endif -%}
+
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="hidden" name="contact[context]" value="{{ newsletter_id }}">
+
+              <div class="input-row">
+                <div class="input">
+                  <input type="email" id="newsletter[{{ section.id }}][contact][email]" name="contact[email]" class="input__field" required>
+                  <label for="newsletter[{{ section.id }}][contact][email]" class="input__label">{{ 'general.newsletter.email' | t }}</label>
+                </div>
+
+                <div class="input">
+                  <button type="submit" is="loader-button" class="button button--primary">{{ 'general.newsletter.subscribe' | t }}</button>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+    </image-with-text-block>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "shopify-section--newsletter",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal_on_scroll",
+      "label": "Reveal on scroll",
+      "info": "Show animation when section becomes visible.",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "2000 x 980px .jpg recommended"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Subscribe to our newsletter"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Promotions, new products and sales. Directly to your inbox.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Desktop text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_background",
+      "label": "Text background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "rgba(0,0,0,0)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,753 @@
+{
+  "404": {
+    "general": {
+      "title": "找不到網頁",
+      "description": "對不起，這個頁面不存在",
+      "back_to_home": "返回首頁"
+    }
+  },
+  "general": {
+    "meta": {
+      "page": "頁面 {{ page }}"
+    },
+    "label": {
+      "color": "顏色",
+      "white": "白",
+      "size": "尺寸"
+    },
+    "breadcrumb": {
+      "title": "麵包屑",
+      "home": "首頁",
+      "home_delievery": "直送到家"
+    },
+    "pagination": {
+      "previous_page": "上一篇",
+      "next_page": "下一篇",
+      "go_to_page": "前往頁面 {{ page }}"
+    },
+    "accessibility": {
+      "skip_to_content": "跳至內容",
+      "close": "關閉",
+      "previous": "上一步",
+      "next": "下一步",
+      "play_video": "播放影片",
+      "go_to_slide": "Go to slide {{num}}",
+      "delete": "刪除",
+      "show_product": "顯示商品 {{ title }}",
+      "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars"
+    },
+    "social": {
+      "facebook_share": "分享至Facebook",
+      "pinterest_pin": "釘選在Pinterest",
+      "twitter_tweet": "發佈至Twitter ",
+      "email_share": "透過電子信箱分享",
+      "email_label": "電子信箱",
+      "follow_label": "追蹤我們 {{ social_media }}"
+    },
+    "newsletter": {
+      "email": "你的電子信箱",
+      "subscribe": "訂閱",
+      "success": "您已經成功訂閱我們的電子報"
+    },
+    "faq": {
+      "categories": "分類"
+    },
+    "onboarding": {
+      "blog_post_category": "分類",
+      "blog_post_title": "文章",
+      "product_vendor": "廠商",
+      "product_title": "產品",
+      "product_description": "為你的產品寫一些描述",
+      "collection_title": "系列"
+    }
+  },
+  "header": {
+    "general": {
+      "navigation": "導航",
+      "newsletter": "電子報",
+      "login": "登入",
+      "account": "帳號",
+      "cart": "購物車",
+      "language": "語言",
+      "country": "國家"
+    }
+  },
+  "footer": {
+    "general": {
+      "language": "語言",
+      "country": "國家",
+      "we_accept": "我們接受"
+    },
+    "newsletter": {
+      "email": "您的電子信箱",
+      "submit": "註冊",
+      "success": "您已經成功的訂閱了我們的電子報"
+    },
+    "cookie_bar": {
+      "accept": "接受",
+      "decline": "拒絕"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "購物車",
+      "empty": "您的購物車是空的",
+      "start_shopping": "開始購物",
+      "free_shipping": "您已享有免運的優惠",
+      "free_shipping_remaining_html": "再花 {{ remaining_amount }} 就可以享有免運優惠！",
+      "free": "免費！",
+      "no_more_stock": "售罄",
+      "shipping_tax_note": "運費將於結帳時計算",
+      "product": "產品",
+      "quantity": "數量",
+      "decrease_quantity": "減少數量",
+      "increase_quantity": "增加數量",
+      "change_quantity": "改變數量",
+      "remove": "移除",
+      "order_note": "訂單備註",
+      "add_order_note": "新增訂單備註",
+      "edit_order_note": "編輯訂單備註",
+      "order_note_placeholder": "我可以怎麼幫您呢？",
+      "order_note_save": "儲存",
+      "total": "總金額",
+      "checkout": "結帳",
+      "go_to_cart": "前往購物車",
+      "we_accept": "我們接受",
+      "item_added": "已將商品加入至您的購物車！",
+      "item_added_short": "加入至您的購物車！",
+      "view_cart": "查看購物車",
+      "item_count": {
+        "zero": "{{ count }} 產品",
+        "one": "{{ count }} 產品",
+        "other": "{{ count }} 產品"
+      }
+    },
+    "shipping_estimator": {
+      "estimate_shipping": "計算運費",
+      "country": "國家",
+      "province": "省",
+      "zip_code": "郵遞區號",
+      "submit": "計算",
+      "no_results": "抱歉、此地址不支援運送。",
+      "one_result": "我們找到了您地址的1個運費",
+      "multiple_results": "我們找到了您地址的許多個運費",
+      "error": "在取回運費時出現一個或多個錯誤"
+    }
+  },
+  "collection": {
+    "general": {
+      "filters": "篩選器",
+      "show_filters": "顯示篩選器",
+      "all_products": "全部的商品",
+      "view_results": "查看結果",
+      "apply_filters": "使用篩選棄",
+      "clear_filters": "清除全部",
+      "price_range_to": "至",
+      "price_filter_from": "從價格",
+      "price_filter_to": "至價格",
+      "price_filter": "{{min_price}} - {{max_price}}",
+      "no_results_title": "沒有結果",
+      "no_results_label": "抱歉，您的搜尋沒有結果。",
+      "no_results_button": "重置篩選器",
+      "empty_title": "空的系列",
+      "empty_label": "這個系列裡沒有任何的商品",
+      "empty_button": "立即購買",
+      "sort_by": "排序方式",
+      "products_count": {
+        "zero": "{{ count }} 產品",
+        "one": "{{ count }} 產品",
+        "other": "{{ count }} 產品"
+      }
+    },
+    "product": {
+      "sold_out": "售罄",
+      "discount_html": "省下 {{ savings }}",
+      "from_price_html": "{{ price_min }}",
+      "add_to_cart": "+ 加入購物車",
+      "add_to_cart_short": "+ 加入購物車",
+      "quick_view": "立即購買",
+      "available_colors_count": {
+        "one": "{{ count }} 顏色有存貨",
+        "other": "{{ count }} 顏色有存貨"
+      }
+    }
+  },
+  "product": {
+    "general": {
+      "description": "商品詳情",
+      "reviews": "評論",
+      "sku": "SKU:",
+      "regular_price": "原價",
+      "sale_price": "特價",
+      "view_in_space": "在您的空間查看",
+      "zoom": "放大",
+      "share": "分享",
+      "size_chart": "尺寸表",
+      "need_help": "需要協助嗎？",
+      "view_details": "查看細節",
+      "include_taxes": "包含稅金",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">運費計算<\/a> 結帳時",
+      "reviews_count": {
+        "zero": "沒有評論",
+        "one": "{{ count }} 評論",
+        "other": "{{ count }} 評論"
+      }
+    },
+    "form": {
+      "choose_options": "選擇選項",
+      "quantity": "數量",
+      "variant": "選項",
+      "unavailable": "不可供貨",
+      "pre_order": "預購此商品",
+      "add_to_cart": "加入購物車",
+      "sold_out": "售罄",
+      "in_stock": "有現貨",
+      "oversell_stock": "盡快補貨",
+      "incoming_stock": "重新進貨 {{ next_incoming_date }}",
+      "low_stock_with_quantity_count": {
+        "one": "剩下 {{count}} 份",
+        "other": "剩下 {{count}} 份"
+      },
+      "contact_us": "聯絡我們",
+      "quick_buy": "快速購買"
+    }
+  },
+  "store_availability": {
+    "general": {
+      "view_store_info": "查看商店資訊",
+      "check_other_stores": "查詢是否在其他商店有存貨",
+      "pick_up_available": "可取貨",
+      "pick_up_currently_unavailable": "目前無法取貨",
+      "pick_up_available_at": "可在此處取貨 {{ location_name }}",
+      "pick_up_unavailable_at": "無法在此處取貨 {{ location_name }}"
+    }
+  },
+  "list_collections": {
+    "general": {
+      "title": "系列",
+      "empty": "這家商店不包含任何商品系列",
+      "back_to_home": "返回首頁",
+      "products_count": {
+        "zero": "沒有產品",
+        "one": "{{count}} 產品",
+        "other": "{{count}} 產品"
+      }
+    }
+  },
+  "blog": {
+    "general": {
+      "empty": "部落格內沒有文章",
+      "back_to_home": "返回首頁",
+      "view": "查看",
+      "all_posts": "所有貼文"
+    }
+  },
+  "article": {
+    "general": {
+      "written_by": "作者 {{ author }}",
+      "share": "分享",
+      "next": "下一篇",
+      "reading": "閱讀",
+      "tags": "標籤",
+      "continue_reading": "繼續閱讀",
+      "reading_time": {
+        "zero": "{{ count }} 分",
+        "one": "{{ count }} 分",
+        "other": "{{ count }} 分"
+      }
+    },
+    "comments": {
+      "leave_comment": "留下評論",
+      "moderated": "所有評論在發布前都經過審核。",
+      "name": "名字",
+      "email": "電子信箱",
+      "message": "內文",
+      "submit": "發送",
+      "comment_sent": "您的評論已發送，店家接受後即可看見。",
+      "comment_published": "您的評論已發佈",
+      "comments_count": {
+        "zero": "{{ count }} 回應",
+        "one": "{{ count }} 回應",
+        "other": "{{ count }} 回應"
+      }
+    }
+  },
+  "customer": {
+    "general": {
+      "title": "我的帳號"
+    },
+    "login": {
+      "title": "登入",
+      "instructions": "請輸入您的電子信箱與密碼",
+      "email": "電子信箱",
+      "password": "密碼",
+      "submit": "登入",
+      "forgot_password": "忘記您的密碼？",
+      "new_customer": "您是新顧客嗎？",
+      "create_account": "建立帳號"
+    },
+    "recover_password": {
+      "title": "重設您的密碼",
+      "instructions": "請輸入您的電子信箱",
+      "email": "電子信箱",
+      "submit": "回復",
+      "remember_password": "記得您的密碼嗎？",
+      "back_to_login": "返回登入",
+      "success": "我們已寄送附有連結的電子郵件，以利您重設密碼"
+    },
+    "activate_account": {
+      "title": "啟動帳號",
+      "instructions": "輸入密碼去建立賬戶",
+      "password": "密碼",
+      "password_confirmation": "確認密碼",
+      "submit": "啟用",
+      "cancel": "取消"
+    },
+    "reset_password": {
+      "title": "重置密碼",
+      "instructions": "輸入一個新的密碼",
+      "password": "密碼",
+      "password_confirmation": "確認密碼",
+      "submit": "重置"
+    },
+    "register": {
+      "title": "註冊",
+      "instructions": "請填寫以下資訊",
+      "first_name": "姓氏",
+      "last_name": "名字",
+      "email": "電子信箱",
+      "password": "密碼",
+      "submit": "建立帳號",
+      "already_have_account": "已擁有帳號了嗎？",
+      "login": "登入"
+    },
+    "orders": {
+      "title": "訂單",
+      "no_orders": "您還沒有任何訂單",
+      "start_shopping": "開始購物",
+      "back_to_orders": "返回訂單",
+      "number": "訂單號碼",
+      "order_name": "訂單 {{name}}",
+      "date": "日期",
+      "payment_status": "付款狀況",
+      "fulfillment_status": "訂單狀況",
+      "view_details": "查看訂單細節",
+      "cancelled_at": "取消時間: {{date}}. 原因: {{reason}}",
+      "fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}<\/a>.",
+      "fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看<\/a>.",
+      "fulfillment_with_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 {{tracking_company}}{{tracking_number}}.",
+      "fulfillment_html": "所有的產品已在此日期發送 {{date}}.",
+      "line_fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}<\/a>.",
+      "line_fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看<\/a>.",
+      "line_fulfillment_with_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 {{tracking_company}}{{tracking_number}}.",
+      "line_fulfillment_html": "所有的產品已在此日期發送 {{date}}.",
+      "total": "總金額",
+      "subtotal": "訂單總額",
+      "discount": "折扣",
+      "shipping": "運費",
+      "refunded_amount": "退款帳號",
+      "tax_included": "包含稅金",
+      "tax_excluded": "不包含稅金",
+      "quantity": "數量: {{quantity}}",
+      "shipping_address": "寄送地址",
+      "billing_address": "帳單地址",
+      "total_duties": ""
+    },
+    "addresses": {
+      "title": "地址",
+      "no_address": "您還沒有儲存任何地址",
+      "add_new": "新增地址",
+      "edit": "編輯",
+      "delete": "刪除",
+      "delete_confirm": "您確定要刪除這個地址嗎？",
+      "save": "保存",
+      "default_address": "預設地址",
+      "address_count": "地址 {{count}}",
+      "fill_address": "請填入以下資訊",
+      "first_name": "姓氏",
+      "last_name": "名字",
+      "company": "公司",
+      "phone": "電話號碼",
+      "address1": "地址 1",
+      "address2": "地址 2",
+      "city": "城市",
+      "zip": "郵遞區號",
+      "country": "國家",
+      "province": "省",
+      "set_default": "設定為預設地址"
+    },
+    "logout": {
+      "title": "登出"
+    }
+  },
+  "search": {
+    "general": {
+      "title": "查詢",
+      "terms": "搜尋結果 \"{{terms}}\"",
+      "search_placeholder": "您在尋找什麼？",
+      "no_results": "沒有搜尋結果",
+      "new_search": "新的搜尋",
+      "view_all_results": "查看所有的結果",
+      "products": "產品",
+      "articles": "日誌",
+      "pages": "頁面",
+      "collections": "系列"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "名字",
+      "email": "電子信箱",
+      "message": "訊息",
+      "submit": "發送",
+      "successfully_sent": "您的信件已發送"
+    }
+  },
+  "gift_card": {
+    "issued": {
+      "subtext": "這裡是你的禮物卡！",
+      "illustration": "禮物卡插圖",
+      "disabled": "您的禮物卡已被停用",
+      "expired": "您的禮物卡已過期 {{expiry}}.",
+      "expires_on": "到期日期 {{expiry}}",
+      "redeem": "在結帳時使用這個優惠號碼",
+      "remaining_amount_html": "剩餘數量: {{balance}} (out of {{initial_value}})",
+      "print": "印刷",
+      "scan_qr_code": "掃描這個QR code:",
+      "add_to_apple_wallet": "加入 Apple 錢包",
+      "go_to_store": "前往商店"
+    }
+  },
+  "password": {
+    "general": {
+      "store_owner": "店家？",
+      "login": "登入",
+      "powered_by": "這間店將由",
+      "enter_password": "輸入密碼"
+    },
+    "password": {
+      "label": "請輸入密碼進入商店",
+      "input": "密碼",
+      "submit": "進入"
+    },
+    "newsletter": {
+      "success": "您已經訂閱了我們的電子報",
+      "email": "您的電子信箱",
+      "submit": "提醒我"
+    }
+  },
+  "socialshopwave": {
+    "log_in": "登入",
+    "log_in_to_account": "登入您的帳號",
+    "cancel": "取消",
+    "create_account": "創立帳號",
+    "sign_up": "註冊",
+    "not_created_customer_on_shopify": "沒有在Shopify上創建顧客",
+    "create_your_account": "建立您的帳號",
+    "my_orders": "我的訂單",
+    "logout": "登出",
+    "faved": "在願望清單中",
+    "fave": "加入願望清單",
+    "unfave": "從願望清單中移除",
+    "fave_choose_variant": "選擇選項",
+    "add_to_cart": "加入購物車",
+    "share": "分享",
+    "sharing": "發佈中...",
+    "write_a_review": "留下評論",
+    "quantity_review2": "{{ ssw_count_rate }} 評論",
+    "quantity_reviews2": "{{ ssw_count_rate }} 評論",
+    "quantity_review": "{{ ssw_count_rate }} 評論",
+    "quantity_reviews": "{{ ssw_count_rate }} 評論",
+    "view_cart": "查看購物車",
+    "my_faves": "我的願望清單",
+    "close": "關閉",
+    "user_commented_product_html": "{{ user_link }} 評論 {{ product_link }}",
+    "user_faved_product_html": "{{ user_link }} 加入 {{ product_link }} 至願望清單",
+    "user_reviewed_product_html": "{{ user_link }} 評論了 {{ product_link }}",
+    "adding_to_cart": "加入...",
+    "sold_out": "售罄",
+    "ask_your_friends": "詢問建議",
+    "description": "描述",
+    "reviews": "評論",
+    "view_profile": "查看個人資料",
+    "edit_profile": "編輯簡介",
+    "sign_in_facebook": "連結 Facebook",
+    "social_login_facebook": "以Facebook登入",
+    "sign_in_twitter": "連結 Twitter",
+    "social_login_twitter": "Twitter",
+    "sign_in_gplus": "連結 Google",
+    "social_login_gplus": "Google",
+    "sign_in_yahoo": "連結 Yahoo",
+    "social_login_yahoo": "Yahoo",
+    "sign_in_tumblr": "連結 Tumblr",
+    "social_login_tumblr": "Tumblr",
+    "sign_in_instagram": "連結 Instagram",
+    "social_login_instagram": "Instagram",
+    "sign_in_amazon": "連結 Amazon",
+    "social_login_amazon": "Amazon",
+    "social_login_line": "Line",
+    "sign_in_line": "連結 Line",
+    "social_login_simple": "Email",
+    "ask_question": "問個問題",
+    "quantity_question": "{{ ssw_question_count }} 回答問題",
+    "quantity_questions": "{{ ssw_question_count }} 回答問題",
+    "email_address": "信箱地址",
+    "password": "密碼",
+    "forgot_password": "忘記密碼？",
+    "give_a_title_for_review": "給評論一個標題",
+    "leaving_review": "貼文中...",
+    "leave_review": "貼文",
+    "share_button": "發佈",
+    "fave_view_product": "查看商品",
+    "fave_options": "選項 {{ option_title }}",
+    "questions": "問題",
+    "go_to_wishlist_page": "前往願望清單",
+    "list_name_limit": "您已超出字符數限制",
+    "review_token_expired": "這個連結已過期！",
+    "view_on_instagram": "在Instagram上查看",
+    "login_required_to_review": "請登入後留下評論"
+  },
+  "shopify": {
+    "page_titles": {
+      "challenge": "驗證"
+    },
+    "checkout": {
+      "review": {
+        "blocks": {
+          "shipping_method_title": "寄送方式",
+          "change_shipping_address_link_label": "變更寄送地址",
+          "shipping_address_title": "寄送地址",
+          "contact_method_title": "聯絡方式"
+        }
+      },
+      "general": {
+        "continue_to_shipping_method": "下一步",
+        "back_to_contact_information": "返回收件人資訊",
+        "choose_payment_method": "選擇付款方式",
+        "pay_now_button_label": "完成訂單",
+        "back_to_shipping_method": "上一步"
+      },
+      "delivery_options": {
+        "ship": "寄送方式",
+        "shipping_address": "如需『宅配』或『超商取貨』請填寫「完整地址」。系統將於下一步自動偵測可取件超商或適用的運送方式。【重要】超商取件以簡訊通知並需出示證件，請務必正確填寫您的資料！"
+      },
+      "shipping": {
+        "shipping_method_title": "選擇寄送方式",
+        "title": "填寫寄送資訊",
+        "shipping_method_notice": " ↑「寄送資訊」務必填寫完整，系統會自動判斷寄送位置選擇「附近」的最佳地點。"
+      },
+      "contact": {
+        "title": "收件人資訊",
+        "shipping_address_title": "如需『宅配』或『超商取貨』請填寫「完整地址」。系統將於下一步自動偵測可取件超商或適用的運送方式。【重要】超商取件以簡訊通知並需出示證件，請務必正確填寫您的資料。",
+        "address_title": "收件人地址",
+        "email_label": "電子信箱",
+        "email_placeholder": "電子信箱",
+        "email_or_phone_label": "電子信箱或手機號碼",
+        "email_or_phone_placeholder": "電子信箱或手機號碼",
+        "address1_label": "地址，填寫完整就會自動跑出超商選擇。",
+        "city_label": "輸入縣市"
+      },
+      "order_summary": {
+        "shipping_information_does_not_meet_discount_requirements_notice": "折扣代碼 <strong style=\"text-transform:uppercase\">{{ code }}<\/strong> 不適用於您的寄送地址",
+        "no_pickup_location": "您的訂單無法取貨。請輸入寄送地址。",
+        "shipping_label": "運費",
+        "title": "訂單內容",
+        "expand_order_summary": "顯示訂單內容",
+        "collapse_order_summary": "隱藏訂單內容"
+      },
+      "payment": {
+        "same_billing_address_label": "不需要",
+        "card_security_notice": "交易資料均以加密處理，不會儲存任何信用卡資料，請安心使用。",
+        "billing_address_title": "是否需要將帳單寄到不同地址？",
+        "different_billing_address_label": "需要，將帳單另外寄送到以下地址"
+      },
+      "field_errors": {
+        "address_country_not_supported": "我們目前無法運送至此國家\/地區。請輸入新的寄送地址，然後再試一次。",
+        "address_city_blank": "輸入你的縣市",
+        "address_address1_blank": "請輸入完整正確的地址"
+      },
+      "thank_you": {
+        "shipping_address_title": "寄送地址",
+        "shipping_address_map_title": "使用 Google map 顯示寄送地址位置：{{ address }}",
+        "marker": {
+          "shipping": "寄送地址"
+        },
+        "thank_you_confirmed_order_with_email": "您將會收到訂單確認的電子郵件，請留意您的信箱。",
+        "order_status_updates_with_email": "我們將以電子郵件的方式，讓您收到最新的訂單狀況。",
+        "customer_information_title": "收件人資訊",
+        "contact_us_html": "有訂單上的疑問嗎？歡迎來信給客服，我們將竭誠為您服務",
+        "return_to_store_link_label": "回到商店",
+        "contact_us": "客服中心"
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "我想收到最新消息及優惠活動！"
+      },
+      "customer_account": {
+        "save_my_information_label": "儲存以上資訊，下次免重複輸入"
+      },
+      "processing": {
+        "continue_to_payment_gateway_button_label": "選擇付款方式"
+      },
+      "wallets": {
+        "errors": {
+          "missing": {
+            "address1": "請輸入完整正確的地址"
+          }
+        }
+      }
+    },
+    "pagination": {
+      "previous": "上一步"
+    },
+    "links": {
+      "powered_by_shopify": "© grantclassic All rights reserved."
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  },
+  "sections": {
+    "ecom-preview-home-home": {
+      "textcontent_tn8qccony89_html": "iconic design speaker",
+      "headingtext_w3xx70e6qst_html": "<div>Immense<\/div><div>Bigger<\/div><div>Sound<\/div>",
+      "buttoncontent_b0kx6s3fc3v_html": "Shop Now",
+      "textcontent_kttwwbfg37_html": "iconic design speaker",
+      "headingtext_5w3w8gihevr_html": "<div>Immense<\/div><div>Bigger<\/div><div>Sound<\/div>",
+      "buttoncontent_3n6t39z2fdv_html": "Shop Now",
+      "headingtext_7r3sjoaojpi_html": "<div>360 Degree Sound for&nbsp;<\/div><div>Flexible Listening<\/div>",
+      "textcontent_7jaecbrx1lm_html": "<div>Play music simultanously in every mode your home. This&nbsp;<\/div><div>is multiroom speaker that seamlesly support both chrom<\/div><div>ecast &amp; connects speaker<\/div>",
+      "ecomiconlisttitle0_ecomnl38v95kyv_nl38v95kyv_html": "Fill any space with iconic sound",
+      "ecomiconlisttitle1_ecomnl38v95kyv_nl38v95kyv_html": "Supports Chromecast™ Built-in & AirPlay 2",
+      "ecomiconlisttitle2_ecomnl38v95kyv_nl38v95kyv_html": "Beolink Multiroom and Bluetooth",
+      "buttoncontent_88p70y8pu1s_html": "Shop Now",
+      "ecomiconlisttitle0_ecomklzxog5uap_klzxog5uap_html": "Space With Sound",
+      "ecomiconlistdes_0_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer adjust sound&nbsp;<\/div><div>perfectly environment can<\/div>",
+      "ecomiconlisttitle1_ecomklzxog5uap_klzxog5uap_html": "Many Possibilities",
+      "ecomiconlistdes_1_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer ensures that<\/div><div>speake sounds looks.<\/div>",
+      "ecomiconlisttitle2_ecomklzxog5uap_klzxog5uap_html": "Luxurious Materials",
+      "ecomiconlistdes_2_ecomklzxog5uap_klzxog5uap_html": "<div>The magnificent tapestry fabric made&nbsp;<\/div><div>&nbsp;wool blend collaboration&nbsp;<\/div>",
+      "s001p0f4fDf2l2cr00br22_jehidvf0nih_html": "<h2 style=\"margin: 0px 0px 10px; padding: 0px; font-weight: 400; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\"><br><\/h2>",
+      "textcontent_xsthkn0ze0p_html": "Watch our video",
+      "tabtitle0_zzivrueu_html": "Compatible & Connective",
+      "tabtitle1_zzivrueu_html": "Dimension & Weight                   ",
+      "tabtitle2_zzivrueu_html": "Sound & Material",
+      "tabtitle3_zzivrueu_html": "Power Consumption",
+      "headingtext_itwxcikdfac_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "ecomiconlisttitle0_ecomz4rcmu7x2z_z4rcmu7x2z_html": "Integrated Music",
+      "ecomiconlistdes_0_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle1_ecomz4rcmu7x2z_z4rcmu7x2z_html": "Sound Pressure Level",
+      "ecomiconlistdes_1_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "buttoncontent_ekjvz3c3bmo_html": "Shop Now",
+      "headingtext_xod2iusoani_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "ecomiconlisttitle0_ecomds1y9u8qvri_ds1y9u8qvri_html": "Integrated Music",
+      "ecomiconlistdes_0_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle1_ecomds1y9u8qvri_ds1y9u8qvri_html": "Sound Pressure Level",
+      "ecomiconlistdes_1_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle2_ecomds1y9u8qvri_ds1y9u8qvri_html": " Moneyback Guarantee ",
+      "ecomiconlistdes_2_ecomds1y9u8qvri_ds1y9u8qvri_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
+      "buttoncontent_pmuvetagag_html": "Shop Now",
+      "headingtext_i2d5sj9lswa_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "ecomiconlisttitle0_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Integrated Music",
+      "ecomiconlistdes_0_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle1_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Sound Pressure Level",
+      "ecomiconlistdes_1_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle2_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": " Moneyback Guarantee ",
+      "ecomiconlistdes_2_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
+      "buttoncontent_ijui0pjkt_html": "Shop Now",
+      "headingtext_tn7e4foenk_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "ecomiconlisttitle0_ecomoi7dbo43tk_oi7dbo43tk_html": "Integrated Music",
+      "ecomiconlistdes_0_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle1_ecomoi7dbo43tk_oi7dbo43tk_html": "Sound Pressure Level",
+      "ecomiconlistdes_1_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlisttitle2_ecomoi7dbo43tk_oi7dbo43tk_html": " Moneyback Guarantee ",
+      "ecomiconlistdes_2_ecomoi7dbo43tk_oi7dbo43tk_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
+      "buttoncontent_upl0e5uxvt_html": "Shop Now",
+      "headingtext_zu2u5ar9rtg_html": "EComposer Play",
+      "textcontent_fcgj1chlfo5_html": "<div>Lorem ipsum is simply dummy texting<\/div><div>printing typesetting an amplifier.<\/div>",
+      "textcontent_ly3ipy4mfkr_html": "$ 1,350.00<br>",
+      "headingtext_0enm1h6nrem_html": "EComposer Play",
+      "textcontent_shozkq49pys_html": "<div>Lorem ipsum is simply dummy texting<\/div><div>printing typesetting an amplifier.<\/div>",
+      "textcontent_3g689qlx7cu_html": "$ 1,350.00<br>",
+      "titleCard0_v8aok2bjix_html": "Power Consumption",
+      "textCard0_v8aok2bjix_html": "<div>14.7 kg Weight<\/div><div>Wood, Fabric, Aluminium &amp; Plastic<\/div><div>70.1 W x 90.8 H x 41.1 D cm<\/div>",
+      "titleCard1_v8aok2bjix_html": "Speaker Configuration",
+      "textCard1_v8aok2bjix_html": "<div>1 x 400 watt class D for bass<\/div><div>2 x 200 watt class D for midrange<\/div><div>2 x 200 watt class D for fullrange<\/div><div>2 x 150 watt class D for treble<\/div>",
+      "titleCard2_v8aok2bjix_html": "Power Consumption",
+      "textCard2_v8aok2bjix_html": "<div>Typical 23 watts<\/div><div>Networked standby (LAN): 2,6 watt<\/div><div>Networked standby (WiFi): 3,3 watt<\/div>",
+      "headingtext_ys1em9j24s_html": "Choose What You Like<br>",
+      "textcontent_b4xvnmh6z2_html": "One-point music system and contemporary design icon with ecomposer powerful sound and customisable design",
+      "product_option_swatch_ua10m1axx8s_html": "Color",
+      "view_more_text_ua10m1axx8s_html": "View more",
+      "added_cart_text_ua10m1axx8s_html": "Added to cart",
+      "added_cart_message_ua10m1axx8s_html": "Added to cart",
+      "add_to_cart_ua10m1axx8s_html": "Add to cart",
+      "sale_badge_ua10m1axx8s_html": "-{{sale}}%",
+      "countdown_title_ua10m1axx8s_html": "Hurry up! The sale will end on",
+      "no_product_item_ua10m1axx8s_html": "There are no product yet!",
+      "text_week_ua10m1axx8s_html": "[%-W] week%!W",
+      "text_day_ua10m1axx8s_html": "[%-d] day%!D",
+      "text_hour_ua10m1axx8s_html": "[%-H] hour%!H",
+      "text_minute_ua10m1axx8s_html": "[%-M] minute%!M",
+      "text_second_ua10m1axx8s_html": "[%-S] second%!S",
+      "sale_ua10m1axx8s_html": "-{{sale}}%",
+      "headingtext_68s258pv6i4_html": "FAQ’s<br>",
+      "itemtitle0_g5ij4ou0_html": "01.  What industries covered?",
+      "itemtitle1_g5ij4ou0_html": "02.  What is price for shipping product?",
+      "itemtitle2_g5ij4ou0_html": "03.  How do you price our masks?",
+      "textcontent_goy82w41wnd_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,<\/div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.<\/div><div>Follow the steps below for a seamless returns process:<br><\/div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br><\/li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br><\/li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br><\/li><\/ul><\/div>",
+      "textcontent_gwdmqtn9jm9_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,<\/div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.<\/div><div>Follow the steps below for a seamless returns process:<br><\/div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br><\/li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br><\/li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br><\/li><\/ul><\/div>",
+      "headingtext_ynpk7ddhvl9_html": "10,000+ Happy Customers<br>",
+      "text0_0irbqcrd6a2d_html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+      "name0_0irbqcrd6a2d_html": "Kingsley Chandler",
+      "title0_0irbqcrd6a2d_html": "Environmental Economist",
+      "text1_0irbqcrd6a2d_html": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "name1_0irbqcrd6a2d_html": "Henry Smith",
+      "title1_0irbqcrd6a2d_html": "Environmental Economist",
+      "text2_0irbqcrd6a2d_html": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "name2_0irbqcrd6a2d_html": "John Doe",
+      "title2_0irbqcrd6a2d_html": "Tech Leader"
+    }
+  }
+}

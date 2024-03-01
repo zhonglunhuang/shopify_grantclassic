@@ -1,0 +1,110 @@
+{%- comment -%}
+IMPORTANT NOTE: this section is not used for most stores. By default, when using search the theme will use the new
+  predictive search API, which provides faster and more accurate results (https://shopify.dev/docs/themes/ajax-api/reference/predictive-search).
+  However some languages do not yet support this predictive API. For those languages, the theme will fallback to this
+  approach
+{%- endcomment -%}
+
+{%- if search.results_count > 0 -%}
+  {%- case search.types.first -%}
+    {%- when 'product' -%}
+      <input type="hidden" form="predictive-search-form" name="type" value="product">
+      <input type="hidden" form="predictive-search-form" name="options[prefix]" value="last">
+      <input type="hidden" form="predictive-search-form" name="options[unavailable_products]" value="{{ settings.search_unavailable_products }}">
+
+      <ul class="predictive-search__product-list list--unstyled" role="list" data-type="products">
+        {%- for product in search.results limit: 10 -%}
+          <li class="predictive-search__product-item line-item line-item--centered">
+            <a href="{{ product.url }}" class="line-item__content-wrapper">
+              {%- if product.featured_media -%}
+                <span class="line-item__image-wrapper">
+                  <img class="line-item__image" width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}" src="{{ product.featured_media | img_url: '210x' }}">
+                </span>
+              {%- endif -%}
+
+              <div class="line-item__info">
+                <div class="product-item-meta">
+                  {%- if settings.show_vendor -%}
+                    <span class="product-item-meta__vendor heading heading--xxsmall">{{ product.vendor }}</span>
+                  {%- endif -%}
+
+                  <span class="product-item-meta__title text--small">{{ product.title }}</span>
+
+                  <div class="product-item-meta__price-list-container text--small">
+                    <div class="price-list">
+                      {%- if product.compare_at_price_min > product.price_min -%}
+                        <span class="price price--highlight">{{ product.price_min | money }}</span>
+                        <span class="price price--compare">{{ product.compare_at_price_min | money }}</span>
+                      {%- else -%}
+                        <span class="price">{{ product.price_min | money }}</span>
+                      {%- endif -%}
+
+                      {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
+                        <div class="price text--xsmall text--subdued">
+                          <div class="unit-price-measurement">
+                            <span class="unit-price-measurement__price">{{ product.selected_or_first_available_variant.unit_price | money }}</span>
+                            <span class="unit-price-measurement__separator">/</span>
+
+                            {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+                              <span class="unit-price-measurement__reference-value">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_value }}</span>
+                            {%- endif -%}
+
+                            <span class="unit-price-measurement__reference-unit">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    {%- when 'article' -%}
+      <ul class="predictive-search__article-list list--unstyled" role="list" data-type="articles">
+        {%- for article in search.results -%}
+          <li class="predictive-search__article-item">
+            <a class="article-item article-item--horizontal" href="{{ article.url }}">
+              {%- if article.image -%}
+                <span class="predictive-search__article-image-wrapper">
+                  <img class="predictive-search__article-image" width="{{ article.image.width }}" height="{{ article.image.height }}" src="{{ article.image | img_url: '280x' }}">
+                  <span class="article-item__arrow prev-next-button prev-next-button--small prev-next-button--next">{% render 'icon' with 'nav-arrow-right', direction_aware: true, width: 15, height: 12 %}</span>
+                </span>
+              {%- endif -%}
+
+              <div class="predictive-search__article-info">
+                {%- if article.tags.size > 0 -%}
+                  <span class="predictive-search__article-category heading heading--xxsmall text--subdued">{{ article.tags.first }}</span>
+                {%- endif -%}
+
+                <span class="predictive-search__article-title">{{ article.title }}</span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    {%- when 'page' -%}
+      <ul class="predictive-search__linklist list--unstyled" role="list" data-type="pages">
+        {%- for page in search.results -%}
+          <li class="predictive-search__linklist-item">
+            <a class="predictive-search__linklist-link" href="{{ page.url }}">
+              {{- page.title -}}
+              {%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+  {%- endcase -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Predictive search",
+  "class": "shopify-section--predictive-search"
+}
+{% endschema %}

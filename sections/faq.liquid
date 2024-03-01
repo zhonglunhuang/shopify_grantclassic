@@ -1,0 +1,208 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+      {%- assign secondary_background = settings.secondary_background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+      {%- assign secondary_background = section.settings.background | color_mix: text_color, 85 -%}
+    {%- endif -%}
+
+    --secondary-background: {{ secondary_background.red }}, {{ secondary_background.green }}, {{ secondary_background.blue }};
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+  }
+</style>
+
+{%- assign categories = section.blocks | where: 'type', 'category' -%}
+
+<section class="section {% if template.name == 'page' and template.suffix contains 'faq' %}section--tight{% endif %} {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper">
+    <div class="container">
+      <div class="{% unless blends_with_background %}vertical-breather{% endunless %}">
+        {%- if section.settings.title != blank or section.settings.content != blank -%}
+          <header class="section__header {% if section.settings.content != blank %}section__header--tight{% endif %} text-container">
+            {%- if section.settings.title != blank -%}
+              <h1 class="heading h2">{{ section.settings.title | escape }}</h1>
+            {%- endif -%}
+
+            {%- if section.settings.content -%}
+              {{- section.settings.content -}}
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+
+        <div class="faq">
+          {%- if section.settings.show_navigation and categories.size > 0 -%}
+            <div class="faq-navigation hidden-pocket">
+              <scroll-spy class="scroll-spy">
+                <ul class="scroll-spy__list list--unstyled">
+                  {%- for category in categories -%}
+                    <li class="scroll-spy__item">
+                      <a class="scroll-spy__anchor heading heading--small" href="#category-{{ section.id }}-{{ category.id }}" data-smooth-scroll>{{ category.settings.title | escape }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </scroll-spy>
+            </div>
+          {%- endif -%}
+
+          <div class="faq__wrapper" itemscope itemtype="https://schema.org/FAQPage">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'category' -%}
+                  <h2 id="category-{{ section.id }}-{{ block.id }}" class="faq__category heading h6 anchor" {{ block.shopify_attributes }}>
+                    {{- block.settings.title |  escape -}}
+                  </h2>
+
+                {%- when 'question' -%}
+                  <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button is="toggle-button" class="collapsible-toggle text--strong" aria-controls="block-{{ section.id }}-{{ block.id }}" aria-expanded="false" itemprop="name">
+                      {{- block.settings.title -}}
+                      <span class="animated-plus"></span>
+                    </button>
+
+                    <collapsible-content id="block-{{ section.id }}-{{ block.id }}" class="collapsible anchor" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" {{ block.shopify_attributes }}>
+                      <div class="collapsible__content text-container" itemprop="text">
+                        {{ block.settings.answer }}
+                      </div>
+                    </collapsible-content>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "class": "shopify-section--faq",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "FAQ"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Category"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "About your shop"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Write content to help your customers to better understand your products or policies.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "How long will it take to get my order?",
+            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Other"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Any question?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,38 @@
+<div {% if settings.stagger_blog_posts_apparition %}reveal{% endif %} class="article-item {% if use_featured_layout %}{% if is_first %}article-item--featured{% else %}article-item--horizontal{% endif %}{% endif %} image-zoom">
+  {%- if article.image -%}
+    <a href="{{ article.url }}" class="article-item__image-container">
+      <img class="article-item__image" sizes="(max-width: 740px) 81vw, (max-width: 999px) 37vw, 425px" loading="lazy" {% render 'image-attributes', image: article.image, sizes: '600,700,800,1000,1200,1400,1600,1800,2000' %}>
+
+      {%- if use_featured_layout and is_first -%}
+        <span class="article-item__arrow prev-next-button prev-next-button--next">{% render 'icon' with 'nav-arrow-right', direction_aware: true %}</span>
+      {%- else -%}
+        <span class="article-item__arrow prev-next-button prev-next-button--small prev-next-button--next">{% render 'icon' with 'nav-arrow-right', direction_aware: true, width: 15, height: 12 %}</span>
+      {%- endif -%}
+    </a>
+  {%- endif -%}
+
+  <div class="article-item__content text-container">
+    {%- if section.settings.show_category and article.tags.size > 0 -%}
+      {%- assign blog_url_parts = article.url | split: '/' -%}
+      {%- assign blog_url = '' -%}
+
+      {%- for blog_url_part in blog_url_parts -%}
+        {%- unless forloop.last -%}
+          {%- assign blog_url = blog_url | append: '/' | append: blog_url_part -%}
+        {%- endunless -%}
+      {%- endfor -%}
+
+      <a href="{{ blog_url | remove_first: '/' }}/tagged/{{ article.tags.first | handle }}" class="article-item__category heading heading--xsmall">{{ article.tags.first }}</a>
+    {%- endif -%}
+
+    <h3 class="article-item__title heading {{ heading_size }}">
+      <a href="{{ article.url }}">{{ article.title }}</a>
+    </h3>
+
+    {%- if section.settings.show_excerpt and article.excerpt_or_content != blank -%}
+      <div class="article-item__excerpt text--small">
+        {{- article.excerpt_or_content | strip_html | truncate: 200 -}}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

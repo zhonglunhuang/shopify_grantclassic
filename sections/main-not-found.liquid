@@ -1,0 +1,23 @@
+<section class="section--flush-bottom">
+  <div class="section__color-wrapper">
+    <div class="empty-state">
+      <span class="empty-state__background-text">404</span>
+
+      <div class="text-container">
+        <h3 class="heading h3">{{ '404.general.title' | t }}</h3>
+        <p>{{ '404.general.description' | t }}</p>
+
+        <div class="button-wrapper">
+          <a href="{{ routes.root_url }}" class="button button--primary">{{ '404.general.back_to_home' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404",
+  "class": "shopify-section--404"
+}
+{% endschema %}

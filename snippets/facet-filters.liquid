@@ -1,0 +1,194 @@
+{%- comment -%}
+Code that create the faceted search for the collection and search pages. It currently supports the following options:
+
+  - filters: either the collection or search filters
+  - filters_position: can either be "always_visible" or "drawer"
+{%- endcomment -%}
+
+{%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+{%- assign color_white_label = 'general.label.white' | t | downcase -%}
+{%- assign size_label_list = 'general.label.size' | t | replace: ', ', ',' | downcase | split: ',' -%}
+
+{%- assign active_filters_count = 0 -%}
+
+{%- for filter in filters -%}
+  {%- if filter.type == 'list' -%}
+    {%- assign active_filters_count = active_filters_count | plus: filter.active_values.size -%}
+  {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+    {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+  {%- elsif filter.type == 'boolean' and filter.true_value.active -%}
+    {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if request.page_type == 'collection' -%}
+  {%- assign page_url = collection.url -%}
+  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+{%- elsif request.page_type == 'search' -%}
+  {%- assign page_url = routes.search_url -%}
+  {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+{%- endif -%}
+
+<facet-filters {% if filters_position == 'always_visible' %}always-visible{% endif %} id="facet-filters" class="product-facet__filters {% if filters_position == 'drawer' %}drawer drawer--from-left{% endif %}">
+  <span class="drawer__overlay"></span>
+
+  <header class="drawer__header {% if filters_position == 'always_visible' %}hidden-lap-and-up{% endif %}">
+    <p class="drawer__title heading h6">{{- 'collection.general.filters' | t -}} {% if active_filters_count > 0 %}<span class="product-facet__active-count bubble-count">{{ active_filters_count }}</span>{%- endif -%}</p>
+
+    {%- if active_filters_count > 0 -%}
+      {%- if request.page_type == 'collection' -%}
+        <a class="drawer__header-action link text--subdued" data-action="clear-filters" href="{{ page_url }}?sort_by={{ sort_by }}">{{ 'collection.general.clear_filters' | t }}</a>
+      {%- else -%}
+        <a class="drawer__header-action link text--subdued" data-action="clear-filters" href="{{ page_url }}?sort_by={{ sort_by }}&q={{ search.terms | escape }}&type=product&options[prefix]=last&options[unavailable_products]={{ settings.search_unavailable_products }}">{{ 'collection.general.clear_filters' | t }}</a>
+      {%- endif -%}
+    {%- endif -%}
+
+    <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+      {%- render 'icon' with 'close' -%}
+    </button>
+  </header>
+
+  <div class="drawer__content">
+    <form id="facet-filters-form">
+      <input type="hidden" name="sort_by" value="{{ sort_by }}">
+
+      {%- if request.page_type == 'search' -%}
+        <input type="hidden" name="q" value="{{ search.terms | escape }}">
+        <input type="hidden" name="type" value="product">
+        <input type="hidden" name="options[prefix]" value="last">
+        <input type="hidden" name="options[unavailable_products]" value="{{ settings.search_unavailable_products }}">
+      {% elsif request.page_type == 'collection' and collection.current_type != blank or collection.current_vendor != blank %}
+        <input type="hidden" name="q" value="{{ collection.current_vendor | default: collection.current_type | escape }}">
+      {%- endif -%}
+
+      {%- if active_filters_count > 0 -%}
+        <div class="product-facet__active-list tag-list hidden-phone">
+          {%- render 'facet-active-filters', filters: filters -%}
+        </div>
+      {%- endif -%}
+
+      <div class="product-facet__filter-list">
+        {%- for filter in filters -%}
+          {%- assign is_filter_group_open = false -%}
+
+          {%- if filter.active_values.size > 0 or filter.max_value.value != blank or filter.min_value.value != blank or forloop.first and section.settings.open_first_filter_group -%}
+            {%- assign is_filter_group_open = true -%}
+          {%- endif -%}
+
+          <div class="product-facet__filter-item">
+            {%- if filter.type == 'list' or filter.type == 'price_range' -%}
+              <button type="button" is="toggle-button" class="collapsible-toggle text--strong" aria-controls="facet-filter-{{ filter.param_name | escape }}" aria-expanded="{% if is_filter_group_open %}true{% else %}false{% endif %}">
+                {{- filter.label -}}
+
+                {%- case filter.type -%}
+                  {%- when 'list' -%}
+                    {%- if filter.active_values.size > 0 -%}
+                      <span class="collapsible-toggle__selected-value text--subdued text--small hidden-tablet-and-up">{{ filter.active_values | map: 'label' | join: ', ' }}</span>
+                    {%- endif -%}
+
+                  {%- when 'price_range' -%}
+                    {%- assign min_value_formatted = filter.min_value.value | default: 0 | money_without_trailing_zeros -%}
+                    {%- assign max_value_formatted = filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -%}
+
+                    {%- if filter.min_value.value or filter.max_value.value -%}
+                      <span class="collapsible-toggle__selected-value text--subdued text--small hidden-tablet-and-up">{{ 'collection.general.price_filter' | t: min_price: min_value_formatted, max_price: max_value_formatted }}</span>
+                    {%- endif -%}
+                {%- endcase -%}
+
+                {%- render 'icon' with 'chevron', inline: true -%}
+              </button>
+            {%- elsif filter.type == 'boolean' -%}
+              {%- if filter.true_value -%}
+                <div class="collapsible-toggle text--strong">
+                  <label for="{{ filter.param_name }}">{{- filter.label -}}</label>
+                  <input id="{{ filter.param_name }}" type="checkbox" class="switch-checkbox" name="{{ filter.param_name }}" value="1" {% if filter.true_value.active %}checked{% endif %}>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- unless filter.type == 'boolean' -%}
+              <collapsible-content animate-items {% if is_filter_group_open %}open{% endif %} id="facet-filter-{{ filter.param_name | escape }}" class="collapsible">
+                {%- assign filter_label_downcase = filter.label | downcase -%}
+
+                <div class="collapsible__content">
+                  {%- case filter.type -%}
+                    {%- when 'list' -%}
+                      {%- if section.settings.show_color_swatch and color_label_list contains filter_label_downcase -%}
+                        {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+                        <div class="color-swatch-list">
+                          {%- for filter_value in filter.values -%}
+                            {%- assign color_value_downcase = filter_value.label | downcase -%}
+
+                            <div class="color-swatch {% if color_white_label == color_value_downcase %}color-swatch--white{% endif %} {% if filter_value.count == 0 %}is-disabled{% endif %}" data-tooltip="{{ filter_value.label | escape }}">
+                              <input class="color-swatch__radio visually-hidden" type="checkbox" name="{{ filter_value.param_name }}" id="{{ filter_value.param_name | escape }}-{{ forloop.index }}" value="{{ filter_value.value | escape }}" title="{{ filter_value.label | escape }}" {% if filter_value.active %}checked="checked"{% endif %} {% if filter_value.count == 0 %}disabled{% endif %}>
+                              <label class="color-swatch__item" for="{{ filter_value.param_name | escape }}-{{ forloop.index }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: filter_value.label %}">
+                                <span class="visually-hidden">{{ filter_value.label }}</span>
+                              </label>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      {%- elsif size_label_list contains filter_label_downcase -%}
+                        <div class="block-swatch-list block-swatch-list--small">
+                          {%- for filter_value in filter.values -%}
+                            <div class="block-swatch {% if filter_value.count == 0 %}is-disabled{% endif %}">
+                              <input class="block-swatch__radio visually-hidden" type="checkbox" name="{{ filter_value.param_name }}" id="{{ filter_value.param_name | escape }}-{{ forloop.index }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked="checked"{% endif %} {% if filter_value.count == 0 %}disabled{% endif %}>
+                              <label class="block-swatch__item" for="{{ filter_value.param_name | escape }}-{{ forloop.index }}">{{ filter_value.label }} ({{ filter_value.count}})&lrm;</label>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      {%- else -%}
+                        {%- for filter_value in filter.values -%}
+                          <div class="checkbox-container">
+                            <input class="checkbox" type="checkbox" name="{{ filter_value.param_name }}" id="{{ filter_value.param_name | escape }}-{{ forloop.index }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked="checked"{% endif %} {% if filter_value.count == 0 %}disabled{% endif %}>
+                            <label for="{{ filter_value.param_name | escape }}-{{ forloop.index }}">{{ filter_value.label }} ({{ filter_value.count}})&lrm;</label>
+                          </div>
+                        {%- endfor -%}
+                      {%- endif -%}
+
+                    {%- when 'price_range' -%}
+                      <price-range class="price-range">
+                        {%- assign min_value = filter.min_value.value | default: 0.0 | divided_by: 100.0 -%}
+                        {%- assign max_value = filter.max_value.value | default: filter.range_max | divided_by: 100.0 -%}
+                        {%- assign range_max = filter.range_max | divided_by: 100.0 | ceil -%}
+
+                        {% assign lower_bound_progress = min_value | divided_by: range_max | times: 100.0 %}
+                        {% assign higher_bound_progress = max_value | divided_by: range_max | times: 100.0 %}
+
+                        <div class="price-range__range-group range-group" style="--range-min: {{ lower_bound_progress }}%; --range-max: {{ higher_bound_progress }}%">
+                          <input type="range" aria-label="{{ 'collection.general.price_filter_from' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ min_value | ceil }}">
+                          <input type="range" aria-label="{{ 'collection.general.price_filter_to' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ max_value | ceil }}">
+                        </div>
+
+                        <div class="price-range__input-group">
+                          <div class="price-range__input input-prefix text--xsmall">
+                            <span class="input-prefix__value text--subdued">{{ cart.currency.symbol }}</span>
+                            <input aria-label="{{ 'collection.general.price_filter_from' | t }}" class="input-prefix__field" type="number" inputmode="numeric" {% if filter.min_value.value %}value="{{ min_value | ceil }}"{% endif %} name="{{ filter.min_value.param_name }}" id="{{ filter.min_value.param_name }}" min="0" max="{{ max_value | ceil }}" placeholder="0">
+                          </div>
+
+                          <span class="price-range__delimiter text--small">{{ 'collection.general.price_range_to' | t }}</span>
+
+                          <div class="price-range__input input-prefix text--xsmall">
+                            <span class="input-prefix__value text--subdued">{{ cart.currency.symbol }}</span>
+                            <input aria-label="{{ 'collection.general.price_filter_to' | t }}" class="input-prefix__field" type="number" inputmode="numeric" {% if filter.max_value.value %}value="{{ max_value | ceil }}"{% endif %} name="{{ filter.max_value.param_name }}" id="{{ filter.max_value.param_name }}" min="{{ min_value | ceil }}" max="{{ range_max | ceil }}" placeholder="{{ range_max | ceil }}">
+                          </div>
+                        </div>
+                      </price-range>
+                  {%- endcase -%}
+                </div>
+              </collapsible-content>
+            {%- endunless -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <noscript>
+        <button type="submit" class="product-facet__submit button button--secondary">{{ 'collection.general.apply_filters' | t }}</button>
+      </noscript>
+    </form>
+  </div>
+
+  <div class="drawer__footer drawer__footer--no-top-padding {% if filters_position == 'always_visible' %}hidden-lap-and-up{% endif %}">
+    <button type="button" class="button button--primary button--full" data-action="close">{{ 'collection.general.view_results' | t }}</button>
+  </div>
+</facet-filters>

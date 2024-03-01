@@ -1,0 +1,25 @@
+{%- if paginate.pages > 1 -%}
+  <page-pagination {% if use_ajax %}ajax{% endif %} class="pagination">
+    <nav class="pagination__nav">
+      {%- if paginate.previous -%}
+        <a class="pagination__nav-item" rel="prev" aria-label="{{ 'general.pagination.previous_page' | t }}" data-page="{{ paginate.current_page | minus: 1 }}" href="{{ paginate.previous.url }}{{ hash }}">
+          {%- render 'icon' with 'nav-arrow-left', direction_aware: true -%}
+        </a>
+      {%- endif -%}
+
+      {%- for part in paginate.parts -%}
+        {%- if part.is_link -%}
+          <a href="{{ part.url }}{{ hash }}" data-page="{{ part.title }}" class="pagination__nav-item heading heading--small" aria-label="{{ 'general.pagination.go_to_page' | t: page: part.title }}">{{ part.title }}</a>
+        {%- else -%}
+          <span class="pagination__nav-item heading heading--small" {% if part.title == paginate.current_page %}aria-current="page" {% endif %}>{{ part.title }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if paginate.next -%}
+        <a class="pagination__nav-item" rel="next" aria-label="{{ 'general.pagination.next_page' | t }}" data-page="{{ paginate.current_page | plus: 1 }}" href="{{ paginate.next.url }}{{ hash }}">
+          {%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}
+        </a>
+      {%- endif -%}
+    </nav>
+  </page-pagination>
+{%- endif -%}

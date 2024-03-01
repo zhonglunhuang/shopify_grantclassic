@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category-1": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.<\/p>"
+          }
+        }
+      },
+      "settings": {
+        "show_navigation": true,
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq"
+  ]
+}

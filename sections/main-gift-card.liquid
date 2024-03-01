@@ -1,0 +1,193 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+  CSS
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --background: {{ section.settings.background.red }}, {{ section.settings.background.green }}, {{ section.settings.background.blue }};
+    --heading-color: {{ section.settings.content_background.red }}, {{ section.settings.content_background.green }}, {{ section.settings.content_background.blue }};
+    --text-color: {{ section.settings.content_background.red }}, {{ section.settings.content_background.green }}, {{ section.settings.content_background.blue }};
+    --primary-button-background: {{ section.settings.content_background.red }}, {{ section.settings.content_background.green }}, {{ section.settings.content_background.blue }};
+    --primary-button-text-color: {{ section.settings.background.red }}, {{ section.settings.background.green }}, {{ section.settings.background.blue }};
+
+    --section-card-background: {{ section.settings.content_background.red }}, {{ section.settings.content_background.green }}, {{ section.settings.content_background.blue }};
+  }
+
+  #shopify-section-{{ section.id }} .gift-card__card {
+    --heading-color: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --text-color: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --primary-button-background: {{ section.settings.text_color.red }}, {{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+    --primary-button-text-color: {{ section.settings.content_background.red }}, {{ section.settings.content_background.green }}, {{ section.settings.content_background.blue }};
+  }
+
+  #shopify-section-{{ section.id }} .gift-card__logo-image {
+    max-width: {{ section.settings.mobile_logo_max_width }}px;
+  }
+
+  @media screen and (min-width: 741px) {
+    #shopify-section-{{ section.id }} .gift-card__logo-image {
+      max-width: {{ section.settings.logo_max_width }}px;
+    }
+  }
+</style>
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+  JavaScript: This section does not create its own component. It reuses the "qr-code" custom element
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<section>
+  <div class="gift-card vertical-breather vertical-breather--tight">
+    <div class="container">
+      <div class="gift-card__wrapper">
+        <h1 class="gift-card__logo">
+          {%- if section.settings.logo != blank -%}
+            {%- capture logo_size -%}{{ section.settings.logo_max_width | times: 2 | append: 'x' }}{%- endcapture -%}
+            <span class="visually-hidden">{{ shop.name }}</span>
+            <img class="gift-card__logo-image" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | img_url: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
+          {%- else -%}
+            <span class="heading h5 text--center">{{ shop.name }}</span>
+          {%- endif -%}
+        </h1>
+
+        <div class="gift-card__image-wrapper">
+          {%- if section.settings.image -%}
+            <img class="gift-card__image" loading="lazy" sizes="(max-width: 740px) 280px, 360px" {% render 'image-attributes', image: section.settings.image, sizes: '280,360,560,720,840,1080' %}>
+          {%- else -%}
+            <img class="gift-card__image gift-card__image--default" src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="{{ 'gift_card.issued.illustration' | t | escape }}">
+          {%- endif -%}
+        </div>
+
+        <div class="gift-card__main gift-card__card">
+          {%- if gift_card.enabled -%}
+            <h2 class="gift-card__title heading h4">{{ 'gift_card.issued.subtext' | t }}</h2>
+          {%- else -%}
+            <div class="banner banner--error banner--centered">
+              <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+              <p class="banner__content">{{ 'gift_card.issued.disabled' | t }}</p>
+            </div>
+          {%- endif -%}
+
+          {%- assign gift_card_expiry_date = gift_card.expires_on | date: format: 'date' -%}
+
+          {%- if gift_card.expired and gift_card.enabled -%}
+            <div class="banner banner--error banner--centered">
+              <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+              <p class="banner__content">{{ 'gift_card.issued.expired' | t: expiry: gift_card_expiry_date }}</p>
+            </div>
+          {%- endif -%}
+
+          {%- unless gift_card.expired or gift_card.enabled != true -%}
+            {%- capture formatted_balance -%}{{ gift_card.balance | money }}{%- endcapture -%}
+            {%- capture formatted_initial_value -%}{{ gift_card.initial_value | money }}{%- endcapture -%}
+
+            <p class="gift-card__amount text--large">{{ 'gift_card.issued.remaining_amount_html' | t: balance: formatted_balance, initial_value: formatted_initial_value }}</p>
+
+            <p class="gift-card__redeem">{{ 'gift_card.issued.redeem' | t }}</p>
+
+            <div class="gift-card__code-container">
+              <input class="gift-card__code text--small" aria-label="{{ 'gift_card.issued.redeem' | t | escape }}" onclick="this.select()" readonly value="{{ gift_card.code | format_code }}">
+              <button class="button button--primary hidden-print" onclick="window.print()">{{ 'gift_card.issued.print' | t }}</button>
+            </div>
+
+            {%- if gift_card.expired != true and gift_card.expires_on and gift_card.enabled -%}
+              <p class="gift-card__expires-on heading heading--xxsmall text--subdued">{{ 'gift_card.issued.expires_on' | t: expiry: gift_card_expiry_date }}</p>
+            {%- endif -%}
+          {%- endunless -%}
+        </div>
+
+        {%- unless gift_card.expired or gift_card.enabled != true -%}
+          <div class="gift-card__aside gift-card__card">
+            <span class="heading h5">{{ 'gift_card.issued.scan_qr_code' | t }}</span>
+
+            <qr-code class="gift-card__qr" identifier="{{ gift_card.qr_identifier }}"></qr-code>
+
+            {%- if gift_card.pass_url -%}
+              <a href="{{ gift_card.pass_url }}" class="gift-card__wallet">
+                <img class="apple-wallet-image" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="150" height="46" alt="{{ 'gift_card.issued.add_to_apple_wallet' | t }}">
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endunless -%}
+
+        <div class="gift-card__button-wrapper button-wrapper hidden-print">
+          <a href="{{ shop.url }}" class="button button--primary">{{ 'gift_card.issued.go_to_store' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gift card",
+  "class": "shopify-section--main-gift-card",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Image",
+      "info": "280 x 80px .png recommended"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Image width",
+      "default": 140
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_max_width",
+      "min": 50,
+      "max": 170,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile image width",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Gift card image",
+      "info": "1080 x 720px .jpg recommended"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#1e316a"
+    },
+    {
+      "type": "color",
+      "id": "content_background",
+      "label": "Content background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1e316a"
+    }
+  ]
+}
+{% endschema %}

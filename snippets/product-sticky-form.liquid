@@ -1,0 +1,141 @@
+{%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+{%- assign color_white_label = 'general.label.white' | t | downcase -%}
+{%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: product.id -%}
+{%- assign variant_picker_block = section.blocks | where: 'type', 'variant_picker' | first -%}
+{%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
+
+{%- if buy_buttons_block != blank -%}
+  <style>
+    @media screen and (min-width: 1000px) {
+      :root {
+        --anchor-offset: 140px; /* When the sticky form is activate, every scroll must be offset by an extra value */
+      }
+    }
+  </style>
+
+  <product-sticky-form form-id="{{ product_form_id }}" hidden class="product-sticky-form">
+    <div class="container">
+      <div class="product-sticky-form__inner">
+        <div class="product-sticky-form__content-wrapper hidden-pocket">
+          <div class="product-sticky-form__image-wrapper">
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_image | default: product.featured_media -%}
+            <img class="product-sticky-form__image" loading="lazy" sizes="55px" {% render 'image-attributes', image: featured_media, sizes: '55,110,165' %}>
+          </div>
+
+          <div class="product-sticky-form__info">
+            <div class="product-sticky-form__bottom-info">
+              <span class="product-sticky-form__title">{{ product.title }}</span>
+              <span class="square-separator square-separator--subdued"></span>
+              <span class="product-sticky-form__price">
+                {%- if settings.currency_code_enabled -%}
+                  {{- product.selected_or_first_available_variant.price | money_with_currency -}}
+                {%- else -%}
+                  {{- product.selected_or_first_available_variant.price | money -}}
+                {%- endif -%}
+              </span>
+
+              <div class="product-sticky-form__unit-price text--xsmall text--subdued" {% unless product.selected_or_first_available_variant.unit_price_measurement %}style="display: none"{% endunless %}>
+                <div class="unit-price-measurement">
+                  <span class="unit-price-measurement__price">{{ product.selected_or_first_available_variant.unit_price | money }}</span>
+                  <span class="unit-price-measurement__separator">/</span>
+
+                  {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+                    <span class="unit-price-measurement__reference-value">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_value }}</span>
+                  {%- endif -%}
+
+                  <span class="unit-price-measurement__reference-unit">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%}This form is a simplified representation of the main form, and therefore uses its own code path{%- endcomment -%}
+        <div class="product-sticky-form__form">
+          {%- unless product.has_only_default_variant -%}
+            <product-variants handle="{{ product.handle }}" form-id="{{ product_form_id }}" update-url {% if variant_picker_block.settings.hide_sold_out_variants %}hide-sold-out-variants{% endif %} class="product-sticky-form__variants hidden-pocket">
+              {%- for option in product.options_with_values -%}
+                {%- assign option_downcase = option.name | downcase -%}
+                {%- capture option_id -%}sticky-form-option-{{ section.id }}-{{ forloop.index }}{%- endcapture -%}
+                {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+                <div class="select-wrapper" data-selector-type="dropdown">
+                  <combo-box fit-toggle initial-focus-selector="[aria-selected='true']" id="{{ option_id }}-combo-box" class="combo-box">
+                    <span class="combo-box__overlay"></span>
+
+                    <header class="combo-box__header">
+                      <p class="combo-box__title heading h6">{{ option.name }}</p>
+
+                      <button type="button" class="combo-box__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                        {%- render 'icon' with 'close' -%}
+                      </button>
+                    </header>
+
+                    <div class="combo-box__option-list" role="listbox">
+                      {%- for value in option.values -%}
+                        <button type="button" role="option" class="combo-box__option-item" value="{{ value | escape }}" aria-selected="{% if value == option.selected_value %}true{% else %}false{% endif %}">
+                          {%- if color_label_list contains option_downcase -%}
+                            <span class="combo-box__color-swatch" aria-label="{{ value | escape }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: value %}"></span>
+                          {%- endif -%}
+
+                          {{- value -}}
+                        </button>
+                      {%- endfor -%}
+                    </div>
+
+                    <select class="visually-hidden" name="option{{ option.position }}" form="{{ product_form_id }}" data-bind-value="{{ option_id }}-value" aria-label="{{ option.name | escape }}">
+                      {%- for value in option.values -%}
+                        {%- assign replacement_title = '' -%}
+                        {%- assign downcase_value = value | downcase -%}
+
+                        {%- if color_label_list contains option_downcase -%}
+                          {%- capture replacement_title -%}
+                            <span class="select__color-swatch {% if downcase_value == color_white_label %}select__color-swatch--white{% endif %}" aria-label="{{ value | escape }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: value %}"></span>
+                            {{- value -}}
+                          {%- endcapture -%}
+                        {%- endif -%}
+
+                        <option value="{{ value | escape }}" {% if replacement_title != '' %}title="{{ replacement_title | escape }}"{% endif %} {% if value == option.selected_value %}selected{% endif %}>{{ value }}</option>
+                      {%- endfor -%}
+                    </select>
+                  </combo-box>
+
+                  <button type="button" is="toggle-button" class="select" aria-expanded="false" aria-haspopup="listbox" aria-controls="{{ option_id }}-combo-box">
+                    <span id="{{ option_id }}-value" class="select__selected-value">
+                      {%- if color_label_list contains option_downcase -%}
+                        {%- assign downcase_value = option.selected_value | downcase -%}
+                        <span class="select__color-swatch {% if downcase_value == color_white_label %}select__color-swatch--white{% endif %}" aria-label="{{ option.selected_value | escape }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: option.selected_value %}"></span>
+                      {%- endif -%}
+
+                      {{- option.selected_value -}}
+                    </span>
+
+                    {%- render 'icon' with 'chevron' -%}
+                  </button>
+                </div>
+              {%- endfor -%}
+            </product-variants>
+          {%- endunless -%}
+
+          <product-payment-container form-id="{{ product_form_id }}" class="product-sticky-form__payment-container">
+            {%- capture button_content -%}
+              {%- if product.template_suffix == 'pre-order' -%}
+                {{- 'product.form.pre_order' | t -}}
+              {%- else -%}
+                {{- 'product.form.add_to_cart' | t -}}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            <button id="StickyAddToCart" is="loader-button" form="{{ product_form_id }}" type="submit" data-product-add-to-cart-button {% unless buy_buttons_block.settings.show_payment_button %}data-use-primary{% endunless %} data-button-content="{{ button_content | escape }}" class="product-form__add-button button {% unless product.selected_or_first_available_variant.available %}button--ternary{% else %}{% if buy_buttons_block.settings.show_payment_button %}button--secondary{% else %}button--primary{% endif %}{% endunless %}" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+              {%- if product.selected_or_first_available_variant.available -%}
+                {{- button_content -}}
+              {%- else -%}
+                {{- 'product.form.sold_out' | t -}}
+              {%- endif -%}
+            </button>
+          </product-payment-container>
+        </div>
+      </div>
+    </div>
+  </product-sticky-form>
+{%- endif -%}

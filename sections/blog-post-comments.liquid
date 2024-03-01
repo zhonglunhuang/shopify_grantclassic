@@ -1,0 +1,112 @@
+{%- if article.comments_enabled? -%}
+  <div id="blog-post-{{ article.id }}-comments" class="article__comment-box vertical-breather vertical-breather--margin vertical-breather--tight anchor">
+    <div class="container">
+      {%- if article.comments_count > 0 -%}
+        <div class="article__comment-list">
+          <h3 class="article__comment-list-heading heading h5">{{ 'article.comments.comments_count' | t: count: article.comments_count }}</h3>
+
+          {%- paginate article.comments by 50 -%}
+            {%- for comment in article.comments -%}
+              <div class="article-comment">
+                <div class="article-comment__meta">
+                  {%- if section.settings.show_gravatar -%}
+                    <img class="article-comment__gravatar" width="100" height="100" src="//www.gravatar.com/avatar/{{ comment.email | md5 }}?s=100" alt="{{ comment.author }}">
+                  {%- endif -%}
+
+                  <div class="article-comment__meta-inner">
+                    <p class="article-comment__author text--strong">{{ comment.author }}</p>
+                    <time class="article-comment__date text--xsmall text--subdued">{{ comment.created_at | date: format: 'date_at_time' }}</time>
+
+                    <div class="article-comment__content rte hidden-phone">
+                      {{- comment.content -}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="article-comment__content rte hidden-tablet-and-up">
+                  {{- comment.content -}}
+                </div>
+              </div>
+            {%- endfor -%}
+
+          {%- render 'pagination', paginate: paginate, hash: '#comments' -%}
+          {%- endpaginate -%}
+        </div>
+      {%- endif -%}
+
+      {%- form 'new_comment', article, class: 'article__comment-form form' -%}
+        <p class="article__comment-form-title heading h5">{{ 'article.comments.leave_comment' | t }}</p>
+
+        <div class="form__info">
+          {%- if blog.moderated? -%}
+            <p>{{ 'article.comments.moderated' | t }}</p>
+          {%- endif -%}
+
+          {{- 'shopify.online_store.spam_detection.disclaimer_html' | t -}}
+        </div>
+
+        {%- if form.posted_successfully? -%}
+          <div class="form__banner banner banner--success">
+            <span class="banner__ribbon">{% render 'icon' with 'form-success' %}</span>
+
+            <p class="banner__content">
+              {%- if blog.moderated? -%}
+                {{- 'article.comments.comment_sent' | t -}}
+              {%- else -%}
+                {{- 'article.comments.comment_published' | t -}}
+              {%- endif -%}
+            </p>
+          </div>
+        {%- else -%}
+          {%- if form.errors -%}
+            <div class="form__banner banner banner--error">
+              <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+
+              <div class="banner__content">
+                {{- form.errors | default_errors -}}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        <div class="input-row">
+          <div class="input">
+            {%- assign form_author = form.author | default: customer.name -%}
+
+            <input id="comment-form-name" type="text" class="input__field {% if form_author != blank %}is-filled{% endif %}" name="comment[author]" value="{{ form_author | escape }}" required="required">
+            <label for="comment-form-name" class="input__label">{{ 'article.comments.name' | t }}</label>
+          </div>
+
+          <div class="input">
+            {%- assign form_email = form.email | default: customer.email -%}
+
+            <input id="comment-form-email" type="email" class="input__field {% if form_email != blank %}is-filled{% endif %}" name="comment[email]" value="{{ form_email | escape }}" required="required">
+            <label for="comment-form-email" class="input__label">{{ 'article.comments.email' | t }}</label>
+          </div>
+        </div>
+
+        <div class="input">
+          <textarea id="comment-form-body" name="comment[body]" rows="5" class="input__field input__field--textarea {% if form.body != blank %}is-filled{% endif %}" required="required">{{ form.body }}</textarea>
+          <label for="comment-form-body" class="input__label">{{ 'article.comments.message' | t }}</label>
+        </div>
+
+        <button type="submit" is="loader-button" class="form__submit button button--primary">{{ 'article.comments.submit' | t }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Blog post comments",
+  "class": "shopify-section--blog-post-comments",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_gravatar",
+      "label": "Show comment Gravatar",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

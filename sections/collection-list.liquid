@@ -1,0 +1,361 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+    --prev-next-button-background: var(--text-color);
+    --prev-next-button-color: var(--section-background);
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+
+    {%- if section.settings.layout == 'collage' -%}
+      --section-collage-column: {{ section.blocks.size | at_most: 2 }};
+    {%- endif -%}
+  }
+
+  {%- for block in section.blocks -%}
+    #block-{{ section.id }}-{{ block.id }} {
+      {% if block.settings.text_color == 'rgba(0,0,0,0)' %}
+        {%- assign text_color_rgb = '255, 255, 255' -%}
+      {%- else -%}
+        {%- capture text_color_rgb -%}{{ block.settings.text_color.red }}, {{ block.settings.text_color.green }}, {{ block.settings.text_color.blue }}{%- endcapture -%}
+      {%- endif -%}
+
+      --heading-color: {{ text_color_rgb }};
+      --text-color: {{ text_color_rgb }};
+      --section-block-overlay: {{ block.settings.overlay_color.red }}, {{ block.settings.overlay_color.green }}, {{ block.settings.overlay_color.blue }};
+      --section-block-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    }
+  {%- endfor -%}
+</style>
+
+<section class="section {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper">
+    <div class="{% unless blends_with_background %}vertical-breather{% endunless %}">
+      {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+        <header class="section__header container text-container">
+          {%- if section.settings.subheading != blank -%}
+            <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- capture section_content -%}
+        <div class="list-collections__item-list">
+          {%- for block in section.blocks -%}
+            {%- capture collection_content -%}
+              {%- if block.settings.subheading != blank -%}
+                <p class="heading heading--small" {% if section.settings.reveal_on_scroll %}reveal{% endif %}>{{ block.settings.subheading | escape }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.title != blank -%}
+                <p class="heading {% if settings.heading_text_transform == 'uppercase' %}h4{% else %}h3{% endif %}" {% if section.settings.reveal_on_scroll %}reveal{% endif %}>{{ block.settings.title | escape }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.link_text != blank -%}
+                <span class="heading heading--small link" {% if section.settings.reveal_on_scroll %}reveal{% endif %}>{{ block.settings.link_text | escape }}</span>
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- if section.settings.layout == 'collage' -%}
+              {%- comment -%}
+              The logic is as follows:
+                - If we have a modulo 3 (3, 6, 9...) we highlight every modulo 3, and every 6 is shifted
+                - If we have a modulo 5 (5, 10, 15...) we highlight every modulo 5, and every 10 is shifted
+                - If we have a modulo 7 (7, 14, 21...) we highlight every modulo 7, and every 14 is shifted
+              {%- endcomment -%}
+
+              {%- assign is_highlighted = false -%}
+              {%- assign is_shifted = true -%}
+              {%- assign modulo_3 = section.blocks.size | modulo: 3 -%}
+              {%- assign modulo_5 = section.blocks.size | modulo: 5 -%}
+              {%- assign modulo_7 = section.blocks.size | modulo: 7 -%}
+
+              {%- if modulo_3 == 0 -%}
+                {%- assign index_modulo_3 = forloop.index | modulo: 3 -%}
+                {%- assign index_modulo_6 = forloop.index | modulo: 6 -%}
+
+                {%- if index_modulo_3 == 1 -%}
+                  {%- assign is_highlighted = true -%}
+                {%- endif -%}
+
+                {%- if index_modulo_6 == 1 -%}
+                  {%- assign is_shifted = false -%}
+                {%- endif -%}
+              {%- elsif modulo_5 == 0 -%}
+                {%- assign index_modulo_5 = forloop.index | modulo: 5 -%}
+                {%- assign index_modulo_10 = forloop.index | modulo: 10 -%}
+
+                {%- if index_modulo_5 == 1 -%}
+                  {%- assign is_highlighted = true -%}
+                {%- endif -%}
+
+                {%- if index_modulo_10 == 1 -%}
+                  {%- assign is_shifted = false -%}
+                {%- endif -%}
+              {%- elsif modulo_7 == 0 -%}
+                {%- assign index_modulo_7 = forloop.index | modulo: 7 -%}
+                {%- assign index_modulo_14 = forloop.index | modulo: 14 -%}
+
+                {%- if index_modulo_7 == 1 -%}
+                  {%- assign is_highlighted = true -%}
+                {%- endif -%}
+
+                {%- if index_modulo_14 == 1 -%}
+                  {%- assign is_shifted = false -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- assign collection = block.settings.collection -%}
+
+            <a id="block-{{ section.id }}-{{ block.id }}" href="{{ block.settings.link_url | default: collection.url }}" class="list-collections__item {% if is_highlighted %}list-collections__item--highlight {% if is_shifted %}list-collections__item--shift{% endif %}{% endif %} {% if collection_content != blank %}has-overlay{% endif %} image-zoom" {{ block.shopify_attributes }}>
+              <div class="list-collections__item-image-wrapper">
+                {%- assign collection_image = block.settings.image | default: collection.featured_image -%}
+
+                {%- if collection_image != blank -%}
+                  {%- case section.settings.layout -%}
+                    {%- when 'grid' -%}
+                      {%- capture image_sizes -%}(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px{%- endcapture -%}
+
+                    {%- when 'carousel' -%}
+                      {%- capture image_sizes -%}(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px{%- endcapture -%}
+
+                    {%- when 'collage' -%}
+                      {%- capture image_sizes -%}(max-width: 740px) calc(100vw - 24px * 2), 660px{%- endcapture -%}
+                  {%- endcase -%}
+
+                  {%- if section.settings.layout == 'grid' and collection_image.aspect_ratio > 2.5 -%}
+                    {%- assign height_constraint = 800 | at_most: collection_image.height -%}
+                    <img class="list-collections__item-image" {% if section.settings.reveal_on_scroll %}reveal{% endif %} loading="lazy" sizes="{{ image_sizes }}" {% render 'image-attributes', image: collection_image, sizes: '200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400', height_constraint: height_constraint, crop: 'center' %}>
+                  {%- else -%}
+                    <img class="list-collections__item-image" {% if section.settings.reveal_on_scroll %}reveal{% endif %} loading="lazy" sizes="{{ image_sizes }}" {% render 'image-attributes', image: collection_image, sizes: '200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800' %}>
+                  {%- endif -%}
+                {%- else -%}
+                  {%- capture collection_image -%}collection-{% cycle '1', '2', '3', '4', '5', '6' %}{%- endcapture -%}
+
+                  {%- if section.settings.reveal_on_scroll -%}
+                    {{- collection_image | placeholder_svg_tag: 'list-collections__item-image placeholder-background' | replace: '<svg', '<svg reveal' -}}
+                  {%- else -%}
+                    {{- collection_image | placeholder_svg_tag: 'list-collections__item-image placeholder-background' -}}
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+
+              {%- if collection_content != blank -%}
+                <div class="list-collections__item-info text-container">
+                  {{- collection_content -}}
+                </div>
+              {%- endif -%}
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endcapture -%}
+
+      {%- if section.settings.layout == 'grid' or section.settings.layout == 'collage' -%}
+        <collection-list {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="list-collections list-collections--{{ section.settings.layout }}">
+          <div class="container">
+            {{- section_content -}}
+          </div>
+        </collection-list>
+      {%- elsif section.settings.layout == 'carousel' -%}
+        <collection-list scrollable {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="list-collections list-collections--carousel">
+          <scrollable-content class="list-collections__scroller hide-scrollbar">
+            {{- section_content -}}
+          </scrollable-content>
+
+          <prev-next-buttons class="list-collections__prev-next prev-next-buttons hidden-pocket">
+            <button class="list-collections__arrow prev-next-button prev-next-button--prev">
+              <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+              {%- include 'icon' with 'nav-arrow-left', block: true, direction_aware: true -%}
+            </button>
+
+            <button class="list-collections__arrow prev-next-button prev-next-button--next">
+              <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+              {%- include 'icon' with 'nav-arrow-right', block: true, direction_aware: true -%}
+            </button>
+          </prev-next-buttons>
+        </collection-list>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "class": "shopify-section--collection-list",
+  "blocks": [
+    {
+      "name": "Collection",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Grid and carousel modes: 1100 x 1400px .jpg recommended / Collage mode: 1320 x 1480px .jpg recommended (highlighted image) and 1320 x 700px .jpg recommended (normal image)"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL",
+          "info": "If none is set, collection URL is used."
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "rgba(0,0,0,0)"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "reveal_on_scroll",
+      "label": "Reveal on scroll",
+      "info": "Show animation when section becomes visible.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "info": "Collage mode only affects desktop, and will adapt based on number of items.",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "collage",
+          "label": "Collage"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

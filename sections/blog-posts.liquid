@@ -1,0 +1,240 @@
+{%- assign blog = section.settings.blog -%}
+
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }}{
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    --heading-color: 
+    {{ heading_color.red }},
+    {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: 
+    {{ text_color.red }},
+    {{ text_color.green }}, {{ text_color.blue }};
+
+    --section-background: 
+    {{ section_background.red }},
+    {{ section_background.green }}, {{ section_background.blue }};
+    --section-articles-count: {% if blog == blank or blog.articles_count == 0 %}
+      {{ section.settings.articles_count }}{% else %}
+      {{ blog.articles_count | at_most: section.settings.articles_count }}{% endif %};
+  }
+</style>
+
+<section class="section {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper">
+    <div class="{% unless blends_with_background %}vertical-breather{% endunless %}">
+      <div class="container">
+        {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+          <header class="section__header text-container">
+            {%- if section.settings.subheading != blank -%}
+              <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.title != blank -%}
+              <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+
+        {%- if section.settings.articles_count == 4 and blog == blank or blog.articles_count >= 4 or blog.articles_count == 0 -%}
+          {%- assign use_featured_layout = true -%}
+        {%- else -%}
+          {%- assign use_featured_layout = false -%}
+        {%- endif -%}
+
+        {%- capture section_content -%}
+          <article-list {% if settings.stagger_blog_posts_apparition %}stagger-apparition{% endif %} class="article-list article-list--section {% if use_featured_layout %}article-list--has-four{% endif %} {% unless section.settings.stack_mobile -%}article-list--scrollable{% else %}article-list--stacked{% endunless %} {% if use_featured_layout %}hidden-lap-and-up{% endif %}">
+            {%- for article in blog.articles limit: section.settings.articles_count -%}
+              {%- render 'article-item', article: article, heading_size: 'h4' -%}
+            {%- else -%}
+              {%- for i in (1..section.settings.articles_count) -%}
+                <div {% if settings.stagger_blog_posts_apparition %}reveal{% endif %} class="article-item">
+                  <div class="article-item__image-container">
+                    <div class="placeholder-image" style="padding-bottom: 75%">
+                      {{ 'image' | placeholder_svg_tag }}
+                    </div>
+                  </div>
+
+                  <div class="article-item__content">
+                    {%- if section.settings.show_category -%}
+                      <p class="article-item__category heading heading--xsmall">{{ 'general.onboarding.blog_post_category' | t }}</p>
+                    {%- endif -%}
+
+                    <h3 class="article-item__title heading h4">{{ 'general.onboarding.blog_post_title' | t }}</h3>
+                  </div>
+                </div>
+              {%- endfor -%}
+            {%- endfor -%}
+          </article-list>
+
+          {%- comment -%}
+            If we use the featured layout (so 4 articles) on desktop the layout is vastly different. We also have different font sizes
+            for the various heading. Of course we could change that dynamically in JavaScript, but this may cause CLS, so I prefer to
+            duplicate the content directly.
+          {%- endcomment -%}
+
+          {%- if use_featured_layout -%}
+            <article-list {% if settings.stagger_blog_posts_apparition %}stagger-apparition{% endif %} class="article-list article-list--section article-list--collage hidden-pocket">
+              {%- if blog != blank and blog.articles_count > 0 -%}
+                {%- render 'article-item', article: blog.articles.first, use_featured_layout: true, is_first: true, heading_size: 'h3' -%}
+
+                <div class="article-list__secondary-list">
+                  {%- for article in blog.articles offset: 1 limit: 3 -%}
+                    {%- render 'article-item', article: article, use_featured_layout: true, is_first: false, heading_size: 'h5' -%}
+                  {%- endfor -%}
+                </div>
+              {%- else -%}
+                <div {% if settings.stagger_blog_posts_apparition %}reveal{% endif %} class="article-item {% if use_featured_layout %}article-item--featured{% endif %}">
+                  <div class="article-item__image-container">
+                    <div class="placeholder-image" style="padding-bottom: 75%">
+                      {{ 'image' | placeholder_svg_tag }}
+                    </div>
+                  </div>
+
+                  <div class="article-item__content">
+                    {%- if section.settings.show_category -%}
+                      <p class="article-item__category heading heading--xsmall">{{ 'general.onboarding.blog_post_category' | t }}</p>
+                    {%- endif -%}
+
+                    <h3 class="article-item__title heading h3">{{ 'general.onboarding.blog_post_title' | t }}</h3>
+                  </div>
+                </div>
+
+                <div class="article-list__secondary-list">
+                  {%- for i in (1..3) -%}
+                    <div {% if settings.stagger_blog_posts_apparition %}reveal{% endif %} class="article-item {% if use_featured_layout %}{% if is_first %}article-item--featured{% else %}article-item--horizontal{% endif %}{% endif %}">
+                      <div class="article-item__image-container">
+                        <div class="placeholder-image" style="padding-bottom: 75%">
+                          {{ 'image' | placeholder_svg_tag }}
+                        </div>
+                      </div>
+
+                      <div class="article-item__content">
+                        {%- if section.settings.show_category -%}
+                          <p class="article-item__category heading heading--xsmall">{{ 'general.onboarding.blog_post_category' | t }}</p>
+                        {%- endif -%}
+
+                        <h3 class="article-item__title heading h6">{{ 'general.onboarding.blog_post_title' | t }}</h3>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </article-list>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if section.settings.stack_mobile -%}
+          {{- section_content -}}
+        {%- else -%}
+          <div class="scroller">
+            <div class="scroller__inner">
+              {{- section_content -}}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {%- if section.settings.button_text != blank -%}
+    <div class="section__footer">
+      <a class="button button--primary" href="{{ blog.url }}">{{ section.settings.button_text }}</a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+  {
+    "name": "Blog posts",
+    "class": "shopify-section--blog-posts",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Stay up-to-date"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Blog posts"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "button"
+      }, {
+        "type": "range",
+        "id": "articles_count",
+        "label": "Blog posts to show",
+        "info": "Layout automatically adapts based on the number of blog posts.",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      }, {
+        "type": "checkbox",
+        "id": "stack_mobile",
+        "label": "Stack on mobile",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "show_category",
+        "label": "Show category",
+        "info": "The first article's tag will be shown as category.",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_excerpt",
+        "label": "Show excerpt",
+        "info": "Change excerpts by editing your blog posts. [Learn more](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)",
+        "default": false
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "rgba(0,0,0,0)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog posts",
+        "settings": {
+          "blog": "news"
+        }
+      }
+    ]
+  }
+{% endschema %}

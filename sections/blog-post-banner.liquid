@@ -1,0 +1,88 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.blog_header_text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign header_text_color = settings.heading_color -%}
+    {%- else -%}
+      {%- assign header_text_color = section.settings.blog_header_text_color -%}
+    {%- endif -%}
+
+    {%- if section.settings.blog_header_text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign header_background = settings.secondary_background -%}
+    {%- else -%}
+      {%- assign header_background = section.settings.blog_header_background -%}
+    {%- endif -%}
+
+    --heading-color: {{ header_text_color.red }}, {{ header_text_color.green }}, {{ header_text_color.blue }};
+    --text-color: {{ header_text_color.red }}, {{ header_text_color.green }}, {{ header_text_color.blue }};
+
+    --section-header-background: {{ header_background.red }}, {{ header_background.green }}, {{ header_background.blue }};
+  }
+</style>
+
+<blog-post-header class="article__header">
+  <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb breadcrumb--floating text--xsmall text--subdued hidden-pocket">
+    <ol class="breadcrumb__list" role="list">
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a>
+      </li>
+
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link" href="{{ blog.url }}">{{- blog.title -}}</a>
+      </li>
+
+      <li class="breadcrumb__item">
+        <span class="breadcrumb__link" aria-current="page">{{ article.title }}</span>
+      </li>
+    </ol>
+  </nav>
+
+  {%- if article.image -%}
+    {%- comment -%}Performance note: this image must not be lazyloaded as it contributes to the LCP{%- endcomment -%}
+    <div class="article__image-wrapper {% if article.image.aspect_ratio >= 1 %}article__image-wrapper--square{% else %}article__image-wrapper--tall{% endif %}">
+      {%- capture sizes -%}(max-width: 740px) 100vw, {% if article.image.aspect_ratio >= 1 %}50vw{% else %}37.5vw{% endif %}{%- endcapture -%}
+      {{ article.image | image_url: width: 1500 | image_tag: sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500', class: 'article__image', reveal: true }}
+    </div>
+  {%- endif -%}
+
+  <div class="article__header-content text-container">
+    {%- if section.settings.show_category and article.tags.size > 0 -%}
+      <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}" class="article__category heading heading--small">{{ article.tags.first }}</a>
+    {%- endif -%}
+
+    <h1 class="article__title heading h1">{{ article.title }}</h1>
+
+    {%- if article.excerpt != blank -%}
+      <div class="article__excerpt text--large">
+        {{- article.excerpt -}}
+      </div>
+    {%- endif -%}
+  </div>
+</blog-post-header>
+
+{%- schema %}
+{
+  "name": "Blog post header",
+  "class": "shopify-section--blog-post-banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "info": "The first article's tag will be shown as category.",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "blog_header_background",
+      "label": "Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "blog_header_text_color",
+      "label": "Text color",
+      "default": "#282828"
+    }
+  ]
+}
+{%- endschema -%}

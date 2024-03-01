@@ -1,0 +1,251 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }}{
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+    {%- if section.settings.button_background == 'rgba(0,0,0,0)' -%}
+      {%- assign button_background = settings.primary_button_background -%}
+    {%- else -%}
+      {%- assign button_background = section.settings.button_background -%}
+    {%- endif -%}
+    {%- if section.settings.button_text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign button_text_color = settings.primary_button_text_color -%}
+    {%- else -%}
+      {%- assign button_text_color = section.settings.button_text_color -%}
+    {%- endif -%}
+    --heading-color: 
+    {{ heading_color.red }},
+    {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: 
+    {{ text_color.red }},
+    {{ text_color.green }}, {{ text_color.blue }};
+    --primary-button-background: 
+    {{ button_background.red }},
+    {{ button_background.green }}, {{ button_background.blue }};
+    --primary-button-text-color: 
+    {{ button_text_color.red }},
+    {{ button_text_color.green }}, {{ button_text_color.blue }};
+    --prev-next-button-background: 
+    {{ settings.background.red }},
+    {{ settings.background.green }}, {{ settings.background.blue }};
+    --prev-next-button-color: 
+    {{ settings.text_color.red }},
+    {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+    --section-background: 
+    {{ section_background.red }},
+    {{ section_background.green }}, {{ section_background.blue }};
+    --section-logo-background: {{ section.settings.logo_background.red }}{{ section.settings.logo_background.green }}
+    {{ section.settings.logo_background.blue }}
+    /{{ section.settings.logo_background.alpha }};
+    --section-logo-count: {{ section.blocks.size | default: 6 }};
+  }
+</style>
+
+<section class="section {% unless blends_with_background or is_boxed %}section--flush{% endunless %}">
+  <div class="section__color-wrapper">
+    <div class="container {% unless blends_with_background %}vertical-breather{% endunless %}">
+      <div class="section__header text-container">
+        {%- if section.settings.subheading != blank -%}
+          <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+          <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+        {%- endif -%}
+      </div>
+
+      {%- capture section_content -%}
+        <div class="logo-list__list">
+          {%- for block in section.blocks -%}
+            {%- capture logo_content -%}
+              {%- if block.settings.logo != blank -%}
+                {%- assign logo_max_size = 300 -%}
+                {%- capture logo_sizes -%}
+                  {{ logo_max_size }},{{ logo_max_size | times: 2 }}{%- endcapture -%}
+                <img loading="lazy" sizes="{{ logo_max_size }}px" class="logo-list__image" {% render 'image-attributes', image: block.settings.logo, sizes: logo_sizes %}>
+              {%- else -%}
+                {{- 'image' | placeholder_svg_tag: 'logo-list__image logo-list__image--placeholder' -}}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- if block.settings.link -%}
+              <a href="{{ block.settings.link }}" {% if section.settings.reveal_on_scroll %}reveal{% endif %} class="logo-list__item" {{ block.shopify_attributes }}>
+                {{- logo_content -}}
+              </a>
+            {%- else -%}
+              <div class="logo-list__item" {% if section.settings.reveal_on_scroll %}reveal{% endif %} {{ block.shopify_attributes }}>
+                {{- logo_content -}}
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            {%- for i in (1..6) -%}
+              <div class="logo-list__item" {% if section.settings.reveal_on_scroll %}reveal{% endif %}>
+                {{- 'image' | placeholder_svg_tag: 'logo-list__image logo-list__image--placeholder' -}}
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      {%- endcapture -%}
+
+      {%- if section.settings.stack_logos -%}
+        <logo-list {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="logo-list logo-list--grid">
+          {{- section_content -}}
+        </logo-list>
+      {%- else -%}
+        <div class="scroller">
+          <div class="scroller__inner">
+            <logo-list {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="logo-list logo-list--carousel">
+              {%- if section.blocks.size > 4 -%}
+                <prev-next-buttons class="logo-list__prev-next hidden-pocket">
+                  <button class="logo-list__arrow prev-next-button prev-next-button--prev" disabled>
+                    <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+                    {%- include 'icon' with 'nav-arrow-left', block: true, direction_aware: true -%}
+                  </button>
+
+                  <button class="logo-list__arrow prev-next-button prev-next-button--next">
+                    <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+                    {%- include 'icon' with 'nav-arrow-right', block: true, direction_aware: true -%}
+                  </button>
+                </prev-next-buttons>
+              {%- endif -%}
+
+              {{- section_content -}}
+            </logo-list>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <div class="section__footer">
+          <a class="button button--primary" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Logo list",
+    "class": "shopify-section--logo-list",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "reveal_on_scroll",
+        "label": "Reveal on scroll",
+        "info": "Show animation when section becomes visible.",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Brands"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "checkbox",
+        "id": "stack_logos",
+        "label": "Stack logos",
+        "default": true,
+        "info": "When stack, it is recommended to use a multiple of 6 logos."
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button background",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "logo_background",
+        "label": "Logo background",
+        "default": "rgba(0,0,0,0)"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Logo",
+        "type": "logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image",
+            "info": "450 x 150px .png recommended"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Logo list",
+        "blocks": [
+          {
+            "type": "logo"
+          },
+          {
+            "type": "logo"
+          },
+          {
+            "type": "logo"
+          },
+          {
+            "type": "logo"
+          }, {
+            "type": "logo"
+          }, {
+            "type": "logo"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

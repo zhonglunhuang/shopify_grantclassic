@@ -1,0 +1,975 @@
+{
+  "current": {
+    "icon_stroke_width": 1.4,
+    "button_border_radius": 6,
+    "block_border_radius": "none",
+    "vertical_spacing": "small",
+    "heading_color": "#2d2d2d",
+    "text_color": "#2d2d2d",
+    "secondary_background": "#f5f5f5",
+    "success_color": "#2e9e7b",
+    "error_color": "#eb3b3b",
+    "header_background": "#ffffff",
+    "header_text_color": "#2d2d2d",
+    "footer_background": "#2d2d2d",
+    "footer_text_color": "#ffffff",
+    "primary_button_background": "#eb3b3b",
+    "primary_button_text_color": "#ffffff",
+    "secondary_button_background": "#f3ff34",
+    "secondary_button_text_color": "#2d2d2d",
+    "product_on_sale_accent": "#eb3b3b",
+    "product_sold_out_accent": "#2d2d2d",
+    "product_custom_label_background": "#405de6",
+    "product_custom_label_2_background": "#f3ff34",
+    "product_in_stock_text_color": "#2e9e7b",
+    "product_low_stock_text_color": "#eb3b3b",
+    "heading_font": "sans-serif",
+    "heading_font_size": "small",
+    "heading_text_transform": "normal",
+    "text_font": "sans-serif",
+    "text_font_size": 15,
+    "currency_code_enabled": false,
+    "stagger_products_apparition": true,
+    "round_color_swatches": true,
+    "color_swatch_config": "紅色:#eb3b3b\n黑色:#333333\n黃色:#FFE600\n綠色:#1CA906\n灰色:#999999\n藍色:#4169e1\n銀色:#C0C0C0\n金色:#FFD700\n紫色:#6633CC\n燒鈦色:#483D8B\n橙色:#F66C36\n棕色:#AC7355\n靛青色:#273034\n粉色:#FFD5D6\n白色:#fafafa\n午夜藍:#2B374A\n夜光藍:#80D3E0\n夜光粉:#FD9EBD\n暗綠色:#274846\n草綠色:#305137\n淺粉色:#eededf\n淺黃色:#f2f0e1\n淺綠色:#eff5e9\n淺藍色:#cfdae0\n鈦黑色:#5e5d5b\n鈦原色:#c6bfb5\n鈦白色:#dfdfdf\n鈦藍色:#6e7683\n粉紅色:#f9d0d1\n墨綠色:#1b3e3e\n駝色:#b3a790\n軍綠色:#5b603f\n新淺灰:#d5dbde\n毛靈灰:#bcc2ca\n毛靈紅:#942735\n藏藍斜紋:#0f1836 \n粉杏咖:#ecd3e5\n藍玫粉:#e85298\n卡其細紋:#b1aa87\n軍綠米細紋:#737561\n紫蘭細紋:#8387c1",
+    "show_vendor": false,
+    "show_secondary_image": true,
+    "product_add_to_cart": true,
+    "show_product_rating": false,
+    "show_discount": false,
+    "product_color_display": "swatch",
+    "product_image_size": "square",
+    "cart_type": "page",
+    "cart_icon": "shopping_bag",
+    "cart_empty_button_link": "https:\/\/gc-taiwan.myshopify.com\/",
+    "cart_show_free_shipping_threshold": true,
+    "cart_free_shipping_threshold": "490",
+    "social_facebook": "https:\/\/www.facebook.com\/Grantclassic.taiwan\/",
+    "social_instagram": "https:\/\/www.instagram.com\/gc.taiwan",
+    "social_youtube": "https:\/\/www.youtube.com\/@grantclassic",
+    "social_tiktok": "https:\/\/www.tiktok.com\/@gc.taiwan",
+    "social_xiaohongshu": "https:\/\/www.xiaohongshu.com\/user\/profile\/63f703ad000000000f0107b1?xhsshare=CopyLink&appuid=63f703ad000000000f0107b1&apptime=1689931422",
+    "social_line": "https:\/\/lin.ee\/oiQ4L3y",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo-03_5ee30f82-8183-4166-a1c9-5a613b7bb8d4.png",
+    "checkout_sidebar_background_color": "#f5f5f5",
+    "checkout_accent_color": "#2d2d2d",
+    "checkout_button_color": "#eb3b3b",
+    "checkout_error_color": "#de2a2a",
+    "accent_color": "#405de6",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "message-1": {
+            "type": "message",
+            "settings": {
+              "text": "喝不停-全陶瓷飲水機新品上市！",
+              "learn_more_text": "Learn more",
+              "title": "",
+              "content": "",
+              "button_text": "",
+              "button_link": "https:\/\/grantclassic.com\/products\/%E5%96%9D%E4%B8%8D%E5%81%9C-aqualux-%E5%AF%B5%E7%89%A9%E6%99%BA%E8%83%BD%E9%99%B6%E7%93%B7%E9%A3%B2%E6%B0%B4%E6%A9%9F"
+            }
+          },
+          "6651169f-8d11-40fd-a1c1-472786c065bc": {
+            "type": "message",
+            "settings": {
+              "text": "餵不停專屬陶瓷碗！趕緊為你的毛小孩添購一個！",
+              "learn_more_text": "Learn more",
+              "title": "",
+              "content": "",
+              "button_text": "",
+              "button_link": "https:\/\/grantclassic.com\/products\/luxnourish-ceramic-bowl"
+            }
+          }
+        },
+        "block_order": [
+          "message-1",
+          "6651169f-8d11-40fd-a1c1-472786c065bc"
+        ],
+        "settings": {
+          "announcement_bar_position": "non_sticky",
+          "announcement_text_size": "normal",
+          "autoplay": true,
+          "cycle_speed": 7,
+          "background": "#f5f5f5",
+          "text_color": "#282828",
+          "button_background": "#282828",
+          "button_text_color": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "92dbc1e2-c787-4be4-80ac-971628a95202": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "手機周邊",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/DSC00076_86b196b5-ba53-47e7-837e-8ded6bd68637.webp",
+              "image_1_heading": "充滿快樂 APEXVOLT",
+              "image_1_text": "",
+              "image_1_link": "shopify:\/\/collections\/chargers",
+              "image_1_tag": true,
+              "image_2_heading": "",
+              "image_2_text": "",
+              "image_2_link": "",
+              "image_2_tag": false,
+              "image_3_heading": "iPhone15 設計手機殼",
+              "image_3_text": "",
+              "image_3_link": "shopify:\/\/collections\/designer-phone-cases",
+              "image_3_tag": true,
+              "image_4_heading": "",
+              "image_4_text": "",
+              "image_4_link": "",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          },
+          "632ac3b2-afbc-4398-adfd-c746c47a998f": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "車輛周邊",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/2pro.webp",
+              "image_1_heading": "四力架2 PRO",
+              "image_1_text": "",
+              "image_1_link": "shopify:\/\/products\/gc-c112",
+              "image_1_tag": true,
+              "image_2_heading": "享放架 S",
+              "image_2_text": "",
+              "image_2_link": "shopify:\/\/products\/gc享放架-s",
+              "image_2_tag": true,
+              "image_3_heading": "放長架",
+              "image_3_text": "",
+              "image_3_link": "shopify:\/\/products\/extended-holder",
+              "image_3_tag": true,
+              "image_4_heading": "",
+              "image_4_text": "",
+              "image_4_link": "",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          },
+          "5ee48714-1675-4e3f-a482-b7eb41d7bef6": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "生活周邊",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/3fd09541f7712b2767d587c8a1b4ea19.webp",
+              "image_1_heading": "陶杯杯",
+              "image_1_text": "",
+              "image_1_link": "shopify:\/\/products\/ceramic-insulated-cup",
+              "image_1_tag": true,
+              "image_2": "shopify:\/\/shop_images\/e8c19ce51dfa0e05201a7800a8d15652.webp",
+              "image_2_heading": "零距離",
+              "image_2_text": "",
+              "image_2_link": "shopify:\/\/products\/zero-distance-laser-rangefinder",
+              "image_2_tag": true,
+              "image_3": "shopify:\/\/shop_images\/gctag.webp",
+              "image_3_heading": "GC-Tag",
+              "image_3_text": "",
+              "image_3_link": "shopify:\/\/collections\/gc-tag-series",
+              "image_3_tag": true,
+              "image_4_heading": "",
+              "image_4_text": "",
+              "image_4_link": "",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          },
+          "c84686ba-8231-4d23-a69a-b4e2f07c9967": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "產品系列",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/all_54e60474-9c69-4183-b203-f895e39570af.webp",
+              "image_1_heading": "全部商品",
+              "image_1_text": "",
+              "image_1_link": "shopify:\/\/collections\/all",
+              "image_1_tag": true,
+              "image_2_heading": "3 Series 系列",
+              "image_2_text": "實用經濟體驗",
+              "image_2_link": "shopify:\/\/collections\/3-series-系列",
+              "image_2_tag": false,
+              "image_3": "shopify:\/\/shop_images\/6.png",
+              "image_3_heading": "6 Series 系列",
+              "image_3_text": "進階配置體驗",
+              "image_3_link": "shopify:\/\/collections\/6-series-系列",
+              "image_3_tag": true,
+              "image_4_heading": "9 Series 系列",
+              "image_4_text": "頂級配置體驗",
+              "image_4_link": "shopify:\/\/collections\/9-series-系列",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          },
+          "e5e2e07c-d751-4e12-8eb8-be10c63c44da": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "寵物周邊",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/f9c8eb4855a8e2693b9015a8d547605e.webp",
+              "image_1_heading": "餵不停 LuxNourish 自動餵食器",
+              "image_1_text": "寵物的最愛，定時定量",
+              "image_1_link": "shopify:\/\/collections\/pet-series",
+              "image_1_tag": true,
+              "image_2_heading": "",
+              "image_2_text": "",
+              "image_2_link": "",
+              "image_2_tag": true,
+              "image_3": "shopify:\/\/shop_images\/a613f2076885e60c1e8eaf6521c8d369_d6de94d9-ae60-4ad7-b680-0c5cc18908ed.webp",
+              "image_3_heading": "喝不停",
+              "image_3_text": "全陶瓷寵物飲水機",
+              "image_3_link": "shopify:\/\/products\/aqualux",
+              "image_3_tag": true,
+              "image_4_heading": "",
+              "image_4_text": "",
+              "image_4_link": "",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          },
+          "c0d4be20-9cd8-4c72-8a50-61ace4caf640": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "周邊配件",
+              "menu_item_horizontal": true,
+              "images_position": "right",
+              "image_1": "shopify:\/\/shop_images\/gc-tag-247286.webp",
+              "image_1_heading": "GC-Tag",
+              "image_1_text": "全球定位都找得到",
+              "image_1_link": "shopify:\/\/collections\/gc-tag-series",
+              "image_1_tag": true,
+              "image_2_heading": "",
+              "image_2_text": "",
+              "image_2_link": "",
+              "image_2_tag": true,
+              "image_3_heading": "",
+              "image_3_text": "",
+              "image_3_link": "",
+              "image_3_tag": true,
+              "image_4_heading": "",
+              "image_4_text": "",
+              "image_4_link": "",
+              "image_4_tag": true,
+              "image_5_heading": "",
+              "image_5_text": "",
+              "image_5_link": "",
+              "image_5_tag": true,
+              "image_6_heading": "",
+              "image_6_text": "",
+              "image_6_link": "",
+              "image_6_tag": true
+            }
+          }
+        },
+        "block_order": [
+          "92dbc1e2-c787-4be4-80ac-971628a95202",
+          "632ac3b2-afbc-4398-adfd-c746c47a998f",
+          "5ee48714-1675-4e3f-a482-b7eb41d7bef6",
+          "c84686ba-8231-4d23-a69a-b4e2f07c9967",
+          "e5e2e07c-d751-4e12-8eb8-be10c63c44da",
+          "c0d4be20-9cd8-4c72-8a50-61ace4caf640"
+        ],
+        "settings": {
+          "enable_sticky_header": true,
+          "logo-svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0608\/5338\/7507\/files\/gc-logo.svg?v=1669269320",
+          "logo": "shopify:\/\/shop_images\/logo-02.png",
+          "logo_max_width": 90,
+          "mobile_logo_max_width": 110,
+          "navigation_menu": "main-menu",
+          "sidebar_navigation_menu": "main-menu",
+          "header_layout": "logo_left_navigation_inline",
+          "show_icons": true,
+          "reduce_desktop_padding": true,
+          "show_locale_selector": true,
+          "show_country_selector": true,
+          "enable_transparent_header": true,
+          "transparent_header_text_color": "#ffffff",
+          "search_menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "d901d6e5-2dc6-4ed3-937a-076ffa47f4df": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/logo_826704f1-ccbe-4c10-8ee5-aa27116b3d65.png",
+              "image_width": 220
+            }
+          },
+          "03ba5bd2-28b0-402f-92b6-484ebc31a5ed": {
+            "type": "links",
+            "settings": {
+              "menu": "about-us"
+            }
+          },
+          "d5ce4fc0-e59e-49b6-9b74-5eb8503d786a": {
+            "type": "links",
+            "settings": {
+              "menu": "terms-services"
+            }
+          },
+          "0da750f7-8525-40af-9455-8a2691d70d54": {
+            "type": "text",
+            "settings": {
+              "title": "聯絡我們",
+              "content": "<p>公司名稱：宙勝數位企業有限公司<br\/>統一編號：66534266<br\/>辦公地址：新北市中和區建康路89號4樓<br\/>客服電話：02-55686562轉701或702<br\/>手機電話：+886 985016713<\/p>"
+            }
+          },
+          "social_media": {
+            "type": "social_media",
+            "settings": {
+              "title": "追蹤我們的社群媒體",
+              "content": ""
+            }
+          }
+        },
+        "block_order": [
+          "d901d6e5-2dc6-4ed3-937a-076ffa47f4df",
+          "03ba5bd2-28b0-402f-92b6-484ebc31a5ed",
+          "d5ce4fc0-e59e-49b6-9b74-5eb8503d786a",
+          "0da750f7-8525-40af-9455-8a2691d70d54",
+          "social_media"
+        ],
+        "settings": {
+          "show_payment_icons": false,
+          "show_country_selector": false,
+          "show_locale_selector": false,
+          "show_cookie_bar": false,
+          "cookie_bar_title": "Cookie policy",
+          "cookie_bar_content": "<p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.<\/p>"
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "enable": true,
+          "apparition_delay": 5,
+          "show_only_on_index": true,
+          "show_only_for_visitors": true,
+          "show_only_once": true,
+          "image_position": "left",
+          "title": "Get 10% off",
+          "content": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>"
+        }
+      },
+      "mini-cart": {
+        "type": "mini-cart",
+        "settings": {
+          "show_order_note": false,
+          "show_checkout_button": false,
+          "empty_button_link": "https:\/\/gc-taiwan.myshopify.com\/",
+          "show_recommendations": false,
+          "recommendations_title": "推薦商品"
+        }
+      },
+      "static-text-with-icons": {
+        "type": "static-text-with-icons",
+        "blocks": {
+          "static-text-with-icons-2": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-warranty",
+              "custom_icon_width": 50,
+              "title": "獨一無二設計專利",
+              "content": "<p>我們的產品在擁有獨一無二的設計專利的基礎上，通過了嚴格的品質檢測，確保產品品質卓越。<\/p>"
+            }
+          },
+          "static-text-with-icons-3": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-operator",
+              "custom_icon_width": 50,
+              "title": "堅持品質，層層把關",
+              "content": "<p>我們深知品質是企業的生命線，因此堅持以品質為核心，從產品設計到生產都嚴格控制，以確保每一個產品都是優質的。<\/p>"
+            }
+          },
+          "static-text-with-icons-0": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-box",
+              "custom_icon_width": 50,
+              "title": "全台免運",
+              "content": "<p>消費滿490元<br\/>即可享有免運優惠<\/p>"
+            }
+          },
+          "static-text-with-icons-1": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-store",
+              "custom_icon_width": 50,
+              "title": "支援超商取貨付款",
+              "content": "<p>快速下單，即可在<br\/>全台7-11和全家便利商店取貨<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "static-text-with-icons-2",
+          "static-text-with-icons-3",
+          "static-text-with-icons-0",
+          "static-text-with-icons-1"
+        ],
+        "settings": {
+          "show_section": true,
+          "background": "#f9f9f9",
+          "text_color": "rgba(0,0,0,0)"
+        }
+      },
+      "static-newsletter": {
+        "type": "static-newsletter",
+        "settings": {
+          "show_section": true,
+          "reveal_on_scroll": true,
+          "image": "shopify:\/\/shop_images\/230202_GC_all.webp",
+          "subheading": "訂閱我們的電子報",
+          "content": "<p>即時掌握產品動態、活動資訊和特價優惠等最新消息。<\/p>",
+          "text_position": "center",
+          "text_alignment": "left",
+          "text_background": "rgba(0,0,0,0)",
+          "text_color": "rgba(0,0,0,0)",
+          "button_background": "rgba(0,0,0,0)",
+          "button_text_color": "rgba(0,0,0,0)"
+        }
+      },
+      "ako-promo-popup": {
+        "type": "ako-promo-popup",
+        "settings": {
+          "enable": false,
+          "apparition_delay": 3,
+          "show_only_on_index": true,
+          "show_only_for_visitors": true,
+          "show_only_once": false,
+          "image": "shopify:\/\/shop_images\/top__1_1cc83b2d-9707-42c8-b080-4c54182f9986.webp",
+          "image_position": "left",
+          "title": "情人節超值優惠開跑",
+          "content": "<p>即日起-2\/14，限定組合享折扣優惠<br\/>買GC-TAG再送保護套！<br\/>官方Line好友限定玩測驗，再享好禮<br\/><\/p>",
+          "button_text": "前往活動頁面",
+          "button_link": "shopify:\/\/pages\/情人節線上特會-真愛不分你我牠"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "5134484470793087125": {
+        "type": "shopify:\/\/apps\/vitals\/blocks\/app-embed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "16278478101612877664": {
+        "type": "shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "14327677521557774844": {
+        "type": "shopify:\/\/apps\/simprosys-google-shopping-feed\/blocks\/core_settings_block\/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "7885500093077574326": {
+        "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/script_embed\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+    "Carbon": {
+      "button_border_radius": 0,
+      "block_border_radius": "none",
+      "heading_color": "#282828",
+      "text_color": "#282828",
+      "secondary_background": "#f5f5f5",
+      "success_color": "#2e9e7b",
+      "error_color": "#de2a2a",
+      "header_background": "#282828",
+      "footer_background": "#282828",
+      "footer_text_color": "#ffffff",
+      "primary_button_background": "#405de6",
+      "secondary_button_background": "#f3ff34",
+      "secondary_button_text_color": "#282828",
+      "product_on_sale_accent": "#de2a2a",
+      "product_custom_label_background": "#405de6",
+      "product_custom_label_2_background": "#f3ff34",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2a2a",
+      "heading_font": "zurich_extended_n8",
+      "heading_font_size": "medium",
+      "heading_text_transform": "uppercase",
+      "text_font": "zurich_n4",
+      "text_font_size": 15,
+      "currency_code_enabled": false,
+      "stagger_products_apparition": true,
+      "round_color_swatches": false,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "count",
+      "product_image_size": "natural",
+      "show_product_rating": false,
+      "cart_type": "message",
+      "cart_show_free_shipping_threshold": true,
+      "accent_color": "#405de6",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#282828",
+      "checkout_button_color": "#405de6",
+      "checkout_error_color": "#de2a2a",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "normal",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#f3ff34",
+            "text_color": "#282828",
+            "button_background": "#282828",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_left_navigation_center",
+            "show_icons": false,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": false,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Ivory": {
+      "button_border_radius": 4,
+      "block_border_radius": "small",
+      "heading_color": "#1a1a1a",
+      "text_color": "#1a1a1a",
+      "secondary_background": "#f5f1ec",
+      "success_color": "#2e9e7b",
+      "error_color": "#de2a2a",
+      "header_background": "#56112a",
+      "header_text_color": "#ffffff",
+      "footer_background": "#56112a",
+      "footer_text_color": "#ffffff",
+      "primary_button_background": "#56112a",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#f7aea6",
+      "secondary_button_text_color": "#56112a",
+      "product_on_sale_accent": "#913b59",
+      "product_custom_label_background": "#405de6",
+      "product_custom_label_2_background": "#f3e5b6",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2a2a",
+      "heading_font": "itc_caslon_no_224_n5",
+      "heading_font_size": "medium",
+      "heading_text_transform": "normal",
+      "text_font": "avenir_next_n4",
+      "text_font_size": 15,
+      "stagger_products_apparition": true,
+      "round_color_swatches": true,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "count",
+      "product_image_size": "natural",
+      "cart_type": "drawer",
+      "accent_color": "#405de6",
+      "checkout_sidebar_background_color": "#f6f3ed",
+      "checkout_accent_color": "#353535",
+      "checkout_button_color": "#353535",
+      "checkout_error_color": "#de2a2a",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "small",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#f7aea6",
+            "text_color": "#56112a",
+            "button_background": "#56112a",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_center_navigation_inline",
+            "show_icons": false,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": false,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Quartz": {
+      "icon_stroke_width": 1.3,
+      "button_border_radius": 0,
+      "block_border_radius": "none",
+      "vertical_spacing": "medium",
+      "heading_color": "#0d0d0d",
+      "text_color": "#2e2e2e",
+      "background": "#ffffff",
+      "secondary_background": "#f5f5f5",
+      "success_color": "#3c6e71",
+      "error_color": "#de2a2a",
+      "header_background": "#ffffff",
+      "header_text_color": "#2e2e2e",
+      "footer_background": "#ffffff",
+      "footer_text_color": "#2e2e2e",
+      "primary_button_background": "#051e38",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#dfdfdf",
+      "secondary_button_text_color": "#2e2e2e",
+      "product_on_sale_accent": "#de2b2b",
+      "product_sold_out_accent": "#5b5b5b",
+      "product_custom_label_background": "#051e38",
+      "product_custom_label_2_background": "#2e9e7b",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2b2b",
+      "heading_font": "futura_n3",
+      "heading_font_size": "medium",
+      "heading_text_transform": "uppercase",
+      "text_font": "din_next_n4",
+      "text_font_size": 15,
+      "stagger_products_apparition": true,
+      "round_color_swatches": false,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "hide",
+      "product_image_size": "natural",
+      "cart_type": "drawer",
+      "cart_icon": "tote_bag",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#051e38",
+      "checkout_button_color": "#051e38",
+      "checkout_error_color": "#de2a2a",
+      "accent_color": "#405de6",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "small",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#051e38",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#051e38"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_center_navigation_inline",
+            "show_icons": true,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": true,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Sapphire": {
+      "icon_stroke_width": 1.2,
+      "button_border_radius": 0,
+      "block_border_radius": "none",
+      "heading_color": "#0c1b54",
+      "text_color": "#0c1b54",
+      "background": "#ffffff",
+      "secondary_background": "#f7f7f7",
+      "success_color": "#708a7d",
+      "error_color": "#d2545a",
+      "header_background": "#0c1b54",
+      "footer_background": "#0c1b54",
+      "footer_text_color": "#ffffff",
+      "primary_button_background": "#0c1b54",
+      "secondary_button_background": "#f7f7f7",
+      "secondary_button_text_color": "#0c1b54",
+      "product_rating_color": "#a48156",
+      "product_on_sale_accent": "#d2545a",
+      "product_custom_label_background": "#405de6",
+      "product_custom_label_2_background": "#f3ff34",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#d2545a",
+      "heading_font": "chong_modern_n4",
+      "heading_font_size": "large",
+      "heading_text_transform": "normal",
+      "text_font": "trade_gothic_n4",
+      "text_font_size": 15,
+      "stagger_products_apparition": true,
+      "round_color_swatches": true,
+      "show_vendor": true,
+      "show_secondary_image": true,
+      "show_product_rating": true,
+      "product_color_display": "hide",
+      "product_image_size": "natural",
+      "cart_type": "message",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#282828",
+      "checkout_button_color": "#405de6",
+      "checkout_error_color": "#de2a2a",
+      "accent_color": "#405de6",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "small",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#ffe5db",
+            "text_color": "#0c1b54",
+            "button_background": "#0c1b54",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_center_navigation_inline",
+            "show_icons": true,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": true,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {
+              }
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {
+          }
+        }
+      }
+    }
+  }
+}

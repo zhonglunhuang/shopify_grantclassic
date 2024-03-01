@@ -1,0 +1,159 @@
+<style>
+  {%- for block in section.blocks -%}
+    #block-{{ section.id }}-{{ block.id }} {
+      {% if block.settings.text_color == 'rgba(0,0,0,0)' %}
+        {%- assign text_color_rgb = '255, 255, 255' -%}
+      {%- else -%}
+        {%- capture text_color_rgb -%}{{ block.settings.text_color.red }}, {{ block.settings.text_color.green }}, {{ block.settings.text_color.blue }}{%- endcapture -%}
+      {%- endif -%}
+
+      --heading-color: {{ text_color_rgb }};
+      --text-color: {{ text_color_rgb }};
+      --section-block-overlay: {{ block.settings.overlay_color.red }}, {{ block.settings.overlay_color.green }}, {{ block.settings.overlay_color.blue }};
+      --section-block-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    }
+  {%- endfor -%}
+</style>
+
+<section>
+  <div class="container">
+    {%- if collections.size == 0 -%}
+      <div class="empty-state text-container">
+        <h1 class="heading h1">{{ 'list_collections.general.title' | t }}</h1>
+
+        <p class="text--large">{{ 'list_collections.general.empty' | t }}</p>
+
+        <div class="button-wrapper">
+          <a href="{{ routes.root_url }}" class="button button--primary">{{ 'list_collections.general.back_to_home' | t }}</a>
+        </div>
+      </div>
+    {%- else -%}
+      <header class="page-header">
+        <div class="page-header__text-wrapper">
+          <h1 class="heading h1">{{ 'list_collections.general.title' | t }}</h1>
+        </div>
+      </header>
+
+      {%- paginate collections by 48 -%}
+        <div class="list-collections list-collections--grid page-content page-content--fluid">
+          <div class="list-collections__item-list">
+            {%- if section.settings.collections_to_show == 'all' -%}
+              {%- assign object_to_iterate = collections -%}
+            {%- else -%}
+              {%- assign object_to_iterate = section.blocks -%}
+            {%- endif -%}
+
+            {%- for item in object_to_iterate -%}
+              {%- if section.settings.collections_to_show == 'all' -%}
+                {%- assign collection = item -%}
+                {%- assign collection_image = collection.featured_image -%}
+              {%- else -%}
+                {%- assign collection = item.settings.collection -%}
+                {%- assign collection_image = item.settings.image | default: collection.featured_image -%}
+              {%- endif -%}
+
+              <a href="{{ collection.url }}" class="list-collections__item image-zoom {% if section.settings.show_collection_title %}has-overlay{% endif %}">
+                <div class="list-collections__item-image-wrapper">
+                  {%- comment -%}
+                  IMPLEMENTATION NOTE: we set a minimum height for the collection image so that it does not look absurdly small if you have text on it. As a consequence,
+                    if the image is very wide but very short, the quality may be too bad. If that's the case, we therefore automatically crop the image to ensure sufficient
+                    quality
+                  {%- endcomment -%}
+
+                  {%- if collection_image.aspect_ratio > 2.5 -%}
+                    {%- assign height_constraint = 800 | at_most: collection_image.height -%}
+                    <img class="list-collections__item-image" loading="lazy" sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px" {% render 'image-attributes', image: collection_image, sizes: '200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400', height_constraint: height_constraint, crop: 'center' %}>
+                  {%- else -%}
+                    <img class="list-collections__item-image" loading="lazy" sizes="(max-width: 740px) calc(100vw - 48px), (max-width: 999px) calc(50vw - 60px), 480px" {% render 'image-attributes', image: collection_image, sizes: '200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400' %}>
+                  {%- endif -%}
+                </div>
+
+                {%- if section.settings.show_collection_title -%}
+                  <div class="list-collections__item-info">
+                    <h2 class="list-collection__item-title heading {% if settings.heading_text_transform == 'uppercase' %}h4{% else %}h3{% endif %}">{{ collection.title }}</h2>
+                  </div>
+                {%- endif -%}
+              </a>
+            {%- endfor -%}
+          </div>
+
+          {%- if section.settings.collections_to_show == 'all' -%}
+            {%- render 'pagination', paginate: paginate -%}
+          {%- endif -%}
+        </div>
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "List collections",
+  "class": "shopify-section--main-list-collections",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "collections_to_show",
+      "label": "Show collections",
+      "options": [
+        {
+          "value": "all",
+          "label": "All"
+        },
+        {
+          "value": "selected",
+          "label": "Selected"
+        }
+      ],
+      "default": "all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_title",
+      "label": "Show collection title",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1100 x 1400px .jpg recommended. If none is set, collection image is used."
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "rgba(0,0,0,0)"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

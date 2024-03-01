@@ -1,0 +1,41 @@
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+		{
+          	"id": "social_widget_id",
+            "type": "text",
+            "label": "Make section margins the same as theme",
+            "default": "none"
+        },
+		{
+          	"id": "social_product_id",
+            "type": "text",
+            "label": "Make section margins the same as theme",
+            "default": "none"
+        },
+		{
+          	"id": "social_widget_type",
+            "type": "text",
+            "label": "Make section margins the same as theme",
+            "default": "none"
+        }
+	],
+	"blocks": [
+      {
+        "type": "@app"
+      }
+    ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+{% if section.settings.social_widget_type == "product" %}
+<div class="social-widget-product-wrapper" data-product-id="{{ product.id }}"></div>
+{% else %}
+<div class="social-widget-wrapper" data-widget-id="{{ section.settings.social_widget_id }}"></div>
+{% endif %}

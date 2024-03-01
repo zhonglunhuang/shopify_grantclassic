@@ -1,0 +1,169 @@
+{%- assign active_accounts = 0 -%}
+
+{%- capture social_media -%}
+  {%- if settings.social_facebook != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--facebook">
+      <a href="{{ settings.social_facebook | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Facebook' }}">
+        {%- render 'icon' with 'facebook' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_twitter != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--twitter">
+      <a href="{{ settings.social_twitter | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Twitter' }}">
+        {%- render 'icon' with 'twitter' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_instagram != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--instagram">
+      <a href="{{ settings.social_instagram | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Instagram' }}">
+        {%- render 'icon' with 'instagram' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_pinterest != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--pinterest">
+      <a href="{{ settings.social_pinterest | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Pinterest' }}">
+        {%- render 'icon' with 'pinterest' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_youtube != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--youtube">
+      <a href="{{ settings.social_youtube | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'YouTube' }}">
+        {%- render 'icon' with 'youtube' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_tiktok != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--tiktok">
+      <a href="{{ settings.social_tiktok | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'TikTok' }}">
+        {%- render 'icon' with 'tiktok' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_xiaohongshu != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--xiaohongshu">
+      <a href="{{ settings.social_xiaohongshu | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="xiaohongshu">
+        {%- render 'icon' with 'xiaohongshu' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_vimeo != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--vimeo">
+      <a href="{{ settings.social_vimeo | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Vimeo' }}">
+        {%- render 'icon' with 'vimeo' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_linkedin != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--linkedin">
+      <a href="{{ settings.social_linkedin | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'LinkedIn' }}">
+        {%- render 'icon' with 'linkedin' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_snapchat != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--snapchat">
+      <a href="{{ settings.social_snapchat | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Snapchat' }}">
+        {%- render 'icon' with 'snapchat' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_tumblr != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--tumblr">
+      <a href="{{ settings.social_tumblr | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Tumblr' }}">
+        {%- render 'icon' with 'tumblr' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_fancy != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--fancy">
+      <a href="{{ settings.social_fancy | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Fancy' }}">
+        {%- render 'icon' with 'fancy' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_wechat != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--wechat">
+      <a href="{{ settings.social_wechat | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'WeChat' }}">
+        {%- render 'icon' with 'wechat' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_reddit != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--reddit">
+      <a href="{{ settings.social_reddit | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Reddit' }}">
+        {%- render 'icon' with 'reddit' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_line != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--line">
+      <a href="{{ settings.social_line | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'LINE' }}">
+        {%- render 'icon' with 'line' -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_spotify != blank -%}
+    {%- assign active_accounts = active_accounts | plus: 1 -%}
+
+    <li class="social-media__item social-media__item--spotify">
+      <a href="{{ settings.social_spotify | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" target="_blank" rel="noopener" class="social-media__link" aria-label="{{ 'general.social.follow_label' | t: social_media: 'Spotify' }}">
+        {%- render 'icon' with 'spotify' -%}
+      </a>
+    </li>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if social_media != blank -%}
+  <ul class="social-media {% if active_accounts > 3 %}social-media--no-radius{% endif %} list--unstyled" role="list">
+    {{ social_media }}
+  </ul>
+{%- endif -%}

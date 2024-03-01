@@ -1,0 +1,70 @@
+{% if section.settings.embed_size == 'centered' %}
+ <section class="page-width">
+   <div class="grid">
+     <div class="grid__item large--five-sixths push--large--one-twelfth text-center">
+       <div class="px-2 lg:px-4">
+         <div class="flex justify-center">
+           <div class="w-full lg:w-3/4">
+             <iframe src="https://www.closeby.co/embed/947504ddc6bbf282bff23a24ad154c5b" width="100%" height="700" style="border:none" allow="geolocation"></iframe>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+{% endif %}
+{% if section.settings.embed_size == 'centered_alt' %}
+ <section class="page-width">
+   <div class="wrapper">
+     <iframe src="https://www.closeby.co/embed/947504ddc6bbf282bff23a24ad154c5b" width="100%" height="700" style="border:none" allow="geolocation"></iframe>
+   </div>
+ </section>
+{% endif %}
+{% if section.settings.embed_size == 'full_width' %}
+ <section class="page-content page-full">
+   <iframe src="https://www.closeby.co/embed/947504ddc6bbf282bff23a24ad154c5b" width="100%" height="700" style="border:none" allow="geolocation"></iframe>
+ </section>
+{% endif %}
+{% if section.settings.embed_size == 'full_width_2' %}
+ <section>
+   <div class="px-2 lg:px-8">
+     <iframe src="https://www.closeby.co/embed/947504ddc6bbf282bff23a24ad154c5b" width="100%" height="700" style="border:none" allow="geolocation"></iframe>
+   </div>
+ </section>
+{% endif %}
+{% schema %}
+  {
+   "name": "Store Locator - Closeby",
+   "class": "closeby-embed-wrapper",
+   "settings": [
+     {
+       "type": "select",
+       "id": "embed_size",
+       "label": "Embed Size",
+       "options": [
+         {
+          "value": "centered",
+          "label": "Centered"
+        },
+        {
+          "value": "centered_alt",
+          "label": "Centered Alt"
+        },
+        {
+          "value": "full_width",
+          "label": "Full Width"
+        },
+        {
+          "value": "full_width_2",
+          "label": "Full Width Alt"
+        }
+      ],
+      "default": "centered"
+    }
+  ],
+  "presets": [{
+    "name": "Store Locator - Closeby",
+    "category": "Custom"
+  }]
+}
+{% endschema %}

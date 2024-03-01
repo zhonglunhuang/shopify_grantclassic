@@ -1,0 +1,130 @@
+{%- if section.settings.background_type == 'boxed' -%}
+  {%- assign is_boxed = true -%}
+{%- else -%}
+  {%- assign is_boxed = false -%}
+{%- endif -%}
+
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+  }
+</style>
+
+<section class="{% if section.settings.add_vertical_spacing %}section{% endif %} {% unless blends_with_background or is_boxed %}section--flush{% endunless %}">
+  <div {% if is_boxed %}class="container"{% endif %}>
+    <div class="section__color-wrapper {% if is_boxed %}section__color-wrapper--boxed{% endif %}">
+      <div class="{% unless is_boxed %}container{% endunless %} {% unless blends_with_background %}vertical-breather{% endunless %}">
+        {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+          <header class="section__header text-container">
+            {%- if section.settings.subheading != blank -%}
+              <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.title != blank -%}
+              <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+
+        {%- if section.settings.html != blank -%}
+          <div class="html">
+            {{- section.settings.html -}}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom HTML",
+  "class": "shopify-section--custom-html",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your title"
+    },
+    {
+      "type": "html",
+      "id": "html",
+      "label": "HTML",
+      "default": "<p style=\"text-align: center\">Write or copy/paste HTML code</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_vertical_spacing",
+      "label": "Add vertical spacing",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Background",
+      "options": [
+        {
+          "value": "full_width",
+          "label": "Full width"
+        },
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        }
+      ],
+      "default": "full_width"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom HTML"
+    }
+  ]
+}
+{% endschema %}

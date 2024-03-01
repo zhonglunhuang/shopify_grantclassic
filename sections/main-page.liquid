@@ -1,0 +1,68 @@
+<section>
+  <div class="container">
+    <div class="page-header">
+      <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb breadcrumb--floating text--xsmall hidden-phone">
+        <ol class="breadcrumb__list" role="list">
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a>
+          </li>
+
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__link" aria-current="page">{{ page.title }}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="page-header__text-wrapper text-container">
+        {%- if section.settings.show_title -%}
+          <h1 class="heading h2">{{ page.title }}</h1>
+        {%- endif -%}
+
+        {%- if template.suffix contains 'contact' or template.suffix contains 'faq' -%}
+          {{- page.content -}}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- unless template.suffix contains 'contact' or template.suffix contains 'faq' -%}
+      <div class="page-content page-content--{{ section.settings.page_width }} rte" id="ako-content">
+        {{- page.content -}}
+      </div>
+    {%- endunless -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page",
+  "class": "shopify-section--main-page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show page title",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "page_width",
+      "label": "Page width",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    }
+  ]
+}
+{% endschema %}

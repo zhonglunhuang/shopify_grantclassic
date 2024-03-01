@@ -1,0 +1,164 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+    --prev-next-button-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+    --prev-next-button-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+  }
+</style>
+
+<section class="section {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper {% unless blends_with_background %}vertical-breather vertical-breather--tight{% endunless %}">
+    <div class="container">
+      {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+        <header class="section__header text-container">
+          {%- if section.settings.subheading != blank -%}
+            <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <testimonial-list {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="testimonial-list">
+        <div class="testimonial-list__wrapper">
+          {%- for block in section.blocks -%}
+            <testimonial-item {% unless forloop.first %}hidden{% endunless %} id="block-{{ section.id }}-{{ block.id }}" class="testimonial" {{ block.shopify_attributes }}>
+              <blockquote class="testimonial__content blockquote">
+                <split-lines {% if section.settings.reveal_on_scroll or forloop.first == false %}reveal-visibility{% endif %}>{{ block.settings.content | escape }}</split-lines>
+              </blockquote>
+
+              {%- if block.settings.author != blank -%}
+                <p {% if section.settings.reveal_on_scroll or forloop.first == false %}reveal-visibility{% endif %} class="testimonial__author">{{ block.settings.author | escape }}</p>
+              {%- endif -%}
+            </testimonial-item>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="testimonial-list__nav">
+            <prev-next-buttons class="testimonial-list__prev-next-buttons prev-next-buttons prev-next-buttons--row hidden-phone">
+              <button class="testimonial-list__arrow prev-next-button prev-next-button--prev">
+                <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+                {%- include 'icon' with 'nav-arrow-left', direction_aware: true -%}
+              </button>
+
+              <button class="testimonial-list__arrow prev-next-button prev-next-button--next">
+                <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+                {%- include 'icon' with 'nav-arrow-right', direction_aware: true -%}
+              </button>
+            </prev-next-buttons>
+
+            <page-dots class="testimonial-list__dots dots-nav hidden-tablet-and-up">
+              {%- for block in section.blocks -%}
+                <button class="dots-nav__item tap-area" {% if forloop.first %}aria-current="true"{% endif %}">
+                  <span class="visually-hidden">{{ 'general.accessibility.go_to_slide' | t: num: forloop.index }}</span>
+                </button>
+              {%- endfor -%}
+            </page-dots>
+          </div>
+        {%- endif -%}
+      </testimonial-list>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "shopify-section--testimonials",
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content",
+          "default": "Write some content about what they are saying about your store.",
+          "info": "Section size will adjust to the tallest content. Try to keep each testimonial a similar size."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "John S."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "reveal_on_scroll",
+      "label": "Reveal on scroll",
+      "info": "Show animation when section becomes visible.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

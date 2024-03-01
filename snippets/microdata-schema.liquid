@@ -1,0 +1,216 @@
+{%- comment -%}
+This snippet structures the micro-data using JSON-LD specification. Please note that for Product especially,
+the schema often changes. We try to output as much info as possible, but Google may add new requirements over time,
+or change the format of some info
+{%- endcomment -%}
+
+{%- if request.page_type == 'product' -%}
+  {%- assign days_product_price_valid_until = 10 | times: 86400 -%}
+
+  {%- capture main_entity_microdata -%}
+    "@type": "Product",
+    "productID": {{ product.id | json }},
+    "offers": [
+      {%- for variant in product.variants -%}
+        {%- assign gtin_option = 'gtin' -%}
+        {%- if variant.barcode != blank -%}
+          {%- assign is_barcode_available = true -%}
+          {%- assign gtin_string_length = variant.barcode | size -%}
+
+          {%- if gtin_string_length == 8 or gtin_string_length == 12 or gtin_string_length == 13 or gtin_string_length == 14 -%}
+            {%- assign is_valid_gtin_length = true -%}
+            {%- assign gtin_option = gtin_option | append: gtin_string_length -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        {
+          "@type": "Offer",
+          "name": {{ variant.title | json }},
+          "availability": {%- if variant.available -%}"https://schema.org/InStock"{%- else -%}"https://schema.org/OutOfStock"{%- endif -%},
+          "price": {{ variant.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "priceValidUntil": "{{ 'now' | date: '%s' | plus: days_product_price_valid_until | date: '%Y-%m-%d' }}",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if is_barcode_available and is_valid_gtin_length %}
+            "{{ gtin_option }}": {{ product.selected_or_first_available_variant.barcode | json }},
+          {%- elsif is_barcode_available %}
+            "mpn": {{ product.selected_or_first_available_variant.barcode | json }},
+          {%- endif %}
+          "url": "{{ product.url }}?variant={{ variant.id }}"
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ],
+    {%- if product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value > 0 -%}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.reviews.rating.value }}",
+        "reviewCount": "{{ product.metafields.reviews.rating_count.value }}",
+        "worstRating": "{{ product.metafields.reviews.rating.value.scale_min }}",
+        "bestRating": "{{ product.metafields.reviews.rating.value.scale_max }}"
+      },
+    {%- endif -%}
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "name": {{ product.title | json }},
+    "description": {{ product.description | strip_html | json }},
+    "category": {{ product.type | json }},
+    "url": "{{ product.url }}",
+    "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:{{ page_image | image_url: width: 1024 }}",
+      "image": "https:{{ page_image | image_url: width: 1024 }}",
+      "name": {{ page_image.alt | json }},
+      "width": "1024",
+      "height": "1024"
+    }
+  {%- endcapture -%}
+{%- elsif request.page_type == 'article' -%}
+  {%- capture main_entity_microdata -%}
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "{{ article.url }}",
+    "articleSection": {{ blog.title | json }},
+    "keywords": "{{ article.tags | join: ', ' }}",
+    "headline": {{ article.title | json }},
+    "description": {{ article.excerpt_or_content | strip_html | truncatewords: 25 | json }},
+    "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%T' }}",
+    "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+    "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:{{ page_image | image_url: width: 1024 }}",
+      "image": "https:{{ page_image | image_url: width: 1024 }}",
+      "name": {{ page_image.alt | json }},
+      "width": "1024",
+      "height": "1024"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "{{ article.user.first_name | escape }} {{ article.user.last_name | escape }}",
+      "givenName": {{ article.user.first_name | json }},
+      "familyName": {{ article.user.last_name | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }}
+    },
+    "commentCount": {{ article.comments_count }},
+    "comment": [
+      {%- for comment in article.comments limit: 5 -%}
+        {
+          "@type": "Comment",
+          "author": {{ comment.author | json }},
+          "datePublished": "{{ comment.created_at | date: '%Y-%m-%dT%T' }}",
+          "text": {{ comment.content | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  {%- endcapture -%}
+{%- endif -%}
+
+{%- capture breadcrumb_entity_microdata -%}
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": {{ 'general.breadcrumb.home' | t | json }},
+      "item": "{{ shop.url }}"
+    }
+
+    {%- if request.page_type == 'product' -%}
+      {%- if collection -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": "{{ shop.url }}{{ collection.url }}"
+        }, {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ product.title | json }},
+          "item": "{{ shop.url }}{{ product.url }}"
+        }
+      {%- else -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ product.title | json }},
+          "item": "{{ shop.url }}{{ product.url }}"
+        }
+      {%- endif -%}
+    {%- elsif request.page_type == 'collection' -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": "{{ shop.url }}{{ collection.url }}"
+        }
+    {%- elsif request.page_type == 'blog' -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": "{{ shop.url }}{{ blog.url }}"
+        }
+    {%- elsif request.page_type == 'article' -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": "{{ shop.url }}{{ blog.url }}"
+        }, {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ blog.title | json }},
+          "item": "{{ shop.url }}{{ article.url }}"
+        }
+    {%- elsif request.page_type == 'page' -%}
+       ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ page.title | json }},
+          "item": "{{ shop.url }}{{ page.url }}"
+        }
+    {%- endif -%}
+  ]
+{%- endcapture -%}
+
+{% if main_entity_microdata != blank %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    {{ main_entity_microdata }}
+  }
+  </script>
+{% endif %}
+
+{% if breadcrumb_entity_microdata != blank %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    {{ breadcrumb_entity_microdata }}
+  }
+  </script>
+{% endif %}
+
+{%- if request.page_type == 'index' -%}
+  {%- assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | append: page.url | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+{%- endif -%}

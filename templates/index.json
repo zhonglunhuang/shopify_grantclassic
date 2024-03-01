@@ -1,0 +1,894 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RQmfLB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/VENT.webp",
+            "mobile_image": "shopify:\/\/shop_images\/VENT_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/products\/ventshield",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_CdPCAk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/octastans_2200x1130_84ee3a29-6c50-486b-90f5-dfd0826f6706.webp",
+            "mobile_image": "shopify:\/\/shop_images\/octastans_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/products\/octastand",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "7af7cfc2-babe-4830-9529-2233f2cb0d74": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/230801_lux_a3fd0ed9-0e2d-4c0b-923c-38fefffade98.webp",
+            "mobile_image": "shopify:\/\/shop_images\/230801_lux_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/collections\/pet-series",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "d833265b-a6f9-4556-96b3-46d91dbd29d9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner__1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/web_1106_phone-04.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/collections\/designer-phone-cases",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10
+          }
+        },
+        "b3f42f8f-dcd3-4867-8130-a475c6dc794e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/230823_gctag.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/collections\/gc-tag-series",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_RQmfLB",
+        "image_CdPCAk",
+        "7af7cfc2-babe-4830-9529-2233f2cb0d74",
+        "d833265b-a6f9-4556-96b3-46d91dbd29d9",
+        "b3f42f8f-dcd3-4867-8130-a475c6dc794e"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 10,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "765afadc-689a-40bb-97ce-e9bcbcc2ec2c": {
+      "type": "featured-collections",
+      "blocks": {
+        "template--16689333797107__765afadc-689a-40bb-97ce-e9bcbcc2ec2c-16690991383c981da7-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "全部的商品",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "f916e1de-8113-4e0c-a2d0-863cc4b790b7": {
+          "type": "collection",
+          "settings": {
+            "collection": "機車手機支架",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "972c889c-3abb-496e-9a40-8335094ffaf8": {
+          "type": "collection",
+          "settings": {
+            "collection": "汽車手機支架",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16689333797107__765afadc-689a-40bb-97ce-e9bcbcc2ec2c-16690991383c981da7-0",
+        "f916e1de-8113-4e0c-a2d0-863cc4b790b7",
+        "972c889c-3abb-496e-9a40-8335094ffaf8"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "products_count": 16,
+        "products_per_row": 5,
+        "stack_products": false,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "7e68dca3-ff9f-4904-8691-9940dedc83a5": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": false,
+        "image": "shopify:\/\/shop_images\/230511_3c68cf90-001c-49f3-b1d0-66bf03284978.webp",
+        "mobile_image": "shopify:\/\/shop_images\/230511_______phone_aa2b5a4c-0947-434b-bb8a-ef628fc736bd.webp",
+        "subheading": "LISTEN G1",
+        "title": "伍點壹",
+        "content": "",
+        "button_text": "more",
+        "button_link": "shopify:\/\/products\/listen-g1",
+        "background_type": "boxed",
+        "text_position": "left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_background_mobile": "#e3e3e3",
+        "text_color": "#ffffff",
+        "text_color_mobile": "#000000",
+        "button_background": "#eb3b3b",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "874de104-fc55-4f57-b89f-70e94f68f14b": {
+      "type": "collection-list",
+      "blocks": {
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "車輛用品",
+            "image": "shopify:\/\/shop_images\/content_car.png",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "手機周邊",
+            "image": "shopify:\/\/shop_images\/content_photo.png",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "gclife",
+            "image": "shopify:\/\/shop_images\/content_life.png",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-0",
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1",
+        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": false,
+        "layout": "carousel",
+        "subheading": "",
+        "title": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "16859436662a75d14b": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "13f4458f-160f-4c33-b18b-fc3a7c3651c9": {
+      "type": "logo-list",
+      "blocks": {
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-0": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_140.png",
+            "link": ""
+          }
+        },
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-1": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_142.png",
+            "link": ""
+          }
+        },
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-2": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_143.png",
+            "link": ""
+          }
+        },
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-3": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_144.png",
+            "link": ""
+          }
+        },
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-4": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_141.png",
+            "link": ""
+          }
+        },
+        "535d4cfd-62a1-4f23-b8f7-81ead9d5b6bf": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_140.png",
+            "link": ""
+          }
+        },
+        "10771017-b123-4d93-ae37-2fec5924b9b7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_142.png",
+            "link": ""
+          }
+        },
+        "28719faa-f3a6-4d83-987e-7dbc5fc4c402": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_143.png",
+            "link": ""
+          }
+        },
+        "6b72279c-d255-4b32-9797-1b88ed626b45": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_141.png",
+            "link": ""
+          }
+        },
+        "42e23cf2-1925-486f-9efb-eed545746937": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Rectangle_144.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-0",
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-1",
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-2",
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-3",
+        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-4",
+        "535d4cfd-62a1-4f23-b8f7-81ead9d5b6bf",
+        "10771017-b123-4d93-ae37-2fec5924b9b7",
+        "28719faa-f3a6-4d83-987e-7dbc5fc4c402",
+        "6b72279c-d255-4b32-9797-1b88ed626b45",
+        "42e23cf2-1925-486f-9efb-eed545746937"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "",
+        "button_text": "",
+        "button_link": "",
+        "stack_logos": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    },
+    "b59dcfbe-4bae-45a6-b105-4273ae088bcc": {
+      "type": "multi-column",
+      "blocks": {
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bcf4c263-176b-49de-826d-df6cf3091066.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>緩緩<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-緩緩聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/83ca8069-dc23-40c1-89d8-a861fa18ecba.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>摳迪捏妮八<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-摳迪捏妮八聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "d3321d93-ad59-41bb-a32c-92babc56d2ab": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3066b39c-1dc5-4493-966a-8a28ca55ecf1.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>倒呱 <\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-倒呱聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "c80d10a0-be17-45b5-85db-2148cfab2a43": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/86c27525-855f-4555-88e4-b95210d45a0f.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>虎豹屋敷<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-虎豹屋敷聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20230515_logo.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>双猫大藥房<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-双貓大藥房聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "af110b2f-ad71-4cd8-b258-f2850928f12a": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4c600f78-2709-48e5-9e24-57b01b538fa7.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>BOPOMOO<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-波波畝聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "582777f2-8b97-41a0-af7a-00b36278b329": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/18bf816e-cc08-4939-9938-c7c848f0b658.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>無謂君<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-無謂君聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_rp846x": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b5af73b4963a5b72632550b32074a6e5.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>MousyStory小鼠手札<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/mousystory小鼠手札",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "5352c4dc-f2ec-48db-b4f8-408ea871402d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/679f9053-31e9-4ced-ba5b-553da5dcf83f.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>小雞崴力<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-小雞威力聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "3032f7dd-666e-4e5a-937c-975cdfb44f4d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LINE_ALBUM__LOGO_231129_2.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>小室插畫<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-小室插畫聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "e3b5f7e2-9b4a-4965-b5e9-55e4cc458136": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/f263cf2578eb04bd46e652d893d05a93.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>麥考艾裘<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-麥考艾裘聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "8b6dedb2-74d1-4107-9210-d1a1d822e87b": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2f1beecd732f7a401642cf62a08a414b.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>醜白兔<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-醜白兔聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "a2c592b3-f3f6-468b-832a-fc8e6c432604": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/a92268f6f38b06303681662975ca4ff7.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>歐吉喵<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/gc-tag-設計款系列",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "dd750b77-7ee5-43f6-8b98-9e7311a305b0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/e6b1bc1996ac87e618d84ae2ec14c530.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>椪椪與好朋友<\/p>",
+            "link_text": "",
+            "link_url": "shopify:\/\/collections\/inficase-椪椪與好朋友聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-1",
+        "d3321d93-ad59-41bb-a32c-92babc56d2ab",
+        "c80d10a0-be17-45b5-85db-2148cfab2a43",
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2",
+        "af110b2f-ad71-4cd8-b258-f2850928f12a",
+        "582777f2-8b97-41a0-af7a-00b36278b329",
+        "item_rp846x",
+        "5352c4dc-f2ec-48db-b4f8-408ea871402d",
+        "3032f7dd-666e-4e5a-937c-975cdfb44f4d",
+        "e3b5f7e2-9b4a-4965-b5e9-55e4cc458136",
+        "8b6dedb2-74d1-4107-9210-d1a1d822e87b",
+        "a2c592b3-f3f6-468b-832a-fc8e6c432604",
+        "dd750b77-7ee5-43f6-8b98-9e7311a305b0"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "聯名系列",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "small",
+        "spacing": "tight",
+        "background": "#f5f5f5",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "6fedb7c0-954d-45a4-b1e0-cca7bdd60907": {
+      "type": "multi-column",
+      "blocks": {
+        "c7520525-c55c-4bc8-88ac-73058e2b452f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/jin-2.webp",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Jin",
+            "content": "<p>全明星女戰神<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "209ae051-d206-483f-b412-ecdd5f2814c0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/344405459_964161451381461_6888048044111003860_n.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "呂捷",
+            "content": "<p>補教名師<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "2ec40456-d17b-4665-bbe3-959022f4fb03": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/325766729_1657849591315159_7067246353563675149_n.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "薔薔",
+            "content": "<p>冶豔派女神<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "a8a307ba-3e41-4c3a-97ac-9c5404d4066e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/151266280_273029390856965_1393062254274771099_n_1.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "艾爾文",
+            "content": "<p>質感生活<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "143d2dbe-e077-40d2-b6a5-5e186a65c945": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_5_-2.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "亞亞",
+            "content": "<p>檔車女神<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "ac9dfb1f-c6cc-4295-961a-941e4f0bc021": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC07989.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "七七",
+            "content": "<p>新星檔車女孩<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "6cfc1d91-f8c7-46ba-bf70-08912f5c6089": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_4318_PNG.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "宇恩",
+            "content": "<p>科技女神<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "41492a9c-19f7-4496-bcab-91424b645813": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/177236284_313058670187001_7408612130173619750_n_1.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "廖阿輝",
+            "content": "<p>3c達人<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "d3c35cf4-4fed-458b-8382-634668debe38": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/db54957ece2571eb1b989e747a7f1161.webp",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "科技狗 3C Dog",
+            "content": "<p>超主觀測評主<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "bb1bbd15-3829-4866-a728-a07ebb2a6c63": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/02.webp",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "騎士A",
+            "content": "<p>小市民日常<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "c7520525-c55c-4bc8-88ac-73058e2b452f",
+        "209ae051-d206-483f-b412-ecdd5f2814c0",
+        "2ec40456-d17b-4665-bbe3-959022f4fb03",
+        "a8a307ba-3e41-4c3a-97ac-9c5404d4066e",
+        "143d2dbe-e077-40d2-b6a5-5e186a65c945",
+        "ac9dfb1f-c6cc-4295-961a-941e4f0bc021",
+        "6cfc1d91-f8c7-46ba-bf70-08912f5c6089",
+        "41492a9c-19f7-4496-bcab-91424b645813",
+        "d3c35cf4-4fed-458b-8382-634668debe38",
+        "bb1bbd15-3829-4866-a728-a07ebb2a6c63"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "名人推薦",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "small",
+        "desktop_item_size": "medium",
+        "spacing": "normal",
+        "background": "#f5f5f5",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "6d89abc7-9266-4b55-85e1-e2bcf3677628": {
+      "type": "testimonials",
+      "blocks": {
+        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "content": "Write some content about what they are saying about your store.",
+            "author": "John S."
+          }
+        },
+        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "content": "Write some content about what they are saying about your store.",
+            "author": "John S."
+          }
+        }
+      },
+      "block_order": [
+        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-2",
+        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "7d84e4df-aaa1-44f6-8bc5-aff4537010f6": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<script src=\"https:\/\/static.elfsight.com\/platform\/platform.js\" data-use-service-core defer><\/script>\n<div class=\"elfsight-app-93a7688b-b3f7-46a7-9f56-ca89ffa46e25\"><\/div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "8550440c-db8a-41c3-808a-e9ef4d695f17": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/230512_all_29f7b6ec-b100-400c-a1ef-d58da2bcd130.webp",
+        "mobile_image": "shopify:\/\/shop_images\/230512_all___phone_d022d177-9bb0-47c8-9134-ed698c47b461.webp",
+        "subheading": "grantclassic",
+        "title": "打造經典體驗",
+        "content": "<p>全系列商品熱買中<\/p>",
+        "button_text": "Learn more",
+        "button_link": "",
+        "background_type": "boxed",
+        "text_position": "left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_background_mobile": "#e3e3e3",
+        "text_color": "#ffffff",
+        "text_color_mobile": "#2d2d2d",
+        "button_background": "#eb3b3b",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "1705591464ca06d95f": {
+      "type": "apps",
+      "blocks": {
+        "vitals_insta_feed_j4PzWU": {
+          "type": "shopify:\/\/apps\/vitals\/blocks\/insta-feed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vitals_insta_feed_j4PzWU"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "c273c071-0a39-4516-9587-6b49b8a635a6": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "gc-blog",
+        "subheading": "",
+        "title": "Blog",
+        "button_text": "查看更多",
+        "articles_count": 3,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
+    "7e68dca3-ff9f-4904-8691-9940dedc83a5",
+    "874de104-fc55-4f57-b89f-70e94f68f14b",
+    "16859436662a75d14b",
+    "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
+    "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
+    "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
+    "6d89abc7-9266-4b55-85e1-e2bcf3677628",
+    "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
+    "8550440c-db8a-41c3-808a-e9ef4d695f17",
+    "1705591464ca06d95f",
+    "c273c071-0a39-4516-9587-6b49b8a635a6"
+  ]
+}

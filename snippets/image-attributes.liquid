@@ -1,0 +1,57 @@
+{%- comment -%}
+This snippet outputs all the necessary attributes to the image tag for creating lazyloading. You need to output it
+as part of an image tag, by passing to it the required sizes:
+
+<img {% render 'image-attributes', image: image, sizes: '200,300,400' %} />
+
+We can also pass the "native" attribute to true. This will actually generate attributes for the native lazyloading
+instead of lazysizes
+{%- endcomment -%}
+
+{%- assign desired_sizes = sizes | remove: ' ' | split: ',' -%}
+{%- assign supported_sizes = '' -%}
+
+{%- for size in desired_sizes -%}
+  {%- assign size_as_int = size | times: 1 -%}
+
+  {%- if image.width <= size_as_int -%}
+    {%- assign supported_sizes = supported_sizes | append: image.width -%}
+    {%- break -%}
+  {%- endif -%}
+
+  {%- assign supported_sizes = supported_sizes | append: size | append: ',' -%}
+{%- endfor -%}
+
+{%- comment -%}
+  If we have no single size which matches, we at least set the maximum width of the image, so that there at least
+  something that is displayed on the screen.
+{%- endcomment -%}
+
+{%- if supported_sizes == blank -%}
+  {%- assign supported_sizes = image.width -%}
+{%- endif -%}
+
+{%- assign supported_sizes = supported_sizes | split: ',' | compact -%}
+{%- assign src_list = '' -%}
+
+{%- for supported_size in supported_sizes -%}
+  {%- if height_constraint -%}
+    {%- assign size_descriptor = supported_size | append: 'x' | append: height_constraint -%}
+  {%- else -%}
+    {%- assign size_descriptor = supported_size | append: 'x' -%}
+  {%- endif -%}
+
+  {%- capture src_list -%}{{ src_list }}{{ image | img_url: size_descriptor, crop: crop }} {{ supported_size }}w{% unless forloop.last %}, {% endunless %}{%- endcapture -%}
+{%- endfor -%}
+
+{%- if height_constraint -%}
+  {%- assign biggest_size_descriptor = supported_sizes | last | append: 'x' | append: height_constraint -%}
+{%- else -%}
+  {%- assign biggest_size_descriptor = supported_sizes | last | append: 'x' -%}
+{%- endif -%}
+
+{%- if sizes_only -%}
+  {{ src_list }}
+{%- else -%}
+  height="{{ image.height }}" width="{{ image.width }}" alt="{{ alt | default: image.alt | escape }}" {% unless ignore_src %}src="{{ image | img_url: biggest_size_descriptor, crop: crop }}"{% endunless %} srcset="{{ src_list }}"
+{%- endif -%}

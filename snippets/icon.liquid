@@ -1,0 +1,528 @@
+{%- capture icon_class -%}icon icon--{{ icon }} {% if inline %}icon--inline{% endif %} {% if direction_aware %}icon--direction-aware{% endif %} {{ class }}{%- endcapture -%}
+
+{%- case icon -%}
+  {%- comment -%} UI {%- endcomment -%}
+    {%- when 'nav-arrow-left' -%}
+      <svg focusable="false" width="{{ width | default: 17 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 17 14">
+        <path d="M17 7H2M8 1L2 7l6 6" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" fill="none"></path>
+      </svg>
+
+    {%- when 'nav-arrow-right' -%}
+      <svg focusable="false" width="{{ width | default: 17 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 17 14">
+        <path d="M0 7h15M9 1l6 6-6 6" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" fill="none"></path>
+      </svg>
+
+    {%- when 'nav-arrow-left-small' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 12 }}" height="{{ height | default: 10 }}" class="{{ icon_class }}" viewBox="0 0 12 10">
+        <path d="M12 5L2.25 5M2.25 5L6.15 9.16M2.25 5L6.15 0.840001" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'nav-arrow-right-small' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 12 }}" height="{{ height | default: 10 }}" class="{{ icon_class }}" viewBox="0 0 12 10">
+        <path d="M-3.63679e-07 5L9.75 5M9.75 5L5.85 9.16M9.75 5L5.85 0.840001" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'chevron' -%}
+      <svg focusable="false" width="{{ width | default: 12 }}" height="{{ height | default: 8 }}" class="{{ icon_class }}" viewBox="0 0 12 8">
+        <path fill="none" d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'chevron-back' -%}
+      <svg focusable="false" width="{{ width | default: 8 }}" height="{{ height | default: 12 }}" class="{{ icon_class }}" viewBox="0 0 8 12">
+        <path fill="none" d="M7 1L2 6L7 11" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'dropdown-arrow-right' -%}
+      <svg focusable="false" width="{{ width | default: 7 }}" height="{{ height | default: 10 }}" class="{{ icon_class }}" viewBox="0 0 7 10">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.9394 5L0.469727 1.53033L1.53039 0.469666L6.06072 5L1.53039 9.53032L0.469727 8.46967L3.9394 5Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'close' -%}
+      <svg focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 14 14">
+        <path d="M13 13L1 1M13 1L1 13" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" fill="none"></path>
+      </svg>
+
+    {%- when 'check' -%}
+      <svg focusable="false" width="{{ width | default: 32 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 32 32">
+        <path d="M24.59 8L12.9885 20.6731L7.31806 15.1819L6 16.6956L12.3755 22.8792L13.0805 23.5556L13.7395 22.8309L26 9.43318L24.59 8Z" stroke="currentColor"></path>
+      </svg>
+
+    {%- when 'minus' -%}
+      <svg focusable="false" width="{{ width | default: 8 }}" height="{{ height | default: 2 }}" class="{{ icon_class }}" viewBox="0 0 8 2">
+        <path fill="currentColor" d="M0 0h8v2H0z"></path>
+      </svg>
+
+    {%- when 'plus' -%}
+      <svg focusable="false" width="{{ width | default: 8 }}" height="{{ height | default: 8 }}" class="{{ icon_class }}" viewBox="0 0 8 8">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5v3h2V5h3V3H5V0H3v3H0v2h3z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'minus-big' -%}
+      <svg focusable="false" width="{{ width | default: 10 }}" height="{{ height | default: 2 }}" class="{{ icon_class }}" viewBox="0 0 10 2">
+        <path fill="currentColor" d="M0 0h10v2H0z"></path>
+      </svg>
+
+    {%- when 'plus-big' -%}
+      <svg focusable="false" width="{{ width | default: 10 }}" height="{{ height | default: 10 }}" class="{{ icon_class }}" viewBox="0 0 10 10">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6v4h2V6h4V4H6V0H4v4H0v2h4z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'form-success' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 26 }}" class="{{ icon_class }}" viewBox="0 0 18 26">
+        <circle fill="none" cx="9" cy="13" r="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+        <path fill="none" d="M5 13l3 3 5-6" stroke="currentColor" stroke-width="1.5"></path>
+      </svg>
+
+    {%- when 'form-error' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 26 }}" class="{{ icon_class }}" viewBox="0 0 18 26">
+        <circle cx="9" cy="13" r="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></circle>
+        <path d="M8.993 15.262a.972.972 0 00-.979.968c0 .539.44.99.98.99a.99.99 0 00.978-.99.972.972 0 00-.979-.968zm-.78-.649h1.561V8.706H8.212v5.907z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'filters' -%}
+      <svg focusable="false" width="{{ width | default: 16 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 16 16">
+        <path d="M0 4h16M0 12h16" fill="none" stroke="currentColor" stroke-width=""></path>
+        <circle cx="5" cy="4" r="2" fill="rgb(var(--background))" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+        <circle cx="11" cy="12" r="2" fill="rgb(var(--background))" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+      </svg>
+
+    {%- when 'product-tab-left' -%}
+      <svg focusable="false" width="{{ width | default: 6 }}" height="{{ height | default: 9 }}" class="{{ icon_class }}" viewBox="0 0 6 9">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.554 4.5L6 1.054 4.946 0l-4.5 4.5 4.5 4.5L6 7.946 2.554 4.5z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'product-tab-right' -%}
+      <svg focusable="false" width="{{ width | default: 6 }}" height="{{ height | default: 9 }}" class="{{ icon_class }}" viewBox="0 0 6 9">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.446 4.5L0 1.054 1.054 0l4.5 4.5-4.5 4.5L0 7.946 3.446 4.5z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'image-zoom' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 14 14">
+        <path d="M9.50184 9.50184C11.4777 7.52595 11.5133 4.358 9.58134 2.42602C7.64936 0.494037 4.48141 0.529632 2.50552 2.50552C0.529632 4.48141 0.494037 7.64936 2.42602 9.58134C4.358 11.5133 7.52595 11.4777 9.50184 9.50184ZM9.50184 9.50184L13 13" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'spinner' -%}
+      <svg focusable="false" width="{{ width | default: 50 }}" height="{{ height | default: 50 }}" class="{{ icon_class }}" viewBox="25 25 50 50">
+        <circle cx="50" cy="50" r="20" fill="none" stroke="{{ settings.text_color }}" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}"></circle>
+      </svg>
+
+    {%- when 'discount-badge' -%}
+      <svg focusable="false" width="{{ width | default: 10 }}" height="{{ height | default: 10 }}" class="{{ icon_class }}" viewBox="0 0 10 10">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.93734 1.1171C9.97075 0.521457 9.47854 0.0292498 8.88291 0.0626607L5.39562 0.258271C5.15016 0.27204 4.91836 0.375751 4.74452 0.549595L0.707107 4.58701C0.316582 4.97753 0.316583 5.6107 0.707107 6.00122L3.99878 9.29289C4.3893 9.68342 5.02247 9.68342 5.41299 9.29289L9.4504 5.25548C9.62425 5.08163 9.72796 4.84984 9.74173 4.60438L9.93734 1.1171ZM7.05882 2.94118C7.3837 3.26605 7.91042 3.26605 8.23529 2.94118C8.56017 2.6163 8.56017 2.08958 8.23529 1.76471C7.91042 1.43983 7.3837 1.43983 7.05882 1.76471C6.73395 2.08958 6.73395 2.6163 7.05882 2.94118Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'play' -%}
+      <svg focusable="false" width="{{ width | default: 104 }}" height="{{ height | default: 104 }}" class="{{ icon_class }}" viewBox="0 0 104 104">
+        <path opacity="0.9" d="M52 104C80.7188 104 104 80.7188 104 52C104 23.2812 80.7188 0 52 0C23.2812 0 0 23.2812 0 52C0 80.7188 23.2812 104 52 104Z" fill="rgb(var(--play-button-background))"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M46 65V39L62 52L46 65Z" fill="rgb(var(--play-button-arrow))"></path>
+      </svg>
+
+    {%- when 'share' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 18 }}" class="{{ icon_class }}" viewBox="0 0 18 18">
+        <path d="M17 1l-5.6 16-3.2-7.2M17 1L1 6.6l7.2 3.2M17 1L8.2 9.8" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'header-hamburger' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 18 14">
+        <path d="M0 1h18M0 13h18H0zm0-6h18H0z" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'header-search' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 18 }}" class="{{ icon_class }}" viewBox="0 0 18 18">
+        <path d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'header-customer' -%}
+      <svg focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 17 }}" class="{{ icon_class }}" viewBox="0 0 18 17">
+        <circle cx="9" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linejoin="round"></circle>
+        <path d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'header-cart' -%}
+      <svg focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 18 }}" class="{{ icon_class }}" viewBox="0 0 20 18">
+        <path d="M3 1h14l1 16H2L3 1z" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M7 4v0a3 3 0 003 3v0a3 3 0 003-3v0" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'header-shopping-cart' -%}
+      <svg focusable="false" width="{{ width | default: 21 }}" height="{{ height | default: 20 }}" class="{{ icon_class }}" viewBox="0 0 21 20">
+        <path d="M0 1H4L5 11H17L19 4H8" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <circle cx="6" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+        <circle cx="16" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+      </svg>
+
+    {%- when 'header-tote-bag' -%}
+      <svg focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 19 }}" class="{{ icon_class }}" viewBox="0 0 20 19">
+        <path d="M3 7H17L18 18H2L3 7Z" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M13 4V4C13 2.34315 11.6569 1 10 1V1C8.34315 1 7 2.34315 7 4V4" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'header-email' -%}
+      <svg focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 20 16">
+        <path d="M19 4l-9 5-9-5" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path stroke="currentColor" fill="none" stroke-width="{{ settings.icon_stroke_width }}" d="M1 1h18v14H1z"></path>
+      </svg>
+
+    {%- when 'quick-buy-shopping-bag' -%}
+      <svg focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" fill="none" viewBox="0 0 24 24">
+        <path d="M14 4H5L4 20H20C19.7517 16.0273 19.375 10 19.375 10" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M9 7V7C9 8.65685 10.3431 10 12 10V10C13.6569 10 15 8.65685 15 7V7" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M20 0V8M16 4H24" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'quick-buy-shopping-cart' -%}
+      <svg focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" fill="none" viewBox="0 0 24 24">
+        <path d="M1 3H5L6 13H18L20 6H18" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <circle cx="7" cy="19" r="2" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+        <circle cx="17" cy="19" r="2" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+        <path d="M12 2V10M8 6H16" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'quick-buy-tote-bag' -%}
+      <svg ffocusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" fill="none" viewBox="0 0 24 24">
+        <path d="M14 20H4L5 9H19L19.4545 14" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M20 16V24M16 20H24" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M15 6V6C15 4.34315 13.6569 3 12 3V3C10.3431 3 9 4.34315 9 6V6" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'lock' -%}
+      <svg focusable="false" width="{{ width | default: 17 }}" height="{{ height | default: 17 }}" class="{{ icon_class }}" viewBox="0 0 17 17">
+        <path d="M2.5 7V15H14.5V7H2.5Z" stroke="currentColor" stroke-width="1.5" fill="none"></path>
+        <path d="M5.5 4C5.5 2.34315 6.84315 1 8.5 1V1C10.1569 1 11.5 2.34315 11.5 4V7H5.5V4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        <circle cx="8.5" cy="11" r="0.5" stroke="currentColor"></circle>
+      </svg>
+
+    {%- when 'comment' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 17 }}" class="{{ icon_class }}" viewBox="0 0 18 17">
+        <path d="M5 5.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M6 8.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M13 13V16L9 13H4C3 13 1 12 1 10V4C1 2 3 1 5 1H13C15 1 17 2 17 4V10C17 12 14.3333 12.8333 13 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'rating-star' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 14 13">
+        <path d="M7 0L8.6458 4.73475L13.6574 4.83688L9.66296 7.86525L11.1145 12.6631L7 9.8L2.8855 12.6631L4.33704 7.86525L0.342604 4.83688L5.3542 4.73475L7 0Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'rating-star-half' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 14 13">
+        <path d="M7 0L8.6458 4.73475L13.6574 4.83688L9.66296 7.86525L11.1145 12.6631L7 9.8L2.8855 12.6631L4.33704 7.86525L0.342604 4.83688L5.3542 4.73475L7 0Z" fill="url(#rating-star-gradient-half)"></path>
+      </svg>
+
+  {%- comment -%} PICTO LIBRARY (mostly used in the text with icons section) {%- endcomment -%}
+    {%- when 'picto-coupon' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M13.7279 21.7279L21.5061 13.9498L11.8994 4.34307L4.88909 5.11091L4.12124 12.1212L13.7279 21.7279Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <circle cx="9.48527" cy="9.70712" r="1.5" transform="rotate(-45 9.485 9.707)" fill="currentColor"></circle>
+      </svg>
+
+    {%- when 'picto-gift' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M19 11V21H12M19 11H5M19 11H21V7.00003H16.5M5 11V21H12M5 11H3V7.00003H7.5M12 7.00003V21M12 7.00003H7.5M12 7.00003C12 3.00003 6 1.50012 6 4.5C6 6.1 7.5 7.00003 7.5 7.00003M12 7.00003H16.5M12 7.00003C12 3 18 1.5 18 4.5C18 6 16.5 7.00003 16.5 7.00003" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-taxes' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" d="M4 2H20V22H4z"></path>
+        <path d="M16 14H8" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M8 17H16" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M9 11L15 6" stroke="currentColor" stroke-width="1.7"></path>
+        <circle cx="14" cy="11" r="1" fill="currentColor"></circle>
+        <circle cx="10" cy="6" r="1" fill="currentColor"></circle>
+      </svg>
+
+    {%- when 'picto-warranty' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M5.25463 14C4.15672 12.6304 3.5 10.8919 3.5 9C3.5 4.58172 7.08172 1 11.5 1C15.9183 1 19.5 4.58172 19.5 9C19.5 10.8919 18.8433 12.6304 17.7454 14M5.25463 14L1.5 20L4.5 19L5.5 22L8.5 16.4185M5.25463 14C6.15126 15.1185 7.13226 15.9095 8.5 16.4185M8.5 16.4185C9.36872 16.7418 10.5187 17 11.5 17C12.5609 17 13.5736 16.7935 14.5 16.4185M17.7454 14L21.5 20L18.5 19L17.5 22L14.5 16.4185M17.7454 14C16.8949 15.0609 15.7797 15.9005 14.5 16.4185" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M8 9.72727L10.1473 12L14.5 7" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-like' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M7 12C7 12 8.9651 9.23453 10.12 7.65373C12.0709 4.98336 13.24 2.21639 15.32 3.20499C17.4 4.1936 15 9 15 9H18C19.1046 9 20 9.89543 20 11V18C20 19.1046 19.106 20 18.0014 20C15.9184 20 12.5523 20 9.6 20C8.53049 20 7 18 7 18M7 12V18M7 12C7 11 7 10 5.5 10C4 10 4 11 4 12V18C4 19 4 20 5.5 20C7 20 7 19 7 18" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-store' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M21.125 6L20 3H4L2.875 6M21.125 6L21.5 7C21.5 7 21.5 8.75 20.5 9.625C20.3366 9.76798 20.1692 9.88453 20 9.97831M21.125 6H2.875M2.875 6L2.5 7C2.5 7 2.5 8.75 3.5 9.625C3.66341 9.76798 3.83078 9.88453 4 9.97831M4 9.97831C5.66138 10.899 7.5 9.625 7.5 9.625C7.5 9.625 8.5 10.5 9.5 10.5C10.5 10.5 12 9.625 12 9.625C12 9.625 13.5 10.5 14.5 10.5C15.5 10.5 16.5 9.625 16.5 9.625C16.5 9.625 18.3386 10.899 20 9.97831M4 9.97831V21H10M20 9.97831V21H14M10 21V14H14V21M10 21H14" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-love' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M11.7141 20.1725C11.7141 20.1725 7.64436 17.2238 4.97562 13.4339C2.58295 10.0361 2.28013 6.41376 4.52636 4.89846C8.9513 1.91339 11.714 8.85173 11.714 8.85173" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M11.714 20.1725C11.714 20.1725 15.9102 17.1944 18.6618 13.3667C21.1288 9.93486 21.441 6.27638 19.125 4.74594C14.5627 1.73106 11.714 8.82942 11.714 8.82942" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-donation' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M5 15.5C5 15.5 8.11463 14 9.34087 14C10.5671 14 11.7271 14.552 12.2044 14.9378C13.7719 16.2049 16.6407 14.2436 16.977 16.2078M5 15.5C5 15 4.5 14 3.5 14C2.5 14 2 15 2 15.5C2 16.8333 2 18.7 2 19.5C2 20 2.5 21 3.5 21C4.5 21 5 20 5 19.5C5 18.7 5 18.8333 5 18.5M5 15.5V18.5M16.977 16.2078C17.3871 18.6025 12.1843 17.9293 11.2498 17.8637M16.977 16.2078C19.318 14.4719 21.3626 14.0192 21.5 14.5C22.5 18 18 21 13 21C9 21 6 19.3333 5 18.5" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round"></path>
+        <path d="M17.5 4.49995C17.5 6.89995 13.8333 10.1666 12 11.5C10.1667 10.3333 6.5 7.29995 6.5 4.49995C6.5 0.999954 11 1 12 4.99995C13 1 17.5 1 17.5 4.49995Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-store-pickup' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M14.1412 7.01042C14.8428 9.90625 18 13 18 13C18 13 21.1572 9.90625 21.8588 7.01042C22.5605 4.11458 20.5483 2 18 2C15.4517 2 13.4395 4.11458 14.1412 7.01042Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="18" cy="6" r="1.5" fill="currentColor"></circle>
+        <path d="M12.3684 11.0833C11.421 11.0833 9.99998 10.2569 9.99998 10.2569C9.99998 10.2569 8.57893 11.0833 7.63156 11.0833C6.68419 11.0833 5.73682 10.2569 5.73682 10.2569C5.73682 10.2569 4.57392 11.8696 2.99998 11M1 7V8C1 8 0.999981 9.43056 1.94735 10.2569C2.10216 10.392 2.99998 11 2.99998 11M1 7L2.99998 4H11M1 7H11M2.99998 11V21H7.99998M7.99998 21V15H12V21M7.99998 21H12M12 21H17V16" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-box' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M12 21L21 17.1429V6.85714M12 21L3 17.1429V6.85714M12 21V10.7143M21 6.85714L12 3L3 6.85714M21 6.85714L12 10.7143M3 6.85714L12 10.7143" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'picto-address' -%}
+      <svg focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill="none" d="M5.24704 11.1098C6.47491 16.375 12 22 12 22C12 22 17.5252 16.375 18.753 11.1098C19.9808 5.8447 16.4595 2 12 2C7.54045 2 4.01918 5.8447 5.24704 11.1098Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path fill="none" d="M14.5 9.37803C14.5 10.8636 13.3472 12.0061 12 12.0061C10.6528 12.0061 9.5 10.8636 9.5 9.37803C9.5 7.89244 10.6528 6.75 12 6.75C13.3472 6.75 14.5 7.89244 14.5 9.37803Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'picto-address-pin' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M14 2.27035C13.3656 2.09317 12.6942 2 12 2C7.54045 2 4.01918 5.8447 5.24704 11.1098C6.47491 16.375 12 22 12 22C12 22 17.5252 16.375 18.753 11.1098C18.841 10.7323 18.9046 10.362 18.9453 10" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M14.5 9.37803C14.5 10.8636 13.3472 12.0061 12 12.0061C10.6528 12.0061 9.5 10.8636 9.5 9.37803C9.5 7.89244 10.6528 6.75 12 6.75C13.3472 6.75 14.5 7.89244 14.5 9.37803Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M20 0V8M16 4H24" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'picto-fast-delivery' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 29 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 29 24">
+        <path d="M4 3H20V8M20 17H11.68C11.68 17 11 16 10 16M20 17V8M20 17H22.32M20 8H26.5L28 12.5V17H25.68C25.68 17 25 16 24 16M24 16C25 16 26 17 26 18C26 19 25 20 24 20C23 20 22 19 22 18C22 17.6527 22.1206 17.3054 22.32 17M24 16C23.3473 16 22.6946 16.426 22.32 17M10 16C11 16 12 17 12 18C12 19 11 20 10 20C9 20 8 19 8 18C8 17.6527 8.12061 17.3054 8.31996 17M10 16C9.3473 16 8.69459 16.426 8.31996 17M8.31996 17H4M10 12H3M10 8H1" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-delivery-truck' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 26 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 26 24">
+        <path d="M17 17H8.68004C8.68004 17 8 16 7 16M17 17V8M17 17H19.32M17 8V3H1V17H5.31996M17 8H23.5L25 12.5V17H22.68C22.68 17 22 16 21 16M21 16C22 16 23 17 23 18C23 19 22 20 21 20C20 20 19 19 19 18C19 17.6527 19.1206 17.3054 19.32 17M21 16C20.3473 16 19.6946 16.426 19.32 17M7 16C8 16 9 17 9 18C9 19 8 20 7 20C6 20 5 19 5 18C5 17.6527 5.12061 17.3054 5.31996 17M7 16C6.3473 16 5.69459 16.426 5.31996 17" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-return-box' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 32 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 32 24">
+        <path d="M20 21L29 17.1429V6.85714M20 21L11 17.1429V16M20 21V10.7143M29 6.85714L20 3L11 6.85714M29 6.85714L20 10.7143M11 6.85714L20 10.7143M11 6.85714V10" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <path d="M13 13L2 13M2 13L7.2 18.2M2 13L7.2 7.79998" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'picto-worldwide' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M12 2C15.2712 2 18.1755 3.57069 20 5.99902M12 2L13 6L15 8L17.5 7.5L20 5.99902M12 2C9.51846 2 7.24803 2.9039 5.5 4.40041M20 5.99902C21.2558 7.67051 22 9.74835 22 12C22 17.5228 17.5228 22 12 22C9.27455 22 6.80375 20.9097 5 19.1414M5.5 4.40041C3.35767 6.2345 2 8.9587 2 12C2 14.7974 3.14864 17.3265 5 19.1414M5.5 4.40041L9 7.5L8.5 10L5 12L6.5 14L7.5 16L6 17.5L5 19.1414M15 11L17 11.5L18 13L16 17L14 18L12 17L12.5 15L12 13L13.5 11.5L15 11Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-plane' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M6.97237 16.055C6.97237 16.055 2.61466 14.0886 2.2194 13.6934C1.42889 12.9028 2.96464 11.4234 3.81695 11.3054C5.47613 11.0756 7.60445 11.9045 7.60445 11.9045L10.5733 8.14516L4.2451 3.76251C4.2451 3.76251 5.02592 2.50249 5.8393 2.1683C8.07975 1.24779 12.329 4.35955 14.558 5.3073C14.558 5.3073 15.8187 3.59736 16.9493 2.916C18.9388 1.71705 20.1246 2.90282 20.1246 2.90282M6.94497 16.0276C6.94497 16.0276 8.91138 20.3853 9.30664 20.7806C10.0972 21.5711 11.5766 20.0354 11.6946 19.1831C11.9244 17.5239 10.5221 14.8221 10.5221 14.8221L14.2814 11.8533L19.2375 18.7549C19.2375 18.7549 20.4975 17.9741 20.8317 17.1607C21.7522 14.9203 18.6405 10.671 17.6927 8.44197C17.6927 8.44197 19.4026 7.18126 20.084 6.05066C21.283 4.06119 20.0972 2.87542 20.0972 2.87542" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round"></path>
+      </svg>
+
+    {%- when 'picto-credit-card' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M23 8V4H1V8M23 8V20H1V8M23 8H1M5 12H8M19 12V16H12V12H19Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-lock' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C13.1046 17 14 16.1046 14 15C14 13.8954 13.1046 13 12 13C10.8954 13 10 13.8954 10 15C10 16.1046 10.8954 17 12 17Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M16 8H21V22H3V8H8M16 8C16 8 16 7.6 16 6C16 4 14.5 2 12 2C9.5 2 8 4 8 6C8 7.6 8 8 8 8M16 8H8" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-secure-payment' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M4 18H1V6M4 18V16H6M4 18V22H11V18M6 16C6 15.6667 6 15.3 6 14.5C6 13.5 6.73438 13 7.5 13C8.26562 13 9 13.5 9 14.5C9 15.3 9 15.6667 9 16M6 16H9M9 16H11V18M11 18H23V6M1 6V2H23V6M1 6H23M9 10H5M19 10V14H13V10H19Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-shield' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M12 3C9.3 4.8 5.7 6 3 6C3 7.82938 3.02264 9.25876 3.5 11M12 3C14.7 4.8 18.3 6 21 6C21 7.82938 20.9774 9.25876 20.5 11M12 3V21M12 21C7.52938 19.084 4.66657 15.2552 3.5 11M12 21C16.4706 19.084 19.3334 15.2552 20.5 11M3.5 11H20.5" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-mobile' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M7.625 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2H16.375M7.625 2L8.47402 2.61747C8.81586 2.86608 9.22768 3 9.65037 3H14.3496C14.7723 3 15.1841 2.86608 15.526 2.61747L16.375 2M7.625 2H16.375" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+        <circle r="1" transform="matrix(-1 0 0 1 12 17)" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></circle>
+      </svg>
+
+    {%- when 'picto-phone' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6636 16.7325L17.6844 13.7366C17.2337 13.2827 16.4999 13.2827 16.048 13.7343L13.4005 16.3802L7.62246 10.6056L10.2734 7.95613C10.7241 7.5057 10.7253 6.77463 10.2746 6.32305L7.29311 3.33869C6.84126 2.8871 6.10976 2.8871 5.65791 3.33869L3.00462 5.98927L3 5.9858C3 14.2783 9.72568 21 18.023 21L20.6613 18.3633C21.1119 17.9129 21.1131 17.1841 20.6636 16.7325Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-chat' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M18.3234 10.1404C18.3234 14.6362 14.9806 17.9327 10.473 17.9327M18.3234 10.1404C18.3234 5.64457 14.6693 2 10.1617 2C5.65412 2 2 5.0042 2 9.5C2 10.9769 2.50153 12.5042 3 13.5L2 18.2807L6.4857 16.9369C7.7184 17.6824 8.92606 17.9327 10.473 17.9327M18.3234 10.1404C19.5489 10.7827 22 12.6539 22 15C22 17.3461 21.3333 18.9776 21 19.5L21.5 22L18.5 21.5C16.6487 22.2884 12.4514 22.6788 10.473 17.9327" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-send' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M21.913 2L15.3391 20L11.5826 11.9M21.913 2L3.13043 8.3L11.5826 11.9M21.913 2L11.5826 11.9" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+    {%- when 'picto-email' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M21 8V5H3V8M21 8V19H3V8M21 8L12 12.5L3 8" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-customer-support' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M4.00571 10C4.00571 10 3.50018 2 12 2C20.4997 2 19.9943 10 19.9943 10M4.00571 10C3.33714 10.3333 2 11 2 12.5C2 14 3 15 4.00571 15C4.81028 15 5.67048 15 6 15V10H4.00571ZM19.9943 10C20.6629 10.1667 22 10.9 22 12.5C22 14.1 20.6629 14.8333 19.9943 15M19.9943 10H18V15H19.9943M19.9943 15C20.1629 16.5 19.6 19.5 16 19.5M16 19.5C16 19 15.8 18 15 18C14.2 18 13 18 12.5 18C12 18 10.8 18 10 18C9.2 18 9 19 9 19.5C9 20 9.2 21 10 21C10.8 21 12 21 12.5 21H15C15.8125 21 16 20 16 19.5Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-operator' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M7 21V18.0976C5.75658 16.9593 3 14.439 3 10.1707C3 5.66102 6.37316 2.77473 10 2.13492M16 21V19C19.3158 19 19 17 19 14.0122C19.8289 13.5854 21 13.4268 21 13C21 12.6585 19.6908 9.99593 19 9C18.5855 2.59756 13.1842 2 11.5263 2C11.0183 2 10.5067 2.04554 10 2.13492M10 2.13492V8M10 8C8.47368 8 7 9.5 7 11C7 12.5 8.47368 14.0122 10 14.0122C10.7307 14.0122 11.4493 13.6656 12 13.1397M10 8C11.5263 8 13 9.5 13 11C13 11.7819 12.5996 12.5671 12 13.1397M12 13.1397L14 15.5M14 15.5C14 15 14.5 14.5 15 14.5C15.5 14.5 16 15 16 15.5C16 16 15.5 16.5 15 16.5C14.5 16.5 14 16 14 15.5Z" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-mask' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 28 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 28 24">
+        <path d="M23 8C22 8 19.6 7.6 18 6C16.4 4.4 14.6666 4 14 4C13.3333 4 11.6 4.4 10 6C8.4 7.6 5.99998 8 4.99997 8M23 8C24 8 27 8.4 27 12C27 15.6 23 16.5299 21 16.5449M23 8C23.1907 10.2881 22.836 13.8851 21 16.5449M4.99997 8C3.99997 8 1 8.5 1 12C1 15.5 4.99997 16.1966 6.99995 16.5449M4.99997 8C4.8093 10.2881 5.16399 13.8851 6.99995 16.5449M21 16.5449C19.6264 18.5347 17.4237 20 14 20C10.5762 20 8.37353 18.5347 6.99995 16.5449M11 11H17M17 14H11" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+    {%- when 'picto-virus' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8916 8.14199C12.3334 8.14199 12.6916 7.78382 12.6916 7.34199C12.6916 6.90016 12.3334 6.54199 11.8916 6.54199C11.4498 6.54199 11.0916 6.90016 11.0916 7.34199C11.0916 7.78382 11.4498 8.14199 11.8916 8.14199ZM14.9811 9.246C15.4229 9.246 15.7811 8.88782 15.7811 8.446C15.7811 8.00417 15.4229 7.646 14.9811 7.646C14.5393 7.646 14.1811 8.00417 14.1811 8.446C14.1811 8.88782 14.5393 9.246 14.9811 9.246ZM9.78274 8.446C9.78274 8.88782 9.42457 9.246 8.98274 9.246C8.54091 9.246 8.18274 8.88782 8.18274 8.446C8.18274 8.00417 8.54091 7.646 8.98274 7.646C9.42457 7.646 9.78274 8.00417 9.78274 8.446ZM7.61946 12.6815C8.06129 12.6815 8.41946 12.3234 8.41946 11.8815C8.41946 11.4397 8.06129 11.0815 7.61946 11.0815C7.17763 11.0815 6.81946 11.4397 6.81946 11.8815C6.81946 12.3234 7.17763 12.6815 7.61946 12.6815ZM9.78286 15.5456C9.78286 15.9874 9.42469 16.3456 8.98286 16.3456C8.54103 16.3456 8.18286 15.9874 8.18286 15.5456C8.18286 15.1038 8.54103 14.7456 8.98286 14.7456C9.42469 14.7456 9.78286 15.1038 9.78286 15.5456ZM11.8915 17.412C12.3333 17.412 12.6915 17.0538 12.6915 16.612C12.6915 16.1702 12.3333 15.812 11.8915 15.812C11.4497 15.812 11.0915 16.1702 11.0915 16.612C11.0915 17.0538 11.4497 17.412 11.8915 17.412ZM15.7811 15.5456C15.7811 15.9874 15.4229 16.3456 14.9811 16.3456C14.5393 16.3456 14.1811 15.9874 14.1811 15.5456C14.1811 15.1038 14.5393 14.7456 14.9811 14.7456C15.4229 14.7456 15.7811 15.1038 15.7811 15.5456ZM16.0717 12.6815C16.5135 12.6815 16.8717 12.3234 16.8717 11.8815C16.8717 11.4397 16.5135 11.0815 16.0717 11.0815C15.6298 11.0815 15.2717 11.4397 15.2717 11.8815C15.2717 12.3234 15.6298 12.6815 16.0717 12.6815ZM11.3173 10.5075C11.3173 10.9493 10.9592 11.3075 10.5173 11.3075C10.0755 11.3075 9.71735 10.9493 9.71735 10.5075C9.71735 10.0657 10.0755 9.70752 10.5173 9.70752C10.9592 9.70752 11.3173 10.0657 11.3173 10.5075ZM13.4945 11.3075C13.9363 11.3075 14.2945 10.9493 14.2945 10.5075C14.2945 10.0657 13.9363 9.70752 13.4945 9.70752C13.0527 9.70752 12.6945 10.0657 12.6945 10.5075C12.6945 10.9493 13.0527 11.3075 13.4945 11.3075ZM14.2945 13.4846C14.2945 13.9264 13.9363 14.2846 13.4945 14.2846C13.0527 14.2846 12.6945 13.9264 12.6945 13.4846C12.6945 13.0427 13.0527 12.6846 13.4945 12.6846C13.9363 12.6846 14.2945 13.0427 14.2945 13.4846ZM10.5173 14.2846C10.9592 14.2846 11.3173 13.9264 11.3173 13.4846C11.3173 13.0427 10.9592 12.6846 10.5173 12.6846C10.0755 12.6846 9.71735 13.0427 9.71735 13.4846C9.71735 13.9264 10.0755 14.2846 10.5173 14.2846Z" fill="#1E316A"/><path d="M20 12H23M20 12C20 10.5429 19.6104 9.17669 18.9297 8M20 12C20 13.4571 19.6104 14.8233 18.9297 16M12 20V23M12 20C10.5429 20 9.17669 19.6104 8 18.9297M12 20C13.4571 20 14.8233 19.6104 16 18.9297M4 12H1M4 12C4 10.5429 4.38958 9.17669 5.07026 8M4 12C4 13.4571 4.38958 14.8233 5.07026 16M12 4V1H11H13M12 4C13.4571 4 14.8233 4.38958 16 5.07026M12 4C10.5429 4 9.17669 4.38958 8 5.07026M16 5.07026C17.2145 5.77281 18.2272 6.78549 18.9297 8M16 5.07026L17.5 2.5M8 5.07026L6.5 2.5M8 5.07026C6.78549 5.77281 5.77281 6.78549 5.07026 8M6.5 2.5L7.5 2M6.5 2.5L5.5 3M23 12V10.5M23 12V13.5M1 12V10.5M1 12V13.5M12 23H13.5M12 23H10.5M5.07026 8L2.5 6.5M2.5 6.5L3 5.5M2.5 6.5L2 7.5M18.9297 8L21.5 6.5M21.5 6.5L21 5.5M21.5 6.5L22 7.5M17.5 2.5L16.5 2M17.5 2.5L18.5 3M8 18.9297L6.5 21.5M8 18.9297C6.78549 18.2272 5.77281 17.2145 5.07026 16M6.5 21.5L5.5 21M6.5 21.5L7.5 22M16 18.9297L17.5 21.5M16 18.9297C17.2145 18.2272 18.2272 17.2145 18.9297 16M17.5 21.5L16.5 22M17.5 21.5L18.5 21M5.07026 16L2.5 17.5M2.5 17.5L2 16.5M2.5 17.5L3 18.5M18.9297 16L21.5 17.5M21.5 17.5L22 16.5M21.5 17.5L21 18.5" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+
+  {%- comment -%} SOCIAL MEDIA {%- endcomment -%}
+    {%- when 'facebook' -%}
+      <svg focusable="false" width="{{ width | default: 9 }}" height="{{ height | default: 17 }}" class="{{ icon_class }}" viewBox="0 0 9 17">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'instagram' -%}
+      <svg focusable="false" width="{{ width | default: 16 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C5.827 0 5.555.01 4.702.048 3.85.087 3.269.222 2.76.42a3.921 3.921 0 00-1.417.923c-.445.444-.719.89-.923 1.417-.198.509-.333 1.09-.372 1.942C.01 5.555 0 5.827 0 8s.01 2.445.048 3.298c.039.852.174 1.433.372 1.942.204.526.478.973.923 1.417.444.445.89.719 1.417.923.509.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.445-.01 3.298-.048c.852-.039 1.433-.174 1.942-.372a3.922 3.922 0 001.417-.923c.445-.444.719-.89.923-1.417.198-.509.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.298c-.039-.852-.174-1.433-.372-1.942a3.922 3.922 0 00-.923-1.417A3.921 3.921 0 0013.24.42c-.509-.198-1.09-.333-1.942-.372C10.445.01 10.173 0 8 0zm0 1.441c2.136 0 2.39.009 3.233.047.78.036 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.844.047 1.097.047 3.233s-.009 2.39-.047 3.233c-.036.78-.166 1.203-.276 1.485-.145.374-.318.64-.598.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.479 2.479 0 01-.92-.598 2.478 2.478 0 01-.598-.92c-.11-.282-.24-.705-.276-1.485-.038-.844-.047-1.097-.047-3.233s.009-2.39.047-3.233c.036-.78.166-1.203.276-1.485.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.844-.038 1.097-.047 3.233-.047zm0 9.226a2.667 2.667 0 110-5.334 2.667 2.667 0 010 5.334zm0-6.775a4.108 4.108 0 100 8.216 4.108 4.108 0 000-8.216zm5.23-.162a.96.96 0 11-1.92 0 .96.96 0 011.92 0z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'pinterest' -%}
+      <svg focusable="false" width="{{ width | default: 12 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 12 16">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.8042 0.00123531C8.79537 -0.0442356 10.6685 1.16769 11.5498 3.29299C11.8407 3.99433 12.1516 5.28439 11.9181 6.35474C11.825 6.78208 11.7985 7.22812 11.6726 7.63086C11.4163 8.4496 11.0829 9.17441 10.6413 9.79945C10.0418 10.6486 9.13196 11.2212 7.98951 11.5091C6.97899 11.7637 6.04959 11.3826 5.50954 10.9732C5.33747 10.843 5.10674 10.6728 5.04304 10.4377C5.03488 10.4377 5.0267 10.4377 5.01853 10.4377C4.97972 10.8669 4.81532 11.3224 4.69924 11.7135C4.53858 12.2545 4.50733 12.8146 4.3064 13.3208C4.08349 13.8828 3.81274 14.3978 3.52072 14.8776C3.36739 15.1292 2.94427 15.9904 2.63675 16C2.60311 15.9354 2.58964 15.9105 2.58761 15.796C2.48858 15.6383 2.55757 15.3724 2.51393 15.1578C2.44604 14.8236 2.39317 14.2217 2.46491 13.8824C2.46491 13.7038 2.46491 13.5248 2.46491 13.3465C2.54397 12.9786 2.54085 12.6015 2.63675 12.2494C2.84537 11.4824 2.96145 10.6699 3.17692 9.87611C3.38398 9.11352 3.57396 8.27939 3.74172 7.50321C3.77957 7.32789 3.56652 6.82389 3.52072 6.63572C3.37628 6.04186 3.48624 5.21874 3.66805 4.77269C3.89698 4.21111 4.56717 3.3535 5.43589 3.57359C6.13407 3.75039 6.57846 4.50528 6.34437 5.46192C6.09862 6.46589 5.7798 7.3653 5.5587 8.37035C5.50173 8.62933 5.59968 8.90442 5.65687 9.05958C5.86357 9.61934 6.49037 10.163 7.32652 9.95278C8.59396 9.63365 9.15431 8.48627 9.53645 7.24791C9.63981 6.91302 9.62743 6.59647 9.70831 6.22709C9.87894 5.44763 9.80648 4.28411 9.56098 3.67556C9.16753 2.70023 8.43329 2.07518 7.42471 1.73624C7.1465 1.68526 6.86819 1.63427 6.58988 1.58329C6.12397 1.47655 5.23532 1.63685 4.92023 1.73624C3.51171 2.18156 2.63952 2.92544 2.09658 4.26247C1.91177 4.71767 1.81046 5.17911 1.77741 5.81884C1.76913 5.8955 1.76094 5.97217 1.75278 6.04883C1.86153 6.62068 1.87259 6.99959 2.09658 7.42657C2.20715 7.63711 2.46971 7.8029 2.51393 8.06444C2.54001 8.2185 2.42705 8.45105 2.39125 8.57467C2.33705 8.76137 2.35676 8.97522 2.26844 9.13625C2.10873 9.42678 1.67383 9.20852 1.48275 9.08491C0.489307 8.44373 -0.329526 6.5895 0.132284 4.79837C0.20342 4.5218 0.206915 4.28118 0.304126 4.03285C0.906661 2.49554 1.80565 1.55101 3.10325 0.741098C3.58947 0.437749 4.24511 0.287354 4.84657 0.128885C5.16574 0.0863481 5.48503 0.0437917 5.8042 0.00123531Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'twitter' -%}
+      <svg focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 20 16">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.845 2.13398C14.0997 2.11363 14.7676 2.53229 15.4054 3.06445C15.9468 3.02216 16.6505 2.74528 17.065 2.55232C17.1993 2.48493 17.3337 2.41786 17.468 2.35046C17.2312 2.93602 16.9103 3.39474 16.417 3.74251C16.3074 3.81976 16.1987 3.92434 16.0613 3.97362C16.0613 3.97584 16.0613 3.97838 16.0613 3.98061C16.7643 3.97394 17.3441 3.6837 17.8947 3.52603C17.8947 3.52856 17.8947 3.5311 17.8947 3.53365C17.6055 3.95454 17.214 4.38147 16.7963 4.6876C16.6277 4.8103 16.4591 4.93301 16.2905 5.05571C16.2997 5.73696 16.2795 6.38704 16.1404 6.95989C15.3314 10.2888 13.1878 12.5491 9.7945 13.517C8.5761 13.8648 6.60702 14.0075 5.21102 13.6903C4.51872 13.5329 3.89334 13.3552 3.30644 13.1203C2.98052 12.9896 2.67854 12.8485 2.38972 12.6876C2.29496 12.6346 2.2001 12.5818 2.10522 12.5287C2.42018 12.5376 2.78846 12.6168 3.14052 12.5649C3.45896 12.5179 3.77128 12.53 4.06514 12.4712C4.79794 12.324 5.4486 12.1294 6.00916 11.829C6.2809 11.6834 6.69324 11.5124 6.88634 11.3026C6.52248 11.3083 6.19256 11.2311 5.9223 11.144C4.87436 10.8051 4.26436 10.1824 3.86752 9.2468C4.1851 9.27827 5.09982 9.35394 5.31368 9.18894C4.91398 9.16891 4.52956 8.95688 4.25478 8.7992C3.41184 8.31634 2.72438 7.50634 2.72954 6.26021C2.84022 6.30821 2.9509 6.35653 3.06148 6.40453C3.27324 6.48622 3.48848 6.52978 3.74112 6.57778C3.8478 6.59781 4.06114 6.65534 4.18362 6.6137C4.17836 6.6137 4.17308 6.6137 4.16782 6.6137C4.00476 6.43982 3.73902 6.32411 3.57512 6.1375C3.03438 5.52206 2.52758 4.57507 2.84812 3.44686C2.9294 3.16077 3.05842 2.90805 3.19586 2.67502C3.20114 2.67757 3.2064 2.67979 3.21168 2.68234C3.2746 2.80282 3.415 2.89152 3.50408 2.99229C3.78024 3.30573 4.1209 3.5877 4.46812 3.83629C5.65108 4.68347 6.71642 5.20386 8.42738 5.58946C8.86134 5.68706 9.36308 5.76176 9.88146 5.76238C9.73578 5.37424 9.78258 4.7461 9.89726 4.37035C10.1856 3.42557 10.8119 2.74402 11.7307 2.37907C11.9504 2.29197 12.1941 2.22838 12.4498 2.17722C12.5815 2.16291 12.7133 2.14861 12.845 2.13398Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'fancy' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 10 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 10 16">
+        <path d="M8.89051 11.6636H6.26863V14.729C6.26863 15.4318 5.70147 16 4.99998 16C4.29849 16 3.73133 15.4318 3.73133 14.729V11.6636H1.10945C0.497511 11.6636 0 11.1651 0 10.552V5.00935C0 2.24299 2.2388 0 4.99998 0C7.76117 0 9.99996 2.24299 9.99996 5.00935V10.547C10.0049 11.1651 9.50743 11.6636 8.89051 11.6636Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'linkedin' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 13 }}" height="{{ height | default: 13 }}" class="{{ icon_class }}" viewBox="0 0 13 13">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.12412 1.56485C3.12412 0.70105 2.42432 0 1.56256 0C0.697275 0 0 0.70105 0 1.56485C0 2.42916 0.697275 3.13021 1.56256 3.13021C2.42432 3.13021 3.12412 2.42916 3.12412 1.56485ZM2.91019 13H0.213925V4.31649H2.91019V13ZM7.18264 4.31648H4.6004V13H7.29112V8.70525C7.29112 7.57205 7.50505 6.47473 8.90666 6.47473C10.2891 6.47473 10.3068 7.77018 10.3068 8.77702V13H13V8.23771C13 5.89903 12.496 4.10117 9.76892 4.10117C8.45812 4.10117 7.57871 4.82092 7.21948 5.50377H7.18264V4.31648Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'snapchat' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 16 }}" height="{{ height | default: 15 }}" class="{{ icon_class }}" viewBox="0 0 16 15">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.10095 15C8.05974 15 8.0192 14.9988 7.9787 14.9969H7.9786C7.95281 14.9989 7.92577 15 7.89877 15C6.95092 15 6.34251 14.5705 5.75422 14.155C5.34799 13.8683 4.96467 13.5977 4.51299 13.5226C4.29261 13.4861 4.07324 13.4676 3.8612 13.4676C3.47929 13.4676 3.17801 13.5265 2.95804 13.5695C2.82437 13.5956 2.70904 13.6181 2.62143 13.6181C2.52987 13.6181 2.43062 13.5983 2.38755 13.4511C2.35003 13.3236 2.32294 13.2001 2.2969 13.0807C2.22971 12.7733 2.18198 12.5843 2.05301 12.5645C0.549633 12.3326 0.119338 12.0163 0.0234305 11.7919C0.00983052 11.7598 0.00209522 11.7276 0.000275153 11.6958C-0.00462892 11.6096 0.0565456 11.5335 0.141836 11.5196C2.45287 11.1395 3.4892 8.7803 3.53222 8.68011C3.53338 8.67733 3.53465 8.67466 3.53591 8.67188C3.67737 8.38561 3.70508 8.13707 3.61852 7.93336C3.45992 7.56004 2.94267 7.39598 2.60029 7.28751C2.51652 7.26105 2.4371 7.236 2.37445 7.21126C1.69122 6.9415 1.63439 6.66458 1.66119 6.52344C1.70699 6.28297 2.02879 6.11538 2.28901 6.11538C2.36035 6.11538 2.42319 6.128 2.47602 6.15264C2.78336 6.29646 3.06037 6.36932 3.29935 6.36932C3.62959 6.36932 3.77373 6.23071 3.79138 6.21253C3.78299 6.05629 3.77257 5.89314 3.7619 5.72478C3.69309 4.63344 3.6078 3.27745 3.95347 2.50343C4.98949 0.183253 7.18646 0.00302981 7.83512 0.00302981C7.85175 0.00302981 8.1195 0.000151491 8.1195 0.000151491L8.15793 0C8.8081 0 11.0099 0.180577 12.0465 2.50202C12.3922 3.27644 12.3067 4.63365 12.2378 5.72413L12.2349 5.77154C12.2253 5.92339 12.2161 6.07099 12.2084 6.21228C12.2249 6.22909 12.3575 6.3566 12.6569 6.36806H12.6572C12.8847 6.35938 13.1462 6.28691 13.4332 6.15264C13.5173 6.11341 13.6107 6.10512 13.6743 6.10512C13.7714 6.10512 13.8699 6.12391 13.9516 6.15799L13.9566 6.16001C14.1887 6.24217 14.3408 6.40467 14.344 6.57444C14.347 6.73437 14.2248 6.97473 13.6253 7.21126C13.5632 7.23565 13.4838 7.26085 13.3997 7.28751C13.0569 7.39613 12.5398 7.56004 12.3813 7.93331C12.2947 8.13692 12.3224 8.38526 12.4639 8.67173C12.4651 8.67451 12.4665 8.67718 12.4676 8.68011C12.5106 8.7802 13.546 11.1387 15.8581 11.5192C15.9435 11.5333 16.0044 11.6094 15.9997 11.6956C15.9978 11.728 15.9899 11.7606 15.9761 11.7922C15.8807 12.015 15.4508 12.3309 13.9469 12.563C13.8241 12.5818 13.7764 12.7417 13.7031 13.077C13.6765 13.1991 13.6495 13.3189 13.6123 13.445C13.5803 13.5544 13.512 13.6056 13.3972 13.6056H13.3785C13.2989 13.6056 13.1856 13.5913 13.042 13.5632C12.7874 13.5134 12.5019 13.4676 12.1387 13.4676C11.9266 13.4676 11.7072 13.4861 11.4866 13.5226C11.0355 13.5977 10.6524 13.8678 10.2469 14.1541C9.65741 14.5705 9.0491 15 8.10095 15Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'tiktok' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 14 16">
+        <path d="M13.6893 6.47331C13.5586 6.48602 13.4273 6.49268 13.296 6.49327C11.8552 6.49347 10.5114 5.76723 9.72211 4.56182V11.1389C9.72211 13.8236 7.54571 16 4.86099 16C2.17627 16 -0.00012207 13.8236 -0.00012207 11.1389C-0.00012207 8.45417 2.17627 6.27777 4.86099 6.27777C4.96247 6.27777 5.06166 6.28689 5.16143 6.29317V8.68866C5.06166 8.67669 4.96361 8.65845 4.86099 8.65845C3.49077 8.65845 2.37998 9.76923 2.37998 11.1395C2.37998 12.5097 3.49077 13.6205 4.86099 13.6205C6.23148 13.6205 7.44177 12.5407 7.44177 11.1702L7.46571 0H9.75745C9.97355 2.05512 11.6307 3.66035 13.6916 3.81102V6.47331" fill="currentColor"></path>
+      </svg>
+  
+    {%- when 'xiaohongshu' -%}
+      <svg fill="none" focusable="false" class="{{ icon_class }}" width="32" height="12" viewBox="0 0 32 12" >
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.07826 0.143097C4.77537 0.143097 5.47401 0.143097 6.17112 0.143097C6.19108 3.24323 6.1834 6.3449 6.18494 9.44503C6.19568 10.0792 6.03139 10.784 5.49243 11.1801C4.89974 11.6408 4.1105 11.4872 3.4134 11.5133C3.13701 10.9191 2.86984 10.3203 2.62262 9.71221C2.99114 9.71221 3.35965 9.72142 3.72663 9.69992C3.77667 9.70207 3.82652 9.69255 3.87224 9.67213C3.91795 9.65171 3.95829 9.62085 3.99003 9.58215C4.02177 9.5433 4.04403 9.49785 4.05509 9.44887C4.06614 9.40004 4.06567 9.34937 4.05369 9.3007C4.06905 6.24663 4.05215 3.19409 4.07826 0.143097Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.6892 0.00477705C13.4078 -0.00597131 14.1264 0.00477705 14.8389 0.00477705C14.4642 0.961381 13.9329 1.86271 13.6412 2.8454C14.2431 3.10029 14.9847 2.88686 15.6373 2.96363C15.1014 4.21658 14.5026 5.44343 13.9974 6.71174C14.4581 6.8054 14.9433 6.77162 15.4177 6.77162C15.1567 7.36892 14.8895 7.96162 14.6239 8.55585C13.8101 8.54203 12.9948 8.58963 12.1825 8.53435C11.7341 8.53435 11.3242 8.07371 11.4884 7.62535C11.7848 6.71634 12.247 5.87336 12.5986 4.98586C12.0919 4.95208 11.4854 5.09641 11.0723 4.72175C10.7499 4.40084 10.9372 3.93098 11.0892 3.57629C11.6328 2.3889 12.1661 1.19835 12.6892 0.00477705Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M23.8598 0.0122375C24.5677 0.0122375 25.277 0.0122375 25.9849 0.0122375V0.810686C27.0045 0.770764 28.1914 0.773835 28.9284 1.59992C29.7192 2.4736 29.4628 3.73422 29.5088 4.80599C30.2766 4.81981 31.1349 5.001 31.6094 5.66739C32.1667 6.45356 31.9472 7.46851 31.9917 8.36677C31.9625 9.22203 32.1744 10.2554 31.4681 10.9095C30.7249 11.7126 29.5334 11.4669 28.5584 11.5237C28.262 10.9233 28.0087 10.3045 27.7476 9.68881C28.3403 9.67192 28.933 9.71185 29.5242 9.66885C29.616 9.66332 29.7018 9.62156 29.763 9.55277C29.8239 9.48398 29.8552 9.39369 29.8497 9.30187C29.8781 8.73513 29.8781 8.16731 29.8497 7.60056C29.8605 7.1998 29.4443 6.94491 29.082 6.97562C28.0471 6.96027 27.0137 6.97562 25.9788 6.97562C25.9788 8.4896 25.9788 10.0031 25.9788 11.516C25.2694 11.516 24.5615 11.516 23.8521 11.516C23.8521 10.0021 23.8521 8.48653 23.8521 6.97255C23.1443 6.97255 22.4349 6.97255 21.727 6.97255C21.727 6.26162 21.727 5.5507 21.727 4.83823C22.4333 4.83823 23.1412 4.83823 23.8475 4.82749C23.8609 4.21329 23.8609 3.59496 23.8475 2.97263C23.3777 2.96495 22.9078 2.95881 22.4364 2.96341C22.4364 2.24681 22.4364 1.5339 22.4364 0.824506C22.9063 0.824506 23.3761 0.824506 23.846 0.824506L23.8598 0.0122375ZM25.9742 2.95727C25.9742 3.58175 25.9788 4.20608 25.988 4.83056C26.4655 4.83056 26.9446 4.83056 27.4221 4.83056C27.4221 4.26857 27.459 3.70505 27.4006 3.14153C27.049 2.76994 26.4348 3.0233 25.9742 2.95727Z" fill="currentColor" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2715 0.813934C17.896 0.813934 19.519 0.813934 21.142 0.813934C21.142 1.5264 21.142 2.24038 21.142 2.95284C20.6952 2.95284 20.2499 2.95284 19.8031 2.95284C19.8031 5.0913 19.8031 7.22915 19.8031 9.36654C20.4864 9.37422 21.1712 9.36654 21.8545 9.37422C21.8545 10.0847 21.8545 10.7961 21.8545 11.5085C19.4776 11.5085 17.0945 11.5085 14.7237 11.5085C15.0446 10.7961 15.3671 10.0836 15.6972 9.37422C16.3344 9.37422 16.9732 9.37422 17.6104 9.36654C17.6104 7.23069 17.6104 5.0933 17.6104 2.95745C17.1651 2.95745 16.7214 2.95745 16.2761 2.95745C16.2699 2.24084 16.2684 1.5264 16.2715 0.813934Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M30.2981 1.01073C30.8355 0.56544 31.7276 0.857181 31.9288 1.51283C32.1852 2.11472 31.7046 2.85943 31.0658 2.91778C30.6681 2.9531 30.2689 2.93314 29.8712 2.9316C29.8973 2.28823 29.7023 1.45755 30.2981 1.01073Z" fill="currentColor" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.520528 2.94997C1.22224 2.94997 1.92242 2.96071 2.6226 2.93307C2.57961 4.13228 2.44602 5.32842 2.37078 6.5261C2.28172 7.93413 1.96234 9.38362 1.10247 10.5337C0.718605 9.72297 0.359302 8.90148 0 8.07693C0.110923 7.77782 0.17916 7.46458 0.202683 7.14643C0.299419 5.75682 0.408438 4.35032 0.520528 2.94997Z" fill="currentColor" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.59906 2.94974C8.30641 2.94974 9.01425 2.94974 9.72262 2.94974C9.83011 4.34549 9.94066 5.74124 10.042 7.13699C10.0633 7.4599 10.1316 7.77805 10.2447 8.08131C9.88539 8.90279 9.52301 9.72274 9.14375 10.5381C8.34837 9.47706 8.0121 8.15041 7.90001 6.85293C7.78792 5.55545 7.70193 4.24875 7.59906 2.94974Z" fill="currentColor" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.234 11.3473C10.5585 10.6307 10.886 9.91672 11.2167 9.20534C12.3115 9.48633 13.4477 9.32664 14.564 9.36963C14.2446 10.0852 13.9176 10.7976 13.589 11.5086C12.4727 11.4487 11.3211 11.6682 10.234 11.3473Z" fill="currentColor" />
+      </svg>
+
+    {%- when 'tumblr' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 8 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 8 14">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.58805 14C3.48286 14 1.91365 12.9167 1.91365 10.3256V6.17497H0V3.92833C2.10606 3.38095 2.98644 1.56922 3.08837 0H5.27438V3.5637H7.82503V6.17497H5.27438V9.78875C5.27438 10.8721 5.82089 11.2473 6.6916 11.2473H7.92694V14H5.58805Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'vimeo' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 16 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 16 14">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9319 2.60534C16.0513 1.92553 16.0486 1.22667 15.6349 0.698146C15.0576 -0.0430744 13.829 -0.0702408 12.9871 0.0604415C12.3023 0.16679 9.98609 1.20349 9.1979 3.68569C10.5943 3.57805 11.3261 3.78779 11.1918 5.3476C11.1353 6.00024 10.8106 6.71533 10.4479 7.40067C10.029 8.19081 9.24346 9.74252 8.21364 8.62406C7.28573 7.61723 7.35553 5.69227 7.14335 4.41043C7.02533 3.69109 6.90033 2.79473 6.6681 2.05492C6.46797 1.41877 6.00884 0.651795 5.44755 0.485578C4.84463 0.305712 4.09933 0.58639 3.66165 0.848012C2.26788 1.67897 1.2057 2.86142 0 3.83684V3.92812C0.238958 4.15975 0.303424 4.53982 0.655198 4.59158C1.48501 4.71557 2.276 3.80684 2.82777 4.75226C3.16343 5.32997 3.26825 5.96342 3.4831 6.58606C3.7704 7.4156 3.99198 8.31892 4.227 9.27245C4.62446 10.8881 5.11316 13.3022 6.48955 13.8933C7.1917 14.1959 8.24727 13.7912 8.78153 13.4697C10.2291 12.6005 11.357 11.3405 12.3225 10.0585C14.53 7.02472 15.7479 3.58758 15.9319 2.60534Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'wechat' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 20 16">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9183 14.2043C19.1883 13.2932 20 11.9468 20 10.4496C20 7.70731 17.3025 5.48367 13.9758 5.48367C10.6492 5.48367 7.95167 7.70731 7.95167 10.4496C7.95167 13.1926 10.6492 15.4163 13.9758 15.4163C14.6633 15.4163 15.3267 15.3198 15.9425 15.1442L16.1192 15.1178C16.235 15.1178 16.34 15.1533 16.4392 15.2093L17.7583 15.9629L17.8742 16C17.985 16 18.075 15.911 18.075 15.8013L18.0425 15.6562L17.7708 14.6544L17.75 14.5275C17.75 14.3939 17.8167 14.276 17.9183 14.2043V14.2043ZM7.22917 0C3.23667 0 0 2.66804 0 5.96022C0 7.75595 0.973333 9.37277 2.4975 10.4652C2.62 10.551 2.7 10.6928 2.7 10.8536L2.675 11.0053L2.34917 12.2074L2.31 12.3813C2.31 12.5132 2.41833 12.6204 2.55083 12.6204L2.69083 12.5759L4.27333 11.6714C4.39167 11.6038 4.5175 11.5618 4.65667 11.5618L4.86917 11.5931C5.6075 11.8034 6.40417 11.9204 7.22917 11.9204L7.62583 11.9105C7.46917 11.4455 7.38333 10.9558 7.38333 10.4504C7.38333 7.44842 10.335 5.01453 13.9758 5.01453L14.3683 5.02443C13.8242 2.17747 10.835 0 7.22917 0V0ZM11.9675 9.65557C11.5242 9.65557 11.165 9.29939 11.165 8.86077C11.165 8.42131 11.5242 8.06596 11.9675 8.06596C12.4117 8.06596 12.7708 8.42131 12.7708 8.86077C12.7708 9.29939 12.4117 9.65557 11.9675 9.65557ZM15.9842 9.65557C15.54 9.65557 15.1808 9.29939 15.1808 8.86077C15.1808 8.42131 15.54 8.06596 15.9842 8.06596C16.4275 8.06596 16.7867 8.42131 16.7867 8.86077C16.7867 9.29939 16.4275 9.65557 15.9842 9.65557ZM4.81917 5.00629C4.28667 5.00629 3.85583 4.5792 3.85583 4.05318C3.85583 3.52633 4.28667 3.09925 4.81917 3.09925C5.35167 3.09925 5.78333 3.52633 5.78333 4.05318C5.78333 4.5792 5.35167 5.00629 4.81917 5.00629ZM9.63833 5.00629C9.10583 5.00629 8.675 4.5792 8.675 4.05318C8.675 3.52633 9.10583 3.09925 9.63833 3.09925C10.1708 3.09925 10.6025 3.52633 10.6025 4.05318C10.6025 4.5792 10.1708 5.00629 9.63833 5.00629Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'youtube' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 13 }}" class="{{ icon_class }}" viewBox="0 0 18 13">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0325 0.369454C16.807 0.572743 17.4168 1.17173 17.6238 1.9324C18 3.31101 18 6.1875 18 6.1875C18 6.1875 18 9.06389 17.6238 10.4427C17.4168 11.2033 16.807 11.8023 16.0325 12.0056C14.6288 12.375 9 12.375 9 12.375C9 12.375 3.37122 12.375 1.96752 12.0056C1.19311 11.8023 0.583159 11.2033 0.376159 10.4427C0 9.06389 0 6.1875 0 6.1875C0 6.1875 0 3.31101 0.376159 1.9324C0.583159 1.17173 1.19311 0.572743 1.96752 0.369454C3.37122 0 9 0 9 0C9 0 14.6288 0 16.0325 0.369454ZM11.8636 6.1876L7.1591 8.79913V3.57588L11.8636 6.1876Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'line' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 20 }}" class="{{ icon_class }}" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.17711e-05C15.5141 1.17711e-05 20 3.64055 20 8.11514C20 9.90601 19.3056 11.5188 17.8565 13.1082H17.8568C15.7589 15.5229 11.0674 18.4643 10 18.914C8.96221 19.3512 9.08245 18.6672 9.12998 18.3968C9.13133 18.3891 9.13262 18.3818 9.13382 18.3748C9.15919 18.2244 9.27659 17.5188 9.27659 17.5188C9.31011 17.2635 9.34493 16.8673 9.2442 16.6146C9.13213 16.3363 8.68884 16.1919 8.36323 16.1215C3.55759 15.4863 0 12.1268 0 8.11514C0 3.64055 4.4864 1.17711e-05 10 1.17711e-05ZM7.26303 5.95271H7.97221C8.07772 5.95271 8.1632 6.03818 8.1632 6.1436V10.5078C8.1632 10.6132 8.07772 10.6987 7.97221 10.6987H7.26303C7.15762 10.6987 7.07214 10.6132 7.07214 10.5078V6.1436C7.07214 6.03818 7.15762 5.95271 7.26303 5.95271ZM6.28091 10.6987C6.38642 10.6987 6.4719 10.6133 6.4719 10.5079V9.79868C6.4719 9.69373 6.38595 9.60779 6.28091 9.60779H4.37152V6.14363C4.37152 6.03869 4.28567 5.95274 4.18062 5.95274H3.47145C3.36594 5.95274 3.28056 6.03822 3.28056 6.14363V10.5045V10.5049V10.5079C3.28056 10.6133 3.36594 10.6987 3.47145 10.6987H3.47519H6.28091ZM16.6733 10.6987C16.7787 10.6987 16.8642 10.6133 16.8642 10.5079V9.79868C16.8642 9.69373 16.7782 9.60779 16.6733 9.60779H14.7639V8.87127H16.6733C16.7787 8.87127 16.8642 8.7857 16.8642 8.68029V7.97111C16.8642 7.86616 16.7782 7.78022 16.6733 7.78022H14.7639V7.0438H16.6733C16.7787 7.0438 16.8642 6.95823 16.8642 6.85281V6.14363C16.8642 6.03869 16.7782 5.95274 16.6733 5.95274H13.8674H13.8637C13.7583 5.95274 13.6728 6.03822 13.6728 6.14363V6.14775V6.14803V10.5045V10.5049V10.5079C13.6728 10.6133 13.7583 10.6987 13.8637 10.6987H13.8674H16.6733ZM12.8002 5.95271H12.091C11.9856 5.95271 11.9001 6.03818 11.9001 6.1436V8.73577L9.90335 6.03921C9.89867 6.03229 9.89343 6.02564 9.888 6.01946L9.88669 6.01805C9.88304 6.01394 9.8792 6.00991 9.87527 6.00607L9.87438 6.00533L9.87162 6.00289C9.86825 5.99989 9.86478 5.99699 9.86122 5.99409L9.85607 5.99025C9.85289 5.98791 9.84943 5.98557 9.84596 5.98332L9.84227 5.98102L9.84016 5.97976L9.83829 5.9787C9.83545 5.97707 9.83259 5.97544 9.82967 5.97405L9.82349 5.97096L9.82125 5.96998L9.82123 5.96997C9.81833 5.96869 9.8154 5.9674 9.81235 5.96628L9.80617 5.96394C9.80306 5.9628 9.79994 5.96185 9.79678 5.96088L9.79457 5.9602L9.78782 5.95851L9.7764 5.95598L9.76835 5.95477L9.76773 5.95468C9.76448 5.95424 9.76131 5.95381 9.75805 5.95355C9.75468 5.95327 9.75131 5.95308 9.74776 5.95299L9.74129 5.95271H9.03605C8.93054 5.95271 8.84507 6.03818 8.84507 6.1436V10.5078C8.84507 10.6132 8.93054 10.6987 9.03605 10.6987H9.74523C9.85064 10.6987 9.93612 10.6132 9.93612 10.5078V7.91659L11.9354 10.6164C11.9492 10.6359 11.966 10.6519 11.9846 10.6645L11.9868 10.6661C11.9907 10.6687 11.9947 10.6711 11.9988 10.6734L12.0044 10.6764C12.0074 10.678 12.0105 10.6795 12.0137 10.6809L12.023 10.685C12.0243 10.6855 12.0256 10.686 12.0269 10.6864C12.0276 10.6866 12.0284 10.6869 12.0291 10.6871C12.0334 10.6887 12.0377 10.6902 12.0422 10.6913L12.045 10.6921C12.0609 10.6963 12.0776 10.6987 12.0949 10.6987H12.8002C12.9056 10.6987 12.9911 10.6132 12.9911 10.5078V6.1436C12.9911 6.03818 12.9056 5.95271 12.8002 5.95271Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'reddit' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 18 }}" height="{{ height | default: 16 }}" class="{{ icon_class }}" viewBox="0 0 18 16">
+        <path d="M17.6438 7.05718C17.8622 7.36886 17.9859 7.73708 17.9998 8.11744C18.0055 8.48977 17.9058 8.85612 17.7121 9.17416C17.5184 9.49219 17.2387 9.74891 16.9052 9.91465C16.9204 10.1125 16.9204 10.3113 16.9052 10.5092C16.9052 13.5361 13.3784 15.9954 9.02723 15.9954C4.67609 15.9954 1.14923 13.5361 1.14923 10.5092C1.13402 10.3113 1.13402 10.1125 1.14923 9.91465C0.889327 9.79524 0.658493 9.62074 0.472728 9.40325C0.286963 9.18576 0.15071 8.93048 0.0734112 8.6551C-0.00388753 8.37972 -0.0203832 8.09082 0.0250674 7.80843C0.070518 7.52604 0.176828 7.25691 0.33663 7.01969C0.496431 6.78247 0.705903 6.58283 0.950528 6.43461C1.19515 6.28639 1.46908 6.19313 1.75333 6.16131C2.03758 6.12948 2.32535 6.15983 2.5967 6.25028C2.86805 6.34072 3.11649 6.48908 3.3248 6.68508C4.88185 5.62908 6.71367 5.05136 8.59482 5.023L9.59477 0.334038C9.606 0.279755 9.62789 0.228242 9.65917 0.182481C9.69046 0.136721 9.73051 0.0976247 9.77702 0.0674589C9.82353 0.0372931 9.87556 0.0166574 9.9301 0.00674792C9.98464 -0.0031616 10.0406 -0.00214792 10.0947 0.00973026L13.4054 0.67186C13.5671 0.394086 13.8225 0.183035 14.1257 0.0765886C14.429 -0.0298574 14.7603 -0.0247269 15.0601 0.0910592C15.3599 0.206845 15.6086 0.425705 15.7616 0.708352C15.9146 0.990999 15.9619 1.31892 15.8949 1.63326C15.8279 1.9476 15.651 2.22777 15.3961 2.42348C15.1412 2.61919 14.8248 2.71762 14.5038 2.70111C14.1829 2.6846 13.8783 2.55422 13.6448 2.33338C13.4113 2.11254 13.2641 1.8157 13.2297 1.49614L10.338 0.888066L9.45964 5.10408C11.3179 5.14394 13.1249 5.72123 14.6621 6.76616C14.9367 6.5026 15.2817 6.3241 15.6554 6.25218C16.0292 6.18027 16.4158 6.218 16.7686 6.36083C17.1214 6.50367 17.4253 6.7455 17.6438 7.05718Z" fill="currentColor"></path>
+      </svg>
+
+    {%- when 'spotify' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 20 }}" height="{{ height | default: 20 }}" class="{{ icon_class }}" viewBox="0 0 20 20">
+        <path d="M9.99994 0C4.47724 0 0 4.47712 0 9.99982C0 15.5228 4.47724 19.9995 9.99994 19.9995C15.5232 19.9995 20 15.5228 20 9.99982C20 4.47748 15.5232 0.000477646 9.99982 0.000477646L9.99994 0ZM14.5858 14.4226C14.4067 14.7164 14.0222 14.8095 13.7285 14.6292C11.3806 13.1951 8.42489 12.8703 4.94403 13.6655C4.6086 13.742 4.27424 13.5318 4.19782 13.1962C4.12104 12.8607 4.33037 12.5263 4.66663 12.4499C8.47588 11.5796 11.7434 11.9544 14.3793 13.5652C14.673 13.7455 14.7662 14.1289 14.5858 14.4226ZM15.8098 11.6998C15.5841 12.0666 15.1041 12.1824 14.7375 11.9567C12.0495 10.3046 7.95214 9.82608 4.77279 10.7912C4.36046 10.9157 3.92496 10.6833 3.79982 10.2717C3.67563 9.85939 3.90812 9.42473 4.31974 9.29935C7.95142 8.19741 12.4663 8.73119 15.5531 10.628C15.9197 10.8537 16.0355 11.3337 15.8098 11.6998ZM15.9149 8.86445C12.692 6.95015 7.37454 6.77414 4.29741 7.70806C3.80328 7.85792 3.28073 7.57898 3.13099 7.08485C2.98125 6.59048 3.25995 6.06829 3.75444 5.91807C7.28677 4.84575 13.1589 5.05293 16.8695 7.25573C17.3149 7.51951 17.4606 8.09352 17.1967 8.53738C16.934 8.98183 16.3584 9.12835 15.9154 8.86445H15.9149Z" fill="currentColor"></path>
+      </svg>
+
+  {%- comment -%} SHARE SOCIAL MEDIA {%- endcomment -%}
+    {%- when 'facebook-share-mobile' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1834 21.85L10.1834 12.982H7.2002L7.2002 9.52604H10.1834V6.98204C10.062 5.75969 10.4857 4.54599 11.3415 3.66478C12.1972 2.78357 13.398 2.32449 14.6234 2.41004C15.5143 2.40481 16.4047 2.45289 17.2898 2.55404V5.63804L15.4598 5.63804C14.9879 5.53818 14.4974 5.68116 14.1532 6.01892C13.8089 6.35669 13.6566 6.84437 13.7474 7.31804L13.7474 9.52604L17.1698 9.52604L16.7234 12.982H13.7522V21.85H10.1834Z" fill="#3B5998"></path>
+      </svg>
+
+    {%- when 'pinterest-share-mobile' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7648 2.40138C15.3543 2.34682 17.602 3.80113 18.6595 6.35148C19.0087 7.1931 19.3817 8.74117 19.1015 10.0256C18.9898 10.5384 18.9581 11.0736 18.8069 11.5569C18.4993 12.5394 18.0993 13.4092 17.5694 14.1592C16.8499 15.1782 15.7582 15.8653 14.3872 16.2109C13.1746 16.5164 12.0593 16.059 11.4113 15.5678C11.2048 15.4115 10.9279 15.2073 10.8515 14.9251C10.8417 14.9251 10.8318 14.9251 10.822 14.9251C10.7755 15.4401 10.5782 15.9868 10.4389 16.4561C10.2461 17.1053 10.2086 17.7774 9.96749 18.3849C9.69999 19.0592 9.37509 19.6772 9.02467 20.253C8.84068 20.5549 8.33293 21.5884 7.9639 21.5999C7.92354 21.5224 7.90737 21.4925 7.90493 21.3551C7.7861 21.1659 7.86888 20.8468 7.81652 20.5893C7.73505 20.1883 7.67161 19.466 7.75769 19.0588C7.75769 18.8444 7.75769 18.6296 7.75769 18.4157C7.85257 17.9742 7.84882 17.5217 7.9639 17.0991C8.21425 16.1787 8.35354 15.2038 8.61211 14.2512C8.86057 13.3361 9.08856 12.3352 9.28987 11.4038C9.33529 11.1934 9.07963 10.5886 9.02467 10.3628C8.85134 9.65014 8.9833 8.66239 9.20146 8.12713C9.47618 7.45323 10.2804 6.4241 11.3229 6.68821C12.1607 6.90037 12.694 7.80624 12.413 8.95421C12.1181 10.159 11.7356 11.2383 11.4702 12.4443C11.4019 12.7551 11.5194 13.0852 11.588 13.2714C11.8361 13.9431 12.5882 14.5955 13.5916 14.3432C15.1126 13.9603 15.785 12.5834 16.2435 11.0974C16.3676 10.6955 16.3527 10.3157 16.4498 9.87241C16.6545 8.93705 16.5676 7.54083 16.273 6.81057C15.8008 5.64018 14.9198 4.89011 13.7095 4.48339C13.3756 4.42221 13.0416 4.36103 12.7077 4.29985C12.1486 4.17176 11.0822 4.36412 10.7041 4.48339C9.01386 5.01777 7.96723 5.91043 7.3157 7.51486C7.09393 8.06111 6.97235 8.61484 6.9327 9.38251C6.92276 9.47451 6.91294 9.5665 6.90314 9.6585C7.03364 10.3447 7.04691 10.7994 7.3157 11.3118C7.44838 11.5644 7.76346 11.7634 7.81652 12.0772C7.84781 12.2621 7.71227 12.5412 7.66931 12.6895C7.60427 12.9136 7.62792 13.1702 7.52193 13.3634C7.33028 13.712 6.8084 13.4501 6.57911 13.3018C5.38697 12.5324 4.40437 10.3073 4.95855 8.15795C5.04391 7.82607 5.0481 7.53731 5.16476 7.23932C5.8878 5.39455 6.96659 4.26111 8.5237 3.28922C9.10717 2.9252 9.89394 2.74473 10.6157 2.55456C10.9987 2.50352 11.3818 2.45245 11.7648 2.40138Z" fill="#BD081C"></path>
+      </svg>
+
+    {%- when 'twitter-share-mobile' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.414 4.96068C16.9196 4.93626 17.7211 5.43865 18.4864 6.07724C19.1362 6.02649 19.9806 5.69424 20.478 5.46269C20.6391 5.38182 20.8004 5.30133 20.9616 5.22046C20.6775 5.92312 20.2923 6.47359 19.7004 6.89092C19.5689 6.98361 19.4384 7.10911 19.2736 7.16824C19.2736 7.17091 19.2736 7.17396 19.2736 7.17663C20.1171 7.16863 20.8129 6.82034 21.4737 6.63114C21.4737 6.63417 21.4737 6.63723 21.4737 6.64028C21.1266 7.14535 20.6568 7.65767 20.1556 8.02502C19.9532 8.17227 19.7509 8.31951 19.5486 8.46676C19.5597 9.28425 19.5354 10.0643 19.3684 10.7518C18.3977 14.7465 15.8254 17.4588 11.7534 18.6203C10.2913 19.0377 7.92842 19.2089 6.25322 18.8282C5.42246 18.6394 4.67201 18.4262 3.96773 18.1443C3.57662 17.9875 3.21425 17.8181 2.86766 17.6251C2.75395 17.5614 2.64012 17.4981 2.52626 17.4343C2.90422 17.445 3.34615 17.54 3.76862 17.4778C4.15075 17.4214 4.52554 17.4359 4.87817 17.3653C5.75753 17.1887 6.53832 16.9552 7.21099 16.5947C7.53708 16.42 8.03189 16.2148 8.26361 15.963C7.82698 15.9699 7.43107 15.8772 7.10676 15.7727C5.84923 15.366 5.11723 14.6187 4.64102 13.4961C5.02212 13.5338 6.11978 13.6246 6.37642 13.4266C5.89678 13.4026 5.43547 13.1482 5.10574 12.9589C4.09421 12.3795 3.26926 11.4075 3.27545 9.91215C3.40826 9.96975 3.54108 10.0277 3.67378 10.0853C3.92789 10.1834 4.18618 10.2356 4.48934 10.2932C4.61736 10.3173 4.87337 10.3863 5.02034 10.3363C5.01403 10.3363 5.0077 10.3363 5.00138 10.3363C4.80571 10.1277 4.48682 9.98884 4.29014 9.76491C3.64126 9.02638 3.0331 7.88999 3.41774 6.53614C3.51528 6.19282 3.6701 5.88956 3.83503 5.60993C3.84137 5.61298 3.84768 5.61565 3.85402 5.61871C3.92952 5.76328 4.098 5.86973 4.2049 5.99065C4.53629 6.36678 4.94508 6.70514 5.36174 7.00345C6.7813 8.02007 8.0597 8.64453 10.1129 9.10725C10.6336 9.22437 11.2357 9.31401 11.8578 9.31476C11.6829 8.84899 11.7391 8.09522 11.8767 7.64432C12.2227 6.51058 12.9743 5.69272 14.0768 5.25479C14.3404 5.15026 14.6329 5.07396 14.9397 5.01256C15.0978 4.9954 15.256 4.97823 15.414 4.96068Z" fill="#1DA1F2"></path>
+      </svg>
+
+    {%- when 'email-share-mobile' -%}
+      <svg fill="none" focusable="false" width="{{ width | default: 24 }}" height="{{ height | default: 24 }}" class="{{ icon_class }}" viewBox="0 0 24 24">
+        <path d="M21.9135 2.08691L15.3396 20.8695L11.583 12.4173M21.9135 2.08691L3.13086 8.66083L11.583 12.4173M21.9135 2.08691L11.583 12.4173" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"></path>
+      </svg>
+
+  {%- comment -%} ICONS FOR STORE PICKUP {%- endcomment -%}
+
+  {%- when 'store-availability-in-stock' %}
+    <svg focusable="false" width="{{ width | default: 16 }}" height="{{ height | default: 11 }}" class="{{ icon_class }}" viewBox="0 0 16 11" role="presentation">
+      <path fill="none" d="M1.5 4.2L6.37411 9L14.5 1" stroke="#168342" stroke-width="{{ settings.icon_stroke_width }}"></path>
+    </svg>
+
+  {%- when 'store-availability-out-of-stock' %}
+    <svg focusable="false" width="{{ width | default: 12 }}" height="{{ height | default: 13 }}" class="{{ icon_class }}" viewBox="0 0 12 13" role="presentation">
+      <path fill="none" d="M1 1.5L11 11.5M1 11.5L11 1.5" stroke="#E00000" stroke-width="{{ settings.icon_stroke_width }}"></path>
+    </svg>
+
+  {%- comment -%} ICONS FOR COMPLYING WITH MEDIA API. COLORS OF THOSE ARE STANDARDIZED BY SHOPIFY {%- endcomment -%}
+
+  {%- when 'media-model-badge' -%}
+    <svg focusable="false" width="{{ width | default: 26 }}" height="{{ height | default: 26 }}" viewBox="0 0 26 26" role="presentation">
+      <path d="M1 25h24V1H1z" fill="{{ settings.background }}"></path>
+      <path d="M.5 25v.5h25V.5H.5z" fill="none" stroke="{{ settings.text_color }}" stroke-opacity=".15"></path>
+      <path d="M19.13 8.28L14 5.32a2 2 0 00-2 0l-5.12 3a2 2 0 00-1 1.76V16a2 2 0 001 1.76l5.12 3a2 2 0 002 0l5.12-3a2 2 0 001-1.76v-6a2 2 0 00-.99-1.72zm-6.4 11.1l-5.12-3a.53.53 0 01-.26-.38v-6a.53.53 0 01.27-.46l5.12-3a.53.53 0 01.53 0l5.12 3-4.72 2.68a1.33 1.33 0 00-.67 1.2v6a.53.53 0 01-.26 0z" fill="{{ settings.text_color }}" opacity=".6"></path>
+    </svg>
+
+  {%- when 'media-video-badge' -%}
+    <svg focusable="false" width="{{ width | default: 26 }}" height="{{ height | default: 26 }}" viewBox="0 0 26 26" fill="none" role="presentation">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 25h24V1H1v24z" fill="{{ settings.background }}"></path>
+      <path d="M.5 25v.5h25V.5H.5V25z" stroke="{{ settings.text_color }}" stroke-opacity=".15"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.718 6.72a1 1 0 00-1.518.855v10.736a1 1 0 001.562.827l8.35-5.677a1 1 0 00-.044-1.682l-8.35-5.06z" fill="{{ settings.text_color }}" fill-opacity=".6"></path>
+    </svg>
+
+  {%- when 'media-view-in-space' -%}
+    <svg focusable="false" width="16" height="16" viewBox="0 0 16 16" role="presentation">
+      <path d="M14.13 3.28L9 .32a2 2 0 00-2 0l-5.12 3a2 2 0 00-1 1.76V11a2 2 0 001 1.76l5.12 3a2 2 0 002 0l5.12-3a2 2 0 001-1.76V5a2 2 0 00-.99-1.72zm-6.4 11.1l-5.12-3a.53.53 0 01-.26-.38V5a.53.53 0 01.27-.46l5.12-3a.53.53 0 01.53 0l5.12 3-4.72 2.68A1.33 1.33 0 008 8.42v6a.53.53 0 01-.26 0l-.01-.04z" fill="{{ settings.text_color }}" fill-rule="nonzero"></path>
+    </svg>
+
+  {%- comment -%} OTHER {%- endcomment -%}
+
+  {%- when 'shopify-logo' -%}
+    <svg focusable="false" width="77" height="22" fill="none" viewBox="0 0 77 22" role="presentation">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.268 1.384c.612.077 1.02.773 1.281 1.574l-1.034.32V3.207v-.152c0-.684-.095-1.234-.247-1.67zm2.139 20.028l6.45-1.401s-2.326-15.728-2.34-15.836a.207.207 0 00-.188-.174l-1.726-.128-1.27-1.262a.277.277 0 00-.11-.065l-.816 18.866zM7.57 9.712c.878 0 1.594.382 1.594.382l.817-2.43s-.552-.321-1.67-.321c-2.902 0-4.34 1.938-4.34 3.94 0 1.337.75 1.943 1.406 2.475.513.414.969.783.969 1.418 0 .35-.248.829-.856.829-.932 0-2.035-.948-2.035-.948l-.562 1.857s1.073 1.307 3.173 1.307c1.75 0 3.047-1.317 3.047-3.363 0-1.573-1.059-2.35-1.895-2.964-.547-.401-.999-.733-.999-1.172 0-.203.065-1.01 1.351-1.01zM9.042.861a.625.625 0 00-.355-.12C6.701.742 5.585 3.35 5.115 4.95l1.69-.523c.4-2.098 1.35-3.148 2.237-3.565zm.747 2.64v-.12c0-.824-.11-1.436-.28-1.862-.674.29-1.446 1.056-1.857 2.644l2.137-.661zm3.077-.951a.754.754 0 01.065-.015l-.818 18.887L0 19.153S1.57 7.015 1.63 6.587c.078-.565.097-.584.696-.772.098-.031.861-.268 1.936-.6C4.676 3.456 5.998 0 8.763 0c.362 0 .78.194 1.118.64a1.81 1.81 0 01.1-.003c1.187 0 1.862 1.012 2.244 2.112l.641-.198zm52.98 5.645h1.806l-.358 2.016h-1.787l-1.373 7.484h-2.597l1.374-7.484h-1.205l.377-2.016h1.204l.075-.446c.207-1.124.621-2.249 1.505-3.024.696-.62 1.618-.892 2.54-.892.64 0 1.11.097 1.411.233L68.31 6.16a2.47 2.47 0 00-.828-.135c-.865 0-1.392.814-1.542 1.725l-.094.446zM35.78 8.002c-1.148 0-2.05.562-2.747 1.416l-.038-.02.998-5.37h-2.597l-2.52 13.668h2.596l.865-4.672c.339-1.765 1.223-2.85 2.05-2.85.584 0 .81.407.81.989 0 .368-.038.813-.113 1.182l-.978 5.351h2.596l1.016-5.525c.113-.582.188-1.28.188-1.745 0-1.513-.771-2.424-2.126-2.424zm-9.294 3.994c-.659-.368-.997-.678-.997-1.105 0-.543.47-.892 1.204-.892.677 0 1.26.194 1.618.368l.602-1.9c-.414-.252-1.186-.445-2.183-.445-2.276 0-3.838 1.337-3.838 3.218 0 1.066.734 1.88 1.712 2.462.79.465 1.073.795 1.073 1.28 0 .504-.395.91-1.129.91-.81.02-1.656-.329-2.126-.58l-.64 1.9c.49.348 1.487.639 2.559.658 2.333.02 4.007-1.182 4.007-3.315 0-1.144-.846-1.958-1.862-2.559zm14.75 2.094c0 .97.377 1.745 1.26 1.745 1.374 0 2.146-2.52 2.146-4.169 0-.794-.301-1.609-1.223-1.609-1.411 0-2.183 2.501-2.183 4.033zm-2.652.058c0-3.238 2.07-6.146 5.192-6.146 2.427 0 3.518 1.823 3.518 3.742 0 3.315-2.07 6.146-5.136 6.146-2.333 0-3.575-1.668-3.575-3.742zm12.869 1.725c-.47 0-.79-.155-1.073-.387l.433-2.501c.301-1.667 1.148-2.773 2.05-2.773.791 0 1.035.757 1.035 1.474 0 1.725-.997 4.187-2.445 4.187zm2.483-7.87c-1.035 0-2.05.58-2.747 1.59h-.037l.15-1.436h-2.295c-.113.97-.32 2.443-.527 3.548l-1.806 9.791h2.596l.715-3.955h.056c.302.194.885.349 1.525.349 3.048 0 5.042-3.219 5.042-6.476 0-1.803-.772-3.412-2.672-3.412zm4.892-2.289c0-.872.659-1.55 1.486-1.55.79 0 1.299.562 1.299 1.337-.02.989-.715 1.551-1.524 1.551h-.038c-.734 0-1.223-.543-1.223-1.338zm-2.145 11.982h2.597l1.768-9.48h-2.615l-1.75 9.48zm17.215-9.48l-1.58 4.245c-.334.912-.52 1.488-.702 2.053l-.07.216h-.037a40.242 40.242 0 00-.226-2.25l-.414-4.265h-2.728l1.562 8.706c.037.193.018.31-.057.445-.3.601-.809 1.183-1.41 1.61-.49.368-1.036.6-1.468.756L67.483 22c.526-.116 1.618-.562 2.54-1.454 1.185-1.144 2.276-2.908 3.405-5.312l3.18-7.019h-2.71z" fill="currentColor"></path>
+    </svg>
+{%- endcase -%}

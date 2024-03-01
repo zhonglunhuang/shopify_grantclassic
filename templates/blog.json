@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "4e75a528-9c24-41f5-a3da-ac609bc68bec": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "small",
+        "subheading": "",
+        "title": "GC Blog",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "show_blog_title": false,
+        "show_tags": true,
+        "show_category": false,
+        "show_excerpt": true,
+        "articles_per_page": 6
+      }
+    }
+  },
+  "order": [
+    "4e75a528-9c24-41f5-a3da-ac609bc68bec",
+    "main"
+  ]
+}

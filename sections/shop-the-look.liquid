@@ -1,0 +1,489 @@
+{%- assign direction = 'ltr' -%}
+{%- case request.locale.iso_code -%}
+  {%- when 'ar' or 'arc' or 'dv' or 'fa' or 'ha' or 'he' or 'kwh' or 'ks' or 'ku' or 'ps' or 'ur' or 'yi' -%}
+    {%- assign direction = 'rtl' -%}
+{%- endcase -%}
+
+<style>
+  {%- for block in section.blocks -%}
+    #block-{{ section.id }}-{{ block.id }} {
+      {%- if block.settings.dot_type == 'normal' -%}
+        {%- assign dot_background = settings.background -%}
+        {%- assign dot_inner_background = settings.text_color -%}
+      {%- else -%}
+        {%- assign dot_background = settings.text_color -%}
+        {%- assign dot_inner_background = settings.background -%}
+      {%- endif -%}
+
+      --section-dot-inner-background: {{ dot_inner_background.red }}, {{ dot_inner_background.green }}, {{ dot_inner_background.blue }};
+      --section-dot-background: {{ dot_background.red }}, {{ dot_background.green }}, {{ dot_background.blue }};
+    }
+
+    /* Position the dots */
+    {%- for i in (1..3) -%}
+      #block-{{ section.id }}-{{ block.id }}-{{ forloop.index }} {
+        {%- capture product_horizontal_position_option -%}product_{{ i }}_horizontal_position{%- endcapture -%}
+        {%- capture product_vertical_position_option -%}product_{{ i }}_vertical_position{%- endcapture -%}
+
+        top: {{ block.settings[product_vertical_position_option] }}%;
+        left: {{ block.settings[product_horizontal_position_option] }}%;
+      }
+
+      {%- if block.settings.mobile_image != blank -%}
+        @media screen and (max-width: 999px) {
+          #block-{{ section.id }}-{{ block.id }}-{{ forloop.index }} {
+            {%- capture product_horizontal_position_mobile_option -%}product_{{ i }}_horizontal_position_mobile{%- endcapture -%}
+            {%- capture product_vertical_position_mobile_option -%}product_{{ i }}_vertical_position_mobile{%- endcapture -%}
+
+            top: {{ block.settings[product_vertical_position_mobile_option] }}%;
+            left: {{ block.settings[product_horizontal_position_mobile_option] }}%;
+          }
+        }
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+</style>
+
+<section>
+  <shop-the-look {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="shop-the-look">
+    <div class="shop-the-look__item-list">
+      {%- for block in section.blocks -%}
+        {%- capture look_id -%}block-{{ section.id }}-{{ block.id }}{%- endcapture -%}
+
+        <shop-the-look-item {% unless forloop.first %}hidden{% endunless %} id="{{ look_id }}" class="shop-the-look__item" {{ block.shopify_attributes }}>
+          <div class="shop-the-look__image-wrapper">
+            {%- if block.settings.image != blank -%}
+              <img loading="lazy" sizes="100vw" {% if section.settings.reveal_on_scroll and forloop.first %}reveal{% endif %} class="shop-the-look__image {% if block.settings.mobile_image != blank %}hidden-pocket{% endif %}" {% render 'image-attributes', image: block.settings.image, sizes: '500,600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' %}>
+
+              {%- if block.settings.mobile_image != blank -%}
+                <img loading="lazy" sizes="100vw" {% if section.settings.reveal_on_scroll and forloop.first %}reveal{% endif %} class="shop-the-look__image hidden-lap-and-up" {% render 'image-attributes', image: block.settings.mobile_image, sizes: '500,600,700,800,1000,1200,1400,1600' %}>
+              {%- endif -%}
+            {%- else -%}
+              {%- capture collection_image -%}collection-{% cycle '1', '2', '3', '4', '5', '6' %}{%- endcapture -%}
+              <div class="placeholder-image">
+                {%- if section.settings.reveal_on_scroll and forloop.first -%}
+                  {{- collection_image | placeholder_svg_tag: 'shop-the-look__image shop-the-look__image--placeholder' | replace: '<svg', '<svg reveal' -}}
+                {%- else -%}
+                  {{- collection_image | placeholder_svg_tag: 'shop-the-look__image shop-the-look__image--placeholder' -}}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- assign product_1 = block.settings.product_1 -%}
+          {%- assign product_2 = block.settings.product_2 -%}
+          {%- assign product_3 = block.settings.product_3 -%}
+
+          {%- if product_1 == blank and product_2 == blank and product_3 == blank -%}
+            {%- assign show_product_placeholder = true -%}
+          {%- else -%}
+            {%- assign show_product_placeholder = false -%}
+          {%- endif -%}
+
+          {%- for i in (1..3) -%}
+            {%- capture product_option -%}product_{{ i }}{%- endcapture -%}
+            {%- capture product_horizontal_position_option -%}product_{{ i }}_horizontal_position{%- endcapture -%}
+            {%- capture product_vertical_position_option -%}product_{{ i }}_vertical_position{%- endcapture -%}
+
+            {%- assign product = block.settings[product_option] -%}
+
+            <div id="{{ look_id }}-{{ forloop.index }}" class="shop-the-look__product-wrapper">
+              {%- if show_product_placeholder -%}
+                <button type="button" is="toggle-button" {% if section.settings.reveal_on_scroll or forloop.parentloop.first == false %}reveal{% endif %} class="shop-the-look__dot tap-area hidden-phone" aria-controls="{{ look_id }}-{{ forloop.index }}-product" aria-expanded="false">
+                  <span class="visually-hidden">{{ 'general.accessibility.show_product' | t: title: i }}</span>
+                </button>
+
+                <button type="button" is="toggle-button" {% if section.settings.reveal_on_scroll or forloop.parentloop.first == false %}reveal{% endif %} class="shop-the-look__dot tap-area hidden-tablet-and-up" aria-controls="{{ look_id }}-{{ forloop.index }}-popover" aria-expanded="false">
+                  <span class="visually-hidden">{{ 'general.accessibility.show_product' | t: title: product.title }}</span>
+                </button>
+
+                {%- capture product_image -%}product-{% cycle '1', '2', '3' %}{%- endcapture -%}
+
+                <openable-element id="{{ look_id }}-{{ forloop.index }}-product" class="shop-the-look__product {% if block.settings[product_horizontal_position_option] > 50 %}shop-the-look__product--reverse{% endif %} hidden-phone">
+                  {{- product_image | placeholder_svg_tag: 'shop-the-look__product-image' -}}
+
+                  <div class="shop-the-look__product-info">
+                    <span class="shop-the-look__product-vendor heading heading--xsmall">{{ 'general.onboarding.product_vendor' | t }}</span>
+                    <span class="shop-the-look__product-title">{{ 'general.onboarding.product_title' | t }}</span>
+
+                    <div class="shop-the-look__product-bottom-wrapper">
+                      <span class="price">
+                        <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                        {{- 4500 | money -}}
+                      </span>
+
+                      <button type="button" class="shop-the-look__product-link link text--subdued">{{ 'collection.product.add_to_cart' | t }}</button>
+                    </div>
+                  </div>
+                </openable-element>
+
+                <quick-buy-popover id="{{ look_id }}-{{ forloop.index }}-popover" class="popover popover--quick-buy">
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <div class="quick-buy-product">
+                      {{- product_image | placeholder_svg_tag: 'quick-buy-product__image' -}}
+
+                      <div class="quick-buy-product__info text--small">
+                        <div class="product-item-meta">
+                          <span class="product-item-meta__vendor heading heading--xsmall">{{ 'general.onboarding.product_vendor' | t }}</span>
+                          <span class="product-item-meta__title">{{ 'general.onboarding.product_title' | t }}</span>
+
+                          <div class="product-item-meta__price-list-container" role="region" aria-live="polite">
+                            <div class="price-list">
+                              <span class="price">
+                                <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                                {{- 4500 | money -}}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                      {%- render 'icon' with 'close' -%}
+                    </button>
+                  </header>
+
+                  <div class="popover__content popover__content--no-padding">
+                    <div class="product-form">
+                      <div class="product-form__buy-buttons">
+                        <button id="AddToCart" type="submit" class="product-form__add-button button button--primary button--full">{{ 'product.form.add_to_cart' | t }}</button>
+                      </div>
+                    </div>
+                  </div>
+                </quick-buy-popover>
+              {%- elsif product != blank -%}
+                <button type="button" is="toggle-button" {% if section.settings.reveal_on_scroll or forloop.parentloop.first == false %}reveal{% endif %} class="shop-the-look__dot tap-area hidden-phone" aria-controls="{{ look_id }}-{{ forloop.index }}-product" aria-expanded="false">
+                  <span class="visually-hidden">{{ 'general.accessibility.show_product' | t: title: product.title }}</span>
+                </button>
+
+                <button type="button" is="toggle-button" {% if section.settings.reveal_on_scroll or forloop.parentloop.first == false %}reveal{% endif %} class="shop-the-look__dot tap-area hidden-tablet-and-up" aria-controls="{{ look_id }}-{{ forloop.index }}-popover" aria-expanded="false">
+                  <span class="visually-hidden">{{ 'general.accessibility.show_product' | t: title: product.title }}</span>
+                </button>
+
+                <openable-element id="{{ look_id }}-{{ forloop.index }}-product" class="shop-the-look__product {% if block.settings[product_horizontal_position_option] > 50 %}shop-the-look__product--reverse{% endif %} hidden-phone">
+                  {%- if product.featured_media -%}
+                    <img class="shop-the-look__product-image" loading="lazy" sizes="72px" {% render 'image-attributes', image: product.featured_media, sizes: '72,144,216,288' %}>
+                  {%- endif -%}
+
+                  <div class="shop-the-look__product-info">
+                    {%- if settings.show_vendor -%}
+                      {%- assign vendor_handle = product.vendor | handle -%}
+                      {%- assign collection_for_vendor = collections[vendor_handle] -%}
+
+                      {%- unless collection_for_vendor.empty? -%}
+                        <a class="shop-the-look__product-vendor heading heading--xsmall" href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
+                      {%- else -%}
+                        <a class="shop-the-look__product-vendor heading heading--xsmall" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
+                      {%- endunless -%}
+                    {%- endif -%}
+
+                    <a href="{{ product.url }}" class="shop-the-look__product-title">{{ product.title }}</a>
+
+                    <div class="shop-the-look__product-bottom-wrapper">
+                      {%- if product.price_varies -%}
+                        {%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
+                        <div class="price">
+                          <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                          {{- 'collection.product.from_price_html' | t: price_min: price_min -}}
+                        </div>
+                      {%- else -%}
+                        <span class="price">
+                          <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                          {{- product.price | money -}}
+                        </span>
+                      {%- endif -%}
+
+                      {%- if product.available -%}
+                        {%- if product.variants.size == 1 -%}
+                          {%- capture form_id -%}{{ look_id }}_form_{% increment product_form_index %}{%- endcapture -%}
+                          {%- form 'product', product, id: form_id, is: 'product-form' -%}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+                            <button type="submit" class="shop-the-look__product-link link text--subdued">{{ 'collection.product.add_to_cart' | t }}</button>
+                          {%- endform -%}
+                        {%- else -%}
+                          <button is="toggle-button" class="shop-the-look__product-link link text--subdued" aria-controls="{{ look_id }}-{{ forloop.index }}-drawer" aria-expanded="false">
+                            {{- 'collection.product.quick_view' | t -}}
+                          </button>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </openable-element>
+
+                <quick-buy-popover href="{{ product.url }}?view=quick-buy-popover" id="{{ look_id }}-{{ forloop.index }}-popover" class="popover popover--quick-buy"></quick-buy-popover>
+
+                {%- if product.available and product.variants.size > 1 -%}
+                  <quick-buy-drawer href="{{ product.url }}?view=quick-buy-drawer" id="{{ look_id }}-{{ forloop.index }}-drawer" class="drawer drawer--large drawer--quick-buy"></quick-buy-drawer>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </shop-the-look-item>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.blocks.size > 1 -%}
+      <div class="container">
+        <shop-the-look-nav {% if section.settings.reveal_on_scroll %}reveal{% endif %} class="shop-the-look__nav">
+          {%- if section.settings.label != blank -%}
+            <span class="shop-the-look__label heading heading--small hidden-pocket">{{ section.settings.label | escape }}</span>
+          {%- endif -%}
+
+          <div class="shop-the-look__prev-next-buttons">
+            <button class="shop-the-look__arrow prev-next-button prev-next-button--prev" data-action="prev">
+              <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+              {%- include 'icon' with 'nav-arrow-left', direction_aware: true -%}
+            </button>
+
+            <span class="shop-the-look__counter hidden-pocket">
+              <span class="shop-the-look__counter-page">
+                <span class="shop-the-look__counter-page-base">1</span>
+
+                {%- for i in (1..section.blocks.size) -%}
+                  <span class="shop-the-look__counter-page-transition" {% unless forloop.first %}hidden{% endunless %}>{{ i }}</span>
+                {%- endfor -%}
+              </span>
+              <span class="shop-the-look__counter-separator">/</span>
+              <span class="shop-the-look__counter-total">{{ section.blocks.size }}</span>
+            </span>
+
+            <button class="shop-the-look__arrow prev-next-button prev-next-button--next" data-action="next">
+              <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+              {%- include 'icon' with 'nav-arrow-right', direction_aware: true -%}
+            </button>
+          </div>
+        </shop-the-look-nav>
+      </div>
+    {%- endif -%}
+  </shop-the-look>
+</section>
+
+{% schema %}
+{
+  "name": "Shop the look",
+  "class": "shopify-section--shop-the-look",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Look",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "2160 x 1000px .jpg recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image",
+          "info": "1000 x 800px .jpg recommended. Default image is used if none is selected. To position the hotspots precisely, switch to mobile mode."
+        },
+        {
+          "type": "select",
+          "id": "dot_type",
+          "label": "Hotspot style",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "inverted",
+              "label": "Inverted"
+            }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "header",
+          "content": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "product_1_horizontal_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "product_1_vertical_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "product_1_horizontal_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position (mobile image)",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "product_1_vertical_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position (mobile image)",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "product_2_horizontal_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "product_2_vertical_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "product_2_horizontal_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position (mobile image)",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "product_2_vertical_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position (mobile image)",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Product 3"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "product_3_horizontal_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "product_3_vertical_position",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "product_3_horizontal_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position (mobile image)",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "product_3_vertical_position_mobile",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position (mobile image)",
+          "default": 70
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "reveal_on_scroll",
+      "label": "Reveal on scroll",
+      "info": "Show animation when section becomes visible.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Navigation label",
+      "default": "Shop the looks",
+      "info": "Shown when multiple looks are featured."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop the look",
+      "blocks": [
+        {
+          "type": "look",
+          "settings": {
+            "dot_type": "inverted",
+            "product_1_horizontal_position": 41,
+            "product_1_vertical_position": 41,
+            "product_2_horizontal_position": 46,
+            "product_2_vertical_position": 64,
+            "product_3_horizontal_position": 62,
+            "product_3_vertical_position": 50
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

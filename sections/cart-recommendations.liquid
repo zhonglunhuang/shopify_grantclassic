@@ -1,0 +1,81 @@
+<style>
+  @media screen and (min-width: 999px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: 4;
+    }
+  }
+</style>
+
+<product-recommendations section-id="{{ section.id }}" intent="related" product-id="{{ cart.items.first.product_id }}" recommendations-count="10" class="section {% unless blends_with_background %}section--flush{% endunless %}" hidden>
+  {%- assign acceptable_recommendations_count = 0 -%}
+
+  {%- for product in recommendations.products -%}
+    {%- assign matching_product = cart.items | where: 'product_id', product.id | first -%}
+
+    {%- if matching_product == blank -%}
+      {%- assign acceptable_recommendations_count = acceptable_recommendations_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if recommendations.performed and acceptable_recommendations_count > 0 -%}
+    <div class="container container--medium vertical-breather vertical-breather--tight vertical-breather--margin">
+      {%- if section.settings.title != blank or section.settings.subheading != blank -%}
+        <header class="section__header">
+          <div class="text-container">
+            {%- if section.settings.title != blank -%}
+              <h2 class="heading h4">{{ section.settings.title }}</h2>
+            {%- endif -%}
+          </div>
+        </header>
+      {%- endif -%}
+
+      {%- comment -%}
+        IMPLEMENTATION NOTE: we show only 4 products at max, but we load 10, to avoid showing the products that are already in the cart
+      {%- endcomment -%}
+
+      <product-list {% if settings.stagger_products_apparition %}stagger-apparition{% endif %} class="product-list">
+        {%- assign largest_image_aspect_ratio = 1 -%}
+        {%- assign shown_products_count = 0 -%}
+
+        <div class="scroller">
+          <div class="product-list__inner product-list__inner--scroller product-list__inner--desktop-no-scroller hide-scrollbar">
+            {%- for product in recommendations.products -%}
+              {%- if shown_products_count >= 4 -%}
+                {%- break -%}
+              {%- endif -%}
+
+              {%- assign matching_product = cart.items | where: 'product_id', product.id -%}
+
+              {%- if matching_product.size == 0 -%}
+                {%- assign shown_products_count = shown_products_count | plus: 1 -%}
+                {%- assign largest_image_aspect_ratio = largest_image_aspect_ratio | at_most: product.featured_media.aspect_ratio -%}
+
+                {%- capture sizes_attribute -%}(max-width: 740px) 75vw, min({{ 100.0 | divided_by: 4 | ceil }}vw, {{ 1520.0 | divided_by: 4 | ceil }}px){%- endcapture -%}
+                {%- render 'product-item', product: product, sizes_attribute: sizes_attribute, reveal: settings.stagger_products_apparition -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </product-list>
+    </div>
+  {%- endif -%}
+</product-recommendations>
+
+{% schema %}
+{
+  "name": "Cart recommendations",
+  "class": "shopify-section--cart-recommendations",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Dynamic recommendations are based on the items in your cart. They change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "You may also like"
+    }
+  ]
+}
+{% endschema %}

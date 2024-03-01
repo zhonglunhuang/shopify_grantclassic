@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-customers-login",
+      "blocks": {
+        "login_form": {
+          "type": "login",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "login_form"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

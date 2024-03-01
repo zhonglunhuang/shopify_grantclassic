@@ -1,0 +1,600 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2023-08-04 08:37:21
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper-bundle-v9.min.css" />
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" />
+ <link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.5" />
+ <noscript>
+    <link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper-bundle-v9.min.css" />
+    <link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" />
+    <link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.5" />
+</noscript>
+<script type="text/javascript" asyc="async" id="ecom-vendors-slider_js" src="https://cdn.ecomposer.app/vendors/js/ecom-swiper-bundle-v9.min.js" ></script>
+<script type="text/javascript" asyc="async" id="ecom-vendors-modal_js" src="https://cdn.ecomposer.app/vendors/js/ecom_modal.js" ></script>
+<script type="text/javascript" asyc="async" id="ecom-vendors-zoom_js" src="https://cdn.ecomposer.app/vendors/js/ecom_zoom.js" ></script>
+<script type="text/javascript" asyc="async" id="ecom-vendors-shopify_option_selection_js" src="https://cdn.ecomposer.app/vendors/js/ecomposer_option_selection.js" ></script>
+{%capture section_id %}ecom-default-template{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}<link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Albert+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+{{ 'https://cdn.shopify.com/s/files/1/0643/9262/6408/files/quickview.css?v=1691139558' | stylesheet_tag }}
+<script src="https://cdn.shopify.com/s/files/1/0643/9262/6408/files/quickview.js?v=1691139563 defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="64ccb8c1fa1da94fa50063f2";
+ window.EComposer.TEMPLATE = {"template_id":"64ccb8c1fa1da94fa50063f2","title":"Quick View","type":"quickview","slug":"ecom-quick-view","plan_id":7};
+ </script>
+<div class="ecom-builder" id="ecom-default-template"><div class="ecom-sections" data-section-id="{{section.id}}">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ if request.page_type != 'product' or product == blank
+ assign selected_product = 'dayton-teddy-fleece-jacket'
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-jjb4n7cijxm{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-jjb4n7cijxm" data-id="ecom-jjb4n7cijxm" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"> <div class="ecom-column ecom-core core__column--first core__column--last ecom-gd0jtjrbkx8"><div class="core__column--wrapper"><div class="core__blocks" index="0"><div class="core__blocks--body"> <div class="ecom-block ecom-core core__block elmspace ecom-rhhuovhjts7" data-core-is="row"> <div class="ecom-row ecom-core core__block ecom-i9d3opq3zf7" data-id="ecom-i9d3opq3zf7" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"> <div class="ecom-column ecom-core core__column--first ecom-c7ckg61xv1j"><div class="core__column--wrapper"><div class="core__blocks" index="0"><div class="core__blocks--body"> <div class="ecom-block ecom-core core__block elmspace ecom-jdel22mh2eo" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__media ecom-position-sticky" deep="2"><div class="ecom-product-single__media-wrapper 
+ {% if product.media.size == 1 %}
+ ecom-dont-has-many-images
+ {% endif %}
+ "><div class="ecom-product-single__media-container ecom-product-single__media--slider ecom-product-single__media--horizontal ecom-product-single__media-tablet--horizontal ecom-product-single__media-mobile--horizontal"><div class="ecom-product-single__media--featured ecom-swiper-container" data-breakpoints="{&quot;0&quot;:{&quot;__screen_name&quot;:&quot;mobile&quot;},&quot;768&quot;:{&quot;__screen_name&quot;:&quot;tablet&quot;},&quot;1025&quot;:{&quot;__screen_name&quot;:&quot;desktop&quot;,&quot;slidesPerView&quot;:1}}" data-priority="variant">
+ {% comment %}
+ Reactivity
+ *this.data.settings.image_action
+ *this.data.settings.enable_zoom
+ {% endcomment %}
+ 
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ 
+ 
+ 
+ {% assign img_padding = 1 | times: 1 %}
+ {% assign img_padding__tablet = 1 | times: 1 %}
+ {% assign img_padding__mobile = 1 | times: 1 %}
+ <div class="ecom-swiper-wrapper ecom-product-single__media--images ecom-swiper-wrapper ecom-product-single__media--images-layout__slider">
+ {% for image in product.images%}
+ {% assign img_ration = 1 | divided_by: image.aspect_ratio | times: 100 %}
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align- ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media--image" data-index="{{forloop.index0}}" data-variant_id="{{ image.variants | map:'id' | join: ',' }}" style="--img_padding: {{ img_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ img_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ img_ration | divided_by: img_padding__mobile }}%;">
+ 
+ {%- assign img_master = image | img_url: 'master' -%}
+ {{ image | image_url: width: 1946 | image_tag:
+ sizes: sizes,
+ widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+ class: 'ecom-image-default'
+ 
+ ,loading: 'lazy'
+ ,alt: image.alt | escape
+ }}
+ 
+ </div>
+ {% endfor %}
+ {%- for media in product.media -%}
+ {% assign media_ration = 1 | divided_by: media.aspect_ratio | times: 100 %}
+ {% case media.media_type %}
+ {% when 'image' %}
+ {% continue %}
+ {% when 'external_video'%}
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align- ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media---external-video ecom-product-single__media--full" data-position="{{media.position}}" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;">
+ {{ media | external_video_tag: image_size:'master' }}
+ </div>
+ {% when 'video' %}
+ <div data-stopdrag="true" class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align- ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media--video ecom-product-single__media--full ecom-swiper-no-swiping" data-position="{{media.position}}" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;">
+ {{ media | video_tag: image_size:'master', class: 'ecom-media-video', controls: undefined, autoplay: undefined, mute: undefined }}
+ 
+ <button class="ecom-product-single__media--play-control" type="button">
+ <span class="ecom-product-single__media--play-control-wrapper">
+ <span class="visually-hidden">Play video</span>
+ 
+ </span>
+ </button>
+ 
+ </div>
+ {% when 'model' %}
+ <div class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align- ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--model ecom-product-single__media--full" data-stopdrag="true" data-position="{{media.position}}">
+ <div class="ecom-product-single__media--model-wrapper" style="padding-top: 100%">
+ {{ media | model_viewer_tag: image_size:'master', reveal: 'interaction', toggleable: true, data-model-id: media.id }}
+ </div>
+ </div>
+ {% else %}
+ <div data-media-type="{{media.media_type}}" class="ecom-product-single__media--image ecom-swiper-slide ecom-flex ecom-image-align- ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--full" data-position="{{media.position}}">
+ <div class="ecom-product-single__media" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;">
+ {{ media | media_tag: image_size:'master', class: 'ecom-product-single__media--item' }}
+ </div>
+ </div>
+ {% endcase %}
+ {%- endfor -%}
+ </div>
+ 
+ <div class="ecom-swiper-pagination"></div>
+ <div class="ecom-swiper-button-next ecom-swiper-controls" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+ </svg>
+ </div>
+ <div class="ecom-swiper-button-prev ecom-swiper-controls" style="display: flex">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+ </svg>
+ </div>
+ 
+ </div><div class="ecom-product-single__media--thumbs ecom-product-single__init-thumb-hidden ecom-swiper-container" data-breakpoints="{&quot;0&quot;:{&quot;__screen_name&quot;:&quot;mobile&quot;,&quot;slidesPerView&quot;:4,&quot;thumbnail_position&quot;:&quot;column&quot;},&quot;768&quot;:{&quot;__screen_name&quot;:&quot;tablet&quot;,&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:15,&quot;thumbnail_position&quot;:&quot;column&quot;},&quot;1025&quot;:{&quot;__screen_name&quot;:&quot;desktop&quot;,&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:10,&quot;thumbnail_position&quot;:&quot;column&quot;}}">
+ {%- if product.media.size > 1 -%}
+ <div class="ecom-swiper-wrapper">
+ {% for image in product.images%}
+ <div class="ecom-product-single__media--thumbnail ecom-swiper-slide" data-variant_id="{{ image.variants | map:'id' | join:',' }}">
+ <img
+ class="ecom-product-thumbnail"
+ src="{{ image | img_url: '350x350' , crop: 'center' }}"
+ alt="{{ image.alt }}"
+ loading="lazy"
+ />
+ </div>
+ {% endfor %}
+ {%- for media in product.media -%}
+ {% if media.media_type != 'image' %}
+ <div class="ecom-product-single__media--thumbnail ecom-swiper-slide">
+ <div class="ecom-product-single__media--thumbnail--icon">
+ {% if media.media_type == 'model' %}
+ 
+ {% else %}
+ 
+ {% endif %}
+ </div>
+ <img src="{{ media.preview_image | img_url: '350x350' , crop: 'center' }}" alt="{{ media.alt }}" loading="lazy"/>
+ </div>
+ {% endif %}
+ {%- endfor -%}
+ </div>
+ 
+ <div class="ecom-swiper-button-next ecom-swiper-controls-thumb" style="display: none">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+ </svg>
+ </div>
+ <div class="ecom-swiper-button-prev ecom-swiper-controls-thumb" style="display: none">
+ <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+ </svg>
+ </div>
+ 
+ {%- endif -%}
+ </div></div></div><div class="ecom-hidden-content">
+ <script type="application/json" id="Product-model-{{ product.id }}">
+ {{ product.media | where: 'media_type', 'model' | json }}
+ </script>
+ </div></div></div> </div></div></div><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-oebfpf9ta8d"><div class="core__column--wrapper"><div class="core__blocks" index="1"><div class="core__blocks--body"> <div class="ecom-block ecom-core core__block elmspace ecom-h29qzqnqme" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__title" deep="2"><div class="ecom-product-single__title-wrapper"><div class="ecom-product-single__title-container"><h2 class="ecom-product__heading" href="{{ product.url }}" title="{{ product.title }}">{{ product.title }}</h2></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-dk26iws4gdl" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__rating" deep="2"><div class="ecom-product-single__rating-wrapper" data-review-platform="
+ {%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}
+ {{review_platform}}
+ "><div class="ecom-product-single__rating-container">
+ {%- if review_platform -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <span class="ecom-theme-app-extension-title" style="margin-left: 5px">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ </div>
+ {%- if review_platform != 'ali-reviews' -%}
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ {%- else -%}
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating platform not supported"></div>
+ {%- endif -%}
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {%- when 'vital-reviews'-%}
+ <div class="bundle-aggregated_reviews"></div>
+ {%- when 'opinew-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div> 
+ {%- when 'product-reviews-addon' -%}
+ <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" style="display: inline-block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_header_stars"></div>
+ {%- when 'loox'-%}
+ <a href="#looxReviews">
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ </a>
+ {% when 'ryviu'%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <span class="ecom-theme-app-extension-title" style="margin-left: 5px">Ryviu</span>
+ </div>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ {%- else -%}
+ <div class="review-widget">
+ <ryviu-widget-total
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- endif -%}
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shop_booster_rate_6" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <a href="#scm-reviews-importer">
+ <div id="scm-product-detail-rate" class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ </a>
+ {%- when 'photo-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'trustoo' -%}
+ <div class="custom-vstar-rating-widget" product-id="{{ product.id }}"></div>
+ {%- when 'ali-product-review' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {% endif %}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-cj9222biu4o" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="2"><a class="ecom-icon--container ecom-in_flex" href="#"><svg width="96" height="12" viewBox="0 0 96 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 10.0496L8.90991 11.8912C9.44281 12.2287 10.0949 11.7298 9.95468 11.0988L9.18337 7.63582L11.7567 5.3027C12.2265 4.87717 11.9741 4.07011 11.357 4.01875L7.97033 3.71794L6.64509 0.445713C6.40669 -0.148571 5.59331 -0.148571 5.35491 0.445713L4.02967 3.71061L0.642956 4.01142C0.025914 4.06278 -0.226512 4.86983 0.243281 5.29536L2.81663 7.62848L2.04532 11.0915C1.90509 11.7224 2.55719 12.2213 3.09009 11.8838L6 10.0496Z"></path><path d="M27 10.0496L29.9099 11.8912C30.4428 12.2287 31.0949 11.7298 30.9547 11.0988L30.1834 7.63582L32.7567 5.3027C33.2265 4.87717 32.9741 4.07011 32.357 4.01875L28.9703 3.71794L27.6451 0.445713C27.4067 -0.148571 26.5933 -0.148571 26.3549 0.445713L25.0297 3.71061L21.643 4.01142C21.0259 4.06278 20.7735 4.86983 21.2433 5.29536L23.8166 7.62848L23.0453 11.0915C22.9051 11.7224 23.5572 12.2213 24.0901 11.8838L27 10.0496Z"></path><path d="M48 10.0496L50.9099 11.8912C51.4428 12.2287 52.0949 11.7298 51.9547 11.0988L51.1834 7.63582L53.7567 5.3027C54.2265 4.87717 53.9741 4.07011 53.357 4.01875L49.9703 3.71794L48.6451 0.445713C48.4067 -0.148571 47.5933 -0.148571 47.3549 0.445713L46.0297 3.71061L42.643 4.01142C42.0259 4.06278 41.7735 4.86983 42.2433 5.29536L44.8166 7.62848L44.0453 11.0915C43.9051 11.7224 44.5572 12.2213 45.0901 11.8838L48 10.0496Z"></path><path d="M69 10.0496L71.9099 11.8912C72.4428 12.2287 73.0949 11.7298 72.9547 11.0988L72.1834 7.63582L74.7567 5.3027C75.2265 4.87717 74.9741 4.07011 74.357 4.01875L70.9703 3.71794L69.6451 0.445713C69.4067 -0.148571 68.5933 -0.148571 68.3549 0.445713L67.0297 3.71061L63.643 4.01142C63.0259 4.06278 62.7735 4.86983 63.2433 5.29536L65.8166 7.62848L65.0453 11.0915C64.9051 11.7224 65.5572 12.2213 66.0901 11.8838L69 10.0496Z"></path><path d="M90 10.0496L92.9099 11.8912C93.4428 12.2287 94.0949 11.7298 93.9547 11.0988L93.1834 7.63582L95.7567 5.3027C96.2265 4.87717 95.9741 4.07011 95.357 4.01875L91.9703 3.71794L90.6451 0.445713C90.4067 -0.148571 89.5933 -0.148571 89.3549 0.445713L88.0297 3.71061L84.643 4.01142C84.0259 4.06278 83.7735 4.86983 84.2433 5.29536L86.8166 7.62848L86.0453 11.0915C85.9051 11.7224 86.5572 12.2213 87.0901 11.8838L90 10.0496Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block ecom-hej9vk0uggt" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-default">{{ 'sections.ecom-default-template.textcontent_hej9vk0uggt_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-igi21p1nxm" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__price" deep="2"><div class="ecom-product-single__price-wrapper"><div class="ecom-product-single__price-container"><div class="ecom-product-single__price-container-grid"><div class="ecom-product-single ecom-product-single__price--prices">
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ <div class="ecom-product-single__price--sale" data-price="{{target.price}}">
+ {%- if settings.currency_code_enabled -%}
+ {{target.price | money_with_currency}}
+ {%- else -%}
+ {{target.price| money }}
+ {%- endif -%}
+ </div>
+ 
+ <div class="ecom-product-single__price--regular" {%- if product.compare_at_price == nil or product.compare_at_price < product.price -%} style="display:none" {% endif %}>
+ {%- if settings.currency_code_enabled -%}
+ {{target.compare_at_price | money_with_currency}}
+ {%- else -%}
+ {{target.compare_at_price | money }}
+ {%- endif -%}
+ </div>
+ 
+ {%- capture taxes_text -%}{%- endcapture -%}
+ {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+ {% if taxes_text%}
+ <div class="ec-product__tax caption rte">
+ {%- if shop.taxes_included -%}
+ 
+ {%- endif -%}
+ {%- if shop.shipping_policy.body != blank -%}
+ 
+ {%- endif -%}
+ </div>
+ 
+ {%- endif -%}
+ {%- endif -%}
+ </div><div class="ecom-product-single__price--badges-wrapper">
+ <div class="ecom-product-single__price--badges">
+ {%- assign savings = target.compare_at_price | minus: target.price | times: 100.0 | divided_by: target.compare_at_price | round -%}
+ 
+ <span class="ecom-product-single__price--badges-sale" data-text=" {{ 'sections.ecom-default-template.product_single_sale_text_igi21p1nxm_html' | t }}" data-sale="{{savings}}" data-type="percent" {%- if target.compare_at_price == nil or target.compare_at_price <= target.price -%} style="display:none" {% endif %}>
+ {{ 'sections.ecom-default-template.product_single_sale_text_igi21p1nxm_html' | t }}
+ </span>
+ <span class="ecom-product-single__price--badges-sold-out" {% unless target.avaiable %} style="display:none" {% endunless %}>
+ {{ 'sections.ecom-default-template.product_single_sold_text_igi21p1nxm_html' | t }}
+ </span>
+ </div>
+ </div></div><div class="ecom-product-single-afterpay">
+ 
+ </div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-3jvjwak11an" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__description" deep="2"><div class="ecom-product-single__description-wrapper"><div class="ecom-product-single__description-container" data-show-type="short"><div class="ecom-product-single__description--paragraph"><div>
+ <div>{{ product.description | strip_html | truncatewords: 30 }}</div>
+ </div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-phpd2kxein8" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__inventory" deep="2"><div class="ecom-product-single__inventory-wrapper"><div class="ecom-product-single__inventory-container">
+ {%-liquid
+ if use_variant
+ assign target = product.selected_or_first_available_variant
+ else
+ assign target = product
+ endif
+ assign stock_class = 'ecom-product-single-status--instock'
+ if target.available == false
+ assign stock_class = 'ecom-product-single-status--outstock'
+ endif
+ -%}
+ <p
+ class="ecom-product-single__inventory-status {{stock_class}}"
+ data-product_id = "{{product.id}}"
+ data-instock-text="{{ 'sections.ecom-default-template.instock_text_phpd2kxein8_html' | t }}"
+ data-outstock-text="{{ 'sections.ecom-default-template.outstock_text_phpd2kxein8_html' | t }}"
+ data-inventory-text="{{ 'sections.ecom-default-template.inventory_text_phpd2kxein8_html' | t }}"
+ data-show-less-than="100"
+ data-preorder-text="{{ 'sections.ecom-default-template.preorder_text_phpd2kxein8_html' | t }}"
+ data-show-next-incoming-date="true"
+ data-unavailable-text="Unavailable"
+ data-incoming-date-text="Variant is out of stock. The product will available at: {next_incoming_date}"
+ >
+ {{ 'sections.ecom-default-template.instock_text_phpd2kxein8_html' | t }}
+ </p>
+ </div><div class="ecom-product-single__inventory-progress-bar"><div class="ecom-product-single__inventory-progress-bar--timer"></div></div></div></div></div> <div class="ecom-block ecom-core core__block ecom-mopm0qumv6" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__variant-picker" deep="2"><div class="ecom-product-single__variant-picker-wrapper ecom_not_hide_dropdown_arrow"><div class="ecom-product-single__variant-picker-container {% if product.has_only_default_variant%} ecom-product-single__variant-picker--only-default{% endif%}" data-picker-type="color" data-ecom-placeholder="">
+ {% assign ecom_has_variant_picker = true%}
+ {% assign variant_selected = product.selected_or_first_available_variant%}
+ <div class="ecom-product-single__variant-picker--main">
+ {%- capture swatch_option -%}{{ 'sections.ecom-default-template.product_option_swatch_mopm0qumv6_html' | t }}{% endcapture%}
+ {%- assign swatch_option = swatch_option | split: ',' -%}
+ {%liquid
+ assign colors = shop.metafields.ecomposer.colors
+ %}
+ {% unless product.has_only_default_variant %}
+ {%- for option in product.options_with_values -%}
+ {%- if swatch_option contains option.name -%}
+ {% assign variant_selected = product.selected_or_first_available_variant %}
+ {% assign current_option = option %}
+ {% assign option_index = current_option.position | minus: 1 %}
+ <div class="ecom-product-single__picker-main ecom-product-single__picker-option-{{option.name | handleize }}">
+ <span class="ecom-product-single__picker-main-label ecom-product-single__picker--option-label" data-option-index="{{current_option.position | minus: 1}}">
+ <span class="ecom-product-variant--option-label-text">{{ current_option.name }}</span>
+ </span>
+ <ul class="ecom-product-single__picker-colors-list">
+ {%- assign index = current_option.position | prepend: 'option' -%}
+ {% assign value_key_selected = variant_selected[index] | downcase %}
+ {%- for value in current_option.values -%}
+ {% assign value_key = value | downcase | strip %}
+ <li data-option-index="{{ option_index }}" class="ecom-product-single__swatch-item ecom-product-single__picker-colors-item {% if value_key == value_key_selected %}ecom-box-active{% endif %}" data-value="{{ value | escape }}">
+ <span {% if colors and colors.value[value_key] != blank %} style="{{colors.value[value_key]}}"{% else %} class="ecom-product-single__picker-colors--no-color" {% endif %}>
+ </span>
+ </li>
+ {%- endfor -%}
+ </ul>
+ </div>
+ {% continue%}
+ {%-endif-%}
+ {%- assign index = option.position | prepend: 'option' -%}
+ {% assign option_index = option.position | minus: 1 %}
+ <div class="ecom-product-single__picker-option-{{option.name | handleize }}">
+ <span class="ecom-product-single__picker-radio-label ecom-product-single__picker--option-label" data-option-index="{{option_index}}">
+ <span class="ecom-product-variant--option-label-text">{{option.name}}</span>
+ </span>
+ 
+ <ul class="ecom-product-single__picker-radio-list">
+ {% for value in option.values %}
+ <li class="ecom-product-single__swatch-item ecom-product-single__picker-radio-list-item {% if value == variant_selected[index] %}ecom-button-active{% endif %}" data-option-index="{{ option_index }}" data-value="{{ value | escape }}">
+ {{value}}
+ </li>
+ {% endfor %}
+ </ul>
+ 
+ </div>
+ {%- endfor -%}
+ {% endunless %}
+ </div><div class="ecom-product-single__variant-picker--options">
+ <select name="id" class="ecom-product-single-select-id{%-if product.has_only_default_variant-%}ecom-product-single__picker-default-variant{% endif %}" data-product-id="{{product.id}}" data-json-product="product-json-{{product.id}}-ecom-mopm0qumv6" id="ecom-variant-selector-{{product.id}}-ecom-mopm0qumv6">
+ {% for variant in product.variants%}
+ <option value="{{variant.id}}" {% if variant_selected.id == variant.id %} selected="selected" {% endif %}>{{variant.title}}</option>
+ {% endfor %}
+ </select>
+ </div><div class="ecom-product-single__variant-picker--json">
+ {%- capture ecom_product_json -%}
+ {
+ "id": {{ product.id }},
+ "title": {{ product.title | json }},
+ "handle": {{ product.handle | json }},
+ "price": {{ product.price| json }},
+ "price_min": {{ product.price_min| json }},
+ "price_max": {{ product.price_max| json }},
+ "available": {{ product.available | json }},
+ "price_varies": {{ product.price_varies| json }},
+ "compare_at_price": {{ product.compare_at_price| json }},
+ "compare_at_price_min": {{ product.compare_at_price_min| json }},
+ "compare_at_price_max": {{ product.compare_at_price_max| json }},
+ "compare_at_price_varies": {{ product.compare_at_price_varies| json }},
+ "options_with_values": {{ product.options_with_values | json }},
+ "variants": [
+ {%- for variant in product.variants -%}
+ {
+ "id": {{ variant.id }},
+ "title": "{{ variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%} {{ variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%} {{ variant.option3 | handleize }}",
+ "option1": {{ variant.option1 | json }},
+ "option2": {%- if product.options.size == 1 -%}null{%-else-%} {{ variant.option2 | json }}{%-endif-%},
+ "option3": {%- if product.options.size == 1 or product.options.size == 2 -%}null{%-else-%} {{ variant.option3 | json }}{%-endif-%},
+ "sku": {{ variant.sku | json }},
+ "requires_shipping": {{ variant.requires_shipping }},
+ "taxable": {{ variant.taxable |json }},
+ "selling_plan_allocations":{%- if variant.selling_plan_allocations and variant.selling_plan_allocations.size > 0 -%}[{% for allocation in variant.selling_plan_allocations %}{"price":{{allocation.price}},"selling_plan":{"id":{{allocation.selling_plan.id}}, "name":{{allocation.selling_plan.name | json }} } }{%unless forloop.last%},{% endunless%}{%- endfor -%}]{%- else -%}null{%- endif -%},
+ "featured_image": {%- if variant.image.id != blank -%}{
+ "id": {{ variant.image.id | json }},
+ "product_id": {{ product.id | json }},
+ "width": {{ variant.image.width | json }},
+ "height": {{ variant.image.height | json }},
+ "src": {{ variant.image.src | json }},
+ "position": {{ variant.image.position }}
+ }{%- else-%}null{%-endif-%},
+ "available": {{ variant.available }},
+ "public_title": " {{ variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%} {{ variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%} {{ variant.option3 | handleize }}",
+ "options": {{ variant.options | json }},
+ "price": {{ variant.price| json }},
+ "weight": {{ variant.weight| json }},
+ "unit_price": {{ variant.unit_price | json }},
+ "unit_price_measurement": {
+ "measured_type": {{ variant.unit_price_measurement.measured_type | json }},
+ "quantity_value": {{ variant.unit_price_measurement.quantity_value | json }},
+ "quantity_unit": {{ variant.unit_price_measurement.quantity_unit | json }},
+ "reference_value": {{ variant.unit_price_measurement.reference_value | json }},
+ "reference_unit": {{ variant.unit_price_measurement.reference_unit | json }}
+ },
+ "compare_at_price": {{ variant.compare_at_price | json }},
+ "inventory_quantity": {{ variant.inventory_quantity | json }},
+ "inventory_management": {{ variant.inventory_management | json }},
+ "inventory_policy": {{ variant.inventory_policy | json }},
+ "next_incoming_date": {% if variant.next_incoming_date %}{{variant.next_incoming_date | time_tag | json }}{% else%}null{% endif %},
+ "barcode": {{ variant.barcode | json }}
+ }{%- if forloop.last == false -%},{%- endif -%}
+ {%- endfor -%}
+ ],
+ "featured_image": {{ product.featured_image | json }},
+ "options": [
+ {%- for option in product.options -%}
+ {{ option | json }}{%- if forloop.last == false -%},{%- endif -%}
+ {%-endfor -%}
+ ]
+ }
+ {%- endcapture -%}
+ <script type="application/json" id="product-json-{{product.id}}-ecom-mopm0qumv6">
+ {{ ecom_product_json}}
+ </script></div></div></div></div></div> <div class="ecom-block ecom-core core__block ecom-vlgjujk8hy" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__quantity" deep="2"><div class="ecom-product-single__quantity-wrapper"><div class="ecom-product-single__quantity-container"><label class="ecom-product-single__quantity-container-label" for="quantity"></label><div class="ecom-product-single__quantity-controls"><button type="button" class="ecom-product-single__quantity-controls-button ecom-product-single__quantity-controls-minus" aria-label="control minus"><svg class="svg-inline--fa fa-minus ecom-product-single__quantity-controls-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256C432 264.8 424.8 272 416 272H32c-8.844 0-16-7.15-16-15.99C16 247.2 23.16 240 32 240h384C424.8 240 432 247.2 432 256z"></path></svg></button><input name="quantity" type="number" max="9999" min="1" class="ecom-product-single__quantity-input" required=""><button type="button" class="ecom-product-single__quantity-controls-button ecom-product-single__quantity-controls-plus" aria-label="control plus"><svg class="svg-inline--fa fa-plus ecom-product-single__quantity-controls-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256C432 264.8 424.8 272 416 272h-176V448c0 8.844-7.156 16.01-16 16.01S208 456.8 208 448V272H32c-8.844 0-16-7.15-16-15.99C16 247.2 23.16 240 32 240h176V64c0-8.844 7.156-15.99 16-15.99S240 55.16 240 64v176H416C424.8 240 432 247.2 432 256z"></path></svg></button></div></div></div></div></div> <div class="ecom-block ecom-core core__block ecom-boa4cnsk0z ec-button-action" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__add-to-cart" deep="2"><div class="ecom-product-single__add-to-cart-wrapper"><div class="ecom-product-single__add-to-cart-container"><div class="ecom-product-single__add-to-cart-buttons"><div class="ecom-product-single__add-to-cart-buttons-wrapper"><button type="submit" class="ecom-product-single__add-to-cart--submit ecom-flex animated" data-text-add-cart="{{ 'sections.ecom-default-template.add_to_cart_boa4cnsk0z_html' | t }}" data-text-pre-order="{{ 'sections.ecom-default-template.pre_order_boa4cnsk0z_html' | t }}" data-text-unavailable="{{ 'sections.ecom-default-template.product_unavailable_boa4cnsk0z_html' | t }}" data-text-outstock="{{ 'sections.ecom-default-template.out_stock_boa4cnsk0z_html' | t }}" data-text-added-cart="{{ 'sections.ecom-default-template.added_cart_text_boa4cnsk0z_html' | t }}" data-message-added-cart="{{ 'sections.ecom-default-template.added_cart_message_boa4cnsk0z_html' | t }}" data-href="#" data-target="" data-action="popup" data-variant-id="{{product.first_available_variant.id}}"><span class="ecom-add-to-cart-text">{{ 'sections.ecom-default-template.add_to_cart_boa4cnsk0z_html' | t }}</span><span class="ecom__element--button-icon"></span></button></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-0fhzg7ty76pc" data-core-is="block"> <div class="ecom-row ecom-core core__block ecom-3939nh7tnsf" data-id="ecom-3939nh7tnsf" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"> <div class="ecom-column ecom-core core__column--first core__column--last ecom-eo4txyvguxv"><div class="core__column--wrapper"><div class="core__blocks" index="0"><div class="core__blocks--body"> <div class="ecom-block ecom-core core__block elmspace ecom-ke5l5ure39" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h3 class="ecom__heading">{{ 'sections.ecom-default-template.headingtext_ke5l5ure39_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block ecom-bpltzjzve05" data-core-is="block"><div class="ecom-element ecom-base-image" deep="3"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay"><picture class="ecom-image-picture"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0726/1221/7115/files/trus.svg?v=1678270241" alt="trus" style=""></picture></div></div></figure></div></div> </div></div></div><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div></div> </div> <div class="ecom-block ecom-core core__block elmspace ecom-qx9733j8ss" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h3 class="ecom__heading">{{ 'sections.ecom-default-template.headingtext_qx9733j8ss_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-uyincytrfx" data-core-is="block"><div class="ecom__element ecom-element element__social" deep="2"><div class="ecom__element-social facebook" style=""><a href="https://www.facebook.com/sharer/sharer.php?u={current-link}" alt="facebook" class="element-social-link" target="_blank"><div class="social-icon"><span><svg version="1.1" id="lni_lni-facebook-filled" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+ <path d="M47.4,25.8L47.4,25.8h-5.6h-2v-2v-6.2v-2h2H46c1.1,0,2-0.8,2-2V3c0-1.1-0.8-2-2-2h-7.3c-7.9,0-13.4,5.6-13.4,13.9v8.7v2h-2
+ h-6.8c-1.4,0-2.7,1.1-2.7,2.7v7.2c0,1.4,1.1,2.7,2.7,2.7h6.6h2v2v20.1c0,1.4,1.1,2.7,2.7,2.7h9.4c0.6,0,1.1-0.3,1.5-0.7
+ s0.7-1.1,0.7-1.7l0,0l0,0V40.3v-2h2.1H46c1.3,0,2.3-0.8,2.5-2v-0.1v-0.1l1.4-6.9c0.1-0.7,0-1.5-0.6-2.3
+ C49.1,26.4,48.2,25.9,47.4,25.8z"></path>
+ </svg></span></div></a></div><div class="ecom__element-social twitter" style=""><a href="https://twitter.com/intent/tweet?url={current-link}" alt="twitter" class="element-social-link" target="_blank"><div class="social-icon"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></span></div></a></div><div class="ecom__element-social linkedIn" style=""><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={current-link}" alt="linkedIn" class="element-social-link" target="_blank"><div class="social-icon"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></span></div></a></div></div></div> </div></div></div><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div></div> </div> </div></div></div><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div></section> 
+ {% unless ecom_has_variant_picker %}
+ {%- capture ecom_product_json -%}
+ {
+ "id": {{ product.id }},
+ "title": {{ product.title | json }},
+ "handle": {{ product.handle | json }},
+ "price": {{ product.price| json }},
+ "price_min": {{ product.price_min| json }},
+ "price_max": {{ product.price_max| json }},
+ "available": {{ product.available | json }},
+ "price_varies": {{ product.price_varies| json }},
+ "compare_at_price": {{ product.compare_at_price| json }},
+ "compare_at_price_min": {{ product.compare_at_price_min| json }},
+ "compare_at_price_max": {{ product.compare_at_price_max| json }},
+ "compare_at_price_varies": {{ product.compare_at_price_varies| json }},
+ "variants": [
+ {%- for variant in product.variants -%}
+ {
+ "id": {{ variant.id }},
+ "title": " {{ variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%} {{ variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%} {{ variant.option3 | handleize }}",
+ "option1": {{ variant.option1 | json }},
+ "option2": {%- if product.options.size == 1 -%}null{%-else-%} {{ variant.option2 | json }}{%-endif-%},
+ "option3": {%- if product.options.size == 1 or product.options.size == 2 -%}null{%-else-%} {{ variant.option3 | json }}{%-endif-%},
+ "sku": {{ variant.sku | json }},
+ "requires_shipping": {{ variant.requires_shipping }},
+ "taxable": {{ variant.taxable |json }},
+ "selling_plan_allocations":{%- if variant.selling_plan_allocations and variant.selling_plan_allocations.size > 0 -%}[{% for allocation in variant.selling_plan_allocations %}{"price":{{allocation.price}},"selling_plan":{"id":{{allocation.selling_plan.id}}, "name":{{allocation.selling_plan.name | json }} } }{%unless forloop.last%},{% endunless%}{%- endfor -%}]{%- else -%}null{%- endif -%},
+ "featured_image": {%- if variant.image.id != blank -%}{
+ "id": {{ variant.image.id | json }},
+ "product_id": {{ product.id | json }},
+ "width": {{ variant.image.width | json }},
+ "height": {{ variant.image.height | json }},
+ "src": {{ variant.image.src | json }},
+ "position": {{ variant.image.position }}
+ }{%- else-%}null{%-endif-%},
+ "available": {{ variant.available }},
+ "public_title": " {{ variant.option1 | handleize }}{%- if product.options.size == 2 -%} / {%- endif -%} {{ variant.option2 | handleize }}{%- if product.options.size == 3 -%} / {%- endif -%} {{ variant.option3 | handleize }}",
+ "options": {{ variant.options | json }},
+ "price": {{ variant.price| json }},
+ "weight": {{ variant.weight| json }},
+ "compare_at_price": {{ variant.compare_at_price | json }},
+ "inventory_quantity": {{ variant.inventory_quantity | json }},
+ "inventory_management": {{ variant.inventory_management | json }},
+ "inventory_policy": {{ variant.inventory_policy | json }},
+ "next_incoming_date": {% if variant.next_incoming_date %}{{variant.next_incoming_date | time_tag | json }}{% else%}null{% endif %},
+ "barcode": {{ variant.barcode | json }}
+ }{%- if forloop.last == false -%},{%- endif -%}
+ {%- endfor -%}
+ ],
+ "featured_image": {{ product.featured_image | json }},
+ "options": [
+ {%- for option in product.options -%}
+ {{ option | json }}{%- if forloop.last == false -%},{%- endif -%}
+ {%-endfor -%}
+ ]
+ }
+ {%- endcapture -%}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-jjb4n7cijxm">
+ {{ ecom_product_json}}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ 
+</div></div>
+{% schema %}
+{
+ "name": "Quick View",
+ "locales": {
+ "en": {
+ "textcontent_hej9vk0uggt_html": "(100+ rating)",
+ "product_single_sale_text_igi21p1nxm_html": "{price}% OFF",
+ "product_single_sold_text_igi21p1nxm_html": "Sold out",
+ "instock_text_phpd2kxein8_html": "26 items left in stock",
+ "outstock_text_phpd2kxein8_html": "Outstock",
+ "inventory_text_phpd2kxein8_html": "{quantity} items left in stock",
+ "preorder_text_phpd2kxein8_html": "Preorder text",
+ "product_option_swatch_mopm0qumv6_html": "Color",
+ "add_to_cart_boa4cnsk0z_html": "Add to cart",
+ "pre_order_boa4cnsk0z_html": "Pre Order",
+ "product_unavailable_boa4cnsk0z_html": "Unavailable",
+ "out_stock_boa4cnsk0z_html": "Out stock",
+ "added_cart_text_boa4cnsk0z_html": "Added to cart",
+ "added_cart_message_boa4cnsk0z_html": "Added to cart",
+ "headingtext_ke5l5ure39_html": "<b>Guarantee safe<\/b> <i>&amp; secure checkout<\/i>",
+ "headingtext_qx9733j8ss_html": "Share:"
+ }
+ },
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/dev.ecomposer.app\/shop\/builder?page=quickview&id=64ccb8c1fa1da94fa50063f2&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ]
+}
+{% endschema %}

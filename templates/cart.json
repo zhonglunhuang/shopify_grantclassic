@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "blocks": {
+        "totals": {
+          "type": "totals",
+          "settings": {
+          }
+        },
+        "order_note": {
+          "type": "order_note",
+          "settings": {
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "totals",
+        "order_note"
+      ],
+      "settings": {
+        "show_payment_methods": false,
+        "show_shipping_estimator": false,
+        "shipping_estimator_default_country": "United States",
+        "empty_button_link": "https:\/\/gc-taiwan.myshopify.com\/"
+      }
+    },
+    "cart-recommendations": {
+      "type": "cart-recommendations",
+      "settings": {
+        "title": "推薦商品"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cart-recommendations"
+  ]
+}

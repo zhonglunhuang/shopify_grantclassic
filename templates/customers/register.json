@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-customers-register",
+      "blocks": {
+        "register_form": {
+          "type": "register",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "register_form"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

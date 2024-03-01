@@ -1,0 +1,347 @@
+{%- if section.settings.background_type == 'boxed' -%}
+  {%- assign is_boxed = true -%}
+{%- else -%}
+  {%- assign is_boxed = false -%}
+{%- endif -%}
+
+{%- if section.settings.text_background != settings.background and section.settings.text_background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }}{
+
+    {%- if section.settings.text_background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_block_background = 'rgba(0,0,0,0)' -%}
+    {%- else -%}
+      {%- assign section_block_background = section.settings.text_background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_background_mobile == 'rgba(0,0,0,0)' -%}
+      {%- assign section_block_background_mb = settings.secondary_background -%}
+    {%- else -%}
+      {%- assign section_block_background_mb = section.settings.text_background_mobile -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color_mobile == 'rgba(0,0,0,0)' -%}
+      {%- assign text_color_mb = settings.text_color -%}
+    {%- else -%}
+      {%- assign text_color_mb = section.settings.text_color_mobile -%}
+    {%- endif -%}
+
+    {%- if section.settings.button_background == 'rgba(0,0,0,0)' -%}
+      {%- assign button_background = settings.primary_button_background -%}
+    {%- else -%}
+      {%- assign button_background = section.settings.button_background -%}
+    {%- endif -%}
+
+    {%- if section.settings.button_text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign button_text_color = settings.primary_button_text_color -%}
+    {%- else -%}
+      {%- assign button_text_color = section.settings.button_text_color -%}
+    {%- endif -%}
+
+    --heading-color: 
+    {{ heading_color.red }},
+    {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: 
+    {{ text_color.red }},
+    {{ text_color.green }}, {{ text_color.blue }};
+    --primary-button-background: 
+    {{ button_background.red }},
+    {{ button_background.green }}, {{ button_background.blue }};
+    --primary-button-text-color: 
+    {{ button_text_color.red }},
+    {{ button_text_color.green }}, {{ button_text_color.blue }};
+
+    --prev-next-button-background: 
+    {{ settings.background.red }},
+    {{ settings.background.green }}, {{ settings.background.blue }};
+    --prev-next-button-color: 
+    {{ settings.text_color.red }},
+    {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+
+    --section-block-background: 
+    {{ section_block_background.red }},
+    {{ section_block_background.green }}, {{ section_block_background.blue }};
+
+    --section-block-background-mb: 
+    {{ section_block_background_mb.red }},
+    {{ section_block_background_mb.green }}, {{ section_block_background_mb.blue }};
+
+    --text-color-mb: 
+    {{ text_color_mb.red }},
+    {{ text_color_mb.green }}, {{ text_color_mb.blue }};
+  }
+
+  @media screen and (max-width: 999px) {
+    {%- if blends_with_background -%}
+      #shopify-section-{{ section.id }}.section {
+        margin-bottom: 0 !important;
+      }
+    {%- endif -%}
+
+    {%- unless section.settings.text_position contains 'overlap' -%}
+      #shopify-section-{{ section.id }}.image-with-text-block__content {
+        margin: 0 !important; /* Because it blends with the background we have to remove double margin */
+      }
+    {%- elsif is_boxed == false -%}
+      #shopify-section-{{ section.id }}.section {
+        margin-top: 0 !important; /* We need to remove the margin on the section if the image overlap */
+      }
+    {%- endunless -%}
+  }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }}.shopify-section .image-with-text-block__content {
+      background: rgb(var(--section-block-background-mb));
+      text-align: center;
+    }
+    #shopify-section-{{ section.id }}.shopify-section .image-with-text-block__content .heading {
+      color: rgb(var(--text-color-mb));
+    }
+    #shopify-section-{{ section.id }}.shopify-section .image-with-text-block__image-wrapper {
+      width: 100%;
+      height: 470px
+    }
+    .shopify-section--image-with-text-block .image-with-text-block__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .image-with-text-block__content {
+      margin: 0;
+    }
+    .shopify-section--image-with-text-block .heading.heading--small {
+      font-size: 16px;
+    }
+    .shopify-section--image-with-text-block .heading.h3 {
+      font-size: 26px;
+      margin-top: 0;
+    }
+    #shopify-section-{{ section.id }}.shopify-section .container .image-with-text-block__content {
+      border-radius: 0 0 15px 15px;
+      margin-top: -1rem;
+    }
+  }
+</style>
+
+<section class="section {% unless is_boxed or section.settings.text_position contains 'overlap' %}section--flush{% endunless %}">
+  <div {% if is_boxed %}class="container"{% endif %}>
+    <image-with-text-block {% if section.settings.reveal_on_scroll %}reveal-on-scroll{% endif %} class="image-with-text-block {% if section.settings.text_position contains 'overlap' %}image-with-text-block--overlap-{{ section.settings.text_position | split: '_' | last }}{% endif %}">
+      <div class="image-with-text-block__image-wrapper">
+        {%- if section.settings.image != blank -%}
+          <img class="image-with-text-block__image {% if section.settings.mobile_image != blank %}hidden-pocket{% endif %}" {% if section.settings.reveal_on_scroll %}reveal{% endif %} loading="lazy" sizes="(max-width: 999px) 100vw, {% if section.settings.text_position contains 'overlap' %}72vw{% elsif section.settings.background_type == 'boxed' %}min(1520px, 100vw){% else %}100vw{% endif %}" {% render 'image-attributes', image: section.settings.image, sizes: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' %}>
+
+          {%- if section.settings.mobile_image != blank -%}
+            <img class="image-with-text-block__image hidden-lap-and-up" {% if section.settings.reveal_on_scroll %}reveal{% endif %} loading="lazy" sizes="100vw" {% render 'image-attributes', image: section.settings.mobile_image, sizes: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400' %}>
+          {%- endif -%}
+        {%- else -%}
+          {%- capture image_classes -%}image-with-text-block__image image-with-text-block__image--placeholder placeholder-background{%- endcapture -%}
+
+          {%- if section.settings.reveal_on_scroll -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: image_classes | replace: '<svg', '<svg reveal' -}}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: image_classes -}}
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+      {%- capture section_content -%}
+        {%- assign text_position = section.settings.text_position | split: '_' | last -%}
+
+        <div {% if section.settings.reveal_on_scroll %}reveal{% endif %} class="image-with-text-block__content content-box content-box--small content-box--text-{{ section.settings.text_alignment}} content-box--{{ text_position }} text-container">
+          {%- if section.settings.subheading != blank -%}
+            <h2 class="heading heading--small">
+              <split-lines {% if section.settings.reveal_on_scroll %}reveal{% endif %}>{{ section.settings.subheading | escape }}</split-lines>
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h3 class="heading h3">
+              <split-lines {% if section.settings.reveal_on_scroll %}reveal{% endif %}>{{ section.settings.title | escape }}</split-lines>
+            </h3>
+          {%- endif -%}
+
+          <div class="image-with-text-block__text-container" {% if section.settings.reveal_on_scroll %}reveal{% endif %}>
+            {%- if section.settings.content != blank -%}
+              {{- section.settings.content -}}
+            {%- endif -%}
+
+            {%- if section.settings.button_text != blank -%}
+              <div class="button-wrapper">
+                <a href="{{ section.settings.button_link }}" class="button button--primary">{{ section.settings.button_text | escape }}</a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endcapture -%}
+
+      {% if is_boxed %}
+        {{- section_content -}}
+      {% else %}
+        <div class="container container--flush">
+          {{- section_content -}}
+        </div>
+      {% endif %}
+    </image-with-text-block>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Image with text block",
+    "class": "shopify-section--image-with-text-block",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "reveal_on_scroll",
+        "label": "Reveal on scroll",
+        "info": "Show animation when section becomes visible.",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "2800 x 1400px .jpg recommended. Image may be cut based on screen size."
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile image",
+        "info": "1800 x 1800px .jpg recommended. If none is set, desktop image will be used."
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Subheading"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text block"
+      }, {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>Use block text to give your customers insight into your brand. Select impactful text that relates to your brand and story.</p>"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }, {
+        "type": "select",
+        "id": "background_type",
+        "label": "Background",
+        "options": [
+          {
+            "value": "full_width",
+            "label": "Full width"
+          }, {
+            "value": "boxed",
+            "label": "Boxed"
+          }
+        ],
+        "default": "full_width"
+      }, {
+        "type": "select",
+        "id": "text_position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "overlap_left",
+            "label": "Overlap left"
+          }, {
+            "value": "overlap_right",
+            "label": "Overlap right"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "select",
+        "id": "text_alignment",
+        "label": "Text alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "text_background",
+        "label": "Text background",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "text_background_mobile",
+        "label": "Text background on mobile",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "text_color_mobile",
+        "label": "Text color on mobile",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button background",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text",
+        "default": "rgba(0,0,0,0)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text block",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

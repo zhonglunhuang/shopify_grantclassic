@@ -1,0 +1,319 @@
+        {%- assign timestamp = 'now' | date : "%s" -%}
+        {%- assign ex_ids = ""-%}
+  {%- assign ex_frmpool_id = article.id | append: '"' | prepend: '"' -%}
+
+{%- assign ex_tags = "" | split: "," -%}
+{%- assign no_post_display = 3 -%}
+
+{%- assign b_id = blog.id  -%}
+
+  {%- assign blog_ids = "89572933875"  -%}
+
+      {%- assign blog_handle_arr = "gc-blog" | split: "," -%}
+  
+{%- assign blog_flag = "false" -%}
+
+{%- unless blog_ids contains b_id -%}
+{%- assign blog_flag = "true" -%}
+{%- endunless -%}
+
+{%- unless ex_ids contains article.id -%}
+
+{%- if blog_flag == "false" -%}
+
+{%- assign article_temp = article.id -%}
+
+{%- assign related_posts = "" -%}
+{%- assign curr_blog = blog.handle -%}
+
+{%- for article in blogs[curr_blog].articles -%}
+{%- if article.id == article_temp -%}
+{%- assign current_post_tags = article.tags -%}
+{%- assign article_author = article.author -%}
+{%- assign article_title = article.title -%}
+{%- assign article_title_arr = article_title | remove : " " | split: "" -%}
+{%- endif -%}
+{%- endfor -%}
+
+{%- assign main_flag = "true" -%}
+{%- for tag in ex_tags -%}
+{%- assign ex_tags_temp = tag | strip -%}
+{%- if current_post_tags contains ex_tags_temp -%}
+{%- assign main_flag = "false" -%}
+{%- endif -%}
+{%- endfor -%}
+
+{%- if main_flag == "true" -%}
+
+
+  <div id="relatedblogs">
+
+
+    {%- for blog in blog_handle_arr -%}
+
+    {%- assign blog_temp = blog -%}
+
+    {%- for article in blogs[blog_temp].articles -%}
+    {%- unless ex_frmpool_id contains article.id -%}
+
+    
+      {%- assign atitle_temp = article.title | remove : " " | split: "" -%}
+      {%- assign flag = "false" -%}
+      {%- for word in atitle_temp -%}
+      {%- if article_title_arr contains word -%}
+      {%- assign flag = "true" -%}
+      {%- break -%}
+      {%- endif -%}
+      {%- endfor -%}
+
+      {%- assign t_flag = "false" -%}
+      {%- for tag in current_post_tags -%}
+      {%- if article.tags contains tag -%}
+      {%- assign t_flag = "true" -%}
+      {%- break -%}
+      {%- endif -%}
+      {%- endfor -%}
+
+      {%- if t_flag == "true"  or article_author ==  article.author or flag == "true" -%}
+      {%- assign related_posts = related_posts | append:article.id | append : ","-%}
+      {%- endif -%}
+    
+    {%- endunless -%}
+    {%- endfor -%}
+
+
+    {%- endfor -%}
+
+    {%- if related_posts.size > 0 -%}
+
+    {%- assign tsl = timestamp | slice : -1,1 | times:1 -%}
+
+    {%- assign rids = related_posts | split: ',' -%}
+
+
+    {%- assign rindex = tsl -%}
+
+    {%- if tsl > rids.size or tsl < 0 -%}
+    {%- assign time_arr = timestamp | split: '' -%}
+    {%- for t in time_arr reversed -%}
+    {%- assign ti = t | times:1 -%}
+    {%- if ti < rids.size -%}
+    {%- assign rindex = forloop.index -%}
+    {%- break -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+
+    {%- if rindex == rids.size -%}
+    {%- assign rindex = rindex | minus : 1-%}
+    {%- endif -%}
+
+    {%- assign articleids = '' -%}
+    {%- for rid in rids offset:rindex -%}
+    {%- assign articleids = articleids | append:rid | append : "," -%}
+    {%- endfor -%}
+
+    {%- assign rsize = articleids | split:","  -%}
+
+    {%- if rsize.size < no_post_display -%}
+    {%- for rid in rids -%}
+    {%- unless articleids contains rid -%}
+    {%- assign articleids = articleids | append:rid | append : "," -%}
+    {%- endunless -%}
+    {%- endfor -%}
+    {%- endif -%}
+
+    {%- assign rsize = articleids | size | minus:1 -%}
+    {%- assign articleids = articleids | slice: 0, rsize | split:"," -%}
+    {%- assign article_ids = articleids | uniq -%}
+    <div class="related-post-title">
+      <h3>Related Posts</h3>    </div>
+    <div class="row rb_blog-grid">
+      
+      {%- assign count = 0 -%}
+      {%- for aid in article_ids -%}
+      {%- assign rflag = "false" -%}
+      {%- for blog in blog_handle_arr -%}
+      {%- assign blog_temp = blog -%}
+
+      {%- for article in blogs[blog_temp].articles -%}
+
+      {%- if aid contains article.id -%}
+
+      {%- assign ex_frmpool_tags = "" | split: "," -%}
+      {%- assign ex_frmpool_main_flag = "true" -%}
+      {%- for tag in ex_frmpool_tags -%}
+      {%- assign ex_frmpool_ex_tags_temp = tag | strip -%}
+      {%- if article.tags contains ex_frmpool_ex_tags_temp -%}
+      {%- assign ex_frmpool_main_flag = "false" -%}
+      {%- endif -%}
+      {%- endfor -%}
+
+      {%- if ex_frmpool_main_flag == "true" -%}
+      {%- if count == no_post_display -%}
+      {%- break -%}
+      {%- endif -%}
+      <div class="rb_blog-grid-two">
+                  {%- if article.image -%}
+          <a href="{{ article.url }}"><img src="{{ article.image.src | img_url: '' }}" alt="{{ article.title }}" /></a>
+          {%- else -%}
+          <div class="rb_no_image"></div>
+          {%- endif -%}
+        
+        <h5 class="rb_title">
+          <a href='{{ article.url }}'>{{ article.title }}</a>
+        </h5>
+
+                  {%- if article.content != "" -%}
+          <div class="rb_contents">
+            <span>{{ article.content | strip_html | strip | truncate: 120 }}</span>
+          </div>
+          <a href="{{ article.url }}" class="rb_continue_button">Read More</a>
+          {%- endif -%}
+        
+      </div>
+
+      {%- assign rflag = "true" -%}
+      {%- assign count = count | plus:1 -%}
+      {%- break -%}
+
+      {%- endif -%}
+
+
+      {%- endif -%}
+      {%- endfor -%}
+      {%- if rflag == "true" -%}
+      {%- break -%}
+      {%- endif -%}
+      {%- endfor -%}
+      {%- endfor -%}
+          </div>
+    {%- else -%}
+
+    
+    {%- endif -%}
+
+    <style>
+      
+     .rb_blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    row-gap: 15px;
+    margin-bottom: 20px;
+    column-gap: 20px;
+    align-items: flex-start;
+
+}
+
+.article__content.rte {
+    font-size: inherit;
+}
+
+.rb_blog-grid a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+h5.rb_title {
+    margin: 0;
+}
+
+      .rb_title a {
+        color: #333333;
+      }
+
+      .rb_title a:hover {
+        color: #333333;
+        opacity: 1;
+      }
+
+.related-post-title{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+     
+      .blog_meta {
+        color: #8c8b8b;
+        line-height: 1.6em;
+        font-size: 15px;
+      }
+
+      .blog_meta span {
+        position: relative;
+        display: inline-block;
+        margin-right: 15px;
+        font-size: smaller;
+        color: #8c8b8b;
+      }
+
+      .blog_meta span a {
+        color: #8c8b8b;
+      }
+
+      .rb_contents {
+        line-height: 1.5;
+      }
+
+      .rb_contents span {
+        font-size: 15px;
+        float: left;
+        text-align: left;
+      }
+
+      .rb_continue_button {
+        color: #333333;
+        border-color: #333333;
+        background-color: transparent;
+        border: 1px solid #333333;
+        transition: background-color 0.2s linear, color 0.2s linear;
+        margin: 25px 0;
+        padding: 0 20px;
+        text-align: center;
+        cursor: pointer;
+        min-height: 42px;
+        height: 40px;
+        line-height: 1.2;
+        vertical-align: top;
+        font-weight: bold;
+        font-size: 15px;
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 100%;
+        display: inline-block;
+        line-height: 34px;
+      }
+
+      .rb_continue_button:hover {
+        border-color: #333333;
+        background-color: #333333;
+        color: #fff;
+        opacity: 1;
+      }
+
+      @media(max-width: 800px) {
+        .rb_blog-grid {
+          width: 100%;
+          margin-right: 0px;
+        }
+      }
+
+      /* .rb_row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+} */
+    </style>
+
+  </div>
+{%- endif -%}
+{%- endif -%}
+{%- endunless -%}

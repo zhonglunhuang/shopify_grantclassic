@@ -1,0 +1,181 @@
+<section>
+  <div class="article">
+    <div class="article__main-part">
+      {%- if section.settings.show_on_scroll_navigation -%}
+        <blog-post-navigation class="article__nav" {% if blog.next_article %}has-next-article{% endif %} style="--transform: 0.01">
+          <div class="container">
+            <div class="article__nav-wrapper">
+              {%- if blog.previous_article -%}
+                <a href="{{ blog.previous_article.url }}" class="article__nav-item article__nav-item--prev hidden-phone">
+                  <span class="article__nav-arrow">{%- render 'icon' with 'nav-arrow-left', direction_aware: true -%}</span>
+                  <span class="article__nav-item-title hidden-tablet">{{ blog.previous_article.title }}</span>
+                </a>
+              {%- endif -%}
+
+              <span class="article__nav-item article__nav-item--current">
+                {% comment %}We provide an estimate of the reading time, based on the fact that average people read 180 words per minute{% endcomment %}
+                {%- assign minutes_to_read = article.content | strip_html | split: ' ' | size | divided_by: 180 | plus: 1 -%}
+
+                <span class="article__nav-item-label text--strong hidden-pocket hidden-lap">{{ 'article.general.reading' | t }}</span>
+                <span class="article__nav-item-title">{{ article.title }}</span>
+                <span class="square-separator square-separator--block"></span>
+                <span class="article__reading-time">{{ 'article.general.reading_time' | t: count: minutes_to_read }}</span>
+              </span>
+
+              {%- if blog.next_article -%}
+                <a href="{{ blog.next_article.url }}" class="article__nav-item article__nav-item--next">
+                  <span class="article__nav-item-label text--strong hidden-tablet-and-up">{{ 'article.general.next' | t }}</span>
+                  <span class="article__nav-item-title hidden-tablet">{{ blog.next_article.title }}</span>
+                  <span class="article__nav-arrow tap-area">{%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}</span>
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        </blog-post-navigation>
+      {%- endif -%}
+
+      <div class="container">
+        <div class="article__inner">
+          {%- capture blog_post_info -%}
+            <div class="article__meta">
+              {%- if section.settings.show_author -%}
+                <span class="article__meta-item article__author">{{ 'article.general.written_by' | t: author: article.author }}</span>
+              {%- endif -%}
+
+              {%- if section.settings.show_date -%}
+                <time class="article__meta-item article__date">{{ article.published_at | date: format: 'abbreviated_date' }}</time>
+              {%- endif -%}
+
+              {%- if article.comments_enabled? -%}
+                <a href="#blog-post-{{ article.id }}-comments" data-smooth-scroll class="article__meta-item article__comments-count text--subdued link icon-text">
+                  {%- render 'icon' with 'comment' -%}
+                  {{- 'article.comments.comments_count' | t: count: article.comments_count -}}
+                </a>
+              {%- endif -%}
+            </div>
+
+            {%- if article.tags.size > 0 -%}
+              <div class="article__tags">
+                <span class="article__tags-label heading heading--small">{{ 'article.general.tags' | t }}</span>
+
+                <ul class="article__tags-list list--unstyled" role="list">
+                  {%- for tag in article.tags -%}
+                    <li class="article__tags-item" role="listitem">
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="text--subdued link">{{ tag }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_share_buttons -%}
+              {%- assign share_url = shop.url | append: article.url -%}
+              {%- assign twitter_text = article.title | url_param_escape -%}
+              {%- assign pinterest_description = article.excerpt_or_content | strip_html | truncatewords: 15 | url_param_escape -%}
+              {%- assign pinterest_image = article.image | img_url: '800x' | prepend: 'https:' -%}
+
+              <button type="button" is="share-toggle-button" share-url="{{ share_url | escape }}" share-title="{{ article.title | escape }}" class="article__share text--subdued link hidden-tablet-and-up" aria-controls="mobile-share-buttons-{{ section.id }}" aria-expanded="false">{{ 'article.general.share' | t }}</button>
+
+              <popover-content id="mobile-share-buttons-{{ section.id }}" class="popover hidden-tablet-and-up">
+                <span class="popover__overlay"></span>
+
+                <header class="popover__header">
+                  <span class="popover__title heading h6">{{- 'article.general.share' | t -}}</span>
+
+                  <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                    {%- render 'icon' with 'close' -%}
+                  </button>
+                </header>
+
+                <div class="mobile-share-buttons">
+                  <a class="mobile-share-buttons__item mobile-share-buttons__item--facebook" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook_share' | t }}">
+                    {%- render 'icon' with 'facebook-share-mobile' -%} Facebook
+                  </a>
+
+                  <a class="mobile-share-buttons__item mobile-share-buttons__item--pinterest" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.pinterest_pin' | t }}">
+                    {%- render 'icon' with 'pinterest-share-mobile' -%} Pinterest
+                  </a>
+
+                  <a class="mobile-share-buttons__item mobile-share-buttons__item--twitter" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.twitter_tweet' | t }}">
+                    {%- render 'icon' with 'twitter-share-mobile' -%} Twitter
+                  </a>
+
+                  <a class="mobile-share-buttons__item mobile-share-buttons__item--mail" href="mailto:?&subject={{ article.title | escape }}&body={{ share_url }}" aria-label="{{ 'general.social.email_share' | t }}">
+                    {%- render 'icon' with 'email-share-mobile' -%} {{ 'general.social.email_label' | t }}
+                  </a>
+                </div>
+              </popover-content>
+
+              <div class="article__share hidden-phone">
+                <span class="article__share-label">{{ 'article.general.share' | t }}</span>
+
+                <div class="article__share-button-list" role="list">
+                  <a class="article__share-button-item article__share-button-item--facebook tap-area" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" role="listitem" aria-label="{{ 'general.social.facebook_share' | t }}">
+                    {%- render 'icon' with 'facebook' -%}
+                  </a>
+
+                  <a class="article__share-button-item article__share-button-item--pinterest tap-area" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener" role="listitem" aria-label="{{ 'general.social.pinterest_pin' | t }}">
+                    {%- render 'icon' with 'pinterest' -%}
+                  </a>
+
+                  <a class="article__share-button-item article__share-button-item--twitter tap-area" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener" role="listitem" aria-label="{{ 'general.social.twitter_tweet' | t }}">
+                    {%- render 'icon' with 'twitter' -%}
+                  </a>
+
+                  <a class="article__share-button-item article__share-button-item--mail tap-area" href="mailto:?&subject={{ article.title | escape }}&body={{ share_url }}" role="listitem" aria-label="{{ 'general.social.email_share' | t }}">
+                    {%- render 'icon' with 'share' -%}
+                  </a>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endcapture -%}
+
+          {%- if blog_post_info != blank -%}
+            <div class="article__info">
+              {{- blog_post_info -}}
+            </div>
+          {%- endif -%}
+
+          <div class="article__content">
+            <div class="rte" id="ako-content" {{ block.shopify_attributes }}>
+              {{- article.content -}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog post",
+  "class": "shopify-section--main-article",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_on_scroll_navigation",
+      "label": "Show on scroll navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

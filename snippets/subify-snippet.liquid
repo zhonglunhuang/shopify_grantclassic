@@ -1,0 +1,38 @@
+{% assign subifySecret = "laksdjfoqiwe!@#$@#$AFsdfasdkjfasdlfjk!@#!@#@#edklajdalskjdfaskdjl" %}
+{% assign subifyCustomerID = customer.id %}
+{% assign subifyCustomerToken = subifyCustomerID | hmac_sha256: subifySecret %}
+
+
+<script id="Subify-config">
+  var SubifyConfig = window.SubifyConfig || {};
+
+  SubifyConfig.sdkUrl = "https://cdn.hengam.io/subify/subify-sdk.js";
+  SubifyConfig.templateName = {{ template.name | json }};
+  SubifyConfig.isHomePage = SubifyConfig.templateName === 'index';
+  SubifyConfig.isCollectionPage = SubifyConfig.templateName === 'collection';
+  SubifyConfig.isLandingPage = SubifyConfig.templateName === 'page';
+
+  {% if customer %}
+  SubifyConfig.customerToken = "{{ subifyCustomerToken }}";
+  SubifyConfig.customerId = {{ customer.id }};
+  {% endif %}
+
+  function createSubifySdkScript() {
+      const subifySdkScript = document.createElement('script');
+      subifySdkScript.setAttribute('defer', 'defer');
+      subifySdkScript.src = SubifyConfig.sdkUrl;
+      document.body.appendChild(subifySdkScript);
+  }
+
+
+  if (!SubifyConfig.isHomePage && !SubifyConfig.isCollectionPage && !SubifyConfig.isLandingPage){
+      SubifyConfig.product = {{ product | json }};
+      {% for variant in product.variants %}
+        var selling_plans = SubifyConfig.product.variants[{% increment base %}].selling_plans = [];
+        {% for selling_plan_allocation in variant.selling_plan_allocations %}
+            selling_plans.push({{ selling_plan_allocation.selling_plan | json }});
+        {% endfor %}
+      {% endfor %}
+      createSubifySdkScript();
+  }
+</script>

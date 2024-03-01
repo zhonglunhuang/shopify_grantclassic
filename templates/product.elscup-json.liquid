@@ -1,0 +1,19 @@
+{% layout none %}{% capture output %}
+{% for i in (1..500) %}
+{% assign key = 'product_sales_'| append: i %}
+{% unless shop.metafields.elscup[key] %}{% break %}{% endunless %}
+{% assign pid = product.id | json %}
+{% if shop.metafields.elscup[key].value %}
+{% assign productSales = shop.metafields.elscup[key].value[pid] %}
+{% else %}
+{% assign productSales = shop.metafields.elscup[key][pid] %}
+{% endif %}
+{% if productSales %}{% break %}{% endif %}
+{% endfor %}
+{
+"id": {{product.id}},
+"handle": "{{product.handle}}",
+"product_sales": {% if productSales %}{{productSales | json}}{% else %}{}{% endif %},
+"aggregated_sales": {% if shop.metafields.elscup.aggregated_sales.value %}{{ shop.metafields.elscup.aggregated_sales.value | json }}{% else %}{% if shop.metafields.elscup.aggregated_sales %}{{ shop.metafields.elscup.aggregated_sales | json }}{% else %}{}{% endif %}{% endif %}
+}
+{% endcapture %}{{ output | strip_newlines }}

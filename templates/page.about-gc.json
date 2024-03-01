@@ -1,0 +1,668 @@
+{
+  "sections": {
+    "20adbb9e-a7c8-4b2f-9747-c9d3010a8896": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16700043657459__20adbb9e-a7c8-4b2f-9747-c9d3010a8896-167029524226898cdd-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/our.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/230202_GC_all_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--16700043657459__20adbb9e-a7c8-4b2f-9747-c9d3010a8896-167029524226898cdd-0"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "dbbf59d5-7077-4ddd-a405-f7bde5eba726": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "我們是誰",
+        "content": "<p>grantclassic（GC） 於 2016 年成立於美國加州，是一家充滿著活力又謹慎的周邊品牌商。<br\/>我們透過設計使生活更好更方便，使得每件產品都永久經典，每個環節都是由我們親自不斷開發測試，憑藉全球專利進行創新，並響應最新的技術趨勢和進步。<br\/>我們創造滿足人們日常需求的高品質原創產品。<\/p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "fill",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#eb3b3b",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "e17288f0-7d27-4540-89b3-3ce37fd16c0d": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16700043657459__e17288f0-7d27-4540-89b3-3ce37fd16c0d-167029537912454b61-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/230510___all.webp",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "我們的使命",
+            "content": "<ul><li>做最好的事情<\/li><li>將我們的客戶視為夥伴<\/li><li>抵銷我們對環境的影響<\/li><li>快樂優先於成長<\/li><\/ul><p><\/p><p>這個使命，我們會一直不斷延續下去，恰巧學習一直都是我們團隊的最核心的目標，我們也將它寫下來了，grantclssic 將會一直學習下去，並創造研發更棒的產品。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16700043657459__e17288f0-7d27-4540-89b3-3ce37fd16c0d-167029537912454b61-0"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "both",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 8,
+        "accent_background": "#e5e2d3",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "ccd916b6-ea5b-49e2-94a3-932089759e94": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "medium",
+        "image": "shopify:\/\/shop_images\/DSC01200.webp",
+        "subheading": "",
+        "title": "我們的目的",
+        "content": "<p>grantclssic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。<\/p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#282828",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#f4f4f4",
+        "overlay_opacity": 84
+      }
+    },
+    "b533ae00-dbe0-4db0-9c69-c92d47f9d807": {
+      "type": "timeline",
+      "blocks": {
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/about-timeline-1.jpg",
+            "label": "2018年",
+            "title": "2018年",
+            "content": "<h4>2月<\/h4><p>這個月對於我們的團隊來說具有重要的意義。我們開始著手研發一項新的消費電子配件 - 機車手機支架。這款產品的想法來源於對市場的深入洞察，發現消費者對於一款安全、穩固且易於操作的手機支架有著迫切的需求。我們的設計與工程團隊迅速行動，著手開發產品原型。<\/p><h4>6月<\/h4><p>到了6月，我們已經完成了第一版機車手機支架的設計和初步測試。這款產品具有創新的設計和卓越的工藝，旨在滿足消費者在騎乘過程中使用手機的需求。我們也收到了初步使用者的正面反饋，這使我們對產品的成功充滿了信心。<\/p><h4>11月<\/h4><p>11月，我們達到了重要的里程碑。成功生產出第一批機車手機支架，並開始在市場上進行推廣。我們制定了全面的市場推廣策略，包括透過線上平台和實體店鋪進行銷售，並透過媒體和社交媒體平台進行產品宣傳。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/220201___phone.png",
+            "label": "2019年",
+            "title": "2019年",
+            "content": "<h4>3月<\/h4><p>在這個月，我們推出了第二代機車手機支架產品。這款新產品在設計和功能上都做了升級，提供了更穩定的支撐，更便捷的操作體驗，並在保護手機和行車安全方面做出了更多考慮。該產品在上市的第一個月就賣出了5萬件，得到了市場的熱烈回應。<\/p><h4>9月<\/h4><p>9月是另一個重要的時刻。我們的產品線擴大，開始研發並生產高質量的行動電源。我們明白，對於許多消費者來說，移動電源的可靠性和耐用性都是至關重要的。因此，我們的研發團隊致力於創新設計和使用高品質材料，以確保我們的行動電源能在各種情況下提供穩定的電力供應。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC04573.webp",
+            "label": "2020年",
+            "title": "2020年",
+            "content": "<h4>2月<\/h4><p>面對全球的COVID-19疫情，我們迅速作出反應。為保障我們員工的健康，並確保公司的正常運作，我們實施了遠程工作機制。在這段困難的時期，我們更堅信我們的產品可以在日常生活中扮演重要的角色，為人們提供便利。<\/p><h4>7月<\/h4><p>這個月，我們成功推出了全新的線上商店。我們的線上商店提供了更好的購物體驗，使客戶能夠更容易地瀏覽我們的產品，並方便地下訂單和追蹤訂單狀態。在第一個月內，我們就實現了1000萬的銷售，證明了我們的產品和服務得到了市場的認可。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "63f2e1b3-f63b-4338-95a7-3cb493890967": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/230511__S.webp",
+            "label": "2022年",
+            "title": "2022年",
+            "content": "<h4>3月<\/h4><p>在新的一年中，我們的新產品四力架 2 Pro 在上市的第一個月內就賣出了10萬件，顯示出市場對我們產品的高度認可。我們將這一成績歸功於我們對產品質量的堅持，以及對消費者需求的深入理解。這樣的成績鼓勵我們在未來的產品開發和創新中繼續努力。<\/p><h4>10月<\/h4><p>我們在10月邁出了重要的一步，開始研發使用再生能源的消費性電子產品。我們認為，作為一家科技公司，我們不僅要致力於提供先進、方便的產品，更應該承擔起對環境的責任。通過開發使用再生能源的產品，我們希望能夠幫助減少碳排放，並推動全社會的可持續發展。這一舉措也得到了我們的消費者和合作夥伴的廣泛支持，讓我們更有信心在這條道路上繼續前進。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "04efa8cb-e567-4092-a15b-d4a8a0f872d7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/about-hero-mobile.jpg",
+            "label": "2023年",
+            "title": "我們更大膽的嘗試",
+            "content": "<h4>2月<\/h4><p>2023年的初春，我們團隊開始著手研發針對寵物市場的全新消費性電子產品。我們認識到寵物照護已經成為當前社會一個快速發展的趨勢，因此我們決定利用我們的技術優勢，開發能夠提供更便捷、更專業寵物照護的產品。<\/p><h4>6月<\/h4><p>到了夏天，我們成功推出了全新的智能寵物照護產品。這款產品結合了傳感器技術和AI演算法，能夠實時監測寵物的活動、飲食等狀況，並通過手機應用程式提供相應的提醒和建議。這款產品的推出，讓寵物主人可以更放心，更專業地照護自己的寵物，並得到了市場的廣泛好評。<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-0",
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-1",
+        "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-2",
+        "63f2e1b3-f63b-4338-95a7-3cb493890967",
+        "04efa8cb-e567-4092-a15b-d4a8a0f872d7"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "text_position": "middle",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "item_background": "#2d2d2d",
+        "item_text_color": "#ffffff"
+      }
+    },
+    "eed00bb3-17e7-48a4-9a55-62a1084a39c8": {
+      "type": "multi-column",
+      "blocks": {
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_3.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>紅點設計獎<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_4.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>台灣經典設計<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_5.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>德國設計獎<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_7.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>澳洲設計獎<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "b074c353-513a-43f0-9937-192e03ef9023": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_6.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>紅點設計<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "4aa90f32-6140-4794-b047-bb76d0687a10": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_8.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>公益大使<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-0",
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-1",
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-2",
+        "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-3",
+        "b074c353-513a-43f0-9937-192e03ef9023",
+        "4aa90f32-6140-4794-b047-bb76d0687a10"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "設計獎項與認證",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "medium",
+        "spacing": "normal",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "f6837948-5c01-4068-8fb4-66a954a3b70c": {
+      "type": "multi-column",
+      "blocks": {
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC01095.jpg",
+            "image_width": 100,
+            "image_border": "#2d2d2d",
+            "title": "Mars",
+            "content": "<p><strong>總經理<br\/><\/strong>人生就是一場遊戲，讓我們一起大鬧一場吧。<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00732.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Rebecca",
+            "content": "<p><strong>人資總監<br\/><\/strong>自信是最美的時尚單品<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC01046.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "seN",
+            "content": "<p><strong>營運長<br\/><\/strong>不出意外的話就出意外了<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00790.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Süe",
+            "content": "<p><strong>營運主任<br\/><\/strong>興奮到模糊<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00007_2.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Johnny",
+            "content": "<p><strong>設計主任<br\/><\/strong>i can do this all day!!!<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "b43ee72b-7285-444a-9b99-548a1117841f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00659.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Cathy",
+            "content": "<p><strong>會計主任<br\/><\/strong>告訴你一個寶藏的地點，它就在你的生命裡。<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00428-_-2.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Jeff Lin",
+            "content": "<p><strong>業務經理<br\/><\/strong>如果你懂海，海就會幫你。<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00542.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Aiko",
+            "content": "<p><strong>採購組長<br\/><\/strong>凡是經過我手的價格就是必須砍半，因為我是採購<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-6": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00110.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Lisa",
+            "content": "<p><strong>倉庫組長<br\/><\/strong>人生沒有四季，努力就是旺季，不努力就是淡季！<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "4cd9343b-4890-4346-850f-8ccd5b891712": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00977.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Mandy",
+            "content": "<p><strong>客服組長<br\/><\/strong>總要經過風雨的洗禮，才能看見斑斕的彩虹<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "d1f6ff38-babc-4181-b4f9-d0471b21ca0b": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00271.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Sabrina",
+            "content": "<p><strong>品牌行銷企劃<br\/><\/strong>男性的皮層裡住著一個漂亮女人，我就是這麼ㄎㄧㄤ才當行銷企劃<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00027.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Tracy",
+            "content": "<p><strong>平面設計專員<br\/><\/strong>愛與和平<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-9": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00072.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "ZeAn",
+            "content": "<p><strong>攝影企劃專員<br\/><\/strong>攝影三要素：妹子妹子妹子<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "a92276d6-21de-4080-862f-89f8bdce9410": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00876.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "MelviИ",
+            "content": "<p><strong>通路營運專員<br\/><\/strong>夜路走多了 總匯三明治<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "221599d8-d753-421c-9c44-f81bfc942caf": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00929.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Joan",
+            "content": "<p><strong>通路營運專員<br\/><\/strong>WAKUWAKU~PUI PUI<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC01173.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pegggy",
+            "content": "<p><strong>通路營運專員<br\/><\/strong>每天都冒出很多念頭，那些不死的才叫做夢想<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "2c8cebf3-7d2c-4ba5-96c9-0471b5ada2ae": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00384.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Vanessa",
+            "content": "<p><strong>品牌行銷企劃<br\/><\/strong>有限的時間內創造無限的可能<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "bd430de7-7972-4132-b6d9-7685782dba6e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00209.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Chen",
+            "content": "<p><strong>產品技術專員<br\/><\/strong>人生有夢，築夢踏實<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "3caca862-4784-4f68-867b-7e3ff9707c2c": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00162.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Wei",
+            "content": "<p><strong>產品技術專員<br\/><\/strong>在非洲，每六十秒，就有一分鐘過去 <\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "0f55754c-51c1-4579-8b63-292dc1f55d9c": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00703.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "IKU",
+            "content": "<p><strong>會計專員<br\/><\/strong>時常更新自己的\"基本\"<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "01b925cc-fb14-4c48-8dc8-a7e8a44e5ae3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00107.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Ben",
+            "content": "<p><strong>倉儲專員<br\/><\/strong>No pain, no gain<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-2",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4",
+        "b43ee72b-7285-444a-9b99-548a1117841f",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-6",
+        "4cd9343b-4890-4346-850f-8ccd5b891712",
+        "d1f6ff38-babc-4181-b4f9-d0471b21ca0b",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-9",
+        "a92276d6-21de-4080-862f-89f8bdce9410",
+        "221599d8-d753-421c-9c44-f81bfc942caf",
+        "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e",
+        "2c8cebf3-7d2c-4ba5-96c9-0471b5ada2ae",
+        "bd430de7-7972-4132-b6d9-7685782dba6e",
+        "3caca862-4784-4f68-867b-7e3ff9707c2c",
+        "0f55754c-51c1-4579-8b63-292dc1f55d9c",
+        "01b925cc-fb14-4c48-8dc8-a7e8a44e5ae3"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": true,
+        "subheading": "",
+        "title": "grantclassic 團隊",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "small",
+        "desktop_item_size": "medium",
+        "spacing": "normal",
+        "background": "#2d2d2d",
+        "text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "20adbb9e-a7c8-4b2f-9747-c9d3010a8896",
+    "dbbf59d5-7077-4ddd-a405-f7bde5eba726",
+    "e17288f0-7d27-4540-89b3-3ce37fd16c0d",
+    "ccd916b6-ea5b-49e2-94a3-932089759e94",
+    "b533ae00-dbe0-4db0-9c69-c92d47f9d807",
+    "eed00bb3-17e7-48a4-9a55-62a1084a39c8",
+    "f6837948-5c01-4068-8fb4-66a954a3b70c"
+  ]
+}

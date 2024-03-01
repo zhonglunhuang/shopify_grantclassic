@@ -1,0 +1,229 @@
+{%- assign direction = 'ltr' -%}
+{%- case request.locale.iso_code -%}
+  {%- when 'ar' or 'arc' or 'dv' or 'fa' or 'ha' or 'he' or 'kwh' or 'ks' or 'ku' or 'ps' or 'ur' or 'yi' -%}
+    {%- assign direction = 'rtl' -%}
+{%- endcase -%}
+
+<mobile-navigation append-body id="mobile-menu-drawer" class="drawer {% if direction == 'ltr' %}drawer--from-left{% endif %}">
+  <span class="drawer__overlay"></span>
+
+  <div class="drawer__header drawer__header--shadowed">
+    <button type="button" class="drawer__close-button drawer__close-button--block tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+      {%- render 'icon' with 'close' -%}
+    </button>
+  </div>
+
+  <div class="drawer__content">
+    <ul class="mobile-nav list--unstyled" role="list">
+      {%- for link in menu.links -%}
+        {%- assign link_title_downcase = link.title | strip | downcase -%}
+        {%- assign mega_menu_block = '' -%}
+        {%- assign mega_menu_images = '' -%}
+
+        {%- for block in section.blocks -%}
+          {%- assign menu_item_downcase = block.settings.menu_item | strip | downcase -%}
+
+          {%- if menu_item_downcase == link_title_downcase -%}
+            {%- assign mega_menu_block = block -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if mega_menu_block != '' -%}
+          {%- assign images_count = 0 -%}
+
+          {%- capture mega_menu_images -%}
+            {%- for i in (1..6) -%}
+              {%- capture image_setting -%}image_{{ i }}{%- endcapture -%}
+
+              {%- if mega_menu_block.settings[image_setting] != blank -%}
+                {%- assign images_count = images_count | plus: 1 -%}
+
+                {%- capture image_heading_setting -%}image_{{ i }}_heading{%- endcapture -%}
+                {%- capture image_text_setting -%}image_{{ i }}_text{%- endcapture -%}
+                {%- capture image_link_setting -%}image_{{ i }}_link{%- endcapture -%}
+                {%- capture image_tag_setting -%}image_{{ i }}_tag{%- endcapture -%}
+
+                {%- capture image_push -%}
+                  <img class="mobile-nav__image" loading="lazy" sizes="270px" {% render 'image-attributes', image: mega_menu_block.settings[image_setting], sizes: '270,540,810' %}>
+
+                  {%- if mega_menu_block.settings[image_heading_setting] != '' -%}
+                    <p class="mobile-nav__image-heading heading heading--xsmall">{{ mega_menu_block.settings[image_heading_setting] }}</p>
+                  {%- endif -%}
+
+                  {%- if mega_menu_block.settings[image_text_setting] != '' -%}
+                    <span class="mobile-nav__image-text text--xsmall">{{ mega_menu_block.settings[image_text_setting] }}</span>
+                  {%- endif -%}
+
+                  {%- if mega_menu_block.settings[image_tag_setting] -%}
+                    <div class="ako-mega-menu-tag">New</div>
+                  {%- endif -%}
+                {%- endcapture -%}
+
+                {%- if mega_menu_block.settings[image_link_setting] != blank -%}
+                  <a href="{{ mega_menu_block.settings[image_link_setting] }}" class="mobile-nav__image-push">
+                    {{- image_push -}}
+                  </a>
+                {%- else -%}
+                  <div class="mobile-nav__image-push">
+                    {{- image_push -}}
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endcapture -%}
+        {%- endif -%}
+
+        <li class="mobile-nav__item" data-level="1">
+          {%- if link.links.size > 0 or mega_menu_images != blank -%}
+            <button is="toggle-button" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}" aria-controls="mobile-menu-{{ forloop.index }}" aria-expanded="false">
+              {{- link.title -}}
+              <span class="animated-plus"></span>
+            </button>
+
+            <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
+              {%- if link.links.size > 0 -%}
+                <ul class="mobile-nav list--unstyled" role="list">
+                  {%- for sub_link in link.links -%}
+                    <li class="mobile-nav__item" data-level="2">
+                      {%- if sub_link.links.size > 0 -%}
+                        <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                          {{- sub_link.title -}}
+                          <span class="animated-plus"></span>
+                        </button>
+
+                        <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                          <ul class="mobile-nav list--unstyled" role="list">
+                            {%- for sub_sub_link in sub_link.links -%}
+                              <li class="mobile-nav__item" data-level="3">
+                                <a href="{{ sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_link.title }}</a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </collapsible-content>
+                      {%- else -%}
+                        <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title }}</a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              {%- if mega_menu_images != blank -%}
+                <div class="mobile-nav__images-wrapper {% if images_count >= 3 %}mobile-nav__images-wrapper--tight{% endif %} hide-scrollbar">
+                  <div class="mobile-nav__images-scroller">
+                    {{- mega_menu_images -}}
+                  </div>
+                </div>
+              {%- endif -%}
+            </collapsible-content>
+          {%- else -%}
+            <a href="{{ link.url }}" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}">{{ link.title }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+      <li id="ako-lang-switcher-mobile"></li>
+    </ul>
+  </div>
+
+  {%- if section.settings.show_locale_selector and shop.published_locales.size > 1 -%}
+    {%- assign locale_selector = true -%}
+  {%- endif -%}
+
+  {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+    {%- assign country_selector = true -%}
+  {%- endif -%}
+
+  {%- if shop.customer_accounts_enabled or locale_selector or country_selector -%}
+    <div class="drawer__footer drawer__footer--tight drawer__footer--bordered">
+      <div class="mobile-nav__footer">
+        {%- if shop.customer_accounts_enabled -%}
+          <a class="icon-text" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">
+            {%- render 'icon' with 'header-customer' -%}
+            {{- 'header.general.account' | t -}}
+          </a>
+        {%- endif -%}
+
+        {%- if locale_selector or country_selector -%}
+          {%- form 'localization', id: 'header-sidebar-localization-form', class: 'header__cross-border' -%}
+            {%- if country_selector -%}
+              <div class="popover-container">
+                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+                <span class="visually-hidden">{{ 'header.general.country' | t }}</span>
+
+                <button type="button" is="toggle-button" class="popover-button text--xsmall tap-area" aria-expanded="false" aria-controls="header-sidebar-localization-form-currency">
+                  {{- localization.country.name }} ({{ localization.country.currency.iso_code }}
+                  {% if localization.country.currency.symbol %}
+                    {{ localization.country.currency.symbol }}{%- endif -%})
+                  {%- render 'icon' with 'chevron', width: 9, height: 6, inline: true -%}
+                </button>
+
+                <popover-content id="header-sidebar-localization-form-currency" class="popover popover--top popover--small">
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <span class="popover__title heading h6">{{- 'header.general.country' | t -}}</span>
+
+                    <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                      {%- render 'icon' with 'close' -%}
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="popover__choice-list">
+                      {%- for country in localization.available_countries -%}
+                        <button type="submit" name="country_code" value="{{ country.iso_code }}" class="popover__choice-item">
+                          <span class="popover__choice-label" {% if country.iso_code == localization.country.iso_code %}aria-current="true"{% endif %}>
+                            {{- country.name }} ({{ country.currency.iso_code }}
+                            {% if country.currency.symbol %}
+                              {{ country.currency.symbol }}{%- endif -%})
+                          </span>
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </popover-content>
+              </div>
+            {%- endif -%}
+
+            {%- if locale_selector -%}
+              <div class="popover-container">
+                <input type="hidden" name="locale_code" value="{{ form.current_locale.iso_code }}">
+                <span class="visually-hidden">{{ 'header.general.language' | t }}</span>
+
+                <button type="button" is="toggle-button" class="popover-button text--xsmall tap-area" aria-expanded="false" aria-controls="header-sidebar-localization-form-locale">
+                  {{- form.current_locale.endonym_name | capitalize -}}
+                  {%- render 'icon' with 'chevron', width: 9, height: 6, inline: true -%}
+                </button>
+
+                <popover-content id="header-sidebar-localization-form-locale" class="popover popover--top popover--small">
+                  <span class="popover__overlay"></span>
+
+                  <header class="popover__header">
+                    <span class="popover__title heading h6">{{- 'header.general.language' | t -}}</span>
+
+                    <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                      {%- render 'icon' with 'close' -%}
+                    </button>
+                  </header>
+
+                  <div class="popover__content">
+                    <div class="popover__choice-list">
+                      {%- for locale in form.available_locales -%}
+                        <button type="submit" name="locale_code" value="{{ locale.iso_code }}" class="popover__choice-item">
+                          <span class="popover__choice-label" {% if locale.iso_code == form.current_locale.iso_code %}aria-current="true"{% endif %}>
+                            {{- locale.endonym_name | capitalize -}}
+                          </span>
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </popover-content>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</mobile-navigation>

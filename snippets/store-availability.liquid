@@ -1,0 +1,84 @@
+{%- assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+
+{%- if pick_up_availabilities.size > 0 -%}
+  <div class="store-availability-container">
+    <div class="store-availability-information">
+      {%- assign closest_location = pick_up_availabilities.first -%}
+
+      {%- if closest_location.available -%}
+        {%- render 'icon' with 'store-availability-in-stock' -%}
+      {%- else -%}
+        {%- render 'icon' with 'store-availability-out-of-stock' -%}
+      {%- endif -%}
+
+      <div class="store-availability-information-container">
+        {%- if closest_location.available -%}
+          <span class="store-availability-information__title">{{- 'store_availability.general.pick_up_available_at' | t: location_name: closest_location.location.name -}}</span>
+          <span class="store-availability-information__stock text--subdued text--xsmall">{{ closest_location.pick_up_time }}</span>
+          <button type="button" is="toggle-button" class="store-availability-information__link link text--subdued text--xsmall" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}" aria-expanded="false">
+            {%- if pick_up_availabilities.size == 1 -%}
+              {{- 'store_availability.general.view_store_info' | t -}}
+            {%- else -%}
+              {{- 'store_availability.general.check_other_stores' | t -}}
+            {%- endif -%}
+          </button>
+        {%- else -%}
+          <span class="store-availability-information__title">{{- 'store_availability.general.pick_up_unavailable_at' | t: location_name: closest_location.location.name -}}</span>
+
+          {%- if pick_up_availabilities.size > 1 -%}
+            <button type="button" is="toggle-button" class="store-availability-information__link link text--subdued text--xsmall" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}" aria-expanded="false">
+              {{- 'store_availability.general.check_other_stores' | t -}}
+            </button>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <drawer-content id="StoreAvailabilityModal-{{ product_variant.id }}" class="drawer drawer--large">
+    <span class="drawer__overlay"></span>
+
+    <header class="drawer__header">
+      <div class="drawer__title drawer__title--stack">
+        <p class="store-availabilities-modal__product-title heading h6">{{ product_variant.product.title }}</p>
+
+        {%- unless product_variant.product.has_only_default_variant -%}
+          <p class="store-availabilities-modal__variant-title">{{ product_variant.title }}</p>
+        {%- endunless -%}
+      </div>
+
+      <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon' with 'close' -%}
+      </button>
+    </header>
+
+    <div class="drawer__content">
+      <div class="store-availabilities-list">
+        {%- for availability in pick_up_availabilities -%}
+          <div class="store-availability-list__item">
+            <p class="store-availability-list__location">{{ availability.location.name }}</p>
+
+            <div class="store-availability-list__item-info text--subdued text--xsmall">
+              <div class="store-availability-list__stock">
+                {%- if availability.available -%}
+                  {%- render 'icon' with 'store-availability-in-stock' -%} {{ 'store_availability.general.pick_up_available' | t }}, {{ availability.pick_up_time | downcase }}
+                {%- else -%}
+                  {%- render 'icon' with 'store-availability-out-of-stock' -%} {{ 'store_availability.general.pick_up_currently_unavailable' | t }}
+                {%- endif -%}
+              </div>
+
+              <div class="store-availability-list__contact">
+                {%- assign address = availability.location.address -%}
+                {{- address | format_address -}}
+
+                {%- if address.phone.size > 0 -%}
+                  {{ address.phone }}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </drawer-content>
+{%- endif -%}

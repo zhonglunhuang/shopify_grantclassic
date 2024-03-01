@@ -1,0 +1,74 @@
+<predictive-search-drawer append-body {% if section.settings.header_layout != 'logo_center_search_open' %}reverse-breakpoint="screen and (min-width: 1200px)"{% endif %} id="search-drawer" initial-focus-selector="#search-drawer [name='q']" class="predictive-search drawer drawer--large drawer--from-left">
+  <span class="drawer__overlay"></span>
+
+  <header class="drawer__header">
+    <form id="predictive-search-form" action="{{ routes.search_url }}" method="get" class="predictive-search__form">
+      {%- render 'icon' with 'header-search' -%}
+
+      <input type="hidden" name="type" value="product">
+      <input type="hidden" name="options[prefix]" value="last">
+      <input type="hidden" form="predictive-search-form" name="options[unavailable_products]" value="{{ settings.search_unavailable_products }}">
+      <input class="predictive-search__input" type="text" name="q" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.title' | t }}" placeholder="{{ 'search.general.search_placeholder' | t }}">
+    </form>
+
+    <button type="button" class="drawer__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+      {%- render 'icon' with 'close' -%}
+    </button>
+  </header>
+
+  <div class="drawer__content">
+    <div class="predictive-search__content-wrapper">
+      <div hidden class="predictive-search__loading-state">
+        <div class="spinner">
+          {%- render 'icon' with 'spinner', stroke_width: 4 -%}
+        </div>
+      </div>
+
+      <div hidden class="predictive-search__results" aria-live="polite">
+        {%- comment -%}Content is filled dynamically in JS{%- endcomment -%}
+      </div>
+
+      {%- assign search_menu = section.settings.search_menu -%}
+
+      {%- if search_menu.links.size > 0 -%}
+        <div class="predictive-search__menu-list">
+          {%- if search_menu.levels == 1 -%}
+            <div class="predictive-search__menu">
+              <p class="predictive-search__menu-title heading heading--small">{{ search_menu.title }}</p>
+
+              <ul class="linklist list--unstyled" role="list">
+                {%- for link in search_menu.links -%}
+                  <li class="linklist__item">
+                    <a href="{{ link.url }}" class="link--faded">{{ link.title }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- else -%}
+            {%- for link in search_menu.links -%}
+              <div class="predictive-search__menu">
+                {%- if link.url != '#' -%}
+                  <a href="{{ link.url }}" class="predictive-search__menu-title heading heading--small">{{ link.title }}</a>
+                {%- else -%}
+                  <p class="predictive-search__menu-title heading heading--small">{{ link.title }}</p>
+                {%- endif -%}
+
+                <ul class="linklist list--unstyled" role="list">
+                  {%- for sub_link in link.links -%}
+                    <li class="linklist__item">
+                      <a href="{{ sub_link.url }}" class="link--faded">{{ sub_link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <footer hidden class="drawer__footer drawer__footer--no-top-padding">
+    <button type="submit" form="predictive-search-form" class="button button--primary button--full">{{ 'search.general.view_all_results' | t }}</button>
+  </footer>
+</predictive-search-drawer>

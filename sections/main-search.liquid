@@ -1,0 +1,416 @@
+{%- assign search_sort_by = search.sort_by | default: search.default_sort_by -%}
+{%- assign active_filters_count = 0 -%}
+
+{%- for filter in search.filters -%}
+  {%- if filter.type == 'list' -%}
+    {%- assign active_filters_count = active_filters_count | plus: filter.active_values.size -%}
+  {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+    {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-products-per-row: {{ section.settings.mobile_products_per_row | times: 1 }};
+  }
+
+  @media screen and (min-width: 741px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: 3;
+    }
+  }
+
+  {%- if section.settings.filter_position == 'drawer' -%}
+    @media screen and (min-width: 1200px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.desktop_products_per_row }};
+      }
+    }
+    {%- else -%}
+    @media screen and (min-width: 1400px) {
+      #shopify-section-{{ section.id }} {
+        --section-products-per-row: {{ section.settings.desktop_products_per_row }};
+      }
+    }
+  {%- endif -%}
+
+  /*
+    IMPLEMENTATION NOTE: due to design requirements, the mobile toolbar (with filters and sort by) had to be moved to the
+    layout file. However as section settings cannot be accessed outside the section itself, we simply hide them in CSS.
+   */
+
+  {%- if section.settings.show_filters and search.filters != empty and search.results.first.object_type == 'product' -%}
+    .mobile-toolbar__item--filters {
+      display: flex !important;
+    }
+  {%- endif -%}
+
+  {%- if section.settings.show_sort_by and search.results.first.object_type == 'product' -%}
+    .mobile-toolbar__item--sort {
+      display: flex !important;
+    }
+  {%- endif -%}
+
+  {%- if section.settings.show_sort_by or section.settings.show_filters and search.filters != empty -%}
+    @media screen and (max-width: 999px) {
+      :root {
+        --anchor-offset: 60px;
+      }
+    }
+  {%- endif -%}
+</style>
+
+<section>
+  {%- if search.performed -%}
+    {%- assign first_matching_type = search.results.first.object_type -%}
+
+    {%- capture label -%}
+      {%- case first_matching_type -%}
+        {%- when 'product' -%}
+          {{ 'search.general.products' | t }} ({{ search.results_count }})
+        {%- when 'article' -%}
+          {{ 'search.general.articles' | t }} ({{ search.results_count }})
+        {%- when 'page' -%}
+          {{ 'search.general.pages' | t }} ({{ search.results_count }})
+      {%- endcase -%}
+    {%- endcapture -%}
+
+    <div class="page-header {% if search.results_count == 0 %}page-header--clear{% endif %} page-header--secondary">
+      <div class="page-header__text-wrapper container">
+        <h1 class="heading h2">{{ 'search.general.terms' | t: terms: search.terms }}</h1>
+
+        <form class="main-search__form" action="{{ routes.search_url }}" method="get">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="hidden" name="options[unavailable_products]" value="{{ settings.search_unavailable_products }}">
+
+          <button class="main-search__submit tap-area" type="submit">{%- render 'icon' with 'header-search' -%}</button>
+          <input class="main-search__input input__field" type="text" name="q" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.title' | t }}" placeholder="{{ 'search.general.search_placeholder' | t }}" value="{{ search.terms | escape }}">
+        </form>
+
+        {%- if search.results_count > 0 or search.filters != empty -%}
+          <tabs-nav id="search-tabs-nav" class="tabs-nav tabs-nav--center tabs-nav--no-border tabs-nav--edge2edge">
+            <scrollable-content class="tabs-nav__scroller hide-scrollbar">
+              <div class="tabs-nav__scroller-inner">
+                <div class="tabs-nav__item-list">
+                  <button class="tabs-nav__item heading heading--small" data-type="{{ first_matching_type | escape }}" aria-expanded="true" aria-controls="search-{{ section.id }}-{{ first_matching_type }}">{{ label }}</button>
+                </div>
+              </div>
+            </scrollable-content>
+          </tabs-nav>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="container">
+      {%- if search.results_count > 0 or search.filters != empty -%}
+        <div class="page-content page-content--fluid">
+          {%- capture search_mode -%}{% if settings.search_enable_products %},product{% endif %}{% if settings.search_enable_blog_posts %},article{% endif %}{% if settings.search_enable_pages %},page{% endif %}{%- endcapture -%}
+
+          <search-page section-id="{{ section.id }}" terms="{{ search.terms | escape }}" complete-for="{{ search_mode | remove_first: ',' | remove: first_matching_type | split: ',' | json | escape }}" class="main-search__results">
+            {%- comment -%}
+            IMPLEMENTATION NOTE: We show the results of the first category, other ones will be loaded in JavaScript. Also, the product rendering is much more
+              complex as it allows filtering, so we use a different strategy.
+            {%- endcomment -%}
+
+            <div id="search-{{ section.id }}-{{ first_matching_type }}" class="main-search__category-result" data-label="{{ label | escape }}">
+              {%- paginate search.results by section.settings.products_per_page -%}
+                {%- assign filtered_results = search.results | where: 'object_type', first_matching_type -%}
+
+                {%- if first_matching_type == 'product' -%}
+                  <style>
+                    {%- if section.settings.show_filters and search.filters != empty -%}
+                      .mobile-toolbar,
+                      .mobile-toolbar__item--filters {
+                        display: flex;
+                      }
+                    {%- endif -%}
+
+                    {%- if section.settings.show_sort_by -%}
+                      .mobile-toolbar,
+                      .mobile-toolbar__item--sort {
+                        display: flex;
+                      }
+                    {%- endif -%}
+
+                    {%- if section.settings.show_sort_by or section.settings.show_filters and search.filters != empty -%}
+                      @media screen and (max-width: 999px) {
+                        :root {
+                          --anchor-offset: 60px;
+                        }
+                      }
+                    {%- endif -%}
+                  </style>
+
+                  <product-facet section-id="{{ section.id }}" class="product-facet">
+                    {%- if section.settings.show_filters and search.filters != empty -%}
+                      {%- if section.settings.filter_position == 'always_visible' -%}
+                        <div class="product-facet__aside">
+                          <safe-sticky offset="30" class="product-facet__aside-inner">
+                            <div class="product-facet__filters-header hidden-pocket">
+                              <p class="heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}">{{ 'collection.general.filters' | t }}</p>
+                            </div>
+
+                            {%- render 'facet-filters', filters: search.filters, filters_position: section.settings.filter_position -%}
+                          </safe-sticky>
+                        </div>
+                      {%- else -%}
+                        {%- render 'facet-filters', filters: search.filters, filters_position: section.settings.filter_position -%}
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    <div id="facet-main" class="product-facet__main anchor" role="region" aria-live="polite">
+                      {%- if filtered_results.size > 0 -%}
+                        <div class="product-facet__meta-bar anchor">
+                          {%- if section.settings.filter_position == 'drawer' and section.settings.show_filters and search.filters != empty -%}
+                            <button type="submit" is="toggle-button" class="product-facet__meta-bar-item product-facet__meta-bar-item--filter hidden-pocket" aria-controls="facet-filters" aria-expanded="false">
+                              {%- render 'icon' with 'filters', inline: true -%} {{- 'collection.general.show_filters' | t -}} {% if active_filters_count > 0 %}<span class="product-facet__active-count bubble-count">{{ active_filters_count }}</span>{% endif %}
+                            </button>
+                          {%- endif -%}
+
+                          <span class="product-facet__meta-bar-item product-facet__meta-bar-item--count" role="status">{{ 'collection.general.products_count' | t: count: search.results_count }}</span>
+
+                          {%- if section.settings.show_sort_by -%}
+                            <div class="product-facet__meta-bar-item product-facet__meta-bar-item--sort">
+                              <span class="product-facet__sort-by-title text--subdued hidden-pocket">{{ 'collection.general.sort_by' | t }}</span>
+
+                              <div class="popover-container">
+                                {%- for option in search.sort_options -%}
+                                  {%- if option.value == search_sort_by -%}
+                                    {%- assign search_sort_by_name = option.name -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endfor -%}
+
+                                <button type="button" is="toggle-button" class="popover-button hidden-pocket" aria-expanded="false" aria-controls="sort-by-popover">
+                                  <span id="sort-by-selected-value" style="pointer-events: none">{{- search_sort_by_name -}}</span>
+                                  {%- render 'icon' with 'chevron', inline: true -%}
+                                </button>
+
+                                <sort-by-popover id="sort-by-popover" class="popover">
+                                  <span class="popover__overlay"></span>
+
+                                  <header class="popover__header">
+                                    <span class="popover__title heading h6">{{- 'collection.general.sort_by' | t -}}</span>
+
+                                    <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                                      {%- render 'icon' with 'close' -%}
+                                    </button>
+                                  </header>
+
+                                  <div class="popover__content">
+                                    <div class="popover__choice-list">
+                                      {%- for sort_option in search.sort_options -%}
+                                        <label class="popover__choice-item">
+                                          <input type="radio" data-bind-value="sort-by-selected-value" class="visually-hidden" {% if sort_option.value == search_sort_by %}checked="checked"{% endif %} name="sort_by" value="{{ sort_option.value }}" title="{{ sort_option.name }}">
+                                          <span class="popover__choice-label">{{ sort_option.name }}</span>
+                                        </label>
+                                      {%- endfor -%}
+                                    </div>
+                                  </div>
+                                </sort-by-popover>
+                              </div>
+                            </div>
+                          {%- endif -%}
+                        </div>
+
+                        {%- if active_filters_count > 0 -%}
+                          <div class="product-facet__active-list tag-list hidden-tablet-and-up">
+                            {%- render 'facet-active-filters', filters: search.filters -%}
+                          </div>
+                        {%- endif -%}
+
+                        <product-list {% if settings.stagger_products_apparition %}stagger-apparition{% endif %} class="product-facet__product-list product-list" role="region" aria-live="polite">
+                          {%- if section.settings.filter_position == 'always_visible' and section.settings.show_filters and search.filters != empty -%}
+                            {%- assign sidebar_width = 305 -%}
+                          {% else %}
+                            {%- assign sidebar_width = 0 -%}
+                          {%- endif -%}
+
+                          {%- capture sizes_attribute -%}(max-width: 740px) {{ 100.0 | divided_by: section.settings.mobile_products_per_row | ceil }}vw, min({{ 100.0 | divided_by: section.settings.desktop_products_per_row | ceil }}vw, {{ 1520.0 | minus: sidebar_width | divided_by: section.settings.desktop_products_per_row | ceil }}px){%- endcapture -%}
+
+                          <div class="product-list__inner">
+                            {%- for product in filtered_results -%}
+                              {%- render 'product-item', product: product, sizes_attribute: sizes_attribute, reveal: settings.stagger_products_apparition -%}
+                            {%- endfor -%}
+                          </div>
+                        </product-list>
+
+                        {%- render 'pagination', paginate: paginate, use_ajax: true -%}
+                      {%- else -%}
+                        <div class="empty-state">
+                          <h3 class="heading h4">{{ 'collection.general.no_results_title' | t }}</h3>
+                          <p>{{ 'collection.general.no_results_label' | t }}</p>
+
+                          <div class="button-wrapper">
+                            <a href="{{ routes.search_url }}?sort_by={{ search_sort_by }}&q={{ search.terms | escape }}&type=product&options[prefix]=last&options[unavailable_products]={{ settings.search_unavailable_products }}" data-action="clear-filters" class="button button--primary">{{ 'collection.general.no_results_button' | t }}</a>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </product-facet>
+                {%- else -%}
+                  {%- case first_matching_type -%}
+                    {%- when 'article' -%}
+                      <article-list {% if settings.stagger_blog_posts_apparition %}stagger-apparition{% endif %} class="article-list article-list--stacked">
+                        {%- for article in filtered_results -%}
+                          {%- render 'article-item', article: article, heading_size: 'h4' -%}
+                        {%- endfor -%}
+                      </article-list>
+
+                    {%- when 'page' -%}
+                      <ul class="predictive-search__linklist predictive-search__linklist--narrow predictive-search__linklist--bordered list--unstyled" role="list">
+                        {%- for page in filtered_results -%}
+                          <li class="predictive-search__linklist-item">
+                            <a class="predictive-search__linklist-link" href="{{ page.url }}">
+                              {{- page.title -}}
+                              {%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                  {%- endcase -%}
+                {%- endif -%}
+              {%- endpaginate -%}
+            </div>
+          </search-page>
+        </div>
+      {%- else -%}
+        <div class="empty-state empty-state--bottom-only">
+          <p class="text--large">{{ 'search.general.no_results' | t }}</p>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <div class="container">
+      <div class="empty-state">
+        <h1 class="heading h2">{{ 'search.general.title' | t }}</h1>
+
+        <form class="main-search__form" action="{{ routes.search_url }}" method="get">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="hidden" name="options[unavailable_products]" value="{{ settings.search_unavailable_products }}">
+
+          <button class="main-search__submit tap-area" type="submit">{%- render 'icon' with 'header-search' -%}</button>
+          <input class="main-search__input input__field" type="text" name="q" autocomplete="off" autocorrect="off" aria-label="{{ 'search.general.title' | t }}" placeholder="{{ 'search.general.search_placeholder' | t }}">
+        </form>
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Search",
+  "class": "shopify-section--main-search",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product results"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_by",
+      "label": "Show sort by",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "mobile_products_per_row",
+      "label": "Products per row (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "min": 3,
+      "max": 5,
+      "id": "desktop_products_per_row",
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Product filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "Show filters",
+      "info": "[Customize filters](/admin/menus)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_group_name",
+      "label": "Show group name",
+      "info": "Group name will be shown inside selected filters.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show filter color swatch",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_filter_group",
+      "label": "Open first group by default",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "filter_position",
+      "label": "Position",
+      "options": [
+        {
+          "value": "always_visible",
+          "label": "Always visible"
+        },
+        {
+          "value": "drawer",
+          "label": "Drawer"
+        }
+      ],
+      "default": "always_visible"
+    },
+    {
+      "type": "header",
+      "content": "Blog post results"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "info": "The first article's tag will be shown as category.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "info": "[Learn more](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

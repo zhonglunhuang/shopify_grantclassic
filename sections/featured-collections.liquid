@@ -1,0 +1,299 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    {%- if section.settings.button_background == 'rgba(0,0,0,0)' -%}
+      {%- assign button_background = settings.primary_button_background -%}
+    {%- else -%}
+      {%- assign button_background = section.settings.button_background -%}
+    {%- endif -%}
+
+    {%- if section.settings.button_text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign button_text_color = settings.primary_button_text_color -%}
+    {%- else -%}
+      {%- assign button_text_color = section.settings.button_text_color -%}
+    {%- endif -%}
+
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+    --primary-button-background: {{ button_background.red }}, {{ button_background.green }}, {{ button_background.blue }};
+    --primary-button-text-color: {{ button_text_color.red }}, {{ button_text_color.green }}, {{ button_text_color.blue }};
+
+    --prev-next-button-background: {{ settings.background.red }}, {{ settings.background.green }}, {{ settings.background.blue }};
+    --prev-next-button-color: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+    --section-products-per-row: 2;
+  }
+
+  @media screen and (min-width: 741px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row | at_most: 3 }};
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row | at_most: 4 }};
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #shopify-section-{{ section.id }} {
+      --section-products-per-row: {{ section.settings.products_per_row }};
+    }
+  }
+</style>
+
+<section class="section {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper">
+    <div class="container {% unless blends_with_background %}vertical-breather{% endunless %}">
+      {%- if section.blocks.size > 1 or section.settings.title != blank or section.settings.subheading != blank or section.settings.content != blank -%}
+        <header class="section__header {% if section.settings.content != blank %}section__header--tight{% endif %}">
+          {%- if section.settings.title != blank or section.settings.subheading != blank or section.settings.content != blank -%}
+            <div class="text-container">
+              {%- if section.settings.subheading != blank -%}
+                <h2 class="heading heading--small">{{ section.settings.subheading }}</h2>
+              {%- endif -%}
+
+              {%- if section.settings.title != blank -%}
+                <h3 class="heading h2">{{ section.settings.title }}</h3>
+              {%- endif -%}
+
+              {%- if section.settings.content != blank -%}
+                {{- section.settings.content -}}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 1 -%}
+            <tabs-nav class="tabs-nav tabs-nav--center tabs-nav--edge2edge">
+              <scrollable-content class="tabs-nav__scroller hide-scrollbar">
+                <div class="tabs-nav__scroller-inner">
+                  <div class="tabs-nav__item-list">
+                    {%- for block in section.blocks -%}
+                      {%- capture on_boarding_title -%}{{ 'general.onboarding.collection_title' | t }} {{ forloop.index }}{%- endcapture -%}
+
+                      <button type="button" class="tabs-nav__item heading heading--small" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="block-{{ section.id }}-{{ block.id }}" {{ block.shopify_attributes }}>
+                        {{- block.settings.label | default: block.settings.collection.title | default: on_boarding_title -}}
+                      </button>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              </scrollable-content>
+            </tabs-nav>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <div class="featured-collections">
+        {%- for block in section.blocks -%}
+          {%- assign collection = block.settings.collection -%}
+          {%- assign smallest_image_aspect_ratio = 0 -%}
+
+          <product-list {% if settings.stagger_products_apparition %}stagger-apparition{% endif %} {% unless forloop.first %}hidden{% endunless %} id="block-{{ section.id }}-{{ block.id }}" class="product-list product-list--center">
+            <div {% unless section.settings.stack_products %}class="scroller"{% endunless %}>
+              <div class="product-list__inner {% unless section.settings.stack_products %}product-list__inner--scroller hide-scrollbar{% endunless %}">
+                {%- assign number_of_products_minus_one = section.settings.products_per_row | minus: 1 -%}
+                {%- assign gap_width = 24.0 | divided_by: section.settings.products_per_row | times: number_of_products_minus_one -%}
+                {%- capture sizes_attribute -%}(max-width: 740px) 52vw, calc(min(100vw - 80px, 1520px) / {{ section.settings.products_per_row }} - {{ gap_width | ceil }}px){%- endcapture -%}
+
+                {%- for product in collection.products limit: section.settings.products_count -%}
+                  {%- if product.featured_media -%}
+                    {%- assign smallest_image_aspect_ratio = smallest_image_aspect_ratio | at_least: product.featured_media.aspect_ratio -%}
+                  {%- endif -%}
+
+                  {%- render 'product-item', product: product, collection: collection, show_cta: section.settings.show_cta, block: block, sizes_attribute: sizes_attribute, reveal: settings.stagger_products_apparition -%}
+                {%- else -%}
+                  {%- assign smallest_image_aspect_ratio = 1 -%}
+
+                  {%- for i in (1..section.settings.products_count) -%}
+                    {%- capture product_image -%}product-{% cycle '1', '2', '3', '4', '5' %}{% endcapture %}
+                    {%- render 'product-item-placeholder', product_image: product_image, show_cta: section.settings.show_cta, reveal: settings.stagger_products_apparition -%}
+                  {%- endfor -%}
+                {%- endfor -%}
+              </div>
+            </div>
+
+            {%- unless section.settings.stack_products -%}
+              {%- if collection.products_count == 0 -%}
+                {%- assign products_shown = section.settings.products_count -%}
+              {%- else -%}
+                {%- assign products_shown = collection.products_count | default: section.settings.products_count | at_most: section.settings.products_count -%}
+              {%- endif -%}
+
+              {%- if products_shown > section.settings.products_per_row -%}
+                {%- if smallest_image_aspect_ratio == 0 -%}
+                  {%- assign smallest_image_aspect_ratio = 1 -%}
+                {%- endif -%}
+
+                <prev-next-buttons class="product-list__prev-next hidden-pocket" style="--smallest-image-aspect-ratio: {{ smallest_image_aspect_ratio }}">
+                  <button class="product-list__arrow prev-next-button prev-next-button--prev" disabled>
+                    <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+                    {%- include 'icon' with 'nav-arrow-left', block: true, direction_aware: true -%}
+                  </button>
+
+                  <button class="product-list__arrow prev-next-button prev-next-button--next">
+                    <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+                    {%- include 'icon' with 'nav-arrow-right', block: true, direction_aware: true -%}
+                  </button>
+                </prev-next-buttons>
+              {%- endif -%}
+            {%- endunless -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <div class="section__footer">
+                <a class="button button--primary" href="{{ block.settings.button_url | default: collection.url }}">{{ block.settings.button_text }}</a>
+              </div>
+            {%- endif -%}
+          </product-list>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collections",
+  "class": "shopify-section--featured-collections",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "info": "Shown when more than 1 collection is featured. Collection title is used if none is set."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button link",
+          "info": "If empty, the collection URL is used."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "Products to show",
+      "min": 4,
+      "max": 50,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "label": "Products per row (desktop)",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_products",
+      "label": "Stack products",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show add to cart below info",
+      "info": "If enabled, we recommend using 4 products per row at maximum.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collections",
+      "blocks": [
+        {
+          "type": "collection"
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

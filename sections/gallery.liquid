@@ -1,0 +1,184 @@
+{%- if section.settings.background != settings.background and section.settings.background != 'rgba(0,0,0,0)' -%}
+  {%- assign blends_with_background = false -%}
+{%- else -%}
+  {%- assign blends_with_background = true -%}
+{%- endif -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+  CSS
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.background == 'rgba(0,0,0,0)' -%}
+      {%- assign section_background = settings.background -%}
+    {%- else -%}
+      {%- assign section_background = section.settings.background -%}
+    {%- endif -%}
+
+    {%- if section.settings.text_color == 'rgba(0,0,0,0)' -%}
+      {%- assign heading_color = settings.heading_color -%}
+      {%- assign text_color = settings.text_color -%}
+    {%- else -%}
+      {%- assign heading_color = section.settings.text_color -%}
+      {%- assign text_color = section.settings.text_color -%}
+    {%- endif -%}
+
+    --heading-color: {{ heading_color.red }}, {{ heading_color.green }}, {{ heading_color.blue }};
+    --text-color: {{ text_color.red }}, {{ text_color.green }}, {{ text_color.blue }};
+    --prev-next-button-background: var(--text-color);
+    --prev-next-button-color: var(--section-background);
+
+    --section-background: {{ section_background.red }}, {{ section_background.green }}, {{ section_background.blue }};
+  }
+</style>
+
+<section class="section {% unless blends_with_background %}section--flush{% endunless %}">
+  <div class="section__color-wrapper {% unless blends_with_background %}vertical-breather{% endunless %}">
+    {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+      <header class="section__header container text-container">
+        {%- if section.settings.subheading != blank -%}
+          <h2 class="heading heading--small">{{ section.settings.subheading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+          <h3 class="heading h2">{{ section.settings.title | escape }}</h3>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- comment -%}
+    If we have more than 3 blocks we assume that by default the content may be scrollable. This may not be the case and
+    the JavaScript will fired up to remove it in case it is needed, but if it is indeed scrollable this will avoid
+    a reflow of the browser rendering engine. From our tests 3 is a sane default.
+    {%- endcomment -%}
+    <gallery-list class="gallery">
+      <scrollable-content {% unless section.settings.show_arrows %}draggable{% endunless %} class="gallery__list-wrapper {% if section.blocks.size >= 3 %}is-scrollable{% endif %} hide-scrollbar">
+        <div class="container">
+          <div class="gallery__list">
+            {%- for block in section.blocks -%}
+              <gallery-item class="gallery__item" {{ block.shopify_attributes }}>
+                <figure class="gallery__figure">
+                  {%- if block.settings.image -%}
+                    {%- assign mobile_size = 370 | times: block.settings.image.aspect_ratio | ceil -%}
+                    {%- assign tablet_size = 520 | times: block.settings.image.aspect_ratio | ceil -%}
+                    {%- assign desktop_size = 600 | times: block.settings.image.aspect_ratio | ceil -%}
+
+                    <img loading="lazy" sizes="(max-width: 740px) {{ mobile_size }}px, (max-width: 999px) {{ tablet_size }}px, {{ desktop_size }}px" class="gallery__image" {% render 'image-attributes', image: block.settings.image, sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000' %}>
+                  {%- else -%}
+                    {{- 'image' | placeholder_svg_tag: 'gallery__image gallery__image placeholder-background' -}}
+                  {%- endif -%}
+
+                  {%- if block.settings.caption != blank -%}
+                    <figcaption class="gallery__caption rte">
+                      {{- block.settings.caption -}}
+                    </figcaption>
+                  {%- endif -%}
+                </figure>
+              </gallery-item>
+            {%- endfor -%}
+          </div>
+        </div>
+      </scrollable-content>
+
+      {%- if section.blocks.size > 1 and section.settings.show_arrows -%}
+        <prev-next-buttons class="gallery__prev-next-buttons prev-next-buttons">
+          <button class="gallery__arrow prev-next-button prev-next-button--prev">
+            <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
+            {%- include 'icon' with 'nav-arrow-left', direction_aware: true -%}
+          </button>
+
+          <button class="gallery__arrow prev-next-button prev-next-button--next">
+            <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
+            {%- include 'icon' with 'nav-arrow-right', direction_aware: true -%}
+          </button>
+        </prev-next-buttons>
+      {% endif %}
+
+      <div class="gallery__progress-bar-wrapper container">
+        <span class="gallery__progress-bar progress-bar" style="--divider: {{ section.blocks.size }}"></span>
+      </div>
+    </gallery-list>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gallery",
+  "class": "shopify-section--gallery",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1500 x 1800 px .jpg recommended"
+        },
+        {
+          "type": "richtext",
+          "id": "caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

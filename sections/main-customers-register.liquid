@@ -1,0 +1,104 @@
+<section>
+  <div class="container">
+    <div class="page-header">
+      <div class="page-header__text-wrapper text-container">
+        <h1 class="heading h2">{{ 'customer.register.title' | t }}</h1>
+        <p>{{ 'customer.register.instructions' | t }}</p>
+      </div>
+    </div>
+
+    <div class="page-content page-content--small">
+      <div class="account__block-list">
+        {%- for block in section.blocks -%}
+          <div class="account__block-item" {{ block.shopify_attributes }}>
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {%- render block -%}
+
+              {%- when 'liquid' -%}
+                {{- block.settings.liquid -}}
+
+              {%- when 'register' -%}
+                {%- form 'create_customer', name: 'create', class: 'form', id: 'register-customer' -%}
+                  {%- if form.errors -%}
+                    <div class="banner banner--error form__banner" id="login-form-error">
+                      <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+                      <div class="banner__content">{{ form.errors | default_errors }}</div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if request.locale.iso_code == 'ja' -%}
+                    <div class="input">
+                      <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" {% if form.errors contains 'last_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                      <label for="customer[last_name]" class="input__label">{{ 'customer.register.last_name' | t }}</label>
+                    </div>
+
+                    <div class="input">
+                      <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" {% if form.errors contains 'first_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                      <label for="customer[first_name]" class="input__label">{{ 'customer.register.first_name' | t }}</label>
+                    </div>
+                  {%- else -%}
+                    <div class="input">
+                      <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" {% if form.errors contains 'first_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                      <label for="customer[first_name]" class="input__label">{{ 'customer.register.first_name' | t }}</label>
+                    </div>
+
+                    <div class="input">
+                      <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" {% if form.errors contains 'last_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                      <label for="customer[last_name]" class="input__label">{{ 'customer.register.last_name' | t }}</label>
+                    </div>
+                  {%- endif -%}
+
+                  <div class="input">
+                    <input type="email" id="customer[email]" class="input__field" name="customer[email]" required="required" autocomplete="email" {% if form.errors contains 'email' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                    <label for="customer[email]" class="input__label">{{ 'customer.register.email' | t }}</label>
+                  </div>
+
+                  <div class="input">
+                    <input type="password" id="customer[password]" class="input__field" name="customer[password]" required="required" autocomplete="new-password" {% if form.errors contains 'password' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                    <label for="customer[password]" class="input__label">{{ 'customer.register.password' | t }}</label>
+                  </div>
+
+                  <button type="submit" is="loader-button" class="form__submit button button--primary button--full">{{ 'customer.register.submit' | t }}</button>
+
+                  <span class="form__secondary-action text--subdued">
+                    {{- 'customer.register.already_have_account' | t -}}
+                    <a href="{{ routes.account_login_url }}" class="link">{{ 'customer.register.login' | t }}</a>
+                  </span>
+                {%- endform -%}
+            {%- endcase -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer register",
+  "class": "shopify-section--main-customers-register",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "liquid",
+      "name": "Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+    },
+    {
+      "type": "register",
+      "name": "Register form",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

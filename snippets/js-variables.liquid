@@ -1,0 +1,123 @@
+{%- capture search_mode -%}{% if settings.search_enable_products %},product{% endif %}{% if settings.search_enable_blog_posts %},article{% endif %}{% if settings.search_enable_pages %},page{% endif %}{% if settings.search_enable_collections %},collection{% endif %}{%- endcapture -%}
+
+<script>
+  // This allows to expose several variables to the global scope, to be used in scripts
+  window.themeVariables = {
+    settings: {
+      direction: {{ direction | json }},
+      pageType: {{ request.page_type | json }},
+      cartCount: {{ cart.item_count | json }},
+      moneyFormat: {{ shop.money_format | json }},
+      moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+      showVendor: {{ settings.show_vendor | json }},
+      discountMode: {{ settings.discount_mode | json }},
+      currencyCodeEnabled: {{ settings.currency_code_enabled | json }},
+      searchMode: {{ search_mode | remove_first: ',' | json }},
+      searchUnavailableProducts: {{ settings.search_unavailable_products | json }},
+      cartType: {{ settings.cart_type | json }},
+      cartCurrency: {{ cart.currency.iso_code | json }},
+      mobileZoomFactor: 2.5
+    },
+
+    routes: {
+      host: {{ request.host | json }},
+      rootUrl: {{ routes.root_url | json }},
+      rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+      cartUrl: {{ routes.cart_url | json }},
+      cartAddUrl: {{ routes.cart_add_url | json }},
+      cartChangeUrl: {{ routes.cart_change_url | json }},
+      searchUrl: {{ routes.search_url | json }},
+      predictiveSearchUrl: {{ routes.predictive_search_url | json }},
+      productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+    },
+
+    strings: {
+      accessibilityDelete: {{ 'general.accessibility.delete' | t | json }},
+      accessibilityClose: {{ 'general.accessibility.close' | t |json }},
+      collectionSoldOut: {{ 'collection.product.sold_out' | t | json }},
+      collectionDiscount: {{ 'collection.product.discount_html' | t: savings: '@savings@' | json }},
+      productSalePrice: {{ 'product.general.sale_price' | t | json }},
+      productRegularPrice: {{ 'product.general.regular_price' | t | json }},
+      productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+      productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+      productFormPreOrder: {{ 'product.form.pre_order' | t | json }},
+      productFormAddToCart: {{ 'product.form.add_to_cart' | t | json }},
+      searchNoResults: {{ 'search.general.no_results' | t | json }},
+      searchNewSearch: {{ 'search.general.new_search' | t | json }},
+      searchProducts: {{ 'search.general.products' | t | json }},
+      searchArticles: {{ 'search.general.articles' | t | json }},
+      searchPages: {{ 'search.general.pages' | t | json }},
+      searchCollections: {{ 'search.general.collections' | t | json }},
+      cartViewCart: {{ 'cart.general.view_cart' | t | json }},
+      cartItemAdded: {{ 'cart.general.item_added' | t | json }},
+      cartItemAddedShort: {{ 'cart.general.item_added_short' | t | json }},
+      cartAddOrderNote: {{ 'cart.general.add_order_note' | t | json }},
+      cartEditOrderNote: {{ 'cart.general.edit_order_note' | t | json }},
+      shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results' | t | json }},
+      shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result' | t | json }},
+      shippingEstimatorMultipleResults: {{ 'cart.shipping_estimator.multiple_results' | t | json }},
+      shippingEstimatorError: {{ 'cart.shipping_estimator.error' | t | json }}
+    },
+
+    libs: {
+      flickity: {{ 'flickity.js' | asset_url | json }},
+      photoswipe: {{ 'photoswipe.js' | asset_url | json }},
+      qrCode: {{ 'vendor/qrcode.js' | shopify_asset_url | json }}
+    },
+
+    breakpoints: {
+      phone: 'screen and (max-width: 740px)',
+      tablet: 'screen and (min-width: 741px) and (max-width: 999px)',
+      tabletAndUp: 'screen and (min-width: 741px)',
+      pocket: 'screen and (max-width: 999px)',
+      lap: 'screen and (min-width: 1000px) and (max-width: 1199px)',
+      lapAndUp: 'screen and (min-width: 1000px)',
+      desktop: 'screen and (min-width: 1200px)',
+      wide: 'screen and (min-width: 1400px)'
+    }
+  };
+
+  window.addEventListener('pageshow', async () => {
+    const cartContent = await (await fetch(`${window.themeVariables.routes.cartUrl}.js`, {cache: 'reload'})).json();
+    document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {detail: {cart: cartContent}}));
+  });
+
+  if ('noModule' in HTMLScriptElement.prototype) {
+    // Old browsers (like IE) that does not support module will be considered as if not executing JS at all
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    requestAnimationFrame(() => {
+      const viewportHeight = (window.visualViewport ? window.visualViewport.height : document.documentElement.clientHeight);
+      document.documentElement.style.setProperty('--window-height',viewportHeight + 'px');
+    });
+  }
+
+  {%- if request.page_type == 'product' -%}
+    // We save the product ID in local storage to be eventually used for recently viewed section
+    try {
+      const items = JSON.parse(localStorage.getItem('theme:recently-viewed-products') || '[]');
+
+      // We check if the current product already exists, and if it does not, we add it at the start
+      if (!items.includes({{ product.id | json }})) {
+        items.unshift({{ product.id | json }});
+      }
+
+      localStorage.setItem('theme:recently-viewed-products', JSON.stringify(items.slice(0, 20)));
+    } catch (e) {
+      // Safari in private mode does not allow setting item, we silently fail
+    }
+  {%- endif -%}
+
+  {%- if request.page_type == 'policy' -%}
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.shopify-policy__title').classList.add('page-header__text-wrapper');
+      document.querySelector('.shopify-policy__title h1').classList.add('heading', 'h2');
+    });
+  {%- endif -%}
+
+  {%- if request.page_type == 'captcha' -%}
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual'; // Prevent the browser to scroll on captcha page
+    }
+  {%- endif -%}
+</script>

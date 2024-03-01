@@ -1,0 +1,12 @@
+
+            {% liquid
+                assign bonLoyaltyPageInfo = shop.metafields.bonLoyaltyPageInfo.bonLoyaltyPageInfo
+                assign bonShopInfo = shop.metafields.bonShopInfo.bonShopInfo
+            %}
+            <script> var bonLoyaltyPageInfo = {{ bonLoyaltyPageInfo | json }} </script>
+            <script> var bonShopInfo = {{ bonShopInfo | json }} </script>
+            <div class='shopify-section'>
+                {{ page.content }}
+                <script id='script-bon-loyalty-page' src='https://d31wum4217462x.cloudfront.net/loyalty_page/js/app.js'></script>
+            </div>
+            

@@ -1,0 +1,73 @@
+{%- comment -%}
+  Code that show the active filters. It currently supports the following options:
+
+  - filters: either the collection or search filters
+{%- endcomment -%}
+
+{%- assign active_filters_count = 0 -%}
+
+{%- for filter in filters -%}
+  {%- if filter.type == 'list' -%}
+    {%- assign active_filters_count = active_filters_count | plus: filter.active_values.size -%}
+  {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+    {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+  {%- elsif filter.type == 'boolean' and filter.true_value.active -%}
+    {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if request.page_type == 'collection' -%}
+  {%- assign page_url = collection.url -%}
+  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+{%- elsif request.page_type == 'search' -%}
+  {%- assign page_url = routes.search_url -%}
+  {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+{%- endif -%}
+
+{%- for filter in filters -%}
+  {%- case filter.type -%}
+    {%- when 'list' -%}
+      {%- for filter_value in filter.active_values -%}
+        <div class="tag">
+          <a href="{{ filter_value.url_to_remove }}" data-action="clear-filters" class="tag__icon tap-area" aria-label="{{ 'general.accessibility.delete' | t }}">{%- render 'icon' with 'close', width: 10, height: 10 -%}</a>
+
+          {%- if section.settings.show_filter_group_name -%}
+            {{- filter.label }}: {{ filter_value.label -}}
+          {%- else -%}
+            {{- filter_value.label -}}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+    {%- when 'boolean' -%}
+      {%- if filter.true_value.active -%}
+        <div class="tag">
+          <a href="{{ filter.true_value.url_to_remove }}" data-action="clear-filters" class="tag__icon tap-area" aria-label="{{ 'general.accessibility.delete' | t }}">{%- render 'icon' with 'close', width: 10, height: 10 -%}</a>
+          {{- filter.label -}}
+        </div>
+      {%- endif -%}
+
+    {%- when 'price_range' -%}
+      {%- assign min_value_formatted = filter.min_value.value | default: 0 | money_without_trailing_zeros -%}
+      {%- assign max_value_formatted = filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -%}
+
+      {%- if filter.min_value.value or filter.max_value.value -%}
+        <div class="tag">
+          <a href="{{ filter.url_to_remove }}" data-action="clear-filters" class="tag__icon tap-area" aria-label="{{ 'general.accessibility.delete' | t }}">{%- render 'icon' with 'close', width: 10, height: 10 -%}</a>
+          {% if section.settings.show_filter_group_name %}
+            {{- filter.label }}: {{ 'collection.general.price_filter' | t: min_price: min_value_formatted, max_price: max_value_formatted -}}
+          {%- else -%}
+            {{- 'collection.general.price_filter' | t: min_price: min_value_formatted, max_price: max_value_formatted -}}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+  {%- endcase -%}
+{%- endfor -%}
+
+{%- if active_filters_count > 1 -%}
+  {%- if request.page_type == 'collection' -%}
+    <a href="{{ page_url }}?sort_by={{ sort_by }}" data-action="clear-filters" class="tag-link link text--subdued">{{ 'collection.general.clear_filters' | t }}</a>
+  {%- else -%}
+    <a href="{{ page_url }}?sort_by={{ sort_by }}&q={{ search.terms | escape }}&type=product&options[prefix]=last&options[unavailable_products]={{ settings.search_unavailable_products }}" data-action="clear-filters" class="tag-link link text--subdued">{{ 'collection.general.clear_filters' | t }}</a>
+  {%- endif -%}
+{%- endif -%}
