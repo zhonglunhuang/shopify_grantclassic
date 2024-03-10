@@ -1604,11 +1604,11 @@
       contain: layout;
       position: relative;
     }
-    
+
     :host([hidden]) {
       display: none;
     }
-    
+
     s {
       position: absolute;
       top: 0;
@@ -4554,6 +4554,13 @@
       });
       this.delegate.on("shopify:block:select", (event) => this.openDropdown(event.target.parentElement));
       this.delegate.on("shopify:block:deselect", (event) => this.closeDropdown(event.target.parentElement));
+
+      // new collection menu
+      this.delegate.on("mouseenter", ".tmenu_submenu_tab", (event, target) => {
+        if (event.target === target && event.relatedTarget !== null) {
+          this.openDropdownV2(target);
+        }
+      }, true);
     }
     openDropdown(parentElement) {
       const menuItem = parentElement.querySelector("[aria-controls]"), dropdown = parentElement.querySelector(`#${menuItem.getAttribute("aria-controls")}`);
@@ -4615,6 +4622,15 @@
         }, dropdown.classList.contains("mega-menu") && this.currentMegaMenu !== dropdown ? 250 : 0);
         this.dispatchEvent(new CustomEvent("desktop-nav:dropdown:close", { bubbles: true }));
       });
+    }
+    openDropdownV2(element) {
+      const menuItem = element.querySelector("[aria-controls]"), dropDown = document.querySelector(`#${menuItem.getAttribute("aria-controls")}`), dropDownList = document.querySelectorAll('.tmenu_submenu_tab_item');
+
+      dropDownList.forEach(item => {
+        item.setAttribute('hidden', "");
+      });
+
+      dropDown.removeAttribute("hidden");
     }
   };
   window.customElements.define("desktop-navigation", DesktopNavigation);
@@ -6055,13 +6071,13 @@
                 <rect width="20" height="20" rx="10" fill="currentColor"></rect>
                 <path d="M6 10L9 13L14 7" fill="none" stroke="rgb(var(--success-color))" stroke-width="2"></path>
               </svg>
-              
+
               <div class="cart-notification__text-wrapper">
                 <span class="cart-notification__heading heading hidden-phone">${window.themeVariables.strings.cartItemAdded}</span>
                 <span class="cart-notification__heading heading hidden-tablet-and-up">${window.themeVariables.strings.cartItemAddedShort}</span>
                 <a href="${window.themeVariables.routes.cartUrl}" class="cart-notification__view-cart link">${window.themeVariables.strings.cartViewCart}</a>
               </div>
-              
+
               ${closeButtonHtml}
             </div>
           </div>
@@ -6077,11 +6093,11 @@
                 <rect width="20" height="20" rx="10" fill="currentColor"></rect>
                 <path d="M9.6748 13.2798C9.90332 13.0555 10.1763 12.9434 10.4937 12.9434C10.811 12.9434 11.0819 13.0555 11.3062 13.2798C11.5347 13.5041 11.6489 13.7749 11.6489 14.0923C11.6489 14.4097 11.5347 14.6847 11.3062 14.9175C11.0819 15.146 10.811 15.2603 10.4937 15.2603C10.1763 15.2603 9.90332 15.146 9.6748 14.9175C9.45052 14.6847 9.33838 14.4097 9.33838 14.0923C9.33838 13.7749 9.45052 13.5041 9.6748 13.2798ZM9.56689 12.1816V5.19922H11.4141V12.1816H9.56689Z" fill="rgb(var(--error-color))"></path>
               </svg>
-              
+
               <div class="cart-notification__text-wrapper">
                 <span class="cart-notification__heading heading">${event.detail.error}</span>
               </div>
-              
+
               ${closeButtonHtml}
             </div>
           </div>

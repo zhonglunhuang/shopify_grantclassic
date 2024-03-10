@@ -22,7 +22,100 @@
           {{- link.title -}}
         </a>
 
-        {%- if mega_menu_block != '' -%}
+        {%- if forloop.index == 1 and menu.handle == 'new-mega-menu' -%}
+          <div
+            hidden
+            id="desktop-menu-{{ forloop.index }}"
+            class="tmenu"
+          >
+            <ul
+              role="list"
+              class="tmenu_submenu list--unstyled">
+              {%- for sub_link in link.links -%}
+                <li class="tmenu_submenu_tab">
+                  <a
+                    class="tmenu_submenu_link link--faded Lv1"
+                    href="{{ sub_link.url }}"
+                    {% if sub_link.links.size > 0 %}aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false"{% endif %}>
+                    {{- sub_link.title -}}
+                  </a>
+
+                </li>
+              {%- endfor -%}
+            </ul>
+            <div class="tmenu_content">
+              {%- for sub_link in link.links -%}
+                <div
+                  {% if forloop.index != 1 %}hidden{% endif %}
+                  class="tmenu_submenu_tab_item"
+                  id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                >
+                  <ul
+                    class="tmenu_submenu_tab_item_list">
+                    {%- for sub_sub_link in sub_link.links -%}
+                      {% if forloop.index <= 10 %}
+                        <li class="tmenu_submenu_tab_item_list_item list--unstyled">
+                          <a class="Lv2" href="{{ sub_sub_link.url }}">
+                            <img
+                              src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
+                            >
+                            <p style="text-align:center;">{{ sub_sub_link.title }}</p>
+                          </a>
+                        </li>
+                      {% endif %}
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- elsif forloop.index == 2 and menu.handle == 'new-mega-menu' -%}
+          <div
+            hidden
+            id="desktop-menu-{{ forloop.index }}"
+            class="tmenu"
+          >
+            <ul
+              role="list"
+              class="tmenu_submenu list--unstyled">
+              {%- for sub_link in link.links -%}
+                <li class="tmenu_submenu_tab">
+                  <a
+                    class="tmenu_submenu_link link--faded Lv1"
+                    href="{{ sub_link.url }}"
+                    {% if sub_link.links.size > 0 %}aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false"{% endif %}>
+                    {{- sub_link.title -}}
+                  </a>
+
+                </li>
+              {%- endfor -%}
+            </ul>
+            <div class="tmenu_content">
+              {%- for sub_link in link.links -%}
+                <div
+                  {% if forloop.index != 1 %}hidden{% endif %}
+                  class="tmenu_submenu_tab_item"
+                  id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                >
+                  <ul
+                    class="tmenu_submenu2_tab_item_list">
+                    {%- for sub_sub_link in sub_link.links -%}
+                      <li class="tmenu_submenu2_tab_item_list_item list--unstyled">
+                        <a class="Lv2" href="{{ sub_sub_link.url }}">
+                          <p
+                            {% if sub_sub_link.url == "#" %}
+                              class="tmenu_black_title"
+                            {% endif %}
+                          >{{ sub_sub_link.title }}</p>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- elsif mega_menu_block != '' -%}
           {%- assign images_count = 0 -%}
 
           {%- capture mega_menu_images -%}

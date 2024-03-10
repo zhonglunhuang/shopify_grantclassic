@@ -81,42 +81,86 @@
               <span class="animated-plus"></span>
             </button>
 
-            <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
-              {%- if link.links.size > 0 -%}
-                <ul class="mobile-nav list--unstyled" role="list">
-                  {%- for sub_link in link.links -%}
-                    <li class="mobile-nav__item" data-level="2">
-                      {%- if sub_link.links.size > 0 -%}
-                        <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
-                          {{- sub_link.title -}}
-                          <span class="animated-plus"></span>
-                        </button>
+            {%- if forloop.index == 1 and menu.handle == 'new-mega-menu' -%}
+              <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
+                {%- if link.links.size > 0 -%}
+                  <ul class="mobile-nav list--unstyled" role="list" id="new-mobile-nav">
+                    {%- for sub_link in link.links -%}
+                      <li class="mobile-nav__item" data-level="2">
+                        {%- if sub_link.links.size > 0 -%}
+                          <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                            {{- sub_link.title -}}
+                            <span class="animated-plus"></span>
+                          </button>
 
-                        <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
-                          <ul class="mobile-nav list--unstyled" role="list">
-                            {%- for sub_sub_link in sub_link.links -%}
-                              <li class="mobile-nav__item" data-level="3">
-                                <a href="{{ sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_link.title }}</a>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </collapsible-content>
-                      {%- else -%}
-                        <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title }}</a>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
+                          <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                            <ul class="mobile-nav list--unstyled" role="list" id="new-mobile-nav-list">
+                              {%- for sub_sub_link in sub_link.links -%}
+                                <li class="mobile-nav__item new-mobile-nav-item" data-level="3">
+                                  <a href="{{ sub_sub_link.url }}" class="">
+                                    <img
+                                      src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
+                                    >
+                                    <p class="new-mobile-nav-text">{{ sub_sub_link.title }}</p>
+                                  </a>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </collapsible-content>
+                        {%- else -%}
+                          <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title }}</a>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
 
-              {%- if mega_menu_images != blank -%}
-                <div class="mobile-nav__images-wrapper {% if images_count >= 3 %}mobile-nav__images-wrapper--tight{% endif %} hide-scrollbar">
-                  <div class="mobile-nav__images-scroller">
-                    {{- mega_menu_images -}}
+                {%- if mega_menu_images != blank -%}
+                  <div class="mobile-nav__images-wrapper {% if images_count >= 3 %}mobile-nav__images-wrapper--tight{% endif %} hide-scrollbar">
+                    <div class="mobile-nav__images-scroller">
+                      {{- mega_menu_images -}}
+                    </div>
                   </div>
-                </div>
-              {%- endif -%}
-            </collapsible-content>
+                {%- endif -%}
+              </collapsible-content>
+            {%- else -%}
+              <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
+                {%- if link.links.size > 0 -%}
+                  <ul class="mobile-nav list--unstyled" role="list">
+                    {%- for sub_link in link.links -%}
+                      <li class="mobile-nav__item" data-level="2">
+                        {%- if sub_link.links.size > 0 -%}
+                          <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                            {{- sub_link.title -}}
+                            <span class="animated-plus"></span>
+                          </button>
+
+                          <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                            <ul class="mobile-nav list--unstyled" role="list">
+                              {%- for sub_sub_link in sub_link.links -%}
+                                <li class="mobile-nav__item" data-level="3">
+                                  <a href="{{ sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_link.title }}</a>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </collapsible-content>
+                        {%- else -%}
+                          <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title }}</a>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+
+                {%- if mega_menu_images != blank -%}
+                  <div class="mobile-nav__images-wrapper {% if images_count >= 3 %}mobile-nav__images-wrapper--tight{% endif %} hide-scrollbar">
+                    <div class="mobile-nav__images-scroller">
+                      {{- mega_menu_images -}}
+                    </div>
+                  </div>
+                {%- endif -%}
+              </collapsible-content>
+            {%- endif -%}
           {%- else -%}
             <a href="{{ link.url }}" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}">{{ link.title }}</a>
           {%- endif -%}
