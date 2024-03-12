@@ -4624,7 +4624,7 @@
       });
     }
     openDropdownV2(element) {
-      const menuItem = element.querySelector("[aria-controls]"), dropDown = document.querySelector(`#${menuItem.getAttribute("aria-controls")}`), dropDownList = document.querySelectorAll('.tmenu_submenu_tab_item');
+      const menuItem = element.querySelector("[aria-controls]"), dropDown = document.querySelector(`#${menuItem.getAttribute("aria-controls")}`), dropDownList = dropDown.parentNode.querySelectorAll('.tmenu_submenu_tab_item');
 
       dropDownList.forEach(item => {
         item.setAttribute('hidden', "");
