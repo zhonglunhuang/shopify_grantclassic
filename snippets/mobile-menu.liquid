@@ -19,6 +19,7 @@
         {%- assign link_title_downcase = link.title | strip | downcase -%}
         {%- assign mega_menu_block = '' -%}
         {%- assign mega_menu_images = '' -%}
+        {%- assign product_map = linklists['product_map'] -%}
 
         {%- for block in section.blocks -%}
           {%- assign menu_item_downcase = block.settings.menu_item | strip | downcase -%}
@@ -75,7 +76,65 @@
         {%- endif -%}
 
         <li class="mobile-nav__item" data-level="1">
-          {%- if link.links.size > 0 or mega_menu_images != blank -%}
+          {%- if menu.handle == 'new-mega-menu' and link.title == '型號地圖' -%}
+            <button is="toggle-button" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}" aria-controls="mobile-menu-{{ forloop.index }}" aria-expanded="false">
+              {{- link.title -}}
+              <span class="animated-plus"></span>
+            </button>
+            <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
+              {%- if product_map.links.size > 0 -%}
+                <ul class="mobile-nav list--unstyled" role="list">
+                  {%- for sub_link in product_map.links -%}
+                    <li class="mobile-nav__item" data-level="2">
+                      {%- if sub_link.links.size > 0 -%}
+                        <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                          {{- sub_link.title -}}
+                          <span class="animated-plus"></span>
+                        </button>
+
+                        <collapsible-content id="mobile-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                          <ul class="mobile-nav list--unstyled" role="list">
+                            {%- for sub_sub_link in sub_link.links -%}
+                              <li class="mobile-nav__item" data-level="3">
+                                {%- if sub_sub_link.links.size > 0 -%}
+                                  <button is="toggle-button" class="mobile-nav__link" aria-controls="mobile-menu-{{ forloop.parentloop.parentloop.index }}-{{ forloop.parentloop.index }}-{{ forloop.index }}" aria-expanded="false">
+                                    {{- sub_sub_link.title -}}
+                                    <span class="animated-plus"></span>
+                                  </button>
+
+                                  <collapsible-content id="mobile-menu-{{ forloop.parentloop.parentloop.index }}-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="collapsible">
+                                    <ul class="mobile-nav list--unstyled" role="list">
+                                      {%- for sub_sub_sub_link in sub_sub_link.links -%}
+                                        <li class="mobile-nav__item" data-level="3">
+                                          <a href="{{ sub_sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_sub_link.title }}</a>
+                                        </li>
+                                      {%- endfor -%}
+                                    </ul>
+                                  </collapsible-content>
+                                {%- else -%}
+                                  <a href="{{ sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_link.title }}</a>
+                                {%- endif -%}
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </collapsible-content>
+                      {%- else -%}
+                        <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title }}</a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              {%- if mega_menu_images != blank -%}
+                <div class="mobile-nav__images-wrapper {% if images_count >= 3 %}mobile-nav__images-wrapper--tight{% endif %} hide-scrollbar">
+                  <div class="mobile-nav__images-scroller">
+                    {{- mega_menu_images -}}
+                  </div>
+                </div>
+              {%- endif -%}
+            </collapsible-content>
+          {%- elsif link.links.size > 0 or mega_menu_images != blank -%}
             <button is="toggle-button" class="mobile-nav__link heading {% if settings.heading_text_transform == 'uppercase' %}h6{% else %}h5{% endif %}" aria-controls="mobile-menu-{{ forloop.index }}" aria-expanded="false">
               {{- link.title -}}
               <span class="animated-plus"></span>
