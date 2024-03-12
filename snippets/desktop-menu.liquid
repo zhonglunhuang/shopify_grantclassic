@@ -56,10 +56,15 @@
                       {%- for sub_sub_link in sub_link.links -%}
                         {% if forloop.index <= 10 %}
                           <li class="tmenu_submenu_tab_item_list_item list--unstyled">
-                            <a class="Lv2" href="{{ sub_sub_link.url }}">
-                              <img
-                                src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
-                              >
+                            <a class="" href="{{ sub_sub_link.url }}">
+                              <div class="image_container">
+                                <img
+                                  src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
+                                >
+                                {%- if sub_sub_link.object.metafields.custom.image_label -%}
+                                  <span class="image_label">{{ sub_sub_link.object.metafields.custom.image_label }}</span>
+                                {%- endif -%}
+                              </div>
                               <p style="text-align:center;">{{ sub_sub_link.title }}</p>
                             </a>
                           </li>
@@ -84,12 +89,10 @@
                 {%- for sub_link in link.links -%}
                   <li class="tmenu_submenu_tab">
                     <a
-                      class="tmenu_submenu_link link--faded Lv1"
-                      href="{{ sub_link.url }}"
-                      {% if sub_link.links.size > 0 %}aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false"{% endif %}>
+                      class="tmenu_submenu_link link--faded"
+                      href="{{ sub_link.url }}"aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false">
                       {{- sub_link.title -}}
                     </a>
-
                   </li>
                 {%- endfor -%}
               </ul>
@@ -104,12 +107,16 @@
                       class="tmenu_submenu2_tab_item_list">
                       {%- for sub_sub_link in sub_link.links -%}
                         <li class="tmenu_submenu2_tab_item_list_item list--unstyled">
-                          <a class="Lv2" href="{{ sub_sub_link.url }}">
+                          <a class="" href="{{ sub_sub_link.url }}">
                             <p
                               {% if sub_sub_link.url == "#" %}
                                 class="tmenu_black_title"
                               {% endif %}
-                            >{{ sub_sub_link.title }}</p>
+                            >
+                            {%- if sub_sub_link.title != '#' -%}
+                              {{ sub_sub_link.title }}
+                            {%- endif -%}
+                            </p>
                           </a>
                         </li>
                       {%- endfor -%}
