@@ -4630,12 +4630,11 @@
         item.classList.remove("tmenu_submenu_link_icon_animation")
       });
       dropDownList.forEach(item => {
-        item.setAttribute('hidden', "");
+        item.classList.add('tmenu_submenu_tab_item_hidden');
       });
 
-      menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').removeAttribute("hidden")
-      menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').classList.add("tmenu_submenu_link_icon_animation")
-      dropDown.removeAttribute("hidden");
+      menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').classList.add("tmenu_submenu_link_icon_animation");
+      dropDown.classList.remove("tmenu_submenu_tab_item_hidden");
     }
   };
   window.customElements.define("desktop-navigation", DesktopNavigation);
