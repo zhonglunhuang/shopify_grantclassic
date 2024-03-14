@@ -10054,6 +10054,10 @@ input:checked+.popover__choice-label::after,
   display: flex;
 }
 
+.tmenu_submenu_tab_item_hidden {
+  display: none;
+}
+
 .tmenu_submenu_tab_item_active {
   height: 100%;
   visibility: visible;
