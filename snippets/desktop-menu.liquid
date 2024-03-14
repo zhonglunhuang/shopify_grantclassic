@@ -34,6 +34,8 @@
                 class="tmenu_submenu list--unstyled">
                 {%- for sub_link in link.links -%}
                   <li class="tmenu_submenu_tab">
+                    <div class="tmenu_submenu_link_icon">
+                    </div>
                     <a
                       class="tmenu_submenu_link link--faded Lv1"
                       href="{{ sub_link.url }}"
@@ -58,7 +60,7 @@
                           <li class="tmenu_submenu_tab_item_list_item list--unstyled">
                             <a class="" href="{{ sub_sub_link.url }}">
                               <div class="image_container">
-                                <img
+                                <img class="tmenu_image"
                                   src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
                                 >
                                 {%- if sub_sub_link.object.metafields.custom.image_label -%}
