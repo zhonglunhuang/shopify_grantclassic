@@ -4624,12 +4624,17 @@
       });
     }
     openDropdownV2(element) {
-      const menuItem = element.querySelector("[aria-controls]"), dropDown = document.querySelector(`#${menuItem.getAttribute("aria-controls")}`), dropDownList = dropDown.parentNode.querySelectorAll('.tmenu_submenu_tab_item');
+      const menuItem = element.querySelector("[aria-controls]"), menuItemList = menuItem.parentNode.parentNode.querySelectorAll('.tmenu_submenu_link_icon'), dropDown = document.querySelector(`#${menuItem.getAttribute("aria-controls")}`), dropDownList = dropDown.parentNode.querySelectorAll('.tmenu_submenu_tab_item');
 
+      menuItemList.forEach(item => {
+        item.classList.remove("tmenu_submenu_link_icon_animation")
+      });
       dropDownList.forEach(item => {
         item.setAttribute('hidden', "");
       });
 
+      menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').removeAttribute("hidden")
+      menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').classList.add("tmenu_submenu_link_icon_animation")
       dropDown.removeAttribute("hidden");
     }
   };

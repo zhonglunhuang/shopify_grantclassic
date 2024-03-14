@@ -10022,6 +10022,20 @@ input:checked+.popover__choice-label::after,
 
 .tmenu_submenu_tab {
   position: relative;
+  display: flex;
+}
+
+.tmenu_submenu_link_icon {
+  width: 0px;
+  height: 50px;
+  background-color: rgb(222,59,59);
+  opacity: 0;
+  transition: width 0.5s ease-in, opacity 0.2s linear;
+}
+
+.tmenu_submenu_link_icon_animation {
+  width: 25px;
+  opacity: 1;
 }
 
 .tmenu_submenu_link {
@@ -10029,10 +10043,11 @@ input:checked+.popover__choice-label::after,
   align-items: center;
   justify-content: space-between;
   padding: 12px 30px;
+  width: 100%;
 }
 
 .tmenu_submenu_link:hover {
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(230, 230, 230);
 }
 
 
@@ -10080,6 +10095,9 @@ input:checked+.popover__choice-label::after,
 .image_container {
   position: relative;
   display: inline-block;
+}
+.tmenu_image{
+  border-radius: 25px;
 }
 
 .image_label {
