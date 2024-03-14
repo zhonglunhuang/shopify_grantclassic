@@ -10050,6 +10050,9 @@ input:checked+.popover__choice-label::after,
   background-color: rgb(230, 230, 230);
 }
 
+.tmenu_submenu_tab_item {
+  display: flex;
+}
 
 .tmenu_submenu_tab_item_active {
   height: 100%;
@@ -10079,11 +10082,12 @@ input:checked+.popover__choice-label::after,
   padding: 0;
   height: 500px;
   overflow: hidden;
+  min-width: 25%;
+  max-width: 25%;
 }
 
 .tmenu_submenu2_tab_item_list_item{
-  min-width: 25%;
-  max-width: 25%;
+  width: 100%;
   padding: 10px;
   height: 50px;
 }
