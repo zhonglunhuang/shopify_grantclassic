@@ -4593,6 +4593,7 @@
           if (event.relatedTarget !== null) {
             this.closeDropdown(parentElement);
             parentElement.removeEventListener("mouseleave", leaveListener);
+            parentElement.querySelector('.tmenu_bg').removeEventListener("mouseenter", leaveListener)
           }
         };
         const leaveDocumentListener = () => {
@@ -4600,6 +4601,7 @@
           document.documentElement.removeEventListener("mouseleave", leaveDocumentListener);
         };
         parentElement.addEventListener("mouseleave", leaveListener);
+        parentElement.querySelector('.tmenu_bg').addEventListener("mouseenter", leaveListener)
         document.documentElement.addEventListener("mouseleave", leaveDocumentListener);
         openingTimeout = null;
         this.dispatchEvent(new CustomEvent("desktop-nav:dropdown:open", { bubbles: true }));
@@ -4630,11 +4632,11 @@
         item.classList.remove("tmenu_submenu_link_icon_animation")
       });
       dropDownList.forEach(item => {
-        item.classList.add('tmenu_submenu_tab_item_hidden');
+        item.style.display = 'none';
       });
 
       menuItem.parentNode.querySelector('.tmenu_submenu_link_icon').classList.add("tmenu_submenu_link_icon_animation");
-      dropDown.classList.remove("tmenu_submenu_tab_item_hidden");
+      dropDown.style.display = 'flex';
     }
   };
   window.customElements.define("desktop-navigation", DesktopNavigation);
