@@ -33,17 +33,17 @@
               <ul
                 role="list"
                 class="tmenu_submenu list--unstyled">
-                {%- for link in product_map.links -%}
-                  <li class="tmenu_submenu_tab">
-                    <div class="tmenu_submenu_link_icon">
-                    </div>
-                    <a
-                      class="tmenu_submenu_link link--faded"
-                      href="{{ link.url }}"aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false">
-                      {{- link.title -}}
-                    </a>
-                  </li>
-                {%- endfor -%}
+              {%- for link in product_map.links -%}
+                <li class="tmenu_submenu_tab">
+                  <div class="tmenu_submenu_link_icon">
+                  </div>
+                  <a
+                    class="tmenu_submenu_link link--faded"
+                    href="{{ link.url }}"aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false">
+                    {{- link.title -}}
+                  </a>
+                </li>
+              {%- endfor -%}
               </ul>
               <div class="tmenu_content">
                 {%- for link in product_map.links -%}
@@ -77,6 +77,7 @@
                 {%- endfor -%}
               </div>
             </div>
+            <div class="tmenu_bg"></div>
           </div>
         {%- elsif forloop.index == 1 and menu.handle == 'new-mega-menu' -%}
           <div
@@ -93,7 +94,7 @@
                     <div class="tmenu_submenu_link_icon">
                     </div>
                     <a
-                      class="tmenu_submenu_link link--faded Lv1"
+                      class="tmenu_submenu_link link--faded"
                       href="{{ sub_link.url }}"
                       {% if sub_link.links.size > 0 %}aria-controls="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"aria-expanded="false"{% endif %}>
                       {{- sub_link.title -}}
@@ -105,9 +106,9 @@
               <div class="tmenu_content">
                 {%- for sub_link in link.links -%}
                   <div
-                    {% if forloop.index != 1 %}hidden{% endif %}
                     class="tmenu_submenu_tab_item"
                     id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    {%- if forloop.index != 1 -%}style="display: none"{%- endif -%}
                   >
                     <ul
                       class="tmenu_submenu_tab_item_list">
@@ -133,8 +134,9 @@
                 {%- endfor -%}
               </div>
             </div>
+            <div class="tmenu_bg"></div>
           </div>
-        {%- elsif forloop.index == 2 and menu.handle == 'new-mega-menu' -%}
+        {%- elsif forloop.index == 99 and menu.handle == 'new-mega-menu' -%}
           <div
             hidden
             id="desktop-menu-{{ forloop.index }}"
@@ -162,6 +164,7 @@
                     {% if forloop.index != 1 %}hidden{% endif %}
                     class="tmenu_submenu_tab_item"
                     id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    {%- if forloop.index != 1 -%}style="display: none"{%- endif -%}
                   >
                     <ul
                       class="tmenu_submenu2_tab_item_list">
@@ -290,6 +293,7 @@
                   {%- endif -%}
                 </div>
               </div>
+              <div class="tmenu_bg"></div>
             </div>
           {%- endif -%}
         {%- elsif link.links.size > 0 -%}
