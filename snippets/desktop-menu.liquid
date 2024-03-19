@@ -5,6 +5,8 @@
       {%- assign mega_menu_block = '' -%}
       {%- assign mega_menu_images = '' -%}
       {%- assign product_map = linklists['product_map'] -%}
+      {%- assign image_collection = "1,2,3"| split: "," -%}
+      {% capture loop_index %}{{ forloop.index }}{% endcapture %}
 
       {%- for block in section.blocks -%}
         {%- assign menu_item_downcase = block.settings.menu_item | strip | downcase -%}
@@ -79,7 +81,7 @@
             </div>
             <div class="tmenu_bg"></div>
           </div>
-        {%- elsif forloop.index == 1 and menu.handle == 'new-mega-menu' -%}
+        {%- elsif image_collection contains loop_index and menu.handle == 'new-mega-menu' -%}
           <div
             hidden
             id="desktop-menu-{{ forloop.index }}"
