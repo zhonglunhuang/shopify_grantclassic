@@ -5456,6 +5456,55 @@
       this.masterSelector.addEventListener("change", this._onMasterSelectorChanged.bind(this));
       this._updateDisableSelectors();
       this.selectVariant(this.selectedVariant["id"]);
+      if (window.vtlsLiquidData.useNewVariantPicker = true) {
+        let url = new URL(window.location.href);
+        if (url.searchParams.get('variant')) {
+          this._changeMaterialOptionPrice(window.vtlsLiquidData.product.variants.filter(variant => variant.id == url.searchParams.get('variant'))[0].option1)
+        } else {
+          this._changeMaterialOptionPrice(window.vtlsLiquidData.product.variants[0].option1);
+        }
+        if (document.querySelector('input[name="option2"][checked="checked"]')) {
+          let weight = document.querySelector('input[name="option2"][checked="checked"]').parentNode.getAttribute('data-material-variant-weight');
+          let hardness = document.querySelector('input[name="option2"][checked="checked"]').parentNode.getAttribute('data-material-variant-hardness');
+          let root_css = document.documentElement;
+
+          switch (weight){
+            case '1.0': {
+              root_css.style.setProperty('--new_variant_picker_weight', '33%');
+              document.querySelector('#variant_material_weight_value').innerHTML = '輕'
+              break;
+            }
+            case '2.0': {
+              root_css.style.setProperty('--new_variant_picker_weight', '66%')
+              document.querySelector('#variant_material_weight_value').innerHTML = '適中'
+              break;
+            }
+            case '3.0': {
+              root_css.style.setProperty('--new_variant_picker_weight', '100%')
+              document.querySelector('#variant_material_weight_value').innerHTML = '重'
+              break;
+            }
+          }
+
+          switch (hardness){
+            case '1.0': {
+              root_css.style.setProperty('--new_variant_picker_hardness', '33%');
+              document.querySelector('#variant_material_hardness_value').innerHTML = '基本'
+              break;
+            }
+            case '2.0': {
+              root_css.style.setProperty('--new_variant_picker_hardness', '66%')
+              document.querySelector('#variant_material_hardness_value').innerHTML = '強'
+              break;
+            }
+            case '3.0': {
+              root_css.style.setProperty('--new_variant_picker_hardness', '100%')
+              document.querySelector('#variant_material_hardness_value').innerHTML = '特強'
+              break;
+            }
+          }
+        }
+      };
     }
     get selectedVariant() {
       return this._getVariantById(parseInt(this.masterSelector.value));
@@ -5490,7 +5539,26 @@
       }
       this._updateDisableSelectors();
       triggerEvent(this.masterSelector.form, "variant:changed", { variant: this.selectedVariant });
+      if (window.vtlsLiquidData.useNewVariantPicker == true & event.target.getAttribute('name') == 'option1') {
+        if (event.target.tagName == 'SELECT') {
+          this._changeMaterialOptionPrice(event.target.value);
+        } else {
+          this._changeMaterialOptionPrice(event.target.getAttribute('value'));
+        }
+      }
     }
+
+    _changeMaterialOptionPrice(optionValue) {
+      const currencyFormat = window.themeVariables.settings.currencyCodeEnabled ? window.themeVariables.settings.moneyWithCurrencyFormat : window.themeVariables.settings.moneyFormat;
+      var variants = window.vtlsLiquidData.product.variants
+      var _priceList = variants.filter(variant => variant.option1 == optionValue);
+      var optionList = document.querySelector('.new_material_block-swatch-list')
+      for (var i = 0; i < _priceList.length; i++) {
+        var item = optionList.querySelector(`[value="${_priceList[i].option2}"]`)
+        item.querySelector('.new_material_block-swatch__item_span').innerHTML = `NT${formatMoney(_priceList[i].price, currencyFormat)}`;
+      }
+    }
+
     _onOptionChanged() {
       var _a;
       this.selectVariant((_a = this._getVariantFromOptions()) == null ? void 0 : _a.id);
@@ -5522,6 +5590,46 @@
       });
     }
     _isVariantSelectable(variant) {
+      if( event && event.target.parentNode.getAttribute('data-material-variant-name')){
+        let weight = event.target.parentNode.getAttribute('data-material-variant-weight');
+        let hardness = event.target.parentNode.getAttribute('data-material-variant-hardness');
+        let root_css = document.documentElement;
+        switch (weight) {
+          case '1.0': {
+            root_css.style.setProperty('--new_variant_picker_weight', '33%');
+            document.querySelector('#variant_material_weight_value').innerHTML = '輕';
+            break;
+          }
+          case '2.0': {
+            root_css.style.setProperty('--new_variant_picker_weight', '66%');
+            document.querySelector('#variant_material_weight_value').innerHTML = '適中';
+            break;
+          }
+          case '3.0': {
+            root_css.style.setProperty('--new_variant_picker_weight', '100%');
+            document.querySelector('#variant_material_weight_value').innerHTML = '重';
+            break;
+          }
+        }
+
+        switch (hardness){
+          case '1.0': {
+            root_css.style.setProperty('--new_variant_picker_hardness', '33%');
+            document.querySelector('#variant_material_hardness_value').innerHTML = '基本'
+            break;
+          }
+          case '2.0': {
+            root_css.style.setProperty('--new_variant_picker_hardness', '66%')
+            document.querySelector('#variant_material_hardness_value').innerHTML = '強'
+            break;
+          }
+          case '3.0': {
+            root_css.style.setProperty('--new_variant_picker_hardness', '100%')
+            document.querySelector('#variant_material_hardness_value').innerHTML = '特強'
+            break;
+          }
+        }
+      }
       if (!variant) {
         return false;
       } else {
@@ -5566,7 +5674,11 @@
             cssSelector = `.block-swatch:nth-child(${valueIndex + 1})`;
             break;
           case "dropdown":
-            cssSelector = `.combo-box__option-item:nth-child(${valueIndex + 1})`;
+            if (selector.getAttribute("data-selector-option") == 'material'){
+              cssSelector = `.block-swatch:nth-child(${valueIndex + 1})`;
+            } else {
+              cssSelector = `.combo-box__option-item:nth-child(${valueIndex + 1})`;
+            }
             break;
         }
         selector.querySelector(cssSelector).toggleAttribute("hidden", !hasAtLeastOneCombination);
