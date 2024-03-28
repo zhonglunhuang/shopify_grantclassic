@@ -46,13 +46,22 @@
             "buy_now_button_background": "rgba(0,0,0,0)",
             "buy_now_button_text_color": "rgba(0,0,0,0)"
           }
+        },
+        "new_variant_picker": {
+          "type": "new_variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "dropdown",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
         }
       },
       "block_order": [
         "10eed426-c481-4651-8503-74a9f6dc6018",
         "df999a05-d00f-4f60-87d3-401d4a092ce9",
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "variant_picker",
+        "new_variant_picker",
         "quantity_selector",
         "buy_buttons"
       ],

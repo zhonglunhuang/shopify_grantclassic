@@ -19,6 +19,226 @@
       VARIANT PICKER BLOCK TYPE
       ----------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
+      {%- when 'new_variant_picker' -%}
+        <script>
+          window.vtlsLiquidData.useNewVariantPicker = true;
+        </script>
+        {%- unless product.has_only_default_variant or block.settings.hide_sold_out_variants and product.available == false -%}
+          {%- assign size_chart_page = block.settings.size_chart_page -%}
+          {%- assign found_size_option = false -%}
+
+          <product-variants handle="{{ product.handle }}" form-id="{{ product_form_id }}" {% if update_url %}update-url{% endif %} {% if block.settings.hide_sold_out_variants %}hide-sold-out-variants{% endif %} class="product-form__variants" {{ block.shopify_attributes }}>
+            {%- for option in product.options_with_values -%}
+              {%- assign option_downcase = option.name | downcase -%}
+              {%- capture option_id -%}option-{{ section.id }}-{{ template.suffix }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
+
+              {%- assign selector_type = block.settings.selector_mode -%}
+
+              {% if color_label_list contains option_downcase %}
+                {%- assign selector_type = block.settings.color_mode -%}
+
+                {%- if selector_type == 'variant_image' -%}
+                  {%- comment -%}To use this mode every variant must have an attached media{%- endcomment -%}
+                  {%- for variant in product.variants -%}
+                    {%- unless variant.featured_media -%}
+                      {%- assign selector_type = 'color' -%}
+                      {%- break -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endif -%}
+
+              <div class="product-form__option-selector" data-selector-type="{{ selector_type | replace: '_', '-' | escape }}"
+                {%- if option.name == '材質' -%} data-selector-option="material"{%- endif -%}
+              >
+                <div class="product-form__option-info"
+                >
+                  <div
+                    class="
+                    {%- if option.name == '材質' -%}variant-material-title-left{%- endif -%}
+                    {%- if option.name == '樣式' -%}variant-material-title-left{%- endif -%}
+                    "
+                  >
+                  <span class="product-form__option-name">{{ option.name }}:</span>
+                  {%- if selector_type == 'dropdown' and option.name == '材質' -%}
+                    <span id="{{ option_id }}-value" class="">{{ option.selected_value }}</span>
+                  {%- endif -%}
+                  </div>
+                  {%- if option.name == '材質' -%}
+                    <div class="variant-material-title-right">
+                      <div id="variant_material_hardness" >
+                        <span id="variant_material_hardness_name">保護強度:</span>
+                        <span id="variant_material_hardness_value"></span>
+                      </div>
+                      <div id="variant_material_weight">
+                        <span id="variant_material_weight_name">重量:</span>
+                        <span id="variant_material_weight_value"></span>
+                      </div>
+                    </div>
+                  {%- elsif option.name == '樣式' and product.metafields.custom.related_products -%}
+                    <div class="variant-material-title-right">
+                      <button type="button" class="" id="see_more_type_bt"
+                        onclick="document.querySelector('.more_related_product').classList.toggle('more_related_product_visible');"
+                      >
+                        查看更多型號＋
+                      </button>
+                    </div>
+                  {%- endif -%}
+                  {%- if size_chart_page != blank and size_label_list contains option_downcase -%}
+                    {%- assign found_size_option = true -%}
+                    <button type="button" is="toggle-button" class="product-form__option-link link text--subdued hidden-phone" aria-controls="product-{{ section.id }}-{{ product.id }}-size-chart-drawer" aria-expanded="false">{{ 'product.general.size_chart' | t }}</button>
+                    <button type="button" is="toggle-button" class="product-form__option-link link text--subdued hidden-tablet-and-up" aria-controls="product-{{ section.id }}-{{ product.id }}-size-chart-popover" aria-expanded="false">{{ 'product.general.size_chart' | t }}</button>
+                  {%- endif -%}
+                </div>
+                {%- if option.name == '樣式' and product.metafields.custom.related_products -%}
+                  <div class="more_related_product">
+                    {%- for related_product in product.metafields.custom.related_products.value.products -%}
+                      <a class="more_related_product_link" href="{{ related_product.url }}">{{related_product.title}}</a>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+                {%- case selector_type -%}
+                  {%- when 'variant_image' -%}
+                    <div class="variant-swatch-list">
+                      {%- assign option_position0 = option.position | minus: 1 -%}
+
+                      {%- for value in option.values -%}
+                        {%- comment -%}We search for the first variant that has an image for this color{%- endcomment -%}
+                        {%- for variant in product.variants -%}
+                          {%- if variant.options[option_position0] == value -%}
+                            <div class="variant-swatch">
+                              <input class="variant-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" data-bind-value="{{ option_id }}-value" {% if value == option.selected_value %}checked="checked"{% endif %} aria-label="{{ value | escape }}">
+                              <label class="variant-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
+                                <span class="visually-hidden">{{ value }}</span>
+                                <img class="variant-swatch__image" loading="lazy" sizes="(max-width: 740px) 64px, 72px" {% render 'image-attributes', image: variant.featured_media, sizes: '64,72,128,144,192,216' %}>
+                              </label>
+                            </div>
+                            {%- break -%}
+                          {%- endif -%}
+                        {%- endfor -%}
+                      {%- endfor -%}
+                    </div>
+
+                  {%- when 'color' -%}
+                    <div class="color-swatch-list">
+                      {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+                      {%- for value in option.values -%}
+                        {%- assign color_value_downcase = value | downcase -%}
+
+                        <div class="color-swatch {% if color_white_label == color_value_downcase %}color-swatch--white{% endif %}">
+                          <input class="color-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
+                          <label class="color-swatch__item" for="{{ option_id }}-{{ forloop.index }}" style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: value %}">
+                            <span class="visually-hidden">{{ value }}</span>
+                          </label>
+                        </div>
+                      {%- endfor -%}
+                    </div>
+
+                  {%- when 'block' -%}
+                    {%- if option.name == '材質' -%}
+                      <div class="new_material_block-swatch-list">
+                        {%- for value in option.values -%}
+                          <div class="block-swatch seal_reset" id="new_material_block-swatch-list_item" value="{{ value | escape }}">
+                            <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
+                            <label class="new_material_block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
+                              <img class="new_material_block-swatch__item_img" src="https://fakeimg.pl/220x230">
+                              <div class="new_material_block-swatch__item_span">
+                                NT$
+                              </div>
+                            </label>
+
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    {%- else -%}
+                      <div class="block-swatch-list">
+                        {%- for value in option.values -%}
+                          <div class="block-swatch">
+                            <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
+                            <label class="block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">{{ value }}</label>
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    {%- endif -%}
+
+                  {%- when 'dropdown' -%}
+                    {%- if option.name == '材質' -%}
+                      <div class="new_material_block-swatch-list">
+                        {%- for value in option.values -%}
+                          <div class="block-swatch seal_reset" id="new_material_block-swatch-list_item" value="{{ value | escape }}"
+                            {%- for metaobject in shop.metaobjects.material_setting_strong.values  -%}
+                              {%- if metaobject.name == value -%}
+                                data-material-variant-name="{{metaobject.name}}"
+                                data-material-variant-weight="{{metaobject.weight.value}}"
+                                data-material-variant-hardness="{{metaobject.hardness.value}}"
+                                {%  assign image = metaobject.image %}
+                              {%- endif -%}
+                            {%- endfor -%}
+                          >
+                            <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
+                            <label class="new_material_block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
+                              <img class="new_material_block-swatch__item_img" src="{{ image | img_url: 'master'}}">
+                              <div class="new_material_block-swatch__item_span">
+                                NT$
+                              </div>
+                            </label>
+                            {%  assign image = '' %}
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    {%- else -%}
+                      <div class="select-wrapper">
+                        <combo-box initial-focus-selector="[aria-selected='true']" id="{{ option_id }}-combo-box" class="combo-box">
+                          <span class="combo-box__overlay"></span>
+
+                          <header class="combo-box__header">
+                            <p class="combo-box__title heading h6">{{ option.name }}</p>
+
+                            <button type="button" class="combo-box__close-button tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                              {%- render 'icon' with 'close' -%}
+                            </button>
+                          </header>
+
+                          <div class="combo-box__option-list" role="listbox">
+                            {%- for value in option.values -%}
+                              <button type="button" role="option" class="combo-box__option-item" value="{{ value | escape }}" aria-selected="{% if value == option.selected_value %}true{% else %}false{% endif %}">{{ value }}</button>
+                            {%- endfor -%}
+                          </div>
+
+                          <select class="visually-hidden" name="option{{ option.position }}" form="{{ product_form_id }}" data-bind-value="{{ option_id }}-value" aria-label="{{ option.name | escape }}" value="{{ value | escape }}">
+                            {%- for value in option.values -%}
+                              <option value="{{ value | escape }}" {% if value == option.selected_value %}selected{% endif %}>{{ value }}</option>
+                            {%- endfor -%}
+                          </select>
+                        </combo-box>
+
+                        <button type="button" is="toggle-button" class="select" aria-expanded="false" aria-haspopup="listbox" aria-controls="{{ option_id }}-combo-box">
+                          <span id="{{ option_id }}-value" class="select__selected-value">{{ option.selected_value }}</span>
+                          {%- render 'icon' with 'chevron' -%}
+                        </button>
+                      </div>
+                    {%- endif -%}
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+
+            <noscript>
+              <label class="input__block-label" for="product-select-{{ section.id }}-{{ product.id }}">{{ 'product.form.variant' | t }}</label>
+
+              <div class="select-wrapper">
+                <select class="select" autocomplete="off" id="product-select-{{ section.id }}-{{ product.id }}" name="id" form="{{ product_form_id }}">
+                  {%- for variant in product.variants -%}
+                    <option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} {% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}" data-sku="{{ variant.sku }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                  {%- endfor -%}
+                </select>
+
+                {%- render 'icon' with 'chevron' -%}
+              </div>
+            </noscript>
+          </product-variants>
+        {%- endunless -%}
+
       {%- when 'variant_picker' -%}
         {%- unless product.has_only_default_variant or block.settings.hide_sold_out_variants and product.available == false -%}
           {%- assign size_chart_page = block.settings.size_chart_page -%}
