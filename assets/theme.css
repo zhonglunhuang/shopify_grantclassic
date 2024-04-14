@@ -10164,7 +10164,7 @@ input:checked+.popover__choice-label::after,
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  width: auto;
+  width: 100%;
   overflow: hidden;
 }
 
