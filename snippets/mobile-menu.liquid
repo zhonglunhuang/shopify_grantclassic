@@ -20,6 +20,8 @@
         {%- assign mega_menu_block = '' -%}
         {%- assign mega_menu_images = '' -%}
         {%- assign product_map = linklists['product_map'] -%}
+        {%- assign image_collection = "1,2,3"| split: "," -%}
+        {% capture loop_index %}{{ forloop.index }}{% endcapture %}
 
         {%- for block in section.blocks -%}
           {%- assign menu_item_downcase = block.settings.menu_item | strip | downcase -%}
@@ -140,7 +142,7 @@
               <span class="animated-plus"></span>
             </button>
 
-            {%- if forloop.index == 1 and menu.handle == 'new-mega-menu' -%}
+            {%- if image_collection contains loop_index and menu.handle == 'new-mega-menu' -%}
               <collapsible-content id="mobile-menu-{{ forloop.index }}" class="collapsible">
                 {%- if link.links.size > 0 -%}
                   <ul class="mobile-nav list--unstyled" role="list">
