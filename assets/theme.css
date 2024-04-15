@@ -11157,6 +11157,19 @@ input:checked+.popover__choice-label::after,
   padding-right: 24px;
 }
 
+.collection_highlight_label {
+  color: red;
+  font-weight: 400;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 2px 10px;
+  border: 1px solid red;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
 @media screen and (min-width: 741px) {
   .list-collections__item-list {
     grid-template-columns: repeat(auto-fit, calc(100% / 3 - var(--container-gutter) * 2 / 3));

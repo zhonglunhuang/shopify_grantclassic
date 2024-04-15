@@ -69,7 +69,7 @@ Code that create the faceted search for the collection and search pages. It curr
 
       <div class="product-facet__filter-list">
         {%- for filter in filters -%}
-          {%- assign is_filter_group_open = false -%}
+          {%- assign is_filter_group_open = true -%}
 
           {%- if filter.active_values.size > 0 or filter.max_value.value != blank or filter.min_value.value != blank or forloop.first and section.settings.open_first_filter_group -%}
             {%- assign is_filter_group_open = true -%}
@@ -142,6 +142,11 @@ Code that create the faceted search for the collection and search pages. It curr
                           <div class="checkbox-container">
                             <input class="checkbox" type="checkbox" name="{{ filter_value.param_name }}" id="{{ filter_value.param_name | escape }}-{{ forloop.index }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked="checked"{% endif %} {% if filter_value.count == 0 %}disabled{% endif %}>
                             <label for="{{ filter_value.param_name | escape }}-{{ forloop.index }}">{{ filter_value.label }} ({{ filter_value.count}})&lrm;</label>
+                            {%- for hightlight_label in shop.metaobjects.highlight_filter.values -%}
+                              {%- if hightlight_label.name == filter_value.label -%}
+                                <span class="collection_highlight_label">{{  hightlight_label.value }}</span>
+                              {%- endif -%}
+                            {%- endfor -%}
                           </div>
                         {%- endfor -%}
                       {%- endif -%}
