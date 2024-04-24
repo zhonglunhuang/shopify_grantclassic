@@ -50,9 +50,10 @@
               <div class="tmenu_content">
                 {%- for link in product_map.links -%}
                   <div
-                    {% if forloop.index != 1 %}hidden{% endif %}
                     class="tmenu_submenu_tab_item"
                     id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    {%- if forloop.index != 1 -%}style="display: none"{%- endif -%}
+                    class="tmenu_submenu_tab_item"
                   >
                     {%- for sub_link in link.links -%}
                     <ul

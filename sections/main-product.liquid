@@ -536,6 +536,53 @@
             "default": "color"
           }
         ]
+      },{
+        "type": "photo_variant_picker",
+        "name": "Photo_variant_picker",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "hide_sold_out_variants",
+            "label": "Hide sold out variants",
+            "default": false
+          }, {
+            "type": "select",
+            "id": "selector_mode",
+            "label": "Selector type",
+            "options": [
+              {
+                "value": "block",
+                "label": "Block"
+              }, {
+                "value": "dropdown",
+                "label": "Dropdown"
+              }
+            ],
+            "default": "block"
+          }, {
+            "type": "select",
+            "id": "color_mode",
+            "label": "Color selector type",
+            "info": "測試敘述",
+            "options": [
+              {
+                "value": "block",
+                "label": "Block"
+              }, {
+                "value": "dropdown",
+                "label": "Dropdown"
+              }, {
+                "value": "color",
+                "label": "Color swatch"
+              }, {
+                "value": "variant_image",
+                "label": "Variant image"
+              }
+            ],
+            "default": "color"
+          }
+        ]
       }
     ],
     "settings": [

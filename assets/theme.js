@@ -5456,7 +5456,7 @@
       this.masterSelector.addEventListener("change", this._onMasterSelectorChanged.bind(this));
       this._updateDisableSelectors();
       this.selectVariant(this.selectedVariant["id"]);
-      if (window.vtlsLiquidData.useNewVariantPicker = true) {
+      if (window.vtlsLiquidData.useNewVariantPicker = true && window.vtlsLiquidData.usePhotoVariantPicker != true) {
         let url = new URL(window.location.href);
         if (url.searchParams.get('variant')) {
           this._changeMaterialOptionPrice(window.vtlsLiquidData.product.variants.filter(variant => variant.id == url.searchParams.get('variant'))[0].option1)
@@ -5590,7 +5590,8 @@
       });
     }
     _isVariantSelectable(variant) {
-      if( event && event.target.parentNode.getAttribute('data-material-variant-name')){
+      if( event && event.target.parentNode.getAttribute('data-material-variant-name') && window.vtlsLiquidData.usePhotoVariantPicker != true){
+        console.log('不能觸發呀');
         let weight = event.target.parentNode.getAttribute('data-material-variant-weight');
         let hardness = event.target.parentNode.getAttribute('data-material-variant-hardness');
         let root_css = document.documentElement;
