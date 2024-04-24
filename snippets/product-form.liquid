@@ -274,6 +274,9 @@
                 >
                   <div>
                   <span class="product-form__option-name">{{ option.name }}: </span>
+                  {%- if selector_type == 'dropdown' and option.name == '材質' -%}
+                    <span id="{{ option_id }}-value" class="">{{ option.selected_value }}</span>
+                  {%- endif -%}
                   </div>
                   {%- if size_chart_page != blank and size_label_list contains option_downcase -%}
                     {%- assign found_size_option = true -%}
@@ -334,9 +337,6 @@
                             <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
                             <label class="new_material_block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
                               <img class="new_material_block-swatch__item_img" src="{{ image | img_url: 'master'}}">
-                              <div class="new_material_block-swatch__item_span">
-                                {{ value }}
-                              </div>
                             </label>
                             {%  assign image = '' %}
                           </div>
@@ -368,9 +368,6 @@
                             <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
                             <label class="new_material_block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
                               <img class="new_material_block-swatch__item_img" src="{{ image | img_url: 'master'}}">
-                              <div class="new_material_block-swatch__item_span">
-                                {{ value }}
-                              </div>
                             </label>
                             {%  assign image = '' %}
                           </div>

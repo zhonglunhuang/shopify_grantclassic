@@ -11165,12 +11165,12 @@ input:checked+.popover__choice-label::after,
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   padding: 0px 8px;
-  border: 1px solid red;
+  border: 1px solid #DE3B3B;
   box-sizing: border-box;
   font-size: 10px;
   line-height: 1.5;
   align-self: center;
-  background-color: red;
+  background-color: #DE3B3B;
 
 }
 
