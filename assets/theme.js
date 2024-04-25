@@ -5591,7 +5591,6 @@
     }
     _isVariantSelectable(variant) {
       if( event && event.target.parentNode.getAttribute('data-material-variant-name') && window.vtlsLiquidData.usePhotoVariantPicker != true){
-        console.log('不能觸發呀');
         let weight = event.target.parentNode.getAttribute('data-material-variant-weight');
         let hardness = event.target.parentNode.getAttribute('data-material-variant-hardness');
         let root_css = document.documentElement;

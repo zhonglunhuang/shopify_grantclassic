@@ -139,15 +139,24 @@
                     {%- if option.name == '材質' -%}
                       <div class="new_material_block-swatch-list">
                         {%- for value in option.values -%}
-                          <div class="block-swatch seal_reset" id="new_material_block-swatch-list_item" value="{{ value | escape }}">
+                          <div class="block-swatch seal_reset" id="new_material_block-swatch-list_item" value="{{ value | escape }}"
+                            {%- for metaobject in shop.metaobjects.material_setting_strong.values  -%}
+                              {%- if metaobject.name == value -%}
+                                data-material-variant-name="{{metaobject.name}}"
+                                data-material-variant-weight="{{metaobject.weight.value}}"
+                                data-material-variant-hardness="{{metaobject.hardness.value}}"
+                                {%  assign image = metaobject.image %}
+                              {%- endif -%}
+                            {%- endfor -%}
+                          >
                             <input class="block-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-bind-value="{{ option_id }}-value">
                             <label class="new_material_block-swatch__item" for="{{ option_id }}-{{ forloop.index }}">
-                              <img class="new_material_block-swatch__item_img" src="https://fakeimg.pl/220x230">
+                              <img class="new_material_block-swatch__item_img" src="{{ image | img_url: 'master'}}">
                               <div class="new_material_block-swatch__item_span">
                                 NT$
                               </div>
                             </label>
-
+                            {%  assign image = '' %}
                           </div>
                         {%- endfor -%}
                       </div>
@@ -274,7 +283,7 @@
                 >
                   <div>
                   <span class="product-form__option-name">{{ option.name }}: </span>
-                  {%- if selector_type == 'dropdown' and option.name == '材質' -%}
+                  {%- if option.name == '材質' -%}
                     <span id="{{ option_id }}-value" class="">{{ option.selected_value }}</span>
                   {%- endif -%}
                   </div>
