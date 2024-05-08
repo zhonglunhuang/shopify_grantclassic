@@ -3,13 +3,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "variant_picker": {
-          "type": "variant_picker",
+        "photo_variant_picker_fQjfGH": {
+          "type": "photo_variant_picker",
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
+            "color_mode": "color"
           }
         },
         "quantity_selector": {
@@ -29,7 +28,7 @@
         }
       },
       "block_order": [
-        "variant_picker",
+        "photo_variant_picker_fQjfGH",
         "quantity_selector",
         "buy_buttons"
       ],
