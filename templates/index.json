@@ -845,16 +845,6 @@
     },
     "1705591464ca06d95f": {
       "type": "apps",
-      "blocks": {
-        "vitals_insta_feed_j4PzWU": {
-          "type": "shopify:\/\/apps\/vitals\/blocks\/insta-feed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "vitals_insta_feed_j4PzWU"
-      ],
       "settings": {
         "include_horizontal_margins": true,
         "include_vertical_margins": true
