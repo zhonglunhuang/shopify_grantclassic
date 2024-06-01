@@ -6347,7 +6347,7 @@ input:checked+.popover__choice-label::after,
 
 .new_material_block-swatch__item_span{
   padding: 5px 5px;
-  color: white;
+  color: black;
 }
 
 .new_material_block-swatch__item {
@@ -6397,6 +6397,10 @@ input:checked+.popover__choice-label::after,
 .block-swatch__radio:checked+.new_material_block-swatch__item::after {
   opacity: 1;
   transform: scale(1);
+}
+
+.block-swatch__radio:checked+.new_material_block-swatch__item .new_material_block-swatch__item_span {
+  color: white;
 }
 
 /**

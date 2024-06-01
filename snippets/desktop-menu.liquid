@@ -5,7 +5,7 @@
       {%- assign mega_menu_block = '' -%}
       {%- assign mega_menu_images = '' -%}
       {%- assign product_map = linklists['product_map'] -%}
-      {%- assign image_collection = "1,2,3"| split: "," -%}
+      {%- assign image_collection = "1,2,3,4"| split: "," -%}
       {% capture loop_index %}{{ forloop.index }}{% endcapture %}
 
       {%- for block in section.blocks -%}
@@ -53,7 +53,6 @@
                     class="tmenu_submenu_tab_item"
                     id="desktop-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
                     {%- if forloop.index != 1 -%}style="display: none"{%- endif -%}
-                    class="tmenu_submenu_tab_item"
                   >
                     {%- for sub_link in link.links -%}
                     <ul
