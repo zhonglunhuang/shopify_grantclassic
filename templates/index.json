@@ -120,7 +120,7 @@
           "type": "collection",
           "settings": {
             "collection": "全部的商品",
-            "label": "",
+            "label": "最新商品",
             "button_text": "",
             "button_url": ""
           }
