@@ -23,7 +23,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   <head>
  {%- render 'ecom_header' -%}
 
-  <meta name="google-site-verification" content="8FwZDaOMabQ6sE3VVQLGy1v49n3DHK8J7FMmckV3daY" />{% render 'pagefly-head' %}
+  <meta name="google-site-verification" content="8FwZDaOMabQ6sE3VVQLGy1v49n3DHK8J7FMmckV3daY" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.header_background }}">
@@ -101,7 +101,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   
 {% render 'gsf-conversion-pixels' %}
 {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
-</head>
+{% include 'pagefly-app-header' %}</head>
 
   {%- assign feature_classes = '' -%}
 
@@ -109,7 +109,9 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     {% assign feature_classes = feature_classes | append: ' features--image-zoom' %}
   {%- endif -%}
 
-  <body class="no-focus-outline {{ feature_classes }}" data-instant-allow-query-string><div class="pagefly-container">{{ content_for_layout }}</div></body>
+  <body class="no-focus-outline {{ feature_classes }}" data-instant-allow-query-string><div class="pagefly-container">
+              {{ content_for_layout }}
+            </div></body>
 </html>
 
 <style>

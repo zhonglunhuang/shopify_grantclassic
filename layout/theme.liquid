@@ -19,7 +19,7 @@
   <head>
  {%- render 'ecom_header' -%}
 
-  <meta name="google-site-verification" content="8FwZDaOMabQ6sE3VVQLGy1v49n3DHK8J7FMmckV3daY" />{% render 'pagefly-head' %}
+  <meta name="google-site-verification" content="8FwZDaOMabQ6sE3VVQLGy1v49n3DHK8J7FMmckV3daY" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.header_background }}">
@@ -97,7 +97,7 @@
   
 {% render 'gsf-conversion-pixels' %}
 {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
-</head>
+{% include 'pagefly-app-header' %}</head>
 
   {%- assign feature_classes = '' -%}
 
