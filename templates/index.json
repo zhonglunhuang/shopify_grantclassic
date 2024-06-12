@@ -3,6 +3,62 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_decgqn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cover_30a909a3-30a0-4e0b-acdd-2a689889e392.webp",
+            "mobile_image": "shopify:\/\/shop_images\/cover_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "https:\/\/bit.ly\/3KFM8aQ",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_cK3UHA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/04.webp",
+            "mobile_image": "shopify:\/\/shop_images\/05.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/products\/餵不停-luxnourish-貓狗自動餵食器-單碗組",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "b3f42f8f-dcd3-4867-8130-a475c6dc794e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/230823_gctag.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/collections\/gc-tag-series",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_RQmfLB": {
           "type": "image",
           "settings": {
@@ -40,70 +96,14 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "7af7cfc2-babe-4830-9529-2233f2cb0d74": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/230801_lux_a3fd0ed9-0e2d-4c0b-923c-38fefffade98.webp",
-            "mobile_image": "shopify:\/\/shop_images\/230801_lux_phone.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/pet-series",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "d833265b-a6f9-4556-96b3-46d91dbd29d9": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/banner__1.webp",
-            "mobile_image": "shopify:\/\/shop_images\/web_1106_phone-04.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/designer-phone-cases",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 10
-          }
-        },
-        "b3f42f8f-dcd3-4867-8130-a475c6dc794e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/230823_gctag.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/gc-tag-series",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
         }
       },
       "block_order": [
+        "image_decgqn",
+        "image_cK3UHA",
+        "b3f42f8f-dcd3-4867-8130-a475c6dc794e",
         "image_RQmfLB",
-        "image_CdPCAk",
-        "7af7cfc2-babe-4830-9529-2233f2cb0d74",
-        "d833265b-a6f9-4556-96b3-46d91dbd29d9",
-        "b3f42f8f-dcd3-4867-8130-a475c6dc794e"
+        "image_CdPCAk"
       ],
       "settings": {
         "section_height": "auto",
