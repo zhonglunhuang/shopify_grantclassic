@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "20adbb9e-a7c8-4b2f-9747-c9d3010a8896": {
@@ -304,11 +313,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC01095.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00306.jpg",
             "image_width": 100,
             "image_border": "#2d2d2d",
             "title": "Mars",
-            "content": "<p><strong>總經理<br\/><\/strong>人生就是一場遊戲，讓我們一起大鬧一場吧。<\/p>",
+            "content": "<p><strong>總經理<br\/><\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -319,11 +328,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00732.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00321-2.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Rebecca",
-            "content": "<p><strong>人資總監<br\/><\/strong>自信是最美的時尚單品<\/p>",
+            "content": "<p><strong>副總經理<br\/><\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -331,14 +340,59 @@
             "vertical_alignment": "start"
           }
         },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-2": {
+        "item_p3PA3d": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC01046.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00346.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "seN",
-            "content": "<p><strong>營運長<br\/><\/strong>不出意外的話就出意外了<\/p>",
+            "title": "David",
+            "content": "<p><strong>特別顧問<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_jwYHCN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00350.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Lizzy",
+            "content": "<p><strong>管理處長<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00338.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Jeff Lin",
+            "content": "<p><strong>業務處長<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_8Xd8fR": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00412.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "陳智媛",
+            "content": "<p><strong>企劃行銷主任<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -349,11 +403,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00790.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00513.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Süe",
-            "content": "<p><strong>營運主任<br\/><\/strong>興奮到模糊<\/p>",
+            "content": "<p><strong>通路營運主任<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -364,7 +418,7 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00007_2.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00438.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Johnny",
@@ -376,89 +430,14 @@
             "vertical_alignment": "start"
           }
         },
-        "b43ee72b-7285-444a-9b99-548a1117841f": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00659.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Cathy",
-            "content": "<p><strong>會計主任<br\/><\/strong>告訴你一個寶藏的地點，它就在你的生命裡。<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00428-_-2.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Jeff Lin",
-            "content": "<p><strong>業務經理<br\/><\/strong>如果你懂海，海就會幫你。<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00542.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Aiko",
-            "content": "<p><strong>採購組長<br\/><\/strong>凡是經過我手的價格就是必須砍半，因為我是採購<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-6": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00110.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Lisa",
-            "content": "<p><strong>倉庫組長<br\/><\/strong>人生沒有四季，努力就是旺季，不努力就是淡季！<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
         "4cd9343b-4890-4346-850f-8ccd5b891712": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00977.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00567.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Mandy",
-            "content": "<p><strong>客服組長<br\/><\/strong>總要經過風雨的洗禮，才能看見斑斕的彩虹<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "d1f6ff38-babc-4181-b4f9-d0471b21ca0b": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00271.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Sabrina",
-            "content": "<p><strong>品牌行銷企劃<br\/><\/strong>男性的皮層裡住著一個漂亮女人，我就是這麼ㄎㄧㄤ才當行銷企劃<\/p>",
+            "content": "<p><strong>客服主管<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -469,7 +448,7 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00027.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00451.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Tracy",
@@ -481,14 +460,14 @@
             "vertical_alignment": "start"
           }
         },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-9": {
+        "item_nnExkg": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00072.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00462.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "ZeAn",
-            "content": "<p><strong>攝影企劃專員<br\/><\/strong>攝影三要素：妹子妹子妹子<\/p>",
+            "title": "Joe",
+            "content": "<p><strong>美編印刷專員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -499,7 +478,7 @@
         "a92276d6-21de-4080-862f-89f8bdce9410": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00876.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00532.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "MelviИ",
@@ -514,7 +493,7 @@
         "221599d8-d753-421c-9c44-f81bfc942caf": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00929.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00517.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Joan",
@@ -529,11 +508,11 @@
         "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC01173.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00548.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Pegggy",
-            "content": "<p><strong>通路營運專員<br\/><\/strong>每天都冒出很多念頭，那些不死的才叫做夢想<\/p>",
+            "content": "<p><strong>企劃行銷主任<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -541,30 +520,14 @@
             "vertical_alignment": "start"
           }
         },
-        "2c8cebf3-7d2c-4ba5-96c9-0471b5ada2ae": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00384.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Vanessa",
-            "content": "<p><strong>品牌行銷企劃<br\/><\/strong>有限的時間內創造無限的可能<\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "bd430de7-7972-4132-b6d9-7685782dba6e": {
+        "item_TQ6pxX": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00209.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00359.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "Chen",
-            "content": "<p><strong>產品技術專員<br\/><\/strong>人生有夢，築夢踏實<\/p>",
+            "title": "鄭茹云",
+            "content": "<p><strong>會計專員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -575,11 +538,11 @@
         "3caca862-4784-4f68-867b-7e3ff9707c2c": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00162.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00601.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Wei",
-            "content": "<p><strong>產品技術專員<br\/><\/strong>在非洲，每六十秒，就有一分鐘過去 <\/p>",
+            "content": "<p><strong>線上售後服務技術專員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -587,14 +550,14 @@
             "vertical_alignment": "start"
           }
         },
-        "0f55754c-51c1-4579-8b63-292dc1f55d9c": {
+        "item_nTVz6G": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00703.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00581.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "IKU",
-            "content": "<p><strong>會計專員<br\/><\/strong>時常更新自己的\"基本\"<\/p>",
+            "title": "古馥華",
+            "content": "<p><strong>客服人員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -602,14 +565,119 @@
             "vertical_alignment": "start"
           }
         },
-        "01b925cc-fb14-4c48-8dc8-a7e8a44e5ae3": {
+        "item_mrcQ6G": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00107.jpg",
+            "image": "shopify:\/\/shop_images\/DSC00471.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "Ben",
-            "content": "<p><strong>倉儲專員<br\/><\/strong>No pain, no gain<\/p>",
+            "title": "蘇育鼎",
+            "content": "<p><strong>動態攝影師<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_fyMwBV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00642.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "丁崑棋",
+            "content": "<p><strong>倉儲專員<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_itB3AP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00635.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "陳浩宇",
+            "content": "<p><strong>倉儲專員<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_wFaDgd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00613.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "徐定瑋",
+            "content": "<p><strong>倉儲專員<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "b43ee72b-7285-444a-9b99-548a1117841f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00659.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Cathy",
+            "content": "<p><strong>會計主任<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00542.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Aiko",
+            "content": "<p><strong>採購組長<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_RAHyXi": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/0_0_1_0_28_17_0_18_1_0_0_0_p0_02.jpg",
+            "image_width": 75,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "翁家婕",
+            "content": "<p><strong>行銷專員<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_VGXYYP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/0_0_1_0_28_17_0_18_1_0_0_0_p0.jpg",
+            "image_width": 75,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "陳浩",
+            "content": "<p><strong>業務助理<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -621,25 +689,29 @@
       "block_order": [
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-2",
+        "item_p3PA3d",
+        "item_jwYHCN",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
+        "item_8Xd8fR",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4",
-        "b43ee72b-7285-444a-9b99-548a1117841f",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-6",
         "4cd9343b-4890-4346-850f-8ccd5b891712",
-        "d1f6ff38-babc-4181-b4f9-d0471b21ca0b",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-9",
+        "item_nnExkg",
         "a92276d6-21de-4080-862f-89f8bdce9410",
         "221599d8-d753-421c-9c44-f81bfc942caf",
         "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e",
-        "2c8cebf3-7d2c-4ba5-96c9-0471b5ada2ae",
-        "bd430de7-7972-4132-b6d9-7685782dba6e",
+        "item_TQ6pxX",
         "3caca862-4784-4f68-867b-7e3ff9707c2c",
-        "0f55754c-51c1-4579-8b63-292dc1f55d9c",
-        "01b925cc-fb14-4c48-8dc8-a7e8a44e5ae3"
+        "item_nTVz6G",
+        "item_mrcQ6G",
+        "item_fyMwBV",
+        "item_itB3AP",
+        "item_wFaDgd",
+        "b43ee72b-7285-444a-9b99-548a1117841f",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
+        "item_RAHyXi",
+        "item_VGXYYP"
       ],
       "settings": {
         "reveal_on_scroll": true,
