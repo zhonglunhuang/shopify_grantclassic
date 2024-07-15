@@ -391,7 +391,7 @@
             "image": "shopify:\/\/shop_images\/DSC00412.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "陳智媛",
+            "title": "Chih Yuan",
             "content": "<p><strong>企劃行銷主任<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
@@ -422,7 +422,7 @@
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Johnny",
-            "content": "<p><strong>設計主任<br\/><\/strong>i can do this all day!!!<\/p>",
+            "content": "<p><strong>設計主任<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -482,7 +482,7 @@
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "MelviИ",
-            "content": "<p><strong>通路營運專員<br\/><\/strong>夜路走多了 總匯三明治<\/p>",
+            "content": "<p><strong>通路營運專員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -497,7 +497,7 @@
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Joan",
-            "content": "<p><strong>通路營運專員<br\/><\/strong>WAKUWAKU~PUI PUI<\/p>",
+            "content": "<p><strong>通路營運專員<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -550,6 +550,21 @@
             "vertical_alignment": "start"
           }
         },
+        "item_mrcQ6G": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC00471.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Ding",
+            "content": "<p><strong>動態攝影師<\/strong><\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
         "item_nTVz6G": {
           "type": "item",
           "settings": {
@@ -558,21 +573,6 @@
             "image_border": "rgba(0,0,0,0)",
             "title": "古馥華",
             "content": "<p><strong>客服人員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_mrcQ6G": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00471.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "蘇育鼎",
-            "content": "<p><strong>動態攝影師<\/strong><\/p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -703,8 +703,8 @@
         "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e",
         "item_TQ6pxX",
         "3caca862-4784-4f68-867b-7e3ff9707c2c",
-        "item_nTVz6G",
         "item_mrcQ6G",
+        "item_nTVz6G",
         "item_fyMwBV",
         "item_itB3AP",
         "item_wFaDgd",
