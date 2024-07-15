@@ -97,8 +97,8 @@
       "type": "image-with-text-overlay",
       "settings": {
         "reveal_on_scroll": true,
-        "section_height": "medium",
-        "image": "shopify:\/\/shop_images\/DSC01200.webp",
+        "section_height": "auto",
+        "image": "shopify:\/\/shop_images\/DSC00692.jpg",
         "subheading": "",
         "title": "我們的目的",
         "content": "<p>grantclssic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。<\/p>",
@@ -112,7 +112,7 @@
         "button_background": "#ffffff",
         "button_text_color": "#000000",
         "overlay_color": "#f4f4f4",
-        "overlay_opacity": 84
+        "overlay_opacity": 78
       }
     },
     "b533ae00-dbe0-4db0-9c69-c92d47f9d807": {
