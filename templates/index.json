@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slideshow": {
@@ -371,21 +380,6 @@
             "vertical_alignment": "start"
           }
         },
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/83ca8069-dc23-40c1-89d8-a861fa18ecba.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>摳迪捏妮八<\/p>",
-            "link_text": "",
-            "link_url": "shopify:\/\/collections\/inficase-摳迪捏妮八聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
         "d3321d93-ad59-41bb-a32c-92babc56d2ab": {
           "type": "item",
           "settings": {
@@ -569,7 +563,6 @@
       },
       "block_order": [
         "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-1",
         "d3321d93-ad59-41bb-a32c-92babc56d2ab",
         "c80d10a0-be17-45b5-85db-2148cfab2a43",
         "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2",
