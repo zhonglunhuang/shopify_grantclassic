@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "collection-banner": {
@@ -57,21 +66,6 @@
             "content": "<p>小雞崴力 聯名款<\/p>",
             "link_text": "",
             "link_url": "shopify:\/\/collections\/inficase-小雞威力聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "3d20c1ff-1442-4226-9ecc-31ae32935df5": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/83ca8069-dc23-40c1-89d8-a861fa18ecba.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>摳迪捏妮八 聯名款<\/p>",
-            "link_text": "",
-            "link_url": "shopify:\/\/collections\/inficase-摳迪捏妮八聯名款手機殼",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
@@ -232,7 +226,6 @@
         "template--16672968638707__e5aed347-f474-4b66-b335-1a6390c5d889-item-1",
         "e569cd8f-c914-4396-9f95-b303e95fabef",
         "01ea7ea8-8d8e-4728-ac9e-4609375e0378",
-        "3d20c1ff-1442-4226-9ecc-31ae32935df5",
         "61bbfde3-73ce-4db3-af33-d8d3cf388396",
         "c5643d5d-5728-4a1a-b190-83df9cc2483f",
         "5d9480ef-1cde-46e7-9f0c-d3d455623974",
