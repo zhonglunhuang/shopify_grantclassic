@@ -6312,6 +6312,34 @@
   // js/custom-element/section/product/sticky-form.js
   var ProductStickyForm = class extends HTMLElement {
     connectedCallback() {
+      // 获取元素
+      const productStickyForm = document.querySelector('.product-sticky-form');
+
+      // 示例：根据某些条件控制显示和隐藏
+      function updateProductStickyFormVisibility(isVisible) {
+        if (isVisible) {
+          productStickyForm.classList.add('visible');
+        } else {
+          productStickyForm.classList.remove('visible');
+        }
+      }
+
+      // 示例：在滚动时控制显示和隐藏
+      window.addEventListener('scroll', () => {
+        const mainPaymentContainer = document.getElementById('MainPaymentContainer');
+        const footerElement = document.querySelector('.shopify-section--footer');
+
+        const mainPaymentRect = mainPaymentContainer.getBoundingClientRect();
+        const footerRect = footerElement.getBoundingClientRect();
+
+        // 条件：如果 mainPaymentContainer 不在视口中，且 footer 不在视口中，则显示 product-sticky-form
+        const isMainPaymentPassed = mainPaymentRect.bottom <= 0;
+        const isFooterVisible = footerRect.top <= window.innerHeight && footerRect.bottom >= 0;
+
+        updateProductStickyFormVisibility(isMainPaymentPassed && !isFooterVisible);
+      });
+
+      return; //棄用原先的_setupVisibilityObservers
       var _a;
       (_a = document.getElementById(this.getAttribute("form-id"))) == null ? void 0 : _a.addEventListener("variant:changed", this._onVariantChanged.bind(this));
       this.imageElement = this.querySelector(".product-sticky-form__image");
