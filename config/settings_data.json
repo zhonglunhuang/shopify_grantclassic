@@ -35,7 +35,7 @@
     "heading_font": "noto_sans_japanese_n4",
     "heading_font_size": "small",
     "heading_text_transform": "normal",
-    "text_font": "sans-serif",
+    "text_font": "noto_sans_japanese_n4",
     "text_font_size": 15,
     "currency_code_enabled": false,
     "stagger_products_apparition": true,
