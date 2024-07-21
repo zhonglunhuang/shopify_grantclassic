@@ -1,7 +1,7 @@
 html,
 body,
 * {
-    font-family: 'Noto Sans TC', system-ui, sans-serif !important;
+    /* font-family: 'Noto Sans TC', system-ui, sans-serif !important; */
     letter-spacing: 0 !important;
 }
 
@@ -38,7 +38,7 @@ html.js {
   font-weight: initial;
 }
 #ako-content h6{
-  font-size:18px; 
+  font-size:18px;
   font-weight: initial;
 }
 #ako-content p{
@@ -65,7 +65,7 @@ html.js {
   font-size:16px;
 }
 #ako-content h6{
-  font-size:16px; 
+  font-size:16px;
 }
 #ako-content p{
   font-size:15px;

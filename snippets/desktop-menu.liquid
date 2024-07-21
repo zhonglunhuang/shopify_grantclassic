@@ -119,7 +119,8 @@
                           <li class="tmenu_submenu_tab_item_list_item list--unstyled">
                             <a class="" href="{{ sub_sub_link.url }}">
                               <div class="image_container">
-                                <img class="tmenu_image"
+                                <img class="tmenu_image" loading="lazy"
+                                  width="720" height="720"
                                   src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
                                 >
                                 {%- if sub_sub_link.object.metafields.custom.image_label -%}
