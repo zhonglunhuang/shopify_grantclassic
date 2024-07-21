@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "icon_stroke_width": 1.4,
@@ -23,7 +32,7 @@
     "product_custom_label_2_background": "#f3ff34",
     "product_in_stock_text_color": "#2e9e7b",
     "product_low_stock_text_color": "#eb3b3b",
-    "heading_font": "sans-serif",
+    "heading_font": "noto_sans_japanese_n4",
     "heading_font_size": "small",
     "heading_text_transform": "normal",
     "text_font": "sans-serif",
