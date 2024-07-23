@@ -318,6 +318,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "14868561720390754469": {
+        "type": "shopify:\/\/apps\/loloyal-com\/blocks\/boom-cend\/930ac91f-2bf2-4655-9ba0-574771f782d6",
+        "disabled": true,
+        "settings": {
+        }
       }
     }
   },
