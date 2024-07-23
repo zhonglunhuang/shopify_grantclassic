@@ -324,6 +324,16 @@
         "disabled": true,
         "settings": {
         }
+      },
+      "9356323809658795675": {
+        "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "disabled": false,
+        "settings": {
+          "debugging_popup_script": "",
+          "debugging_pops_script": "",
+          "debugging_global_script": "",
+          "enable_reelPops": true
+        }
       }
     }
   },
