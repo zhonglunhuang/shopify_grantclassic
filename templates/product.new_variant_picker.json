@@ -1,5 +1,33 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
+    "17217531779a9cbfe4": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "section_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -134,6 +162,7 @@
     }
   },
   "order": [
+    "17217531779a9cbfe4",
     "main",
     "1708499698c4398b56",
     "product-content"
