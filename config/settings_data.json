@@ -72,6 +72,7 @@
         "blocks": {
           "message-1": {
             "type": "message",
+            "disabled": true,
             "settings": {
               "text": "喝不停-全陶瓷飲水機新品上市！",
               "learn_more_text": "Learn more",
@@ -83,6 +84,7 @@
           },
           "6651169f-8d11-40fd-a1c1-472786c065bc": {
             "type": "message",
+            "disabled": true,
             "settings": {
               "text": "餵不停專屬陶瓷碗！趕緊為你的毛小孩添購一個！",
               "learn_more_text": "Learn more",
