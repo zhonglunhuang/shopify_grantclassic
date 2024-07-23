@@ -313,12 +313,6 @@
         "settings": {
         }
       },
-      "7885500093077574326": {
-        "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/script_embed\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "14868561720390754469": {
         "type": "shopify:\/\/apps\/loloyal-com\/blocks\/boom-cend\/930ac91f-2bf2-4655-9ba0-574771f782d6",
         "disabled": true,
@@ -333,6 +327,12 @@
           "debugging_pops_script": "",
           "debugging_global_script": "",
           "enable_reelPops": true
+        }
+      },
+      "7885500093077574326": {
+        "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/script_embed\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": true,
+        "settings": {
         }
       }
     }
