@@ -139,17 +139,6 @@
     },
     "1708499698c4398b56": {
       "type": "apps",
-      "blocks": {
-        "videowise_video_platform_ugc_videowise_page_widgets_XWbGzH": {
-          "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/videowise-page-widgets\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-          "settings": {
-            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_65dd77e50480100028d65358\"><\/div>"
-          }
-        }
-      },
-      "block_order": [
-        "videowise_video_platform_ugc_videowise_page_widgets_XWbGzH"
-      ],
       "settings": {
         "include_horizontal_margins": true,
         "include_vertical_margins": true
