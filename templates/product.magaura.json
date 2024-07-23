@@ -88,24 +88,6 @@
         "transition_effect": "slide"
       }
     },
-    "1708499698c4398b56": {
-      "type": "apps",
-      "blocks": {
-        "videowise_video_platform_ugc_videowise_page_widgets_XWbGzH": {
-          "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/videowise-page-widgets\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-          "settings": {
-            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_65dd77e50480100028d65358\"><\/div>"
-          }
-        }
-      },
-      "block_order": [
-        "videowise_video_platform_ugc_videowise_page_widgets_XWbGzH"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -127,6 +109,7 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
+      "disabled": true,
       "settings": {
       }
     },
@@ -143,8 +126,28 @@
             "button_text": "",
             "button_link": ""
           }
-        },
-        "item_FMVitE": {
+        }
+      },
+      "block_order": [
+        "item_JE3Uck"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_XAjGgG": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_6HPTyK": {
           "type": "item",
           "settings": {
             "tab_label": "Item",
@@ -157,14 +160,13 @@
         }
       },
       "block_order": [
-        "item_JE3Uck",
-        "item_FMVitE"
+        "item_6HPTyK"
       ],
       "settings": {
         "reveal_on_scroll": true,
         "background_type": "full_width",
         "background_overlap": "image",
-        "image_position": "left",
+        "image_position": "right",
         "text_alignment": "center",
         "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
@@ -230,9 +232,9 @@
   },
   "order": [
     "main",
-    "1708499698c4398b56",
     "product-content",
     "image_with_text_GpGJxg",
+    "image_with_text_XAjGgG",
     "video_QWfdcb",
     "image_with_text_overlay_8EdNT4",
     "image_with_text_block_m8iMfk"
