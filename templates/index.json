@@ -122,24 +122,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "16859436662a75d14b": {
-      "type": "apps",
-      "blocks": {
-        "videowise_video_platform_ugc_videowise_page_widgets_atRYMm": {
-          "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/videowise-page-widgets\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
-          "settings": {
-            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_65f47d1f96a3070028206964\"><\/div>"
-          }
-        }
-      },
-      "block_order": [
-        "videowise_video_platform_ugc_videowise_page_widgets_atRYMm"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c": {
       "type": "featured-collections",
       "blocks": {
@@ -188,6 +170,24 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "16859436662a75d14b": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_platform_ugc_videowise_page_widgets_atRYMm": {
+          "type": "shopify:\/\/apps\/videowise-video-platform-ugc\/blocks\/videowise-page-widgets\/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_65f47d1f96a3070028206964\"><\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_platform_ugc_videowise_page_widgets_atRYMm"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
       }
     },
     "7e68dca3-ff9f-4904-8691-9940dedc83a5": {
@@ -871,8 +871,8 @@
   },
   "order": [
     "slideshow",
-    "16859436662a75d14b",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
+    "16859436662a75d14b",
     "7e68dca3-ff9f-4904-8691-9940dedc83a5",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
