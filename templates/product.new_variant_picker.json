@@ -133,15 +133,8 @@
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
       ],
       "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    },
-    "1708499698c4398b56": {
-      "type": "apps",
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
       }
     },
     "product-content": {
@@ -173,7 +166,6 @@
     "17217531779a9cbfe4",
     "main",
     "17217531875f804291",
-    "1708499698c4398b56",
     "product-content"
   ]
 }
