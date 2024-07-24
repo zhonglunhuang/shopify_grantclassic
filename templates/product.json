@@ -108,13 +108,6 @@
         "transition_effect": "slide"
       }
     },
-    "1708499698c4398b56": {
-      "type": "apps",
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    },
     "17217886296359dc4e": {
       "type": "apps",
       "blocks": {
@@ -162,7 +155,6 @@
   "order": [
     "1721752751939b7d14",
     "main",
-    "1708499698c4398b56",
     "17217886296359dc4e",
     "product-content"
   ]
