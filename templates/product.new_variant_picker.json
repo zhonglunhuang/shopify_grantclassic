@@ -103,11 +103,11 @@
       ],
       "settings": {
         "show_vendor": false,
-        "show_sku": true,
+        "show_sku": false,
         "show_taxes_included": false,
         "show_product_rating": false,
         "show_sticky_add_to_cart": true,
-        "show_share_buttons": true,
+        "show_share_buttons": false,
         "related_collections": "{{ product.metafields.custom.attributes.value }}",
         "help_page": "",
         "enable_video_autoplay": true,
