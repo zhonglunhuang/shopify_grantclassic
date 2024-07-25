@@ -93,7 +93,7 @@
       ],
       "settings": {
         "show_vendor": false,
-        "show_sku": true,
+        "show_sku": false,
         "show_taxes_included": false,
         "show_product_rating": false,
         "show_sticky_add_to_cart": true,
