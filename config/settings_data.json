@@ -93,11 +93,24 @@
               "button_text": "",
               "button_link": "https:\/\/grantclassic.com\/products\/luxnourish-ceramic-bowl"
             }
+          },
+          "message_ryyVT7": {
+            "type": "message",
+            "settings": {
+              "text": "出貨及配送服務延遲通知",
+              "learn_more_text": "",
+              "image": "shopify:\/\/shop_images\/722c3a9a0c01708115fa3c5f54a0f15c.jpg",
+              "title": "",
+              "content": "",
+              "button_text": "",
+              "button_link": ""
+            }
           }
         },
         "block_order": [
           "message-1",
-          "6651169f-8d11-40fd-a1c1-472786c065bc"
+          "6651169f-8d11-40fd-a1c1-472786c065bc",
+          "message_ryyVT7"
         ],
         "settings": {
           "announcement_bar_position": "non_sticky",
