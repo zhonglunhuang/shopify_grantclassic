@@ -137,30 +137,6 @@
         "include_vertical_margins": false
       }
     },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {
-      }
-    },
     "image_with_text_overlay_jjLQR9": {
       "type": "image-with-text-overlay",
       "settings": {
@@ -400,13 +376,36 @@
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "17217531779a9cbfe4",
     "main",
     "17217531875f804291",
-    "product-content",
     "image_with_text_overlay_jjLQR9",
     "rich_text_R8r34b",
     "video_GyYC8y",
@@ -416,6 +415,7 @@
     "image_with_text_CEh3Lz",
     "gallery_kYtyzQ",
     "image_with_text_block_hcxrem",
-    "image_with_text_block_JjEqHi"
+    "image_with_text_block_JjEqHi",
+    "product-content"
   ]
 }
