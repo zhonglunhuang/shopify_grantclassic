@@ -162,7 +162,7 @@
       "type": "rich-text",
       "settings": {
         "subheading": "Subheading",
-        "title": "Talk about your brand",
+        "title": "這個是粗體字",
         "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
         "button_text": "",
         "button_link": "",
@@ -192,9 +192,9 @@
     "rich_text_h8h7jN": {
       "type": "rich-text",
       "settings": {
-        "subheading": "Subheading",
-        "title": "Talk about your brand",
-        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "subheading": "",
+        "title": "測試粗體字",
+        "content": "",
         "button_text": "",
         "button_link": "",
         "background_type": "full_width",
@@ -444,7 +444,7 @@
       ],
       "settings": {
         "subheading": "Subheading",
-        "title": "Promotion blocks",
+        "title": "g",
         "section_size": "medium",
         "stack_on_mobile": true,
         "background": "rgba(0,0,0,0)",
