@@ -377,6 +377,132 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "promotion_blocks_UJAzAW": {
+      "type": "promotion-blocks",
+      "blocks": {
+        "image_BBXNiR": {
+          "type": "image",
+          "settings": {
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "image_eiprXj": {
+          "type": "image",
+          "settings": {
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "image_cVD7Lg": {
+          "type": "image",
+          "settings": {
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "video_Pbbf3i": {
+          "type": "video",
+          "settings": {
+            "highlight": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "image_BBXNiR",
+        "image_eiprXj",
+        "image_cVD7Lg",
+        "video_Pbbf3i"
+      ],
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Promotion blocks",
+        "section_size": "medium",
+        "stack_on_mobile": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_7A9Tt9": {
+      "type": "faq",
+      "blocks": {
+        "category_ELBirk": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "question_eGiYKz": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.<\/p>"
+          }
+        },
+        "question_MkxEpX": {
+          "type": "question",
+          "settings": {
+            "title": "How long will it take to get my order?",
+            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.<\/p>"
+          }
+        },
+        "category_k4PCkk": {
+          "type": "category",
+          "settings": {
+            "title": "Other"
+          }
+        },
+        "question_bUGjz7": {
+          "type": "question",
+          "settings": {
+            "title": "Any question?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_ELBirk",
+        "question_eGiYKz",
+        "question_MkxEpX",
+        "category_k4PCkk",
+        "question_bUGjz7"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -416,6 +542,8 @@
     "gallery_kYtyzQ",
     "image_with_text_block_hcxrem",
     "image_with_text_block_JjEqHi",
+    "promotion_blocks_UJAzAW",
+    "faq_7A9Tt9",
     "product-content"
   ]
 }
