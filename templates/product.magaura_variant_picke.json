@@ -137,32 +137,81 @@
         "include_vertical_margins": false
       }
     },
-    "image_with_text_overlay_jjLQR9": {
-      "type": "image-with-text-overlay",
-      "settings": {
-        "reveal_on_scroll": true,
-        "section_height": "large",
-        "subheading": "",
-        "title": "自由拼裝 讓空間井然有序",
-        "content": "<p>有序延長線 模組快充版<\/p>",
-        "button_text": "123",
-        "button_link": "shopify:\/\/products\/2024-龍年紅包袋",
-        "link_style": "button",
-        "background_type": "full_width",
-        "text_width": "small",
-        "text_position": "top_center",
-        "text_color": "#ffffff",
-        "button_background": "#ffffff",
-        "button_text_color": "#000000",
-        "overlay_color": "#000000",
-        "overlay_opacity": 22
-      }
-    },
     "rich_text_R8r34b": {
       "type": "rich-text",
       "settings": {
         "subheading": "Subheading",
         "title": "這個是粗體字",
+        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "fill",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#e3e8e8",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_GyYC8y": {
+      "type": "video",
+      "settings": {
+        "subheading": "使用延長線圖個方便，但絕不能隨便！結合前兩代的優點，更方便、更泛用👇👇👇",
+        "title": "用這款自帶整齊的延長線吧！",
+        "video_url": "",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_h8h7jN": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "自由拼裝 讓空間井然有序",
+        "content": "<p>有序延長線 模組快充版<\/p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#f5f5f5",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_block_hcxrem": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/59.png",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "right",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_background_mobile": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "text_color_mobile": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_iydh8D": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Talk about your brand",
         "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
         "button_text": "",
         "button_link": "",
@@ -176,56 +225,24 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "video_GyYC8y": {
-      "type": "video",
+    "image_with_text_block_JjEqHi": {
+      "type": "image-with-text-block",
       "settings": {
+        "reveal_on_scroll": true,
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "rich_text_h8h7jN": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "測試粗體字",
         "content": "",
         "button_text": "",
         "button_link": "",
         "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
+        "text_position": "left",
         "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
+        "text_background": "rgba(0,0,0,0)",
+        "text_background_mobile": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
+        "text_color_mobile": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_overlay_r7TjDB": {
-      "type": "image-with-text-overlay",
-      "settings": {
-        "reveal_on_scroll": true,
-        "section_height": "auto",
-        "subheading": "Subheading",
-        "title": "Image with text overlay",
-        "content": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-        "button_text": "",
-        "button_link": "",
-        "link_style": "link",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "middle_center",
-        "text_color": "#ffffff",
-        "button_background": "#ffffff",
-        "button_text_color": "#000000",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
       }
     },
     "image_with_text_ekHLDA": {
@@ -337,46 +354,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_block_hcxrem": {
-      "type": "image-with-text-block",
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "Subheading",
-        "title": "Image with text block",
-        "content": "<p>Use block text to give your customers insight into your brand. Select impactful text that relates to your brand and story.<\/p>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "boxed",
-        "text_position": "left",
-        "text_alignment": "center",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "text_color_mobile": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_block_JjEqHi": {
-      "type": "image-with-text-block",
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "Subheading",
-        "title": "Image with text block",
-        "content": "<p>Use block text to give your customers insight into your brand. Select impactful text that relates to your brand and story.<\/p>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "boxed",
-        "text_position": "left",
-        "text_alignment": "center",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "text_color_mobile": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "promotion_blocks_UJAzAW": {
       "type": "promotion-blocks",
       "blocks": {
@@ -432,7 +409,23 @@
           "type": "video",
           "settings": {
             "highlight": false,
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+            "video_url": "https:\/\/youtu.be\/7yZvcTGbtHQ"
+          }
+        },
+        "image_mrUn9K": {
+          "type": "image",
+          "settings": {
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
           }
         }
       },
@@ -440,7 +433,8 @@
         "image_BBXNiR",
         "image_eiprXj",
         "image_cVD7Lg",
-        "video_Pbbf3i"
+        "video_Pbbf3i",
+        "image_mrUn9K"
       ],
       "settings": {
         "subheading": "Subheading",
@@ -532,16 +526,15 @@
     "17217531779a9cbfe4",
     "main",
     "17217531875f804291",
-    "image_with_text_overlay_jjLQR9",
     "rich_text_R8r34b",
     "video_GyYC8y",
     "rich_text_h8h7jN",
-    "image_with_text_overlay_r7TjDB",
+    "image_with_text_block_hcxrem",
+    "rich_text_iydh8D",
+    "image_with_text_block_JjEqHi",
     "image_with_text_ekHLDA",
     "image_with_text_CEh3Lz",
     "gallery_kYtyzQ",
-    "image_with_text_block_hcxrem",
-    "image_with_text_block_JjEqHi",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
     "product-content"
