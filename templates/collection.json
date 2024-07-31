@@ -16,7 +16,7 @@
         "show_collection_title": true,
         "show_collection_description": true,
         "section_height": "small",
-        "text_width": "medium",
+        "text_width": "small",
         "image_text_color": "#ffffff",
         "image_overlay_color": "#000000",
         "image_overlay_opacity": 60,
