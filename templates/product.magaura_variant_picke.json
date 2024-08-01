@@ -233,7 +233,7 @@
         "image_q9W8TB": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MAGAUG-02.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-02_39bdf346-144e-4ff9-846c-473f95f0b729.jpg",
             "highlight": false,
             "subheading": "",
             "title": "",
@@ -250,7 +250,7 @@
         "image_FjFCQf": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MAGAUG-05.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-04_fc2fd061-f23d-4efd-bf53-06cd96de936e.jpg",
             "highlight": false,
             "subheading": "",
             "title": "",
@@ -267,7 +267,7 @@
         "image_37EwA9": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MAGAUG-03.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-03_1746b0a9-a5b1-42a6-8d29-8468fcf25aa8.jpg",
             "highlight": false,
             "subheading": "",
             "title": "",
@@ -290,7 +290,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "section_size": "medium",
+        "section_size": "large",
         "stack_on_mobile": true,
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
