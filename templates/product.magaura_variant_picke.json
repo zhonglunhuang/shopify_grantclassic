@@ -191,8 +191,8 @@
     "image_with_text_block_hcxrem": {
       "type": "image-with-text-block",
       "settings": {
-        "reveal_on_scroll": true,
-        "image": "shopify:\/\/shop_images\/4__1_22528367-c29f-4281-ae09-d571410f18ac.webp",
+        "reveal_on_scroll": false,
+        "image": "shopify:\/\/shop_images\/4__1_922a2591-e5f1-48fe-96b4-c24d5b69bb3a.webp",
         "subheading": "",
         "title": "",
         "content": "",
@@ -233,27 +233,28 @@
         "image_QHhmCM": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4-06.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-05.webp",
             "caption": ""
           }
         },
         "image_bErbtM": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4-04.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-02.webp",
             "caption": ""
           }
         },
         "image_yxXb4c": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4-03.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG-03.webp",
             "caption": ""
           }
         },
         "image_ykkgk7": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/MAGAUG-04.webp",
             "caption": ""
           }
         }
@@ -286,23 +287,10 @@
             "button_text": "",
             "button_link": ""
           }
-        },
-        "item_qfjLpB": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC09847.webp",
-            "tab_label": "Item",
-            "subheading": "",
-            "title": "穩！",
-            "content": "<p>滿杯後 iPad 也是搞得定！<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
-        "item_9qGdqd",
-        "item_qfjLpB"
+        "item_9qGdqd"
       ],
       "settings": {
         "reveal_on_scroll": true,
@@ -323,29 +311,18 @@
         "item_anrKUW": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09847.webp",
             "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "item_qjetCj": {
-          "type": "item",
-          "settings": {
-            "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
+            "subheading": "",
+            "title": "穩",
+            "content": "<p>滿杯後 iPad 也是搞得定！<\/p>",
             "button_text": "",
             "button_link": ""
           }
         }
       },
       "block_order": [
-        "item_anrKUW",
-        "item_qjetCj"
+        "item_anrKUW"
       ],
       "settings": {
         "reveal_on_scroll": true,
@@ -358,6 +335,39 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_aKypqM": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9PF8CN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09521vv.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "MAGAURA",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_9PF8CN"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
       }
     },
     "gallery_kYtyzQ": {
@@ -575,6 +585,7 @@
     "gallery_tFngYE",
     "image_with_text_ekHLDA",
     "image_with_text_CEh3Lz",
+    "slideshow_aKypqM",
     "gallery_kYtyzQ",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
