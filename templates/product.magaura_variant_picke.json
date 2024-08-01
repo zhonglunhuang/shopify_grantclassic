@@ -334,7 +334,7 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC09521vv.jpg",
+            "image": "shopify:\/\/shop_images\/DSC09522.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -436,6 +436,58 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_eF7nad": {
+      "type": "slideshow",
+      "blocks": {
+        "image_UDpmYF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09519.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_HyUgNi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09362.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_UDpmYF",
+        "image_HyUgNi"
+      ],
+      "settings": {
+        "section_height": "small",
+        "transition_type": "fade",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
       }
     },
     "gallery_kYtyzQ": {
@@ -655,6 +707,7 @@
     "slideshow_aKypqM",
     "image_with_text_ekHLDA",
     "image_with_text_KYbmJE",
+    "slideshow_eF7nad",
     "gallery_kYtyzQ",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
