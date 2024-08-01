@@ -328,6 +328,39 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_aKypqM": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9PF8CN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09521vv.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9PF8CN"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "image_with_text_ekHLDA": {
       "type": "image-with-text",
       "blocks": {
@@ -371,39 +404,6 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_aKypqM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_9PF8CN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC09521vv.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "MAGAURA",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "image_9PF8CN"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
       }
     },
     "gallery_kYtyzQ": {
@@ -620,8 +620,8 @@
     "rich_text_iydh8D",
     "promotion_blocks_nh6TYH",
     "image_with_text_QaWce4",
-    "image_with_text_ekHLDA",
     "slideshow_aKypqM",
+    "image_with_text_ekHLDA",
     "gallery_kYtyzQ",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
