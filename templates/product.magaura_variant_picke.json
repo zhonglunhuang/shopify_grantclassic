@@ -213,9 +213,9 @@
     "rich_text_iydh8D": {
       "type": "rich-text",
       "settings": {
-        "subheading": "Subheading",
-        "title": "Talk about your brand",
-        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "subheading": "MAG AURA",
+        "title": "「卡嚓」每一刻，都不能錯過！",
+        "content": "<p>肯定都擁有你最棒的角度 不再受限於單一方向和角度<\/p>",
         "button_text": "",
         "button_link": "",
         "background_type": "full_width",
@@ -228,30 +228,100 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_block_JjEqHi": {
-      "type": "image-with-text-block",
+    "gallery_tFngYE": {
+      "type": "gallery",
+      "blocks": {
+        "image_QHhmCM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-06.webp",
+            "caption": ""
+          }
+        },
+        "image_bErbtM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-04.webp",
+            "caption": ""
+          }
+        },
+        "image_yxXb4c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-03.webp",
+            "caption": ""
+          }
+        },
+        "image_ykkgk7": {
+          "type": "image",
+          "settings": {
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_QHhmCM",
+        "image_bErbtM",
+        "image_yxXb4c",
+        "image_ykkgk7"
+      ],
       "settings": {
-        "reveal_on_scroll": true,
         "subheading": "",
         "title": "",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_position": "left",
-        "text_alignment": "center",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "text_color_mobile": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "image_with_text_ekHLDA": {
       "type": "image-with-text",
       "blocks": {
+        "item_9qGdqd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-07_ff1bd2e0-9ca6-4602-88f5-66c9d6f5b759.webp",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "「空瓶」也是穩穩的",
+            "content": "<p>杯蓋與杯身構建「黃金」三角<\/p><p>空瓶也可以穩定架起手機<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
         "item_qfjLpB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC09847.webp",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "穩！",
+            "content": "<p>滿杯後 iPad 也是搞得定！<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_9qGdqd",
+        "item_qfjLpB"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 5,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_CEh3Lz": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_anrKUW": {
           "type": "item",
           "settings": {
             "tab_label": "Item",
@@ -262,38 +332,6 @@
             "button_link": ""
           }
         },
-        "item_9qGdqd": {
-          "type": "item",
-          "settings": {
-            "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_qfjLpB",
-        "item_9qGdqd"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_CEh3Lz": {
-      "type": "image-with-text",
-      "blocks": {
         "item_qjetCj": {
           "type": "item",
           "settings": {
@@ -307,6 +345,7 @@
         }
       },
       "block_order": [
+        "item_anrKUW",
         "item_qjetCj"
       ],
       "settings": {
@@ -534,7 +573,7 @@
     "rich_text_h8h7jN",
     "image_with_text_block_hcxrem",
     "rich_text_iydh8D",
-    "image_with_text_block_JjEqHi",
+    "gallery_tFngYE",
     "image_with_text_ekHLDA",
     "image_with_text_CEh3Lz",
     "gallery_kYtyzQ",
