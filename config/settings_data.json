@@ -40,7 +40,7 @@
     "currency_code_enabled": false,
     "stagger_products_apparition": true,
     "round_color_swatches": true,
-    "color_swatch_config": "粉色:#f9d0ca\n淺藍色:#d0e4ff\n蘋果綠:#d6f0cc\n淺紫色:#c8caee\n黑#:000000\n紅色:#eb3b3b\n黑色:#333333\n黃色:#FFE600\n綠色:#1CA906\n灰色:#999999\n藍色:#4169e1\n銀色:#C0C0C0\n金色:#FFD700\n紫色:#6633CC\n燒鈦色:#483D8B\n橙色:#F66C36\n棕色:#AC7355\n靛青色:#273034\n粉色:#FFD5D6\n白色:#fafafa\n午夜藍:#2B374A\n夜光藍:#80D3E0\n夜光粉:#FD9EBD\n暗綠色:#274846\n草綠色:#305137\n淺粉色:#eededf\n淺黃色:#f2f0e1\n淺綠色:#eff5e9\n淺藍色:#cfdae0\n鈦黑色:#5e5d5b\n鈦原色:#c6bfb5\n鈦白色:#dfdfdf\n鈦藍色:#6e7683\n粉紅色:#f9d0d1\n墨綠色:#1b3e3e\n駝色:#b3a790\n軍綠色:#5b603f\n新淺灰:#d5dbde\n毛靈灰:#bcc2ca\n毛靈紅:#942735\n藏藍斜紋:#0f1836 \n粉杏咖:#ecd3e5\n藍玫粉:#e85298\n卡其細紋:#b1aa87\n軍綠米細紋:#737561\n紫蘭細紋:#8387c1",
+    "color_swatch_config": "粉色:#f9d0ca\n淺藍色:#d0e4ff\n蘋果綠:#d6f0cc\n淺紫色:#c8caee\n黑:#000000\n紅色:#eb3b3b\n黑色:#333333\n黃色:#FFE600\n綠色:#1CA906\n灰色:#999999\n藍色:#4169e1\n銀色:#C0C0C0\n金色:#FFD700\n紫色:#6633CC\n燒鈦色:#483D8B\n橙色:#F66C36\n棕色:#AC7355\n靛青色:#273034\n粉色:#FFD5D6\n白色:#fafafa\n午夜藍:#2B374A\n夜光藍:#80D3E0\n夜光粉:#FD9EBD\n暗綠色:#274846\n草綠色:#305137\n淺粉色:#eededf\n淺黃色:#f2f0e1\n淺綠色:#eff5e9\n淺藍色:#cfdae0\n鈦黑色:#5e5d5b\n鈦原色:#c6bfb5\n鈦白色:#dfdfdf\n鈦藍色:#6e7683\n粉紅色:#f9d0d1\n墨綠色:#1b3e3e\n駝色:#b3a790\n軍綠色:#5b603f\n新淺灰:#d5dbde\n毛靈灰:#bcc2ca\n毛靈紅:#942735\n藏藍斜紋:#0f1836 \n粉杏咖:#ecd3e5\n藍玫粉:#e85298\n卡其細紋:#b1aa87\n軍綠米細紋:#737561\n紫蘭細紋:#8387c1",
     "show_vendor": false,
     "show_secondary_image": true,
     "product_add_to_cart": true,
