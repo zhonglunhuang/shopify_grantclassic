@@ -192,7 +192,7 @@
       "type": "image-with-text-block",
       "settings": {
         "reveal_on_scroll": false,
-        "image": "shopify:\/\/shop_images\/4__1_922a2591-e5f1-48fe-96b4-c24d5b69bb3a.webp",
+        "image": "shopify:\/\/shop_images\/top.jpg",
         "subheading": "",
         "title": "",
         "content": "",
@@ -367,7 +367,7 @@
         "item_9qGdqd": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4-07_ff1bd2e0-9ca6-4602-88f5-66c9d6f5b759.webp",
+            "image": "shopify:\/\/shop_images\/MAGAUG_3.jpg",
             "tab_label": "",
             "subheading": "",
             "title": "「空瓶」也是穩穩的",
@@ -399,7 +399,39 @@
         "background_overlap": "image",
         "image_position": "right",
         "text_alignment": "center",
-        "cycle_speed": 5,
+        "cycle_speed": 3,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_KYbmJE": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_rVwLnx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MAGAUG_open.jpg",
+            "tab_label": "",
+            "subheading": "",
+            "title": "「按一下」直接開喝按",
+            "content": "<p>無需再旋轉打開<\/p><p>直接按下開喝到底<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_rVwLnx"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
@@ -622,6 +654,7 @@
     "image_with_text_QaWce4",
     "slideshow_aKypqM",
     "image_with_text_ekHLDA",
+    "image_with_text_KYbmJE",
     "gallery_kYtyzQ",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
