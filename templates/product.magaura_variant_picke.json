@@ -296,24 +296,24 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_ekHLDA": {
+    "image_with_text_QaWce4": {
       "type": "image-with-text",
       "blocks": {
-        "item_9qGdqd": {
+        "item_7bHjip": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4-07_ff1bd2e0-9ca6-4602-88f5-66c9d6f5b759.webp",
-            "tab_label": "Item",
+            "image": "shopify:\/\/shop_images\/a540481840e1122a5de484894b6a932d.gif",
+            "tab_label": "",
             "subheading": "",
-            "title": "「空瓶」也是穩穩的",
-            "content": "<p>杯蓋與杯身構建「黃金」三角<\/p><p>空瓶也可以穩定架起手機<\/p>",
+            "title": "「啪嗒」 一貼集合",
+            "content": "<p>秒變專業三腳架！穩定<\/p>",
             "button_text": "",
             "button_link": ""
           }
         }
       },
       "block_order": [
-        "item_9qGdqd"
+        "item_7bHjip"
       ],
       "settings": {
         "reveal_on_scroll": true,
@@ -321,31 +321,44 @@
         "background_overlap": "image",
         "image_position": "left",
         "text_alignment": "center",
-        "cycle_speed": 5,
+        "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_CEh3Lz": {
+    "image_with_text_ekHLDA": {
       "type": "image-with-text",
       "blocks": {
-        "item_anrKUW": {
+        "item_9qGdqd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4-07_ff1bd2e0-9ca6-4602-88f5-66c9d6f5b759.webp",
+            "tab_label": "",
+            "subheading": "",
+            "title": "「空瓶」也是穩穩的",
+            "content": "<p>杯蓋與杯身構建「黃金」三角<\/p><p>空瓶也可以穩定架起手機<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_rLFPTA": {
           "type": "item",
           "settings": {
             "image": "shopify:\/\/shop_images\/DSC09847.webp",
-            "tab_label": "Item",
+            "tab_label": "",
             "subheading": "",
-            "title": "穩",
-            "content": "<p>滿杯後 iPad 也是搞得定！<\/p>",
+            "title": "穩！",
+            "content": "<p>滿杯後<strong> iPad 也是搞得定！<\/strong><\/p>",
             "button_text": "",
             "button_link": ""
           }
         }
       },
       "block_order": [
-        "item_anrKUW"
+        "item_9qGdqd",
+        "item_rLFPTA"
       ],
       "settings": {
         "reveal_on_scroll": true,
@@ -353,7 +366,7 @@
         "background_overlap": "image",
         "image_position": "right",
         "text_alignment": "center",
-        "cycle_speed": 8,
+        "cycle_speed": 5,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
@@ -606,8 +619,8 @@
     "image_with_text_block_hcxrem",
     "rich_text_iydh8D",
     "promotion_blocks_nh6TYH",
+    "image_with_text_QaWce4",
     "image_with_text_ekHLDA",
-    "image_with_text_CEh3Lz",
     "slideshow_aKypqM",
     "gallery_kYtyzQ",
     "promotion_blocks_UJAzAW",
