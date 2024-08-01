@@ -247,23 +247,6 @@
             "button_text_color": "#1e316a"
           }
         },
-        "image_FjFCQf": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MAGAUG-04_fc2fd061-f23d-4efd-bf53-06cd96de936e.jpg",
-            "highlight": false,
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_position": "middle_center",
-            "background": "#f7f8fd",
-            "text_color": "#1e316a",
-            "button_background": "#ffffff",
-            "button_text_color": "#1e316a"
-          }
-        },
         "image_37EwA9": {
           "type": "image",
           "settings": {
@@ -280,12 +263,29 @@
             "button_background": "#ffffff",
             "button_text_color": "#1e316a"
           }
+        },
+        "image_FjFCQf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MAGAUG-04_fc2fd061-f23d-4efd-bf53-06cd96de936e.jpg",
+            "highlight": false,
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
         }
       },
       "block_order": [
         "image_q9W8TB",
-        "image_FjFCQf",
-        "image_37EwA9"
+        "image_37EwA9",
+        "image_FjFCQf"
       ],
       "settings": {
         "subheading": "",
