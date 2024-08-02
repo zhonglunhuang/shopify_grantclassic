@@ -542,7 +542,7 @@
       "type": "image-with-text-overlay",
       "settings": {
         "reveal_on_scroll": true,
-        "section_height": "small",
+        "section_height": "medium",
         "image": "shopify:\/\/shop_images\/MAGAUG_company.jpg",
         "subheading": "",
         "title": "企業專屬訂製，彰顯品牌價值",
