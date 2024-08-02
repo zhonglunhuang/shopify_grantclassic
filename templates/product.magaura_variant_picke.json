@@ -191,8 +191,8 @@
     "image_with_text_block_hcxrem": {
       "type": "image-with-text-block",
       "settings": {
-        "reveal_on_scroll": false,
-        "image": "shopify:\/\/shop_images\/top.jpg",
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/top_8a43e9ce-74bb-4a73-891d-56a8c7b0d3eb.jpg",
         "subheading": "",
         "title": "",
         "content": "",
