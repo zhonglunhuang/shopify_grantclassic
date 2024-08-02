@@ -211,6 +211,9 @@
     },
     "rich_text_iydh8D": {
       "type": "rich-text",
+      "custom_css": [
+
+      ],
       "settings": {
         "subheading": "MAG AURA",
         "title": "「卡嚓」每一刻，都不能錯過！",
@@ -490,37 +493,113 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "gallery_kYtyzQ": {
-      "type": "gallery",
+    "image_with_text_X4N3HJ": {
+      "type": "image-with-text",
       "blocks": {
-        "image_aMNDUx": {
-          "type": "image",
+        "item_Ca64nV": {
+          "type": "item",
           "settings": {
-            "caption": ""
+            "image": "shopify:\/\/shop_images\/MAGAUG_cust.jpg",
+            "tab_label": "",
+            "subheading": "",
+            "title": "個性化設計，獨一無二",
+            "content": "<p>超過<strong>900種<\/strong>圖案任你選<\/p>",
+            "button_text": "",
+            "button_link": ""
           }
         },
-        "image_pMhKHd": {
-          "type": "image",
+        "item_ULUz9k": {
+          "type": "item",
           "settings": {
-            "caption": ""
-          }
-        },
-        "image_M8ckKc": {
-          "type": "image",
-          "settings": {
-            "caption": ""
+            "image": "shopify:\/\/shop_images\/MAGAUG_01.jpg",
+            "tab_label": "",
+            "subheading": "",
+            "title": "個性化設計，獨一無二",
+            "content": "<p>超過<strong>900種<\/strong>圖案任你選<\/p>",
+            "button_text": "",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "image_aMNDUx",
-        "image_pMhKHd",
-        "image_M8ckKc"
+        "item_Ca64nV",
+        "item_ULUz9k"
       ],
       "settings": {
-        "subheading": "Subheading",
-        "title": "Gallery",
-        "show_arrows": true,
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 3,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_LRdAcp": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "small",
+        "image": "shopify:\/\/shop_images\/MAGAUG_company.jpg",
+        "subheading": "",
+        "title": "企業專屬訂製，彰顯品牌價值",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15
+      }
+    },
+    "text_with_icons_ypMQgq": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_dq3MtN": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "custom_icon": "shopify:\/\/shop_images\/MAGAUG_icon01.jpg",
+            "custom_icon_width": 100,
+            "title": "已有 200+企業選擇磁吸保溫杯",
+            "content": ""
+          }
+        },
+        "item_WykJwf": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-phone",
+            "custom_icon": "shopify:\/\/shop_images\/MAGAUG_icon02.jpg",
+            "custom_icon_width": 100,
+            "title": "滿10 瓶即可享受定制服務",
+            "content": ""
+          }
+        },
+        "item_zKHarh": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-lock",
+            "custom_icon": "shopify:\/\/shop_images\/MAGAUG_icon03.jpg",
+            "custom_icon_width": 100,
+            "title": "讓您的員工和客戶迅速體驗品牌魅力，增強認同感",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_dq3MtN",
+        "item_WykJwf",
+        "item_zKHarh"
+      ],
+      "settings": {
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
@@ -708,7 +787,9 @@
     "image_with_text_ekHLDA",
     "image_with_text_KYbmJE",
     "slideshow_eF7nad",
-    "gallery_kYtyzQ",
+    "image_with_text_X4N3HJ",
+    "image_with_text_overlay_LRdAcp",
+    "text_with_icons_ypMQgq",
     "promotion_blocks_UJAzAW",
     "faq_7A9Tt9",
     "product-content"
