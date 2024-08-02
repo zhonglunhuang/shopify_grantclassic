@@ -198,7 +198,7 @@
         "content": "",
         "button_text": "",
         "button_link": "",
-        "background_type": "full_width",
+        "background_type": "boxed",
         "text_position": "right",
         "text_alignment": "center",
         "text_background": "rgba(0,0,0,0)",
