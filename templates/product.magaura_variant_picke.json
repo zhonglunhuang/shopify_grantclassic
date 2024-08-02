@@ -900,45 +900,21 @@
         "category_ELBirk": {
           "type": "category",
           "settings": {
-            "title": "Shipping"
+            "title": "產品相關"
           }
         },
         "question_eGiYKz": {
           "type": "question",
           "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.<\/p>"
-          }
-        },
-        "question_MkxEpX": {
-          "type": "question",
-          "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.<\/p>"
-          }
-        },
-        "category_k4PCkk": {
-          "type": "category",
-          "settings": {
-            "title": "Other"
-          }
-        },
-        "question_bUGjz7": {
-          "type": "question",
-          "settings": {
-            "title": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.<\/p>"
+            "title": "產品可以洗嗎？",
+            "answer": "<p>建議清洗方式<\/p><p>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/p><p>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/p>"
           }
         }
       },
       "block_order": [
         "category_ELBirk",
-        "question_eGiYKz",
-        "question_MkxEpX",
-        "category_k4PCkk",
-        "question_bUGjz7"
+        "question_eGiYKz"
       ],
-      "disabled": true,
       "settings": {
         "show_navigation": false,
         "title": "FAQ",
@@ -970,6 +946,24 @@
       ],
       "settings": {
       }
+    },
+    "rich_text_cVX9TP": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "清洗建議",
+        "content": "<h3>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/h3><h3>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/h3>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "boxed",
+        "text_width": "small",
+        "text_position": "left",
+        "text_alignment": "left",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
@@ -995,6 +989,7 @@
     "gallery_KMBAGc",
     "multi_column_a8CDTa",
     "faq_7A9Tt9",
-    "product-content"
+    "product-content",
+    "rich_text_cVX9TP"
   ]
 }
