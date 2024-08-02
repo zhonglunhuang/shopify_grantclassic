@@ -374,7 +374,7 @@
             "tab_label": "",
             "subheading": "",
             "title": "「空瓶」也是穩穩的",
-            "content": "<p>杯蓋與杯身構建「黃金」三角<\/p><p>空瓶也可以穩定架起手機<\/p>",
+            "content": "<p>杯蓋與杯身構建「黃金」三角 空瓶也可以穩定架起手機<\/p>",
             "button_text": "",
             "button_link": ""
           }
@@ -419,7 +419,7 @@
             "tab_label": "",
             "subheading": "",
             "title": "「按一下」直接開喝按",
-            "content": "<p>無需再旋轉打開<\/p><p>直接按下開喝到底<\/p>",
+            "content": "<p>無需再旋轉打開 直接按下開喝到底！<\/p>",
             "button_text": "",
             "button_link": ""
           }
@@ -433,7 +433,7 @@
         "background_type": "boxed",
         "background_overlap": "image",
         "image_position": "left",
-        "text_alignment": "center",
+        "text_alignment": "left",
         "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
@@ -644,93 +644,136 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "promotion_blocks_UJAzAW": {
-      "type": "promotion-blocks",
+    "image_with_text_TXBEaC": {
+      "type": "image-with-text",
       "blocks": {
-        "image_BBXNiR": {
-          "type": "image",
+        "item_ET6V9c": {
+          "type": "item",
           "settings": {
-            "highlight": false,
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_position": "middle_center",
-            "background": "#f7f8fd",
-            "text_color": "#1e316a",
-            "button_background": "#ffffff",
-            "button_text_color": "#1e316a"
-          }
-        },
-        "image_eiprXj": {
-          "type": "image",
-          "settings": {
-            "highlight": false,
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_position": "middle_center",
-            "background": "#f7f8fd",
-            "text_color": "#1e316a",
-            "button_background": "#ffffff",
-            "button_text_color": "#1e316a"
-          }
-        },
-        "image_cVD7Lg": {
-          "type": "image",
-          "settings": {
-            "highlight": false,
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_position": "middle_center",
-            "background": "#f7f8fd",
-            "text_color": "#1e316a",
-            "button_background": "#ffffff",
-            "button_text_color": "#1e316a"
-          }
-        },
-        "video_Pbbf3i": {
-          "type": "video",
-          "settings": {
-            "highlight": false,
-            "video_url": "https:\/\/youtu.be\/7yZvcTGbtHQ"
-          }
-        },
-        "image_mrUn9K": {
-          "type": "image",
-          "settings": {
-            "highlight": false,
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_position": "middle_center",
-            "background": "#f7f8fd",
-            "text_color": "#1e316a",
-            "button_background": "#ffffff",
-            "button_text_color": "#1e316a"
+            "image": "shopify:\/\/shop_images\/MAGAUG_fire.jpg",
+            "tab_label": "",
+            "subheading": "",
+            "title": "長效保溫，四季皆宜",
+            "content": "<p>雙層不銹鋼真空技術，有效鎖住溫度<br\/>保冷12小時 \/ 保熱12小時，伴你四季如一<\/p>",
+            "button_text": "",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "image_BBXNiR",
-        "image_eiprXj",
-        "image_cVD7Lg",
-        "video_Pbbf3i",
-        "image_mrUn9K"
+        "item_ET6V9c"
       ],
       "settings": {
-        "subheading": "Subheading",
-        "title": "g",
-        "section_size": "medium",
-        "stack_on_mobile": true,
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "left",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_YDRNWC": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_gdANzh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MAGAUG_magnet.jpg",
+            "tab_label": "",
+            "subheading": "",
+            "title": "附贈磁吸，完美兼容",
+            "content": "<p><strong>多重兼容，讓使用更加便捷<\/strong><\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_gdANzh"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_KMBAGc": {
+      "type": "gallery",
+      "blocks": {
+        "image_LDdiUd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/02_82b1ec4f-0d92-40e5-afa5-e4caf78d22c6.jpg",
+            "caption": ""
+          }
+        },
+        "image_XAbWbL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/photo_01.jpg",
+            "caption": ""
+          }
+        },
+        "image_zCUcxD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/photo_03.jpg",
+            "caption": ""
+          }
+        },
+        "image_dJjqBH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/photo_04.jpg",
+            "caption": ""
+          }
+        },
+        "image_AtK3TQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/photo_02.jpg",
+            "caption": ""
+          }
+        },
+        "image_JwEdka": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/03_b87d540c-8005-4b8f-b10a-7f8c2f2e18a8.jpg",
+            "caption": ""
+          }
+        },
+        "image_tCXkek": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/01_47986b2f-36c6-4ff6-bf26-73fb271f97ae.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_LDdiUd",
+        "image_XAbWbL",
+        "image_zCUcxD",
+        "image_dJjqBH",
+        "image_AtK3TQ",
+        "image_JwEdka",
+        "image_tCXkek"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "MagAura",
+        "show_arrows": true,
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
@@ -779,6 +822,7 @@
         "category_k4PCkk",
         "question_bUGjz7"
       ],
+      "disabled": true,
       "settings": {
         "show_navigation": false,
         "title": "FAQ",
@@ -830,7 +874,9 @@
     "image_with_text_X4N3HJ",
     "image_with_text_overlay_LRdAcp",
     "multi_column_BFq6Na",
-    "promotion_blocks_UJAzAW",
+    "image_with_text_TXBEaC",
+    "image_with_text_YDRNWC",
+    "gallery_KMBAGc",
     "faq_7A9Tt9",
     "product-content"
   ]
