@@ -140,9 +140,9 @@
     "rich_text_R8r34b": {
       "type": "rich-text",
       "settings": {
-        "subheading": "",
-        "title": "MAG      AURA",
-        "content": "",
+        "subheading": "MAG AURA",
+        "title": "吸得住，拍不停",
+        "content": "<h3>運動拍照兩不誤，磁力吸附讓生活更輕鬆<\/h3>",
         "button_text": "",
         "button_link": "",
         "background_type": "full_width",
@@ -170,29 +170,11 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "rich_text_h8h7jN": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "吸得住，拍不停",
-        "content": "<h3>運動拍照兩不誤，磁力吸附讓生活更輕鬆<\/h3>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "#f7f8f8",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "image_with_text_block_hcxrem": {
       "type": "image-with-text-block",
       "settings": {
         "reveal_on_scroll": true,
-        "image": "shopify:\/\/shop_images\/top_8a43e9ce-74bb-4a73-891d-56a8c7b0d3eb.jpg",
+        "image": "shopify:\/\/shop_images\/top_0aa76b23-3b60-4301-a6b4-ff7ea3b402b7.jpg",
         "subheading": "",
         "title": "",
         "content": "",
@@ -972,7 +954,6 @@
     "17217531875f804291",
     "rich_text_R8r34b",
     "video_GyYC8y",
-    "rich_text_h8h7jN",
     "image_with_text_block_hcxrem",
     "rich_text_iydh8D",
     "promotion_blocks_nh6TYH",
