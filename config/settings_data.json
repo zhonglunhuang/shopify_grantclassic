@@ -34,7 +34,7 @@
     "product_low_stock_text_color": "#eb3b3b",
     "heading_font": "helvetica_n9",
     "heading_font_size": "medium",
-    "heading_text_transform": "lowercase",
+    "heading_text_transform": "uppercase",
     "text_font": "helvetica_n4",
     "text_font_size": 15,
     "currency_code_enabled": false,
