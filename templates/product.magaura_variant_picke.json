@@ -938,6 +938,26 @@
             "title": "我可以在 MagAura 中使用碳酸飲料嗎？",
             "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
           }
+        },
+        "category_RazFtp": {
+          "type": "category",
+          "settings": {
+            "title": "客製化區域"
+          }
+        },
+        "question_qMDTY7": {
+          "type": "question",
+          "settings": {
+            "title": "請問 MagAura 客製化需要多久時間？",
+            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。<\/p>"
+          }
+        },
+        "question_BbThaW": {
+          "type": "question",
+          "settings": {
+            "title": "我需要大量訂製 MagAura 是可以的嗎？",
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+          }
         }
       },
       "block_order": [
@@ -951,7 +971,10 @@
         "question_dx9p8Y",
         "question_6LKyRk",
         "question_pycbBH",
-        "question_FKkLJz"
+        "question_FKkLJz",
+        "category_RazFtp",
+        "question_qMDTY7",
+        "question_BbThaW"
       ],
       "settings": {
         "show_navigation": true,
