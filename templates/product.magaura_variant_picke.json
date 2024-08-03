@@ -380,7 +380,7 @@
       ],
       "settings": {
         "reveal_on_scroll": true,
-        "background_type": "boxed",
+        "background_type": "full_width",
         "background_overlap": "image",
         "image_position": "right",
         "text_alignment": "center",
@@ -619,8 +619,8 @@
         "title": "",
         "content": "",
         "column_alignment": "center",
-        "mobile_item_size": "medium",
-        "desktop_item_size": "medium",
+        "mobile_item_size": "small",
+        "desktop_item_size": "small",
         "spacing": "normal",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
