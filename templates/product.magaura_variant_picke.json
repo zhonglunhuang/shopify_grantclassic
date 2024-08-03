@@ -155,21 +155,6 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "video_GyYC8y": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "subheading": "運動拍照兩不誤，磁力吸附讓生活更輕鬆",
-        "title": "吸得住，拍不停",
-        "video_url": "",
-        "image": "shopify:\/\/shop_images\/top.webp",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "image_with_text_block_hcxrem": {
       "type": "image-with-text-block",
       "settings": {
@@ -197,7 +182,7 @@
 
       ],
       "settings": {
-        "subheading": "MAG AURA",
+        "subheading": "",
         "title": "「卡嚓」每一刻，都不能錯過！",
         "content": "<h3>肯定都擁有你最棒的角度 不再受限於單一方向和角度<\/h3>",
         "button_text": "",
@@ -935,7 +920,6 @@
     "main",
     "17217531875f804291",
     "rich_text_R8r34b",
-    "video_GyYC8y",
     "image_with_text_block_hcxrem",
     "rich_text_iydh8D",
     "promotion_blocks_nh6TYH",
