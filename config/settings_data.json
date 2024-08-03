@@ -36,7 +36,7 @@
     "heading_font_size": "small",
     "heading_text_transform": "normal",
     "text_font": "helvetica_n4",
-    "text_font_size": 15,
+    "text_font_size": 12,
     "currency_code_enabled": false,
     "stagger_products_apparition": true,
     "round_color_swatches": true,
