@@ -140,7 +140,7 @@
     "rich_text_R8r34b": {
       "type": "rich-text",
       "settings": {
-        "subheading": "MAG AURA",
+        "subheading": "",
         "title": "吸得住，拍不停",
         "content": "<h3>運動拍照兩不誤，磁力吸附讓生活更輕鬆<\/h3>",
         "button_text": "",
@@ -180,7 +180,7 @@
         "content": "",
         "button_text": "",
         "button_link": "",
-        "background_type": "boxed",
+        "background_type": "full_width",
         "text_position": "right",
         "text_alignment": "center",
         "text_background": "rgba(0,0,0,0)",
@@ -303,10 +303,10 @@
       "settings": {
         "reveal_on_scroll": true,
         "background_type": "boxed",
-        "background_overlap": "image",
+        "background_overlap": "text",
         "image_position": "left",
         "text_alignment": "center",
-        "cycle_speed": 8,
+        "cycle_speed": 10,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
@@ -876,24 +876,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "rich_text_cVX9TP": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "清洗建議",
-        "content": "<h3>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/h3><h3>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/h3>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "boxed",
-        "text_width": "small",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
@@ -916,7 +898,7 @@
         "question_eGiYKz"
       ],
       "settings": {
-        "show_navigation": false,
+        "show_navigation": true,
         "title": "FAQ",
         "content": "",
         "background": "rgba(0,0,0,0)",
@@ -969,7 +951,6 @@
     "image_with_text_YDRNWC",
     "gallery_KMBAGc",
     "multi_column_a8CDTa",
-    "rich_text_cVX9TP",
     "faq_7A9Tt9",
     "product-content"
   ]
