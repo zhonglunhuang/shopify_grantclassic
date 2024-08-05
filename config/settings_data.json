@@ -97,6 +97,7 @@
           },
           "message_ryyVT7": {
             "type": "message",
+            "disabled": true,
             "settings": {
               "text": "出貨及配送服務延遲通知",
               "learn_more_text": "",
