@@ -157,7 +157,7 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/001_c2643f5b-a20b-46e4-8cce-01d14786386e.jpg",
+            "image": "shopify:\/\/shop_images\/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -177,7 +177,7 @@
         "image_3XEhL6"
       ],
       "settings": {
-        "section_height": "medium",
+        "section_height": "auto",
         "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
@@ -241,7 +241,7 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/002.jpg",
+            "image": "shopify:\/\/shop_images\/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -287,7 +287,7 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/003.jpg",
+            "image": "shopify:\/\/shop_images\/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -320,7 +320,7 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/004.jpg",
+            "image": "shopify:\/\/shop_images\/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -386,7 +386,7 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/006.jpg",
+            "image": "shopify:\/\/shop_images\/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -452,7 +452,7 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/008.jpg",
+            "image": "shopify:\/\/shop_images\/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
