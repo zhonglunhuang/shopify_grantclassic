@@ -145,7 +145,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -178,7 +178,7 @@
       ],
       "settings": {
         "section_height": "medium",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -262,10 +262,23 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "video_EQYLj7": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "使用iPad情境",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "medium",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_3bDkQd": {
@@ -295,7 +308,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -328,7 +341,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -361,7 +374,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -394,7 +407,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
@@ -427,9 +440,9 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
-        "cycle_speed": 5,
+        "cycle_speed": 4,
         "background": "rgba(0,0,0,0)"
       }
     },
@@ -460,9 +473,9 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
-        "cycle_speed": 5,
+        "cycle_speed": 4,
         "background": "rgba(0,0,0,0)"
       }
     },
@@ -622,6 +635,7 @@
     "17217531875f804291",
     "image_with_text_QaWce4",
     "slideshow_aKypqM",
+    "video_EQYLj7",
     "slideshow_3bDkQd",
     "slideshow_Rk4MXh",
     "slideshow_Bqdten",
