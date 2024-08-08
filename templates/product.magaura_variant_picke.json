@@ -278,10 +278,10 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/ipad.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/10_9aa21862-6fd7-479a-9c6b-90df5791d518.jpg",
-            "text_position": "middle_center",
+            "mobile_image": "shopify:\/\/shop_images\/10_33141476-5416-4bf4-9e0a-9ed5c16376cf.jpg",
+            "text_position": "top_right",
             "subheading": "",
-            "title": "滿杯後 iPad 也是搞得定！",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -299,7 +299,7 @@
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "sweep",
+        "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
