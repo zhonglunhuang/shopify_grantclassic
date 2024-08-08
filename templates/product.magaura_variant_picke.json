@@ -211,6 +211,7 @@
         "item_7bHjip": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/800x800.gif",
             "tab_label": "",
             "subheading": "",
             "title": "「啪嗒」 一貼集合",
@@ -226,7 +227,7 @@
       "settings": {
         "reveal_on_scroll": true,
         "background_type": "boxed",
-        "background_overlap": "text",
+        "background_overlap": "image",
         "image_position": "left",
         "text_alignment": "center",
         "cycle_speed": 10,
@@ -270,17 +271,38 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "video_EQYLj7": {
-      "type": "video",
+    "slideshow_PPXJ8W": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mNFEtE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ipad.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/10_9aa21862-6fd7-479a-9c6b-90df5791d518.jpg",
+            "text_position": "middle_left",
+            "subheading": "",
+            "title": "滿杯後 iPad 也是搞得定！",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 11
+          }
+        }
+      },
+      "block_order": [
+        "image_mNFEtE"
+      ],
       "settings": {
-        "subheading": "",
-        "title": "使用iPad情境",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "background_type": "full_width",
-        "video_size": "medium",
+        "section_height": "auto",
+        "transition_type": "sweep",
         "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
       }
     },
     "slideshow_3bDkQd": {
@@ -643,7 +665,7 @@
     "17217531875f804291",
     "image_with_text_QaWce4",
     "slideshow_aKypqM",
-    "video_EQYLj7",
+    "slideshow_PPXJ8W",
     "slideshow_3bDkQd",
     "slideshow_Rk4MXh",
     "slideshow_Bqdten",
