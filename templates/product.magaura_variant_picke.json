@@ -9,25 +9,6 @@
 */
 {
   "sections": {
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -235,6 +216,43 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_Mhckyp": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "我們改怎麼使用 Magaura?",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531779a9cbfe4": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "section_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
       }
     },
     "slideshow_aKypqM": {
@@ -658,12 +676,13 @@
     }
   },
   "order": [
-    "17217531779a9cbfe4",
     "main",
     "slideshow_Cyhp4d",
     "slideshow_q6KAET",
     "17217531875f804291",
     "image_with_text_QaWce4",
+    "rich_text_Mhckyp",
+    "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
     "slideshow_3bDkQd",
