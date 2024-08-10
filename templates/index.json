@@ -575,6 +575,7 @@
         "a2c592b3-f3f6-468b-832a-fc8e6c432604",
         "dd750b77-7ee5-43f6-8b98-9e7311a305b0"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "stack_items": false,
@@ -755,6 +756,7 @@
         "d3c35cf4-4fed-458b-8382-634668debe38",
         "bb1bbd15-3829-4866-a728-a07ebb2a6c63"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "stack_items": false,
@@ -835,13 +837,6 @@
         "button_text_color": "#ffffff"
       }
     },
-    "1705591464ca06d95f": {
-      "type": "apps",
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    },
     "c273c071-0a39-4516-9587-6b49b8a635a6": {
       "type": "blog-posts",
       "settings": {
@@ -870,7 +865,6 @@
     "6d89abc7-9266-4b55-85e1-e2bcf3677628",
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
     "8550440c-db8a-41c3-808a-e9ef4d695f17",
-    "1705591464ca06d95f",
     "c273c071-0a39-4516-9587-6b49b8a635a6"
   ]
 }
