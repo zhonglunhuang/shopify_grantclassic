@@ -536,39 +536,74 @@
             "title": "產品相關"
           }
         },
+        "question_q9Kg4T": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 有多大？",
+            "answer": "<p>GC-Tag Card 的大小與信用卡相同，非常輕薄，適合隨身攜帶。<\/p>"
+          }
+        },
+        "question_jQwjae": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 是否通過了蘋果 MFI 認證？",
+            "answer": "<p>是的，GC-Tag Card 已經通過蘋果 MFI 認證，確保與 Apple 設備的完美兼容性。<\/p>"
+          }
+        },
+        "question_t37cci": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 可以用來追蹤哪些物品？",
+            "answer": "<p>GC-Tag Card 可以用來追蹤您的錢包、包包、行李等個人物品，甚至可以作為電子名片使用。<\/p>"
+          }
+        },
+        "question_bn7fkx": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 的電池續航力如何？",
+            "answer": "<p>GC-Tag Card 擁有長效電池，通常可以持續使用 24 個月，具體時間取決於使用頻率。<\/p>"
+          }
+        },
+        "question_fJJwCh": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 是否防水？",
+            "answer": "<p>是的，GC-Tag Card 具備 IP67 防水防塵功能，可以在日常使用中保護您的設備。<\/p>"
+          }
+        },
         "question_eGiYKz": {
           "type": "question",
           "settings": {
-            "title": "MagAura 產品可以洗嗎？",
-            "answer": "<p>建議清洗方式<\/p><p>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/p><p>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/p>"
+            "title": "GC-Tag Card 的數位名片功能是什麼？",
+            "answer": "<p>GC-Tag Card 不僅是追蹤器，還內建數位名片功能。您可以將個人聯繫方式、公司資訊或社交媒體連結存儲在卡片中，方便他人掃描並直接獲取您的信息。<\/p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
-            "title": "MagAura 能保持我的飲料多長時間熱或冷？",
-            "answer": "<p>MagAura 的雙層真空絕緣不銹鋼瓶可保持飲料冷 24 小時，熱 12 小時。<\/p>"
+            "title": "如何設置 GC-Tag Card 的數位名片功能？",
+            "answer": "<p>只需使用我們的應用程序，輸入您的聯繫信息，並將其存儲在 GC-Tag Card 上。當其他人使用手機掃描卡片時，他們就能夠立即查看並保存您的數位名片。<\/p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
-            "title": "磁力增強環包含在內嗎？",
-            "answer": "<p>是的！<\/p>"
+            "title": "GC-Tag Card 和 Apple AirTag 有什麼不同？",
+            "answer": "<p>GC-Tag Card 和 Apple AirTag 都是高效的追蹤器，然而 GC-Tag Card 具有額外的數位名片功能，並且設計為信用卡大小，更加輕薄且便於攜帶。另外，兩者的操作和兼容性基本相同，您可以根據個人需求選擇適合的產品。<\/p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以與我的手機保護殼一起使用嗎？",
-            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。<\/p><p>磁力增強環包含在內。<\/p>"
+            "title": "如何啟用 GC-Tag Card 的數位名片功能？",
+            "answer": "<p>下載並安裝我們的應用程序，按照提示設置您的數位名片信息。完成後，其他人只需掃描 GC-Tag Card 即可查看您的數位名片。<\/p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以放進我的車杯架嗎？",
-            "answer": "<p>MagAura 的設計適合大多數車杯架。<br\/>尺寸：78mm x 243mm<\/p>"
+            "title": "GC-Tag Card 的數位名片是否可以更新？",
+            "answer": "<p>是的，您可以隨時通過應用程序更新或修改 GC-Tag Card 上的數位名片信息，以保持信息的準確性。<\/p>"
           }
         },
         "category_tUjCi3": {
@@ -580,29 +615,43 @@
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "MagAura 在水瓶空的時候能工作嗎？",
-            "answer": "<p>是的！MagAura 的設計無論水瓶是空的還是滿的都能穩定工作。<\/p>"
+            "title": "GC-Tag Card 在低溫或高溫環境下會受影響嗎？",
+            "answer": "<p>GC-Tag Card 經過嚴格測試，能夠在一定範圍的溫度內正常工作，但建議避免長時間暴露於極端高溫或低溫環境中。<\/p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
-            "title": "我可以將 MagAura 放在冰箱或冰櫃裡嗎？",
-            "answer": "<p>您可以將 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。<\/p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰冷的水。<\/p>"
+            "title": "GC-Tag Card 的電池是否可以更換？",
+            "answer": "<p>GC-Tag Card 的電池不可更換，但我們提供替換服務。當電池耗盡時，您可以聯繫我們的客服團隊。<\/p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
-            "title": "我可以在 MagAura 放入發酵液體嗎？",
-            "answer": "<p>不建議在 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
+            "title": "GC-Tag Card 是否需要連續充電？",
+            "answer": "<p>不需要，GC-Tag Card 使用長效電池，無需頻繁充電。<\/p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
-            "title": "我可以在 MagAura 中使用碳酸飲料嗎？",
-            "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
+            "title": "GC-Tag Card 和 Apple AirTag 的追蹤精度有什麼不同嗎？",
+            "answer": "<p>在正常使用情況下，GC-Tag Card 和 Apple AirTag 的追蹤精度相似，都能夠精確地定位您的物品。兩者都使用先進的藍牙技術來實現高效的追蹤。<\/p>"
+          }
+        },
+        "question_qFMKQk": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 的數位名片信息是否安全？",
+            "answer": "<p>GC-Tag Card 的數位名片信息存儲是加密的，僅能通過掃描特定的卡片來訪問，確保您的個人信息安全。<\/p>"
+          }
+        },
+        "question_pbmp74": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag Card 是否需要軟體更新？",
+            "answer": "<p>我們會不定期提供軟體更新，以確保 GC-Tag Card 的性能和安全性，您可以通過應用程序獲取最新更新。<\/p>"
           }
         },
         "category_RazFtp": {
@@ -614,20 +663,25 @@
         "question_qMDTY7": {
           "type": "question",
           "settings": {
-            "title": "請問 MagAura 客製化需要多久時間？",
-            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。<\/p>"
+            "title": "請問 GC-Tag Card 可以進行客製化嗎？",
+            "answer": "<p>是的，我們提供客製化服務，您可以在 GC-Tag Card 上定制專屬的圖案或標誌。請聯繫我們了解更多詳情。<\/p>"
           }
         },
         "question_BbThaW": {
           "type": "question",
           "settings": {
-            "title": "我需要大量訂製 MagAura 是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "title": "我需要大量訂製 GC-Tag Card，是可以的嗎？",
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 GC-Tag Card 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
           }
         }
       },
       "block_order": [
         "category_xT9J6A",
+        "question_q9Kg4T",
+        "question_jQwjae",
+        "question_t37cci",
+        "question_bn7fkx",
+        "question_fJJwCh",
         "question_eGiYKz",
         "question_hCpYUV",
         "question_pGFKkT",
@@ -638,6 +692,8 @@
         "question_6LKyRk",
         "question_pycbBH",
         "question_FKkLJz",
+        "question_qFMKQk",
+        "question_pbmp74",
         "category_RazFtp",
         "question_qMDTY7",
         "question_BbThaW"
