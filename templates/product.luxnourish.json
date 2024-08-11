@@ -539,36 +539,43 @@
         "question_eGiYKz": {
           "type": "question",
           "settings": {
-            "title": "MagAura 產品可以洗嗎？",
-            "answer": "<p>建議清洗方式<\/p><p>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/p><p>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/p>"
+            "title": "餵不停 LuxNourish 支援遠端控制嗎？",
+            "answer": "<p>是的，您可以通過專屬的應用程式遠端控制餵食時間和份量，無論您身處何地。<\/p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
-            "title": "MagAura 能保持我的飲料多長時間熱或冷？",
-            "answer": "<p>MagAura 的雙層真空絕緣不銹鋼瓶可保持飲料冷 24 小時，熱 12 小時。<\/p>"
+            "title": "如何設定餵不停 LuxNourish 的定時餵食功能？",
+            "answer": "<p>使用應用程式設定定時餵食功能，確保您的寵物準時進食。<\/p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
-            "title": "磁力增強環包含在內嗎？",
-            "answer": "<p>是的！<\/p>"
+            "title": "餵不停 LuxNourish 是否防止過度餵食？",
+            "answer": "<p>是的，精確的食量設定可避免過度餵食，維護寵物的健康。<\/p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以與我的手機保護殼一起使用嗎？",
-            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。<\/p><p>磁力增強環包含在內。<\/p>"
+            "title": "餵不停 LuxNourish 易於清潔嗎？",
+            "answer": "<p>餵不停 LuxNourish 具有耐用且易於清潔的設計，保持食物新鮮。<\/p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以放進我的車杯架嗎？",
-            "answer": "<p>MagAura 的設計適合大多數車杯架。<br\/>尺寸：78mm x 243mm<\/p>"
+            "title": "餵不停 LuxNourish 的容量是多少？",
+            "answer": "<p>具有 3L 大容量儲糧槽，可持續提供多日的飼料。也可以選配 6L。<\/p>"
+          }
+        },
+        "question_BR6j8M": {
+          "type": "question",
+          "settings": {
+            "title": "餵不停 LuxNourish 支援多個寵物嗎？",
+            "answer": "<p>是的，您可以設置不同的餵食計劃來滿足多個寵物的需求。<\/p>"
           }
         },
         "category_tUjCi3": {
@@ -580,49 +587,22 @@
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "MagAura 在水瓶空的時候能工作嗎？",
-            "answer": "<p>是的！MagAura 的設計無論水瓶是空的還是滿的都能穩定工作。<\/p>"
+            "title": "餵不停 LuxNourish 是否支援所有寵物飼料？",
+            "answer": "<p>支援大多數乾性和半濕性飼料，請避免使用超大顆粒的飼料。<\/p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
-            "title": "我可以將 MagAura 放在冰箱或冰櫃裡嗎？",
-            "answer": "<p>您可以將 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。<\/p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰冷的水。<\/p>"
+            "title": "餵不停 LuxNourish 是否適合用於戶外？",
+            "answer": "<p>建議僅在室內使用，戶外使用可能會影響設備的性能和壽命。<\/p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
-            "title": "我可以在 MagAura 放入發酵液體嗎？",
-            "answer": "<p>不建議在 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "我可以在 MagAura 中使用碳酸飲料嗎？",
-            "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問 MagAura 客製化需要多久時間？",
-            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。<\/p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製 MagAura 是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "title": "餵不停 LuxNourish 的電源需求是什麼？",
+            "answer": "<p>支持雙電源模式：插電使用或備用電池，確保在停電時仍可運行。<\/p>"
           }
         }
       },
@@ -633,18 +613,15 @@
         "question_pGFKkT",
         "question_wk3cTf",
         "question_dNDgLY",
+        "question_BR6j8M",
         "category_tUjCi3",
         "question_dx9p8Y",
         "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
+        "question_pycbBH"
       ],
       "settings": {
         "show_navigation": true,
-        "title": "FAQ",
+        "title": "LuxNourish FAQ",
         "content": "",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
