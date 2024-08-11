@@ -540,35 +540,35 @@
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機的容量是多少？",
-            "answer": "<p>AquaLux 飲水機的容量為 2 公升，能夠滿足日常需求，適合寵物全天使用。<\/p>"
+            "answer": "<p>喝不停 AquaLux 飲水機的容量為 2 公升，能夠滿足日常需求，適合寵物全天使用。<\/p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
-            "title": "AquaLux 飲水機需要插電嗎？",
-            "answer": "<p>不需要，AquaLux 採用智能無線感應技術，續航可達 10 天。<\/p><p>但是建議都是插著電，電池屬於應付緊急狀況。<\/p>"
+            "title": "喝不停 AquaLux 飲水機需要插電嗎？",
+            "answer": "<p>不需要，喝不停 AquaLux 採用智能無線感應技術，續航可達 10 天。<\/p><p>但是建議都是插著電，電池屬於應付緊急狀況。<\/p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
-            "title": "磁力增強環包含在內嗎？",
-            "answer": "<p>是的！<\/p>"
+            "title": "喝不停 AquaLux 飲水機的材質是否安全？",
+            "answer": "<p>是的，喝不停 AquaLux 飲水機採用無毒高溫陶瓷製成，不導電且無重金屬，抗汙抗敏，對寵物安全無害。<\/p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以與我的手機保護殼一起使用嗎？",
-            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。<\/p><p>磁力增強環包含在內。<\/p>"
+            "title": "喝不停 AquaLux 飲水機的過濾系統如何運作？",
+            "answer": "<p>喝不停 AquaLux 使用離子交換過濾系統，有效清除水中的雜質與細菌，提供潔淨的飲水。<\/p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
-            "title": "MagAura 可以放進我的車杯架嗎？",
-            "answer": "<p>MagAura 的設計適合大多數車杯架。<br\/>尺寸：78mm x 243mm<\/p>"
+            "title": "如何清潔 喝不停 AquaLux 飲水機？",
+            "answer": "<p>喝不停 AquaLux 飲水機設計為全機可拆卸，無死角清洗，方便保持水源清潔。<\/p>"
           }
         },
         "category_tUjCi3": {
@@ -580,49 +580,29 @@
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "MagAura 在水瓶空的時候能工作嗎？",
-            "answer": "<p>是的！MagAura 的設計無論水瓶是空的還是滿的都能穩定工作。<\/p>"
+            "title": "如何設定 喝不停 AquaLux 飲水機的感應出水功能？",
+            "answer": "<p>喝不停 AquaLux 飲水機主機上方可以做切換，感應模式與持續出水模式。<\/p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
-            "title": "我可以將 MagAura 放在冰箱或冰櫃裡嗎？",
-            "answer": "<p>您可以將 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。<\/p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰冷的水。<\/p>"
+            "title": "喝不停 AquaLux 飲水機是否支援加熱功能？",
+            "answer": "<p>可以選配有專屬恆溫加熱盤底座，確保水溫適中，讓寵物飲用更舒適。<\/p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
-            "title": "我可以在 MagAura 放入發酵液體嗎？",
-            "answer": "<p>不建議在 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
+            "title": "喝不停 AquaLux 飲水機是否適合所有寵物？",
+            "answer": "<p>喝不停 AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。<\/p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
-            "title": "我可以在 MagAura 中使用碳酸飲料嗎？",
-            "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問 MagAura 客製化需要多久時間？",
-            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。<\/p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製 MagAura 是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "title": "多久需要更換 喝不停 AquaLux 飲水機的濾心？",
+            "answer": "<ul><li>建議每月更換一次濾心，以確保水質清潔，保護您的寵物健康。<\/li><\/ul><h3><\/h3>"
           }
         }
       },
@@ -637,10 +617,7 @@
         "question_dx9p8Y",
         "question_6LKyRk",
         "question_pycbBH",
-        "question_FKkLJz",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
+        "question_FKkLJz"
       ],
       "settings": {
         "show_navigation": true,
