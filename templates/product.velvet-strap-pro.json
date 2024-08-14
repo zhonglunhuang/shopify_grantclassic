@@ -105,7 +105,7 @@
         "image_zaaRNV": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/top_a7527332-9aae-4971-a559-2773ff50c479.jpg",
+            "image": "shopify:\/\/shop_images\/01_859c9607-233d-4d8e-858a-1b3ace5ebb29.jpg",
             "mobile_image": "shopify:\/\/shop_images\/01_62f88dfe-37f0-4a3c-8d6d-ae37766c3e38.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -139,7 +139,7 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
+            "image": "shopify:\/\/shop_images\/02_a8f06604-aa73-43a2-965e-f69f6a8d9ca2.jpg",
             "mobile_image": "shopify:\/\/shop_images\/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -186,56 +186,6 @@
         "include_vertical_margins": false
       }
     },
-    "image_with_text_QaWce4": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_7bHjip": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/800x800.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "「啪嗒」 一貼集合",
-            "content": "<h3>秒變專業三腳架！穩定<\/h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_7bHjip"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 10,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "rich_text_Mhckyp": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "我們改怎麼使用 Magaura?",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "17217531779a9cbfe4": {
       "type": "apps",
       "blocks": {
@@ -261,7 +211,7 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
+            "image": "shopify:\/\/shop_images\/04_eb85b65f-d07a-4ef8-9302-4e3250b4ce64.jpg",
             "mobile_image": "shopify:\/\/shop_images\/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -295,7 +245,7 @@
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/10_77503a0b-fe92-42c1-935a-56b5c9a5c561.jpg",
+            "image": "shopify:\/\/shop_images\/03_da3f204e-7511-4776-905f-46b666c1979f.jpg",
             "mobile_image": "shopify:\/\/shop_images\/11_7828d5a5-b71a-44e9-a816-f10101926862.jpg",
             "text_position": "top_right",
             "subheading": "",
@@ -329,7 +279,7 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
+            "image": "shopify:\/\/shop_images\/05_772a15fb-82ca-4b97-90d4-fbf329794b92.jpg",
             "mobile_image": "shopify:\/\/shop_images\/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -357,47 +307,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_Rk4MXh": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3QECz3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3QECz3"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_Bqdten": {
       "type": "slideshow",
       "blocks": {
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/005.jpg",
+            "image": "shopify:\/\/shop_images\/06_b776f9ec-7299-42a6-8351-297cf80d2c31.jpg",
             "mobile_image": "shopify:\/\/shop_images\/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -425,13 +341,47 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_Rk4MXh": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3QECz3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/07_c42a6080-5601-4325-8fc9-a30a724523af.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3QECz3"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_iHtYDC": {
       "type": "slideshow",
       "blocks": {
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
+            "image": "shopify:\/\/shop_images\/08_8bf845bc-8cf8-45f6-8166-1b8e1065aff7.jpg",
             "mobile_image": "shopify:\/\/shop_images\/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -465,7 +415,7 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/007.jpg",
+            "image": "shopify:\/\/shop_images\/09_945e8d2a-4069-4d83-bdc0-1c7e862ea792.jpg",
             "mobile_image": "shopify:\/\/shop_images\/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -499,7 +449,7 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
+            "image": "shopify:\/\/shop_images\/10_82092d2c-9871-4e2d-8597-4e5cf3a56889.jpg",
             "mobile_image": "shopify:\/\/shop_images\/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -524,6 +474,156 @@
         "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_LreQAy": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RwwQHY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11_bda0adf7-a1c8-4a4c-8e92-bf73333d14de.jpg",
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_RwwQHY"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_QFCqnC": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jk3Qpy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_97c611b6-7764-4865-99c6-09d06cc95f9b.jpg",
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jk3Qpy"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_DbXYJw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_QhCdXx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/13_4aa359d0-68ef-4b49-927a-52f8a736b0a9.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_QhCdXx"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_ntqVYw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NiwFBN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/14_4c2e4165-dd4a-46b3-bf74-b27533f93a41.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_TPpiEb": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_NiwFBN",
+        "image_TPpiEb"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
       }
     },
@@ -672,17 +772,19 @@
     "slideshow_Cyhp4d",
     "slideshow_q6KAET",
     "17217531875f804291",
-    "image_with_text_QaWce4",
-    "rich_text_Mhckyp",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
     "slideshow_3bDkQd",
-    "slideshow_Rk4MXh",
     "slideshow_Bqdten",
+    "slideshow_Rk4MXh",
     "slideshow_iHtYDC",
     "slideshow_xzetDx",
     "slideshow_E3anTw",
+    "slideshow_LreQAy",
+    "slideshow_QFCqnC",
+    "slideshow_DbXYJw",
+    "slideshow_ntqVYw",
     "faq_7A9Tt9",
     "product-content"
   ]
