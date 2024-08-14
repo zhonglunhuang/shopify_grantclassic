@@ -443,6 +443,38 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "image_with_text_7VezLX": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_EqEKKr": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/360.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "360度旋轉",
+            "content": "<h3>登山扣靈活性更佳<\/h3>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_EqEKKr"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_E3anTw": {
       "type": "slideshow",
       "blocks": {
@@ -780,6 +812,7 @@
     "slideshow_Rk4MXh",
     "slideshow_iHtYDC",
     "slideshow_xzetDx",
+    "image_with_text_7VezLX",
     "slideshow_E3anTw",
     "slideshow_LreQAy",
     "slideshow_QFCqnC",
