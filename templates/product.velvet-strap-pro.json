@@ -313,8 +313,7 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/06_b776f9ec-7299-42a6-8351-297cf80d2c31.jpg",
-            "split_image": "shopify:\/\/shop_images\/06.webp",
+            "image": "shopify:\/\/shop_images\/06.webp",
             "mobile_image": "shopify:\/\/shop_images\/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
             "text_position": "middle_center",
             "subheading": "",
