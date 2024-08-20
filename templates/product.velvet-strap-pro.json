@@ -122,25 +122,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "17217531779a9cbfe4": {
       "type": "apps",
       "blocks": {
@@ -226,6 +207,25 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531875f804291": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
       }
     },
     "slideshow_3bDkQd": {
@@ -744,10 +744,10 @@
     "main",
     "video_ehpiW4",
     "slideshow_Cyhp4d",
-    "17217531875f804291",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
+    "17217531875f804291",
     "slideshow_3bDkQd",
     "slideshow_Bqdten",
     "slideshow_Rk4MXh",
