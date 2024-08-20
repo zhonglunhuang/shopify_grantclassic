@@ -99,38 +99,17 @@
         "transition_effect": "slide"
       }
     },
-    "slideshow_Cyhp4d": {
-      "type": "slideshow",
-      "blocks": {
-        "image_zaaRNV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/top_a7527332-9aae-4971-a559-2773ff50c479.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/01_62f88dfe-37f0-4a3c-8d6d-ae37766c3e38.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_zaaRNV"
-      ],
+    "video_YyGwGp": {
+      "type": "video",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
+        "subheading": "",
+        "title": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=GYB6qmlkwQA",
+        "background_type": "full_width",
+        "video_size": "auto",
         "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_q6KAET": {
@@ -139,8 +118,8 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-01.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-10.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -186,56 +165,6 @@
         "include_vertical_margins": false
       }
     },
-    "image_with_text_QaWce4": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_7bHjip": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/800x800.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "「啪嗒」 一貼集合",
-            "content": "<h3>秒變專業三腳架！穩定<\/h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_7bHjip"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 10,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "rich_text_Mhckyp": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "我們改怎麼使用 Magaura?",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "17217531779a9cbfe4": {
       "type": "apps",
       "blocks": {
@@ -261,8 +190,8 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-02.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-11.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -295,8 +224,8 @@
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/10_77503a0b-fe92-42c1-935a-56b5c9a5c561.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/11_7828d5a5-b71a-44e9-a816-f10101926862.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-03.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-12.webp",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -329,8 +258,8 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-04.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-13.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -363,8 +292,8 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-05.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-14.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -397,8 +326,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/005.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-06.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-15.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -431,8 +360,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-07.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-16.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -465,8 +394,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/007.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-08.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-17.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -499,8 +428,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
+            "image": "shopify:\/\/shop_images\/L105_web-09.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L105_web-18.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -654,11 +583,9 @@
   },
   "order": [
     "main",
-    "slideshow_Cyhp4d",
+    "video_YyGwGp",
     "slideshow_q6KAET",
     "17217531875f804291",
-    "image_with_text_QaWce4",
-    "rich_text_Mhckyp",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
