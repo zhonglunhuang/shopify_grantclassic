@@ -633,8 +633,8 @@
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW"
       ],
       "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
       }
     },
     "faq_7A9Tt9": {
