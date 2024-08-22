@@ -144,11 +144,11 @@
     "slideshow_aKypqM": {
       "type": "slideshow",
       "blocks": {
-        "image_9PF8CN": {
+        "image_RazTdG": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-03_87d002fd-076b-4a41-a72e-30134decca6c.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-17_e5adea04-d6a4-479c-8b4a-3f7e1336a77f.webp",
+            "image": "shopify:\/\/shop_images\/L132_web-02_bd93b2f5-7bad-464c-8eef-5ca75d109a3d.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L132_web-16_1e606c69-6437-42f9-a879-36dab30740d8.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -165,7 +165,7 @@
         }
       },
       "block_order": [
-        "image_9PF8CN"
+        "image_RazTdG"
       ],
       "settings": {
         "section_height": "auto",
@@ -173,6 +173,38 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_NdwbHz": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_jAFVgN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/decae8b992c69d97f35bee39aed2cb7c.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "隨時調整長度",
+            "content": "<h3>靈活長度 適應多場景<\/h3>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_jAFVgN"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_PPXJ8W": {
@@ -783,6 +815,7 @@
     "slideshow_Cyhp4d",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
+    "image_with_text_NdwbHz",
     "slideshow_PPXJ8W",
     "17217531875f804291",
     "slideshow_3bDkQd",
