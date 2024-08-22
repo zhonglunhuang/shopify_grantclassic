@@ -634,6 +634,7 @@
     },
     "rich_text_DrjhkK": {
       "type": "rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "繩來運轉 Pro 朋友開箱",
