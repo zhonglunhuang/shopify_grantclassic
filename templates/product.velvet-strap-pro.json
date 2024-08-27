@@ -604,7 +604,7 @@
         "image_NiwFBN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-14_4b24cd39-eda2-4316-ac4d-82a6a26ccb24.webp",
+            "image": "shopify:\/\/shop_images\/L132_web-14_5005985e-6e9c-43fa-949b-fa52d2ba4d08.webp",
             "mobile_image": "shopify:\/\/shop_images\/L132_web-28_5d1d732b-3bf1-49f4-9d3e-edcfbe10520d.webp",
             "text_position": "middle_center",
             "subheading": "",
@@ -623,6 +623,58 @@
       },
       "block_order": [
         "image_NiwFBN"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_UyRFKL": {
+      "type": "slideshow",
+      "blocks": {
+        "image_kMUAcm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/L132_web-30.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L132_web-31.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_hqJMDL": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_kMUAcm",
+        "image_hqJMDL"
       ],
       "settings": {
         "section_height": "auto",
@@ -830,6 +882,7 @@
     "slideshow_QFCqnC",
     "slideshow_DbXYJw",
     "slideshow_ntqVYw",
+    "slideshow_UyRFKL",
     "rich_text_DrjhkK",
     "1724250482977559c7",
     "faq_7A9Tt9",
