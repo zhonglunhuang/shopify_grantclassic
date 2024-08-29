@@ -360,12 +360,20 @@
             "image": "shopify:\/\/shop_images\/3.gif",
             "caption": ""
           }
+        },
+        "image_nbcTtz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.gif",
+            "caption": ""
+          }
         }
       },
       "block_order": [
         "image_DW4nGp",
         "image_tVAc8E",
-        "image_Nx7TBP"
+        "image_Nx7TBP",
+        "image_nbcTtz"
       ],
       "settings": {
         "subheading": "",
