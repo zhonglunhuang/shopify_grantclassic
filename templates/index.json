@@ -36,6 +36,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/230823_gctag.webp",
+            "mobile_image": "shopify:\/\/shop_images\/230823_gctag_phone.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
