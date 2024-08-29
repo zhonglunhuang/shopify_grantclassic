@@ -292,7 +292,7 @@
       ],
       "settings": {
         "reveal_on_scroll": true,
-        "background_type": "full_width",
+        "background_type": "boxed",
         "background_overlap": "image",
         "image_position": "left",
         "text_alignment": "center",
