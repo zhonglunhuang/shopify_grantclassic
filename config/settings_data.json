@@ -138,8 +138,8 @@
           "header_layout": "logo_left_navigation_inline",
           "show_icons": true,
           "reduce_desktop_padding": true,
-          "show_locale_selector": true,
-          "show_country_selector": true,
+          "show_locale_selector": false,
+          "show_country_selector": false,
           "enable_transparent_header": true,
           "transparent_header_text_color": "#ffffff",
           "search_menu": ""
@@ -340,12 +340,6 @@
       },
       "14868561720390754469": {
         "type": "shopify:\/\/apps\/loloyal-com\/blocks\/boom-cend\/930ac91f-2bf2-4655-9ba0-574771f782d6",
-        "disabled": false,
-        "settings": {
-        }
-      },
-      "3847134708050210359": {
-        "type": "shopify:\/\/apps\/transcy\/blocks\/switcher_embed_block\/bce4f1c0-c18c-43b0-b0b2-a1aefaa44573",
         "disabled": false,
         "settings": {
         }
