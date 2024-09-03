@@ -112,6 +112,58 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_qLqk4M": {
+      "type": "slideshow",
+      "blocks": {
+        "image_7UHRWF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/L122_web-18.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-19.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_aDpaw4": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_7UHRWF",
+        "image_aDpaw4"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_Cyhp4d": {
       "type": "slideshow",
       "settings": {
@@ -787,6 +839,7 @@
   "order": [
     "main",
     "video_ehpiW4",
+    "slideshow_qLqk4M",
     "slideshow_Cyhp4d",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
