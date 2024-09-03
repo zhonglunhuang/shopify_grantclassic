@@ -393,117 +393,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_WNDbfp": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_h7F7Y4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/4d39993cf03e0e99aeaf269ee7c88ef1_187510a3-2b17-44fd-bea4-787bc345a580.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "超靜音！運轉僅40分貝！",
-            "content": "<p>比圖書館安靜<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "item_AdMe88": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/f3147733d3ce86cde4e0491b3f6198f8_90121187-e00b-43d2-b50f-d32c317c66c9.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "二合一貼心設計 階梯兼落塵區",
-            "content": "<p>貓砂不散落<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_h7F7Y4",
-        "item_AdMe88"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "right",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_E3anTw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_F4XAUj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-05.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-12.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_F4XAUj"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_g6TK6d": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_89dCkh": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/ea8922b28b385b08e59165ac4371ed77.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "清潔超便利",
-            "content": "<p>滾筒拆裝簡易，可直接水洗！<\/p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_89dCkh"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "right",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_LreQAy": {
       "type": "slideshow",
       "blocks": {
@@ -570,6 +459,117 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_E3anTw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_F4XAUj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/L122_web-05.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-12.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_F4XAUj"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_WNDbfp": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_h7F7Y4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4d39993cf03e0e99aeaf269ee7c88ef1_187510a3-2b17-44fd-bea4-787bc345a580.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "超靜音！運轉僅40分貝！",
+            "content": "<p>比圖書館安靜<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_AdMe88": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/f3147733d3ce86cde4e0491b3f6198f8_90121187-e00b-43d2-b50f-d32c317c66c9.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "二合一貼心設計 階梯兼落塵區",
+            "content": "<p>貓砂不散落<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_h7F7Y4",
+        "item_AdMe88"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_g6TK6d": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_89dCkh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ea8922b28b385b08e59165ac4371ed77.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "清潔超便利",
+            "content": "<p>滾筒拆裝簡易，可直接水洗！<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_89dCkh"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_DbXYJw": {
@@ -796,11 +796,11 @@
     "slideshow_Bqdten",
     "17217531875f804291",
     "slideshow_PPXJ8W",
-    "image_with_text_WNDbfp",
-    "slideshow_E3anTw",
-    "image_with_text_g6TK6d",
     "slideshow_LreQAy",
     "slideshow_QFCqnC",
+    "slideshow_E3anTw",
+    "image_with_text_WNDbfp",
+    "image_with_text_g6TK6d",
     "slideshow_DbXYJw",
     "rich_text_DrjhkK",
     "1724250482977559c7",
