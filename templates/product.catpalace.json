@@ -104,7 +104,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/player.vimeo.com\/video\/1000709386",
+        "video_url": "https:\/\/vimeo.com\/1005712493",
         "background_type": "full_width",
         "video_size": "auto",
         "autoplay": true,
@@ -147,8 +147,8 @@
         "image_RazTdG": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-02_bd93b2f5-7bad-464c-8eef-5ca75d109a3d.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-16_1e606c69-6437-42f9-a879-36dab30740d8.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-01.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-09.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -181,11 +181,11 @@
         "item_jAFVgN": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/decae8b992c69d97f35bee39aed2cb7c.gif",
+            "image": "shopify:\/\/shop_images\/2_58f2dc65-3abb-483c-94bc-814b19752643.gif",
             "tab_label": "",
-            "subheading": "",
-            "title": "隨時調整長度",
-            "content": "<h3>靈活長度 適應多場景<\/h3>",
+            "subheading": "鏟不停",
+            "title": "滾筒式真正乾淨！",
+            "content": "",
             "button_text": "",
             "button_link": ""
           }
@@ -196,9 +196,9 @@
       ],
       "settings": {
         "reveal_on_scroll": true,
-        "background_type": "full_width",
+        "background_type": "boxed",
         "background_overlap": "image",
-        "image_position": "left",
+        "image_position": "right",
         "text_alignment": "center",
         "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
@@ -207,14 +207,166 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_wJg8Pa": {
+      "type": "slideshow",
+      "blocks": {
+        "image_7B68gF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/L122_web-02.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-10.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "他牌貓砂機",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        }
+      },
+      "block_order": [
+        "image_7B68gF"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "fade",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_PWcqCt": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_hGCjjp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3D_63997a98-7886-45d9-a343-2b925efe9832.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "下落至密閉式集便倉",
+            "content": "<h2>12L大容量<\/h2>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_BapnRT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cat_walk.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "",
+            "content": "<ul><li><h2><strong>巨大開口，貓咪輕鬆進出<\/strong><\/h2><\/li><li><h2><strong>寬敞舒適，10kg喵也ok<\/strong><\/h2><\/li><li><h2><strong>便利主人，倒貓砂超輕鬆<\/strong><\/h2><\/li><\/ul>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_hGCjjp",
+        "item_BapnRT"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 3,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Bqdten": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NEMAKQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/f358bc35184ccaa1cf3b1cc7f8632a8e.gif",
+            "mobile_image": "shopify:\/\/shop_images\/phone_d4b1c2ef-7bbe-470e-88e7-1aee814ceece.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "他牌貓砂機",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "image_AgMiUz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7688e937c97786ea7886034e6786d318.gif",
+            "mobile_image": "shopify:\/\/shop_images\/phone_2feb51e6-cc57-45b0-b84e-3d75a65f2585.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "他牌貓砂機",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 17
+          }
+        }
+      },
+      "block_order": [
+        "image_NEMAKQ",
+        "image_AgMiUz"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "fade",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531875f804291": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": "rl_pl_7979",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
     "slideshow_PPXJ8W": {
       "type": "slideshow",
       "blocks": {
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-04.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-18.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-03.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-11.webp",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -241,193 +393,49 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "17217531875f804291": {
-      "type": "apps",
+    "image_with_text_WNDbfp": {
+      "type": "image-with-text",
       "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "item_h7F7Y4": {
+          "type": "item",
           "settings": {
-            "playlist_id": "rl_pl_7979",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_3bDkQd": {
-      "type": "slideshow",
-      "blocks": {
-        "image_bqhV9Y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-05_754acab1-ed20-4bd4-b2c3-41f26019dad7.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-19_6ab9795b-baeb-4e05-8e37-4deddca9e595.webp",
-            "text_position": "middle_center",
+            "image": "shopify:\/\/shop_images\/4d39993cf03e0e99aeaf269ee7c88ef1_187510a3-2b17-44fd-bea4-787bc345a580.gif",
+            "tab_label": "",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "title": "超靜音！運轉僅40分貝！",
+            "content": "<p>比圖書館安靜<\/p>",
+            "button_text": "",
+            "button_link": ""
           }
-        }
-      },
-      "block_order": [
-        "image_bqhV9Y"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Bqdten": {
-      "type": "slideshow",
-      "blocks": {
-        "image_NEMAKQ": {
-          "type": "image",
+        },
+        "item_AdMe88": {
+          "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-06_85328201-20a4-4cdf-b75b-6250f2410810.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-20_0c47e7a7-35fd-46ba-8163-f7ebfe09b66b.webp",
-            "text_position": "middle_center",
+            "image": "shopify:\/\/shop_images\/f3147733d3ce86cde4e0491b3f6198f8_90121187-e00b-43d2-b50f-d32c317c66c9.gif",
+            "tab_label": "",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "title": "二合一貼心設計 階梯兼落塵區",
+            "content": "<p>貓砂不散落<\/p>",
+            "button_text": "",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "image_NEMAKQ"
+        "item_h7F7Y4",
+        "item_AdMe88"
       ],
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Rk4MXh": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3QECz3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-07_bc54e300-a032-4d42-a7c6-f82fb4ddff09.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-21_4ead05e4-bae0-4448-bded-307f9b7e76e1.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3QECz3"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_iHtYDC": {
-      "type": "slideshow",
-      "blocks": {
-        "image_dq3Ew7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-08_94f5e45f-aec0-4b34-8dc3-3c17b5b58030.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-22_3369c796-843c-46c1-93b1-2279bb1b3871.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_dq3Ew7"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_xzetDx": {
-      "type": "slideshow",
-      "blocks": {
-        "image_WBgGBc": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-09_f348414c-4a99-4a6d-ab28-2e59ab64b264.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-23_329d2a45-403c-4f85-9eaf-241a07df26c5.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_WBgGBc"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_E3anTw": {
@@ -436,8 +444,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-10_d3b1bb0c-aa6f-49d1-8055-67c275ad01c4.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-24_30a3b74b-ec94-4200-8f5d-68f07fe0d43c.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-05.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-12.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -464,14 +472,46 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "image_with_text_g6TK6d": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_89dCkh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ea8922b28b385b08e59165ac4371ed77.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "清潔超便利",
+            "content": "<p>滾筒拆裝簡易，可直接水洗！<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_89dCkh"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_LreQAy": {
       "type": "slideshow",
       "blocks": {
         "image_RwwQHY": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-11.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-25.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-06.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-15.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -498,46 +538,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_7VezLX": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_EqEKKr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/360.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "360度旋轉",
-            "content": "<h3>登山扣靈活性更佳<\/h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_EqEKKr"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_QFCqnC": {
       "type": "slideshow",
       "blocks": {
         "image_jk3Qpy": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-12_a6640dbe-ede2-40f8-9852-d53de71f7fdd.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-26_172e7494-17e6-41a5-bc3c-fe12ddf40e84.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-07.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-13.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -570,8 +578,8 @@
         "image_QhCdXx": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-13_54fd417a-23ee-4563-ab25-b1d06465062f.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-27_e0fbfecf-d289-4d20-8506-894cfa86c1ab.webp",
+            "image": "shopify:\/\/shop_images\/L122_web-08.webp",
+            "mobile_image": "shopify:\/\/shop_images\/L122_web-14.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -589,40 +597,6 @@
       },
       "block_order": [
         "image_QhCdXx"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_ntqVYw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_NiwFBN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-14_4b24cd39-eda2-4316-ac4d-82a6a26ccb24.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-28_5d1d732b-3bf1-49f4-9d3e-edcfbe10520d.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_NiwFBN"
       ],
       "settings": {
         "section_height": "auto",
@@ -817,19 +791,17 @@
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "image_with_text_NdwbHz",
-    "slideshow_PPXJ8W",
-    "17217531875f804291",
-    "slideshow_3bDkQd",
+    "slideshow_wJg8Pa",
+    "image_with_text_PWcqCt",
     "slideshow_Bqdten",
-    "slideshow_Rk4MXh",
-    "slideshow_iHtYDC",
-    "slideshow_xzetDx",
+    "17217531875f804291",
+    "slideshow_PPXJ8W",
+    "image_with_text_WNDbfp",
     "slideshow_E3anTw",
+    "image_with_text_g6TK6d",
     "slideshow_LreQAy",
-    "image_with_text_7VezLX",
     "slideshow_QFCqnC",
     "slideshow_DbXYJw",
-    "slideshow_ntqVYw",
     "rich_text_DrjhkK",
     "1724250482977559c7",
     "faq_7A9Tt9",
