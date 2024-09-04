@@ -313,6 +313,24 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "rich_text_bnzB43": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<h3>滾動下落，搭配密閉式集便倉，確保廢物直落、防止回流<\/h3><h3>並有效阻隔異味擴散，讓貓咪享有更清新的生活環境。<\/h3>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "17217531875f804291": {
       "type": "apps",
       "blocks": {
@@ -330,6 +348,58 @@
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
+      }
+    },
+    "rich_text_cUaLfj": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "半開放式敞篷設計",
+        "content": "<h2>符合貓咪天性，貓咪更愛用<\/h2>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_jYKJkw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jwbFNn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/f6c9f085ae70dff784109918e6d42561.gif",
+            "mobile_image": "shopify:\/\/shop_images\/phone_resize.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jwbFNn"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
       }
     },
     "slideshow_PPXJ8W": {
@@ -768,7 +838,10 @@
     "slideshow_8gP98b",
     "rich_text_UiUVFR",
     "slideshow_V96fVc",
+    "rich_text_bnzB43",
     "17217531875f804291",
+    "rich_text_cUaLfj",
+    "slideshow_jYKJkw",
     "slideshow_PPXJ8W",
     "slideshow_LreQAy",
     "slideshow_QFCqnC",
