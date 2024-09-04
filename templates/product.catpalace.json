@@ -209,70 +209,35 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_NdwbHz": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_jAFVgN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2_58f2dc65-3abb-483c-94bc-814b19752643.gif",
-            "tab_label": "",
-            "subheading": "鏟不停",
-            "title": "滾筒式真正乾淨！",
-            "content": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_jAFVgN"
-      ],
+    "rich_text_V9CghH": {
+      "type": "rich-text",
       "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "right",
+        "subheading": "",
+        "title": "滾筒式鏟砂 完美包覆不沾黏",
+        "content": "<h2>大幅降低清洗頻率<\/h2>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
         "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
+        "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_wJg8Pa": {
-      "type": "slideshow",
-      "blocks": {
-        "image_7B68gF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-02.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-10.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "他牌貓砂機",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 20
-          }
-        }
-      },
-      "block_order": [
-        "image_7B68gF"
-      ],
+    "video_6FpJ7A": {
+      "type": "video",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "fade",
+        "subheading": "",
+        "title": "",
+        "video_url": "https:\/\/vimeo.com\/1006053728",
+        "background_type": "boxed",
+        "video_size": "auto",
         "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "image_with_text_PWcqCt": {
@@ -825,8 +790,8 @@
     "slideshow_Cyhp4d",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
-    "image_with_text_NdwbHz",
-    "slideshow_wJg8Pa",
+    "rich_text_V9CghH",
+    "video_6FpJ7A",
     "image_with_text_PWcqCt",
     "slideshow_Bqdten",
     "17217531875f804291",
