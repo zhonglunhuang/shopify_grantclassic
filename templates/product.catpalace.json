@@ -260,13 +260,31 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "rich_text_UiUVFR": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "下落式集便設計，防臭防回流",
+        "content": "<h2>保持貓砂乾淨 貓咪才愛用<\/h2>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_V96fVc": {
       "type": "slideshow",
       "blocks": {
         "image_B3hT8y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/7.gif",
+            "image": "shopify:\/\/shop_images\/8.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -280,28 +298,10 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "image_TD6yzq": {
-          "type": "image",
-          "settings": {
-            "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 2",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
         }
       },
       "block_order": [
-        "image_B3hT8y",
-        "image_TD6yzq"
+        "image_B3hT8y"
       ],
       "settings": {
         "section_height": "auto",
@@ -764,6 +764,7 @@
     "slideshow_aKypqM",
     "rich_text_V9CghH",
     "slideshow_8gP98b",
+    "rich_text_UiUVFR",
     "slideshow_V96fVc",
     "17217531875f804291",
     "slideshow_PPXJ8W",
