@@ -544,11 +544,11 @@
         "item_h7F7Y4": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4d39993cf03e0e99aeaf269ee7c88ef1_187510a3-2b17-44fd-bea4-787bc345a580.gif",
+            "image": "shopify:\/\/shop_images\/1x1_frame_3.gif",
             "tab_label": "",
             "subheading": "",
             "title": "超靜音！運轉僅40分貝！",
-            "content": "<p>比圖書館安靜<\/p>",
+            "content": "<h2>比圖書館安靜<\/h2>",
             "button_text": "",
             "button_link": ""
           }
@@ -556,11 +556,11 @@
         "item_AdMe88": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/f3147733d3ce86cde4e0491b3f6198f8_90121187-e00b-43d2-b50f-d32c317c66c9.gif",
+            "image": "shopify:\/\/shop_images\/1x1_frame_4.gif",
             "tab_label": "",
             "subheading": "",
             "title": "二合一貼心設計 階梯兼落塵區",
-            "content": "<p>貓砂不散落<\/p>",
+            "content": "<h2>貓砂不散落<\/h2>",
             "button_text": "",
             "button_link": ""
           }
@@ -583,28 +583,28 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_g6TK6d": {
+    "image_with_text_qtqhXX": {
       "type": "image-with-text",
       "blocks": {
-        "item_89dCkh": {
+        "item_KiBtx3": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/ea8922b28b385b08e59165ac4371ed77.gif",
+            "image": "shopify:\/\/shop_images\/1x1_frame_2.gif",
             "tab_label": "",
             "subheading": "",
             "title": "清潔超便利",
-            "content": "<p>滾筒拆裝簡易，可直接水洗！<\/p>",
+            "content": "<h2>滾筒拆裝簡易，可直接水洗！<\/h2>",
             "button_text": "",
             "button_link": ""
           }
         }
       },
       "block_order": [
-        "item_89dCkh"
+        "item_KiBtx3"
       ],
       "settings": {
         "reveal_on_scroll": true,
-        "background_type": "boxed",
+        "background_type": "full_width",
         "background_overlap": "image",
         "image_position": "left",
         "text_alignment": "center",
@@ -847,7 +847,7 @@
     "slideshow_QFCqnC",
     "slideshow_E3anTw",
     "image_with_text_WNDbfp",
-    "image_with_text_g6TK6d",
+    "image_with_text_qtqhXX",
     "slideshow_DbXYJw",
     "rich_text_DrjhkK",
     "1724250482977559c7",
