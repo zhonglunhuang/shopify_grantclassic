@@ -233,7 +233,7 @@
         "image_PAFB9G": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4_4547f096-a9f8-4470-8484-4364d3d3b48e.gif",
+            "image": "shopify:\/\/shop_images\/6.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -260,62 +260,16 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_PWcqCt": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_hGCjjp": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3D_63997a98-7886-45d9-a343-2b925efe9832.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "下落至密閉式集便倉",
-            "content": "<h2>12L大容量<\/h2>",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "item_BapnRT": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Cat_walk.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "",
-            "content": "<ul><li><h2><strong>巨大開口，貓咪輕鬆進出<\/strong><\/h2><\/li><li><h2><strong>寬敞舒適，10kg喵也ok<\/strong><\/h2><\/li><li><h2><strong>便利主人，倒貓砂超輕鬆<\/strong><\/h2><\/li><\/ul>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_hGCjjp",
-        "item_BapnRT"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "left",
-        "cycle_speed": 3,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Bqdten": {
+    "slideshow_V96fVc": {
       "type": "slideshow",
       "blocks": {
-        "image_NEMAKQ": {
+        "image_B3hT8y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/f358bc35184ccaa1cf3b1cc7f8632a8e.gif",
-            "mobile_image": "shopify:\/\/shop_images\/phone_d4b1c2ef-7bbe-470e-88e7-1aee814ceece.gif",
+            "image": "shopify:\/\/shop_images\/7.gif",
             "text_position": "middle_center",
             "subheading": "",
-            "title": "他牌貓砂機",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -324,17 +278,15 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 20
+            "overlay_opacity": 0
           }
         },
-        "image_AgMiUz": {
+        "image_TD6yzq": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/7688e937c97786ea7886034e6786d318.gif",
-            "mobile_image": "shopify:\/\/shop_images\/phone_2feb51e6-cc57-45b0-b84e-3d75a65f2585.gif",
             "text_position": "middle_center",
-            "subheading": "",
-            "title": "他牌貓砂機",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -343,19 +295,19 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 17
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "image_NEMAKQ",
-        "image_AgMiUz"
+        "image_B3hT8y",
+        "image_TD6yzq"
       ],
       "settings": {
         "section_height": "auto",
-        "transition_type": "fade",
+        "transition_type": "sweep",
         "autoplay": true,
-        "cycle_speed": 4,
+        "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
       }
     },
@@ -812,8 +764,7 @@
     "slideshow_aKypqM",
     "rich_text_V9CghH",
     "slideshow_8gP98b",
-    "image_with_text_PWcqCt",
-    "slideshow_Bqdten",
+    "slideshow_V96fVc",
     "17217531875f804291",
     "slideshow_PPXJ8W",
     "slideshow_LreQAy",
