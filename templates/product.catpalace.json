@@ -235,8 +235,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/4_4547f096-a9f8-4470-8484-4364d3d3b48e.gif",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -245,7 +245,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "overlay_opacity": 0
           }
         }
       },
