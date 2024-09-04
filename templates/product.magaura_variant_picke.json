@@ -192,11 +192,11 @@
         "item_7bHjip": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/800x800.gif",
+            "image": "shopify:\/\/shop_images\/E3.gif",
             "tab_label": "",
             "subheading": "",
-            "title": "「啪嗒」 一貼即合",
-            "content": "<h3>秒變專業三腳架！穩定<\/h3>",
+            "title": "",
+            "content": "<h1>「啪嗒」 一貼即合<\/h1><h3>秒變專業三腳架！穩定<\/h3>",
             "button_text": "",
             "button_link": ""
           }
@@ -277,11 +277,11 @@
         "item_FGQy8m": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Ep-2.gif",
+            "image": "shopify:\/\/shop_images\/1x1_frame_6.gif",
             "tab_label": "",
             "subheading": "",
-            "title": "滿杯後 iPad也是搞定",
-            "content": "",
+            "title": "",
+            "content": "<h1>滿杯後 iPad也是搞定<\/h1>",
             "button_text": "",
             "button_link": ""
           }
