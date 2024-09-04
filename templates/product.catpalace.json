@@ -285,6 +285,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/3639f4a5379ac1d0ba096e38f34599d5.gif",
+            "mobile_image": "shopify:\/\/shop_images\/phone_af745998-69bb-420e-bff1-bb17530e80ef.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
