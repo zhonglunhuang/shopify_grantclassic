@@ -18,6 +18,28 @@
     },
     "contact-form": {
       "type": "contact-form",
+      "blocks": {
+        "text_GjDhRR": {
+          "type": "text",
+          "settings": {
+            "title": "電話",
+            "use_long_text": false,
+            "is_required": true
+          }
+        },
+        "text_JjaaN6": {
+          "type": "text",
+          "settings": {
+            "title": "會員卡號",
+            "use_long_text": false,
+            "is_required": true
+          }
+        }
+      },
+      "block_order": [
+        "text_GjDhRR",
+        "text_JjaaN6"
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/about-hero.jpg",
         "title": "",
