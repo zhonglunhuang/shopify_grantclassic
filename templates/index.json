@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slideshow": {
@@ -470,7 +479,7 @@
             "title": "",
             "content": "<p>MousyStory小鼠手札<\/p>",
             "link_text": "",
-            "link_url": "shopify:\/\/collections\/mousystory小鼠手札",
+            "link_url": "shopify:\/\/collections\/gc-mousystory",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
