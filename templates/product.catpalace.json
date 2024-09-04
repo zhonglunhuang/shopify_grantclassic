@@ -233,7 +233,8 @@
         "image_PAFB9G": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/6.gif",
+            "image": "shopify:\/\/shop_images\/9.gif",
+            "mobile_image": "shopify:\/\/shop_images\/phone_390a34ff-fd07-4cbf-835a-275c385d7bd6.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
