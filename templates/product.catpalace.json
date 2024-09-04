@@ -222,7 +222,7 @@
         "text_width": "medium",
         "text_position": "center",
         "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
+        "background": "#f7f8f8",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
@@ -274,7 +274,7 @@
         "text_width": "medium",
         "text_position": "center",
         "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
+        "background": "#f7f8f8",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
@@ -326,7 +326,7 @@
         "text_width": "medium",
         "text_position": "center",
         "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
+        "background": "#f7f8f8",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
@@ -363,7 +363,7 @@
         "text_width": "medium",
         "text_position": "center",
         "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
+        "background": "#f7f8f8",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
