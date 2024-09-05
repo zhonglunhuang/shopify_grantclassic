@@ -643,29 +643,29 @@
         "question_eGiYKz": {
           "type": "question",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 產品可以清洗嗎？",
-            "answer": "<p>是的，您可以使用濕布輕輕擦拭 繩來運轉 Velvet Strap Pro 掛繩充電線以保持其清潔，但請避免將其浸泡在水中。<\/p>"
+            "title": "鏟不停的尺寸是多大呢？",
+            "answer": "<p>整機尺寸：66.5 x 65.5 x 68.3 cm、內桶尺寸：半敞篷開放式（44 x 37 x 43 cm）。<\/p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 的最大充電功率是多少？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 支持高達 60W 的快速充電，適合為各種設備快速補充電量。<\/p>"
+            "title": "有貓砂限制嗎？長條豆腐砂可不可以用？",
+            "answer": "<p>凝結型貓砂都可以用！只要是尿下去可以「凝結成塊」的貓砂，像是 #豆腐砂 #混合砂 #紙砂 #礦砂 #花生殼砂 ...等等都適用～不過會建議使用小於 15 mm 的貓砂哦！<\/p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
-            "title": "我可以在使用手機保護殼的同時使用 繩來運轉 Velvet Strap Pro 嗎？",
-            "answer": "<p>是的，繩來運轉 Velvet Strap Pro 兼容大多數標準的手機保護殼，無需拆卸保護殼即可使用。<\/p>"
+            "title": "集便倉多大呢？",
+            "answer": "<p>集便倉為12L（43 x 25 x 11 cm），若為單貓使用，可呈裝約5-7天份貓便。<\/p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 有幾種顏色可供選擇？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 提供五種顏色，讓您可以根據個人風格進行選擇。<\/p>"
+            "title": "一定要用專用的垃圾袋嗎？",
+            "answer": "<p>我們有出專用的抽繩清潔袋，不過一般家用垃圾袋若尺寸符合，也是可以使用的喔！<\/p>"
           }
         },
         "category_tUjCi3": {
@@ -677,15 +677,15 @@
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 可以在任何環境下使用嗎？",
-            "answer": "<p>雖然繩來運轉 Velvet Strap Pro 耐用且適合日常使用，但建議避免長時間暴露在極端潮濕或高溫環境中。<\/p>"
+            "title": "貓砂會容易黏底嗎？",
+            "answer": "<p>內艙底墊是防抓矽膠材質，目前實驗過多種貓砂都不太會黏底。若真的黏到一點，用濕紙巾就能擦起來，貓砂墊若有需要是可以做更換的。<\/p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
-            "title": "我可以用繩來運轉 Velvet Strap Pro 連接所有類型的設備嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 兼容 USB-C 和蘋果設備，但請確認您的設備支持這些端口類型。<\/p>"
+            "title": "是否能辨識多貓身分，以及重量感測？",
+            "answer": "<p>我們致力以最好的價格+安全實用的功能作為開發目標，因此目前沒有這些設計。<\/p><p>重量感應實際無法真正辨別貓咪，體重變化就會導致資料失真，且重量感應會因為桶身變形導致容易錯誤。<\/p>"
           }
         },
         "question_pycbBH": {
