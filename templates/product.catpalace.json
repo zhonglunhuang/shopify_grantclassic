@@ -817,6 +817,23 @@
       ],
       "settings": {
       }
+    },
+    "1725552081de692f66": {
+      "type": "apps",
+      "blocks": {
+        "vitals_product_reviews_WdCBfw": {
+          "type": "shopify:\/\/apps\/vitals\/blocks\/product-reviews\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vitals_product_reviews_WdCBfw"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
     }
   },
   "order": [
@@ -841,6 +858,7 @@
     "rich_text_DrjhkK",
     "1724250482977559c7",
     "faq_7A9Tt9",
-    "product-content"
+    "product-content",
+    "1725552081de692f66"
   ]
 }
