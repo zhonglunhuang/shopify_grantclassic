@@ -296,6 +296,7 @@
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
           "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "disabled": true,
           "settings": {
             "playlist_id": "rl_pl_7979",
             "debugging_script": ""
@@ -305,6 +306,7 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
       ],
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
