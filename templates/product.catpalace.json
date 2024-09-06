@@ -140,7 +140,7 @@
         "image_7UHRWF"
       ],
       "settings": {
-        "section_height": "fit",
+        "section_height": "auto",
         "transition_type": "sweep",
         "autoplay": true,
         "cycle_speed": 5,
@@ -150,7 +150,7 @@
     "slideshow_Cyhp4d": {
       "type": "slideshow",
       "settings": {
-        "section_height": "fit",
+        "section_height": "auto",
         "transition_type": "reveal",
         "autoplay": true,
         "cycle_speed": 5,
