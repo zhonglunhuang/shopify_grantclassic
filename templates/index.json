@@ -12,6 +12,25 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_RQmfLB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_df2cd6ed-dbd7-4c85-b32e-40a31665c9a8.webp",
+            "mobile_image": "shopify:\/\/shop_images\/phone-02.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify:\/\/products\/ventshield",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_decgqn": {
           "type": "image",
           "disabled": true,
@@ -42,25 +61,6 @@
             "title": "",
             "button_1_text": "",
             "button_1_link": "shopify:\/\/collections\/gc-tag-series",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_RQmfLB": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/VENT.webp",
-            "mobile_image": "shopify:\/\/shop_images\/VENT_phone.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify:\/\/products\/ventshield",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
@@ -110,9 +110,9 @@
         }
       },
       "block_order": [
+        "image_RQmfLB",
         "image_decgqn",
         "b3f42f8f-dcd3-4867-8130-a475c6dc794e",
-        "image_RQmfLB",
         "image_CdPCAk",
         "image_cK3UHA"
       ],
