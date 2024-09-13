@@ -578,7 +578,6 @@
         "a2c592b3-f3f6-468b-832a-fc8e6c432604",
         "dd750b77-7ee5-43f6-8b98-9e7311a305b0"
       ],
-      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "stack_items": false,
@@ -759,7 +758,6 @@
         "d3c35cf4-4fed-458b-8382-634668debe38",
         "bb1bbd15-3829-4866-a728-a07ebb2a6c63"
       ],
-      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "stack_items": false,
@@ -796,7 +794,6 @@
         "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-2",
         "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-3"
       ],
-      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "subheading": "",
@@ -807,7 +804,6 @@
     },
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6": {
       "type": "custom-liquid",
-      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
