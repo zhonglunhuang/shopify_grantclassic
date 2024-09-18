@@ -771,36 +771,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "6d89abc7-9266-4b55-85e1-e2bcf3677628": {
-      "type": "testimonials",
-      "blocks": {
-        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-2": {
-          "type": "testimonial",
-          "settings": {
-            "content": "Write some content about what they are saying about your store.",
-            "author": "John S."
-          }
-        },
-        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-3": {
-          "type": "testimonial",
-          "settings": {
-            "content": "Write some content about what they are saying about your store.",
-            "author": "John S."
-          }
-        }
-      },
-      "block_order": [
-        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-2",
-        "template--16672969064691__6d89abc7-9266-4b55-85e1-e2bcf3677628-testimonial-3"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6": {
       "type": "custom-liquid",
       "settings": {
@@ -860,7 +830,6 @@
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
     "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
-    "6d89abc7-9266-4b55-85e1-e2bcf3677628",
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
     "8550440c-db8a-41c3-808a-e9ef4d695f17",
     "c273c071-0a39-4516-9587-6b49b8a635a6"
