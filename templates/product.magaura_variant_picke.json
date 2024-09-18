@@ -99,38 +99,17 @@
         "transition_effect": "slide"
       }
     },
-    "slideshow_Cyhp4d": {
-      "type": "slideshow",
-      "blocks": {
-        "image_zaaRNV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/top_a7527332-9aae-4971-a559-2773ff50c479.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/01_62f88dfe-37f0-4a3c-8d6d-ae37766c3e38.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_zaaRNV"
-      ],
+    "video_VRPcrX": {
+      "type": "video",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
+        "subheading": "",
+        "title": "",
+        "video_url": "https:\/\/vimeo.com\/1010494659",
+        "background_type": "full_width",
+        "video_size": "auto",
         "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_q6KAET": {
@@ -725,7 +704,7 @@
   },
   "order": [
     "main",
-    "slideshow_Cyhp4d",
+    "video_VRPcrX",
     "slideshow_q6KAET",
     "17217531875f804291",
     "image_with_text_QaWce4",
