@@ -104,7 +104,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/vimeo.com\/1010494659",
+        "video_url": "https:\/\/vimeo.com\/1010511887",
         "background_type": "full_width",
         "video_size": "auto",
         "autoplay": true,
@@ -118,8 +118,8 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
+            "image": "shopify:\/\/shop_images\/2165x700_1.gif",
+            "mobile_image": "shopify:\/\/shop_images\/1000x2475_1.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -165,38 +165,6 @@
         "include_vertical_margins": false
       }
     },
-    "image_with_text_QaWce4": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_7bHjip": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/E3.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "",
-            "content": "<h1>「啪嗒」 一貼即合<\/h1><h3>秒變專業三腳架！穩定<\/h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_7bHjip"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 10,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "17217531779a9cbfe4": {
       "type": "apps",
       "blocks": {
@@ -218,30 +186,6 @@
     },
     "slideshow_aKypqM": {
       "type": "slideshow",
-      "blocks": {
-        "image_9PF8CN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_9PF8CN"
-      ],
       "settings": {
         "section_height": "auto",
         "transition_type": "reveal",
@@ -250,46 +194,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_U9wQ9g": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_FGQy8m": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1x1_frame_6.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "",
-            "content": "<h1>滿杯後 iPad也是搞定<\/h1>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_FGQy8m"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_3bDkQd": {
       "type": "slideshow",
       "blocks": {
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
+            "image": "shopify:\/\/shop_images\/2165x1074.gif",
+            "mobile_image": "shopify:\/\/shop_images\/1000x1251.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -316,82 +228,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "multi_column_z4t6Eb": {
-      "type": "multi-column",
-      "blocks": {
-        "item_jFVPR8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/e5679435fd712964be9831fd1d261ea1.gif",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_UQEkRG": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/76b47c358ecf2b4c546cbc1fd6837776.gif",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_NezbWF": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/b6ba9bc6255e52c4fd53cace2a5ece7e.gif",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        }
-      },
-      "block_order": [
-        "item_jFVPR8",
-        "item_UQEkRG",
-        "item_NezbWF"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "large",
-        "desktop_item_size": "large",
-        "spacing": "tight",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_Rk4MXh": {
       "type": "slideshow",
       "blocks": {
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
+            "image": "shopify:\/\/shop_images\/temo-04.webp",
+            "mobile_image": "shopify:\/\/shop_images\/temo-11.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -424,8 +268,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/005.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
+            "image": "shopify:\/\/shop_images\/2165x716_9a1c687b-e6f4-4b3d-984f-33579c10b608.gif",
+            "mobile_image": "shopify:\/\/shop_images\/1000x1507.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -458,8 +302,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
+            "image": "shopify:\/\/shop_images\/temo-06.webp",
+            "mobile_image": "shopify:\/\/shop_images\/temo-13.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -492,8 +336,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/007.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
+            "image": "shopify:\/\/shop_images\/temo-07.webp",
+            "mobile_image": "shopify:\/\/shop_images\/temo-14.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -526,8 +370,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
+            "image": "shopify:\/\/shop_images\/temo-08.webp",
+            "mobile_image": "shopify:\/\/shop_images\/temo-15.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -707,12 +551,9 @@
     "video_VRPcrX",
     "slideshow_q6KAET",
     "17217531875f804291",
-    "image_with_text_QaWce4",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
-    "image_with_text_U9wQ9g",
     "slideshow_3bDkQd",
-    "multi_column_z4t6Eb",
     "slideshow_Rk4MXh",
     "slideshow_Bqdten",
     "slideshow_iHtYDC",
