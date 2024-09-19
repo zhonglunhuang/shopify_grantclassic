@@ -33,15 +33,14 @@
         },
         "image_decgqn": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/cover_30a909a3-30a0-4e0b-acdd-2a689889e392.webp",
-            "mobile_image": "shopify:\/\/shop_images\/cover_phone_438cdc79-9005-49f8-a214-a300db36b24b.webp",
+            "image": "shopify:\/\/shop_images\/Catpalace_2200x1130_76f1de58-3e90-4f23-882b-7f68967348a8.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Catpalace_phone.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
             "button_1_text": "",
-            "button_1_link": "https:\/\/grantclassic.com\/products\/catpalace",
+            "button_1_link": "shopify:\/\/products\/catpalace",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
