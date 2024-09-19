@@ -174,33 +174,27 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "c273c071-0a39-4516-9587-6b49b8a635a6": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "gc-blog",
+        "subheading": "",
+        "title": "編輯精選文章",
+        "button_text": "查看更多",
+        "articles_count": 3,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "16859436662a75d14b": {
       "type": "apps",
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
-      }
-    },
-    "7e68dca3-ff9f-4904-8691-9940dedc83a5": {
-      "type": "image-with-text-block",
-      "settings": {
-        "reveal_on_scroll": false,
-        "image": "shopify:\/\/shop_images\/230511_3c68cf90-001c-49f3-b1d0-66bf03284978.webp",
-        "mobile_image": "shopify:\/\/shop_images\/230511_______phone_aa2b5a4c-0947-434b-bb8a-ef628fc736bd.webp",
-        "subheading": "LISTEN G1",
-        "title": "伍點壹",
-        "content": "",
-        "button_text": "more",
-        "button_link": "shopify:\/\/products\/listen-g1",
-        "background_type": "boxed",
-        "text_position": "left",
-        "text_alignment": "left",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "#e3e3e3",
-        "text_color": "#ffffff",
-        "text_color_mobile": "#000000",
-        "button_background": "#eb3b3b",
-        "button_text_color": "#ffffff"
       }
     },
     "874de104-fc55-4f57-b89f-70e94f68f14b": {
@@ -282,6 +276,7 @@
         },
         "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-2": {
           "type": "logo",
+          "disabled": true,
           "settings": {
             "logo": "shopify:\/\/shop_images\/Rectangle_143.png",
             "link": ""
@@ -349,6 +344,7 @@
         "6b72279c-d255-4b32-9797-1b88ed626b45",
         "42e23cf2-1925-486f-9efb-eed545746937"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "subheading": "",
@@ -804,34 +800,18 @@
         "button_background": "#eb3b3b",
         "button_text_color": "#ffffff"
       }
-    },
-    "c273c071-0a39-4516-9587-6b49b8a635a6": {
-      "type": "blog-posts",
-      "settings": {
-        "blog": "gc-blog",
-        "subheading": "",
-        "title": "Blog",
-        "button_text": "查看更多",
-        "articles_count": 3,
-        "stack_mobile": false,
-        "show_category": true,
-        "show_excerpt": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
     }
   },
   "order": [
     "slideshow",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
+    "c273c071-0a39-4516-9587-6b49b8a635a6",
     "16859436662a75d14b",
-    "7e68dca3-ff9f-4904-8691-9940dedc83a5",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
     "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
-    "8550440c-db8a-41c3-808a-e9ef4d695f17",
-    "c273c071-0a39-4516-9587-6b49b8a635a6"
+    "8550440c-db8a-41c3-808a-e9ef4d695f17"
   ]
 }
