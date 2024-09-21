@@ -173,21 +173,6 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "c273c071-0a39-4516-9587-6b49b8a635a6": {
-      "type": "blog-posts",
-      "settings": {
-        "blog": "gc-blog",
-        "subheading": "",
-        "title": "編輯精選文章",
-        "button_text": "查看更多",
-        "articles_count": 3,
-        "stack_mobile": false,
-        "show_category": true,
-        "show_excerpt": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "16859436662a75d14b": {
       "type": "apps",
       "disabled": true,
@@ -799,18 +784,33 @@
         "button_background": "#eb3b3b",
         "button_text_color": "#ffffff"
       }
+    },
+    "c273c071-0a39-4516-9587-6b49b8a635a6": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "gc-blog",
+        "subheading": "",
+        "title": "編輯精選文章",
+        "button_text": "查看更多",
+        "articles_count": 3,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
     "slideshow",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
-    "c273c071-0a39-4516-9587-6b49b8a635a6",
     "16859436662a75d14b",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
     "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
     "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
-    "8550440c-db8a-41c3-808a-e9ef4d695f17"
+    "8550440c-db8a-41c3-808a-e9ef4d695f17",
+    "c273c071-0a39-4516-9587-6b49b8a635a6"
   ]
 }
