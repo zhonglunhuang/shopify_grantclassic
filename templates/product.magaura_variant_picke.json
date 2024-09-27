@@ -29,7 +29,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "photo_variant_picker_WwtNct": {
@@ -68,7 +68,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -104,7 +104,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/vimeo.com\/1010494659",
+        "video_url": "https://vimeo.com/1010494659",
         "background_type": "full_width",
         "video_size": "auto",
         "autoplay": true,
@@ -118,8 +118,8 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
+            "image": "shopify://shop_images/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
+            "mobile_image": "shopify://shop_images/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -150,7 +150,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
@@ -171,11 +171,11 @@
         "item_7bHjip": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/E3.gif",
+            "image": "shopify://shop_images/E3.gif",
             "tab_label": "",
             "subheading": "",
             "title": "",
-            "content": "<h1>「啪嗒」 一貼即合<\/h1><h3>秒變專業三腳架！穩定<\/h3>",
+            "content": "<h1>「啪嗒」 一貼即合</h1><h3>秒變專業三腳架！穩定</h3>",
             "button_text": "",
             "button_link": ""
           }
@@ -201,7 +201,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": "",
             "debugging_script": ""
@@ -222,8 +222,8 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
+            "image": "shopify://shop_images/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
+            "mobile_image": "shopify://shop_images/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -256,11 +256,11 @@
         "item_FGQy8m": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1x1_frame_6.gif",
+            "image": "shopify://shop_images/1x1_frame_6.gif",
             "tab_label": "",
             "subheading": "",
             "title": "",
-            "content": "<h1>滿杯後 iPad也是搞定<\/h1>",
+            "content": "<h1>滿杯後 iPad也是搞定</h1>",
             "button_text": "",
             "button_link": ""
           }
@@ -288,8 +288,8 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
+            "image": "shopify://shop_images/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
+            "mobile_image": "shopify://shop_images/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -322,7 +322,7 @@
         "item_jFVPR8": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/e5679435fd712964be9831fd1d261ea1.gif",
+            "image": "shopify://shop_images/e5679435fd712964be9831fd1d261ea1.gif",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
@@ -337,7 +337,7 @@
         "item_UQEkRG": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/76b47c358ecf2b4c546cbc1fd6837776.gif",
+            "image": "shopify://shop_images/76b47c358ecf2b4c546cbc1fd6837776.gif",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
@@ -352,7 +352,7 @@
         "item_NezbWF": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b6ba9bc6255e52c4fd53cace2a5ece7e.gif",
+            "image": "shopify://shop_images/b6ba9bc6255e52c4fd53cace2a5ece7e.gif",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
@@ -390,8 +390,8 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
+            "image": "shopify://shop_images/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
+            "mobile_image": "shopify://shop_images/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -424,8 +424,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/005.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
+            "image": "shopify://shop_images/005.jpg",
+            "mobile_image": "shopify://shop_images/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -458,8 +458,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
+            "image": "shopify://shop_images/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
+            "mobile_image": "shopify://shop_images/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -492,8 +492,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/007.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
+            "image": "shopify://shop_images/007.jpg",
+            "mobile_image": "shopify://shop_images/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -526,8 +526,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
+            "image": "shopify://shop_images/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
+            "mobile_image": "shopify://shop_images/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -567,35 +567,35 @@
           "type": "question",
           "settings": {
             "title": "MagAura 產品可以洗嗎？",
-            "answer": "<p>建議清洗方式<\/p><p>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可<\/p><p>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗<\/p>"
+            "answer": "<p>建議清洗方式</p><p>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可</p><p>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
             "title": "MagAura 能保持我的飲料多長時間熱或冷？",
-            "answer": "<p>MagAura 的雙層真空絕緣不銹鋼瓶可保持飲料冷 24 小時，熱 12 小時。<\/p>"
+            "answer": "<p>MagAura 的雙層真空絕緣不銹鋼瓶可保持飲料冷 12 小時，熱 12 小時。</p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
             "title": "磁力增強環包含在內嗎？",
-            "answer": "<p>是的！<\/p>"
+            "answer": "<p>是的！</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
             "title": "MagAura 可以與我的手機保護殼一起使用嗎？",
-            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。<\/p><p>磁力增強環包含在內。<\/p>"
+            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。</p><p>磁力增強環包含在內。</p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
             "title": "MagAura 可以放進我的車杯架嗎？",
-            "answer": "<p>MagAura 的設計適合大多數車杯架。<br\/>尺寸：78mm x 243mm<\/p>"
+            "answer": "<p>MagAura 的設計適合大多數車杯架。<br/>尺寸：78mm x 243mm</p>"
           }
         },
         "category_tUjCi3": {
@@ -608,28 +608,28 @@
           "type": "question",
           "settings": {
             "title": "MagAura 在水瓶空的時候能工作嗎？",
-            "answer": "<p>是的！MagAura 的設計無論水瓶是空的還是滿的都能穩定工作。<\/p>"
+            "answer": "<p>是的！MagAura 的設計無論水瓶是空的還是滿的都能穩定工作。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
             "title": "我可以將 MagAura 放在冰箱或冰櫃裡嗎？",
-            "answer": "<p>您可以將 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。<\/p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰冷的水。<\/p>"
+            "answer": "<p>您可以將 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。</p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰冷的水。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
             "title": "我可以在 MagAura 放入發酵液體嗎？",
-            "answer": "<p>不建議在 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
+            "answer": "<p>不建議在 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
             "title": "我可以在 MagAura 中使用碳酸飲料嗎？",
-            "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。<\/p>"
+            "answer": "<p>不建議在 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
           }
         },
         "category_RazFtp": {
@@ -642,14 +642,14 @@
           "type": "question",
           "settings": {
             "title": "請問 MagAura 客製化需要多久時間？",
-            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。<\/p>"
+            "answer": "<p>MagAura 客製化時間約莫5個工作天不含節假日。</p>"
           }
         },
         "question_BbThaW": {
           "type": "question",
           "settings": {
             "title": "我需要大量訂製 MagAura 是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
           }
         }
       },
@@ -689,7 +689,7 @@
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
