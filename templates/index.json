@@ -361,6 +361,21 @@
             "vertical_alignment": "start"
           }
         },
+        "item_BgpmnQ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/9c8925250211c2ef583ad978d5a107cc.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>嘴邊肉軍團</p>",
+            "link_text": "",
+            "link_url": "shopify://collections/chubenlol-friends",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
         "d3321d93-ad59-41bb-a32c-92babc56d2ab": {
           "type": "item",
           "settings": {
@@ -544,6 +559,7 @@
       },
       "block_order": [
         "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
+        "item_BgpmnQ",
         "d3321d93-ad59-41bb-a32c-92babc56d2ab",
         "c80d10a0-be17-45b5-85db-2148cfab2a43",
         "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2",
