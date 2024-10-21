@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -29,7 +29,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "photo_variant_picker_WwtNct": {
@@ -68,7 +68,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -104,7 +104,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/player.vimeo.com\/video\/1000709386",
+        "video_url": "https://player.vimeo.com/video/1000709386",
         "background_type": "full_width",
         "video_size": "auto",
         "autoplay": true,
@@ -126,7 +126,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": "",
             "debugging_script": ""
@@ -147,8 +147,8 @@
         "image_RazTdG": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-02_bd93b2f5-7bad-464c-8eef-5ca75d109a3d.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-16_1e606c69-6437-42f9-a879-36dab30740d8.webp",
+            "image": "shopify://shop_images/L132_web-02_e247d410-3f34-41c0-9892-e7a91a152d92.webp",
+            "mobile_image": "shopify://shop_images/L132_web-16_119a0cc7-2719-4441-8a43-24b4ab436c16.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -181,11 +181,11 @@
         "item_jAFVgN": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/decae8b992c69d97f35bee39aed2cb7c.gif",
+            "image": "shopify://shop_images/decae8b992c69d97f35bee39aed2cb7c.gif",
             "tab_label": "",
             "subheading": "",
             "title": "隨時調整長度",
-            "content": "<h3>靈活長度 適應多場景<\/h3>",
+            "content": "<h3>靈活長度 適應多場景</h3>",
             "button_text": "",
             "button_link": ""
           }
@@ -213,8 +213,8 @@
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-04.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-18.webp",
+            "image": "shopify://shop_images/L132_web-04.webp",
+            "mobile_image": "shopify://shop_images/L132_web-18.webp",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -245,7 +245,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "rl_pl_7979",
             "debugging_script": ""
@@ -266,8 +266,8 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-05_754acab1-ed20-4bd4-b2c3-41f26019dad7.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-19_6ab9795b-baeb-4e05-8e37-4deddca9e595.webp",
+            "image": "shopify://shop_images/L132_web-05_754acab1-ed20-4bd4-b2c3-41f26019dad7.webp",
+            "mobile_image": "shopify://shop_images/L132_web-19_6ab9795b-baeb-4e05-8e37-4deddca9e595.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -300,8 +300,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-06_85328201-20a4-4cdf-b75b-6250f2410810.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-20_0c47e7a7-35fd-46ba-8163-f7ebfe09b66b.webp",
+            "image": "shopify://shop_images/L132_web-06_85328201-20a4-4cdf-b75b-6250f2410810.webp",
+            "mobile_image": "shopify://shop_images/L132_web-20_0c47e7a7-35fd-46ba-8163-f7ebfe09b66b.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -334,8 +334,8 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-07_bc54e300-a032-4d42-a7c6-f82fb4ddff09.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-21_4ead05e4-bae0-4448-bded-307f9b7e76e1.webp",
+            "image": "shopify://shop_images/L132_web-07_bc54e300-a032-4d42-a7c6-f82fb4ddff09.webp",
+            "mobile_image": "shopify://shop_images/L132_web-21_4ead05e4-bae0-4448-bded-307f9b7e76e1.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -368,8 +368,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-08_94f5e45f-aec0-4b34-8dc3-3c17b5b58030.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-22_3369c796-843c-46c1-93b1-2279bb1b3871.webp",
+            "image": "shopify://shop_images/L132_web-08_94f5e45f-aec0-4b34-8dc3-3c17b5b58030.webp",
+            "mobile_image": "shopify://shop_images/L132_web-22_3369c796-843c-46c1-93b1-2279bb1b3871.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -402,8 +402,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-09_f348414c-4a99-4a6d-ab28-2e59ab64b264.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-23_329d2a45-403c-4f85-9eaf-241a07df26c5.webp",
+            "image": "shopify://shop_images/L132_web-09_f348414c-4a99-4a6d-ab28-2e59ab64b264.webp",
+            "mobile_image": "shopify://shop_images/L132_web-23_329d2a45-403c-4f85-9eaf-241a07df26c5.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -436,8 +436,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-10_d3b1bb0c-aa6f-49d1-8055-67c275ad01c4.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-24_30a3b74b-ec94-4200-8f5d-68f07fe0d43c.webp",
+            "image": "shopify://shop_images/L132_web-10_d3b1bb0c-aa6f-49d1-8055-67c275ad01c4.webp",
+            "mobile_image": "shopify://shop_images/L132_web-24_30a3b74b-ec94-4200-8f5d-68f07fe0d43c.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -470,8 +470,8 @@
         "image_RwwQHY": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-11.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-25.webp",
+            "image": "shopify://shop_images/L132_web-11.webp",
+            "mobile_image": "shopify://shop_images/L132_web-25.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -504,11 +504,11 @@
         "item_EqEKKr": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/360.gif",
+            "image": "shopify://shop_images/360.gif",
             "tab_label": "",
             "subheading": "",
             "title": "360度旋轉",
-            "content": "<h3>登山扣靈活性更佳<\/h3>",
+            "content": "<h3>登山扣靈活性更佳</h3>",
             "button_text": "",
             "button_link": ""
           }
@@ -536,8 +536,8 @@
         "image_jk3Qpy": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-12_a6640dbe-ede2-40f8-9852-d53de71f7fdd.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-26_172e7494-17e6-41a5-bc3c-fe12ddf40e84.webp",
+            "image": "shopify://shop_images/L132_web-12_a6640dbe-ede2-40f8-9852-d53de71f7fdd.webp",
+            "mobile_image": "shopify://shop_images/L132_web-26_172e7494-17e6-41a5-bc3c-fe12ddf40e84.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -570,8 +570,8 @@
         "image_QhCdXx": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-13_54fd417a-23ee-4563-ab25-b1d06465062f.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-27_e0fbfecf-d289-4d20-8506-894cfa86c1ab.webp",
+            "image": "shopify://shop_images/L132_web-13_54fd417a-23ee-4563-ab25-b1d06465062f.webp",
+            "mobile_image": "shopify://shop_images/L132_web-27_e0fbfecf-d289-4d20-8506-894cfa86c1ab.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -604,8 +604,8 @@
         "image_NiwFBN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-14_c1665c85-45b6-4b5d-812d-6d8574e48640.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-28_4d096dce-3902-4bc4-8d83-b3673e2954a9.webp",
+            "image": "shopify://shop_images/L132_web-14_c1665c85-45b6-4b5d-812d-6d8574e48640.webp",
+            "mobile_image": "shopify://shop_images/L132_web-28_4d096dce-3902-4bc4-8d83-b3673e2954a9.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -638,8 +638,8 @@
         "image_kMUAcm": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L132_web-30.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L132_web-31.webp",
+            "image": "shopify://shop_images/L132_web-30.webp",
+            "mobile_image": "shopify://shop_images/L132_web-31.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -688,7 +688,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "rl_pl_8029",
             "debugging_script": ""
@@ -716,28 +716,28 @@
           "type": "question",
           "settings": {
             "title": "繩來運轉 Velvet Strap Pro 產品可以清洗嗎？",
-            "answer": "<p>是的，您可以使用濕布輕輕擦拭 繩來運轉 Velvet Strap Pro 掛繩充電線以保持其清潔，但請避免將其浸泡在水中。<\/p>"
+            "answer": "<p>是的，您可以使用濕布輕輕擦拭 繩來運轉 Velvet Strap Pro 掛繩充電線以保持其清潔，但請避免將其浸泡在水中。</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
             "title": "繩來運轉 Velvet Strap Pro 的最大充電功率是多少？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 支持高達 60W 的快速充電，適合為各種設備快速補充電量。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 支持高達 60W 的快速充電，適合為各種設備快速補充電量。</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
             "title": "我可以在使用手機保護殼的同時使用 繩來運轉 Velvet Strap Pro 嗎？",
-            "answer": "<p>是的，繩來運轉 Velvet Strap Pro 兼容大多數標準的手機保護殼，無需拆卸保護殼即可使用。<\/p>"
+            "answer": "<p>是的，繩來運轉 Velvet Strap Pro 兼容大多數標準的手機保護殼，無需拆卸保護殼即可使用。</p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
             "title": "繩來運轉 Velvet Strap Pro 有幾種顏色可供選擇？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 提供五種顏色，讓您可以根據個人風格進行選擇。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 提供五種顏色，讓您可以根據個人風格進行選擇。</p>"
           }
         },
         "category_tUjCi3": {
@@ -750,28 +750,28 @@
           "type": "question",
           "settings": {
             "title": "繩來運轉 Velvet Strap Pro 可以在任何環境下使用嗎？",
-            "answer": "<p>雖然繩來運轉 Velvet Strap Pro 耐用且適合日常使用，但建議避免長時間暴露在極端潮濕或高溫環境中。<\/p>"
+            "answer": "<p>雖然繩來運轉 Velvet Strap Pro 耐用且適合日常使用，但建議避免長時間暴露在極端潮濕或高溫環境中。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
             "title": "我可以用繩來運轉 Velvet Strap Pro 連接所有類型的設備嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 兼容 USB-C 和蘋果設備，但請確認您的設備支持這些端口類型。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 兼容 USB-C 和蘋果設備，但請確認您的設備支持這些端口類型。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
             "title": "繩來運轉 Velvet Strap Pro 在使用過程中會產生過熱問題嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 設計具備優良的散熱性能。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 設計具備優良的散熱性能。</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
             "title": "如何調整繩來運轉 Velvet Strap Pro 的長度？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 配有簡單易用的長度調節機制，輕輕拉動即可根據您的需求進行調整，總長度約莫160cm。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 配有簡單易用的長度調節機制，輕輕拉動即可根據您的需求進行調整，總長度約莫160cm。</p>"
           }
         },
         "category_RazFtp": {
@@ -784,14 +784,14 @@
           "type": "question",
           "settings": {
             "title": "請問繩來運轉 Velvet Strap Pro 客製化需要多長時間？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 的客製化訂單通常需要 7-10 個工作日處理，具體時間視訂單量而定。<\/p>"
+            "answer": "<p>繩來運轉 Velvet Strap Pro 的客製化訂單通常需要 7-10 個工作日處理，具體時間視訂單量而定。</p>"
           }
         },
         "question_BbThaW": {
           "type": "question",
           "settings": {
             "title": "我需要大量訂製繩來運轉 Velvet Strap Pro，是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 繩來運轉 Velvet Strap Pro。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 繩來運轉 Velvet Strap Pro。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
           }
         }
       },
@@ -830,7 +830,7 @@
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
