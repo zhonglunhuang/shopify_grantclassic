@@ -1,19 +1,19 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "1721752751939b7d14": {
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": "",
             "debugging_script": ""
@@ -40,7 +40,7 @@
           }
         },
         "crowdfunder_crowdfunder_AYVCTN": {
-          "type": "shopify:\/\/apps\/crowdfunder\/blocks\/crowdfunder\/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
+          "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
           "settings": {
           }
         },
@@ -53,7 +53,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "variant_picker": {
@@ -83,7 +83,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -118,7 +118,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
@@ -145,7 +145,7 @@
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -156,12 +156,42 @@
       ],
       "settings": {
       }
+    },
+    "faq_WPQ9fb": {
+      "type": "faq",
+      "blocks": {
+        "category_jHkkmH": {
+          "type": "category",
+          "settings": {
+            "title": "注意事項"
+          }
+        },
+        "question_8px7hi": {
+          "type": "question",
+          "settings": {
+            "title": "售後問題",
+            "answer": "<p>※ 放上手機後各部位螺絲都要鎖緊<br/>※ 手機尺寸過大及比例特殊(21:9)，或是手機殼過大過厚可加裝防摔網<br/>※ 收到商品後請檢查商品是否有瑕疵缺件，若商品有瑕疵缺件請聯絡客服更換良品。<br/>※ 機車用手機架有可能因為日曬雨淋等等各種環境因素，或是遭到人為破壞導致零件老化毀損，建議使用完後拆下保存。<br/>※ 使用本機車用手機架行駛前，請先檢查車架是否正常無瑕疵、安裝是否牢固、鎖緊不會掉落，若因沒有確實檢查等等人為因素造成手機掉落，本公司概不負責。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_jHkkmH",
+        "question_8px7hi"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
     "1721752751939b7d14",
     "main",
     "17217886296359dc4e",
-    "product-content"
+    "product-content",
+    "faq_WPQ9fb"
   ]
 }
