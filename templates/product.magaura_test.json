@@ -1,0 +1,732 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "10eed426-c481-4651-8503-74a9f6dc6018": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.custom._123.value }}",
+            "image_alignment": "left",
+            "image_width": 270
+          }
+        },
+        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+          }
+        },
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+          }
+        },
+        "photo_variant_picker_WwtNct": {
+          "type": "photo_variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "liquid_hpmDVh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "10eed426-c481-4651-8503-74a9f6dc6018",
+        "df999a05-d00f-4f60-87d3-401d4a092ce9",
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+        "photo_variant_picker_WwtNct",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_hpmDVh"
+      ],
+      "settings": {
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "related_collections": "{{ product.metafields.custom.attributes.value }}",
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "left",
+        "transition_effect": "slide"
+      }
+    },
+    "video_VRPcrX": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/1010494659",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_q6KAET": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3XEhL6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/001_ad6cfd7a-3ad4-485f-ac91-541eb229d02a.jpg",
+            "mobile_image": "shopify://shop_images/02_946bc20e-5306-41d8-b4fe-4f11f6c64906.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3XEhL6"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531875f804291": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "image_with_text_QaWce4": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_7bHjip": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/E3.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "",
+            "content": "<h1>「啪嗒」 一貼即合</h1><h3>秒變專業三腳架！穩定</h3>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_7bHjip"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 10,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531779a9cbfe4": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "section_id": "",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "slideshow_aKypqM": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9PF8CN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/002_d397c6a1-a260-4d0f-bc9d-a3f543441ab9.jpg",
+            "mobile_image": "shopify://shop_images/03_68cb7b73-b087-4fff-b7ff-ecfcd654c793.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9PF8CN"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_U9wQ9g": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_FGQy8m": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1x1_frame_6.gif",
+            "tab_label": "",
+            "subheading": "",
+            "title": "",
+            "content": "<h1>滿杯後 iPad也是搞定</h1>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_FGQy8m"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_3bDkQd": {
+      "type": "slideshow",
+      "blocks": {
+        "image_bqhV9Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/003_fe455ca3-5d19-4319-866a-de817d970759.jpg",
+            "mobile_image": "shopify://shop_images/04_7f660898-ef54-40d8-86f0-2d051f1a06ca.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_bqhV9Y"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "multi_column_z4t6Eb": {
+      "type": "multi-column",
+      "blocks": {
+        "item_jFVPR8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/e5679435fd712964be9831fd1d261ea1.gif",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_UQEkRG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/76b47c358ecf2b4c546cbc1fd6837776.gif",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_NezbWF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/b6ba9bc6255e52c4fd53cace2a5ece7e.gif",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "item_jFVPR8",
+        "item_UQEkRG",
+        "item_NezbWF"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "large",
+        "desktop_item_size": "large",
+        "spacing": "tight",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Rk4MXh": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3QECz3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/004_b628eeda-76cc-4d7f-a095-85e4e1505de0.jpg",
+            "mobile_image": "shopify://shop_images/05_153b9efb-9f83-41f0-9100-73652f088c01.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3QECz3"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Bqdten": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NEMAKQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/005.jpg",
+            "mobile_image": "shopify://shop_images/06_85f4210d-3e7d-4008-98e5-005a1f620d6f.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_NEMAKQ"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_iHtYDC": {
+      "type": "slideshow",
+      "blocks": {
+        "image_dq3Ew7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/006_2901879e-3c90-4a45-9b48-ec43c5f9e951.jpg",
+            "mobile_image": "shopify://shop_images/07_8f8697eb-bb27-4a4a-8a33-cd146c72f450.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_dq3Ew7"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_xzetDx": {
+      "type": "slideshow",
+      "blocks": {
+        "image_WBgGBc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/007.jpg",
+            "mobile_image": "shopify://shop_images/08_ab9144c5-af72-40ca-a82b-b86bf8a9cf21.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_WBgGBc"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_E3anTw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_F4XAUj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/008_e9e060c7-0d72-4e76-a526-67063e951e2b.jpg",
+            "mobile_image": "shopify://shop_images/09_f42585d3-6e42-4469-a289-dc756037965b.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_F4XAUj"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_7A9Tt9": {
+      "type": "faq",
+      "blocks": {
+        "category_xT9J6A": {
+          "type": "category",
+          "settings": {
+            "title": "產品相關"
+          }
+        },
+        "question_XCWnL6": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 的規格",
+            "answer": "<ul><li>產品名稱：磁杯為懷 MagAura 磁吸不鏽綱保溫杯</li><li>附贈：主體 x1、磁吸環 x1</li><li>型號：GC-L136</li><li>容量：710ml</li><li>尺寸：78mm x 243mm</li><li>材質：ABS 蘇教、304 不銹鋼、磁鐵</li><li>重量：375g</li><li>保溫效果：保溫 12hr / 保冰 12hr</li></ul>"
+          }
+        },
+        "question_eGiYKz": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 可以清洗嗎？",
+            "answer": "<p>可以清洗！<br/><br/>建議清洗方式如下：</p><ul><li>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可</li><li>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗</li></ul>"
+          }
+        },
+        "question_hCpYUV": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 的保溫效果如何？",
+            "answer": "<p>磁杯為懷 MagAura 使用雙層真空絕緣不銹鋼瓶設計，減少熱傳導速度，平均可保冷 / 溫12 小時。</p>"
+          }
+        },
+        "question_pGFKkT": {
+          "type": "question",
+          "settings": {
+            "title": "我不是 iPhone 手機也能適用 磁杯為懷 MagAura 嗎？",
+            "answer": "<p>無論是否是 iPhone 手機都能適用喔！<br/>磁杯為懷 MagAura 內含 磁吸環*1 個，只要將它黏貼於欲使用的產品後方，即可搭配 磁杯為懷 MagAura 使用。</p>"
+          }
+        },
+        "question_wk3cTf": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 可以與我的手機保護殼一起使用嗎？",
+            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。</p>"
+          }
+        },
+        "question_dNDgLY": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 可以放進汽車杯架嗎？",
+            "answer": "<p>磁杯為懷 MagAura 的尺寸為 78mm x 243mm，適用於大多數車杯架。<br/></p>"
+          }
+        },
+        "category_tUjCi3": {
+          "type": "category",
+          "settings": {
+            "title": "注意事項"
+          }
+        },
+        "question_dx9p8Y": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 在空瓶狀態下，是否能吸附手機且不會倒呢？",
+            "answer": "<p>是的！磁杯為懷 MagAura 有特殊的結構工藝，無論水壺是否裝滿，都能穩定支撐手機。<br/><br/>*若要支撐 iPad 等體積及重量較大的產品，仍建議需裝滿水壺，以取得更好的平稱。</p>"
+          }
+        },
+        "question_6LKyRk": {
+          "type": "question",
+          "settings": {
+            "title": "我可以將 磁杯為懷 MagAura  放在冰箱或冰櫃裡嗎？",
+            "answer": "<p>您可以將 磁杯為懷 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。</p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰水。</p>"
+          }
+        },
+        "question_pycbBH": {
+          "type": "question",
+          "settings": {
+            "title": "我可以在 磁杯為懷 MagAura  放入發酵液體嗎？",
+            "answer": "<p>不建議在 磁杯為懷 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
+          }
+        },
+        "question_FKkLJz": {
+          "type": "question",
+          "settings": {
+            "title": "我可以在 磁杯為懷 MagAura  中使用碳酸飲料嗎？",
+            "answer": "<p>不建議在 磁杯為懷 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
+          }
+        },
+        "category_RazFtp": {
+          "type": "category",
+          "settings": {
+            "title": "客製化區域"
+          }
+        },
+        "question_qMDTY7": {
+          "type": "question",
+          "settings": {
+            "title": "請問 磁杯為懷 MagAura 客製化需要多久時間？",
+            "answer": "<p>MagAura 客製化時間約莫5個工作天（不含節假日）。</p>"
+          }
+        },
+        "question_BbThaW": {
+          "type": "question",
+          "settings": {
+            "title": "我需要大量訂製 磁杯為懷 MagAura 是可以的嗎？",
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 磁杯為懷 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p><p><em>若有大量訂購需求，請透過官方 Line@與我們聯繫！<br/>官方 Line 帳號：@grantclassic</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_xT9J6A",
+        "question_XCWnL6",
+        "question_eGiYKz",
+        "question_hCpYUV",
+        "question_pGFKkT",
+        "question_wk3cTf",
+        "question_dNDgLY",
+        "category_tUjCi3",
+        "question_dx9p8Y",
+        "question_6LKyRk",
+        "question_pycbBH",
+        "question_FKkLJz",
+        "category_RazFtp",
+        "question_qMDTY7",
+        "question_BbThaW"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_VRPcrX",
+    "slideshow_q6KAET",
+    "17217531875f804291",
+    "image_with_text_QaWce4",
+    "17217531779a9cbfe4",
+    "slideshow_aKypqM",
+    "image_with_text_U9wQ9g",
+    "slideshow_3bDkQd",
+    "multi_column_z4t6Eb",
+    "slideshow_Rk4MXh",
+    "slideshow_Bqdten",
+    "slideshow_iHtYDC",
+    "slideshow_xzetDx",
+    "slideshow_E3anTw",
+    "faq_7A9Tt9",
+    "product-content"
+  ]
+}
