@@ -323,9 +323,9 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "content": "<h3><a href=\"/products/magaura-pod-1\" target=\"_blank\" title=\"【客製化】磁杯為懷 MagAura 磁吸保溫杯\"><strong>客製化設計</strong></a><strong>  </strong><a href=\"https://grantclassic.com/collections/gc-magaura-1\" target=\"_blank\" title=\"https://grantclassic.com/collections/gc-magaura-1\"><strong>限量設計款</strong></a></h3>",
-        "button_text": "",
-        "button_link": "",
+        "content": "",
+        "button_text": "限量設計款",
+        "button_link": "https://grantclassic.com/collections/gc-magaura-1",
         "background_type": "full_width",
         "text_width": "medium",
         "text_position": "center",
