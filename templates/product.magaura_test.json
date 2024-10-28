@@ -120,7 +120,7 @@
         "image_tC7M6n": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_01_20241025.jpg",
+            "image": "shopify://shop_images/web_01_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -153,7 +153,7 @@
         "image_pEDRWY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_01-2_20241025.jpg",
+            "image": "shopify://shop_images/web_02_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -186,7 +186,7 @@
         "image_4QgiNG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_02_20241025.jpg",
+            "image": "shopify://shop_images/web_03_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -252,6 +252,39 @@
         "section_id": "pf-954a7289"
       }
     },
+    "slideshow_y7jx8W": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3YqULD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_04_20241028.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3YqULD"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_98E7QD": {
       "type": "slideshow",
       "blocks": {
@@ -285,13 +318,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_y7jx8W": {
+    "slideshow_BjBhwk": {
       "type": "slideshow",
       "blocks": {
-        "image_3YqULD": {
+        "image_LRDFYX": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_03_20241025.jpg",
+            "image": "shopify://shop_images/web_05_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -308,7 +341,40 @@
         }
       },
       "block_order": [
-        "image_3YqULD"
+        "image_LRDFYX"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_ebdt3f": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Y8QrAc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/frame_20241028.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8QrAc"
       ],
       "settings": {
         "section_height": "auto",
@@ -324,48 +390,81 @@
         "section_id": "pf-c053ded8"
       }
     },
+    "slideshow_LCkY9D": {
+      "type": "slideshow",
+      "blocks": {
+        "image_XxAMg6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_06_20241028.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_XxAMg6"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "gallery_Gfctyk": {
       "type": "gallery",
       "blocks": {
         "image_XV3T7T": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-6_20241025.jpg",
+            "image": "shopify://shop_images/web_07_01_20241028.jpg",
             "caption": ""
           }
         },
         "image_aXwfBE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-2_20241025.jpg",
+            "image": "shopify://shop_images/web_07_02_20241028.jpg",
             "caption": ""
           }
         },
         "image_BLaAyh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-1_20241025.jpg",
+            "image": "shopify://shop_images/web_07_03_20241028.jpg",
             "caption": ""
           }
         },
         "image_YxtQ3C": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-3_20241025.jpg",
+            "image": "shopify://shop_images/web_07_04_20241028.jpg",
             "caption": ""
           }
         },
         "image_nWMqhb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-4_20241025.jpg",
+            "image": "shopify://shop_images/web_07_05_20241028.jpg",
             "caption": ""
           }
         },
         "image_w6UQKq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_04-5_20241025.jpg",
+            "image": "shopify://shop_images/web_07_06_20241028.jpg",
             "caption": ""
           }
         }
@@ -392,7 +491,7 @@
         "image_9qGfqW": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_05_20241025.jpg",
+            "image": "shopify://shop_images/web_08_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -425,7 +524,7 @@
         "image_LJtzDp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_06_20241025.jpg",
+            "image": "shopify://shop_images/web_09_20241028.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -485,13 +584,31 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "rich_text_ayDwp4": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<h1>大家都覺得 <strong>磁杯為懷 MagAura</strong> 超讚！</h1>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "fill",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "17217531875f804291": {
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
           "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
-            "playlist_id": "",
+            "playlist_id": "fff",
             "debugging_script": ""
           }
         }
@@ -687,13 +804,17 @@
     "slideshow_wJpEWx",
     "slideshow_7W4da4",
     "pagefly_section_FjNNzq",
-    "slideshow_98E7QD",
     "slideshow_y7jx8W",
+    "slideshow_98E7QD",
+    "slideshow_BjBhwk",
+    "slideshow_ebdt3f",
     "pagefly_section_8r64DM",
+    "slideshow_LCkY9D",
     "gallery_Gfctyk",
     "slideshow_jiKN4N",
     "slideshow_4HmgXL",
     "slideshow_mhh8DA",
+    "rich_text_ayDwp4",
     "17217531875f804291",
     "17217531779a9cbfe4",
     "faq_7A9Tt9",
