@@ -180,39 +180,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_7W4da4": {
-      "type": "slideshow",
-      "blocks": {
-        "image_4qXzij": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20241024_f59f0eed-eb54-48b5-86f7-160b238d8fd3.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_4qXzij"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_wJpEWx": {
       "type": "slideshow",
       "blocks": {
@@ -237,6 +204,39 @@
       },
       "block_order": [
         "image_4QgiNG"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_7W4da4": {
+      "type": "slideshow",
+      "blocks": {
+        "image_4qXzij": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20241024_f59f0eed-eb54-48b5-86f7-160b238d8fd3.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_4qXzij"
       ],
       "settings": {
         "section_height": "auto",
@@ -318,22 +318,10 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "rich_text_ck3fAT": {
-      "type": "rich-text",
+    "pagefly_section_8r64DM": {
+      "type": "pagefly-section",
       "settings": {
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "button_text": "限量設計款",
-        "button_link": "https://grantclassic.com/collections/gc-magaura-1",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "section_id": "pf-c053ded8"
       }
     },
     "gallery_Gfctyk": {
@@ -696,12 +684,12 @@
     "video_VRPcrX",
     "slideshow_a6EQHH",
     "slideshow_rTg8pM",
-    "slideshow_7W4da4",
     "slideshow_wJpEWx",
+    "slideshow_7W4da4",
     "pagefly_section_FjNNzq",
     "slideshow_98E7QD",
     "slideshow_y7jx8W",
-    "rich_text_ck3fAT",
+    "pagefly_section_8r64DM",
     "gallery_Gfctyk",
     "slideshow_jiKN4N",
     "slideshow_4HmgXL",
