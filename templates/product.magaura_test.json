@@ -717,12 +717,20 @@
       "blocks": {
         "vitals_ub_product_bundles_XW4j3V": {
           "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "vitals_ub_volume_discounts_GcVL4h": {
+          "type": "shopify://apps/vitals/blocks/ub-volume-discounts/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
           "settings": {
           }
         }
       },
       "block_order": [
-        "vitals_ub_product_bundles_XW4j3V"
+        "vitals_ub_product_bundles_XW4j3V",
+        "vitals_ub_volume_discounts_GcVL4h"
       ],
       "settings": {
         "include_horizontal_margins": true,
