@@ -717,7 +717,6 @@
       "blocks": {
         "vitals_ub_product_bundles_XW4j3V": {
           "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "disabled": true,
           "settings": {
           }
         },
