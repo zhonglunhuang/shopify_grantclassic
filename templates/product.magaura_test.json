@@ -704,30 +704,6 @@
     },
     "slideshow_g6EGrz": {
       "type": "slideshow",
-      "blocks": {
-        "image_FjRUXr": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_12_20241028_ae96fe48-5d8a-4e22-ac68-8b2ce0d6798a.jpg",
-            "mobile_image": "shopify://shop_images/phone_13_20241029.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_FjRUXr"
-      ],
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -736,169 +712,21 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_cTYAXz": {
-      "type": "slideshow",
+    "1730197854d7e9a201": {
+      "type": "apps",
       "blocks": {
-        "image_EkKJqt": {
-          "type": "image",
+        "vitals_ub_product_bundles_XW4j3V": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
           "settings": {
-            "image": "shopify://shop_images/web_13_20241028_a05e2059-43dd-4f43-9f4d-7bb332847cc8.jpg",
-            "mobile_image": "shopify://shop_images/phone_14_20241029.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "image_EkKJqt"
+        "vitals_ub_product_bundles_XW4j3V"
       ],
       "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "faq_7A9Tt9": {
-      "type": "faq",
-      "blocks": {
-        "category_xT9J6A": {
-          "type": "category",
-          "settings": {
-            "title": "產品相關"
-          }
-        },
-        "question_XCWnL6": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 的規格",
-            "answer": "<ul><li>產品名稱：磁杯為懷 MagAura 磁吸不鏽綱保溫杯</li><li>附贈：主體 x1、磁吸環 x1</li><li>型號：GC-L136</li><li>容量：710ml</li><li>尺寸：78mm x 243mm</li><li>材質：ABS 蘇教、304 不銹鋼、磁鐵</li><li>重量：375g</li><li>保溫效果：保溫 12hr / 保冰 12hr</li></ul>"
-          }
-        },
-        "question_eGiYKz": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 可以清洗嗎？",
-            "answer": "<p>可以清洗！<br/><br/>建議清洗方式如下：</p><ul><li>瓶身｜可進洗碗機進行清洗，冷熱水清洗皆可</li><li>瓶蓋｜為避免破壞磁環形狀與磁力，建議採手動清洗</li></ul>"
-          }
-        },
-        "question_hCpYUV": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 的保溫效果如何？",
-            "answer": "<p>磁杯為懷 MagAura 使用雙層真空絕緣不銹鋼瓶設計，減少熱傳導速度，平均可保冷 / 溫12 小時。</p>"
-          }
-        },
-        "question_pGFKkT": {
-          "type": "question",
-          "settings": {
-            "title": "我不是 iPhone 手機也能適用 磁杯為懷 MagAura 嗎？",
-            "answer": "<p>無論是否是 iPhone 手機都能適用喔！<br/>磁杯為懷 MagAura 內含 磁吸環*1 個，只要將它黏貼於欲使用的產品後方，即可搭配 磁杯為懷 MagAura 使用。</p>"
-          }
-        },
-        "question_wk3cTf": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 可以與我的手機保護殼一起使用嗎？",
-            "answer": "<p>MagAura 與所有 MagSafe 兼容的保護殼兼容。如果您的手機保護殼不兼容 MagSafe，我們設計了一個磁力增強環，可以應用於任何設備或保護殼，使其兼容。</p>"
-          }
-        },
-        "question_dNDgLY": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 可以放進汽車杯架嗎？",
-            "answer": "<p>磁杯為懷 MagAura 的尺寸為 78mm x 243mm，適用於大多數車杯架。<br/></p>"
-          }
-        },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_dx9p8Y": {
-          "type": "question",
-          "settings": {
-            "title": "磁杯為懷 MagAura 在空瓶狀態下，是否能吸附手機且不會倒呢？",
-            "answer": "<p>是的！磁杯為懷 MagAura 有特殊的結構工藝，無論水壺是否裝滿，都能穩定支撐手機。<br/><br/>*若要支撐 iPad 等體積及重量較大的產品，仍建議需裝滿水壺，以取得更好的平稱。</p>"
-          }
-        },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "我可以將 磁杯為懷 MagAura  放在冰箱或冰櫃裡嗎？",
-            "answer": "<p>您可以將 磁杯為懷 MagAura 放入冰箱過夜，但由於其雙層真空隔熱設計，冰箱的冷只會讓瓶子外壁變冷，並不會顯著降低瓶內水溫。這層隔熱層能有效保護您的飲品免受外界溫度影響，無論是在外出時保持冷飲冰涼還是熱飲溫暖。如果您希望更快速地獲得冰冷的水，我們建議在瓶中加入冰塊和冷水。</p><p>請勿將蓋子蓋緊的 MagAura 放入冰櫃，因為液體冷卻後會向四周膨脹，這可能導致瓶身變形，甚至破壞真空密封，從而影響隔熱效果。如果您考慮將瓶身打開放入冰櫃，我們同樣不建議這麼做。最好的方法依然是直接在瓶中放入冰塊來快速獲得冰水。</p>"
-          }
-        },
-        "question_pycbBH": {
-          "type": "question",
-          "settings": {
-            "title": "我可以在 磁杯為懷 MagAura  放入發酵液體嗎？",
-            "answer": "<p>不建議在 磁杯為懷 MagAura 中發酵液體。隨著時間推移，發酵會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "我可以在 磁杯為懷 MagAura  中使用碳酸飲料嗎？",
-            "answer": "<p>不建議在 磁杯為懷 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問 磁杯為懷 MagAura 客製化需要多久時間？",
-            "answer": "<p>MagAura 客製化時間約莫5個工作天（不含節假日）。</p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製 磁杯為懷 MagAura 是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 磁杯為懷 MagAura 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p><p><em>若有大量訂購需求，請透過官方 Line@與我們聯繫！<br/>官方 Line 帳號：@grantclassic</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_xT9J6A",
-        "question_XCWnL6",
-        "question_eGiYKz",
-        "question_hCpYUV",
-        "question_pGFKkT",
-        "question_wk3cTf",
-        "question_dNDgLY",
-        "category_tUjCi3",
-        "question_dx9p8Y",
-        "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
-      ],
-      "settings": {
-        "show_navigation": true,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
       }
     },
     "product-content": {
@@ -949,8 +777,7 @@
     "17217531779a9cbfe4",
     "slideshow_LqGnMf",
     "slideshow_g6EGrz",
-    "slideshow_cTYAXz",
-    "faq_7A9Tt9",
+    "1730197854d7e9a201",
     "product-content"
   ]
 }
