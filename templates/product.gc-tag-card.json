@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -29,7 +29,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "photo_variant_picker_WwtNct": {
@@ -68,7 +68,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -105,8 +105,8 @@
         "image_zaaRNV": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-01.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-04.webp",
+            "image": "shopify://shop_images/C148_web-01.webp",
+            "mobile_image": "shopify://shop_images/C148_web-04.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -139,8 +139,8 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-02.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-05.webp",
+            "image": "shopify://shop_images/C148_web-02.webp",
+            "mobile_image": "shopify://shop_images/C148_web-05.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -171,7 +171,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
@@ -190,7 +190,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": "",
             "debugging_script": ""
@@ -211,8 +211,8 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-03.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-15.webp",
+            "image": "shopify://shop_images/C148_web-03.webp",
+            "mobile_image": "shopify://shop_images/C148_web-15.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -245,8 +245,8 @@
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-06.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-16.webp",
+            "image": "shopify://shop_images/C148_web-06.webp",
+            "mobile_image": "shopify://shop_images/C148_web-16.webp",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -279,8 +279,8 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-07.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-17.webp",
+            "image": "shopify://shop_images/C148_web-07.webp",
+            "mobile_image": "shopify://shop_images/C148_web-17.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -313,8 +313,8 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-08.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-18.webp",
+            "image": "shopify://shop_images/C148_web-08.webp",
+            "mobile_image": "shopify://shop_images/C148_web-18.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -347,8 +347,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-09.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-19.webp",
+            "image": "shopify://shop_images/C148_web-09.webp",
+            "mobile_image": "shopify://shop_images/C148_web-19.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -381,8 +381,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-10.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-20.webp",
+            "image": "shopify://shop_images/C148_web-10.webp",
+            "mobile_image": "shopify://shop_images/C148_web-20.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -415,8 +415,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-11.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-21.webp",
+            "image": "shopify://shop_images/C148_web-11.webp",
+            "mobile_image": "shopify://shop_images/C148_web-21.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -449,8 +449,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-12.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-22.webp",
+            "image": "shopify://shop_images/C148_web-12.webp",
+            "mobile_image": "shopify://shop_images/C148_web-22.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -483,8 +483,8 @@
         "image_XkEDeQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-13.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-23.webp",
+            "image": "shopify://shop_images/C148_web-13.webp",
+            "mobile_image": "shopify://shop_images/C148_web-23.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -517,8 +517,8 @@
         "image_bh6KU7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C148_web-14.webp",
-            "mobile_image": "shopify:\/\/shop_images\/C148_web-24.webp",
+            "image": "shopify://shop_images/C148_web-14.jpg",
+            "mobile_image": "shopify://shop_images/C148_web-22.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -558,70 +558,70 @@
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 有多大？",
-            "answer": "<p>GC-Tag Card 的大小與信用卡相同，非常輕薄，適合隨身攜帶。<\/p>"
+            "answer": "<p>GC-Tag Card 的大小與信用卡相同，非常輕薄，適合隨身攜帶。</p>"
           }
         },
         "question_jQwjae": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 是否通過了蘋果 MFI 認證？",
-            "answer": "<p>是的，GC-Tag Card 已經通過蘋果 MFI 認證，確保與 Apple 設備的完美兼容性。<\/p>"
+            "answer": "<p>是的，GC-Tag Card 已經通過蘋果 MFI 認證，確保與 Apple 設備的完美兼容性。</p>"
           }
         },
         "question_t37cci": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 可以用來追蹤哪些物品？",
-            "answer": "<p>GC-Tag Card 可以用來追蹤您的錢包、包包、行李等個人物品，甚至可以作為電子名片使用。<\/p>"
+            "answer": "<p>GC-Tag Card 可以用來追蹤您的錢包、包包、行李等個人物品，甚至可以作為電子名片使用。</p>"
           }
         },
         "question_bn7fkx": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的電池續航力如何？",
-            "answer": "<p>GC-Tag Card 擁有長效電池，通常可以持續使用 24 個月，具體時間取決於使用頻率。<\/p>"
+            "answer": "<p>GC-Tag Card 擁有長效電池，通常可以持續使用 24 個月，具體時間取決於使用頻率。</p>"
           }
         },
         "question_fJJwCh": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 是否防水？",
-            "answer": "<p>是的，GC-Tag Card 具備 IP67 防水防塵功能，可以在日常使用中保護您的設備。<\/p>"
+            "answer": "<p>是的，GC-Tag Card 具備 IP67 防水防塵功能，可以在日常使用中保護您的設備。</p>"
           }
         },
         "question_eGiYKz": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的數位名片功能是什麼？",
-            "answer": "<p>GC-Tag Card 不僅是追蹤器，還內建數位名片功能。您可以將個人聯繫方式、公司資訊或社交媒體連結存儲在卡片中，方便他人掃描並直接獲取您的信息。<\/p>"
+            "answer": "<p>GC-Tag Card 不僅是追蹤器，還內建數位名片功能。您可以將個人聯繫方式、公司資訊或社交媒體連結存儲在卡片中，方便他人掃描並直接獲取您的信息。</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
             "title": "如何設置 GC-Tag Card 的數位名片功能？",
-            "answer": "<p>只需使用我們的應用程序，輸入您的聯繫信息，並將其存儲在 GC-Tag Card 上。當其他人使用手機掃描卡片時，他們就能夠立即查看並保存您的數位名片。<\/p>"
+            "answer": "<p>只需使用我們的應用程序，輸入您的聯繫信息，並將其存儲在 GC-Tag Card 上。當其他人使用手機掃描卡片時，他們就能夠立即查看並保存您的數位名片。</p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 和 Apple AirTag 有什麼不同？",
-            "answer": "<p>GC-Tag Card 和 Apple AirTag 都是高效的追蹤器，然而 GC-Tag Card 具有額外的數位名片功能，並且設計為信用卡大小，更加輕薄且便於攜帶。另外，兩者的操作和兼容性基本相同，您可以根據個人需求選擇適合的產品。<\/p>"
+            "answer": "<p>GC-Tag Card 和 Apple AirTag 都是高效的追蹤器，然而 GC-Tag Card 具有額外的數位名片功能，並且設計為信用卡大小，更加輕薄且便於攜帶。另外，兩者的操作和兼容性基本相同，您可以根據個人需求選擇適合的產品。</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
             "title": "如何啟用 GC-Tag Card 的數位名片功能？",
-            "answer": "<p>下載並安裝我們的應用程序，按照提示設置您的數位名片信息。完成後，其他人只需掃描 GC-Tag Card 即可查看您的數位名片。<\/p>"
+            "answer": "<p>下載並安裝我們的應用程序，按照提示設置您的數位名片信息。完成後，其他人只需掃描 GC-Tag Card 即可查看您的數位名片。</p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的數位名片是否可以更新？",
-            "answer": "<p>是的，您可以隨時通過應用程序更新或修改 GC-Tag Card 上的數位名片信息，以保持信息的準確性。<\/p>"
+            "answer": "<p>是的，您可以隨時通過應用程序更新或修改 GC-Tag Card 上的數位名片信息，以保持信息的準確性。</p>"
           }
         },
         "category_tUjCi3": {
@@ -634,42 +634,42 @@
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 在低溫或高溫環境下會受影響嗎？",
-            "answer": "<p>GC-Tag Card 經過嚴格測試，能夠在一定範圍的溫度內正常工作，但建議避免長時間暴露於極端高溫或低溫環境中。<\/p>"
+            "answer": "<p>GC-Tag Card 經過嚴格測試，能夠在一定範圍的溫度內正常工作，但建議避免長時間暴露於極端高溫或低溫環境中。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的電池是否可以更換？",
-            "answer": "<p>GC-Tag Card 的電池不可更換，但我們提供替換服務。當電池耗盡時，您可以聯繫我們的客服團隊。<\/p>"
+            "answer": "<p>GC-Tag Card 的電池不可更換，但我們提供替換服務。當電池耗盡時，您可以聯繫我們的客服團隊。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 是否需要連續充電？",
-            "answer": "<p>不需要，GC-Tag Card 使用長效電池，無需頻繁充電。<\/p>"
+            "answer": "<p>不需要，GC-Tag Card 使用長效電池，無需頻繁充電。</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 和 Apple AirTag 的追蹤精度有什麼不同嗎？",
-            "answer": "<p>在正常使用情況下，GC-Tag Card 和 Apple AirTag 的追蹤精度相似，都能夠精確地定位您的物品。兩者都使用先進的藍牙技術來實現高效的追蹤。<\/p>"
+            "answer": "<p>在正常使用情況下，GC-Tag Card 和 Apple AirTag 的追蹤精度相似，都能夠精確地定位您的物品。兩者都使用先進的藍牙技術來實現高效的追蹤。</p>"
           }
         },
         "question_qFMKQk": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的數位名片信息是否安全？",
-            "answer": "<p>GC-Tag Card 的數位名片信息存儲是加密的，僅能通過掃描特定的卡片來訪問，確保您的個人信息安全。<\/p>"
+            "answer": "<p>GC-Tag Card 的數位名片信息存儲是加密的，僅能通過掃描特定的卡片來訪問，確保您的個人信息安全。</p>"
           }
         },
         "question_pbmp74": {
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 是否需要軟體更新？",
-            "answer": "<p>我們會不定期提供軟體更新，以確保 GC-Tag Card 的性能和安全性，您可以通過應用程序獲取最新更新。<\/p>"
+            "answer": "<p>我們會不定期提供軟體更新，以確保 GC-Tag Card 的性能和安全性，您可以通過應用程序獲取最新更新。</p>"
           }
         },
         "category_RazFtp": {
@@ -682,14 +682,14 @@
           "type": "question",
           "settings": {
             "title": "請問 GC-Tag Card 可以進行客製化嗎？",
-            "answer": "<p>是的，我們提供客製化服務，您可以在 GC-Tag Card 上定制專屬的圖案或標誌。請聯繫我們了解更多詳情。<\/p>"
+            "answer": "<p>是的，我們提供客製化服務，您可以在 GC-Tag Card 上定制專屬的圖案或標誌。請聯繫我們了解更多詳情。</p>"
           }
         },
         "question_BbThaW": {
           "type": "question",
           "settings": {
             "title": "我需要大量訂製 GC-Tag Card，是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 GC-Tag Card 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。<\/p>"
+            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 GC-Tag Card 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
           }
         }
       },
@@ -736,7 +736,7 @@
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
