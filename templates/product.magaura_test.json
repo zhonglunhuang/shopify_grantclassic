@@ -695,6 +695,7 @@
       "block_order": [
         "image_jNUBh9"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -778,9 +779,9 @@
     "slideshow_pKAkaH",
     "17217531875f804291",
     "17217531779a9cbfe4",
+    "1730197854d7e9a201",
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
-    "1730197854d7e9a201",
     "product-content"
   ]
 }
