@@ -155,10 +155,16 @@
             "playlist_id": "",
             "debugging_script": ""
           }
+        },
+        "vitals_ub_product_bundles_AcqkJ9": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {
+          }
         }
       },
       "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk",
+        "vitals_ub_product_bundles_AcqkJ9"
       ],
       "settings": {
         "include_horizontal_margins": false,
