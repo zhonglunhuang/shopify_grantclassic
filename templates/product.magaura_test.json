@@ -758,6 +758,18 @@
       ],
       "settings": {
       }
+    },
+    "custom_liquid_VJFPhK": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "Your subheading",
+        "title": "Your title",
+        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
@@ -784,6 +796,7 @@
     "slideshow_LqGnMf",
     "slideshow_g6EGrz",
     "1730197854d7e9a201",
-    "product-content"
+    "product-content",
+    "custom_liquid_VJFPhK"
   ]
 }
