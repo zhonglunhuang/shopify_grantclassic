@@ -719,20 +719,26 @@
           "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
           "settings": {
           }
-        },
-        "vitals_ub_volume_discounts_GcVL4h": {
-          "type": "shopify://apps/vitals/blocks/ub-volume-discounts/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {
-          }
         }
       },
       "block_order": [
-        "vitals_ub_product_bundles_XW4j3V",
-        "vitals_ub_volume_discounts_GcVL4h"
+        "vitals_ub_product_bundles_XW4j3V"
       ],
       "settings": {
         "include_horizontal_margins": true,
         "include_vertical_margins": true
+      }
+    },
+    "custom_liquid_VJFPhK": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "Your subheading",
+        "title": "Your title",
+        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "product-content": {
@@ -757,18 +763,6 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {
-      }
-    },
-    "custom_liquid_VJFPhK": {
-      "type": "custom-liquid",
-      "settings": {
-        "subheading": "Your subheading",
-        "title": "Your title",
-        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
-        "add_vertical_spacing": true,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
       }
     }
   },
@@ -796,7 +790,7 @@
     "slideshow_LqGnMf",
     "slideshow_g6EGrz",
     "1730197854d7e9a201",
-    "product-content",
-    "custom_liquid_VJFPhK"
+    "custom_liquid_VJFPhK",
+    "product-content"
   ]
 }
