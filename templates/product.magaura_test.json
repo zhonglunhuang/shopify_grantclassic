@@ -620,18 +620,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "custom_liquid_VJFPhK": {
-      "type": "custom-liquid",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
-        "add_vertical_spacing": true,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -765,6 +753,18 @@
         "include_horizontal_margins": true,
         "include_vertical_margins": true
       }
+    },
+    "custom_liquid_VJFPhK": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
@@ -789,9 +789,9 @@
     "17217531779a9cbfe4",
     "slideshow_LqGnMf",
     "slideshow_g6EGrz",
-    "custom_liquid_VJFPhK",
     "product-content",
     "main",
-    "1730197854d7e9a201"
+    "1730197854d7e9a201",
+    "custom_liquid_VJFPhK"
   ]
 }
