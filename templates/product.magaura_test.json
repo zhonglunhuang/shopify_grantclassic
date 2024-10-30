@@ -703,14 +703,33 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_g6EGrz": {
-      "type": "slideshow",
+    "custom_liquid_VJFPhK": {
+      "type": "custom-liquid",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1730197854d7e9a201": {
+      "type": "apps",
+      "blocks": {
+        "vitals_ub_product_bundles_XW4j3V": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vitals_ub_product_bundles_XW4j3V"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
       }
     },
     "product-content": {
@@ -736,35 +755,6 @@
       ],
       "settings": {
       }
-    },
-    "1730197854d7e9a201": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_product_bundles_XW4j3V": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "vitals_ub_product_bundles_XW4j3V"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    },
-    "custom_liquid_VJFPhK": {
-      "type": "custom-liquid",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "liquid": "<div id=\"bundle-volume-discounts\"></div>",
-        "add_vertical_spacing": true,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
     }
   },
   "order": [
@@ -789,9 +779,8 @@
     "17217531875f804291",
     "17217531779a9cbfe4",
     "slideshow_LqGnMf",
-    "slideshow_g6EGrz",
-    "product-content",
+    "custom_liquid_VJFPhK",
     "1730197854d7e9a201",
-    "custom_liquid_VJFPhK"
+    "product-content"
   ]
 }
