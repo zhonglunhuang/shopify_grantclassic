@@ -347,6 +347,21 @@
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc": {
       "type": "multi-column",
       "blocks": {
+        "8b6dedb2-74d1-4107-9210-d1a1d822e87b": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2f1beecd732f7a401642cf62a08a414b.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>醜白兔</p>",
+            "link_text": "",
+            "link_url": "shopify://collections/inficase-醜白兔聯名款手機殼",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
         "item_BgpmnQ": {
           "type": "item",
           "settings": {
@@ -357,96 +372,6 @@
             "content": "<p>嘴邊肉軍團</p>",
             "link_text": "",
             "link_url": "shopify://collections/chubenlol-friends",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/bcf4c263-176b-49de-826d-df6cf3091066.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>緩緩</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-緩緩聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "d3321d93-ad59-41bb-a32c-92babc56d2ab": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/3066b39c-1dc5-4493-966a-8a28ca55ecf1.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>倒呱 </p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-倒呱聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "c80d10a0-be17-45b5-85db-2148cfab2a43": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/86c27525-855f-4555-88e4-b95210d45a0f.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>虎豹屋敷</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-虎豹屋敷聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/20230515_logo.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>双猫大藥房</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-双貓大藥房聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "af110b2f-ad71-4cd8-b258-f2850928f12a": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/4c600f78-2709-48e5-9e24-57b01b538fa7.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>BOPOMOO</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-波波畝聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "582777f2-8b97-41a0-af7a-00b36278b329": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/18bf816e-cc08-4939-9938-c7c848f0b658.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>無謂君</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-無謂君聯名款手機殼",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
@@ -467,16 +392,16 @@
             "vertical_alignment": "start"
           }
         },
-        "5352c4dc-f2ec-48db-b4f8-408ea871402d": {
+        "dd750b77-7ee5-43f6-8b98-9e7311a305b0": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/679f9053-31e9-4ced-ba5b-553da5dcf83f.jpg",
+            "image": "shopify://shop_images/e6b1bc1996ac87e618d84ae2ec14c530.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>小雞崴力</p>",
+            "content": "<p>椪椪與好朋友</p>",
             "link_text": "",
-            "link_url": "shopify://collections/inficase-小雞威力聯名款手機殼",
+            "link_url": "shopify://collections/inficase-椪椪與好朋友聯名款手機殼",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
@@ -497,61 +422,31 @@
             "vertical_alignment": "start"
           }
         },
-        "e3b5f7e2-9b4a-4965-b5e9-55e4cc458136": {
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/f263cf2578eb04bd46e652d893d05a93.jpg",
+            "image": "shopify://shop_images/bcf4c263-176b-49de-826d-df6cf3091066.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>麥考艾裘</p>",
+            "content": "<p>緩緩</p>",
             "link_text": "",
-            "link_url": "shopify://collections/inficase-麥考艾裘聯名款手機殼",
+            "link_url": "shopify://collections/inficase-緩緩聯名款手機殼",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
           }
         },
-        "8b6dedb2-74d1-4107-9210-d1a1d822e87b": {
+        "582777f2-8b97-41a0-af7a-00b36278b329": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/2f1beecd732f7a401642cf62a08a414b.jpg",
+            "image": "shopify://shop_images/18bf816e-cc08-4939-9938-c7c848f0b658.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>醜白兔</p>",
+            "content": "<p>無謂君</p>",
             "link_text": "",
-            "link_url": "shopify://collections/inficase-醜白兔聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "a2c592b3-f3f6-468b-832a-fc8e6c432604": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/a92268f6f38b06303681662975ca4ff7.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>歐吉喵</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/gc-tag-設計款系列",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "dd750b77-7ee5-43f6-8b98-9e7311a305b0": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/e6b1bc1996ac87e618d84ae2ec14c530.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>椪椪與好朋友</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-椪椪與好朋友聯名款手機殼",
+            "link_url": "shopify://collections/inficase-無謂君聯名款手機殼",
             "link_style": "link",
             "text_alignment": "center",
             "vertical_alignment": "start"
@@ -559,20 +454,13 @@
         }
       },
       "block_order": [
-        "item_BgpmnQ",
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
-        "d3321d93-ad59-41bb-a32c-92babc56d2ab",
-        "c80d10a0-be17-45b5-85db-2148cfab2a43",
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-2",
-        "af110b2f-ad71-4cd8-b258-f2850928f12a",
-        "582777f2-8b97-41a0-af7a-00b36278b329",
-        "item_rp846x",
-        "5352c4dc-f2ec-48db-b4f8-408ea871402d",
-        "3032f7dd-666e-4e5a-937c-975cdfb44f4d",
-        "e3b5f7e2-9b4a-4965-b5e9-55e4cc458136",
         "8b6dedb2-74d1-4107-9210-d1a1d822e87b",
-        "a2c592b3-f3f6-468b-832a-fc8e6c432604",
-        "dd750b77-7ee5-43f6-8b98-9e7311a305b0"
+        "item_BgpmnQ",
+        "item_rp846x",
+        "dd750b77-7ee5-43f6-8b98-9e7311a305b0",
+        "3032f7dd-666e-4e5a-937c-975cdfb44f4d",
+        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
+        "582777f2-8b97-41a0-af7a-00b36278b329"
       ],
       "settings": {
         "reveal_on_scroll": true,
