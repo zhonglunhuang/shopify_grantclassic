@@ -14,15 +14,14 @@
       "blocks": {
         "image_RQmfLB": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/1_76fa1027-ebbe-4c6d-acd7-e776003f6f56.webp",
-            "mobile_image": "shopify://shop_images/02_ddd952bc-c1f0-4c08-83ea-4a6ff9a6a990.webp",
+            "image": "shopify://shop_images/1111_202041105-01.webp",
+            "mobile_image": "shopify://shop_images/1111_202041105-03.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
             "button_1_text": "",
-            "button_1_link": "shopify://pages/iphone-16-showcase",
+            "button_1_link": "shopify://pages/雙11",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
