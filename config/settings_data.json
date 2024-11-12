@@ -256,8 +256,8 @@
             "settings": {
               "icon": "picto-store",
               "custom_icon_width": 50,
-              "title": "支援超商取貨付款",
-              "content": "<p>快速下單，即可在<br/>全台7-11和全家便利商店取貨</p>"
+              "title": "支援宅配、超商取貨",
+              "content": "<p>多種便利取貨方式<br/>輕鬆享有最便利的購物體驗</p>"
             }
           }
         },
@@ -306,27 +306,22 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "5134484470793087125": {
         "type": "shopify://apps/vitals/blocks/app-embed/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "16278478101612877664": {
         "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "14327677521557774844": {
         "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "9356323809658795675": {
         "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
@@ -341,14 +336,12 @@
       "14868561720390754469": {
         "type": "shopify://apps/loloyal-com/blocks/boom-cend/930ac91f-2bf2-4655-9ba0-574771f782d6",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "17599714577972976482": {
         "type": "shopify://apps//blocks/cvs_widget/db3cf894-1968-40c5-bb48-952d15f1fd8d",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       }
     }
   },
@@ -398,8 +391,7 @@
           "blocks": {
             "message-1": {
               "type": "message",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -433,8 +425,7 @@
           "blocks": {
             "text": {
               "type": "text",
-              "settings": {
-              }
+              "settings": {}
             },
             "links": {
               "type": "links",
@@ -444,13 +435,11 @@
             },
             "newsletter": {
               "type": "newsletter",
-              "settings": {
-              }
+              "settings": {}
             },
             "social_media": {
               "type": "social_media",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -459,8 +448,7 @@
             "newsletter",
             "social_media"
           ],
-          "settings": {
-          }
+          "settings": {}
         }
       }
     },
@@ -508,8 +496,7 @@
           "blocks": {
             "message-1": {
               "type": "message",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -543,8 +530,7 @@
           "blocks": {
             "text": {
               "type": "text",
-              "settings": {
-              }
+              "settings": {}
             },
             "links": {
               "type": "links",
@@ -554,13 +540,11 @@
             },
             "newsletter": {
               "type": "newsletter",
-              "settings": {
-              }
+              "settings": {}
             },
             "social_media": {
               "type": "social_media",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -569,8 +553,7 @@
             "newsletter",
             "social_media"
           ],
-          "settings": {
-          }
+          "settings": {}
         }
       }
     },
@@ -623,8 +606,7 @@
           "blocks": {
             "message-1": {
               "type": "message",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -658,8 +640,7 @@
           "blocks": {
             "text": {
               "type": "text",
-              "settings": {
-              }
+              "settings": {}
             },
             "links": {
               "type": "links",
@@ -669,13 +650,11 @@
             },
             "newsletter": {
               "type": "newsletter",
-              "settings": {
-              }
+              "settings": {}
             },
             "social_media": {
               "type": "social_media",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -684,8 +663,7 @@
             "newsletter",
             "social_media"
           ],
-          "settings": {
-          }
+          "settings": {}
         }
       }
     },
@@ -735,8 +713,7 @@
           "blocks": {
             "message-1": {
               "type": "message",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -770,8 +747,7 @@
           "blocks": {
             "text": {
               "type": "text",
-              "settings": {
-              }
+              "settings": {}
             },
             "links": {
               "type": "links",
@@ -781,13 +757,11 @@
             },
             "newsletter": {
               "type": "newsletter",
-              "settings": {
-              }
+              "settings": {}
             },
             "social_media": {
               "type": "social_media",
-              "settings": {
-              }
+              "settings": {}
             }
           },
           "block_order": [
@@ -796,8 +770,7 @@
             "newsletter",
             "social_media"
           ],
-          "settings": {
-          }
+          "settings": {}
         }
       }
     }
