@@ -11,64 +11,136 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "show_title": true,
         "page_width": "large"
       }
     },
-    "slideshow_NHJPHD": {
-      "type": "slideshow",
+    "image_with_text_overlay_d7wN74": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "subheading": "Subheading",
+        "title": "Image with text overlay",
+        "content": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collections_QqTy8F": {
+      "type": "featured-collections",
       "blocks": {
-        "image_bgyLcN": {
-          "type": "image",
+        "collection_c9mNia": {
+          "type": "collection",
           "settings": {
-            "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "collection": "fpw-2-pro-design",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_UnWkq8": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_c9mNia",
+        "collection_UnWkq8"
+      ],
+      "settings": {
+        "subheading": "Your title",
+        "title": "Collection",
+        "content": "",
+        "products_count": 4,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "collection_list_KfL87w": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_W69NYe": {
+          "type": "collection",
+          "settings": {
+            "collection": "fpw-2-pro-design",
+            "image": "shopify://shop_images/iphone-detects-qr-code.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
             "overlay_color": "#000000",
             "overlay_opacity": 30
           }
         },
-        "image_bGNqkp": {
-          "type": "image",
+        "collection_tAwK38": {
+          "type": "collection",
           "settings": {
-            "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 2",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "collection": "",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_DYjiMk": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
             "overlay_color": "#000000",
             "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "image_bgyLcN",
-        "image_bGNqkp"
+        "collection_W69NYe",
+        "collection_tAwK38",
+        "collection_DYjiMk"
       ],
       "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "reveal_on_scroll": false,
+        "layout": "grid",
+        "subheading": "Subheading",
+        "title": "機車手機支架",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     }
   },
   "order": [
-    "slideshow_NHJPHD",
-    "main"
+    "main",
+    "image_with_text_overlay_d7wN74",
+    "featured_collections_QqTy8F",
+    "collection_list_KfL87w"
   ]
 }
