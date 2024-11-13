@@ -150,9 +150,9 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "html": "<iframe src=\"https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F1049191549361440%2F%3Fref%3Dembed_video&amp;show_text=0&amp;width=560\" width=\"100%\" height=\"100%\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\"></iframe>\n\n<iframe src=\"https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F863930945151242%2F%3Fref%3Dembed_video&amp;show_text=0&amp;width=560\" width=\"100%\" height=\"100%\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\"></iframe>",
+        "html": "<iframe src=\"https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F1049191549361440%2F%3Fref%3Dembed_video&amp;show_text=0&amp;wwidth:%20100%;height:100%;style=\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" border:none=\"\"></iframe>\n\n<iframe src=\"https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F863930945151242%2F%3Fref%3Dembed_video&amp;show_text=0&amp;width:%20100%;height:%20100%;%20style=\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" border:none=\"\"></iframe>",
         "add_vertical_spacing": true,
-        "background_type": "full_width",
+        "background_type": "boxed",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
