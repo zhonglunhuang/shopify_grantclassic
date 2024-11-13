@@ -269,6 +269,12 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "pagefly_section_CbrYXx": {
+      "type": "pagefly-section",
+      "settings": {
+        "section_id": "pf-6b905549"
+      }
+    },
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
@@ -389,6 +395,7 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
+      "disabled": true,
       "settings": {}
     }
   },
@@ -401,6 +408,7 @@
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
+    "pagefly_section_CbrYXx",
     "faq_7A9Tt9",
     "product-content"
   ]
