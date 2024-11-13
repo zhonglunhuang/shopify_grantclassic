@@ -145,60 +145,16 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "rich_text_D3N4Xq": {
-      "type": "rich-text",
+    "custom_html_JpJmB7": {
+      "type": "custom-html",
       "settings": {
         "subheading": "",
-        "title": "餵不停 LuxNourish 開箱",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
+        "title": "",
+        "html": "<p><iframe style=\"border: none; overflow: hidden;\" height=\"314\" width=\"560\" src=\"https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F1049191549361440%2F&amp;show_text=false&amp;width=560&amp;t=0\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" allowfullscreen=\"true\" frameborder=\"0\" scrolling=\"no\"></iframe></p>\n<p> <iframe src=\"https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F863930945151242%2F&amp;show_text=false&amp;width=560&amp;t=0\" width=\"560\" height=\"314\" style=\"border: none; overflow: hidden;\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\"></iframe></p>\n<div id=\"videoPopupMenu\" style=\"display: none;\"></div>",
+        "add_vertical_spacing": true,
         "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
         "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_aKypqM": {
@@ -403,9 +359,7 @@
     "main",
     "video_YyGwGp",
     "slideshow_q6KAET",
-    "rich_text_D3N4Xq",
-    "17217531875f804291",
-    "17217531779a9cbfe4",
+    "custom_html_JpJmB7",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
     "pagefly_section_CbrYXx",
