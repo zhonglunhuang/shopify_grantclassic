@@ -246,10 +246,44 @@
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
+        "category_tUjCi3": {
+          "type": "category",
+          "settings": {
+            "title": "互動按鈕產品問題"
+          }
+        },
+        "question_h6Qhq6": {
+          "type": "question",
+          "settings": {
+            "title": "互動按鈕需要充電嗎？",
+            "answer": "<p>不用喔！只需要安裝 3 顆 4 號電池，即可開始使用 餵不停-互動按鈕。</p>"
+          }
+        },
+        "question_NWPwUM": {
+          "type": "question",
+          "settings": {
+            "title": "如何切換出糧模式？",
+            "answer": "<p>在按鈕底部設有模式切換按鍵<br/><strong>往左邊是「按鈕模式」</strong>：按一下就會直接出糧（無上限）。<br/><strong>往右邊是「遊戲模式」</strong>：出糧後，會停止出糧 5-10 分鐘，待燈光再次亮起才可再次使用。</p>"
+          }
+        },
+        "question_yCrgaN": {
+          "type": "question",
+          "settings": {
+            "title": "按一下大約會掉多少寵糧？",
+            "answer": "<p>餵不停-互動按鈕 用途為與愛寵互動，因此每次出糧量都是約1~5顆糧，不會大量出糧。</p>"
+          }
+        },
+        "question_jnykaY": {
+          "type": "question",
+          "settings": {
+            "title": "互動按鈕可以與主機距離多遠？",
+            "answer": "<p>空曠空間互動距離最大為 45 公尺，可能會受空間中擺放的物品/隔間影響。</p><p>*實際距離依實際連線狀況為主</p>"
+          }
+        },
         "category_xT9J6A": {
           "type": "category",
           "settings": {
-            "title": "產品相關"
+            "title": "餵不停產品問題"
           }
         },
         "question_eGiYKz": {
@@ -294,12 +328,6 @@
             "answer": "<p>是的，您可以設置不同的餵食計劃來滿足多個寵物的需求。</p>"
           }
         },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
@@ -323,6 +351,11 @@
         }
       },
       "block_order": [
+        "category_tUjCi3",
+        "question_h6Qhq6",
+        "question_NWPwUM",
+        "question_yCrgaN",
+        "question_jnykaY",
         "category_xT9J6A",
         "question_eGiYKz",
         "question_hCpYUV",
@@ -330,7 +363,6 @@
         "question_wk3cTf",
         "question_dNDgLY",
         "question_BR6j8M",
-        "category_tUjCi3",
         "question_dx9p8Y",
         "question_6LKyRk",
         "question_pycbBH"
