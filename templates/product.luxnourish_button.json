@@ -145,12 +145,24 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "custom_html_mrdRBq": {
+    "custom_html_J4XqBV": {
       "type": "custom-html",
       "settings": {
         "subheading": "",
         "title": "",
-        "html": "<iframe style=\"border: none; overflow: hidden;\" height=\"314\" width=\"560\" src=\"https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F1049191549361440%2F&amp;show_text=false&amp;width=560&amp;t=0\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\" allowfullscreen=\"true\" frameborder=\"0\" scrolling=\"no\"></iframe>\n<p> <iframe src=\"https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmagicrs%2Fvideos%2F863930945151242%2F&amp;show_text=false&amp;width=560&amp;t=0\" width=\"560\" height=\"314\" style=\"border: none; overflow: hidden;\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\"></iframe></p>",
+        "html": "<meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>嵌入置中顯示的 Facebook 影片</title>\n    <style>\n        /* 設定僅針對影片容器的置中樣式 */\n        .video-container {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            width: 100%;\n            max-width: 960px; /* 設定影片的最大寬度 */\n            aspect-ratio: 16 / 9; /* 維持16:9比例 */\n            margin: 0 auto; /* 水平置中 */\n        }\n        iframe {\n            width: 100%;\n            height: 100%;\n            border: none;\n        }\n    </style>\n\n\n\n    <!-- 嵌入 Facebook 影片 -->\n    <div class=\"video-container\">\n        <iframe src=\"https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1049191549361440&amp;autoplay=1&amp;mute=1&amp;show_text=0&amp;loop=1\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\">\n        </iframe>\n    </div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_html_WXA4a8": {
+      "type": "custom-html",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "html": "<meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>嵌入置中顯示的 Facebook 影片</title>\n    <style>\n        /* 設定僅針對影片容器的置中樣式 */\n        .video-container {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            width: 100%;\n            max-width: 960px; /* 設定影片的最大寬度 */\n            aspect-ratio: 16 / 9; /* 維持16:9比例 */\n            margin: 0 auto; /* 水平置中 */\n        }\n        iframe {\n            width: 100%;\n            height: 100%;\n            border: none;\n        }\n    </style>\n\n\n\n    <!-- 嵌入 Facebook 影片 -->\n    <div class=\"video-container\">\n        <iframe src=\"https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=863930945151242&amp;autoplay=1&amp;mute=1&amp;show_text=0&amp;loop=1\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\">\n        </iframe>\n    </div>",
         "add_vertical_spacing": true,
         "background_type": "full_width",
         "background": "rgba(0,0,0,0)",
@@ -163,7 +175,7 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_02_697a2ec2-1329-458f-acbc-fb3a9537ec02.jpg",
+            "image": "shopify://shop_images/web_02_2cccd7fa-d034-4a5e-ac73-7afe239b9f71.jpg",
             "mobile_image": "shopify://shop_images/phone_02_7a4bc542-b1e0-411c-86d8-65df3e7c0b06.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -359,7 +371,8 @@
     "main",
     "video_YyGwGp",
     "slideshow_q6KAET",
-    "custom_html_mrdRBq",
+    "custom_html_J4XqBV",
+    "custom_html_WXA4a8",
     "slideshow_aKypqM",
     "pagefly_section_CbrYXx",
     "slideshow_GmHy8P",
