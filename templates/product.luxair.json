@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -29,13 +29,12 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "crowdfunder_crowdfunder_kYeBLH": {
-          "type": "shopify:\/\/apps\/crowdfunder\/blocks\/crowdfunder\/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
-          "settings": {
-          }
+          "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
+          "settings": {}
         },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
@@ -57,8 +56,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -73,7 +71,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -105,29 +103,15 @@
         "transition_effect": "slide"
       }
     },
-    "video_ehpiW4": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https:\/\/vimeo.com\/1005712493",
-        "image": "shopify:\/\/shop_images\/06718_81c85831-47cc-4ae7-b2cc-dfd6d93d980f.jpg",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_qLqk4M": {
+    "slideshow_FB97hy": {
       "type": "slideshow",
       "blocks": {
-        "image_7UHRWF": {
+        "image_tUVrE9": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-07.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-08.webp",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/web_01_916c1643-2d8e-48be-8593-8fa092efa8cf.jpg",
+            "mobile_image": "shopify://shop_images/phone_01_67d5c0e9-108f-442a-abe4-0e5cea33b174.jpg",
+            "text_position": "bottom_right",
             "subheading": "",
             "title": "",
             "button_1_text": "",
@@ -143,7 +127,7 @@
         }
       },
       "block_order": [
-        "image_7UHRWF"
+        "image_tUVrE9"
       ],
       "settings": {
         "section_height": "auto",
@@ -153,43 +137,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_Cyhp4d": {
-      "type": "slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_aKypqM": {
+    "slideshow_BMUk7a": {
       "type": "slideshow",
       "blocks": {
-        "image_RazTdG": {
+        "image_m7wGVE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-01.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-04.webp",
+            "image": "shopify://shop_images/web.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -206,88 +160,7 @@
         }
       },
       "block_order": [
-        "image_RazTdG"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "custom_html_PmGXQW": {
-      "type": "custom-html",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "html": "<img src=\"https:\/\/www.goshop.banner.tw\/Accessories\/GC\/00_Catapalace\/web\/%E6%BB%BE%E7%AD%92%E5%BC%8F_1.gif\" style=\"width:100%;\" align=\"absbottom\">",
-        "add_vertical_spacing": false,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_8gP98b": {
-      "type": "slideshow",
-      "blocks": {
-        "image_PAFB9G": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/01_bb1ecafd-77d7-4618-a8cb-4ba61ee009f7.gif",
-            "mobile_image": "shopify:\/\/shop_images\/05_0d4f983b-170f-4814-8fbf-5099fe6a3a37.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_PAFB9G"
-      ],
-      "settings": {
-        "section_height": "fit",
-        "transition_type": "fade",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_V96fVc": {
-      "type": "slideshow",
-      "blocks": {
-        "image_B3hT8y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/02_30e82b3f-6115-4a76-bf20-024da63a429f.gif",
-            "mobile_image": "shopify:\/\/shop_images\/07_712c3e58-06ae-4f90-9fd0-1913c078b1ca.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_B3hT8y"
+        "image_m7wGVE"
       ],
       "settings": {
         "section_height": "auto",
@@ -297,35 +170,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "disabled": true,
-          "settings": {
-            "playlist_id": "rl_pl_7979",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_jYKJkw": {
+    "slideshow_4LpLdW": {
       "type": "slideshow",
       "blocks": {
-        "image_jwbFNn": {
+        "image_9KTQaU": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/03_398f7dfb-f16a-48f3-97bd-e69cd543379e.gif",
-            "mobile_image": "shopify:\/\/shop_images\/06_8fdcc2ae-3dc5-4f4e-85c9-890c2519b5c6.gif",
+            "image": "shopify://shop_images/web_02.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -342,7 +193,7 @@
         }
       },
       "block_order": [
-        "image_jwbFNn"
+        "image_9KTQaU"
       ],
       "settings": {
         "section_height": "auto",
@@ -352,48 +203,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_PPXJ8W": {
+    "slideshow_pLxaQR": {
       "type": "slideshow",
       "blocks": {
-        "image_mNFEtE": {
+        "image_8LKzaL": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-02.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-05.webp",
-            "text_position": "top_right",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_mNFEtE"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_DbXYJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_QhCdXx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/04_6a97f5d9-3d85-46ab-8fac-d2e4b585d356.gif",
-            "mobile_image": "shopify:\/\/shop_images\/08_96c84f16-cc23-4b5b-a27b-fc7c1df617c3.gif",
+            "image": "shopify://shop_images/web_03.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -410,7 +226,7 @@
         }
       },
       "block_order": [
-        "image_QhCdXx"
+        "image_8LKzaL"
       ],
       "settings": {
         "section_height": "auto",
@@ -420,14 +236,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_LFbjNJ": {
+    "slideshow_MH7ecJ": {
       "type": "slideshow",
       "blocks": {
-        "image_3ezFbc": {
+        "image_3cmwze": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L122_web-03.webp",
-            "mobile_image": "shopify:\/\/shop_images\/L122_web-06.webp",
+            "image": "shopify://shop_images/web_02_cb4c14a1-fc0f-4bef-b763-74736b0eca9b.jpg",
+            "mobile_image": "shopify://shop_images/phone_02_a8abfbb8-fb1b-433a-aac6-aa36b33e3e1d.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -444,7 +260,7 @@
         }
       },
       "block_order": [
-        "image_3ezFbc"
+        "image_3cmwze"
       ],
       "settings": {
         "section_height": "auto",
@@ -458,7 +274,8 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "disabled": true,
           "settings": {
             "playlist_id": "rl_pl_8029",
             "debugging_script": ""
@@ -486,28 +303,28 @@
           "type": "question",
           "settings": {
             "title": "鏟不停 CatPalace 的尺寸是多大呢？",
-            "answer": "<p>整機尺寸：66.5 x 65.5 x 68.3 cm、內桶尺寸：半敞篷開放式（44 x 37 x 43 cm）。<\/p>"
+            "answer": "<p>整機尺寸：66.5 x 65.5 x 68.3 cm、內桶尺寸：半敞篷開放式（44 x 37 x 43 cm）。</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
             "title": "鏟不停 CatPalace 有貓砂限制嗎？長條豆腐砂可不可以用？",
-            "answer": "<p>鏟不停 CatPalace 凝結型貓砂都可以用！只要是尿下去可以「凝結成塊」的貓砂，像是 #豆腐砂 #混合砂 #紙砂 #礦砂 #花生殼砂 ...等等都適用～不過會建議使用小於 15 mm 的貓砂哦！<\/p>"
+            "answer": "<p>鏟不停 CatPalace 凝結型貓砂都可以用！只要是尿下去可以「凝結成塊」的貓砂，像是 #豆腐砂 #混合砂 #紙砂 #礦砂 #花生殼砂 ...等等都適用～不過會建議使用小於 15 mm 的貓砂哦！</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
             "title": "鏟不停 CatPalace 集便倉多大呢？",
-            "answer": "<p>鏟不停 CatPalace 集便倉為12L（43 x 25 x 11 cm），若為單貓使用，可呈裝約5-7天份貓便。<\/p>"
+            "answer": "<p>鏟不停 CatPalace 集便倉為12L（43 x 25 x 11 cm），若為單貓使用，可呈裝約5-7天份貓便。</p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
             "title": "鏟不停 CatPalace 一定要用專用的垃圾袋嗎？",
-            "answer": "<p>鏟不停 CatPalace 我們有出專用的抽繩清潔袋，不過一般家用垃圾袋若尺寸符合，也是可以使用的喔！<\/p>"
+            "answer": "<p>鏟不停 CatPalace 我們有出專用的抽繩清潔袋，不過一般家用垃圾袋若尺寸符合，也是可以使用的喔！</p>"
           }
         },
         "category_tUjCi3": {
@@ -520,28 +337,28 @@
           "type": "question",
           "settings": {
             "title": "貓砂會容易黏底嗎？",
-            "answer": "<p>內艙底墊是防抓矽膠材質，目前實驗過多種貓砂都不太會黏底。若真的黏到一點，用濕紙巾就能擦起來，貓砂墊若有需要是可以做更換的。<\/p>"
+            "answer": "<p>內艙底墊是防抓矽膠材質，目前實驗過多種貓砂都不太會黏底。若真的黏到一點，用濕紙巾就能擦起來，貓砂墊若有需要是可以做更換的。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
             "title": "是否能辨識多貓身分，以及重量感測？",
-            "answer": "<p>我們致力以最好的價格+安全實用的功能作為開發目標，因此目前沒有這些設計。<\/p><p>重量感應實際無法真正辨別貓咪，體重變化就會導致資料失真，且重量感應會因為桶身變形導致容易錯誤。<\/p>"
+            "answer": "<p>我們致力以最好的價格+安全實用的功能作為開發目標，因此目前沒有這些設計。</p><p>重量感應實際無法真正辨別貓咪，體重變化就會導致資料失真，且重量感應會因為桶身變形導致容易錯誤。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
             "title": "鏟不停 CatPalace 好清潔嗎？可否直接水洗？",
-            "answer": "<p>鏟不停 CatPalace 的拆裝很簡單，5秒內即可完成，滾筒是可以直接拆下來水洗的。<\/p><p>不過基座有主機板等儀器，不能用水沖唷！建議擦拭清潔即可～<\/p>"
+            "answer": "<p>鏟不停 CatPalace 的拆裝很簡單，5秒內即可完成，滾筒是可以直接拆下來水洗的。</p><p>不過基座有主機板等儀器，不能用水沖唷！建議擦拭清潔即可～</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
             "title": "鑑賞期 & 保固的差別是什麼呢？",
-            "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～<\/p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。<\/p>"
+            "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～</p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。</p>"
           }
         },
         "category_RazFtp": {
@@ -554,56 +371,56 @@
           "type": "question",
           "settings": {
             "title": "商品鑑賞期7日，已拆封且倒入貓砂讓我家貓貓進去上廁所，但發現機器壞掉不能運轉了，可以退貨嗎？",
-            "answer": "<p>已倒入貓砂則視為已使用，便是走售後保固流程唷～<\/p>"
+            "answer": "<p>已倒入貓砂則視為已使用，便是走售後保固流程唷～</p>"
           }
         },
         "question_BbThaW": {
           "type": "question",
           "settings": {
             "title": "商品鑑賞期7日，只有拆封檢查，機器運轉後就不動了，可以退貨嗎？",
-            "answer": "<p>若商品僅有拆封、未倒入貓砂使用，且原箱都有保留著，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。<\/p>"
+            "answer": "<p>若商品僅有拆封、未倒入貓砂使用，且原箱都有保留著，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。</p>"
           }
         },
         "question_JPK9xk": {
           "type": "question",
           "settings": {
             "title": "如果貓咪使用過幾次後，機器有問題可以使用售後保固嗎？",
-            "answer": "<p>可以的～如果使用上遇到問題，要先請您聯繫官方LINE客服反應，客服會優先與您確認機器的狀況，以安排後續處理唷！<\/p>"
+            "answer": "<p>可以的～如果使用上遇到問題，要先請您聯繫官方LINE客服反應，客服會優先與您確認機器的狀況，以安排後續處理唷！</p>"
           }
         },
         "question_bPahtr": {
           "type": "question",
           "settings": {
             "title": "收件後7日內，如果確定要退貨的話，你們會來收件嗎？",
-            "answer": "<p>會的，我們會派車與您收件，還請務必將商品恢復原包裝狀態！<\/p>"
+            "answer": "<p>會的，我們會派車與您收件，還請務必將商品恢復原包裝狀態！</p>"
           }
         },
         "question_Qgb44y": {
           "type": "question",
           "settings": {
             "title": "檢測處理折舊費用是什麼意思呢？退貨就會被收費嗎？",
-            "answer": "<p>收到欲退貨的商品，我們會進行檢測，若有使用或人為痕跡、損壞等，代表商品已經無法作為新品再次販售了，因此會需要向您收取一筆費用，會依據商品實際檢測狀況調整報價，最高3,600元，還請諒解。<\/p><p>小小補充！退貨商品若是能夠恢復為新品狀態，經檢測也並無使用痕跡或缺件等狀況，則不會向您收取額外費用囉！<\/p>"
+            "answer": "<p>收到欲退貨的商品，我們會進行檢測，若有使用或人為痕跡、損壞等，代表商品已經無法作為新品再次販售了，因此會需要向您收取一筆費用，會依據商品實際檢測狀況調整報價，最高3,600元，還請諒解。</p><p>小小補充！退貨商品若是能夠恢復為新品狀態，經檢測也並無使用痕跡或缺件等狀況，則不會向您收取額外費用囉！</p>"
           }
         },
         "question_fkNi76": {
           "type": "question",
           "settings": {
             "title": "若保固期內要送修，怎麼寄回商品？運費誰出？",
-            "answer": "<p>保固期內寄回檢修，需由您自行寄回唷！若有寄送上的困難，我們會協助派車收件，不過寄出的運費需由您負擔；商品完成保固作業後會由我們寄回，回程運費由我們負擔。<\/p>"
+            "answer": "<p>保固期內寄回檢修，需由您自行寄回唷！若有寄送上的困難，我們會協助派車收件，不過寄出的運費需由您負擔；商品完成保固作業後會由我們寄回，回程運費由我們負擔。</p>"
           }
         },
         "question_MUncxK": {
           "type": "question",
           "settings": {
             "title": "原箱子一定要保留一年才能保固嗎？",
-            "answer": "<p>由於鏟不停體積較大，若商品有問題需送回檢修，我們擔心您無法找到合適的外箱包材，且非原箱包裝在物流運送途中，可能造成商品外觀或本體受損（原外箱會有一定的保護力，且外箱大小符合鏟不停），故建議原紙箱要保留一年唷！<\/p>"
+            "answer": "<p>由於鏟不停體積較大，若商品有問題需送回檢修，我們擔心您無法找到合適的外箱包材，且非原箱包裝在物流運送途中，可能造成商品外觀或本體受損（原外箱會有一定的保護力，且外箱大小符合鏟不停），故建議原紙箱要保留一年唷！</p>"
           }
         },
         "question_89TiQX": {
           "type": "question",
           "settings": {
             "title": "商品過保後，怎麼維修？",
-            "answer": "<p>過保後需申請付費維修，要麻煩您先與客服聯繫確認商品故障的情況，如有回收檢測需求，寄回我司的來回運費需由您負擔；我司收到商品檢測完成後，會提供維修報價，若您決定不維修，則需支付檢測費用（$200元）與寄回商品之運費。<\/p>"
+            "answer": "<p>過保後需申請付費維修，要麻煩您先與客服聯繫確認商品故障的情況，如有回收檢測需求，寄回我司的來回運費需由您負擔；我司收到商品檢測完成後，會提供維修報價，若您決定不維修，則需支付檢測費用（$200元）與寄回商品之運費。</p>"
           }
         }
       },
@@ -641,14 +458,13 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -657,16 +473,14 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "1725552081de692f66": {
       "type": "apps",
       "blocks": {
         "vitals_product_reviews_WdCBfw": {
-          "type": "shopify:\/\/apps\/vitals\/blocks\/product-reviews\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {
-          }
+          "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
         }
       },
       "block_order": [
@@ -680,19 +494,11 @@
   },
   "order": [
     "main",
-    "video_ehpiW4",
-    "slideshow_qLqk4M",
-    "slideshow_Cyhp4d",
-    "17217531779a9cbfe4",
-    "slideshow_aKypqM",
-    "custom_html_PmGXQW",
-    "slideshow_8gP98b",
-    "slideshow_V96fVc",
-    "17217531875f804291",
-    "slideshow_jYKJkw",
-    "slideshow_PPXJ8W",
-    "slideshow_DbXYJw",
-    "slideshow_LFbjNJ",
+    "slideshow_FB97hy",
+    "slideshow_BMUk7a",
+    "slideshow_4LpLdW",
+    "slideshow_pLxaQR",
+    "slideshow_MH7ecJ",
     "1724250482977559c7",
     "faq_7A9Tt9",
     "product-content",
