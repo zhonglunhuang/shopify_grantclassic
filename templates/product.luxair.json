@@ -143,7 +143,8 @@
         "image_m7wGVE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web.gif",
+            "image": "shopify://shop_images/web_1dd562d4-0dea-4389-a6c5-65a069d99cb8.gif",
+            "mobile_image": "shopify://shop_images/phone01_1.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -177,6 +178,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/web_02.gif",
+            "mobile_image": "shopify://shop_images/phone02.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -210,6 +212,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/web_03.gif",
+            "mobile_image": "shopify://shop_images/phone04_1.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
