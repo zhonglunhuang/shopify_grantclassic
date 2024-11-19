@@ -109,8 +109,8 @@
         "image_tUVrE9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_01_b27ba72b-dd16-4baa-87a7-79c2757053fa.jpg",
-            "mobile_image": "shopify://shop_images/phone_01_25fa96f1-dd2f-44f2-8bea-009f4f7b9c78.jpg",
+            "image": "shopify://shop_images/web_01_5c4bf732-9ce7-48a4-83df-21c9791cb64e.jpg",
+            "mobile_image": "shopify://shop_images/phone_01_ec482749-8513-4489-967e-b9f4ccd39b03.jpg",
             "text_position": "bottom_right",
             "subheading": "",
             "title": "",
@@ -144,7 +144,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/web_1dd562d4-0dea-4389-a6c5-65a069d99cb8.gif",
-            "mobile_image": "shopify://shop_images/phone01.gif",
+            "mobile_image": "shopify://shop_images/phone01_1.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -171,144 +171,32 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_8zLD4T": {
-      "type": "slideshow",
-      "blocks": {
-        "image_Wwhq6j": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_02_0d01f251-4027-4337-9be2-c814c84c803b.gif",
-            "mobile_image": "shopify://shop_images/phone02_8d46ea37-843d-4825-af8f-159386e0bc9f.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_Wwhq6j"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_nEiHF4": {
-      "type": "slideshow",
-      "blocks": {
-        "image_w9tUap": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_03_83be2dfc-11e9-429b-afe6-a947bb4450ff.gif",
-            "mobile_image": "shopify://shop_images/phone03_38574ddd-02c6-49c1-8144-6c7619a096f1.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_w9tUap"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_C4JD9q": {
-      "type": "slideshow",
-      "blocks": {
-        "image_fHiDxN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_04.gif",
-            "mobile_image": "shopify://shop_images/phone04.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_fHiDxN"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_PtEjdH": {
-      "type": "slideshow",
-      "blocks": {
-        "image_bL6q4B": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_05.gif",
-            "mobile_image": "shopify://shop_images/phone05_20241119.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_bL6q4B"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_4LpLdW": {
       "type": "slideshow",
+      "blocks": {
+        "image_9KTQaU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_02.gif",
+            "mobile_image": "shopify://shop_images/phone02.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9KTQaU"
+      ],
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -319,6 +207,30 @@
     },
     "slideshow_pLxaQR": {
       "type": "slideshow",
+      "blocks": {
+        "image_8LKzaL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_03.gif",
+            "mobile_image": "shopify://shop_images/phone04_1.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_8LKzaL"
+      ],
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -333,8 +245,8 @@
         "image_3cmwze": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_02_3d429c60-aaec-4401-933c-9176ae9b9e24.jpg",
-            "mobile_image": "shopify://shop_images/phone_02_2a3ef91e-e31d-4a98-9c97-85bed46bc16e.jpg",
+            "image": "shopify://shop_images/web_02_e873b888-984f-42dc-810f-e2adbe602625.jpg",
+            "mobile_image": "shopify://shop_images/phone_02_19f814ae-3d4f-4db8-abfb-790bbedad8b7.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -393,29 +305,99 @@
         "question_eGiYKz": {
           "type": "question",
           "settings": {
-            "title": "鏟不停 CatPalace 的尺寸是多大呢？",
-            "answer": "<p>整機尺寸：66.5 x 65.5 x 68.3 cm、內桶尺寸：半敞篷開放式（44 x 37 x 43 cm）。</p>"
+            "title": "吸不停 LuxAir 的尺寸多大呢？",
+            "answer": "<p>產品尺寸：306*262*536.5mm</p><p>包裝尺寸：330*330*635mm</p><p>產品重/整體重：4.54KG/5.9KG</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
-            "title": "鏟不停 CatPalace 有貓砂限制嗎？長條豆腐砂可不可以用？",
-            "answer": "<p>鏟不停 CatPalace 凝結型貓砂都可以用！只要是尿下去可以「凝結成塊」的貓砂，像是 #豆腐砂 #混合砂 #紙砂 #礦砂 #花生殼砂 ...等等都適用～不過會建議使用小於 15 mm 的貓砂哦！</p>"
+            "title": "吸不停 LuxAir 使用坪數與CADR值為多少？",
+            "answer": "<p>使用空間大約為 10 ~ 12 坪，CADR值為 285 m³/h</p><p>※CADR值：代表淨化效率，值越高，淨化速度越快</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
-            "title": "鏟不停 CatPalace 集便倉多大呢？",
-            "answer": "<p>鏟不停 CatPalace 集便倉為12L（43 x 25 x 11 cm），若為單貓使用，可呈裝約5-7天份貓便。</p>"
+            "title": "吸不停 LuxAir 運轉會很大聲嗎？",
+            "answer": "<p>約 41 - 56 分貝，按照模式與風速不同運轉分貝數也會不同，舉例分貝數情境：</p><p>70db 鬧區交通聲<br/>60db 講話交談聲<br/>50db 空調運轉聲<br/>45db 安靜圖書館<br/><strong>41db 吸不停 *寂靜睡眠模式</strong></p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
-            "title": "鏟不停 CatPalace 一定要用專用的垃圾袋嗎？",
-            "answer": "<p>鏟不停 CatPalace 我們有出專用的抽繩清潔袋，不過一般家用垃圾袋若尺寸符合，也是可以使用的喔！</p>"
+            "title": "吸不停 LuxAir 如何更換濾網?",
+            "answer": "<p>從機身最底部讓機器橫躺，即可將濾芯取出後取出濾網，插入新濾網，其圓柱形的開側朝上。</p><p>注意：如果要用全新的濾網替換舊濾網，請在安裝之前將其從包裝中取出。</p><p>重新安裝濾芯蓋，確保完全密合。</p>"
+          }
+        },
+        "question_VdrjnL": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 濾網多久需要更換一次呢？",
+            "answer": "<p>前置濾網：建議每個月用吸塵器吸除表面灰塵，即可重複使用，若有無法清除髒汙、表面破損，則建議進行更換。<br/><br/>HEPA 濾網：建議 3-6 個月進行更換，吸不停本身有「濾網更換提醒」功能，可能指示燈亮起後再進行更換。</p>"
+          }
+        },
+        "question_CGpxYN": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 濾網可以過濾什麼樣污染物？",
+            "answer": "<p>第一層 初效前置濾網</p><p>&gt; 浮毛、灰塵、棉絮，等大分子污染物 *清潔後可重複利用</p><p>第二層 HEPA H12 級濾網</p><p>&gt; 花粉、塵蟎、細菌、病毒、PM2.5、PM0.3</p><p>第三層 生物酶除臭過濾層</p><p>&gt; 氨氣（寵物尿尿）、硫化氫（寵物大便）、三甲胺（寵物口水）、乙醛（寵物體味）</p>"
+          }
+        },
+        "question_czRXDP": {
+          "type": "question",
+          "settings": {
+            "title": "如果我用吸塵器清潔我的濾網外部是不是可以延長他的使用時間?",
+            "answer": "<p>可以用吸塵器清潔你的初效前置濾網，可以有效避免因前置濾網吸附過多毛髮影響淨化效率；HEPA 濾網更換時間，仍建議以 3 - 6 個月及濾網更換指示燈亮起為主。<br/><br/>*HEPA 濾網建議直接更換，避免重複使用。</p>"
+          }
+        },
+        "question_GdfWAe": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 運行空氣清淨機會很耗電嗎?",
+            "answer": "<p>每天 24 小時不停運轉，平均每天只要 4.3 元</p>"
+          }
+        },
+        "question_zdgKLU": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 有自動模式嗎？若想手動調整風速可以嗎？",
+            "answer": "<p>有自動調整風速模式，風速可以手動調整（1 - 3 段速），適用各種清淨需求。</p><p>直接使用機身上的觸控面板或是連線APP，都可以隨時調整風速。</p>"
+          }
+        },
+        "question_6TgeRz": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 睡眠模式可以調整成燈光全暗嗎？",
+            "answer": "<p>調整成睡眠模式後，上方顯示面板即會關閉，觸控面板指示燈則會於 5 秒後變暗。</p>"
+          }
+        },
+        "question_AVbMpc": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 需開機多久才能改善空氣品質呢?",
+            "answer": "<p>PM2.5 容易從窗外飄進室內環境，甚至人回到家裡會帶進許多髒污，建議有人在家的時候就開機 8 - 10 小時，持續淨化產出乾淨空氣，是對呼吸道的最好的保護。</p>"
+          }
+        },
+        "question_8w8Lra": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 有定時及自動偵測功能嗎？",
+            "answer": "<p>只要機器開始運轉後，就會開始自動不停偵測空氣懸浮微粒數量；可以透過定App 設定關機時間</p>"
+          }
+        },
+        "question_CamPmX": {
+          "type": "question",
+          "settings": {
+            "title": "對貓毛過敏的人，有辦法有效降低過敏嗎？或是需用其他的模式？",
+            "answer": "<p>若單純是毛髮 / 塵蟎 / 皮屑過敏，HEPA 12 濾網即可過濾 99.5％ 的過敏原，無需開啟特定模式；弱勢希望去除寵物異味（排泄物味等），可以開啟負離子淨化 / 活性氧淨化 2 種模式，針對氣味去除進行強化。</p>"
+          }
+        },
+        "question_9EH7K7": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 可以過濾甲醛嗎？",
+            "answer": "<p>吸不停雖然是「寵物專攻」空氣清淨機，但仍可以去除部分甲醛！<br/>透過「負離子淨化 / 活性氧淨化」兩種模式即可降低空氣中甲醛濃度，建議若空間有寵物或人時，使用「負離子淨化」清除甲醛；室內無人時使用「活性氧淨化」，兩者結合能夠大的程度的避免甲醛超標的問題，守護身體的健康！</p>"
           }
         },
         "category_tUjCi3": {
@@ -424,25 +406,59 @@
             "title": "注意事項"
           }
         },
+        "question_JJrMUC": {
+          "type": "question",
+          "settings": {
+            "title": "什麼時候可以收到產品",
+            "answer": "<p>在我們官網進行預購（首100台 2 週出貨），後續預購到貨時間約2025年1月底至2月</p>"
+          }
+        },
+        "question_LdQgfP": {
+          "type": "question",
+          "settings": {
+            "title": "可以分期付款嗎？",
+            "answer": "<p>可以！我們提供多家信用卡分期 0 利率服務（最高 6 期）；若無信用卡的消費者，可以選用「銀角零卡」的無卡分期服務，具體的分期額度與利率，將按照個人信用狀況有所不同。</p>"
+          }
+        },
+        "question_qUVH77": {
+          "type": "question",
+          "settings": {
+            "title": "可以看實際產品嗎？",
+            "answer": "<p>目前還在確認展示櫃點中，待確認後會再行公佈。</p>"
+          }
+        },
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "貓砂會容易黏底嗎？",
-            "answer": "<p>內艙底墊是防抓矽膠材質，目前實驗過多種貓砂都不太會黏底。若真的黏到一點，用濕紙巾就能擦起來，貓砂墊若有需要是可以做更換的。</p>"
+            "title": "HEPA 濾網必須定期更換嗎？",
+            "answer": "<p>HEPA 濾網長期使用下會累積髒污，無法用水清洗，使用越久微粒持續累積在纖維裏會增加風阻，導致空氣清淨機的效能變差，也會因濾網孔隙變小讓運作聲音變大。所以HEPA濾網是需要定期更換的耗材，大部份為 3 ~ 6 個月固定要換一次濾網。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
-            "title": "是否能辨識多貓身分，以及重量感測？",
-            "answer": "<p>我們致力以最好的價格+安全實用的功能作為開發目標，因此目前沒有這些設計。</p><p>重量感應實際無法真正辨別貓咪，體重變化就會導致資料失真，且重量感應會因為桶身變形導致容易錯誤。</p>"
+            "title": "HEPA 濾網不是等級越高就越好",
+            "answer": "<p>在選擇HEPA濾網時，需要根據實際應用環境和過濾要求來選擇不同等級的濾網。越高等級的HEPA濾網過濾效果越強，是因為其纖維的孔隙排列越密，但也會導致進風淨化的風阻越大，降低潔淨空氣輸出比率（CADR），也容易產生噪音，以及耗電量等問題。</p><p>因此，依據所需環境挑選適當等級的 HEPA 濾網，讓空氣清淨機的效能達到最大平衡，才是最佳選擇。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
-            "title": "鏟不停 CatPalace 好清潔嗎？可否直接水洗？",
-            "answer": "<p>鏟不停 CatPalace 的拆裝很簡單，5秒內即可完成，滾筒是可以直接拆下來水洗的。</p><p>不過基座有主機板等儀器，不能用水沖唷！建議擦拭清潔即可～</p>"
+            "title": "如何清潔與保養空氣清淨機?",
+            "answer": "<p>空氣清淨機長期使用下濾網都會累積灰塵，需要進行定期清潔以確保其效能和耐用性，「前置初效濾網」建議每個月用吸塵器吸除灰塵；「HEPA 濾網」建議約 3 ~ 6 個月進行更換。<br/><br/>機身請定期用乾布擦拭表面，若長期不使用，請記得拔除 AC 電源供應器。<br/><br/>※注意事項提醒※</p><p>清洗保養時，請勿使用甲苯、漂白水等化學溶劑，也應避免使用硬質刷子，以免腐蝕或刮傷機身外觀及顏色。</p><p>清洗機身可用抹布沾水或以中性清潔劑擦拭，應避免直接讓機身以水沖洗，以防電器短路或導電不良。</p>"
+          }
+        },
+        "category_RazFtp": {
+          "type": "category",
+          "settings": {
+            "title": "其他售後問題"
+          }
+        },
+        "question_pgcHfr": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 提供多長保固",
+            "answer": "<p>原先保固一年，登陸產品保固卡後延長至兩年。</p>"
           }
         },
         "question_FKkLJz": {
@@ -452,31 +468,11 @@
             "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～</p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。</p>"
           }
         },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "其他售後問題"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "商品鑑賞期7日，已拆封且倒入貓砂讓我家貓貓進去上廁所，但發現機器壞掉不能運轉了，可以退貨嗎？",
-            "answer": "<p>已倒入貓砂則視為已使用，便是走售後保固流程唷～</p>"
-          }
-        },
         "question_BbThaW": {
           "type": "question",
           "settings": {
             "title": "商品鑑賞期7日，只有拆封檢查，機器運轉後就不動了，可以退貨嗎？",
-            "answer": "<p>若商品僅有拆封、未倒入貓砂使用，且原箱都有保留著，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。</p>"
-          }
-        },
-        "question_JPK9xk": {
-          "type": "question",
-          "settings": {
-            "title": "如果貓咪使用過幾次後，機器有問題可以使用售後保固嗎？",
-            "answer": "<p>可以的～如果使用上遇到問題，要先請您聯繫官方LINE客服反應，客服會優先與您確認機器的狀況，以安排後續處理唷！</p>"
+            "answer": "<p>若商品僅有拆封，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。</p>"
           }
         },
         "question_bPahtr": {
@@ -486,25 +482,11 @@
             "answer": "<p>會的，我們會派車與您收件，還請務必將商品恢復原包裝狀態！</p>"
           }
         },
-        "question_Qgb44y": {
-          "type": "question",
-          "settings": {
-            "title": "檢測處理折舊費用是什麼意思呢？退貨就會被收費嗎？",
-            "answer": "<p>收到欲退貨的商品，我們會進行檢測，若有使用或人為痕跡、損壞等，代表商品已經無法作為新品再次販售了，因此會需要向您收取一筆費用，會依據商品實際檢測狀況調整報價，最高3,600元，還請諒解。</p><p>小小補充！退貨商品若是能夠恢復為新品狀態，經檢測也並無使用痕跡或缺件等狀況，則不會向您收取額外費用囉！</p>"
-          }
-        },
         "question_fkNi76": {
           "type": "question",
           "settings": {
             "title": "若保固期內要送修，怎麼寄回商品？運費誰出？",
             "answer": "<p>保固期內寄回檢修，需由您自行寄回唷！若有寄送上的困難，我們會協助派車收件，不過寄出的運費需由您負擔；商品完成保固作業後會由我們寄回，回程運費由我們負擔。</p>"
-          }
-        },
-        "question_MUncxK": {
-          "type": "question",
-          "settings": {
-            "title": "原箱子一定要保留一年才能保固嗎？",
-            "answer": "<p>由於鏟不停體積較大，若商品有問題需送回檢修，我們擔心您無法找到合適的外箱包材，且非原箱包裝在物流運送途中，可能造成商品外觀或本體受損（原外箱會有一定的保護力，且外箱大小符合鏟不停），故建議原紙箱要保留一年唷！</p>"
           }
         },
         "question_89TiQX": {
@@ -521,19 +503,29 @@
         "question_hCpYUV",
         "question_wk3cTf",
         "question_dNDgLY",
+        "question_VdrjnL",
+        "question_CGpxYN",
+        "question_czRXDP",
+        "question_GdfWAe",
+        "question_zdgKLU",
+        "question_6TgeRz",
+        "question_AVbMpc",
+        "question_8w8Lra",
+        "question_CamPmX",
+        "question_9EH7K7",
         "category_tUjCi3",
+        "question_JJrMUC",
+        "question_LdQgfP",
+        "question_qUVH77",
         "question_dx9p8Y",
         "question_6LKyRk",
         "question_pycbBH",
-        "question_FKkLJz",
         "category_RazFtp",
-        "question_qMDTY7",
+        "question_pgcHfr",
+        "question_FKkLJz",
         "question_BbThaW",
-        "question_JPK9xk",
         "question_bPahtr",
-        "question_Qgb44y",
         "question_fkNi76",
-        "question_MUncxK",
         "question_89TiQX"
       ],
       "settings": {
@@ -587,10 +579,6 @@
     "main",
     "slideshow_FB97hy",
     "slideshow_BMUk7a",
-    "slideshow_8zLD4T",
-    "slideshow_nEiHF4",
-    "slideshow_C4JD9q",
-    "slideshow_PtEjdH",
     "slideshow_4LpLdW",
     "slideshow_pLxaQR",
     "slideshow_MH7ecJ",
