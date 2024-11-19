@@ -103,6 +103,19 @@
         "transition_effect": "slide"
       }
     },
+    "video_xyFBfm": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/1030991900",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_FB97hy": {
       "type": "slideshow",
       "blocks": {
@@ -645,6 +658,7 @@
   },
   "order": [
     "main",
+    "video_xyFBfm",
     "slideshow_FB97hy",
     "slideshow_BMUk7a",
     "slideshow_4LpLdW",
