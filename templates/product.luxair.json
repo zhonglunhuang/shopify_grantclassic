@@ -542,6 +542,13 @@
             "answer": "<p>原先保固一年，登陸產品保固卡後延長至兩年。</p>"
           }
         },
+        "question_UEVEgY": {
+          "type": "question",
+          "settings": {
+            "title": "鑑賞期內可以退貨嗎？",
+            "answer": "<p>根據 消保法第19條第1項 ，GC 提供鑑賞期內無條件退貨服務。</p><p>請留意 <strong>鑑賞期「非」試用期 </strong>，若使用產品後，功能正常卻希望進行退貨，我們將與您收取部分整新費用：<br/>＊濾網整新費 - $500（消耗性產品無法再次販售）</p><p>欲進行退貨，請確保外包裝、保護耗材完整，若無法恢復原樣，則將與您收取包裝整新費用：<br/>＊包裝整新費 - $300<br/><br/>我們將會在收到產品後，確認一切正常後，退款給您，大約需要 7-14 工作天，敬請您耐心等候。</p>"
+          }
+        },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
@@ -603,6 +610,7 @@
         "question_pycbBH",
         "category_RazFtp",
         "question_pgcHfr",
+        "question_UEVEgY",
         "question_FKkLJz",
         "question_BbThaW",
         "question_bPahtr",
