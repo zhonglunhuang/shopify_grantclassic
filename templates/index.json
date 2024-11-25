@@ -14,6 +14,7 @@
       "blocks": {
         "image_RQmfLB": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/1111_202041105-01.webp",
             "mobile_image": "shopify://shop_images/1111_202041105-03.webp",
