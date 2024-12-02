@@ -1,0 +1,678 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "10eed426-c481-4651-8503-74a9f6dc6018": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.custom._123.value }}",
+            "image_alignment": "left",
+            "image_width": 270
+          }
+        },
+        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+          }
+        },
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+          }
+        },
+        "crowdfunder_crowdfunder_VBwnMK": {
+          "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
+          "settings": {}
+        },
+        "photo_variant_picker_WwtNct": {
+          "type": "photo_variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "liquid_hpmDVh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "10eed426-c481-4651-8503-74a9f6dc6018",
+        "df999a05-d00f-4f60-87d3-401d4a092ce9",
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+        "crowdfunder_crowdfunder_VBwnMK",
+        "photo_variant_picker_WwtNct",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_hpmDVh"
+      ],
+      "settings": {
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "related_collections": "{{ product.metafields.custom.attributes.value }}",
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "left",
+        "transition_effect": "slide"
+      }
+    },
+    "video_xyFBfm": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/1030991900",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_FB97hy": {
+      "type": "slideshow",
+      "blocks": {
+        "image_tUVrE9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_01_b27ba72b-dd16-4baa-87a7-79c2757053fa.jpg",
+            "mobile_image": "shopify://shop_images/phone_01_25fa96f1-dd2f-44f2-8bea-009f4f7b9c78.jpg",
+            "text_position": "bottom_right",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_tUVrE9"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_BMUk7a": {
+      "type": "slideshow",
+      "blocks": {
+        "image_m7wGVE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_01.gif",
+            "mobile_image": "shopify://shop_images/phone01.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_m7wGVE"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_4LpLdW": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9KTQaU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_02_0d01f251-4027-4337-9be2-c814c84c803b.gif",
+            "mobile_image": "shopify://shop_images/phone02_8d46ea37-843d-4825-af8f-159386e0bc9f.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9KTQaU"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_pLxaQR": {
+      "type": "slideshow",
+      "blocks": {
+        "image_8LKzaL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_03_83be2dfc-11e9-429b-afe6-a947bb4450ff.gif",
+            "mobile_image": "shopify://shop_images/phone03_38574ddd-02c6-49c1-8144-6c7619a096f1.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_8LKzaL"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_cfQBUh": {
+      "type": "slideshow",
+      "blocks": {
+        "image_rFq7qF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_04.gif",
+            "mobile_image": "shopify://shop_images/phone04.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_rFq7qF"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_qwz6WW": {
+      "type": "slideshow",
+      "blocks": {
+        "image_FrxcHQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_05.gif",
+            "mobile_image": "shopify://shop_images/phone05_20241119.gif",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_FrxcHQ"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_MH7ecJ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3cmwze": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/web_02_3d429c60-aaec-4401-933c-9176ae9b9e24.jpg",
+            "mobile_image": "shopify://shop_images/phone_02_2a3ef91e-e31d-4a98-9c97-85bed46bc16e.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3cmwze"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "1724250482977559c7": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "disabled": true,
+          "settings": {
+            "playlist_id": "rl_pl_8029",
+            "debugging_script": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "faq_7A9Tt9": {
+      "type": "faq",
+      "blocks": {
+        "category_xT9J6A": {
+          "type": "category",
+          "settings": {
+            "title": "產品相關"
+          }
+        },
+        "question_eGiYKz": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 的尺寸多大呢？",
+            "answer": "<p>產品尺寸：306*262*536.5mm</p><p>包裝尺寸：330*330*635mm</p><p>產品重/整體重：4.54KG/5.9KG</p>"
+          }
+        },
+        "question_hCpYUV": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 使用坪數與CADR值為多少？",
+            "answer": "<p>使用空間大約為 10 ~ 12 坪，CADR值為 285 m³/h</p><p>※CADR值：代表淨化效率，值越高，淨化速度越快</p>"
+          }
+        },
+        "question_wk3cTf": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 運轉會很大聲嗎？",
+            "answer": "<p>約 41 - 56 分貝，按照模式與風速不同運轉分貝數也會不同，舉例分貝數情境：</p><p>70db 鬧區交通聲<br/>60db 講話交談聲<br/>50db 空調運轉聲<br/>45db 安靜圖書館<br/><strong>41db 吸不停 *寂靜睡眠模式</strong></p>"
+          }
+        },
+        "question_dNDgLY": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 如何更換濾網?",
+            "answer": "<p>從機身最底部讓機器橫躺，即可將濾芯取出後取出濾網，插入新濾網，其圓柱形的開側朝上。</p><p>注意：如果要用全新的濾網替換舊濾網，請在安裝之前將其從包裝中取出。</p><p>重新安裝濾芯蓋，確保完全密合。</p>"
+          }
+        },
+        "question_VdrjnL": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 濾網多久需要更換一次呢？",
+            "answer": "<p>前置濾網：建議每個月用吸塵器吸除表面灰塵，即可重複使用，若有無法清除髒汙、表面破損，則建議進行更換。<br/><br/>HEPA 濾網：建議 3-6 個月進行更換，吸不停本身有「濾網更換提醒」功能，可能指示燈亮起後再進行更換。</p>"
+          }
+        },
+        "question_CGpxYN": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 濾網可以過濾什麼樣污染物？",
+            "answer": "<p>第一層 初效前置濾網</p><p>&gt; 浮毛、灰塵、棉絮，等大分子污染物 *清潔後可重複利用</p><p>第二層 HEPA H12 級濾網</p><p>&gt; 花粉、塵蟎、細菌、病毒、PM2.5、PM0.3</p><p>第三層 生物酶除臭過濾層</p><p>&gt; 氨氣（寵物尿尿）、硫化氫（寵物大便）、三甲胺（寵物口水）、乙醛（寵物體味）</p>"
+          }
+        },
+        "question_czRXDP": {
+          "type": "question",
+          "settings": {
+            "title": "如果我用吸塵器清潔我的濾網外部是不是可以延長他的使用時間?",
+            "answer": "<p>可以用吸塵器清潔你的初效前置濾網，可以有效避免因前置濾網吸附過多毛髮影響淨化效率；HEPA 濾網更換時間，仍建議以 3 - 6 個月及濾網更換指示燈亮起為主。<br/><br/>*HEPA 濾網建議直接更換，避免重複使用。</p>"
+          }
+        },
+        "question_GdfWAe": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 運行空氣清淨機會很耗電嗎?",
+            "answer": "<p>每天 24 小時不停運轉，平均每天只要 4.3 元</p>"
+          }
+        },
+        "question_zdgKLU": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 有自動模式嗎？若想手動調整風速可以嗎？",
+            "answer": "<p>有自動調整風速模式，風速可以手動調整（1 - 3 段速），適用各種清淨需求。</p><p>直接使用機身上的觸控面板或是連線APP，都可以隨時調整風速。</p>"
+          }
+        },
+        "question_6TgeRz": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 睡眠模式可以調整成燈光全暗嗎？",
+            "answer": "<p>調整成睡眠模式後，上方顯示面板即會關閉，觸控面板指示燈則會於 5 秒後變暗。</p>"
+          }
+        },
+        "question_AVbMpc": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 需開機多久才能改善空氣品質呢?",
+            "answer": "<p>PM2.5 容易從窗外飄進室內環境，甚至人回到家裡會帶進許多髒污，建議有人在家的時候就開機 8 - 10 小時，持續淨化產出乾淨空氣，是對呼吸道的最好的保護。</p>"
+          }
+        },
+        "question_8w8Lra": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 有定時及自動偵測功能嗎？",
+            "answer": "<p>只要機器開始運轉後，就會開始自動不停偵測空氣懸浮微粒數量；可以透過定App 設定關機時間</p>"
+          }
+        },
+        "question_CamPmX": {
+          "type": "question",
+          "settings": {
+            "title": "對貓毛過敏的人，有辦法有效降低過敏嗎？或是需用其他的模式？",
+            "answer": "<p>若單純是毛髮 / 塵蟎 / 皮屑過敏，HEPA 12 濾網即可過濾 99.5％ 的過敏原，無需開啟特定模式；弱勢希望去除寵物異味（排泄物味等），可以開啟負離子淨化 / 活性氧淨化 2 種模式，針對氣味去除進行強化。</p>"
+          }
+        },
+        "question_9EH7K7": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 可以過濾甲醛嗎？",
+            "answer": "<p>吸不停雖然是「寵物專攻」空氣清淨機，但仍可以去除部分甲醛！<br/>透過「負離子淨化 / 活性氧淨化」兩種模式即可降低空氣中甲醛濃度，建議若空間有寵物或人時，使用「負離子淨化」清除甲醛；室內無人時使用「活性氧淨化」，兩者結合能夠大的程度的避免甲醛超標的問題，守護身體的健康！</p>"
+          }
+        },
+        "category_tUjCi3": {
+          "type": "category",
+          "settings": {
+            "title": "注意事項"
+          }
+        },
+        "question_JJrMUC": {
+          "type": "question",
+          "settings": {
+            "title": "什麼時候可以收到產品",
+            "answer": "<p>在我們官網進行預購（首100台 2 週出貨），後續預購到貨時間約2025年1月底至2月</p>"
+          }
+        },
+        "question_LdQgfP": {
+          "type": "question",
+          "settings": {
+            "title": "可以分期付款嗎？",
+            "answer": "<p>可以！我們提供多家信用卡分期 0 利率服務（最高 6 期）；若無信用卡的消費者，可以選用「銀角零卡」的無卡分期服務，具體的分期額度與利率，將按照個人信用狀況有所不同。</p>"
+          }
+        },
+        "question_qUVH77": {
+          "type": "question",
+          "settings": {
+            "title": "可以看實際產品嗎？",
+            "answer": "<p>目前還在確認展示櫃點中，待確認後會再行公佈。</p>"
+          }
+        },
+        "question_dx9p8Y": {
+          "type": "question",
+          "settings": {
+            "title": "HEPA 濾網必須定期更換嗎？",
+            "answer": "<p>HEPA 濾網長期使用下會累積髒污，無法用水清洗，使用越久微粒持續累積在纖維裏會增加風阻，導致空氣清淨機的效能變差，也會因濾網孔隙變小讓運作聲音變大。所以HEPA濾網是需要定期更換的耗材，大部份為 3 ~ 6 個月固定要換一次濾網。</p>"
+          }
+        },
+        "question_6LKyRk": {
+          "type": "question",
+          "settings": {
+            "title": "HEPA 濾網不是等級越高就越好",
+            "answer": "<p>在選擇HEPA濾網時，需要根據實際應用環境和過濾要求來選擇不同等級的濾網。越高等級的HEPA濾網過濾效果越強，是因為其纖維的孔隙排列越密，但也會導致進風淨化的風阻越大，降低潔淨空氣輸出比率（CADR），也容易產生噪音，以及耗電量等問題。</p><p>因此，依據所需環境挑選適當等級的 HEPA 濾網，讓空氣清淨機的效能達到最大平衡，才是最佳選擇。</p>"
+          }
+        },
+        "question_pycbBH": {
+          "type": "question",
+          "settings": {
+            "title": "如何清潔與保養空氣清淨機?",
+            "answer": "<p>空氣清淨機長期使用下濾網都會累積灰塵，需要進行定期清潔以確保其效能和耐用性，「前置初效濾網」建議每個月用吸塵器吸除灰塵；「HEPA 濾網」建議約 3 ~ 6 個月進行更換。<br/><br/>機身請定期用乾布擦拭表面，若長期不使用，請記得拔除 AC 電源供應器。<br/><br/>※注意事項提醒※</p><p>清洗保養時，請勿使用甲苯、漂白水等化學溶劑，也應避免使用硬質刷子，以免腐蝕或刮傷機身外觀及顏色。</p><p>清洗機身可用抹布沾水或以中性清潔劑擦拭，應避免直接讓機身以水沖洗，以防電器短路或導電不良。</p>"
+          }
+        },
+        "category_RazFtp": {
+          "type": "category",
+          "settings": {
+            "title": "其他售後問題"
+          }
+        },
+        "question_pgcHfr": {
+          "type": "question",
+          "settings": {
+            "title": "吸不停 LuxAir 提供多長保固",
+            "answer": "<p>原先保固一年，登陸產品保固卡後延長至兩年。</p>"
+          }
+        },
+        "question_UEVEgY": {
+          "type": "question",
+          "settings": {
+            "title": "鑑賞期內可以退貨嗎？",
+            "answer": "<p>根據 消保法第19條第1項 ，GC 提供鑑賞期內無條件退貨服務。</p><p>請留意 <strong>鑑賞期「非」試用期 </strong>，若使用產品後，功能正常卻希望進行退貨，我們將與您收取部分整新費用：<br/>＊濾網整新費 - $500（消耗性產品無法再次販售）</p><p>欲進行退貨，請確保外包裝、保護耗材完整，若無法恢復原樣，則將與您收取包裝整新費用：<br/>＊包裝整新費 - $300<br/><br/>我們將會在收到產品後，確認一切正常後，退款給您，大約需要 7-14 工作天，敬請您耐心等候。</p>"
+          }
+        },
+        "question_FKkLJz": {
+          "type": "question",
+          "settings": {
+            "title": "鑑賞期 & 保固的差別是什麼呢？",
+            "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～</p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。</p>"
+          }
+        },
+        "question_BbThaW": {
+          "type": "question",
+          "settings": {
+            "title": "商品鑑賞期7日，只有拆封檢查，機器運轉後就不動了，可以退貨嗎？",
+            "answer": "<p>若商品僅有拆封，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。</p>"
+          }
+        },
+        "question_bPahtr": {
+          "type": "question",
+          "settings": {
+            "title": "收件後7日內，如果確定要退貨的話，你們會來收件嗎？",
+            "answer": "<p>會的，我們會派車與您收件，還請務必將商品恢復原包裝狀態！</p>"
+          }
+        },
+        "question_fkNi76": {
+          "type": "question",
+          "settings": {
+            "title": "若保固期內要送修，怎麼寄回商品？運費誰出？",
+            "answer": "<p>保固期內寄回檢修，需由您自行寄回唷！若有寄送上的困難，我們會協助派車收件，不過寄出的運費需由您負擔；商品完成保固作業後會由我們寄回，回程運費由我們負擔。</p>"
+          }
+        },
+        "question_89TiQX": {
+          "type": "question",
+          "settings": {
+            "title": "商品過保後，怎麼維修？",
+            "answer": "<p>過保後需申請付費維修，要麻煩您先與客服聯繫確認商品故障的情況，如有回收檢測需求，寄回我司的來回運費需由您負擔；我司收到商品檢測完成後，會提供維修報價，若您決定不維修，則需支付檢測費用（$200元）與寄回商品之運費。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_xT9J6A",
+        "question_eGiYKz",
+        "question_hCpYUV",
+        "question_wk3cTf",
+        "question_dNDgLY",
+        "question_VdrjnL",
+        "question_CGpxYN",
+        "question_czRXDP",
+        "question_GdfWAe",
+        "question_zdgKLU",
+        "question_6TgeRz",
+        "question_AVbMpc",
+        "question_8w8Lra",
+        "question_CamPmX",
+        "question_9EH7K7",
+        "category_tUjCi3",
+        "question_JJrMUC",
+        "question_LdQgfP",
+        "question_qUVH77",
+        "question_dx9p8Y",
+        "question_6LKyRk",
+        "question_pycbBH",
+        "category_RazFtp",
+        "question_pgcHfr",
+        "question_UEVEgY",
+        "question_FKkLJz",
+        "question_BbThaW",
+        "question_bPahtr",
+        "question_fkNi76",
+        "question_89TiQX"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {}
+    },
+    "1725552081de692f66": {
+      "type": "apps",
+      "blocks": {
+        "vitals_product_reviews_WdCBfw": {
+          "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_product_reviews_WdCBfw"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_xyFBfm",
+    "slideshow_FB97hy",
+    "slideshow_BMUk7a",
+    "slideshow_4LpLdW",
+    "slideshow_pLxaQR",
+    "slideshow_cfQBUh",
+    "slideshow_qwz6WW",
+    "slideshow_MH7ecJ",
+    "1724250482977559c7",
+    "faq_7A9Tt9",
+    "product-content",
+    "1725552081de692f66"
+  ]
+}
