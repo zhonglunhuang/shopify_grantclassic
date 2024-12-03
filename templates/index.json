@@ -12,6 +12,25 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_6jrJaU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner_aqualux_20241203-02.webp",
+            "mobile_image": "shopify://shop_images/banner_aqualux_20241203-12.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://collections/aqualux",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_decgqn": {
           "type": "image",
           "settings": {
@@ -90,6 +109,7 @@
         }
       },
       "block_order": [
+        "image_6jrJaU",
         "image_decgqn",
         "image_cK3UHA",
         "b3f42f8f-dcd3-4867-8130-a475c6dc794e",
