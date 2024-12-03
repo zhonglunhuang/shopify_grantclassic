@@ -12,26 +12,6 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "image_RQmfLB": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/1111_202041105-01.webp",
-            "mobile_image": "shopify://shop_images/1111_202041105-03.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://pages/gc-2024-1111",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "image_decgqn": {
           "type": "image",
           "settings": {
@@ -42,6 +22,25 @@
             "title": "",
             "button_1_text": "",
             "button_1_link": "shopify://products/catpalace",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_cK3UHA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/04.webp",
+            "mobile_image": "shopify://shop_images/05.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/餵不停-luxnourish-貓狗自動餵食器-單碗組",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
@@ -88,33 +87,13 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "image_cK3UHA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/04.webp",
-            "mobile_image": "shopify://shop_images/05.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/餵不停-luxnourish-貓狗自動餵食器-單碗組",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
         }
       },
       "block_order": [
-        "image_RQmfLB",
         "image_decgqn",
+        "image_cK3UHA",
         "b3f42f8f-dcd3-4867-8130-a475c6dc794e",
-        "image_CdPCAk",
-        "image_cK3UHA"
+        "image_CdPCAk"
       ],
       "settings": {
         "section_height": "auto",
@@ -127,28 +106,46 @@
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c": {
       "type": "featured-collections",
       "blocks": {
-        "template--16689333797107__765afadc-689a-40bb-97ce-e9bcbcc2ec2c-16690991383c981da7-0": {
+        "collection_YrXA73": {
           "type": "collection",
           "settings": {
-            "collection": "全部的商品",
-            "label": "最新商品",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "f916e1de-8113-4e0c-a2d0-863cc4b790b7": {
-          "type": "collection",
-          "settings": {
-            "collection": "機車手機支架",
+            "collection": "寵不停-組合優惠",
             "label": "",
             "button_text": "",
             "button_url": ""
           }
         },
-        "972c889c-3abb-496e-9a40-8335094ffaf8": {
+        "collection_kFeFH6": {
           "type": "collection",
           "settings": {
-            "collection": "汽車手機支架",
+            "collection": "喝不停-寵物飲水機系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_gbzVWM": {
+          "type": "collection",
+          "settings": {
+            "collection": "餵不停-寵物自動餵食器系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_3RgJbB": {
+          "type": "collection",
+          "settings": {
+            "collection": "鏟不停-自動貓砂機系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Lg88nx": {
+          "type": "collection",
+          "settings": {
+            "collection": "gc-tag-寵物全球定位器",
             "label": "",
             "button_text": "",
             "button_url": ""
@@ -156,9 +153,11 @@
         }
       },
       "block_order": [
-        "template--16689333797107__765afadc-689a-40bb-97ce-e9bcbcc2ec2c-16690991383c981da7-0",
-        "f916e1de-8113-4e0c-a2d0-863cc4b790b7",
-        "972c889c-3abb-496e-9a40-8335094ffaf8"
+        "collection_YrXA73",
+        "collection_kFeFH6",
+        "collection_gbzVWM",
+        "collection_3RgJbB",
+        "collection_Lg88nx"
       ],
       "settings": {
         "subheading": "",
