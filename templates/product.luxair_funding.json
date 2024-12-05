@@ -162,8 +162,8 @@
         "image_m7wGVE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_02_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_02_20241205.jpg",
+            "image": "shopify://shop_images/web_02_20241205_4a2b5882-a3f9-4a28-b6b1-e5cdcbc1fe67.jpg",
+            "mobile_image": "shopify://shop_images/phone_02_20241205_ef85b213-cee9-425f-9f14-54ff67207ab7.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -195,7 +195,6 @@
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW": {
           "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "disabled": true,
           "settings": {
             "playlist_id": "rl_pl_8029",
             "debugging_script": ""
