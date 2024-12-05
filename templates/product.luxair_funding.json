@@ -150,6 +150,12 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "pagefly_section_KqyLfQ": {
+      "type": "pagefly-section",
+      "settings": {
+        "section_id": ""
+      }
+    },
     "slideshow_BMUk7a": {
       "type": "slideshow",
       "blocks": {
@@ -312,7 +318,7 @@
         "image_FrxcHQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_06_20241205.gif",
+            "image": "shopify://shop_images/web_06_20241205_2f95687c-2a74-4c3c-b3d4-0f8a57474749.gif",
             "mobile_image": "shopify://shop_images/06_frame.gif",
             "text_position": "middle_center",
             "subheading": "",
@@ -970,6 +976,7 @@
     "main",
     "video_xyFBfm",
     "slideshow_FB97hy",
+    "pagefly_section_KqyLfQ",
     "slideshow_BMUk7a",
     "1724250482977559c7",
     "slideshow_4LpLdW",
