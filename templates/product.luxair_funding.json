@@ -67,6 +67,12 @@
             "buy_now_button_background": "rgba(0,0,0,0)",
             "buy_now_button_text_color": "rgba(0,0,0,0)"
           }
+        },
+        "liquid_MT6Knp": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
         }
       },
       "block_order": [
@@ -77,7 +83,8 @@
         "photo_variant_picker_WwtNct",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "liquid_MT6Knp"
       ],
       "settings": {
         "show_vendor": false,
@@ -94,22 +101,6 @@
         "show_thumbnails_on_mobile": false,
         "desktop_thumbnails_position": "left",
         "transition_effect": "slide"
-      }
-    },
-    "173339261572d340de": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_volume_discounts_zCr977": {
-          "type": "shopify://apps/vitals/blocks/ub-volume-discounts/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_ub_volume_discounts_zCr977"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
       }
     },
     "video_xyFBfm": {
@@ -965,7 +956,6 @@
   },
   "order": [
     "main",
-    "173339261572d340de",
     "video_xyFBfm",
     "slideshow_FB97hy",
     "pagefly_section_KqyLfQ",
