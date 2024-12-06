@@ -12,6 +12,25 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_NpQMFG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner_luxair_20241206-13.webp",
+            "mobile_image": "shopify://shop_images/banner_luxair_20241206-14.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/luxair",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_6jrJaU": {
           "type": "image",
           "settings": {
@@ -87,33 +106,14 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "image_NpQMFG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/banner_luxair_20241206-13.webp",
-            "mobile_image": "shopify://shop_images/banner_luxair_20241206-14.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
         }
       },
       "block_order": [
+        "image_NpQMFG",
         "image_6jrJaU",
         "image_decgqn",
         "image_cK3UHA",
-        "b3f42f8f-dcd3-4867-8130-a475c6dc794e",
-        "image_NpQMFG"
+        "b3f42f8f-dcd3-4867-8130-a475c6dc794e"
       ],
       "settings": {
         "section_height": "auto",
