@@ -686,6 +686,12 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "pagefly_section_hcwGKn": {
+      "type": "pagefly-section",
+      "settings": {
+        "section_id": "pf-a0cf7384"
+      }
+    },
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
@@ -976,6 +982,7 @@
     "slideshow_RgjciP",
     "slideshow_QG3UQR",
     "slideshow_TUGCKN",
+    "pagefly_section_hcwGKn",
     "faq_7A9Tt9",
     "product-content"
   ]
