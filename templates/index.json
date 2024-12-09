@@ -16,8 +16,8 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/banner_20241209-10.webp",
-            "mobile_image": "shopify://shop_images/banner_20241209-11.webp",
+            "image": "shopify://shop_images/99_OUTPUT-10.webp",
+            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
