@@ -54,6 +54,14 @@
             "size_chart_page": ""
           }
         },
+        "image_Ax4gQj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_3a34474b-5c2c-4aaa-a6eb-af57d48d5463.png",
+            "image_alignment": "left",
+            "image_width": 500
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -82,6 +90,7 @@
         "crowdfunder_crowdfunder_VBwnMK",
         "photo_variant_picker_WwtNct",
         "variant_picker",
+        "image_Ax4gQj",
         "quantity_selector",
         "buy_buttons",
         "liquid_MT6Knp"
