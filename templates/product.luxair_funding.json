@@ -361,8 +361,8 @@
         "image_3cmwze": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_07_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_07_20241205.jpg",
+            "image": "shopify://shop_images/web_07.jpg",
+            "mobile_image": "shopify://shop_images/phone_07.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -395,8 +395,8 @@
         "image_cGtGnp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_08_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_08_20241205.jpg",
+            "image": "shopify://shop_images/web_08.jpg",
+            "mobile_image": "shopify://shop_images/phone_08.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -429,7 +429,7 @@
         "image_QHRa6x": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_09_20241205.gif",
+            "image": "shopify://shop_images/web_09_e35862bf-8ea7-4c69-a92c-0dd2a0c11476.gif",
             "mobile_image": "shopify://shop_images/09_frame.gif",
             "text_position": "middle_center",
             "subheading": "",
@@ -463,7 +463,7 @@
         "image_pyBnAH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_10_20241205_a1c0c790-9d37-4af5-b611-2d1ce306a2ed.jpg",
+            "image": "shopify://shop_images/web_10.jpg",
             "mobile_image": "shopify://shop_images/phone_10_20241205_b8f086a2-3bb9-4c9e-b7c3-a7ec0d25610d.jpg",
             "text_position": "middle_center",
             "subheading": "",
@@ -498,7 +498,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/web_11_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_11_20241205.jpg",
+            "mobile_image": "shopify://shop_images/phone_11.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -667,8 +667,8 @@
         "image_XwcWrP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_16_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_16_20241205.jpg",
+            "image": "shopify://shop_images/web_16.jpg",
+            "mobile_image": "shopify://shop_images/phone_16.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
