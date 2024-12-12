@@ -224,8 +224,8 @@
         "image_9KTQaU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/web_03_1_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_03_01_20241205.jpg",
+            "image": "shopify://shop_images/web_03_20241205.jpg",
+            "mobile_image": "shopify://shop_images/phone_03_20241205.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
