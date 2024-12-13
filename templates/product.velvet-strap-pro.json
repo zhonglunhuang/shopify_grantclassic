@@ -146,8 +146,8 @@
         "image_RazTdG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/02_f29ad6a4-92c0-482d-944a-6760a0066512.jpg",
-            "mobile_image": "shopify://shop_images/L132_web-16_119a0cc7-2719-4441-8a43-24b4ab436c16.webp",
+            "image": "shopify://shop_images/web_01_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_01_20241213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -174,46 +174,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_NdwbHz": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_jAFVgN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/decae8b992c69d97f35bee39aed2cb7c.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "隨時調整長度",
-            "content": "<h3>靈活長度 適應多場景</h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_jAFVgN"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_PPXJ8W": {
       "type": "slideshow",
       "blocks": {
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-04.webp",
-            "mobile_image": "shopify://shop_images/L132_web-18.webp",
+            "image": "shopify://shop_images/web_02_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_02_20241213.jpg",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -265,8 +233,8 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-05_754acab1-ed20-4bd4-b2c3-41f26019dad7.webp",
-            "mobile_image": "shopify://shop_images/L132_web-19_6ab9795b-baeb-4e05-8e37-4deddca9e595.webp",
+            "image": "shopify://shop_images/web_03_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_03_20241213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -299,8 +267,8 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-06_85328201-20a4-4cdf-b75b-6250f2410810.webp",
-            "mobile_image": "shopify://shop_images/L132_web-20_0c47e7a7-35fd-46ba-8163-f7ebfe09b66b.webp",
+            "image": "shopify://shop_images/04_83c91373-f9d4-47e6-b8a1-1e6876fb8eb9.gif",
+            "mobile_image": "shopify://shop_images/phone_04.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -333,8 +301,8 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-07_bc54e300-a032-4d42-a7c6-f82fb4ddff09.webp",
-            "mobile_image": "shopify://shop_images/L132_web-21_4ead05e4-bae0-4448-bded-307f9b7e76e1.webp",
+            "image": "shopify://shop_images/05_61d03f2d-1ee7-48c5-a5cd-2758a551f3af.gif",
+            "mobile_image": "shopify://shop_images/phone_05.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -367,8 +335,8 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-08_94f5e45f-aec0-4b34-8dc3-3c17b5b58030.webp",
-            "mobile_image": "shopify://shop_images/L132_web-22_3369c796-843c-46c1-93b1-2279bb1b3871.webp",
+            "image": "shopify://shop_images/06_5e3e8c40-b981-4934-b878-dd9b66f6068c.gif",
+            "mobile_image": "shopify://shop_images/phone_06.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -401,8 +369,8 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-09_f348414c-4a99-4a6d-ab28-2e59ab64b264.webp",
-            "mobile_image": "shopify://shop_images/L132_web-23_329d2a45-403c-4f85-9eaf-241a07df26c5.webp",
+            "image": "shopify://shop_images/web_07_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_07_20241213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -435,8 +403,8 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-10_d3b1bb0c-aa6f-49d1-8055-67c275ad01c4.webp",
-            "mobile_image": "shopify://shop_images/L132_web-24_30a3b74b-ec94-4200-8f5d-68f07fe0d43c.webp",
+            "image": "shopify://shop_images/web_08_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_08_20241213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -469,8 +437,8 @@
         "image_RwwQHY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-11.webp",
-            "mobile_image": "shopify://shop_images/L132_web-25.webp",
+            "image": "shopify://shop_images/09_325e8b9e-4c40-49bd-b779-448de31ff0b0.gif",
+            "mobile_image": "shopify://shop_images/phone_10.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -497,46 +465,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_7VezLX": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_EqEKKr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/360.gif",
-            "tab_label": "",
-            "subheading": "",
-            "title": "360度旋轉",
-            "content": "<h3>登山扣靈活性更佳</h3>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_EqEKKr"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_QFCqnC": {
       "type": "slideshow",
       "blocks": {
-        "image_jk3Qpy": {
+        "image_qdQMhE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/L132_web-12_a6640dbe-ede2-40f8-9852-d53de71f7fdd.webp",
-            "mobile_image": "shopify://shop_images/L132_web-26_172e7494-17e6-41a5-bc3c-fe12ddf40e84.webp",
+            "image": "shopify://shop_images/web_10_20241213.jpg",
+            "mobile_image": "shopify://shop_images/phone_10_20241213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -553,7 +489,7 @@
         }
       },
       "block_order": [
-        "image_jk3Qpy"
+        "image_qdQMhE"
       ],
       "settings": {
         "section_height": "auto",
@@ -561,126 +497,6 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_DbXYJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_QhCdXx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web-13_54fd417a-23ee-4563-ab25-b1d06465062f.webp",
-            "mobile_image": "shopify://shop_images/L132_web-27_e0fbfecf-d289-4d20-8506-894cfa86c1ab.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_QhCdXx"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_ntqVYw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_NiwFBN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web-14_c1665c85-45b6-4b5d-812d-6d8574e48640.webp",
-            "mobile_image": "shopify://shop_images/L132_web-28_4d096dce-3902-4bc4-8d83-b3673e2954a9.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_NiwFBN"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_UyRFKL": {
-      "type": "slideshow",
-      "blocks": {
-        "image_kMUAcm": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web-30.webp",
-            "mobile_image": "shopify://shop_images/L132_web-31.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_kMUAcm"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "rich_text_DrjhkK": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "",
-        "title": "繩來運轉 Pro 朋友開箱",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "fill",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "1724250482977559c7": {
@@ -846,7 +662,6 @@
     "slideshow_Cyhp4d",
     "17217531779a9cbfe4",
     "slideshow_aKypqM",
-    "image_with_text_NdwbHz",
     "slideshow_PPXJ8W",
     "17217531875f804291",
     "slideshow_3bDkQd",
@@ -856,12 +671,7 @@
     "slideshow_xzetDx",
     "slideshow_E3anTw",
     "slideshow_LreQAy",
-    "image_with_text_7VezLX",
     "slideshow_QFCqnC",
-    "slideshow_DbXYJw",
-    "slideshow_ntqVYw",
-    "slideshow_UyRFKL",
-    "rich_text_DrjhkK",
     "1724250482977559c7",
     "faq_7A9Tt9",
     "product-content"
