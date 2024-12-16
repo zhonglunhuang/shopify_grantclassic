@@ -130,7 +130,7 @@
         "settings": {
           "enable_sticky_header": true,
           "logo-svg": "",
-          "logo": "shopify://shop_images/2024-12-logo.png",
+          "logo": "shopify://shop_images/2024-12-logo.webp",
           "logo_max_width": 40,
           "mobile_logo_max_width": 70,
           "navigation_menu": "new-mega-menu",
