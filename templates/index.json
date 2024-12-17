@@ -123,6 +123,66 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "featured_collections_WTNaTb": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_ETKJfz": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-磁吸保溫杯系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_CdYwBC": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-手機殼系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_rHbCbF": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-汽機車用品系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_GLUNfD": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-質感生活系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_ETKJfz",
+        "collection_CdYwBC",
+        "collection_rHbCbF",
+        "collection_GLUNfD"
+      ],
+      "settings": {
+        "subheading": "🎄 聖誕送禮首選 🎄",
+        "title": "免費客製化",
+        "content": "<p><strong>輸入『GCXMAS』享 85 折優惠</strong></p>",
+        "products_count": 4,
+        "products_per_row": 5,
+        "stack_products": true,
+        "show_cta": false,
+        "background": "#ffffff",
+        "text_color": "#2d2d2d",
+        "button_background": "#2d2d2d",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c": {
       "type": "featured-collections",
       "blocks": {
@@ -199,57 +259,6 @@
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
-      }
-    },
-    "featured_collections_WTNaTb": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_CdYwBC": {
-          "type": "collection",
-          "settings": {
-            "collection": "1-1-只要-1-111",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_GLUNfD": {
-          "type": "collection",
-          "settings": {
-            "collection": "現折-1-111",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_zcnRyF": {
-          "type": "collection",
-          "settings": {
-            "collection": "買-10-送-1",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_CdYwBC",
-        "collection_GLUNfD",
-        "collection_zcnRyF"
-      ],
-      "disabled": true,
-      "settings": {
-        "subheading": "🎄 聖誕送禮首選 🎄",
-        "title": "免費客製化",
-        "content": "",
-        "products_count": 4,
-        "products_per_row": 5,
-        "stack_products": true,
-        "show_cta": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "874de104-fc55-4f57-b89f-70e94f68f14b": {
@@ -762,9 +771,9 @@
   },
   "order": [
     "slideshow",
+    "featured_collections_WTNaTb",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
     "16859436662a75d14b",
-    "featured_collections_WTNaTb",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
