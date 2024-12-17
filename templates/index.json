@@ -175,7 +175,7 @@
         "content": "<p><strong>輸入『GCXMAS』享 85 折優惠</strong></p>",
         "products_count": 4,
         "products_per_row": 5,
-        "stack_products": true,
+        "stack_products": false,
         "show_cta": false,
         "background": "#ffffff",
         "text_color": "#2d2d2d",
