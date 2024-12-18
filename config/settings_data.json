@@ -342,6 +342,11 @@
         "type": "shopify://apps//blocks/cvs_widget/db3cf894-1968-40c5-bb48-952d15f1fd8d",
         "disabled": false,
         "settings": {}
+      },
+      "6251270934270006384": {
+        "type": "shopify://apps/stape-server-gtm/blocks/gtm/7e13c847-7971-409d-8fe0-29ec14d5f048",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
