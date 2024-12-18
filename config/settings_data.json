@@ -342,11 +342,6 @@
         "type": "shopify://apps//blocks/cvs_widget/db3cf894-1968-40c5-bb48-952d15f1fd8d",
         "disabled": false,
         "settings": {}
-      },
-      "2962722633521649363": {
-        "type": "shopify://apps/google-ads-tracking-gtm/blocks/app-embed/3a9c0bee-60ce-4c27-87b5-340e530f0be1",
-        "disabled": false,
-        "settings": {}
       }
     }
   },
