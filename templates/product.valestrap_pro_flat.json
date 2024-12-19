@@ -239,7 +239,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/L132_web_20241218_04gif.gif",
-            "mobile_image": "shopify://shop_images/L132_web_20241218_04gif.gif",
+            "mobile_image": "shopify://shop_images/L132_phone_20241218_04.gif",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
