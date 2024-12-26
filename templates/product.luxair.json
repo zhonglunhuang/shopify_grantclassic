@@ -142,6 +142,7 @@
       "block_order": [
         "image_tUVrE9"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -176,6 +177,7 @@
       "block_order": [
         "image_m7wGVE"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -210,6 +212,7 @@
       "block_order": [
         "image_9KTQaU"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -244,6 +247,7 @@
       "block_order": [
         "image_8LKzaL"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -278,6 +282,7 @@
       "block_order": [
         "image_rFq7qF"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -312,6 +317,7 @@
       "block_order": [
         "image_FrxcHQ"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -346,6 +352,7 @@
       "block_order": [
         "image_3cmwze"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -369,9 +376,40 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW"
       ],
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description_h8zRP3": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "description_h8zRP3"
+      ],
+      "settings": {}
+    },
+    "1725552081de692f66": {
+      "type": "apps",
+      "blocks": {
+        "vitals_product_reviews_WdCBfw": {
+          "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_product_reviews_WdCBfw"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
       }
     },
     "faq_7A9Tt9": {
@@ -624,40 +662,6 @@
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {}
-    },
-    "1725552081de692f66": {
-      "type": "apps",
-      "blocks": {
-        "vitals_product_reviews_WdCBfw": {
-          "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "disabled": true,
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_product_reviews_WdCBfw"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
     }
   },
   "order": [
@@ -671,8 +675,8 @@
     "slideshow_qwz6WW",
     "slideshow_MH7ecJ",
     "1724250482977559c7",
-    "faq_7A9Tt9",
     "product-content",
-    "1725552081de692f66"
+    "1725552081de692f66",
+    "faq_7A9Tt9"
   ]
 }
