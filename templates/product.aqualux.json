@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -29,7 +29,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "photo_variant_picker_WwtNct": {
@@ -52,8 +52,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -68,7 +67,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -104,7 +103,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/player.vimeo.com\/video\/1001536153",
+        "video_url": "https://player.vimeo.com/video/1001536153",
         "background_type": "full_width",
         "video_size": "auto",
         "autoplay": true,
@@ -118,7 +117,7 @@
         "image_3XEhL6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-01.webp",
+            "image": "shopify://shop_images/L108_web-01.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -167,7 +166,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
@@ -188,7 +187,7 @@
         "image_9PF8CN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-02.webp",
+            "image": "shopify://shop_images/L108_web-02.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -221,7 +220,7 @@
         "image_mNFEtE": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-03.webp",
+            "image": "shopify://shop_images/L108_web-03.webp",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
@@ -254,7 +253,7 @@
         "image_bqhV9Y": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-04.webp",
+            "image": "shopify://shop_images/L108_web-04.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -287,7 +286,7 @@
         "image_3QECz3": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-05.webp",
+            "image": "shopify://shop_images/L108_web-05.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -320,7 +319,7 @@
         "image_NEMAKQ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-06.webp",
+            "image": "shopify://shop_images/L108_web-06.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -353,7 +352,7 @@
         "image_dq3Ew7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-07.webp",
+            "image": "shopify://shop_images/L108_web-07.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -386,7 +385,7 @@
         "image_WBgGBc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-08.webp",
+            "image": "shopify://shop_images/L108_web-08.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -419,7 +418,7 @@
         "image_F4XAUj": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-09.webp",
+            "image": "shopify://shop_images/L108_web-09.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -452,7 +451,7 @@
         "image_VexMGy": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-10.webp",
+            "image": "shopify://shop_images/L108_web-10.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -485,7 +484,7 @@
         "image_cN7HN6": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-11.webp",
+            "image": "shopify://shop_images/L108_web-11.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -518,7 +517,7 @@
         "image_Hk4BDi": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-12.webp",
+            "image": "shopify://shop_images/L108_web-12.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -551,7 +550,7 @@
         "image_kQQQww": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-13.webp",
+            "image": "shopify://shop_images/L108_web-13.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -584,7 +583,7 @@
         "image_rJaKB8": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-14.webp",
+            "image": "shopify://shop_images/L108_web-14.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -617,7 +616,7 @@
         "image_iCiecT": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/L108_web-15.webp",
+            "image": "shopify://shop_images/L108_web-15.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -657,35 +656,35 @@
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機的容量是多少？",
-            "answer": "<p>喝不停 AquaLux 飲水機的容量為 2 公升，能夠滿足日常需求，適合寵物全天使用。<\/p>"
+            "answer": "<p>喝不停 AquaLux 飲水機的容量為 2 公升，能夠滿足日常需求，適合寵物全天使用。</p>"
           }
         },
         "question_hCpYUV": {
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機需要插電嗎？",
-            "answer": "<p>不需要，喝不停 AquaLux 採用智能無線感應技術，續航可達 10 天。<\/p><p>但是建議都是插著電，電池屬於應付緊急狀況。<\/p>"
+            "answer": "<p>不需要，喝不停 AquaLux 採用智能無線感應技術，續航可達 10 天。</p><p>但是建議都是插著電，電池屬於應付緊急狀況。</p>"
           }
         },
         "question_pGFKkT": {
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機的材質是否安全？",
-            "answer": "<p>是的，喝不停 AquaLux 飲水機採用無毒高溫陶瓷製成，不導電且無重金屬，抗汙抗敏，對寵物安全無害。<\/p>"
+            "answer": "<p>是的，喝不停 AquaLux 飲水機採用無毒高溫陶瓷製成，不導電且無重金屬，抗汙抗敏，對寵物安全無害。</p>"
           }
         },
         "question_wk3cTf": {
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機的過濾系統如何運作？",
-            "answer": "<p>喝不停 AquaLux 使用離子交換過濾系統，有效清除水中的雜質與細菌，提供潔淨的飲水。<\/p>"
+            "answer": "<p>喝不停 AquaLux 使用離子交換過濾系統，有效清除水中的雜質與細菌，提供潔淨的飲水。</p>"
           }
         },
         "question_dNDgLY": {
           "type": "question",
           "settings": {
             "title": "如何清潔 喝不停 AquaLux 飲水機？",
-            "answer": "<p>喝不停 AquaLux 飲水機設計為全機可拆卸，無死角清洗，方便保持水源清潔。<\/p>"
+            "answer": "<p>喝不停 AquaLux 飲水機設計為全機可拆卸，無死角清洗，方便保持水源清潔。</p>"
           }
         },
         "category_tUjCi3": {
@@ -698,28 +697,35 @@
           "type": "question",
           "settings": {
             "title": "如何設定 喝不停 AquaLux 飲水機的感應出水功能？",
-            "answer": "<p>喝不停 AquaLux 飲水機主機上方可以做切換，感應模式與持續出水模式。<\/p>"
+            "answer": "<p>喝不停 AquaLux 飲水機主機上方可以做切換，感應模式與持續出水模式。</p>"
           }
         },
         "question_6LKyRk": {
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機是否支援加熱功能？",
-            "answer": "<p>可以選配有專屬恆溫加熱盤底座，確保水溫適中，讓寵物飲用更舒適。<\/p>"
+            "answer": "<p>可以選配有專屬恆溫加熱盤底座，確保水溫適中，讓寵物飲用更舒適。</p>"
           }
         },
         "question_pycbBH": {
           "type": "question",
           "settings": {
             "title": "喝不停 AquaLux 飲水機是否適合所有寵物？",
-            "answer": "<p>喝不停 AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。<\/p>"
+            "answer": "<p>喝不停 AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
             "title": "多久需要更換 喝不停 AquaLux 飲水機的濾心？",
-            "answer": "<ul><li>建議每月更換一次濾心，以確保水質清潔，保護您的寵物健康。<\/li><\/ul><h3><\/h3>"
+            "answer": "<ul><li>建議每月更換一次濾心，以確保水質清潔，保護您的寵物健康。</li></ul><h3></h3>"
+          }
+        },
+        "question_hPkyY6": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機濾芯內容物是什麼？",
+            "answer": "<p>喝不停濾心採用中性離子交換樹脂與活性碳粉雙重濾材設計，能高效吸附水中雜質，同時有效改善水質硬度，為寵物提供更健康的飲水體驗。<br/><br/>注意事項<br/>初次使用或更換濾心時，可能因活性碳粉的特性，導致少量黑色粉末殘留於水中。這屬於正常現象，對水質安全無影響。為避免此情況，建議在正式使用前，按照以下步驟處理：<br/>1. 濾心浸泡：將濾心浸泡於清水中約5-10分鐘，幫助活性碳粉穩定。<br/>2. 更換清水：浸泡完成後，將水倒掉，重新加入乾淨的水。<br/><br/>完成上述步驟後，寵物即可安心飲用。此過程能確保濾水效果最佳，並提升您的使用體驗。</p>"
           }
         }
       },
@@ -734,7 +740,8 @@
         "question_dx9p8Y",
         "question_6LKyRk",
         "question_pycbBH",
-        "question_FKkLJz"
+        "question_FKkLJz",
+        "question_hPkyY6"
       ],
       "settings": {
         "show_navigation": true,
@@ -749,14 +756,13 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -765,8 +771,7 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
