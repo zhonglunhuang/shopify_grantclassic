@@ -619,40 +619,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_QG3UQR": {
-      "type": "slideshow",
-      "blocks": {
-        "image_tE6XfY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_15_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_15_20241205.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/catpalace-luxair",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_tE6XfY"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_TUGCKN": {
       "type": "slideshow",
       "blocks": {
@@ -981,7 +947,6 @@
     "slideshow_APTh6j",
     "slideshow_Pc4i7V",
     "slideshow_RgjciP",
-    "slideshow_QG3UQR",
     "slideshow_TUGCKN",
     "pagefly_section_hcwGKn",
     "faq_7A9Tt9",
