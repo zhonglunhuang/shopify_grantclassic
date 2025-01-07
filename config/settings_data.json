@@ -342,6 +342,11 @@
         "type": "shopify://apps//blocks/cvs_widget/db3cf894-1968-40c5-bb48-952d15f1fd8d",
         "disabled": false,
         "settings": {}
+      },
+      "18443944202862238493": {
+        "type": "shopify://apps/clarity-session-replay-heatmap/blocks/app-embed/a00e1498-58a5-40f8-a329-090bf3504868",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
