@@ -21,7 +21,7 @@
     box-shadow: none !important;
 }
 
-.__pf *:not(input):not(select):not(textarea):focus-visible {
+.__pf *:not(input):not(select):not(textarea):not([data-active="true"]):focus-visible {
     border: none !important;
 }
 
