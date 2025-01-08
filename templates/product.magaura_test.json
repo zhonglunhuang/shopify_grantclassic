@@ -814,6 +814,13 @@
             "answer": "<p>不建議在 磁杯為懷 MagAura 中使用碳酸飲料。隨著時間推移，碳酸會在瓶內產生壓力，這可能會導致瓶蓋難以打開，甚至可能強行彈出，從而造成潛在危險。</p>"
           }
         },
+        "question_kxF4Ey": {
+          "type": "question",
+          "settings": {
+            "title": "磁杯為懷 MagAura 是完全防漏的嗎？",
+            "answer": "<p>磁杯為懷 MagAura 在正常使用情況下不會漏水，無論是放在背包內或日常攜帶都能保持乾爽。建議使用時保持水壺直立，以確保最佳密封效果。如長時間倒放或壓力過大，有可能出現輕微水滴滲漏的情況，因此建議避免這樣的擺放方式，以確保使用體驗更佳！</p>"
+          }
+        },
         "category_dNyy9A": {
           "type": "category",
           "settings": {
@@ -855,6 +862,7 @@
         "question_4q8PVc",
         "question_JpeJzD",
         "question_7cT6F3",
+        "question_kxF4Ey",
         "category_dNyy9A",
         "question_KBzqjq",
         "question_XiEGWQ",
