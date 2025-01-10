@@ -129,7 +129,7 @@
         "collection_ETKJfz": {
           "type": "collection",
           "settings": {
-            "collection": "免費客製化-磁吸保溫杯系列",
+            "collection": "新年出遊-電力⚡️⚡️滿滿推薦",
             "label": "",
             "button_text": "",
             "button_url": ""
@@ -138,7 +138,7 @@
         "collection_CdYwBC": {
           "type": "collection",
           "settings": {
-            "collection": "免費客製化-手機殼系列",
+            "collection": "新年出遊-養寵神隊友🐶",
             "label": "",
             "button_text": "",
             "button_url": ""
@@ -147,7 +147,7 @@
         "collection_rHbCbF": {
           "type": "collection",
           "settings": {
-            "collection": "免費客製化-汽機車用品系列",
+            "collection": "新年出遊-安心旅行必備-✈️",
             "label": "",
             "button_text": "",
             "button_url": ""
@@ -156,7 +156,7 @@
         "collection_GLUNfD": {
           "type": "collection",
           "settings": {
-            "collection": "免費客製化-質感生活系列",
+            "collection": "新年出遊-機車旅行夥伴-🏍️",
             "label": "",
             "button_text": "",
             "button_url": ""
@@ -168,6 +168,66 @@
         "collection_CdYwBC",
         "collection_rHbCbF",
         "collection_GLUNfD"
+      ],
+      "settings": {
+        "subheading": "🧧 新年超值組 🧧",
+        "title": "最低 57 折❗️最高現省 $6,000",
+        "content": "<p><strong>期間限定🔥 1/13 ~ 1/19</strong></p>",
+        "products_count": 50,
+        "products_per_row": 3,
+        "stack_products": false,
+        "show_cta": false,
+        "background": "#ffffff",
+        "text_color": "#2d2d2d",
+        "button_background": "#2d2d2d",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_JxEn6d": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_xfmayb": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-磁吸保溫杯系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Mh4CX7": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-手機殼系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_BRNtPL": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-汽機車用品系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_JqC7Bp": {
+          "type": "collection",
+          "settings": {
+            "collection": "免費客製化-質感生活系列",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_xfmayb",
+        "collection_Mh4CX7",
+        "collection_BRNtPL",
+        "collection_JqC7Bp"
       ],
       "disabled": true,
       "settings": {
@@ -240,6 +300,7 @@
         "collection_3RgJbB",
         "collection_Lg88nx"
       ],
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -313,6 +374,7 @@
         "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1",
         "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": false,
         "layout": "carousel",
@@ -757,6 +819,7 @@
   "order": [
     "slideshow",
     "featured_collections_WTNaTb",
+    "featured_collections_JxEn6d",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
     "16859436662a75d14b",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
