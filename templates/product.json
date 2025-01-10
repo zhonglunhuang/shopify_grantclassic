@@ -112,6 +112,22 @@
         "transition_effect": "slide"
       }
     },
+    "17339957580d14b91e": {
+      "type": "apps",
+      "blocks": {
+        "vitals_ub_product_bundles_xKNKpV": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_ub_product_bundles_xKNKpV"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
     "17217886296359dc4e": {
       "type": "apps",
       "blocks": {
@@ -166,7 +182,7 @@
           "type": "question",
           "settings": {
             "title": "售後問題",
-            "answer": "<p>※ 放上手機後各部位螺絲都要鎖緊<br/>※ 手機尺寸過大及比例特殊(21:9)，或是手機殼過大過厚可加裝防摔網<br/>※ 收到商品後請檢查商品是否有瑕疵缺件，若商品有瑕疵缺件請聯絡客服更換良品。<br/>※ 機車用手機架有可能因為日曬雨淋等等各種環境因素，或是遭到人為破壞導致零件老化毀損，建議使用完後拆下保存。<br/>※ 使用本機車用手機架行駛前，請先檢查車架是否正常無瑕疵、安裝是否牢固、鎖緊不會掉落，若因沒有確實檢查等等人為因素造成手機掉落，本公司概不負責。</p><p>【免責聲明】</p><p>由於路況瞬息萬變，如您擔心手機可能會因意外情況滑落，建議額外安裝防範措施（如防摔網或防摔繩等）。若消費者僅使用本公司提供的手機支架而未加裝其他防範措施，並因此造成手機飛出或損壞，則在保固期內，我們公司僅提供手機支架的購買費用退還；超過保固期後，恕不負責。</p>"
+            "answer": "<p>請參考官方售後規範</p>"
           }
         }
       },
@@ -180,22 +196,6 @@
         "content": "",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "17339957580d14b91e": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_product_bundles_xKNKpV": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_ub_product_bundles_xKNKpV"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
       }
     }
   },
