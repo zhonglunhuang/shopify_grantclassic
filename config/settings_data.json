@@ -292,7 +292,7 @@
       "ako-promo-popup": {
         "type": "ako-promo-popup",
         "settings": {
-          "enable": false,
+          "enable": true,
           "apparition_delay": 3,
           "show_only_on_index": true,
           "show_only_for_visitors": true,
@@ -302,7 +302,7 @@
           "title": "🎉 春節出貨公告 🎉",
           "content": "<p>1/20 前下單正常出貨<br/>1/20 後訂單年後 2/3 陸續出貨！</p><p>📢 <strong>限時新春特惠組開搶！</strong></p><p>優惠期間：1/13~1/19，數量有限，立即購買！ 🔥</p>",
           "button_text": "點我搶好康！",
-          "button_link": "shopify://pages/情人節線上特會-真愛不分你我牠"
+          "button_link": "shopify://collections/2025-新春限定-新春超值組"
         }
       }
     },
