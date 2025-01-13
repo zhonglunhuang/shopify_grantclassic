@@ -12,6 +12,25 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_CPKEN4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NW_B01.jpg",
+            "mobile_image": "shopify://shop_images/NW_B01.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
         "image_NpQMFG": {
           "type": "image",
           "settings": {
@@ -69,25 +88,6 @@
             "overlay_opacity": 0
           }
         },
-        "image_cK3UHA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/04.webp",
-            "mobile_image": "shopify://shop_images/05.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/餵不停-luxnourish-貓狗自動餵食器-單碗組",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "b3f42f8f-dcd3-4867-8130-a475c6dc794e": {
           "type": "image",
           "settings": {
@@ -109,12 +109,127 @@
         }
       },
       "block_order": [
+        "image_CPKEN4",
         "image_NpQMFG",
         "image_6jrJaU",
         "image_decgqn",
-        "image_cK3UHA",
         "b3f42f8f-dcd3-4867-8130-a475c6dc794e"
       ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 10,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_p99r8h": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3a8yqE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/99_OUTPUT-10.webp",
+            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/luxair",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_CbX6Bt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner_aqualux_20241203-02.webp",
+            "mobile_image": "shopify://shop_images/banner_aqualux_20241203-12.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://collections/aqualux",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_RfXrF6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Catpalace_2200x1130_76f1de58-3e90-4f23-882b-7f68967348a8.jpg",
+            "mobile_image": "shopify://shop_images/Catpalace_phone.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/catpalace",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_fQxd4L": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/04.webp",
+            "mobile_image": "shopify://shop_images/05.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/餵不停-luxnourish-貓狗自動餵食器-單碗組",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_P999HC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/230823_gctag.webp",
+            "mobile_image": "shopify://shop_images/230823_gctag_phone.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://collections/gc-tag-series",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3a8yqE",
+        "image_CbX6Bt",
+        "image_RfXrF6",
+        "image_fQxd4L",
+        "image_P999HC"
+      ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -818,6 +933,7 @@
   },
   "order": [
     "slideshow",
+    "slideshow_p99r8h",
     "featured_collections_WTNaTb",
     "featured_collections_JxEn6d",
     "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
