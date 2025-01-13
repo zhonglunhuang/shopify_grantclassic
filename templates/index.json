@@ -14,9 +14,9 @@
       "blocks": {
         "image_CPKEN4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/NW_B01.jpg",
-            "mobile_image": "shopify://shop_images/NW_B01.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
