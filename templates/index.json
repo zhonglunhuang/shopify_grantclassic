@@ -14,14 +14,14 @@
       "blocks": {
         "image_CPKEN4": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/NW_B01.jpg",
+            "mobile_image": "shopify://shop_images/lQDPItzFpAXaz53NBXjNA-iweuI7jMhJziQHalOKrp6SAA_1000_1400.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
             "button_1_text": "",
-            "button_1_link": "",
+            "button_1_link": "shopify://collections/2025-新春限定-新春超值組",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
@@ -29,25 +29,6 @@
             "button_text_color": "#000000",
             "overlay_color": "#000000",
             "overlay_opacity": 30
-          }
-        },
-        "image_NpQMFG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/99_OUTPUT-10.webp",
-            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/luxair",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
           }
         },
         "image_6jrJaU": {
@@ -60,6 +41,25 @@
             "title": "",
             "button_1_text": "",
             "button_1_link": "shopify://collections/aqualux",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_NpQMFG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/99_OUTPUT-10.webp",
+            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/luxair",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
@@ -88,32 +88,32 @@
             "overlay_opacity": 0
           }
         },
-        "b3f42f8f-dcd3-4867-8130-a475c6dc794e": {
+        "image_LkzMaW": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/230823_gctag.webp",
-            "mobile_image": "shopify://shop_images/230823_gctag_phone.webp",
+            "image": "shopify://shop_images/NW_B02.jpg",
+            "mobile_image": "shopify://shop_images/lQDPIucTLOO0D53NBXjNA-iwtQPAaMgm1pEHalOKrYcpAA_1000_1400.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
             "button_1_text": "",
-            "button_1_link": "shopify://collections/gc-tag-series",
+            "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
         "image_CPKEN4",
-        "image_NpQMFG",
         "image_6jrJaU",
+        "image_NpQMFG",
         "image_decgqn",
-        "b3f42f8f-dcd3-4867-8130-a475c6dc794e"
+        "image_LkzMaW"
       ],
       "settings": {
         "section_height": "auto",
