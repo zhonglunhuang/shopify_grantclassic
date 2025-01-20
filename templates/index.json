@@ -12,8 +12,28 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "image_LkzMaW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NW_B02.jpg",
+            "mobile_image": "shopify://shop_images/lQDPIucTLOO0D53NBXjNA-iwtQPAaMgm1pEHalOKrYcpAA_1000_1400.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://collections/2025-newyear-special-offer-package",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_CPKEN4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/NW_B01_2160x1000_d01c4c2b-5510-45f9-a99e-6d645e2e469f.jpg",
             "mobile_image": "shopify://shop_images/NW_B01_1000x1400_c01d1d9e-e861-415f-9775-48eba3b463de.jpg",
@@ -87,33 +107,14 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "image_LkzMaW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NW_B02.jpg",
-            "mobile_image": "shopify://shop_images/lQDPIucTLOO0D53NBXjNA-iwtQPAaMgm1pEHalOKrYcpAA_1000_1400.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://collections/2025-newyear-special-offer-package",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
         }
       },
       "block_order": [
+        "image_LkzMaW",
         "image_CPKEN4",
         "image_6jrJaU",
         "image_NpQMFG",
-        "image_decgqn",
-        "image_LkzMaW"
+        "image_decgqn"
       ],
       "settings": {
         "section_height": "auto",
