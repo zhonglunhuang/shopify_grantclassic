@@ -34,6 +34,7 @@
         },
         "crowdfunder_crowdfunder_VBwnMK": {
           "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
+          "disabled": true,
           "settings": {}
         },
         "photo_variant_picker_WwtNct": {
@@ -52,14 +53,6 @@
             "selector_mode": "block",
             "color_mode": "color",
             "size_chart_page": ""
-          }
-        },
-        "image_Ax4gQj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2_3a34474b-5c2c-4aaa-a6eb-af57d48d5463.png",
-            "image_alignment": "left",
-            "image_width": 500
           }
         },
         "quantity_selector": {
@@ -90,7 +83,6 @@
         "crowdfunder_crowdfunder_VBwnMK",
         "photo_variant_picker_WwtNct",
         "variant_picker",
-        "image_Ax4gQj",
         "quantity_selector",
         "buy_buttons",
         "liquid_MT6Knp"
