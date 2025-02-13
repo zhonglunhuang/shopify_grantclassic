@@ -96,19 +96,10 @@
         "description": {
           "type": "description",
           "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
         }
       },
       "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+        "description"
       ],
       "settings": {}
     },
@@ -173,7 +164,7 @@
           "type": "question",
           "settings": {
             "title": "你們有保固嗎？",
-            "answer": ""
+            "answer": "<p>磁來運轉 SpinVac 有提供 1 年保固服務<br/>詳細保固規範請參考我們的「保固政策」</p>"
           }
         },
         "question_AiyQFh": {
@@ -199,7 +190,7 @@
       "settings": {
         "show_navigation": false,
         "title": "FAQ",
-        "content": "<p>磁來運轉 SpinVac 有提供 1 年保固服務<br/>詳細保固規範請參考我們的「保固政策」</p>",
+        "content": "",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
