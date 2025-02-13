@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -20,22 +29,20 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
+        "new_variant_picker": {
+          "type": "new_variant_picker",
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "dropdown",
-            "color_mode": "color",
-            "size_chart_page": ""
+            "color_mode": "color"
           }
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -45,15 +52,6 @@
             "atc_button_text_color": "rgba(0,0,0,0)",
             "buy_now_button_background": "rgba(0,0,0,0)",
             "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "new_variant_picker": {
-          "type": "new_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "dropdown",
-            "color_mode": "color",
-            "size_chart_page": ""
           }
         }
       },
@@ -87,14 +85,13 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -103,20 +100,11 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
-      "settings": {
-      }
-    },
-    "1668579061b150de4b": {
-      "type": "apps",
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "product-content",
-    "1668579061b150de4b"
+    "product-content"
   ]
 }

@@ -80,6 +80,16 @@
         "transition_effect": "slide"
       }
     },
+    "slideshow_aECp9k": {
+      "type": "slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -101,10 +111,104 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {}
+    },
+    "faq_7exQhN": {
+      "type": "faq",
+      "blocks": {
+        "category_UwmrBQ": {
+          "type": "category",
+          "settings": {
+            "title": "產品相關"
+          }
+        },
+        "question_niJW3A": {
+          "type": "question",
+          "settings": {
+            "title": "磁來運轉 SpinVac 是否需要定期維護真空吸附功能？",
+            "answer": "<p>磁來運轉 SpinVac 採用自密封蜂巢氣室設計，在正常使用環境下（海拔 3,000 公尺內，溫度 -20°C 至 60°C）無需手動維護。若長期未使用，建議每 3 個月輕轉基座保持密封圈彈性。</p>"
+          }
+        },
+        "question_RcaxEU": {
+          "type": "question",
+          "settings": {
+            "title": "磁來運轉 SpinVac 能否在無磁吸功能的手機上使用？",
+            "answer": "<p>可以的！可搭配附贈的通用磁吸貼片，將其貼附於手機背蓋即可啟用完整功能。<br/>*注意！撕除後可能會有殘膠，若介意者請勿使用</p>"
+          }
+        },
+        "question_RbQeFp": {
+          "type": "question",
+          "settings": {
+            "title": "磁來運轉 SpinVac 如何清潔？",
+            "answer": "<ol><li>解除真空狀態（逆時針旋轉朝 open 方向旋轉）</li><li>以酒精擦拭矽膠接觸面</li><li>用超細纖維布擦除外觀污漬</li><li>順時針旋轉重啟真空系統</li></ol><p>*避免使用丙酮、去漬油等溶劑具腐蝕性溶劑。</p>"
+          }
+        },
+        "question_7qR6yD": {
+          "type": "question",
+          "settings": {
+            "title": "磁來運轉 SpinVac 可吸附於哪些材質表面？",
+            "answer": "<p>可吸附於任何平滑表面，如：玻璃、桌面、鏡面、平滑木頭面等<br/><br/>*本產品吸附能力，會隨物體表面平滑與否變化，請避免用於粗糙、紋理明顯處</p>"
+          }
+        },
+        "question_m6LJ8t": {
+          "type": "question",
+          "settings": {
+            "title": "磁來運轉 SpinVac 運作是否需要充電？",
+            "answer": "<p>磁來運轉 SpinVac 採用純機械結構設計，無需電力即可運作。真空倉透過物理旋壓產生負壓，磁吸模組永久保持磁性。</p>"
+          }
+        },
+        "category_qJtCRj": {
+          "type": "category",
+          "settings": {
+            "title": "其他問題"
+          }
+        },
+        "question_byYfcg": {
+          "type": "question",
+          "settings": {
+            "title": "為何選擇 N52 等級釹磁鐵？",
+            "answer": "<p>N52 為現行釹鐵硼磁材最高等級，相較市面常見的 N38 磁鐵：</p><ul><li>磁能積（BHmax）提升 42%</li><li>工作溫度上限提高至 80°C</li><li>10 年磁衰率僅 3.7%（第三方實驗室加速老化測試數據）</li></ul>"
+          }
+        },
+        "question_qfLNzX": {
+          "type": "question",
+          "settings": {
+            "title": "你們有保固嗎？",
+            "answer": ""
+          }
+        },
+        "question_AiyQFh": {
+          "type": "question",
+          "settings": {
+            "title": "如何確認我的手機殼是否相容？",
+            "answer": "<p>磁來運轉 SpinVac 相容於內嵌 MagSafe 磁環的手機殼，或厚度 2mm 內的標準防摔殼。若您為非 Apple 或是未使用 MagSafe 磁環的手機殼，我們也額外附贈一個磁吸環，供您自行黏貼於手機/手機殼背面！</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_UwmrBQ",
+        "question_niJW3A",
+        "question_RcaxEU",
+        "question_RbQeFp",
+        "question_7qR6yD",
+        "question_m6LJ8t",
+        "category_qJtCRj",
+        "question_byYfcg",
+        "question_qfLNzX",
+        "question_AiyQFh"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "<p>磁來運轉 SpinVac 有提供 1 年保固服務<br/>詳細保固規範請參考我們的「保固政策」</p>",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
     "main",
-    "product-content"
+    "slideshow_aECp9k",
+    "product-content",
+    "faq_7exQhN"
   ]
 }
