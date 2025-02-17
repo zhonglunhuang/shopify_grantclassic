@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "collection-banner": {
@@ -14,74 +23,6 @@
         "quick_links": ""
       }
     },
-    "f2378787-c11b-4d29-96e7-6e209528e194": {
-      "type": "multi-column",
-      "blocks": {
-        "template--16672968638707__f2378787-c11b-4d29-96e7-6e209528e194-item-1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/e11e1b5140063ab6852782a96e987fbd.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>双貓大藥房聯名款<\/p>",
-            "link_text": "",
-            "link_url": "shopify:\/\/collections\/inficase-双貓大藥房聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "af75eec2-8083-49af-b1c3-074c7f17c012": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/8934e999e8046b27dbcd98cdcbbbefe8.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>倒呱聯名款<\/p>",
-            "link_text": "",
-            "link_url": "shopify:\/\/collections\/inficase-倒呱聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "0fabbf0c-f80e-4983-b3ca-f857447373e4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1501b1d044815e990a87658ffbbfb9a8.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>虎豹屋敷聯名款<\/p>",
-            "link_text": "",
-            "link_url": "shopify:\/\/collections\/inficase-虎豹屋敷聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        }
-      },
-      "block_order": [
-        "template--16672968638707__f2378787-c11b-4d29-96e7-6e209528e194-item-1",
-        "af75eec2-8083-49af-b1c3-074c7f17c012",
-        "0fabbf0c-f80e-4983-b3ca-f857447373e4"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "small",
-        "desktop_item_size": "pico",
-        "spacing": "tight",
-        "background": "#f5f5f5",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "main": {
       "type": "main-collection",
       "blocks": {
@@ -89,11 +30,11 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner-01.jpg",
+            "image": "shopify://shop_images/banner-01.jpg",
             "subheading": "",
             "title": "",
             "link_text": "",
-            "link_url": "shopify:\/\/products\/gc-g極鏡-iphone14-13系列-黑邊霧面磨砂玻璃螢幕保護貼",
+            "link_url": "shopify://products/gc-g極鏡-iphone14-13系列-黑邊霧面磨砂玻璃螢幕保護貼",
             "link_style": "link",
             "text_position": "middle_center",
             "background": "#f7f8fd",
@@ -106,11 +47,11 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/314371390_1721536321564350_582657814897899238_n.jpg",
+            "image": "shopify://shop_images/314371390_1721536321564350_582657814897899238_n.jpg",
             "subheading": "",
             "title": "",
             "link_text": "",
-            "link_url": "shopify:\/\/products\/gc-sticker-004",
+            "link_url": "shopify://products/gc-sticker-004",
             "link_style": "link",
             "text_position": "middle_left",
             "background": "#f7f8fd",
@@ -151,7 +92,6 @@
   },
   "order": [
     "collection-banner",
-    "f2378787-c11b-4d29-96e7-6e209528e194",
     "main",
     "f2d656a6-a654-44dd-af3b-c35e7c81a937"
   ]
