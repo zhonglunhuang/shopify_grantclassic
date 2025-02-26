@@ -258,7 +258,7 @@
       "settings": {
         "subheading": "特經典開學季🎒｜持久續航首選",
         "title": "1+1 最低只要 $999",
-        "content": "<h2><strong>極速快充⚡️<br/>學習 遊戲 通勤不斷電🔋</strong></h2><h4><strong>期間限定 ▶︎ 2/24~3/2</strong></h4><h5><strong>下單再享 全台免運🚚</strong></h5>",
+        "content": "<h2><strong>學習 遊戲 通勤不斷電🔋</strong></h2><h4><strong>期間限定 ▶︎ 2/24~3/2</strong></h4><h5><strong>下單再享 全台免運🚚</strong></h5>",
         "products_count": 50,
         "products_per_row": 5,
         "stack_products": false,
@@ -325,6 +325,7 @@
         "collection_R7xDmH",
         "collection_VMd9Q4"
       ],
+      "disabled": true,
       "settings": {
         "subheading": "🧧 新年超值組 🧧",
         "title": "最高 57 折❗️現省 $6,000",
@@ -456,6 +457,7 @@
         "collection_3RgJbB",
         "collection_Lg88nx"
       ],
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
