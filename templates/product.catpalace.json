@@ -518,6 +518,13 @@
             "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～</p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。</p>"
           }
         },
+        "question_hdWqri": {
+          "type": "question",
+          "settings": {
+            "title": "鏟不停可以完全靠牆嗎？",
+            "answer": "<p>為確保正常運作，我們建議產品上方、左右邊都需要與牆面或其他遮蔽距離『5cm』以上，避免影響到偵測功能！<br/>*建議最佳預留空間為 15cm</p>"
+          }
+        },
         "category_RazFtp": {
           "type": "category",
           "settings": {
@@ -592,6 +599,7 @@
         "question_6LKyRk",
         "question_pycbBH",
         "question_FKkLJz",
+        "question_hdWqri",
         "category_RazFtp",
         "question_qMDTY7",
         "question_BbThaW",
