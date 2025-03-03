@@ -292,17 +292,17 @@
       "ako-promo-popup": {
         "type": "ako-promo-popup",
         "settings": {
-          "enable": false,
+          "enable": true,
           "apparition_delay": 3,
           "show_only_on_index": true,
           "show_only_for_visitors": true,
           "show_only_once": false,
-          "image": "shopify://shop_images/NW_B02.jpg",
+          "image": "shopify://shop_images/lQDPItmTGH5wwSfNA-jNCHCwZQBx1FoFPBsHqCzoc9xmAQ_2160_1000.jpg",
           "image_position": "left",
-          "title": "🎉 春節出貨公告 🎉",
-          "content": "<p>1/20 前下單正常出貨<br/>1/20 後訂單年後 2/3 起陸續出貨！</p><p><strong>📢 限時新春特惠組開搶！<br/>最多 57 折！現省 $6,000</strong></p><p>優惠期間：1/13~2/2，數量有限，立即購買！ 🔥</p>",
-          "button_text": "點我搶好康！",
-          "button_link": "shopify://collections/2025-newyear-special-offer-package"
+          "title": "LINE 好友募集中！",
+          "content": "<p>加入官方 LINE@ 好友 👉<br/>優惠券天天送🔥</p>",
+          "button_text": "點我拿優惠！",
+          "button_link": "https://lin.ee/QDHN7JB"
         }
       }
     },
