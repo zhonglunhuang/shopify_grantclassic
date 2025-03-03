@@ -32,10 +32,6 @@
             "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
-        "crowdfunder_crowdfunder_VBwnMK": {
-          "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
-          "settings": {}
-        },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
           "settings": {
@@ -79,7 +75,6 @@
         "10eed426-c481-4651-8503-74a9f6dc6018",
         "df999a05-d00f-4f60-87d3-401d4a092ce9",
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "crowdfunder_crowdfunder_VBwnMK",
         "photo_variant_picker_WwtNct",
         "variant_picker",
         "quantity_selector",
@@ -142,7 +137,6 @@
       "block_order": [
         "image_tUVrE9"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -177,7 +171,6 @@
       "block_order": [
         "image_m7wGVE"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -212,7 +205,6 @@
       "block_order": [
         "image_9KTQaU"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -247,7 +239,6 @@
       "block_order": [
         "image_8LKzaL"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -282,7 +273,6 @@
       "block_order": [
         "image_rFq7qF"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -317,7 +307,6 @@
       "block_order": [
         "image_FrxcHQ"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -352,7 +341,6 @@
       "block_order": [
         "image_3cmwze"
       ],
-      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -376,7 +364,6 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_KpmCUW"
       ],
-      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
