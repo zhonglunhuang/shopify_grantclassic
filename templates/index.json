@@ -282,15 +282,6 @@
             "button_url": ""
           }
         },
-        "collection_ThQTpy": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
         "collection_CcCDbr": {
           "type": "collection",
           "settings": {
@@ -321,7 +312,6 @@
       },
       "block_order": [
         "collection_4ermYB",
-        "collection_ThQTpy",
         "collection_CcCDbr",
         "collection_R7xDmH",
         "collection_VMd9Q4"
