@@ -239,6 +239,39 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_AR6y7t": {
+      "type": "slideshow",
+      "blocks": {
+        "image_pkmDxn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/lQDPItmTGH5wwSfNA-jNCHCwZQBx1FoFPBsHqCzoc9xmAQ_2160_1000.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "https://lin.ee/QDHN7JB",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_pkmDxn"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "featured_collections_WTNaTb": {
       "type": "featured-collections",
       "blocks": {
@@ -389,76 +422,6 @@
         "background": "#ffffff",
         "text_color": "#2d2d2d",
         "button_background": "#2d2d2d",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "765afadc-689a-40bb-97ce-e9bcbcc2ec2c": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_YrXA73": {
-          "type": "collection",
-          "settings": {
-            "collection": "pet-peripheral-products-bundle",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_kFeFH6": {
-          "type": "collection",
-          "settings": {
-            "collection": "喝不停-寵物飲水機系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_gbzVWM": {
-          "type": "collection",
-          "settings": {
-            "collection": "餵不停-寵物自動餵食器系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_3RgJbB": {
-          "type": "collection",
-          "settings": {
-            "collection": "鏟不停-自動貓砂機系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_Lg88nx": {
-          "type": "collection",
-          "settings": {
-            "collection": "gc-tag-寵物全球定位器",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_YrXA73",
-        "collection_kFeFH6",
-        "collection_gbzVWM",
-        "collection_3RgJbB",
-        "collection_Lg88nx"
-      ],
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "products_count": 16,
-        "products_per_row": 5,
-        "stack_products": false,
-        "show_cta": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
@@ -958,10 +921,10 @@
   "order": [
     "slideshow",
     "slideshow_p99r8h",
+    "slideshow_AR6y7t",
     "featured_collections_WTNaTb",
     "featured_collections_FFVeDA",
     "featured_collections_JxEn6d",
-    "765afadc-689a-40bb-97ce-e9bcbcc2ec2c",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
