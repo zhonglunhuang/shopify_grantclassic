@@ -15,7 +15,7 @@
         "10eed426-c481-4651-8503-74a9f6dc6018": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
+            "image": "shopify://shop_images/0318.jpg",
             "image_alignment": "left",
             "image_width": 270
           }
