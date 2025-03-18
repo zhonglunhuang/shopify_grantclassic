@@ -32,11 +32,6 @@
             "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
-        "crowdfunder_crowdfunder_VBwnMK": {
-          "type": "shopify://apps/crowdfunder/blocks/crowdfunder/3bdd0fe8-5fc7-4d01-b35b-48bca1437d27",
-          "disabled": true,
-          "settings": {}
-        },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
           "settings": {
@@ -80,7 +75,6 @@
         "10eed426-c481-4651-8503-74a9f6dc6018",
         "df999a05-d00f-4f60-87d3-401d4a092ce9",
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "crowdfunder_crowdfunder_VBwnMK",
         "photo_variant_picker_WwtNct",
         "variant_picker",
         "quantity_selector",
@@ -763,7 +757,7 @@
           "type": "question",
           "settings": {
             "title": "對貓毛過敏的人，有辦法有效降低過敏嗎？或是需用其他的模式？",
-            "answer": "<p>若單純是毛髮 / 塵蟎 / 皮屑過敏，HEPA 12 濾網即可過濾 99.5％ 的過敏原，無需開啟特定模式；弱勢希望去除寵物異味（排泄物味等），可以開啟負離子淨化 / 活性氧淨化 2 種模式，針對氣味去除進行強化。</p>"
+            "answer": "<p>若單純是毛髮 / 塵蟎 / 皮屑過敏，HEPA 12 濾網即可過濾 99.5％ 的過敏原，無需開啟特定模式；若希望去除寵物異味（排泄物味等），可以開啟負離子淨化 / 活性氧淨化 2 種模式，針對氣味去除進行強化。</p>"
           }
         },
         "question_9EH7K7": {
