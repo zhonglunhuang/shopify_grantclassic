@@ -58,7 +58,6 @@
         },
         "liquid_hpmDVh": {
           "type": "liquid",
-          "disabled": true,
           "settings": {
             "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
@@ -127,6 +126,7 @@
     },
     "custom_liquid_VJFPhK": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
