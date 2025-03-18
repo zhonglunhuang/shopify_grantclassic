@@ -112,6 +112,58 @@
         "transition_effect": "slide"
       }
     },
+    "slideshow_8X4PJn": {
+      "type": "slideshow",
+      "blocks": {
+        "image_tq8Frn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/01_186a352c-b1f1-4362-8215-61405af52bed.jpg",
+            "mobile_image": "shopify://shop_images/01_121852dc-e577-4710-b3ca-542dcbeb3cd8.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_P6dR3k": {
+          "type": "image",
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_tq8Frn",
+        "image_P6dR3k"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "17339957580d14b91e": {
       "type": "apps",
       "blocks": {
@@ -168,43 +220,14 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {}
-    },
-    "faq_WPQ9fb": {
-      "type": "faq",
-      "blocks": {
-        "category_jHkkmH": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_8px7hi": {
-          "type": "question",
-          "settings": {
-            "title": "售後問題",
-            "answer": "<p>請參考官方售後規範</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_jHkkmH",
-        "question_8px7hi"
-      ],
-      "settings": {
-        "show_navigation": false,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
     }
   },
   "order": [
     "1721752751939b7d14",
     "main",
+    "slideshow_8X4PJn",
     "17339957580d14b91e",
     "17217886296359dc4e",
-    "product-content",
-    "faq_WPQ9fb"
+    "product-content"
   ]
 }
