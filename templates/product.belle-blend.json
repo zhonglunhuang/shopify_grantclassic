@@ -26,6 +26,7 @@
         },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
+          "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
