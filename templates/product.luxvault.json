@@ -648,29 +648,43 @@
         "question_DXTNg9": {
           "type": "question",
           "settings": {
-            "title": "攪動人心 BelleBlend 的規格",
-            "answer": "<ul><li>額定功率：7.4W</li><li>產品容量：650ml</li><li>產品淨重：317g</li><li>材質：ABS、Tritan</li><li>電機電壓：3V</li><li>產品尺寸：121*90*196mm</li><li>電池容量：1200mAh</li><li>包裝尺寸：111*92*201mm </li></ul>"
+            "title": "鮮不停 LuxVault 適合存放哪些食材？",
+            "answer": "<p>適用於米、麵粉、咖啡豆、茶葉、堅果、寵物飼料等乾糧，也可搭配真空袋存放生鮮食材。</p>"
           }
         },
         "question_fQNL7D": {
           "type": "question",
           "settings": {
-            "title": "攪動人心 BelleBlend  可以清洗嗎？",
-            "answer": "<p>可以清洗！<br/><br/>但請留意攪拌杯的電源底座不可浸入水中或放入洗碗機清洗。<br/><br/>建議使用溫水和中性洗滌劑清洗攪拌杯內部，避免使用鋼絲球或含有漂白劑的清潔劑，以免損壞內部塗層。<a href=\"https://www.germanpool.com/chi/faq/FaqDetail.php?id=472\" target=\"_blank\">2</a></p>"
+            "title": "鮮不停 LuxVault 的真空效果可以維持多久？",
+            "answer": "<p>內建 <strong>24hr智慧恆壓系統</strong>，可自動偵測壓力變化並自動抽氣，確保長效真空，正常使用且真空泵持續有電下可維持數週至數月。</p>"
           }
         },
         "question_R48jMF": {
           "type": "question",
           "settings": {
-            "title": "攪動人心 BelleBlend 可以攪拌熱飲嗎？",
-            "answer": "<p>可以攪拌熱飲，使用時請避免超過建議的溫度範圍（90度），以免損壞杯體或影響攪拌效果。</p>"
+            "title": "如何確認鮮不停 LuxVault 已完全抽真空？",
+            "answer": "<p>當桶內達到設定真空度後，抽氣動作會自動停止，且無法透過不按壓洩壓鍵方式開啟桶蓋，這時表示已完成真空封存。</p>"
           }
         },
         "question_qmw6jB": {
           "type": "question",
           "settings": {
-            "title": "攪動人心 BelleBlend 的電池充電後續航時間有多長？",
-            "answer": "<p>一般電動攪拌杯充滿電後可使用約 30-50 次（依使用頻率和攪拌材料而定）。若發現續航時間明顯減少，可能需要檢查電池狀況並考慮購買新的產品。</p>"
+            "title": "鮮不停 LuxVault 內部會產生異味嗎？如何清潔？",
+            "answer": "<p>長時間存放高氣味食材（如：咖啡豆、寵糧）可能有殘留，建議定期以 <strong>溫水+中性清潔劑 </strong>清洗內部，並風乾後使用。<br/><br/><em>*</em><em><strong>請留意上蓋（含：分離式真空泵）非 100% 防水</strong></em><em>，清洗時請拆除上蓋；上蓋部分請以濕布擦拭髒污處即可。</em></p>"
+          }
+        },
+        "question_qEHNbp": {
+          "type": "question",
+          "settings": {
+            "title": "鮮不停 LuxVault 需要插電使用嗎？",
+            "answer": "<p>無需持續插電，<strong>分離式真空泵內建大容量電池</strong>，充飽電後可連續使用數週，充電一次即可滿足長時間需求。<br/><br/><em>*實際使用天數按照開啟頻率等個人使用習慣而異。</em></p>"
+          }
+        },
+        "question_Rg8TaX": {
+          "type": "question",
+          "settings": {
+            "title": "鮮不停 LuxVault 的真空泵可以拆卸嗎？怎麼保養？",
+            "answer": "<p>可拆卸設計，方便清潔與更換。建議每 3-6 個月清理一次真空泵（擦拭橡膠吸盤、氣嘴），確保抽氣效率最佳。</p>"
           }
         },
         "category_FPcJmj": {
@@ -682,29 +696,29 @@
         "question_7BLiym": {
           "type": "question",
           "settings": {
-            "title": "使用時的注意事項",
-            "answer": "<ol><li><strong>避免超過最大容量</strong>：倒入材料時，不要超過杯體的最大容量線，以免攪拌時溢出或損壞馬達。</li><li><strong>按正確順序添加材料</strong>：先加入液體，再添加粉類或固體材料，這樣能提高攪拌效果。</li><li><strong>避免攪拌過硬或過大材料</strong>：例如冰塊或未切小的堅果，可能會損壞攪拌棒或馬達。</li><li><strong>勿長時間連續使用</strong>：連續使用時間建議不要超過 1 分鐘，避免馬達過熱。</li></ol>"
+            "title": "為什麼開啟鮮不停 LuxVault 蓋子時會有吸力？",
+            "answer": "<p>由於桶內處於真空狀態，壓力差導致蓋子會稍微吸附。<strong>請先按洩壓鍵</strong>，待壓力釋放後再開啟。</p>"
           }
         },
         "question_4q8PVc": {
           "type": "question",
           "settings": {
-            "title": "充電與電池的注意事項",
-            "answer": "<ol><li><strong>使用原裝充電線</strong>：避免使用非原廠或手機快充充電器，可能會導致電壓過高損壞電池。</li><li><strong>避免過充或過放</strong>：充電完成後應及時拔掉，長時間不使用時，建議每隔一段時間充電一次以保護電池壽命。</li><li><strong>遠離潮濕環境充電</strong>：避免在浴室或其他潮濕環境中充電，防止電路短路。</li></ol>"
+            "title": "鮮不停 LuxVault 的材質是否安全？有塑化劑嗎？",
+            "answer": "<p>本產品採用 <strong>ABS 抗菌材質</strong>，抗菌率達99.9%，無 BPA、無塑化劑，符合食品級安全標準。</p>"
           }
         },
         "question_JpeJzD": {
           "type": "question",
           "settings": {
-            "title": "清潔與保養的注意事項",
-            "answer": "<ol><li><strong>勿將電源底座浸入水中</strong>：清潔時僅可清洗杯體部分，電源底座應以濕布擦拭。</li><li><strong>避免使用尖銳工具清潔</strong>：如鋼絲球或尖銳物品，可能會刮傷內部塗層。</li><li><strong>每次使用後立即清潔</strong>：防止殘留物乾涸，影響下一次使用效果。</li></ol>"
+            "title": "鮮不停 LuxVault 不適合存放哪些類型的食材？",
+            "answer": "<p>不建議存放<strong>液體、極細粉狀物（如糖粉）、發酵食品（如麵糰）</strong>，以免影響真空效果或導致洩漏。</p>"
           }
         },
         "question_7cT6F3": {
           "type": "question",
           "settings": {
-            "title": "其他注意事項",
-            "answer": "<ol><li><strong>避免強烈碰撞</strong>：杯體內電池組件較脆弱，過於強烈碰撞可能導致損壞。</li><li><strong>存放於乾燥通風處</strong>：避免潮濕環境，防止電路受潮或金屬部分生鏽。</li><li><strong>確認電池安全規範</strong>：若需攜帶登機，請確認電池符合航空公司規定。</li><li><strong>勿讓兒童單獨使用</strong>：建議在成人監督下使用。</li><li><strong>遵循產品說明書</strong>：使用前仔細閱讀說明書，了解產品的正確操作方式與注意事項。</li></ol>"
+            "title": "鮮不停 LuxVault 充電需要多久？可以邊充邊使用嗎？",
+            "answer": "<p>充電約 <strong>2-3 小時</strong>即可充滿。因產品設計及考量到電池壽命，<strong>無法邊充邊使用</strong>，請充飽後再使用。</p>"
           }
         },
         "category_dNyy9A": {
@@ -745,6 +759,8 @@
         "question_fQNL7D",
         "question_R48jMF",
         "question_qmw6jB",
+        "question_qEHNbp",
+        "question_Rg8TaX",
         "category_FPcJmj",
         "question_7BLiym",
         "question_4q8PVc",
