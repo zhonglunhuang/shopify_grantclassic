@@ -239,6 +239,36 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "featured_collections_WTNaTb": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_pYEHDn": {
+          "type": "collection",
+          "settings": {
+            "collection": "grantclassic-school-starts",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_pYEHDn"
+      ],
+      "settings": {
+        "subheading": "連假快閃優惠！全館品項 85 折",
+        "title": "滿千即折 折扣無上限 🔥",
+        "content": "<h4><strong>期間限定 ▶︎ 3/20 ~ 3/31</strong></h4><h4><strong>下單再享 全台免運🚚</strong></h4><h6><strong>- 折扣擇優使用，恕無法重複折扣 - </strong></h6>",
+        "products_count": 50,
+        "products_per_row": 5,
+        "stack_products": false,
+        "show_cta": true,
+        "background": "#ffffff",
+        "text_color": "#2d2d2d",
+        "button_background": "#eb3b3b",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_AR6y7t": {
       "type": "slideshow",
       "blocks": {
@@ -270,37 +300,6 @@
         "autoplay": true,
         "cycle_speed": 4,
         "background": "rgba(0,0,0,0)"
-      }
-    },
-    "featured_collections_WTNaTb": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_pYEHDn": {
-          "type": "collection",
-          "settings": {
-            "collection": "grantclassic-school-starts",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_pYEHDn"
-      ],
-      "disabled": true,
-      "settings": {
-        "subheading": "特經典開學季🎒｜持久續航首選",
-        "title": "1+1 最低只要 $999",
-        "content": "<h2><strong>學習 遊戲 通勤不斷電🔋</strong></h2><h4><strong>期間限定 ▶︎ 2/24~3/2</strong></h4><h5><strong>下單再享 全台免運🚚</strong></h5>",
-        "products_count": 50,
-        "products_per_row": 5,
-        "stack_products": false,
-        "show_cta": true,
-        "background": "#ffffff",
-        "text_color": "#2d2d2d",
-        "button_background": "#eb3b3b",
-        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "featured_collections_FFVeDA": {
@@ -921,8 +920,8 @@
   "order": [
     "slideshow",
     "slideshow_p99r8h",
-    "slideshow_AR6y7t",
     "featured_collections_WTNaTb",
+    "slideshow_AR6y7t",
     "featured_collections_FFVeDA",
     "featured_collections_JxEn6d",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
