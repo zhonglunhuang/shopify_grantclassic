@@ -95,8 +95,9 @@
         "liquid_hpmDVh",
         "vitals_ub_product_bundles_6q9X7a"
       ],
+      "custom_css": [],
       "settings": {
-        "show_vendor": false,
+        "show_vendor": true,
         "show_sku": false,
         "show_taxes_included": false,
         "show_product_rating": false,
