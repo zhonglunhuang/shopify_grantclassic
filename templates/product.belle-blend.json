@@ -483,8 +483,8 @@
         "image_Wz3UwF": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/11_0206c73c-1dd7-4491-9a2a-d66f871323e2.jpg",
-            "mobile_image": "shopify://shop_images/11_0b142706-099e-4f87-8e6d-9731a855b93b.jpg",
+            "image": "shopify://shop_images/11_61d7716b-ec10-4747-ab12-a9b887fc6269.jpg",
+            "mobile_image": "shopify://shop_images/11_6434f6e8-2f67-4058-9285-28546508603d.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -502,6 +502,40 @@
       },
       "block_order": [
         "image_Wz3UwF"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_f4gDGG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9feQUa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/12_99cf184e-beee-49be-8a43-369fe32b2a04.jpg",
+            "mobile_image": "shopify://shop_images/12_e054c37f-c92b-488d-8684-ec68e9272bc3.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9feQUa"
       ],
       "settings": {
         "section_height": "auto",
@@ -710,6 +744,7 @@
     "slideshow_hFVbR7",
     "slideshow_JjCfw8",
     "slideshow_p3kQ3X",
+    "slideshow_f4gDGG",
     "slideshow_mJKtGt",
     "faq_JLMtcN",
     "product-content"
