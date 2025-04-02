@@ -405,7 +405,7 @@
           "settings": {
             "image": "shopify://shop_images/0_0_1_0_28_17_0_18_1_0_0_0_p0_02.jpg",
             "image_width": 75,
-            "image_border": "rgba(0,0,0,0)",
+            "image_border": "#282828",
             "title": "翁家婕",
             "content": "<p><strong>行銷專員</strong></p>",
             "link_text": "",
