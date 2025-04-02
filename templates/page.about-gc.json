@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "20adbb9e-a7c8-4b2f-9747-c9d3010a8896": {
@@ -15,8 +15,8 @@
         "template--16700043657459__20adbb9e-a7c8-4b2f-9747-c9d3010a8896-167029524226898cdd-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/our.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/230202_GC_all_phone.webp",
+            "image": "shopify://shop_images/our.jpg",
+            "mobile_image": "shopify://shop_images/230202_GC_all_phone.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -48,7 +48,7 @@
       "settings": {
         "subheading": "",
         "title": "我們是誰",
-        "content": "<p>grantclassic（GC） 於 2016 年成立於美國加州，是一家充滿著活力又謹慎的周邊品牌商。<br\/>我們透過設計使生活更好更方便，使得每件產品都永久經典，每個環節都是由我們親自不斷開發測試，憑藉全球專利進行創新，並響應最新的技術趨勢和進步。<br\/>我們創造滿足人們日常需求的高品質原創產品。<\/p>",
+        "content": "<p>grantclassic（GC） 於 2016 年成立於美國加州，是一家充滿著活力又謹慎的周邊品牌商。<br/>我們透過設計使生活更好更方便，使得每件產品都永久經典，每個環節都是由我們親自不斷開發測試，憑藉全球專利進行創新，並響應最新的技術趨勢和進步。<br/>我們創造滿足人們日常需求的高品質原創產品。</p>",
         "button_text": "",
         "button_link": "",
         "background_type": "full_width",
@@ -67,11 +67,11 @@
         "template--16700043657459__e17288f0-7d27-4540-89b3-3ce37fd16c0d-167029537912454b61-0": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/240715___all.jpg",
+            "image": "shopify://shop_images/240715___all.jpg",
             "tab_label": "Item",
             "subheading": "",
             "title": "我們的使命",
-            "content": "<ul><li>做最好的事情<\/li><li>將我們的客戶視為夥伴<\/li><li>抵銷我們對環境的影響<\/li><li>快樂優先於成長<\/li><\/ul><p><\/p><p>這個使命，我們會一直不斷延續下去，恰巧學習一直都是我們團隊的最核心的目標，我們也將它寫下來了，grantclssic 將會一直學習下去，並創造研發更棒的產品。<\/p>",
+            "content": "<ul><li>做最好的事情</li><li>將我們的客戶視為夥伴</li><li>抵銷我們對環境的影響</li><li>快樂優先於成長</li></ul><p></p><p>這個使命，我們會一直不斷延續下去，恰巧學習一直都是我們團隊的最核心的目標，我們也將它寫下來了，grantclssic 將會一直學習下去，並創造研發更棒的產品。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -98,10 +98,10 @@
       "settings": {
         "reveal_on_scroll": true,
         "section_height": "auto",
-        "image": "shopify:\/\/shop_images\/DSC00692.jpg",
+        "image": "shopify://shop_images/DSC00692.jpg",
         "subheading": "",
         "title": "我們的目的",
-        "content": "<p>grantclssic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。<\/p>",
+        "content": "<p>grantclssic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。</p>",
         "button_text": "",
         "button_link": "",
         "link_style": "link",
@@ -121,10 +121,10 @@
         "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-0": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/about-timeline-1.jpg",
+            "image": "shopify://shop_images/about-timeline-1.jpg",
             "label": "2018年",
             "title": "2018年",
-            "content": "<h4>2月<\/h4><p>這個月對於我們的團隊來說具有重要的意義。我們開始著手研發一項新的消費電子配件 - 機車手機支架。這款產品的想法來源於對市場的深入洞察，發現消費者對於一款安全、穩固且易於操作的手機支架有著迫切的需求。我們的設計與工程團隊迅速行動，著手開發產品原型。<\/p><h4>6月<\/h4><p>到了6月，我們已經完成了第一版機車手機支架的設計和初步測試。這款產品具有創新的設計和卓越的工藝，旨在滿足消費者在騎乘過程中使用手機的需求。我們也收到了初步使用者的正面反饋，這使我們對產品的成功充滿了信心。<\/p><h4>11月<\/h4><p>11月，我們達到了重要的里程碑。成功生產出第一批機車手機支架，並開始在市場上進行推廣。我們制定了全面的市場推廣策略，包括透過線上平台和實體店鋪進行銷售，並透過媒體和社交媒體平台進行產品宣傳。<\/p>",
+            "content": "<h4>2月</h4><p>這個月對於我們的團隊來說具有重要的意義。我們開始著手研發一項新的消費電子配件 - 機車手機支架。這款產品的想法來源於對市場的深入洞察，發現消費者對於一款安全、穩固且易於操作的手機支架有著迫切的需求。我們的設計與工程團隊迅速行動，著手開發產品原型。</p><h4>6月</h4><p>到了6月，我們已經完成了第一版機車手機支架的設計和初步測試。這款產品具有創新的設計和卓越的工藝，旨在滿足消費者在騎乘過程中使用手機的需求。我們也收到了初步使用者的正面反饋，這使我們對產品的成功充滿了信心。</p><h4>11月</h4><p>11月，我們達到了重要的里程碑。成功生產出第一批機車手機支架，並開始在市場上進行推廣。我們制定了全面的市場推廣策略，包括透過線上平台和實體店鋪進行銷售，並透過媒體和社交媒體平台進行產品宣傳。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -132,10 +132,10 @@
         "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-1": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/220201___phone.png",
+            "image": "shopify://shop_images/220201___phone.png",
             "label": "2019年",
             "title": "2019年",
-            "content": "<h4>3月<\/h4><p>在這個月，我們推出了第二代機車手機支架產品。這款新產品在設計和功能上都做了升級，提供了更穩定的支撐，更便捷的操作體驗，並在保護手機和行車安全方面做出了更多考慮。該產品在上市的第一個月就賣出了5萬件，得到了市場的熱烈回應。<\/p><h4>9月<\/h4><p>9月是另一個重要的時刻。我們的產品線擴大，開始研發並生產高質量的行動電源。我們明白，對於許多消費者來說，移動電源的可靠性和耐用性都是至關重要的。因此，我們的研發團隊致力於創新設計和使用高品質材料，以確保我們的行動電源能在各種情況下提供穩定的電力供應。<\/p>",
+            "content": "<h4>3月</h4><p>在這個月，我們推出了第二代機車手機支架產品。這款新產品在設計和功能上都做了升級，提供了更穩定的支撐，更便捷的操作體驗，並在保護手機和行車安全方面做出了更多考慮。該產品在上市的第一個月就賣出了5萬件，得到了市場的熱烈回應。</p><h4>9月</h4><p>9月是另一個重要的時刻。我們的產品線擴大，開始研發並生產高質量的行動電源。我們明白，對於許多消費者來說，移動電源的可靠性和耐用性都是至關重要的。因此，我們的研發團隊致力於創新設計和使用高品質材料，以確保我們的行動電源能在各種情況下提供穩定的電力供應。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -143,10 +143,10 @@
         "template--16700043657459__b533ae00-dbe0-4db0-9c69-c92d47f9d807-16702964753a15e5c5-2": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC04573.webp",
+            "image": "shopify://shop_images/DSC04573.webp",
             "label": "2020年",
             "title": "2020年",
-            "content": "<h4>2月<\/h4><p>面對全球的COVID-19疫情，我們迅速作出反應。為保障我們員工的健康，並確保公司的正常運作，我們實施了遠程工作機制。在這段困難的時期，我們更堅信我們的產品可以在日常生活中扮演重要的角色，為人們提供便利。<\/p><h4>7月<\/h4><p>這個月，我們成功推出了全新的線上商店。我們的線上商店提供了更好的購物體驗，使客戶能夠更容易地瀏覽我們的產品，並方便地下訂單和追蹤訂單狀態。在第一個月內，我們就實現了1000萬的銷售，證明了我們的產品和服務得到了市場的認可。<\/p>",
+            "content": "<h4>2月</h4><p>面對全球的COVID-19疫情，我們迅速作出反應。為保障我們員工的健康，並確保公司的正常運作，我們實施了遠程工作機制。在這段困難的時期，我們更堅信我們的產品可以在日常生活中扮演重要的角色，為人們提供便利。</p><h4>7月</h4><p>這個月，我們成功推出了全新的線上商店。我們的線上商店提供了更好的購物體驗，使客戶能夠更容易地瀏覽我們的產品，並方便地下訂單和追蹤訂單狀態。在第一個月內，我們就實現了1000萬的銷售，證明了我們的產品和服務得到了市場的認可。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -154,10 +154,10 @@
         "63f2e1b3-f63b-4338-95a7-3cb493890967": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/230511__S.webp",
+            "image": "shopify://shop_images/230511__S.webp",
             "label": "2022年",
             "title": "2022年",
-            "content": "<h4>3月<\/h4><p>在新的一年中，我們的新產品四力架 2 Pro 在上市的第一個月內就賣出了10萬件，顯示出市場對我們產品的高度認可。我們將這一成績歸功於我們對產品質量的堅持，以及對消費者需求的深入理解。這樣的成績鼓勵我們在未來的產品開發和創新中繼續努力。<\/p><h4>10月<\/h4><p>我們在10月邁出了重要的一步，開始研發使用再生能源的消費性電子產品。我們認為，作為一家科技公司，我們不僅要致力於提供先進、方便的產品，更應該承擔起對環境的責任。通過開發使用再生能源的產品，我們希望能夠幫助減少碳排放，並推動全社會的可持續發展。這一舉措也得到了我們的消費者和合作夥伴的廣泛支持，讓我們更有信心在這條道路上繼續前進。<\/p>",
+            "content": "<h4>3月</h4><p>在新的一年中，我們的新產品四力架 2 Pro 在上市的第一個月內就賣出了10萬件，顯示出市場對我們產品的高度認可。我們將這一成績歸功於我們對產品質量的堅持，以及對消費者需求的深入理解。這樣的成績鼓勵我們在未來的產品開發和創新中繼續努力。</p><h4>10月</h4><p>我們在10月邁出了重要的一步，開始研發使用再生能源的消費性電子產品。我們認為，作為一家科技公司，我們不僅要致力於提供先進、方便的產品，更應該承擔起對環境的責任。通過開發使用再生能源的產品，我們希望能夠幫助減少碳排放，並推動全社會的可持續發展。這一舉措也得到了我們的消費者和合作夥伴的廣泛支持，讓我們更有信心在這條道路上繼續前進。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -165,10 +165,10 @@
         "04efa8cb-e567-4092-a15b-d4a8a0f872d7": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/about-hero-mobile.jpg",
+            "image": "shopify://shop_images/about-hero-mobile.jpg",
             "label": "2023年",
             "title": "我們更大膽的嘗試",
-            "content": "<h4>2月<\/h4><p>2023年的初春，我們團隊開始著手研發針對寵物市場的全新消費性電子產品。我們認識到寵物照護已經成為當前社會一個快速發展的趨勢，因此我們決定利用我們的技術優勢，開發能夠提供更便捷、更專業寵物照護的產品。<\/p><h4>6月<\/h4><p>到了夏天，我們成功推出了全新的智能寵物照護產品。這款產品結合了傳感器技術和AI演算法，能夠實時監測寵物的活動、飲食等狀況，並通過手機應用程式提供相應的提醒和建議。這款產品的推出，讓寵物主人可以更放心，更專業地照護自己的寵物，並得到了市場的廣泛好評。<\/p>",
+            "content": "<h4>2月</h4><p>2023年的初春，我們團隊開始著手研發針對寵物市場的全新消費性電子產品。我們認識到寵物照護已經成為當前社會一個快速發展的趨勢，因此我們決定利用我們的技術優勢，開發能夠提供更便捷、更專業寵物照護的產品。</p><h4>6月</h4><p>到了夏天，我們成功推出了全新的智能寵物照護產品。這款產品結合了傳感器技術和AI演算法，能夠實時監測寵物的活動、飲食等狀況，並通過手機應用程式提供相應的提醒和建議。這款產品的推出，讓寵物主人可以更放心，更專業地照護自己的寵物，並得到了市場的廣泛好評。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -197,11 +197,11 @@
         "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-0": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_3.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_3.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>紅點設計獎<\/p>",
+            "content": "<p>紅點設計獎</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -212,11 +212,11 @@
         "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-1": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_4.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_4.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>台灣經典設計<\/p>",
+            "content": "<p>台灣經典設計</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -227,11 +227,11 @@
         "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-2": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_5.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_5.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>德國設計獎<\/p>",
+            "content": "<p>德國設計獎</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -242,11 +242,11 @@
         "template--16700043657459__eed00bb3-17e7-48a4-9a55-62a1084a39c8-16703838676afbf578-3": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_7.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_7.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>澳洲設計獎<\/p>",
+            "content": "<p>澳洲設計獎</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -257,11 +257,11 @@
         "b074c353-513a-43f0-9937-192e03ef9023": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_6.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_6.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>紅點設計<\/p>",
+            "content": "<p>紅點設計</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -272,11 +272,11 @@
         "4aa90f32-6140-4794-b047-bb76d0687a10": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/042fc70a-266c-4f06-a51a-846e23c30071_8.png",
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_8.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "",
-            "content": "<p>公益大使<\/p>",
+            "content": "<p>公益大使</p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -313,11 +313,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00306.jpg",
+            "image": "shopify://shop_images/DSC00306.jpg",
             "image_width": 100,
             "image_border": "#2d2d2d",
             "title": "Mars",
-            "content": "<p><strong>總經理<br\/><\/strong><\/p>",
+            "content": "<p><strong>總經理<br/></strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -328,11 +328,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00321-2.jpg",
+            "image": "shopify://shop_images/DSC00321-2.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Rebecca",
-            "content": "<p><strong>副總經理<br\/><\/strong><\/p>",
+            "content": "<p><strong>副總經理<br/></strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -343,26 +343,11 @@
         "item_p3PA3d": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00346.jpg",
+            "image": "shopify://shop_images/DSC00346.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "David",
-            "content": "<p><strong>特別顧問<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_jwYHCN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00350.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Lizzy",
-            "content": "<p><strong>管理處長<\/strong><\/p>",
+            "content": "<p><strong>特別顧問</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -373,266 +358,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00338.jpg",
+            "image": "shopify://shop_images/DSC00338.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Jeff Lin",
-            "content": "<p><strong>業務處長<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_8Xd8fR": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00412.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Chih Yuan",
-            "content": "<p><strong>企劃行銷主任<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00513.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Süe",
-            "content": "<p><strong>通路營運主任<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00438.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Johnny",
-            "content": "<p><strong>設計主任<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "4cd9343b-4890-4346-850f-8ccd5b891712": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00567.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Mandy",
-            "content": "<p><strong>客服主管<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00451.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Tracy",
-            "content": "<p><strong>平面設計專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_nnExkg": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00462.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Joe",
-            "content": "<p><strong>美編印刷專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "a92276d6-21de-4080-862f-89f8bdce9410": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00532.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "MelviИ",
-            "content": "<p><strong>通路營運專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "221599d8-d753-421c-9c44-f81bfc942caf": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00517.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Joan",
-            "content": "<p><strong>通路營運專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00548.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pegggy",
-            "content": "<p><strong>通路營運專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_TQ6pxX": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00359.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "鄭茹云",
-            "content": "<p><strong>會計專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "3caca862-4784-4f68-867b-7e3ff9707c2c": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00601.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Wei",
-            "content": "<p><strong>線上售後服務技術專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_mrcQ6G": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00471.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Ding",
-            "content": "<p><strong>動態攝影師<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_nTVz6G": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00581.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "古馥華",
-            "content": "<p><strong>客服人員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_fyMwBV": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00642.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "丁崑棋",
-            "content": "<p><strong>倉儲專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_itB3AP": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00635.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "陳浩宇",
-            "content": "<p><strong>倉儲專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_wFaDgd": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00613.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "徐定瑋",
-            "content": "<p><strong>倉儲專員<\/strong><\/p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "b43ee72b-7285-444a-9b99-548a1117841f": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00659.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Cathy",
-            "content": "<p><strong>會計主任<\/strong><\/p>",
+            "content": "<p><strong>業務處長</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -643,11 +373,11 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/DSC00542.jpg",
+            "image": "shopify://shop_images/DSC00542.jpg",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "Aiko",
-            "content": "<p><strong>採購組長<\/strong><\/p>",
+            "content": "<p><strong>採購組長</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -658,11 +388,11 @@
         "item_RAHyXi": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/0_0_1_0_28_17_0_18_1_0_0_0_p0_02.jpg",
+            "image": "shopify://shop_images/0_0_1_0_28_17_0_18_1_0_0_0_p0_02.jpg",
             "image_width": 75,
             "image_border": "rgba(0,0,0,0)",
             "title": "翁家婕",
-            "content": "<p><strong>行銷專員<\/strong><\/p>",
+            "content": "<p><strong>行銷專員</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -673,11 +403,11 @@
         "item_VGXYYP": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/0_0_1_0_28_17_0_18_1_0_0_0_p0.jpg",
+            "image": "shopify://shop_images/0_0_1_0_28_17_0_18_1_0_0_0_p0.jpg",
             "image_width": 75,
             "image_border": "rgba(0,0,0,0)",
             "title": "陳浩",
-            "content": "<p><strong>業務助理<\/strong><\/p>",
+            "content": "<p><strong>業務助理</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -690,25 +420,7 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1",
         "item_p3PA3d",
-        "item_jwYHCN",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
-        "item_8Xd8fR",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-3",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-4",
-        "4cd9343b-4890-4346-850f-8ccd5b891712",
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-8",
-        "item_nnExkg",
-        "a92276d6-21de-4080-862f-89f8bdce9410",
-        "221599d8-d753-421c-9c44-f81bfc942caf",
-        "5e9dbc9b-ca69-4e8f-bc04-004c9b146c5e",
-        "item_TQ6pxX",
-        "3caca862-4784-4f68-867b-7e3ff9707c2c",
-        "item_mrcQ6G",
-        "item_nTVz6G",
-        "item_fyMwBV",
-        "item_itB3AP",
-        "item_wFaDgd",
-        "b43ee72b-7285-444a-9b99-548a1117841f",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
         "item_RAHyXi",
         "item_VGXYYP"
