@@ -370,6 +370,21 @@
             "vertical_alignment": "start"
           }
         },
+        "4cd9343b-4890-4346-850f-8ccd5b891712": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/DSC00567.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Mandy",
+            "content": "<p><strong>客服主管</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5": {
           "type": "item",
           "settings": {
@@ -421,6 +436,7 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1",
         "item_p3PA3d",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
+        "4cd9343b-4890-4346-850f-8ccd5b891712",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
         "item_RAHyXi",
         "item_VGXYYP"
