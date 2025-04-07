@@ -400,11 +400,71 @@
             "vertical_alignment": "start"
           }
         },
+        "item_rQLyqp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Emily",
+            "content": "<p><strong>營運主任</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_KBMxmM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1_2dcfc391-2e58-4dce-a0ae-5d618a2ca775.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "bagel",
+            "content": "<p><strong>營運專員</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_4ng8WV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Tansy",
+            "content": "<p><strong>營運專員</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_YJYjme": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1_2dcfc391-2e58-4dce-a0ae-5d618a2ca775.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Mars Hsu",
+            "content": "<p><strong>業務主任</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
         "item_RAHyXi": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/0_0_1_0_28_17_0_18_1_0_0_0_p0_02.jpg",
-            "image_width": 75,
+            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
+            "image_width": 100,
             "image_border": "#282828",
             "title": "翁家婕",
             "content": "<p><strong>行銷專員</strong></p>",
@@ -418,11 +478,26 @@
         "item_VGXYYP": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/0_0_1_0_28_17_0_18_1_0_0_0_p0.jpg",
-            "image_width": 75,
+            "image": "shopify://shop_images/1_2dcfc391-2e58-4dce-a0ae-5d618a2ca775.png",
+            "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
             "title": "陳浩",
             "content": "<p><strong>業務助理</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_QJ3Nk9": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "彭佳玉",
+            "content": "<p><strong>設計師</strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -438,8 +513,13 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
         "4cd9343b-4890-4346-850f-8ccd5b891712",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
+        "item_rQLyqp",
+        "item_KBMxmM",
+        "item_4ng8WV",
+        "item_YJYjme",
         "item_RAHyXi",
-        "item_VGXYYP"
+        "item_VGXYYP",
+        "item_QJ3Nk9"
       ],
       "settings": {
         "reveal_on_scroll": true,
