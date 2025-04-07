@@ -430,13 +430,13 @@
             "vertical_alignment": "start"
           }
         },
-        "item_KBMxmM": {
+        "item_4ng8WV": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/1_2dcfc391-2e58-4dce-a0ae-5d618a2ca775.png",
+            "image": "shopify://shop_images/14.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "bagel",
+            "title": "Tansy",
             "content": "<p><strong>營運專員</strong></p>",
             "link_text": "",
             "link_url": "",
@@ -445,13 +445,13 @@
             "vertical_alignment": "start"
           }
         },
-        "item_4ng8WV": {
+        "item_KBMxmM": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/14.png",
+            "image": "shopify://shop_images/1_2dcfc391-2e58-4dce-a0ae-5d618a2ca775.png",
             "image_width": 100,
             "image_border": "rgba(0,0,0,0)",
-            "title": "Tansy",
+            "title": "bagel",
             "content": "<p><strong>營運專員</strong></p>",
             "link_text": "",
             "link_url": "",
@@ -515,8 +515,8 @@
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-5",
         "item_YJYjme",
         "item_rQLyqp",
-        "item_KBMxmM",
         "item_4ng8WV",
+        "item_KBMxmM",
         "item_RAHyXi",
         "item_VGXYYP",
         "item_QJ3Nk9"
