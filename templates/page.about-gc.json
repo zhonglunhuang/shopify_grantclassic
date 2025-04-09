@@ -504,6 +504,21 @@
             "text_alignment": "left",
             "vertical_alignment": "start"
           }
+        },
+        "item_Gh3RYB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Annie",
+            "content": "<p><strong>財務</strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
         }
       },
       "block_order": [
@@ -519,7 +534,8 @@
         "item_KBMxmM",
         "item_RAHyXi",
         "item_VGXYYP",
-        "item_QJ3Nk9"
+        "item_QJ3Nk9",
+        "item_Gh3RYB"
       ],
       "settings": {
         "reveal_on_scroll": true,
