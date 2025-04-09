@@ -52,8 +52,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -641,7 +640,7 @@
           "type": "question",
           "settings": {
             "title": "GC-Tag Card 的電池是否可以更換？",
-            "answer": "<p>GC-Tag Card 的電池不可更換，但我們提供替換服務。當電池耗盡時，您可以聯繫我們的客服團隊。</p>"
+            "answer": "<p>GC-Tag Card 的電池不可更換</p>"
           }
         },
         "question_pycbBH": {
@@ -729,8 +728,7 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
@@ -745,8 +743,7 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
