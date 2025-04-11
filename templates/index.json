@@ -9,122 +9,6 @@
  */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "image_QnLmbr": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/2160x1000.jpg",
-            "mobile_image": "shopify://shop_images/1000x1400.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://collections/2025-newyear-special-offer-package",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_LkzMaW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NW_B02.jpg",
-            "mobile_image": "shopify://shop_images/lQDPIucTLOO0D53NBXjNA-iwtQPAaMgm1pEHalOKrYcpAA_1000_1400.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://collections/2025-newyear-special-offer-package",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_6jrJaU": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/banner_aqualux_20241203-02.webp",
-            "mobile_image": "shopify://shop_images/banner_aqualux_20241203-12.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://collections/aqualux",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_NpQMFG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/99_OUTPUT-10.webp",
-            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/luxair",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_decgqn": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Catpalace_2200x1130_76f1de58-3e90-4f23-882b-7f68967348a8.jpg",
-            "mobile_image": "shopify://shop_images/Catpalace_phone.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/catpalace",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_QnLmbr",
-        "image_LkzMaW",
-        "image_6jrJaU",
-        "image_NpQMFG",
-        "image_decgqn"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 10,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_p99r8h": {
       "type": "slideshow",
       "blocks": {
@@ -294,6 +178,7 @@
       "block_order": [
         "image_pkmDxn"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
@@ -363,67 +248,6 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "featured_collections_JxEn6d": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_xfmayb": {
-          "type": "collection",
-          "settings": {
-            "collection": "免費客製化-磁吸保溫杯系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_Mh4CX7": {
-          "type": "collection",
-          "settings": {
-            "collection": "免費客製化-手機殼系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_BRNtPL": {
-          "type": "collection",
-          "settings": {
-            "collection": "免費客製化-汽機車用品系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        },
-        "collection_JqC7Bp": {
-          "type": "collection",
-          "settings": {
-            "collection": "免費客製化-質感生活系列",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_xfmayb",
-        "collection_Mh4CX7",
-        "collection_BRNtPL",
-        "collection_JqC7Bp"
-      ],
-      "disabled": true,
-      "settings": {
-        "subheading": "🎄 聖誕送禮首選 🎄",
-        "title": "免費客製化",
-        "content": "<p><strong>輸入『GCXMAS』享 85 折優惠</strong></p>",
-        "products_count": 50,
-        "products_per_row": 3,
-        "stack_products": false,
-        "show_cta": false,
-        "background": "#ffffff",
-        "text_color": "#2d2d2d",
-        "button_background": "#2d2d2d",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "874de104-fc55-4f57-b89f-70e94f68f14b": {
       "type": "collection-list",
       "blocks": {
@@ -475,7 +299,6 @@
         "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1",
         "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2"
       ],
-      "disabled": true,
       "settings": {
         "reveal_on_scroll": false,
         "layout": "carousel",
@@ -867,18 +690,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "7d84e4df-aaa1-44f6-8bc5-aff4537010f6": {
-      "type": "custom-liquid",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "liquid": "<script src=\"https://static.elfsight.com/platform/platform.js\" data-use-service-core defer></script>\n<div class=\"elfsight-app-93a7688b-b3f7-46a7-9f56-ca89ffa46e25\"></div>",
-        "add_vertical_spacing": true,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "8550440c-db8a-41c3-808a-e9ef4d695f17": {
       "type": "image-with-text-block",
       "settings": {
@@ -918,17 +729,14 @@
     }
   },
   "order": [
-    "slideshow",
     "slideshow_p99r8h",
     "featured_collections_WTNaTb",
     "slideshow_AR6y7t",
     "featured_collections_FFVeDA",
-    "featured_collections_JxEn6d",
     "874de104-fc55-4f57-b89f-70e94f68f14b",
     "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
     "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
     "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
-    "7d84e4df-aaa1-44f6-8bc5-aff4537010f6",
     "8550440c-db8a-41c3-808a-e9ef4d695f17",
     "c273c071-0a39-4516-9587-6b49b8a635a6"
   ]
