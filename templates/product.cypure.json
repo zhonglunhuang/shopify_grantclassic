@@ -541,6 +541,7 @@
         "category_TzUnp4",
         "question_3hPXbY"
       ],
+      "disabled": true,
       "settings": {
         "show_navigation": false,
         "title": "FAQ",
