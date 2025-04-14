@@ -78,7 +78,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "show_vendor": true,
+        "show_vendor": false,
         "show_sku": false,
         "show_taxes_included": false,
         "show_product_rating": false,
