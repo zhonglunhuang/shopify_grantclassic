@@ -503,34 +503,49 @@
         "category_XaPdRQ": {
           "type": "category",
           "settings": {
-            "title": "Shipping"
+            "title": "產品相關"
           }
         },
         "question_hrEtFp": {
           "type": "question",
           "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "Cypure 再生除濕盒真的可以重複使用嗎？",
+            "answer": "<p>可以！Cypure 再生除濕盒內部採用可再生吸濕材料，當吸飽水氣後，只需插上 8 字電源線，即可啟動自動回復除濕效果，重複使用長達約 2 年，節省又環保。</p>"
           }
         },
         "question_e6JEkd": {
           "type": "question",
           "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
-          }
-        },
-        "category_TzUnp4": {
-          "type": "category",
-          "settings": {
-            "title": "Other"
+            "title": "要怎麼知道什麼時候該再生？",
+            "answer": "<p>Cypure 再生除濕盒使用可視化濕度指示球。當顆粒呈現<strong>透明</strong>時，代表水氣已飽和，需進行再生；當顆粒恢復為<strong>褐色</strong>，則表示已回復乾燥狀態，可繼續使用。</p>"
           }
         },
         "question_3hPXbY": {
           "type": "question",
           "settings": {
-            "title": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "Cypure 再生除濕盒的再生過程怎麼進行？",
+            "answer": "<p>不需微波爐或日曬，只要插上附帶的 8 字電源線，Cypure 再生除濕盒就會自動啟動再生程序，大約數小時內即可完成乾燥，無需額外操作。</p>"
+          }
+        },
+        "question_MFyjFe": {
+          "type": "question",
+          "settings": {
+            "title": "Cypure 再生除濕盒可以用多久？",
+            "answer": "<p>在正常使用情況下，一個 Cypure 再生除濕盒的使用壽命約為<strong>2 年</strong>，能夠重複再生上百次，相較一般一次性除濕盒更加耐用與划算。</p>"
+          }
+        },
+        "question_Mjzpdd": {
+          "type": "question",
+          "settings": {
+            "title": "使用 Cypure 再生除濕盒會有漏水的問題嗎？",
+            "answer": "<p>不會。Cypure 再生除濕盒採乾式吸濕技術，不產生液體，不會滲水或漏水，使用更安心。</p>"
+          }
+        },
+        "question_rDB3VH": {
+          "type": "question",
+          "settings": {
+            "title": "Cypure 再生除濕盒適用在哪些空間？",
+            "answer": "<p>Cypure 再生除濕盒適合擺放在衣櫃、鞋櫃、車內、儲物箱、電子器材櫃等潮濕環境，有效降低濕氣，保護物品不受潮。</p>"
           }
         }
       },
@@ -538,10 +553,11 @@
         "category_XaPdRQ",
         "question_hrEtFp",
         "question_e6JEkd",
-        "category_TzUnp4",
-        "question_3hPXbY"
+        "question_3hPXbY",
+        "question_MFyjFe",
+        "question_Mjzpdd",
+        "question_rDB3VH"
       ],
-      "disabled": true,
       "settings": {
         "show_navigation": false,
         "title": "FAQ",
