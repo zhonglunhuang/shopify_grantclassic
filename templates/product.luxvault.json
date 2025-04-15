@@ -694,6 +694,59 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_RQpyGA": {
+      "type": "slideshow",
+      "blocks": {
+        "image_r6CFDa": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide title",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "image_Q7KM9C": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/14_WIFI_b3012318-3734-4771-b933-1cd83e067dd7.jpg",
+            "mobile_image": "shopify://shop_images/14_wifi.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_r6CFDa",
+        "image_Q7KM9C"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -879,6 +932,7 @@
     "slideshow_mJKtGt",
     "slideshow_xR4e6T",
     "slideshow_LmXXiU",
+    "slideshow_RQpyGA",
     "product-content",
     "faq_JLMtcN"
   ]
