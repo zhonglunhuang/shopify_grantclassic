@@ -33,7 +33,6 @@
         },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
-          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
@@ -384,6 +383,59 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_rWRRwG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_VK8zfw": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide title",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "image_yqe6xc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/24a91108f9ff5212ad09010da662c446.jpg",
+            "mobile_image": "shopify://shop_images/14.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_VK8zfw",
+        "image_yqe6xc"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_KmR79t": {
       "type": "slideshow",
       "blocks": {
@@ -588,10 +640,28 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_rWRRwG": {
+    "slideshow_LmXXiU": {
       "type": "slideshow",
       "blocks": {
-        "image_yqe6xc": {
+        "image_UkgwEX": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide title",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "image_Netx9C": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/14_e3e40fd6-e4c8-4b09-a7c1-f4f54bb60aae.jpg",
@@ -612,7 +682,8 @@
         }
       },
       "block_order": [
-        "image_yqe6xc"
+        "image_UkgwEX",
+        "image_Netx9C"
       ],
       "settings": {
         "section_height": "auto",
@@ -799,13 +870,14 @@
     "slideshow_gqxzej",
     "slideshow_gDaJzh",
     "slideshow_FP3YRM",
+    "slideshow_rWRRwG",
     "slideshow_KmR79t",
     "slideshow_hFVbR7",
     "slideshow_JjCfw8",
     "slideshow_p3kQ3X",
     "slideshow_mJKtGt",
     "slideshow_xR4e6T",
-    "slideshow_rWRRwG",
+    "slideshow_LmXXiU",
     "product-content",
     "faq_JLMtcN"
   ]
