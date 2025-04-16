@@ -33,6 +33,7 @@
       "blocks": {
         "10eed426-c481-4651-8503-74a9f6dc6018": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "{{ product.metafields.custom._123.value }}",
             "image_alignment": "left",
@@ -42,9 +43,9 @@
         "image_j9pXhF": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1_16695dc6-9bd3-4d5c-bac3-29bbae8e402a.png",
+            "image": "shopify://shop_images/02_43edeb95-befd-46c8-8eae-1914bc9fedfe.png",
             "image_alignment": "left",
-            "image_width": 270
+            "image_width": 490
           }
         },
         "df999a05-d00f-4f60-87d3-401d4a092ce9": {
