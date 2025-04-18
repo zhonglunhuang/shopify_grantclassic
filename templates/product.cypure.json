@@ -22,7 +22,6 @@
         },
         "image_P4Vgey": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/a68bbca2e930cec8c2a53442fa841aa5_f9b1c08f-f531-40a5-8f12-070b9f3740f8.png",
             "image_alignment": "left",
