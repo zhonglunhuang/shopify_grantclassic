@@ -1,19 +1,19 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "1721752751939b7d14": {
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-stories\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": "",
             "debugging_script": ""
@@ -34,9 +34,9 @@
         "10eed426-c481-4651-8503-74a9f6dc6018": {
           "type": "image",
           "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
+            "image": "shopify://shop_images/a68bbca2e930cec8c2a53442fa841aa5_f9b1c08f-f531-40a5-8f12-070b9f3740f8.png",
             "image_alignment": "left",
-            "image_width": 270
+            "image_width": 370
           }
         },
         "df999a05-d00f-4f60-87d3-401d4a092ce9": {
@@ -48,7 +48,7 @@
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}<\/p>"
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
           }
         },
         "variant_picker": {
@@ -62,8 +62,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -78,7 +77,7 @@
         "liquid_hpmDVh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"><\/div>"
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         }
       },
@@ -112,7 +111,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup-playlist\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
@@ -132,14 +131,13 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
           "settings": {
             "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -148,8 +146,7 @@
         "description",
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
