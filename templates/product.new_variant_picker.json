@@ -615,6 +615,60 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {}
+    },
+    "faq_gcnLJN": {
+      "type": "faq",
+      "blocks": {
+        "category_RpQjiW": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "question_Uwj3FP": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+          }
+        },
+        "question_Mxjkrf": {
+          "type": "question",
+          "settings": {
+            "title": "How long will it take to get my order?",
+            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+          }
+        },
+        "category_wLynmd": {
+          "type": "category",
+          "settings": {
+            "title": "Other"
+          }
+        },
+        "question_YjVt7Y": {
+          "type": "question",
+          "settings": {
+            "title": "Any question?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_RpQjiW",
+        "question_Uwj3FP",
+        "question_Mxjkrf",
+        "category_wLynmd",
+        "question_YjVt7Y"
+      ],
+      "disabled": true,
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
@@ -634,6 +688,7 @@
     "slideshow_gnR4W8",
     "slideshow_ncR3AE",
     "17217531875f804291",
-    "product-content"
+    "product-content",
+    "faq_gcnLJN"
   ]
 }
