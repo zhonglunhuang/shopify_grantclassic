@@ -622,31 +622,47 @@
         "category_RpQjiW": {
           "type": "category",
           "settings": {
-            "title": "Shipping"
+            "title": "產品相關"
           }
         },
         "question_Uwj3FP": {
           "type": "question",
           "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "GC-Tag 是怎麼幫我找到遺失的東西的",
+            "answer": "<p><br/>GC-Tag 可透過手機的「尋找」App（iOS）或「尋找我的裝置」App（Android）連線使用。當你物品遺失或超出設定距離時，系統會自動發出通知，並可在地圖上顯示最後位置，協助你迅速找回。<br/><br/></p>"
           }
         },
         "question_Mxjkrf": {
           "type": "question",
           "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "GC-Tag 是不是只能用在 iPhone？",
+            "answer": "<p><br/>不是！GC-Tag 支援 iOS 和 Android 系統兩種版本，iPhone 用戶可直接用內建的「尋找」App 連接，Android 用戶則可透過「尋找我的裝置」App 使用，同樣方便。<br/><br/></p>"
+          }
+        },
+        "question_7GwWcb": {
+          "type": "question",
+          "settings": {
+            "title": "這個裝置需要充電嗎?",
+            "answer": "<p><br/><br/>不需要。GC-Tag 使用可更換的 CR2032 電池，電力可使用長達一年以上，免充電、低維護。<br/><br/><br/><br/></p>"
+          }
+        },
+        "question_Dn4wmq": {
+          "type": "question",
+          "settings": {
+            "title": "GC-Tag 可以用在哪些物品上？",
+            "answer": "<p><br/><br/>幾乎所有容易遺失的東西都能用！像是鑰匙、錢包、背包、行李箱、寵物項圈，甚至是放在小朋友的書包裡都很實用。它小巧輕薄，攜帶完全沒負擔。<br/><br/><br/><br/></p>"
           }
         },
         "category_wLynmd": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "title": "Other"
           }
         },
         "question_YjVt7Y": {
           "type": "question",
+          "disabled": true,
           "settings": {
             "title": "Any question?",
             "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
@@ -657,10 +673,11 @@
         "category_RpQjiW",
         "question_Uwj3FP",
         "question_Mxjkrf",
+        "question_7GwWcb",
+        "question_Dn4wmq",
         "category_wLynmd",
         "question_YjVt7Y"
       ],
-      "disabled": true,
       "name": "FAQ",
       "settings": {
         "show_navigation": false,
