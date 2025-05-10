@@ -295,7 +295,7 @@
         "settings": {
           "enable": true,
           "apparition_delay": 1,
-          "show_only_on_index": true,
+          "show_only_on_index": false,
           "show_only_for_visitors": true,
           "show_only_once": true,
           "image": "shopify://shop_images/19.png",
@@ -303,7 +303,7 @@
           "title": "穩如鈦山 TITANSHIELD",
           "content": "<p>採用固態電池的 MagSafe 行動電源<br/><strong>只發電、不發火</strong><br/><br/>固態電池技術<br/>相較傳統電池大幅降低熱膨脹與起火風險</p>",
           "button_text": "立刻領取 NT$300 折扣券",
-          "button_link": "https://lin.ee/QDHN7JB"
+          "button_link": "https://www.surveycake.com/s/KXRqk"
         }
       }
     },
