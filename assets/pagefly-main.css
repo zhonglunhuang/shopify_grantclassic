@@ -16,12 +16,20 @@
     touch-action: manipulation;
 }
 
-.__pf *:focus-visible {
+/* 
+    Add default focus styles for the new editor version.  
+    Previously, this code was added to fix a bug where all elements with the attribute contenteditable="true" were affected.  
+    However, since the bug has already been fixed, to prevent any impact on old pages,  
+    we will apply this fix only to the new version. 
+
+    For the new requirement, all focusable elements should have a default focus style.
+*/  
+.__pf:not([data-pf-editor-version="gen-2"]) *:focus-visible {
     outline: none !important;
     box-shadow: none !important;
 }
 
-.__pf *:not(input):not(select):not(textarea):not([data-active="true"]):focus-visible {
+.__pf:not([data-pf-editor-version="gen-2"]) *:not(input):not(select):not(textarea):not([data-active="true"]):focus-visible {
     border: none !important;
 }
 
@@ -285,8 +293,9 @@ main .accent-background+.shopify-section {
     align-content: flex-end;
 }
 
-.pf-no-border {
-    border: 0;
+.pf-no-border:not(:focus-visible) {
+    border: none;
+    outline: none;
 }
 
 .pf-sr-only {
@@ -303,4 +312,56 @@ main .accent-background+.shopify-section {
 
 .pf-visibility-hidden {
     visibility: hidden;
+}
+
+
+.pf-dialog {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-height: min(calc(9/16*100vw), calc(100% - 6px - 2em));
+	-webkit-overflow-scrolling: touch;
+	overflow: hidden;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pf-dialog::backdrop {
+	background: rgba(0, 0, 0, .9);
+	opacity: 1
+}
+
+.pf-close-dialog-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+	height: 16px;
+	background: none;
+	border: none;
+	margin-bottom: 8px;
+	padding: 0;
+	cursor: pointer
+}
+
+.pf-close-dialog-btn:not(:focus-visible){
+	box-shadow: none;
+}
+
+.pf-dialog svg {
+	pointer-events: none
+}
+
+.pf-dialog-content {
+    display: block;
+    margin: 24px auto auto auto;
+    width: 100%;
+    height: calc(100% - 24px)
+}
+
+.pf-dialog-content > * {
+    width: 100%;
+    height: 100%;
+	border: 0;
 }
