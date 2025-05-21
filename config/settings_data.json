@@ -348,6 +348,11 @@
         "type": "shopify://apps/clarity-session-replay-heatmap/blocks/app-embed/a00e1498-58a5-40f8-a329-090bf3504868",
         "disabled": false,
         "settings": {}
+      },
+      "9664103760669878543": {
+        "type": "shopify://apps/seoon-blog/blocks/avada-seoon-setting/a45c3e67-be9f-4255-a194-b255a24f37c9",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
