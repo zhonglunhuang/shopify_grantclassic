@@ -273,6 +273,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/16.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -286,6 +287,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/12_Main_0000.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -299,6 +301,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/19_74ea0833-ac51-4bb1-a23a-a127480f0e11.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -312,6 +315,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/9_Main_0000.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -325,6 +329,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/9-1_Main_0000.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -338,6 +343,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/9-2_Main_0000.png",
             "subheading": "",
             "title": "",
             "link_text": "",
@@ -360,8 +366,8 @@
       "settings": {
         "reveal_on_scroll": false,
         "layout": "collage",
-        "subheading": "Subheading",
-        "title": "Collection list",
+        "subheading": "",
+        "title": "",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
