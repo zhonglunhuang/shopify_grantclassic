@@ -200,10 +200,11 @@
         "item_zjFPpw": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/DSC02396.jpg",
             "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+            "subheading": "",
+            "title": "固態電池，只發電，不發火。",
+            "content": "<p><strong>穩如鈦山 TITANSHIELD</strong> 採用全球領先的<strong>固態電池核心技術</strong>，即使遭遇<strong>摔落、刺穿、水浸、甚至火燒</strong>等極端測試，依然穩定供電、毫無異狀。</p><p>這不只是安全，更是對日常風險的全面免疫。無論在城市通勤或戶外探險，都能給你<strong>最踏實的行動電力後盾</strong>。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -218,7 +219,7 @@
         "background_type": "full_width",
         "background_overlap": "image",
         "image_position": "right",
-        "text_alignment": "center",
+        "text_alignment": "left",
         "cycle_speed": 8,
         "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
@@ -232,22 +233,22 @@
         "testimonial_fkjadR": {
           "type": "testimonial",
           "settings": {
-            "content": "Write some content about what they are saying about your store.",
-            "author": "John S."
+            "content": "原本只是想找一顆輕薄的 MagSafe 行動電源，沒想到這顆真的跌到地上都沒事，還是照樣充電！「只發電，不發火」真的不是講假的，用起來很安心。",
+            "author": "楊先生"
           }
         },
         "testimonial_wRMMaB": {
           "type": "testimonial",
           "settings": {
-            "content": "Write some content about what they are saying about your store.",
-            "author": "John S."
+            "content": "每天在咖啡廳移動工作，行動電源是必備。我以前的電源常常會熱，這款用了快一個月幾乎都不會發燙，磁吸也很準，真的愛上。",
+            "author": "Irene"
           }
         },
         "testimonial_gmW7ir": {
           "type": "testimonial",
           "settings": {
-            "content": "Write some content about what they are saying about your store.",
-            "author": "John S."
+            "content": "上山露營最怕電子設備出問題，我特地實測把它放在潮濕環境還插針試過，居然真的沒反應。看得出來是實心電芯，不是一般那種虛的固態名號。",
+            "author": "Leo"
           }
         }
       },
