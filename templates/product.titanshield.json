@@ -196,39 +196,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_GNJUEa": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_JKYMjj": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2-1_Main_0000.png",
-            "tab_label": "行動電源的新革命",
-            "subheading": "",
-            "title": "行動電源的新革命",
-            "content": "<p><strong>穩如鈦山 TITANSHIELD</strong> 將全球領先的<strong>固態電池技術</strong>正式導入行動電源領域，不僅帶來安全性的大幅躍升，更實現高達 <strong>200% 的性能優化</strong>，重新定義什麼才是真正可靠的電力夥伴。</p><p>內建 <strong>5000mAh 固態電芯</strong>，支援 <strong>15W MagSafe 無線快充</strong>，可為 iPhone 充電約 <strong>1.2 次</strong>。歷經超過 <strong>1,000 次完整充放電循環</strong>後，電池依然維持穩定輸出，無明顯衰退，展現前所未見的壽命與耐久。</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_JKYMjj"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "text",
-        "image_position": "left",
-        "text_alignment": "left",
-        "cycle_speed": 7,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_TEHnJw": {
       "type": "slideshow",
       "blocks": {
@@ -262,6 +229,39 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_GNJUEa": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_JKYMjj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2-1_Main_0000.png",
+            "tab_label": "行動電源的新革命",
+            "subheading": "",
+            "title": "行動電源的新革命",
+            "content": "<p><strong>穩如鈦山 TITANSHIELD</strong> 將全球領先的<strong>固態電池技術</strong>正式導入行動電源領域，不僅帶來安全性的大幅躍升，更實現高達 <strong>200% 的性能優化</strong>，重新定義什麼才是真正可靠的電力夥伴。</p><p>內建 <strong>5000mAh 固態電芯</strong>，支援 <strong>15W MagSafe 無線快充</strong>，可為 iPhone 充電約 <strong>1.2 次</strong>。歷經超過 <strong>1,000 次完整充放電循環</strong>後，電池依然維持穩定輸出，無明顯衰退，展現前所未見的壽命與耐久。</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_JKYMjj"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "boxed",
+        "background_overlap": "text",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 7,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
       }
     },
     "image_with_text_3AKEmp": {
@@ -534,11 +534,11 @@
     "custom_liquid_VJFPhK",
     "slideshow_K88RHB",
     "video_rG4P34",
-    "image_with_text_GNJUEa",
     "slideshow_TEHnJw",
     "image_with_text_3AKEmp",
-    "slideshow_jCqCWd",
     "testimonials_RX38aa",
+    "image_with_text_GNJUEa",
+    "slideshow_jCqCWd",
     "collection_list_YkaaHQ",
     "product-content",
     "faq_JLMtcN"
