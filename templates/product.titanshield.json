@@ -182,6 +182,41 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_jCqCWd": {
+      "type": "slideshow",
+      "blocks": {
+        "image_MdLcyM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_d1116c75-4c0a-4e10-afb8-cb4d375158f1.svg",
+            "mobile_image": "shopify://shop_images/1000_x_1400_3_1.svg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_MdLcyM"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "video_rG4P34": {
       "type": "video",
       "name": "Video",
@@ -260,41 +295,6 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_jCqCWd": {
-      "type": "slideshow",
-      "blocks": {
-        "image_MdLcyM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2_d1116c75-4c0a-4e10-afb8-cb4d375158f1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_1400_2_0f85656d-85df-46dc-9daf-07976f6ba51a.svg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_MdLcyM"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
       }
     },
     "rich_text_zq3FVF": {
