@@ -153,7 +153,9 @@
         "image_XdMWNy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/13_Main_0000.png",
+            "image": "shopify://shop_images/2b15f55acbeb0677e8e1d7b964faa835.png",
+            "split_image": "shopify://shop_images/1000_x_1400_1.png",
+            "mobile_image": "shopify://shop_images/1000_x_1400.png",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
