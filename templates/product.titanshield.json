@@ -267,9 +267,10 @@
       "name": "Image with text block",
       "settings": {
         "reveal_on_scroll": true,
-        "image": "shopify://shop_images/5_Main_0000.png",
-        "subheading": "內建16顆N52磁鐵，穩穩吸附、不晃不掉。",
-        "title": "強力磁吸 - 不畏懼",
+        "image": "shopify://shop_images/2.svg",
+        "mobile_image": "shopify://shop_images/1000_x_1400_2.svg",
+        "subheading": "",
+        "title": "",
         "content": "",
         "button_text": "",
         "button_link": "",
