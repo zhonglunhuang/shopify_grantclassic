@@ -203,7 +203,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_3000_1.svg",
+            "mobile_image": "shopify://shop_images/1000_x_3000_2_1.svg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
