@@ -262,27 +262,39 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_block_czNbgb": {
-      "type": "image-with-text-block",
-      "name": "Image with text block",
+    "slideshow_jCqCWd": {
+      "type": "slideshow",
+      "blocks": {
+        "image_MdLcyM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_d1116c75-4c0a-4e10-afb8-cb4d375158f1.svg",
+            "mobile_image": "shopify://shop_images/1000_x_1400_2_0f85656d-85df-46dc-9daf-07976f6ba51a.svg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_MdLcyM"
+      ],
+      "name": "Slideshow",
       "settings": {
-        "reveal_on_scroll": true,
-        "image": "shopify://shop_images/2.svg",
-        "mobile_image": "shopify://shop_images/1000_x_1400_2.svg",
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "boxed",
-        "text_position": "left",
-        "text_alignment": "left",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "text_color_mobile": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
       }
     },
     "rich_text_zq3FVF": {
@@ -526,10 +538,10 @@
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
     "slideshow_K88RHB",
+    "slideshow_jCqCWd",
     "video_rG4P34",
     "image_with_text_GNJUEa",
     "image_with_text_3AKEmp",
-    "image_with_text_block_czNbgb",
     "rich_text_zq3FVF",
     "image_with_text_block_QLqheQ",
     "testimonials_RX38aa",
