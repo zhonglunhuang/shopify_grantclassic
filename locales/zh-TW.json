@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -186,7 +195,7 @@
       "need_help": "需要協助嗎？",
       "view_details": "查看細節",
       "include_taxes": "包含稅金",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">運費計算<\/a> 結帳時",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">運費計算</a> 結帳時",
       "reviews_count": {
         "zero": "沒有評論",
         "one": "{{ count }} 評論",
@@ -333,12 +342,12 @@
       "fulfillment_status": "訂單狀況",
       "view_details": "查看訂單細節",
       "cancelled_at": "取消時間: {{date}}. 原因: {{reason}}",
-      "fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}<\/a>.",
-      "fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看<\/a>.",
+      "fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}</a>.",
+      "fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看</a>.",
       "fulfillment_with_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 {{tracking_company}}{{tracking_number}}.",
       "fulfillment_html": "所有的產品已在此日期發送 {{date}}.",
-      "line_fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}<\/a>.",
-      "line_fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看<\/a>.",
+      "line_fulfillment_with_url_and_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 <a href=\"{{tracking_url}}\" target=\"_blank\">{{tracking_company}}{{tracking_number}}</a>.",
+      "line_fulfillment_with_url_html": "所有的產品已在此日期發送 {{date}}. 追蹤貨件可透過 <a href=\"{{tracking_url}}\" target=\"_blank\">點選查看</a>.",
       "line_fulfillment_with_number_html": "所有的產品已在此日期發送 {{date}}. 可透過編號來追蹤貨件 {{tracking_company}}{{tracking_number}}.",
       "line_fulfillment_html": "所有的產品已在此日期發送 {{date}}.",
       "total": "總金額",
@@ -548,7 +557,7 @@
         "city_label": "輸入縣市"
       },
       "order_summary": {
-        "shipping_information_does_not_meet_discount_requirements_notice": "折扣代碼 <strong style=\"text-transform:uppercase\">{{ code }}<\/strong> 不適用於您的寄送地址",
+        "shipping_information_does_not_meet_discount_requirements_notice": "折扣代碼 <strong style=\"text-transform:uppercase\">{{ code }}</strong> 不適用於您的寄送地址",
         "no_pickup_location": "您的訂單無法取貨。請輸入寄送地址。",
         "shipping_label": "運費",
         "title": "訂單內容",
@@ -562,7 +571,7 @@
         "different_billing_address_label": "需要，將帳單另外寄送到以下地址"
       },
       "field_errors": {
-        "address_country_not_supported": "我們目前無法運送至此國家\/地區。請輸入新的寄送地址，然後再試一次。",
+        "address_country_not_supported": "我們目前無法運送至此國家/地區。請輸入新的寄送地址，然後再試一次。",
         "address_city_blank": "輸入你的縣市",
         "address_address1_blank": "請輸入完整正確的地址"
       },
@@ -593,6 +602,14 @@
           "missing": {
             "address1": "請輸入完整正確的地址"
           }
+        }
+      },
+      "stock": {
+        "sold_out_label": "售完補貨中"
+      },
+      "throttle": {
+        "merchandise": {
+          "sold_out": "售完補貨中"
         }
       }
     },
@@ -651,71 +668,71 @@
   "sections": {
     "ecom-preview-home-home": {
       "textcontent_tn8qccony89_html": "iconic design speaker",
-      "headingtext_w3xx70e6qst_html": "<div>Immense<\/div><div>Bigger<\/div><div>Sound<\/div>",
+      "headingtext_w3xx70e6qst_html": "<div>Immense</div><div>Bigger</div><div>Sound</div>",
       "buttoncontent_b0kx6s3fc3v_html": "Shop Now",
       "textcontent_kttwwbfg37_html": "iconic design speaker",
-      "headingtext_5w3w8gihevr_html": "<div>Immense<\/div><div>Bigger<\/div><div>Sound<\/div>",
+      "headingtext_5w3w8gihevr_html": "<div>Immense</div><div>Bigger</div><div>Sound</div>",
       "buttoncontent_3n6t39z2fdv_html": "Shop Now",
-      "headingtext_7r3sjoaojpi_html": "<div>360 Degree Sound for&nbsp;<\/div><div>Flexible Listening<\/div>",
-      "textcontent_7jaecbrx1lm_html": "<div>Play music simultanously in every mode your home. This&nbsp;<\/div><div>is multiroom speaker that seamlesly support both chrom<\/div><div>ecast &amp; connects speaker<\/div>",
+      "headingtext_7r3sjoaojpi_html": "<div>360 Degree Sound for&nbsp;</div><div>Flexible Listening</div>",
+      "textcontent_7jaecbrx1lm_html": "<div>Play music simultanously in every mode your home. This&nbsp;</div><div>is multiroom speaker that seamlesly support both chrom</div><div>ecast &amp; connects speaker</div>",
       "ecomiconlisttitle0_ecomnl38v95kyv_nl38v95kyv_html": "Fill any space with iconic sound",
       "ecomiconlisttitle1_ecomnl38v95kyv_nl38v95kyv_html": "Supports Chromecast™ Built-in & AirPlay 2",
       "ecomiconlisttitle2_ecomnl38v95kyv_nl38v95kyv_html": "Beolink Multiroom and Bluetooth",
       "buttoncontent_88p70y8pu1s_html": "Shop Now",
       "ecomiconlisttitle0_ecomklzxog5uap_klzxog5uap_html": "Space With Sound",
-      "ecomiconlistdes_0_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer adjust sound&nbsp;<\/div><div>perfectly environment can<\/div>",
+      "ecomiconlistdes_0_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer adjust sound&nbsp;</div><div>perfectly environment can</div>",
       "ecomiconlisttitle1_ecomklzxog5uap_klzxog5uap_html": "Many Possibilities",
-      "ecomiconlistdes_1_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer ensures that<\/div><div>speake sounds looks.<\/div>",
+      "ecomiconlistdes_1_ecomklzxog5uap_klzxog5uap_html": "<div>The built room equalizer ensures that</div><div>speake sounds looks.</div>",
       "ecomiconlisttitle2_ecomklzxog5uap_klzxog5uap_html": "Luxurious Materials",
-      "ecomiconlistdes_2_ecomklzxog5uap_klzxog5uap_html": "<div>The magnificent tapestry fabric made&nbsp;<\/div><div>&nbsp;wool blend collaboration&nbsp;<\/div>",
-      "s001p0f4fDf2l2cr00br22_jehidvf0nih_html": "<h2 style=\"margin: 0px 0px 10px; padding: 0px; font-weight: 400; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\"><br><\/h2>",
+      "ecomiconlistdes_2_ecomklzxog5uap_klzxog5uap_html": "<div>The magnificent tapestry fabric made&nbsp;</div><div>&nbsp;wool blend collaboration&nbsp;</div>",
+      "s001p0f4fDf2l2cr00br22_jehidvf0nih_html": "<h2 style=\"margin: 0px 0px 10px; padding: 0px; font-weight: 400; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\"><br></h2>",
       "textcontent_xsthkn0ze0p_html": "Watch our video",
       "tabtitle0_zzivrueu_html": "Compatible & Connective",
       "tabtitle1_zzivrueu_html": "Dimension & Weight                   ",
       "tabtitle2_zzivrueu_html": "Sound & Material",
       "tabtitle3_zzivrueu_html": "Power Consumption",
-      "headingtext_itwxcikdfac_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "headingtext_itwxcikdfac_html": "<div>Controllabitity &amp;&nbsp;</div><div>Connectivity</div>",
       "ecomiconlisttitle0_ecomz4rcmu7x2z_z4rcmu7x2z_html": "Integrated Music",
-      "ecomiconlistdes_0_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_0_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle1_ecomz4rcmu7x2z_z4rcmu7x2z_html": "Sound Pressure Level",
-      "ecomiconlistdes_1_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_1_ecomz4rcmu7x2z_z4rcmu7x2z_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "buttoncontent_ekjvz3c3bmo_html": "Shop Now",
-      "headingtext_xod2iusoani_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "headingtext_xod2iusoani_html": "<div>Controllabitity &amp;&nbsp;</div><div>Connectivity</div>",
       "ecomiconlisttitle0_ecomds1y9u8qvri_ds1y9u8qvri_html": "Integrated Music",
-      "ecomiconlistdes_0_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_0_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle1_ecomds1y9u8qvri_ds1y9u8qvri_html": "Sound Pressure Level",
-      "ecomiconlistdes_1_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_1_ecomds1y9u8qvri_ds1y9u8qvri_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle2_ecomds1y9u8qvri_ds1y9u8qvri_html": " Moneyback Guarantee ",
       "ecomiconlistdes_2_ecomds1y9u8qvri_ds1y9u8qvri_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
       "buttoncontent_pmuvetagag_html": "Shop Now",
-      "headingtext_i2d5sj9lswa_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "headingtext_i2d5sj9lswa_html": "<div>Controllabitity &amp;&nbsp;</div><div>Connectivity</div>",
       "ecomiconlisttitle0_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Integrated Music",
-      "ecomiconlistdes_0_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_0_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle1_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Sound Pressure Level",
-      "ecomiconlistdes_1_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_1_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle2_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": " Moneyback Guarantee ",
       "ecomiconlistdes_2_ecomeq7oqx0a2ts_eq7oqx0a2ts_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
       "buttoncontent_ijui0pjkt_html": "Shop Now",
-      "headingtext_tn7e4foenk_html": "<div>Controllabitity &amp;&nbsp;<\/div><div>Connectivity<\/div>",
+      "headingtext_tn7e4foenk_html": "<div>Controllabitity &amp;&nbsp;</div><div>Connectivity</div>",
       "ecomiconlisttitle0_ecomoi7dbo43tk_oi7dbo43tk_html": "Integrated Music",
-      "ecomiconlistdes_0_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_0_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle1_ecomoi7dbo43tk_oi7dbo43tk_html": "Sound Pressure Level",
-      "ecomiconlistdes_1_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;<\/div><div>printing typesetting ipsum been an amplifier.<\/div>",
+      "ecomiconlistdes_1_ecomoi7dbo43tk_oi7dbo43tk_html": "<div>Lorem ipsum is simply dummy texting often then&nbsp;</div><div>printing typesetting ipsum been an amplifier.</div>",
       "ecomiconlisttitle2_ecomoi7dbo43tk_oi7dbo43tk_html": " Moneyback Guarantee ",
       "ecomiconlistdes_2_ecomoi7dbo43tk_oi7dbo43tk_html": "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod ",
       "buttoncontent_upl0e5uxvt_html": "Shop Now",
       "headingtext_zu2u5ar9rtg_html": "EComposer Play",
-      "textcontent_fcgj1chlfo5_html": "<div>Lorem ipsum is simply dummy texting<\/div><div>printing typesetting an amplifier.<\/div>",
+      "textcontent_fcgj1chlfo5_html": "<div>Lorem ipsum is simply dummy texting</div><div>printing typesetting an amplifier.</div>",
       "textcontent_ly3ipy4mfkr_html": "$ 1,350.00<br>",
       "headingtext_0enm1h6nrem_html": "EComposer Play",
-      "textcontent_shozkq49pys_html": "<div>Lorem ipsum is simply dummy texting<\/div><div>printing typesetting an amplifier.<\/div>",
+      "textcontent_shozkq49pys_html": "<div>Lorem ipsum is simply dummy texting</div><div>printing typesetting an amplifier.</div>",
       "textcontent_3g689qlx7cu_html": "$ 1,350.00<br>",
       "titleCard0_v8aok2bjix_html": "Power Consumption",
-      "textCard0_v8aok2bjix_html": "<div>14.7 kg Weight<\/div><div>Wood, Fabric, Aluminium &amp; Plastic<\/div><div>70.1 W x 90.8 H x 41.1 D cm<\/div>",
+      "textCard0_v8aok2bjix_html": "<div>14.7 kg Weight</div><div>Wood, Fabric, Aluminium &amp; Plastic</div><div>70.1 W x 90.8 H x 41.1 D cm</div>",
       "titleCard1_v8aok2bjix_html": "Speaker Configuration",
-      "textCard1_v8aok2bjix_html": "<div>1 x 400 watt class D for bass<\/div><div>2 x 200 watt class D for midrange<\/div><div>2 x 200 watt class D for fullrange<\/div><div>2 x 150 watt class D for treble<\/div>",
+      "textCard1_v8aok2bjix_html": "<div>1 x 400 watt class D for bass</div><div>2 x 200 watt class D for midrange</div><div>2 x 200 watt class D for fullrange</div><div>2 x 150 watt class D for treble</div>",
       "titleCard2_v8aok2bjix_html": "Power Consumption",
-      "textCard2_v8aok2bjix_html": "<div>Typical 23 watts<\/div><div>Networked standby (LAN): 2,6 watt<\/div><div>Networked standby (WiFi): 3,3 watt<\/div>",
+      "textCard2_v8aok2bjix_html": "<div>Typical 23 watts</div><div>Networked standby (LAN): 2,6 watt</div><div>Networked standby (WiFi): 3,3 watt</div>",
       "headingtext_ys1em9j24s_html": "Choose What You Like<br>",
       "textcontent_b4xvnmh6z2_html": "One-point music system and contemporary design icon with ecomposer powerful sound and customisable design",
       "product_option_swatch_ua10m1axx8s_html": "Color",
@@ -736,8 +753,8 @@
       "itemtitle0_g5ij4ou0_html": "01.  What industries covered?",
       "itemtitle1_g5ij4ou0_html": "02.  What is price for shipping product?",
       "itemtitle2_g5ij4ou0_html": "03.  How do you price our masks?",
-      "textcontent_goy82w41wnd_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,<\/div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.<\/div><div>Follow the steps below for a seamless returns process:<br><\/div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br><\/li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br><\/li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br><\/li><\/ul><\/div>",
-      "textcontent_gwdmqtn9jm9_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,<\/div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.<\/div><div>Follow the steps below for a seamless returns process:<br><\/div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br><\/li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br><\/li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br><\/li><\/ul><\/div>",
+      "textcontent_goy82w41wnd_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,</div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.</div><div>Follow the steps below for a seamless returns process:<br></div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br></li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br></li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br></li></ul></div>",
+      "textcontent_gwdmqtn9jm9_html": "<div>Sales tax is only applicable to merchandise shipped to an Australia, California, Colorado, Connecticut, Georgia, Illinois, Indiana, Iowa,</div><div>Louisiana, Maryland, Michigan, Minnesota, Nevada, New Jersey, New York, North Carolina, Washington.</div><div>Follow the steps below for a seamless returns process:<br></div><div><ul><li>For each item, please indicate a reason for return using one of the Return Codes listed on the order form included in your package.<br></li><li>Attach your UPS return label to the outside of the package. There is no cost to use this label.<br></li><li>Drop off your package at the nearest UPS location. Please make note of your tracking number so that you are able to track it on its way back to us.<br></li></ul></div>",
       "headingtext_ynpk7ddhvl9_html": "10,000+ Happy Customers<br>",
       "text0_0irbqcrd6a2d_html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
       "name0_0irbqcrd6a2d_html": "Kingsley Chandler",
@@ -748,6 +765,24 @@
       "text2_0irbqcrd6a2d_html": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "name2_0irbqcrd6a2d_html": "John Doe",
       "title2_0irbqcrd6a2d_html": "Tech Leader"
+    },
+    "ecom-default-template-quickview": {
+      "textcontent_hej9vk0uggt_html": "",
+      "product_single_sale_text_igi21p1nxm_html": "",
+      "product_single_sold_text_igi21p1nxm_html": "",
+      "instock_text_phpd2kxein8_html": "",
+      "outstock_text_phpd2kxein8_html": "",
+      "inventory_text_phpd2kxein8_html": "",
+      "preorder_text_phpd2kxein8_html": "",
+      "product_option_swatch_mopm0qumv6_html": "",
+      "add_to_cart_boa4cnsk0z_html": "",
+      "pre_order_boa4cnsk0z_html": "",
+      "product_unavailable_boa4cnsk0z_html": "",
+      "out_stock_boa4cnsk0z_html": "",
+      "added_cart_text_boa4cnsk0z_html": "",
+      "added_cart_message_boa4cnsk0z_html": "",
+      "headingtext_ke5l5ure39_html": "",
+      "headingtext_qx9733j8ss_html": ""
     }
   }
 }
