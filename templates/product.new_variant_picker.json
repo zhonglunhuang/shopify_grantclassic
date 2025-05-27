@@ -33,6 +33,7 @@
       "blocks": {
         "10eed426-c481-4651-8503-74a9f6dc6018": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
             "image_alignment": "left",
