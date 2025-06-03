@@ -350,7 +350,7 @@
 
           {{- 'cart.general.checkout' | t -}}
           <span class="square-separator"></span>
-          <span data-hulkapps-cart-total>{{- cart.total_price | money_with_currency -}}</span>
+          {{- cart.total_price | money_with_currency -}}
         </button>
       {%- else -%}
         <a href="{{ routes.cart_url }}" class="button button--primary button--full" data-no-instant>{{ 'cart.general.go_to_cart' | t }}</a>

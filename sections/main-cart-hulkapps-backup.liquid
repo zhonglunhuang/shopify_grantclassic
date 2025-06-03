@@ -327,7 +327,7 @@
                       <div class="cart__recap-block" {{ block.shopify_attributes }}>
                         <div class="cart__total-container">
                           <span class="heading h6">{{ 'cart.general.total' | t }}</span>
-                          <span  data-hulkapps-cart-total class="heading h6">{{ cart.total_price | money_with_currency }}</span>
+                          <span class="heading h6">{{ cart.total_price | money_with_currency }}</span>
                         </div>
 
                         {%- if cart.cart_level_discount_applications != blank -%}
