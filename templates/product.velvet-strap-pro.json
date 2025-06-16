@@ -34,6 +34,7 @@
         },
         "photo_variant_picker_WwtNct": {
           "type": "photo_variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
@@ -42,7 +43,6 @@
         },
         "variant_picker": {
           "type": "variant_picker",
-          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
