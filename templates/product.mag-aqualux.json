@@ -108,26 +108,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "disabled": true,
-          "settings": {
-            "playlist_id": "",
-            "debugging_script": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "slideshow_aKypqM": {
       "type": "slideshow",
       "blocks": {
@@ -788,6 +768,39 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_jAdRVF": {
+      "type": "slideshow",
+      "blocks": {
+        "image_fbyFa7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/21.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_fbyFa7"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
@@ -914,7 +927,6 @@
   "order": [
     "main",
     "slideshow_q6KAET",
-    "17217531875f804291",
     "slideshow_aKypqM",
     "slideshow_Vi3Xjx",
     "slideshow_cpDGWN",
@@ -935,6 +947,7 @@
     "slideshow_dXqBfw",
     "slideshow_TRNLJB",
     "slideshow_8h3YN9",
+    "slideshow_jAdRVF",
     "faq_7A9Tt9",
     "product-content"
   ]
