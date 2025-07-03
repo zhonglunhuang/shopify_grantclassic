@@ -113,6 +113,7 @@
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
           "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup-playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "disabled": true,
           "settings": {
             "playlist_id": "",
             "debugging_script": ""
