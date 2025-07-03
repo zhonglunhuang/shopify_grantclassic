@@ -169,6 +169,13 @@
             "title": "產品相關"
           }
         },
+        "question_WDcibG": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 MAG AquaLux 飲水機運作原理",
+            "answer": "<p>喝不停 AquaLux 飲水機透過磁力運轉，將水打上去，實現完全水電分離</p>"
+          }
+        },
         "question_eGiYKz": {
           "type": "question",
           "settings": {
@@ -181,13 +188,6 @@
           "settings": {
             "title": "喝不停 MAG AquaLux 飲水機需要插電嗎？",
             "answer": "<p>不需要，喝不停 AquaLux 採用智能無線感應技術，續航可達 60 天。</p><p>但是建議都是插著電，電池屬於應付緊急狀況。</p>"
-          }
-        },
-        "question_pGFKkT": {
-          "type": "question",
-          "settings": {
-            "title": "喝不停 AquaLux 飲水機的材質是否安全？",
-            "answer": "<p>是的，喝不停 AquaLux 飲水機採用無毒高溫陶瓷製成，不導電且無重金屬，抗汙抗敏，對寵物安全無害。</p>"
           }
         },
         "question_wk3cTf": {
@@ -213,8 +213,8 @@
         "question_dx9p8Y": {
           "type": "question",
           "settings": {
-            "title": "如何設定 喝不停 AquaLux 飲水機的感應出水功能？",
-            "answer": "<p>喝不停 AquaLux 飲水機主機上方可以做切換，感應模式與持續出水模式。</p>"
+            "title": "如何設定 喝不停 MAG AquaLux 飲水機的感應出水功能？",
+            "answer": "<p>喝不停 MAG AquaLux 飲水機可以做切換，感應模式與持續出水模式。</p>"
           }
         },
         "question_6LKyRk": {
@@ -255,9 +255,9 @@
       },
       "block_order": [
         "category_xT9J6A",
+        "question_WDcibG",
         "question_eGiYKz",
         "question_hCpYUV",
-        "question_pGFKkT",
         "question_wk3cTf",
         "question_dNDgLY",
         "category_tUjCi3",
