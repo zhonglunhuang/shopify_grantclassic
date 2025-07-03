@@ -217,24 +217,17 @@
             "answer": "<p>喝不停 MAG AquaLux 飲水機可以做切換，感應模式與持續出水模式。</p>"
           }
         },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "喝不停 AquaLux 飲水機是否支援加熱功能？",
-            "answer": "<p>可以選配有專屬恆溫加熱盤底座，確保水溫適中，讓寵物飲用更舒適。</p>"
-          }
-        },
         "question_pycbBH": {
           "type": "question",
           "settings": {
-            "title": "喝不停 AquaLux 飲水機是否適合所有寵物？",
-            "answer": "<p>喝不停 AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。</p>"
+            "title": "喝不停 MAG AquaLux 飲水機是否適合所有寵物？",
+            "answer": "<p>喝不停 MAG AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。</p>"
           }
         },
         "question_FKkLJz": {
           "type": "question",
           "settings": {
-            "title": "多久需要更換 喝不停 AquaLux 飲水機的濾心？",
+            "title": "多久需要更換 喝不停 MAG AquaLux 飲水機的濾心？",
             "answer": "<ul><li>建議每月更換一次濾心，以確保水質清潔，保護您的寵物健康。</li></ul><h3></h3>"
           }
         },
@@ -262,7 +255,6 @@
         "question_dNDgLY",
         "category_tUjCi3",
         "question_dx9p8Y",
-        "question_6LKyRk",
         "question_pycbBH",
         "question_FKkLJz",
         "question_hPkyY6",
