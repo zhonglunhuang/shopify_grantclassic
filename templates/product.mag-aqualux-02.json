@@ -43,6 +43,101 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "promotion_blocks_tgrM9t": {
+      "type": "promotion-blocks",
+      "blocks": {
+        "image_xjREkY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/12_d747888b-55a3-43a7-8607-6e99ab27ac2e.png",
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "image_BcxAnm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/10.png",
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "image_eKakRE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/23.png",
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "image_mxfdPk": {
+          "type": "image",
+          "settings": {
+            "highlight": false,
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "video_qeiKzy": {
+          "type": "video",
+          "settings": {
+            "highlight": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+          }
+        }
+      },
+      "block_order": [
+        "image_xjREkY",
+        "image_BcxAnm",
+        "image_eKakRE",
+        "image_mxfdPk",
+        "video_qeiKzy"
+      ],
+      "name": "Promotion blocks",
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Promotion blocks",
+        "section_size": "medium",
+        "stack_on_mobile": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "image_with_text_JaQT9f": {
       "type": "image-with-text",
       "blocks": {
@@ -128,6 +223,45 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "gallery_MiVBMr": {
+      "type": "gallery",
+      "blocks": {
+        "image_F3XrWg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/8.png",
+            "caption": "<p><strong>傳統床墊在表層縫製成本較低的棉花，搭配單一簡易泡棉，不僅容易壓縮坍塌，凹凸不平的床面，躺感也不易服貼。</strong></p>"
+          }
+        },
+        "image_LzxGkV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/18.png",
+            "caption": ""
+          }
+        },
+        "image_wrJMzF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/14_82c1a95a-517c-4790-9513-26d54f1fab11.png",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_F3XrWg",
+        "image_LzxGkV",
+        "image_wrJMzF"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Gallery",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "image_with_text_block_KG9RKt": {
       "type": "image-with-text-block",
       "name": "Image with text block",
@@ -161,6 +295,40 @@
         "autoplay": true,
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "shop_the_look_jfxTmW": {
+      "type": "shop-the-look",
+      "blocks": {
+        "look_MaiDYP": {
+          "type": "look",
+          "settings": {
+            "dot_type": "inverted",
+            "product_1": "",
+            "product_1_horizontal_position": 17,
+            "product_1_vertical_position": 41,
+            "product_1_horizontal_position_mobile": 44,
+            "product_1_vertical_position_mobile": 30,
+            "product_2": "",
+            "product_2_horizontal_position": 46,
+            "product_2_vertical_position": 64,
+            "product_2_horizontal_position_mobile": 50,
+            "product_2_vertical_position_mobile": 50,
+            "product_3": "",
+            "product_3_horizontal_position": 62,
+            "product_3_vertical_position": 50,
+            "product_3_horizontal_position_mobile": 70,
+            "product_3_vertical_position_mobile": 70
+          }
+        }
+      },
+      "block_order": [
+        "look_MaiDYP"
+      ],
+      "name": "Shop the look",
+      "settings": {
+        "reveal_on_scroll": true,
+        "label": "Shop the looks"
       }
     },
     "faq_7A9Tt9": {
@@ -377,11 +545,14 @@
   },
   "order": [
     "slideshow_eQC6VM",
+    "promotion_blocks_tgrM9t",
     "image_with_text_JaQT9f",
     "image_with_text_cgygna",
     "rich_text_ybMwh9",
+    "gallery_MiVBMr",
     "image_with_text_block_KG9RKt",
     "video_VpyNcy",
+    "shop_the_look_jfxTmW",
     "faq_7A9Tt9",
     "product-content",
     "main"
