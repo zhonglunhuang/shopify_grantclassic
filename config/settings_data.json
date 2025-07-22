@@ -15,6 +15,7 @@
     "vertical_spacing": "small",
     "heading_color": "#2d2d2d",
     "text_color": "#2d2d2d",
+    "background": "#ffffff",
     "secondary_background": "#f5f5f5",
     "success_color": "#2e9e7b",
     "error_color": "#ff3b30",
