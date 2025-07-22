@@ -56,9 +56,9 @@
             "link_text": "",
             "link_url": "",
             "link_style": "link",
-            "text_position": "middle_center",
+            "text_position": "bottom_left",
             "background": "#f7f8fd",
-            "text_color": "#1e316a",
+            "text_color": "#000000",
             "button_background": "#ffffff",
             "button_text_color": "#1e316a"
           }
