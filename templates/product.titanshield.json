@@ -12,18 +12,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "image_6iMLRX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2_fa0fbfbf-8331-451f-98ce-16fa18d95c88.png",
-            "image_alignment": "left",
-            "image_width": 370
-          }
-        },
         "df999a05-d00f-4f60-87d3-401d4a092ce9": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+            "text": "<p>{{ product.metafields.custom._000test | metafield_tag }}</p>"
           }
         },
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
@@ -73,7 +65,6 @@
         }
       },
       "block_order": [
-        "image_6iMLRX",
         "df999a05-d00f-4f60-87d3-401d4a092ce9",
         "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
         "photo_variant_picker_WwtNct",
