@@ -294,7 +294,7 @@
       "ako-promo-popup": {
         "type": "ako-promo-popup",
         "settings": {
-          "enable": true,
+          "enable": false,
           "apparition_delay": 1,
           "show_only_on_index": false,
           "show_only_for_visitors": true,
@@ -329,8 +329,6 @@
         "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
         "disabled": false,
         "settings": {
-          "debugging_popup_script": "",
-          "debugging_pops_script": "",
           "debugging_global_script": "",
           "enable_reelPops": true
         }
