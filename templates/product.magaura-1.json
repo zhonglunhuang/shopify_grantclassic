@@ -6,403 +6,402 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
-            "image_alignment": "left",
-            "image_width": 270
-          }
+ */{
+    "sections": {
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "10eed426-c481-4651-8503-74a9f6dc6018": {
+                    "type": "image",
+                    "settings": {
+                        "image": "{{ product.metafields.custom._123.value }}",
+                        "image_alignment": "left",
+                        "image_width": 270
+                    }
+                },
+                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+                    "type": "text",
+                    "settings": {
+                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+                    }
+                },
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+                    "type": "text",
+                    "settings": {
+                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+                    }
+                },
+                "photo_variant_picker_6zzrXg": {
+                    "type": "photo_variant_picker",
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color"
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_payment_button": false,
+                        "atc_button_background": "rgba(0,0,0,0)",
+                        "atc_button_text_color": "rgba(0,0,0,0)",
+                        "buy_now_button_background": "rgba(0,0,0,0)",
+                        "buy_now_button_text_color": "rgba(0,0,0,0)"
+                    }
+                },
+                "liquid_hpmDVh": {
+                    "type": "liquid",
+                    "settings": {
+                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+                    }
+                }
+            },
+            "block_order": [
+                "10eed426-c481-4651-8503-74a9f6dc6018",
+                "df999a05-d00f-4f60-87d3-401d4a092ce9",
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+                "photo_variant_picker_6zzrXg",
+                "quantity_selector",
+                "buy_buttons",
+                "liquid_hpmDVh"
+            ],
+            "settings": {
+                "show_vendor": false,
+                "show_sku": false,
+                "show_taxes_included": false,
+                "show_product_rating": false,
+                "show_sticky_add_to_cart": true,
+                "show_share_buttons": true,
+                "related_collections": "{{ product.metafields.custom.attributes.value }}",
+                "help_page": "",
+                "enable_video_autoplay": true,
+                "enable_video_looping": false,
+                "enable_image_zoom": true,
+                "show_thumbnails_on_mobile": false,
+                "desktop_thumbnails_position": "left",
+                "transition_effect": "slide"
+            }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-          }
+        "17219171489215c63f": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_playlist_efAL3F": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "playlist_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_playlist_efAL3F"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
+        "product-content": {
+            "type": "product-content",
+            "blocks": {
+                "description": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+                    "type": "content",
+                    "settings": {
+                        "title": "\u898f\u683c",
+                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+                        "page": ""
+                    }
+                }
+            },
+            "block_order": [
+                "description",
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+            ],
+            "disabled": true,
+            "settings": {}
         },
-        "photo_variant_picker_6zzrXg": {
-          "type": "photo_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
+        "image_with_text_block_n3bHmW": {
+            "type": "image-with-text-block",
+            "settings": {
+                "reveal_on_scroll": true,
+                "subheading": "Subheading",
+                "title": "Image with text block",
+                "content": "<p>Use block text to give your customers insight into your brand. Select impactful text that relates to your brand and story.</p>",
+                "button_text": "",
+                "button_link": "",
+                "background_type": "full_width",
+                "text_position": "left",
+                "text_alignment": "center",
+                "text_background": "rgba(0,0,0,0)",
+                "text_background_mobile": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)",
+                "text_color_mobile": "rgba(0,0,0,0)",
+                "button_background": "rgba(0,0,0,0)",
+                "button_text_color": "rgba(0,0,0,0)"
+            }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "rich_text_Jb9RLg": {
+            "type": "rich-text",
+            "settings": {
+                "subheading": "Subheading",
+                "title": "Talk about your brand",
+                "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+                "button_text": "",
+                "button_link": "",
+                "background_type": "full_width",
+                "text_width": "medium",
+                "text_position": "center",
+                "text_alignment": "center",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)",
+                "button_background": "rgba(0,0,0,0)",
+                "button_text_color": "rgba(0,0,0,0)"
+            }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
+        "image_with_text_GpGJxg": {
+            "type": "image-with-text",
+            "blocks": {
+                "item_JE3Uck": {
+                    "type": "item",
+                    "settings": {
+                        "tab_label": "Item",
+                        "subheading": "Subheading",
+                        "title": "Image with text",
+                        "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+                        "button_text": "",
+                        "button_link": ""
+                    }
+                }
+            },
+            "block_order": [
+                "item_JE3Uck"
+            ],
+            "settings": {
+                "reveal_on_scroll": true,
+                "background_type": "full_width",
+                "background_overlap": "image",
+                "image_position": "left",
+                "text_alignment": "center",
+                "cycle_speed": 8,
+                "accent_background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)",
+                "button_background": "rgba(0,0,0,0)",
+                "button_text_color": "rgba(0,0,0,0)"
+            }
         },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
+        "image_with_text_XAjGgG": {
+            "type": "image-with-text",
+            "blocks": {
+                "item_6HPTyK": {
+                    "type": "item",
+                    "settings": {
+                        "tab_label": "Item",
+                        "subheading": "Subheading",
+                        "title": "Image with text",
+                        "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+                        "button_text": "",
+                        "button_link": ""
+                    }
+                }
+            },
+            "block_order": [
+                "item_6HPTyK"
+            ],
+            "settings": {
+                "reveal_on_scroll": true,
+                "background_type": "full_width",
+                "background_overlap": "image",
+                "image_position": "right",
+                "text_alignment": "center",
+                "cycle_speed": 8,
+                "accent_background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)",
+                "button_background": "rgba(0,0,0,0)",
+                "button_text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "video_QWfdcb": {
+            "type": "video",
+            "settings": {
+                "subheading": "",
+                "title": "",
+                "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+                "background_type": "full_width",
+                "video_size": "auto",
+                "autoplay": true,
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "collection_list_8dQdh6": {
+            "type": "collection-list",
+            "blocks": {
+                "collection_3CpQ8G": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                },
+                "collection_NMpMWg": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                },
+                "collection_txw9Db": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                },
+                "collection_AdhR8L": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                },
+                "collection_eTJzdP": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                },
+                "collection_zU6ipr": {
+                    "type": "collection",
+                    "settings": {
+                        "collection": "",
+                        "subheading": "",
+                        "title": "",
+                        "link_text": "",
+                        "link_url": "",
+                        "text_color": "rgba(0,0,0,0)",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 30
+                    }
+                }
+            },
+            "block_order": [
+                "collection_3CpQ8G",
+                "collection_NMpMWg",
+                "collection_txw9Db",
+                "collection_AdhR8L",
+                "collection_eTJzdP",
+                "collection_zU6ipr"
+            ],
+            "settings": {
+                "reveal_on_scroll": true,
+                "layout": "collage",
+                "subheading": "Subheading",
+                "title": "Collection list",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "faq_FymWTz": {
+            "type": "faq",
+            "blocks": {
+                "category_9hbqgy": {
+                    "type": "category",
+                    "settings": {
+                        "title": "Shipping"
+                    }
+                },
+                "question_iP3Keg": {
+                    "type": "question",
+                    "settings": {
+                        "title": "Do you ship overseas?",
+                        "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+                    }
+                },
+                "question_tjN7AX": {
+                    "type": "question",
+                    "settings": {
+                        "title": "How long will it take to get my order?",
+                        "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+                    }
+                },
+                "category_P7TWCA": {
+                    "type": "category",
+                    "settings": {
+                        "title": "Other"
+                    }
+                },
+                "question_cXMzLK": {
+                    "type": "question",
+                    "settings": {
+                        "title": "Any question?",
+                        "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "category_9hbqgy",
+                "question_iP3Keg",
+                "question_tjN7AX",
+                "category_P7TWCA",
+                "question_cXMzLK"
+            ],
+            "settings": {
+                "show_navigation": false,
+                "title": "FAQ",
+                "content": "",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
         }
-      },
-      "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "photo_variant_picker_6zzrXg",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh"
-      ],
-      "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": true,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
     },
-    "17219171489215c63f": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_efAL3F": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_efAL3F"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "image_with_text_block_n3bHmW": {
-      "type": "image-with-text-block",
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "Subheading",
-        "title": "Image with text block",
-        "content": "<p>Use block text to give your customers insight into your brand. Select impactful text that relates to your brand and story.</p>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_position": "left",
-        "text_alignment": "center",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "text_color_mobile": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "rich_text_Jb9RLg": {
-      "type": "rich-text",
-      "settings": {
-        "subheading": "Subheading",
-        "title": "Talk about your brand",
-        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_GpGJxg": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_JE3Uck": {
-          "type": "item",
-          "settings": {
-            "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_JE3Uck"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_XAjGgG": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_6HPTyK": {
-          "type": "item",
-          "settings": {
-            "tab_label": "Item",
-            "subheading": "Subheading",
-            "title": "Image with text",
-            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_6HPTyK"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "right",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "video_QWfdcb": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "collection_list_8dQdh6": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_3CpQ8G": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_NMpMWg": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_txw9Db": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_AdhR8L": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_eTJzdP": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_zU6ipr": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "collection_3CpQ8G",
-        "collection_NMpMWg",
-        "collection_txw9Db",
-        "collection_AdhR8L",
-        "collection_eTJzdP",
-        "collection_zU6ipr"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "layout": "collage",
-        "subheading": "Subheading",
-        "title": "Collection list",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "faq_FymWTz": {
-      "type": "faq",
-      "blocks": {
-        "category_9hbqgy": {
-          "type": "category",
-          "settings": {
-            "title": "Shipping"
-          }
-        },
-        "question_iP3Keg": {
-          "type": "question",
-          "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
-          }
-        },
-        "question_tjN7AX": {
-          "type": "question",
-          "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
-          }
-        },
-        "category_P7TWCA": {
-          "type": "category",
-          "settings": {
-            "title": "Other"
-          }
-        },
-        "question_cXMzLK": {
-          "type": "question",
-          "settings": {
-            "title": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_9hbqgy",
-        "question_iP3Keg",
-        "question_tjN7AX",
-        "category_P7TWCA",
-        "question_cXMzLK"
-      ],
-      "settings": {
-        "show_navigation": false,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    }
-  },
-  "order": [
-    "main",
-    "17219171489215c63f",
-    "product-content",
-    "image_with_text_block_n3bHmW",
-    "rich_text_Jb9RLg",
-    "image_with_text_GpGJxg",
-    "image_with_text_XAjGgG",
-    "video_QWfdcb",
-    "collection_list_8dQdh6",
-    "faq_FymWTz"
-  ]
+    "order": [
+        "main",
+        "17219171489215c63f",
+        "product-content",
+        "image_with_text_block_n3bHmW",
+        "rich_text_Jb9RLg",
+        "image_with_text_GpGJxg",
+        "image_with_text_XAjGgG",
+        "video_QWfdcb",
+        "collection_list_8dQdh6",
+        "faq_FymWTz"
+    ]
 }

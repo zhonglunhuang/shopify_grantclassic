@@ -6,761 +6,760 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
-            "image_alignment": "left",
-            "image_width": 270
-          }
+ */{
+    "sections": {
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "10eed426-c481-4651-8503-74a9f6dc6018": {
+                    "type": "image",
+                    "settings": {
+                        "image": "{{ product.metafields.custom._123.value }}",
+                        "image_alignment": "left",
+                        "image_width": 270
+                    }
+                },
+                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+                    "type": "text",
+                    "settings": {
+                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+                    }
+                },
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+                    "type": "text",
+                    "settings": {
+                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+                    }
+                },
+                "photo_variant_picker_WwtNct": {
+                    "type": "photo_variant_picker",
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color"
+                    }
+                },
+                "variant_picker": {
+                    "type": "variant_picker",
+                    "disabled": true,
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color",
+                        "size_chart_page": ""
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_payment_button": false,
+                        "atc_button_background": "rgba(0,0,0,0)",
+                        "atc_button_text_color": "rgba(0,0,0,0)",
+                        "buy_now_button_background": "rgba(0,0,0,0)",
+                        "buy_now_button_text_color": "rgba(0,0,0,0)"
+                    }
+                },
+                "liquid_hpmDVh": {
+                    "type": "liquid",
+                    "settings": {
+                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+                    }
+                }
+            },
+            "block_order": [
+                "10eed426-c481-4651-8503-74a9f6dc6018",
+                "df999a05-d00f-4f60-87d3-401d4a092ce9",
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+                "photo_variant_picker_WwtNct",
+                "variant_picker",
+                "quantity_selector",
+                "buy_buttons",
+                "liquid_hpmDVh"
+            ],
+            "settings": {
+                "show_vendor": false,
+                "show_sku": false,
+                "show_taxes_included": false,
+                "show_product_rating": false,
+                "show_sticky_add_to_cart": true,
+                "show_share_buttons": false,
+                "related_collections": "{{ product.metafields.custom.attributes.value }}",
+                "help_page": "",
+                "enable_video_autoplay": true,
+                "enable_video_looping": false,
+                "enable_image_zoom": true,
+                "show_thumbnails_on_mobile": false,
+                "desktop_thumbnails_position": "left",
+                "transition_effect": "slide"
+            }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-          }
+        "slideshow_Cyhp4d": {
+            "type": "slideshow",
+            "blocks": {
+                "image_zaaRNV": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-01.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-04.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_zaaRNV"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
+        "slideshow_q6KAET": {
+            "type": "slideshow",
+            "blocks": {
+                "image_3XEhL6": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-02.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-05.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_3XEhL6"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "photo_variant_picker_WwtNct": {
-          "type": "photo_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
+        "17217531875f804291": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "playlist_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
+        "17217531779a9cbfe4": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "section_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "slideshow_aKypqM": {
+            "type": "slideshow",
+            "blocks": {
+                "image_9PF8CN": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-03.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-15.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_9PF8CN"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
+        "slideshow_PPXJ8W": {
+            "type": "slideshow",
+            "blocks": {
+                "image_mNFEtE": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-06.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-16.webp",
+                        "text_position": "top_right",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_mNFEtE"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
+        "slideshow_3bDkQd": {
+            "type": "slideshow",
+            "blocks": {
+                "image_bqhV9Y": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-07.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-17.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_bqhV9Y"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_Rk4MXh": {
+            "type": "slideshow",
+            "blocks": {
+                "image_3QECz3": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-08.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-18.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_3QECz3"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_Bqdten": {
+            "type": "slideshow",
+            "blocks": {
+                "image_NEMAKQ": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-09.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-19.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_NEMAKQ"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_iHtYDC": {
+            "type": "slideshow",
+            "blocks": {
+                "image_dq3Ew7": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-10.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-20.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_dq3Ew7"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_xzetDx": {
+            "type": "slideshow",
+            "blocks": {
+                "image_WBgGBc": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-11.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-21.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_WBgGBc"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 4,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_E3anTw": {
+            "type": "slideshow",
+            "blocks": {
+                "image_F4XAUj": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-12.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-22.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_F4XAUj"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 4,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_wHLfhc": {
+            "type": "slideshow",
+            "blocks": {
+                "image_XkEDeQ": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-13.webp",
+                        "mobile_image": "shopify://shop_images/C148_web-23.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_XkEDeQ"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_WzKeiq": {
+            "type": "slideshow",
+            "blocks": {
+                "image_bh6KU7": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/C148_web-14.jpg",
+                        "mobile_image": "shopify://shop_images/C148_web-22.jpg",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_bh6KU7"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "faq_7A9Tt9": {
+            "type": "faq",
+            "blocks": {
+                "category_xT9J6A": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u7522\u54c1\u76f8\u95dc"
+                    }
+                },
+                "question_q9Kg4T": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u6709\u591a\u5927\uff1f",
+                        "answer": "<p>GC-Tag Card \u7684\u5927\u5c0f\u8207\u4fe1\u7528\u5361\u76f8\u540c\uff0c\u975e\u5e38\u8f15\u8584\uff0c\u9069\u5408\u96a8\u8eab\u651c\u5e36\u3002</p>"
+                    }
+                },
+                "question_jQwjae": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u662f\u5426\u901a\u904e\u4e86\u860b\u679c MFI \u8a8d\u8b49\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0cGC-Tag Card \u5df2\u7d93\u901a\u904e\u860b\u679c MFI \u8a8d\u8b49\uff0c\u78ba\u4fdd\u8207 Apple \u8a2d\u5099\u7684\u5b8c\u7f8e\u517c\u5bb9\u6027\u3002</p>"
+                    }
+                },
+                "question_t37cci": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u53ef\u4ee5\u7528\u4f86\u8ffd\u8e64\u54ea\u4e9b\u7269\u54c1\uff1f",
+                        "answer": "<p>GC-Tag Card \u53ef\u4ee5\u7528\u4f86\u8ffd\u8e64\u60a8\u7684\u9322\u5305\u3001\u5305\u5305\u3001\u884c\u674e\u7b49\u500b\u4eba\u7269\u54c1\uff0c\u751a\u81f3\u53ef\u4ee5\u4f5c\u70ba\u96fb\u5b50\u540d\u7247\u4f7f\u7528\u3002</p>"
+                    }
+                },
+                "question_bn7fkx": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u7684\u96fb\u6c60\u7e8c\u822a\u529b\u5982\u4f55\uff1f",
+                        "answer": "<p>GC-Tag Card \u64c1\u6709\u9577\u6548\u96fb\u6c60\uff0c\u901a\u5e38\u53ef\u4ee5\u6301\u7e8c\u4f7f\u7528 24 \u500b\u6708\uff0c\u5177\u9ad4\u6642\u9593\u53d6\u6c7a\u65bc\u4f7f\u7528\u983b\u7387\u3002</p>"
+                    }
+                },
+                "question_fJJwCh": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u662f\u5426\u9632\u6c34\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0cGC-Tag Card \u5177\u5099 IP67 \u9632\u6c34\u9632\u5875\u529f\u80fd\uff0c\u53ef\u4ee5\u5728\u65e5\u5e38\u4f7f\u7528\u4e2d\u4fdd\u8b77\u60a8\u7684\u8a2d\u5099\u3002</p>"
+                    }
+                },
+                "question_eGiYKz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u529f\u80fd\u662f\u4ec0\u9ebc\uff1f",
+                        "answer": "<p>GC-Tag Card \u4e0d\u50c5\u662f\u8ffd\u8e64\u5668\uff0c\u9084\u5167\u5efa\u6578\u4f4d\u540d\u7247\u529f\u80fd\u3002\u60a8\u53ef\u4ee5\u5c07\u500b\u4eba\u806f\u7e6b\u65b9\u5f0f\u3001\u516c\u53f8\u8cc7\u8a0a\u6216\u793e\u4ea4\u5a92\u9ad4\u9023\u7d50\u5b58\u5132\u5728\u5361\u7247\u4e2d\uff0c\u65b9\u4fbf\u4ed6\u4eba\u6383\u63cf\u4e26\u76f4\u63a5\u7372\u53d6\u60a8\u7684\u4fe1\u606f\u3002</p>"
+                    }
+                },
+                "question_hCpYUV": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5982\u4f55\u8a2d\u7f6e GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u529f\u80fd\uff1f",
+                        "answer": "<p>\u53ea\u9700\u4f7f\u7528\u6211\u5011\u7684\u61c9\u7528\u7a0b\u5e8f\uff0c\u8f38\u5165\u60a8\u7684\u806f\u7e6b\u4fe1\u606f\uff0c\u4e26\u5c07\u5176\u5b58\u5132\u5728 GC-Tag Card \u4e0a\u3002\u7576\u5176\u4ed6\u4eba\u4f7f\u7528\u624b\u6a5f\u6383\u63cf\u5361\u7247\u6642\uff0c\u4ed6\u5011\u5c31\u80fd\u5920\u7acb\u5373\u67e5\u770b\u4e26\u4fdd\u5b58\u60a8\u7684\u6578\u4f4d\u540d\u7247\u3002</p>"
+                    }
+                },
+                "question_pGFKkT": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u548c Apple AirTag \u6709\u4ec0\u9ebc\u4e0d\u540c\uff1f",
+                        "answer": "<p>GC-Tag Card \u548c Apple AirTag \u90fd\u662f\u9ad8\u6548\u7684\u8ffd\u8e64\u5668\uff0c\u7136\u800c GC-Tag Card \u5177\u6709\u984d\u5916\u7684\u6578\u4f4d\u540d\u7247\u529f\u80fd\uff0c\u4e26\u4e14\u8a2d\u8a08\u70ba\u4fe1\u7528\u5361\u5927\u5c0f\uff0c\u66f4\u52a0\u8f15\u8584\u4e14\u4fbf\u65bc\u651c\u5e36\u3002\u53e6\u5916\uff0c\u5169\u8005\u7684\u64cd\u4f5c\u548c\u517c\u5bb9\u6027\u57fa\u672c\u76f8\u540c\uff0c\u60a8\u53ef\u4ee5\u6839\u64da\u500b\u4eba\u9700\u6c42\u9078\u64c7\u9069\u5408\u7684\u7522\u54c1\u3002</p>"
+                    }
+                },
+                "question_wk3cTf": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5982\u4f55\u555f\u7528 GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u529f\u80fd\uff1f",
+                        "answer": "<p>\u4e0b\u8f09\u4e26\u5b89\u88dd\u6211\u5011\u7684\u61c9\u7528\u7a0b\u5e8f\uff0c\u6309\u7167\u63d0\u793a\u8a2d\u7f6e\u60a8\u7684\u6578\u4f4d\u540d\u7247\u4fe1\u606f\u3002\u5b8c\u6210\u5f8c\uff0c\u5176\u4ed6\u4eba\u53ea\u9700\u6383\u63cf GC-Tag Card \u5373\u53ef\u67e5\u770b\u60a8\u7684\u6578\u4f4d\u540d\u7247\u3002</p>"
+                    }
+                },
+                "question_dNDgLY": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u662f\u5426\u53ef\u4ee5\u66f4\u65b0\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0c\u60a8\u53ef\u4ee5\u96a8\u6642\u901a\u904e\u61c9\u7528\u7a0b\u5e8f\u66f4\u65b0\u6216\u4fee\u6539 GC-Tag Card \u4e0a\u7684\u6578\u4f4d\u540d\u7247\u4fe1\u606f\uff0c\u4ee5\u4fdd\u6301\u4fe1\u606f\u7684\u6e96\u78ba\u6027\u3002</p>"
+                    }
+                },
+                "category_tUjCi3": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u6ce8\u610f\u4e8b\u9805"
+                    }
+                },
+                "question_dx9p8Y": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u5728\u4f4e\u6eab\u6216\u9ad8\u6eab\u74b0\u5883\u4e0b\u6703\u53d7\u5f71\u97ff\u55ce\uff1f",
+                        "answer": "<p>GC-Tag Card \u7d93\u904e\u56b4\u683c\u6e2c\u8a66\uff0c\u80fd\u5920\u5728\u4e00\u5b9a\u7bc4\u570d\u7684\u6eab\u5ea6\u5167\u6b63\u5e38\u5de5\u4f5c\uff0c\u4f46\u5efa\u8b70\u907f\u514d\u9577\u6642\u9593\u66b4\u9732\u65bc\u6975\u7aef\u9ad8\u6eab\u6216\u4f4e\u6eab\u74b0\u5883\u4e2d\u3002</p>"
+                    }
+                },
+                "question_6LKyRk": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u7684\u96fb\u6c60\u662f\u5426\u53ef\u4ee5\u66f4\u63db\uff1f",
+                        "answer": "<p>GC-Tag Card \u7684\u96fb\u6c60\u4e0d\u53ef\u66f4\u63db</p>"
+                    }
+                },
+                "question_pycbBH": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u662f\u5426\u9700\u8981\u9023\u7e8c\u5145\u96fb\uff1f",
+                        "answer": "<p>\u4e0d\u9700\u8981\uff0cGC-Tag Card \u4f7f\u7528\u9577\u6548\u96fb\u6c60\uff0c\u7121\u9700\u983b\u7e41\u5145\u96fb\u3002</p>"
+                    }
+                },
+                "question_FKkLJz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u548c Apple AirTag \u7684\u8ffd\u8e64\u7cbe\u5ea6\u6709\u4ec0\u9ebc\u4e0d\u540c\u55ce\uff1f",
+                        "answer": "<p>\u5728\u6b63\u5e38\u4f7f\u7528\u60c5\u6cc1\u4e0b\uff0cGC-Tag Card \u548c Apple AirTag \u7684\u8ffd\u8e64\u7cbe\u5ea6\u76f8\u4f3c\uff0c\u90fd\u80fd\u5920\u7cbe\u78ba\u5730\u5b9a\u4f4d\u60a8\u7684\u7269\u54c1\u3002\u5169\u8005\u90fd\u4f7f\u7528\u5148\u9032\u7684\u85cd\u7259\u6280\u8853\u4f86\u5be6\u73fe\u9ad8\u6548\u7684\u8ffd\u8e64\u3002</p>"
+                    }
+                },
+                "question_qFMKQk": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u4fe1\u606f\u662f\u5426\u5b89\u5168\uff1f",
+                        "answer": "<p>GC-Tag Card \u7684\u6578\u4f4d\u540d\u7247\u4fe1\u606f\u5b58\u5132\u662f\u52a0\u5bc6\u7684\uff0c\u50c5\u80fd\u901a\u904e\u6383\u63cf\u7279\u5b9a\u7684\u5361\u7247\u4f86\u8a2a\u554f\uff0c\u78ba\u4fdd\u60a8\u7684\u500b\u4eba\u4fe1\u606f\u5b89\u5168\u3002</p>"
+                    }
+                },
+                "question_pbmp74": {
+                    "type": "question",
+                    "settings": {
+                        "title": "GC-Tag Card \u662f\u5426\u9700\u8981\u8edf\u9ad4\u66f4\u65b0\uff1f",
+                        "answer": "<p>\u6211\u5011\u6703\u4e0d\u5b9a\u671f\u63d0\u4f9b\u8edf\u9ad4\u66f4\u65b0\uff0c\u4ee5\u78ba\u4fdd GC-Tag Card \u7684\u6027\u80fd\u548c\u5b89\u5168\u6027\uff0c\u60a8\u53ef\u4ee5\u901a\u904e\u61c9\u7528\u7a0b\u5e8f\u7372\u53d6\u6700\u65b0\u66f4\u65b0\u3002</p>"
+                    }
+                },
+                "category_RazFtp": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u5ba2\u88fd\u5316\u5340\u57df"
+                    }
+                },
+                "question_qMDTY7": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u8acb\u554f GC-Tag Card \u53ef\u4ee5\u9032\u884c\u5ba2\u88fd\u5316\u55ce\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0c\u6211\u5011\u63d0\u4f9b\u5ba2\u88fd\u5316\u670d\u52d9\uff0c\u60a8\u53ef\u4ee5\u5728 GC-Tag Card \u4e0a\u5b9a\u5236\u5c08\u5c6c\u7684\u5716\u6848\u6216\u6a19\u8a8c\u3002\u8acb\u806f\u7e6b\u6211\u5011\u4e86\u89e3\u66f4\u591a\u8a73\u60c5\u3002</p>"
+                    }
+                },
+                "question_BbThaW": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6211\u9700\u8981\u5927\u91cf\u8a02\u88fd GC-Tag Card\uff0c\u662f\u53ef\u4ee5\u7684\u55ce\uff1f",
+                        "answer": "<p>\u6211\u5011\u975e\u5e38\u6b61\u8fce\u4f01\u696d\u3001\u5718\u9ad4\u548c\u793e\u5718\u4f86\u8a02\u88fd\u5c08\u5c6c\u65bc\u4f60\u5011\u7684 GC-Tag Card \u7522\u54c1\u3002\u6211\u5011\u5c07\u6839\u64da\u60a8\u7684\u9700\u6c42\u63d0\u4f9b\u5831\u50f9\uff0c\u76f8\u4fe1\u5927\u6279\u91cf\u8a02\u88fd\u80fd\u5920\u5728\u4f01\u696d\u5f62\u8c61\u548c\u50f9\u683c\u65b9\u9762\u70ba\u60a8\u5e36\u4f86\u6700\u5927\u7684\u512a\u52e2\u3002</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "category_xT9J6A",
+                "question_q9Kg4T",
+                "question_jQwjae",
+                "question_t37cci",
+                "question_bn7fkx",
+                "question_fJJwCh",
+                "question_eGiYKz",
+                "question_hCpYUV",
+                "question_pGFKkT",
+                "question_wk3cTf",
+                "question_dNDgLY",
+                "category_tUjCi3",
+                "question_dx9p8Y",
+                "question_6LKyRk",
+                "question_pycbBH",
+                "question_FKkLJz",
+                "question_qFMKQk",
+                "question_pbmp74",
+                "category_RazFtp",
+                "question_qMDTY7",
+                "question_BbThaW"
+            ],
+            "settings": {
+                "show_navigation": true,
+                "title": "FAQ",
+                "content": "",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "product-content": {
+            "type": "product-content",
+            "blocks": {
+                "description": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+                    "type": "content",
+                    "settings": {
+                        "title": "\u898f\u683c",
+                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+                        "page": ""
+                    }
+                }
+            },
+            "block_order": [
+                "description",
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+            ],
+            "settings": {}
         }
-      },
-      "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "photo_variant_picker_WwtNct",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh"
-      ],
-      "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": false,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
     },
-    "slideshow_Cyhp4d": {
-      "type": "slideshow",
-      "blocks": {
-        "image_zaaRNV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-01.webp",
-            "mobile_image": "shopify://shop_images/C148_web-04.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_zaaRNV"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_q6KAET": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3XEhL6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-02.webp",
-            "mobile_image": "shopify://shop_images/C148_web-05.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3XEhL6"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_aKypqM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_9PF8CN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-03.webp",
-            "mobile_image": "shopify://shop_images/C148_web-15.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_9PF8CN"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_PPXJ8W": {
-      "type": "slideshow",
-      "blocks": {
-        "image_mNFEtE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-06.webp",
-            "mobile_image": "shopify://shop_images/C148_web-16.webp",
-            "text_position": "top_right",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_mNFEtE"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_3bDkQd": {
-      "type": "slideshow",
-      "blocks": {
-        "image_bqhV9Y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-07.webp",
-            "mobile_image": "shopify://shop_images/C148_web-17.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_bqhV9Y"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Rk4MXh": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3QECz3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-08.webp",
-            "mobile_image": "shopify://shop_images/C148_web-18.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3QECz3"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Bqdten": {
-      "type": "slideshow",
-      "blocks": {
-        "image_NEMAKQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-09.webp",
-            "mobile_image": "shopify://shop_images/C148_web-19.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_NEMAKQ"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_iHtYDC": {
-      "type": "slideshow",
-      "blocks": {
-        "image_dq3Ew7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-10.webp",
-            "mobile_image": "shopify://shop_images/C148_web-20.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_dq3Ew7"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_xzetDx": {
-      "type": "slideshow",
-      "blocks": {
-        "image_WBgGBc": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-11.webp",
-            "mobile_image": "shopify://shop_images/C148_web-21.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_WBgGBc"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_E3anTw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_F4XAUj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-12.webp",
-            "mobile_image": "shopify://shop_images/C148_web-22.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_F4XAUj"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_wHLfhc": {
-      "type": "slideshow",
-      "blocks": {
-        "image_XkEDeQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-13.webp",
-            "mobile_image": "shopify://shop_images/C148_web-23.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_XkEDeQ"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_WzKeiq": {
-      "type": "slideshow",
-      "blocks": {
-        "image_bh6KU7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/C148_web-14.jpg",
-            "mobile_image": "shopify://shop_images/C148_web-22.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_bh6KU7"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "faq_7A9Tt9": {
-      "type": "faq",
-      "blocks": {
-        "category_xT9J6A": {
-          "type": "category",
-          "settings": {
-            "title": "產品相關"
-          }
-        },
-        "question_q9Kg4T": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 有多大？",
-            "answer": "<p>GC-Tag Card 的大小與信用卡相同，非常輕薄，適合隨身攜帶。</p>"
-          }
-        },
-        "question_jQwjae": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 是否通過了蘋果 MFI 認證？",
-            "answer": "<p>是的，GC-Tag Card 已經通過蘋果 MFI 認證，確保與 Apple 設備的完美兼容性。</p>"
-          }
-        },
-        "question_t37cci": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 可以用來追蹤哪些物品？",
-            "answer": "<p>GC-Tag Card 可以用來追蹤您的錢包、包包、行李等個人物品，甚至可以作為電子名片使用。</p>"
-          }
-        },
-        "question_bn7fkx": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 的電池續航力如何？",
-            "answer": "<p>GC-Tag Card 擁有長效電池，通常可以持續使用 24 個月，具體時間取決於使用頻率。</p>"
-          }
-        },
-        "question_fJJwCh": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 是否防水？",
-            "answer": "<p>是的，GC-Tag Card 具備 IP67 防水防塵功能，可以在日常使用中保護您的設備。</p>"
-          }
-        },
-        "question_eGiYKz": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 的數位名片功能是什麼？",
-            "answer": "<p>GC-Tag Card 不僅是追蹤器，還內建數位名片功能。您可以將個人聯繫方式、公司資訊或社交媒體連結存儲在卡片中，方便他人掃描並直接獲取您的信息。</p>"
-          }
-        },
-        "question_hCpYUV": {
-          "type": "question",
-          "settings": {
-            "title": "如何設置 GC-Tag Card 的數位名片功能？",
-            "answer": "<p>只需使用我們的應用程序，輸入您的聯繫信息，並將其存儲在 GC-Tag Card 上。當其他人使用手機掃描卡片時，他們就能夠立即查看並保存您的數位名片。</p>"
-          }
-        },
-        "question_pGFKkT": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 和 Apple AirTag 有什麼不同？",
-            "answer": "<p>GC-Tag Card 和 Apple AirTag 都是高效的追蹤器，然而 GC-Tag Card 具有額外的數位名片功能，並且設計為信用卡大小，更加輕薄且便於攜帶。另外，兩者的操作和兼容性基本相同，您可以根據個人需求選擇適合的產品。</p>"
-          }
-        },
-        "question_wk3cTf": {
-          "type": "question",
-          "settings": {
-            "title": "如何啟用 GC-Tag Card 的數位名片功能？",
-            "answer": "<p>下載並安裝我們的應用程序，按照提示設置您的數位名片信息。完成後，其他人只需掃描 GC-Tag Card 即可查看您的數位名片。</p>"
-          }
-        },
-        "question_dNDgLY": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 的數位名片是否可以更新？",
-            "answer": "<p>是的，您可以隨時通過應用程序更新或修改 GC-Tag Card 上的數位名片信息，以保持信息的準確性。</p>"
-          }
-        },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_dx9p8Y": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 在低溫或高溫環境下會受影響嗎？",
-            "answer": "<p>GC-Tag Card 經過嚴格測試，能夠在一定範圍的溫度內正常工作，但建議避免長時間暴露於極端高溫或低溫環境中。</p>"
-          }
-        },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 的電池是否可以更換？",
-            "answer": "<p>GC-Tag Card 的電池不可更換</p>"
-          }
-        },
-        "question_pycbBH": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 是否需要連續充電？",
-            "answer": "<p>不需要，GC-Tag Card 使用長效電池，無需頻繁充電。</p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 和 Apple AirTag 的追蹤精度有什麼不同嗎？",
-            "answer": "<p>在正常使用情況下，GC-Tag Card 和 Apple AirTag 的追蹤精度相似，都能夠精確地定位您的物品。兩者都使用先進的藍牙技術來實現高效的追蹤。</p>"
-          }
-        },
-        "question_qFMKQk": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 的數位名片信息是否安全？",
-            "answer": "<p>GC-Tag Card 的數位名片信息存儲是加密的，僅能通過掃描特定的卡片來訪問，確保您的個人信息安全。</p>"
-          }
-        },
-        "question_pbmp74": {
-          "type": "question",
-          "settings": {
-            "title": "GC-Tag Card 是否需要軟體更新？",
-            "answer": "<p>我們會不定期提供軟體更新，以確保 GC-Tag Card 的性能和安全性，您可以通過應用程序獲取最新更新。</p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問 GC-Tag Card 可以進行客製化嗎？",
-            "answer": "<p>是的，我們提供客製化服務，您可以在 GC-Tag Card 上定制專屬的圖案或標誌。請聯繫我們了解更多詳情。</p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製 GC-Tag Card，是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 GC-Tag Card 產品。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_xT9J6A",
-        "question_q9Kg4T",
-        "question_jQwjae",
-        "question_t37cci",
-        "question_bn7fkx",
-        "question_fJJwCh",
-        "question_eGiYKz",
-        "question_hCpYUV",
-        "question_pGFKkT",
-        "question_wk3cTf",
-        "question_dNDgLY",
-        "category_tUjCi3",
-        "question_dx9p8Y",
-        "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "question_qFMKQk",
-        "question_pbmp74",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
-      ],
-      "settings": {
-        "show_navigation": true,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {}
-    }
-  },
-  "order": [
-    "main",
-    "slideshow_Cyhp4d",
-    "slideshow_q6KAET",
-    "17217531875f804291",
-    "17217531779a9cbfe4",
-    "slideshow_aKypqM",
-    "slideshow_PPXJ8W",
-    "slideshow_3bDkQd",
-    "slideshow_Rk4MXh",
-    "slideshow_Bqdten",
-    "slideshow_iHtYDC",
-    "slideshow_xzetDx",
-    "slideshow_E3anTw",
-    "slideshow_wHLfhc",
-    "slideshow_WzKeiq",
-    "faq_7A9Tt9",
-    "product-content"
-  ]
+    "order": [
+        "main",
+        "slideshow_Cyhp4d",
+        "slideshow_q6KAET",
+        "17217531875f804291",
+        "17217531779a9cbfe4",
+        "slideshow_aKypqM",
+        "slideshow_PPXJ8W",
+        "slideshow_3bDkQd",
+        "slideshow_Rk4MXh",
+        "slideshow_Bqdten",
+        "slideshow_iHtYDC",
+        "slideshow_xzetDx",
+        "slideshow_E3anTw",
+        "slideshow_wHLfhc",
+        "slideshow_WzKeiq",
+        "faq_7A9Tt9",
+        "product-content"
+    ]
 }

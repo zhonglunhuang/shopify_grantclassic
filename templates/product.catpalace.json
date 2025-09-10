@@ -6,673 +6,672 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
-            "image_alignment": "left",
-            "image_width": 370
-          }
+ */{
+    "sections": {
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "10eed426-c481-4651-8503-74a9f6dc6018": {
+                    "type": "image",
+                    "disabled": true,
+                    "settings": {
+                        "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
+                        "image_alignment": "left",
+                        "image_width": 370
+                    }
+                },
+                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+                    "type": "text",
+                    "settings": {
+                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+                    }
+                },
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+                    "type": "text",
+                    "settings": {
+                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+                    }
+                },
+                "photo_variant_picker_WwtNct": {
+                    "type": "photo_variant_picker",
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color"
+                    }
+                },
+                "variant_picker": {
+                    "type": "variant_picker",
+                    "disabled": true,
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color",
+                        "size_chart_page": ""
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_payment_button": false,
+                        "atc_button_background": "rgba(0,0,0,0)",
+                        "atc_button_text_color": "rgba(0,0,0,0)",
+                        "buy_now_button_background": "rgba(0,0,0,0)",
+                        "buy_now_button_text_color": "rgba(0,0,0,0)"
+                    }
+                },
+                "liquid_hpmDVh": {
+                    "type": "liquid",
+                    "settings": {
+                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+                    }
+                }
+            },
+            "block_order": [
+                "10eed426-c481-4651-8503-74a9f6dc6018",
+                "df999a05-d00f-4f60-87d3-401d4a092ce9",
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+                "photo_variant_picker_WwtNct",
+                "variant_picker",
+                "quantity_selector",
+                "buy_buttons",
+                "liquid_hpmDVh"
+            ],
+            "settings": {
+                "show_vendor": false,
+                "show_sku": false,
+                "show_taxes_included": false,
+                "show_product_rating": false,
+                "show_sticky_add_to_cart": true,
+                "show_share_buttons": false,
+                "related_collections": "{{ product.metafields.custom.attributes.value }}",
+                "help_page": "",
+                "enable_video_autoplay": true,
+                "enable_video_looping": false,
+                "enable_image_zoom": true,
+                "show_thumbnails_on_mobile": false,
+                "desktop_thumbnails_position": "left",
+                "transition_effect": "slide"
+            }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-          }
+        "video_ehpiW4": {
+            "type": "video",
+            "settings": {
+                "subheading": "",
+                "title": "",
+                "video_url": "https://vimeo.com/1005712493",
+                "image": "shopify://shop_images/06718_81c85831-47cc-4ae7-b2cc-dfd6d93d980f.jpg",
+                "background_type": "full_width",
+                "video_size": "auto",
+                "autoplay": true,
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
+        "slideshow_qLqk4M": {
+            "type": "slideshow",
+            "blocks": {
+                "image_7UHRWF": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L122_web-07.webp",
+                        "mobile_image": "shopify://shop_images/L122_web-08.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_7UHRWF"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "photo_variant_picker_WwtNct": {
-          "type": "photo_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
+        "slideshow_Cyhp4d": {
+            "type": "slideshow",
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
+        "17217531779a9cbfe4": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "section_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "slideshow_aKypqM": {
+            "type": "slideshow",
+            "blocks": {
+                "image_RazTdG": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L122_web_f086b831-7693-4205-befa-304979c3828e.jpg",
+                        "mobile_image": "shopify://shop_images/L122_phone-04.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_RazTdG"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
+        "custom_html_PmGXQW": {
+            "type": "custom-html",
+            "disabled": true,
+            "settings": {
+                "subheading": "",
+                "title": "",
+                "html": "<img src=\"https://www.goshop.banner.tw/Accessories/GC/00_Catapalace/web/%E6%BB%BE%E7%AD%92%E5%BC%8F_1.gif\" style=\"width:100%;\" align=\"absbottom\">",
+                "add_vertical_spacing": false,
+                "background_type": "full_width",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
         },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
+        "slideshow_eGeMCM": {
+            "type": "slideshow",
+            "blocks": {
+                "image_zrqi48": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/01_12c9e7e4-3e72-483f-b2bf-2800dfbded48.gif",
+                        "mobile_image": "shopify://shop_images/05_151eecfe-a429-4979-8720-ae3a0b3790e1.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_zrqi48"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_V96fVc": {
+            "type": "slideshow",
+            "blocks": {
+                "image_B3hT8y": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/04_65588482-43a2-48ac-be0f-c5645cbbabbb.gif",
+                        "mobile_image": "shopify://shop_images/04-2.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_B3hT8y"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "17217531875f804291": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "disabled": true,
+                    "settings": {
+                        "playlist_id": "rl_pl_7979"
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+            ],
+            "disabled": true,
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
+        },
+        "slideshow_jYKJkw": {
+            "type": "slideshow",
+            "blocks": {
+                "image_jwbFNn": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/03_398f7dfb-f16a-48f3-97bd-e69cd543379e.gif",
+                        "mobile_image": "shopify://shop_images/06_8fdcc2ae-3dc5-4f4e-85c9-890c2519b5c6.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_jwbFNn"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_PPXJ8W": {
+            "type": "slideshow",
+            "blocks": {
+                "image_mNFEtE": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L122_web-02.webp",
+                        "mobile_image": "shopify://shop_images/L122_web-05.webp",
+                        "text_position": "top_right",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_mNFEtE"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_DbXYJw": {
+            "type": "slideshow",
+            "blocks": {
+                "image_QhCdXx": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/04_6a97f5d9-3d85-46ab-8fac-d2e4b585d356.gif",
+                        "mobile_image": "shopify://shop_images/08_96c84f16-cc23-4b5b-a27b-fc7c1df617c3.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_QhCdXx"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_LFbjNJ": {
+            "type": "slideshow",
+            "blocks": {
+                "image_3ezFbc": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L122_web-03_87a998c3-f3dd-41c9-90c9-f7595e8ca16d.jpg",
+                        "mobile_image": "shopify://shop_images/L122_phone-06_da1db6ed-fee0-42ef-882b-cf6cf480d933.webp",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_3ezFbc"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "faq_7A9Tt9": {
+            "type": "faq",
+            "blocks": {
+                "category_xT9J6A": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u7522\u54c1\u76f8\u95dc"
+                    }
+                },
+                "question_eGiYKz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c CatPalace \u7684\u5c3a\u5bf8\u662f\u591a\u5927\u5462\uff1f",
+                        "answer": "<p>\u6574\u6a5f\u5c3a\u5bf8\uff1a66.5 x 65.5 x 68.3 cm\u3001\u5167\u6876\u5c3a\u5bf8\uff1a\u534a\u655e\u7bf7\u958b\u653e\u5f0f\uff0844 x 37 x 43 cm\uff09\u3002</p>"
+                    }
+                },
+                "question_hCpYUV": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c CatPalace \u6709\u8c93\u7802\u9650\u5236\u55ce\uff1f\u9577\u689d\u8c46\u8150\u7802\u53ef\u4e0d\u53ef\u4ee5\u7528\uff1f",
+                        "answer": "<p>\u93df\u4e0d\u505c CatPalace \u51dd\u7d50\u578b\u8c93\u7802\u90fd\u53ef\u4ee5\u7528\uff01\u53ea\u8981\u662f\u5c3f\u4e0b\u53bb\u53ef\u4ee5\u300c\u51dd\u7d50\u6210\u584a\u300d\u7684\u8c93\u7802\uff0c\u50cf\u662f #\u8c46\u8150\u7802 #\u6df7\u5408\u7802 #\u7d19\u7802 #\u7926\u7802 #\u82b1\u751f\u6bbc\u7802 ...\u7b49\u7b49\u90fd\u9069\u7528\uff5e\u4e0d\u904e\u6703\u5efa\u8b70\u4f7f\u7528\u5c0f\u65bc 15 mm \u7684\u8c93\u7802\u54e6\uff01</p>"
+                    }
+                },
+                "question_wk3cTf": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c CatPalace \u96c6\u4fbf\u5009\u591a\u5927\u5462\uff1f",
+                        "answer": "<p>\u93df\u4e0d\u505c CatPalace \u96c6\u4fbf\u5009\u70ba12L\uff0843 x 25 x 11 cm\uff09\uff0c\u82e5\u70ba\u55ae\u8c93\u4f7f\u7528\uff0c\u53ef\u5448\u88dd\u7d045-7\u5929\u4efd\u8c93\u4fbf\u3002</p>"
+                    }
+                },
+                "question_dNDgLY": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c CatPalace \u4e00\u5b9a\u8981\u7528\u5c08\u7528\u7684\u5783\u573e\u888b\u55ce\uff1f",
+                        "answer": "<p>\u93df\u4e0d\u505c CatPalace \u6211\u5011\u6709\u51fa\u5c08\u7528\u7684\u62bd\u7e69\u6e05\u6f54\u888b\uff0c\u4e0d\u904e\u4e00\u822c\u5bb6\u7528\u5783\u573e\u888b\u82e5\u5c3a\u5bf8\u7b26\u5408\uff0c\u4e5f\u662f\u53ef\u4ee5\u4f7f\u7528\u7684\u5594\uff01</p>"
+                    }
+                },
+                "category_tUjCi3": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u6ce8\u610f\u4e8b\u9805"
+                    }
+                },
+                "question_dx9p8Y": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u8c93\u7802\u6703\u5bb9\u6613\u9ecf\u5e95\u55ce\uff1f",
+                        "answer": "<p>\u5167\u8259\u5e95\u588a\u662f\u9632\u6293\u77fd\u81a0\u6750\u8cea\uff0c\u76ee\u524d\u5be6\u9a57\u904e\u591a\u7a2e\u8c93\u7802\u90fd\u4e0d\u592a\u6703\u9ecf\u5e95\u3002\u82e5\u771f\u7684\u9ecf\u5230\u4e00\u9ede\uff0c\u7528\u6fd5\u7d19\u5dfe\u5c31\u80fd\u64e6\u8d77\u4f86\uff0c\u8c93\u7802\u588a\u82e5\u6709\u9700\u8981\u662f\u53ef\u4ee5\u505a\u66f4\u63db\u7684\u3002</p>"
+                    }
+                },
+                "question_6LKyRk": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u662f\u5426\u80fd\u8fa8\u8b58\u591a\u8c93\u8eab\u5206\uff0c\u4ee5\u53ca\u91cd\u91cf\u611f\u6e2c\uff1f",
+                        "answer": "<p>\u6211\u5011\u81f4\u529b\u4ee5\u6700\u597d\u7684\u50f9\u683c+\u5b89\u5168\u5be6\u7528\u7684\u529f\u80fd\u4f5c\u70ba\u958b\u767c\u76ee\u6a19\uff0c\u56e0\u6b64\u76ee\u524d\u6c92\u6709\u9019\u4e9b\u8a2d\u8a08\u3002</p><p>\u91cd\u91cf\u611f\u61c9\u5be6\u969b\u7121\u6cd5\u771f\u6b63\u8fa8\u5225\u8c93\u54aa\uff0c\u9ad4\u91cd\u8b8a\u5316\u5c31\u6703\u5c0e\u81f4\u8cc7\u6599\u5931\u771f\uff0c\u4e14\u91cd\u91cf\u611f\u61c9\u6703\u56e0\u70ba\u6876\u8eab\u8b8a\u5f62\u5c0e\u81f4\u5bb9\u6613\u932f\u8aa4\u3002</p>"
+                    }
+                },
+                "question_pycbBH": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c CatPalace \u597d\u6e05\u6f54\u55ce\uff1f\u53ef\u5426\u76f4\u63a5\u6c34\u6d17\uff1f",
+                        "answer": "<p>\u93df\u4e0d\u505c CatPalace \u7684\u62c6\u88dd\u5f88\u7c21\u55ae\uff0c5\u79d2\u5167\u5373\u53ef\u5b8c\u6210\uff0c\u6efe\u7b52\u662f\u53ef\u4ee5\u76f4\u63a5\u62c6\u4e0b\u4f86\u6c34\u6d17\u7684\u3002</p><p>\u4e0d\u904e\u57fa\u5ea7\u6709\u4e3b\u6a5f\u677f\u7b49\u5100\u5668\uff0c\u4e0d\u80fd\u7528\u6c34\u6c96\u5537\uff01\u5efa\u8b70\u64e6\u62ed\u6e05\u6f54\u5373\u53ef\uff5e</p>"
+                    }
+                },
+                "question_FKkLJz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u9451\u8cde\u671f & \u4fdd\u56fa\u7684\u5dee\u5225\u662f\u4ec0\u9ebc\u5462\uff1f",
+                        "answer": "<p>\u3010\u9451\u8cde\u671f\u3011\uff1a\u5546\u54c1\u8cfc\u8cb7\u6536\u4ef6\u5f8c\u67097\u65e5\u9451\u8cde\u671f\uff0c\u671f\u9593\u5167\u7121\u62c6\u5c01\u4f7f\u7528\u53ef\u7533\u8acb\u9000\u8ca8\uff1b\u671f\u9593\u5167\u4f7f\u7528\u9047\u5230\u554f\u984c\uff0c\u8207\u5ba2\u670d\u806f\u7e6b\u78ba\u8a8d\u5f8c\u53ef\u5b89\u6392\u5c07\u4e3b\u6a5f\u6536\u56de\u6aa2\u6e2c\uff0c\u82e5\u6aa2\u6e2c\u78ba\u8a8d\u662f\u5546\u54c1\u672c\u8eab\u7684\u65b0\u54c1\u7455\u75b5\uff0c\u6703\u5e6b\u60a8\u63db\u8ca8\uff0c\u9019\u500b\u72c0\u6cc1\u60a8\u4e0d\u9700\u8981\u652f\u4ed8\u4efb\u4f55\u984d\u5916\u8cbb\u7528\uff5e</p><p>\u3010\u4fdd\u56fa\u3011\uff1a\u5546\u54c1\u4e3b\u6a5f\u6709\u4e00\u5e74\u4fdd\u56fa\uff0c\u4fdd\u56fa\u671f\u5167\u9047\u5230\u4f7f\u7528\u554f\u984c\uff0c\u4e00\u6a23\u8981\u5148\u8207\u5ba2\u670d\u806f\u7e6b\u53cd\u61c9\uff0c\u5f8c\u53ef\u5bc4\u56de\u6216\u7531\u6211\u5011\u6d3e\u8eca\u6536\u4ef6\u9032\u884c\u6aa2\u6e2c\uff0c\u5bc4\u4ef6\u7684\u904b\u8cbb\u9700\u8981\u7531\u60a8\u8ca0\u64d4\u3002</p>"
+                    }
+                },
+                "question_hdWqri": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u93df\u4e0d\u505c\u53ef\u4ee5\u5b8c\u5168\u9760\u7246\u55ce\uff1f",
+                        "answer": "<p>\u70ba\u78ba\u4fdd\u6b63\u5e38\u904b\u4f5c\uff0c\u6211\u5011\u5efa\u8b70\u7522\u54c1\u4e0a\u65b9\u3001\u5f8c\u65b9\u3001\u5de6\u53f3\u908a\uff0c\u90fd\u9700\u8981\u8207\u7246\u9762\u6216\u5176\u4ed6\u906e\u853d\u8ddd\u96e2\u300e5cm\u300f\u4ee5\u4e0a\uff0c\u907f\u514d\u5f71\u97ff\u5230\u5075\u6e2c\u529f\u80fd\uff01<br/>*\u5efa\u8b70\u6700\u4f73\u9810\u7559\u7a7a\u9593\u70ba 15cm</p>"
+                    }
+                },
+                "category_RazFtp": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u5176\u4ed6\u552e\u5f8c\u554f\u984c"
+                    }
+                },
+                "question_qMDTY7": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5546\u54c1\u9451\u8cde\u671f7\u65e5\uff0c\u5df2\u62c6\u5c01\u4e14\u5012\u5165\u8c93\u7802\u8b93\u6211\u5bb6\u8c93\u8c93\u9032\u53bb\u4e0a\u5ec1\u6240\uff0c\u4f46\u767c\u73fe\u6a5f\u5668\u58de\u6389\u4e0d\u80fd\u904b\u8f49\u4e86\uff0c\u53ef\u4ee5\u9000\u8ca8\u55ce\uff1f",
+                        "answer": "<p>\u5df2\u5012\u5165\u8c93\u7802\u5247\u8996\u70ba\u5df2\u4f7f\u7528\uff0c\u4fbf\u662f\u8d70\u552e\u5f8c\u4fdd\u56fa\u6d41\u7a0b\u5537\uff5e</p>"
+                    }
+                },
+                "question_BbThaW": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5546\u54c1\u9451\u8cde\u671f7\u65e5\uff0c\u53ea\u6709\u62c6\u5c01\u6aa2\u67e5\uff0c\u6a5f\u5668\u904b\u8f49\u5f8c\u5c31\u4e0d\u52d5\u4e86\uff0c\u53ef\u4ee5\u9000\u8ca8\u55ce\uff1f",
+                        "answer": "<p>\u82e5\u5546\u54c1\u50c5\u6709\u62c6\u5c01\u3001\u672a\u5012\u5165\u8c93\u7802\u4f7f\u7528\uff0c\u4e14\u539f\u7bb1\u90fd\u6709\u4fdd\u7559\u8457\uff0c\u53ef\u5b8c\u6574\u6062\u5fa9\u539f\u5305\u88dd\uff0c\u4fbf\u53ef\u806f\u7e6b\u5b98\u65b9\u5ba2\u670d\u7533\u8acb\u9000\u8ca8\u4e8b\u5b9c\u5594\u3002</p>"
+                    }
+                },
+                "question_JPK9xk": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5982\u679c\u8c93\u54aa\u4f7f\u7528\u904e\u5e7e\u6b21\u5f8c\uff0c\u6a5f\u5668\u6709\u554f\u984c\u53ef\u4ee5\u4f7f\u7528\u552e\u5f8c\u4fdd\u56fa\u55ce\uff1f",
+                        "answer": "<p>\u53ef\u4ee5\u7684\uff5e\u5982\u679c\u4f7f\u7528\u4e0a\u9047\u5230\u554f\u984c\uff0c\u8981\u5148\u8acb\u60a8\u806f\u7e6b\u5b98\u65b9LINE\u5ba2\u670d\u53cd\u61c9\uff0c\u5ba2\u670d\u6703\u512a\u5148\u8207\u60a8\u78ba\u8a8d\u6a5f\u5668\u7684\u72c0\u6cc1\uff0c\u4ee5\u5b89\u6392\u5f8c\u7e8c\u8655\u7406\u5537\uff01</p>"
+                    }
+                },
+                "question_bPahtr": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6536\u4ef6\u5f8c7\u65e5\u5167\uff0c\u5982\u679c\u78ba\u5b9a\u8981\u9000\u8ca8\u7684\u8a71\uff0c\u4f60\u5011\u6703\u4f86\u6536\u4ef6\u55ce\uff1f",
+                        "answer": "<p>\u6703\u7684\uff0c\u6211\u5011\u6703\u6d3e\u8eca\u8207\u60a8\u6536\u4ef6\uff0c\u9084\u8acb\u52d9\u5fc5\u5c07\u5546\u54c1\u6062\u5fa9\u539f\u5305\u88dd\u72c0\u614b\uff01</p>"
+                    }
+                },
+                "question_Qgb44y": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6aa2\u6e2c\u8655\u7406\u6298\u820a\u8cbb\u7528\u662f\u4ec0\u9ebc\u610f\u601d\u5462\uff1f\u9000\u8ca8\u5c31\u6703\u88ab\u6536\u8cbb\u55ce\uff1f",
+                        "answer": "<p>\u6536\u5230\u6b32\u9000\u8ca8\u7684\u5546\u54c1\uff0c\u6211\u5011\u6703\u9032\u884c\u6aa2\u6e2c\uff0c\u82e5\u6709\u4f7f\u7528\u6216\u4eba\u70ba\u75d5\u8de1\u3001\u640d\u58de\u7b49\uff0c\u4ee3\u8868\u5546\u54c1\u5df2\u7d93\u7121\u6cd5\u4f5c\u70ba\u65b0\u54c1\u518d\u6b21\u8ca9\u552e\u4e86\uff0c\u56e0\u6b64\u6703\u9700\u8981\u5411\u60a8\u6536\u53d6\u4e00\u7b46\u8cbb\u7528\uff0c\u6703\u4f9d\u64da\u5546\u54c1\u5be6\u969b\u6aa2\u6e2c\u72c0\u6cc1\u8abf\u6574\u5831\u50f9\uff0c\u6700\u9ad83,600\u5143\uff0c\u9084\u8acb\u8ad2\u89e3\u3002</p><p>\u5c0f\u5c0f\u88dc\u5145\uff01\u9000\u8ca8\u5546\u54c1\u82e5\u662f\u80fd\u5920\u6062\u5fa9\u70ba\u65b0\u54c1\u72c0\u614b\uff0c\u7d93\u6aa2\u6e2c\u4e5f\u4e26\u7121\u4f7f\u7528\u75d5\u8de1\u6216\u7f3a\u4ef6\u7b49\u72c0\u6cc1\uff0c\u5247\u4e0d\u6703\u5411\u60a8\u6536\u53d6\u984d\u5916\u8cbb\u7528\u56c9\uff01</p>"
+                    }
+                },
+                "question_fkNi76": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u82e5\u4fdd\u56fa\u671f\u5167\u8981\u9001\u4fee\uff0c\u600e\u9ebc\u5bc4\u56de\u5546\u54c1\uff1f\u904b\u8cbb\u8ab0\u51fa\uff1f",
+                        "answer": "<p>\u4fdd\u56fa\u671f\u5167\u5bc4\u56de\u6aa2\u4fee\uff0c\u9700\u7531\u60a8\u81ea\u884c\u5bc4\u56de\u5537\uff01\u82e5\u6709\u5bc4\u9001\u4e0a\u7684\u56f0\u96e3\uff0c\u6211\u5011\u6703\u5354\u52a9\u6d3e\u8eca\u6536\u4ef6\uff0c\u4e0d\u904e\u5bc4\u51fa\u7684\u904b\u8cbb\u9700\u7531\u60a8\u8ca0\u64d4\uff1b\u5546\u54c1\u5b8c\u6210\u4fdd\u56fa\u4f5c\u696d\u5f8c\u6703\u7531\u6211\u5011\u5bc4\u56de\uff0c\u56de\u7a0b\u904b\u8cbb\u7531\u6211\u5011\u8ca0\u64d4\u3002</p>"
+                    }
+                },
+                "question_MUncxK": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u539f\u7bb1\u5b50\u4e00\u5b9a\u8981\u4fdd\u7559\u4e00\u5e74\u624d\u80fd\u4fdd\u56fa\u55ce\uff1f",
+                        "answer": "<p>\u7531\u65bc\u93df\u4e0d\u505c\u9ad4\u7a4d\u8f03\u5927\uff0c\u82e5\u5546\u54c1\u6709\u554f\u984c\u9700\u9001\u56de\u6aa2\u4fee\uff0c\u6211\u5011\u64d4\u5fc3\u60a8\u7121\u6cd5\u627e\u5230\u5408\u9069\u7684\u5916\u7bb1\u5305\u6750\uff0c\u4e14\u975e\u539f\u7bb1\u5305\u88dd\u5728\u7269\u6d41\u904b\u9001\u9014\u4e2d\uff0c\u53ef\u80fd\u9020\u6210\u5546\u54c1\u5916\u89c0\u6216\u672c\u9ad4\u53d7\u640d\uff08\u539f\u5916\u7bb1\u6703\u6709\u4e00\u5b9a\u7684\u4fdd\u8b77\u529b\uff0c\u4e14\u5916\u7bb1\u5927\u5c0f\u7b26\u5408\u93df\u4e0d\u505c\uff09\uff0c\u6545\u5efa\u8b70\u539f\u7d19\u7bb1\u8981\u4fdd\u7559\u4e00\u5e74\u5537\uff01</p>"
+                    }
+                },
+                "question_89TiQX": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5546\u54c1\u904e\u4fdd\u5f8c\uff0c\u600e\u9ebc\u7dad\u4fee\uff1f",
+                        "answer": "<p>\u904e\u4fdd\u5f8c\u9700\u7533\u8acb\u4ed8\u8cbb\u7dad\u4fee\uff0c\u8981\u9ebb\u7169\u60a8\u5148\u8207\u5ba2\u670d\u806f\u7e6b\u78ba\u8a8d\u5546\u54c1\u6545\u969c\u7684\u60c5\u6cc1\uff0c\u5982\u6709\u56de\u6536\u6aa2\u6e2c\u9700\u6c42\uff0c\u5bc4\u56de\u6211\u53f8\u7684\u4f86\u56de\u904b\u8cbb\u9700\u7531\u60a8\u8ca0\u64d4\uff1b\u6211\u53f8\u6536\u5230\u5546\u54c1\u6aa2\u6e2c\u5b8c\u6210\u5f8c\uff0c\u6703\u63d0\u4f9b\u7dad\u4fee\u5831\u50f9\uff0c\u82e5\u60a8\u6c7a\u5b9a\u4e0d\u7dad\u4fee\uff0c\u5247\u9700\u652f\u4ed8\u6aa2\u6e2c\u8cbb\u7528\uff08$200\u5143\uff09\u8207\u5bc4\u56de\u5546\u54c1\u4e4b\u904b\u8cbb\u3002</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "category_xT9J6A",
+                "question_eGiYKz",
+                "question_hCpYUV",
+                "question_wk3cTf",
+                "question_dNDgLY",
+                "category_tUjCi3",
+                "question_dx9p8Y",
+                "question_6LKyRk",
+                "question_pycbBH",
+                "question_FKkLJz",
+                "question_hdWqri",
+                "category_RazFtp",
+                "question_qMDTY7",
+                "question_BbThaW",
+                "question_JPK9xk",
+                "question_bPahtr",
+                "question_Qgb44y",
+                "question_fkNi76",
+                "question_MUncxK",
+                "question_89TiQX"
+            ],
+            "settings": {
+                "show_navigation": true,
+                "title": "FAQ",
+                "content": "",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "product-content": {
+            "type": "product-content",
+            "blocks": {
+                "description": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+                    "type": "content",
+                    "settings": {
+                        "title": "\u898f\u683c",
+                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+                        "page": ""
+                    }
+                }
+            },
+            "block_order": [
+                "description",
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+            ],
+            "settings": {}
+        },
+        "1725552081de692f66": {
+            "type": "apps",
+            "blocks": {
+                "vitals_product_reviews_WdCBfw": {
+                    "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+                    "settings": {}
+                }
+            },
+            "block_order": [
+                "vitals_product_reviews_WdCBfw"
+            ],
+            "settings": {
+                "include_horizontal_margins": true,
+                "include_vertical_margins": true
+            }
         }
-      },
-      "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "photo_variant_picker_WwtNct",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh"
-      ],
-      "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": false,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
     },
-    "video_ehpiW4": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/1005712493",
-        "image": "shopify://shop_images/06718_81c85831-47cc-4ae7-b2cc-dfd6d93d980f.jpg",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_qLqk4M": {
-      "type": "slideshow",
-      "blocks": {
-        "image_7UHRWF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L122_web-07.webp",
-            "mobile_image": "shopify://shop_images/L122_web-08.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_7UHRWF"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Cyhp4d": {
-      "type": "slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_aKypqM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_RazTdG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L122_web_f086b831-7693-4205-befa-304979c3828e.jpg",
-            "mobile_image": "shopify://shop_images/L122_phone-04.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_RazTdG"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "custom_html_PmGXQW": {
-      "type": "custom-html",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "html": "<img src=\"https://www.goshop.banner.tw/Accessories/GC/00_Catapalace/web/%E6%BB%BE%E7%AD%92%E5%BC%8F_1.gif\" style=\"width:100%;\" align=\"absbottom\">",
-        "add_vertical_spacing": false,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_eGeMCM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_zrqi48": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/01_12c9e7e4-3e72-483f-b2bf-2800dfbded48.gif",
-            "mobile_image": "shopify://shop_images/05_151eecfe-a429-4979-8720-ae3a0b3790e1.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_zrqi48"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_V96fVc": {
-      "type": "slideshow",
-      "blocks": {
-        "image_B3hT8y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/04_65588482-43a2-48ac-be0f-c5645cbbabbb.gif",
-            "mobile_image": "shopify://shop_images/04-2.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_B3hT8y"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531875f804291": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "disabled": true,
-          "settings": {
-            "playlist_id": "rl_pl_7979"
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_jYKJkw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_jwbFNn": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/03_398f7dfb-f16a-48f3-97bd-e69cd543379e.gif",
-            "mobile_image": "shopify://shop_images/06_8fdcc2ae-3dc5-4f4e-85c9-890c2519b5c6.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_jwbFNn"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_PPXJ8W": {
-      "type": "slideshow",
-      "blocks": {
-        "image_mNFEtE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L122_web-02.webp",
-            "mobile_image": "shopify://shop_images/L122_web-05.webp",
-            "text_position": "top_right",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_mNFEtE"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_DbXYJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_QhCdXx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/04_6a97f5d9-3d85-46ab-8fac-d2e4b585d356.gif",
-            "mobile_image": "shopify://shop_images/08_96c84f16-cc23-4b5b-a27b-fc7c1df617c3.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_QhCdXx"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_LFbjNJ": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3ezFbc": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L122_web-03_87a998c3-f3dd-41c9-90c9-f7595e8ca16d.jpg",
-            "mobile_image": "shopify://shop_images/L122_phone-06_da1db6ed-fee0-42ef-882b-cf6cf480d933.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3ezFbc"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "faq_7A9Tt9": {
-      "type": "faq",
-      "blocks": {
-        "category_xT9J6A": {
-          "type": "category",
-          "settings": {
-            "title": "產品相關"
-          }
-        },
-        "question_eGiYKz": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停 CatPalace 的尺寸是多大呢？",
-            "answer": "<p>整機尺寸：66.5 x 65.5 x 68.3 cm、內桶尺寸：半敞篷開放式（44 x 37 x 43 cm）。</p>"
-          }
-        },
-        "question_hCpYUV": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停 CatPalace 有貓砂限制嗎？長條豆腐砂可不可以用？",
-            "answer": "<p>鏟不停 CatPalace 凝結型貓砂都可以用！只要是尿下去可以「凝結成塊」的貓砂，像是 #豆腐砂 #混合砂 #紙砂 #礦砂 #花生殼砂 ...等等都適用～不過會建議使用小於 15 mm 的貓砂哦！</p>"
-          }
-        },
-        "question_wk3cTf": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停 CatPalace 集便倉多大呢？",
-            "answer": "<p>鏟不停 CatPalace 集便倉為12L（43 x 25 x 11 cm），若為單貓使用，可呈裝約5-7天份貓便。</p>"
-          }
-        },
-        "question_dNDgLY": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停 CatPalace 一定要用專用的垃圾袋嗎？",
-            "answer": "<p>鏟不停 CatPalace 我們有出專用的抽繩清潔袋，不過一般家用垃圾袋若尺寸符合，也是可以使用的喔！</p>"
-          }
-        },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_dx9p8Y": {
-          "type": "question",
-          "settings": {
-            "title": "貓砂會容易黏底嗎？",
-            "answer": "<p>內艙底墊是防抓矽膠材質，目前實驗過多種貓砂都不太會黏底。若真的黏到一點，用濕紙巾就能擦起來，貓砂墊若有需要是可以做更換的。</p>"
-          }
-        },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "是否能辨識多貓身分，以及重量感測？",
-            "answer": "<p>我們致力以最好的價格+安全實用的功能作為開發目標，因此目前沒有這些設計。</p><p>重量感應實際無法真正辨別貓咪，體重變化就會導致資料失真，且重量感應會因為桶身變形導致容易錯誤。</p>"
-          }
-        },
-        "question_pycbBH": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停 CatPalace 好清潔嗎？可否直接水洗？",
-            "answer": "<p>鏟不停 CatPalace 的拆裝很簡單，5秒內即可完成，滾筒是可以直接拆下來水洗的。</p><p>不過基座有主機板等儀器，不能用水沖唷！建議擦拭清潔即可～</p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "鑑賞期 & 保固的差別是什麼呢？",
-            "answer": "<p>【鑑賞期】：商品購買收件後有7日鑑賞期，期間內無拆封使用可申請退貨；期間內使用遇到問題，與客服聯繫確認後可安排將主機收回檢測，若檢測確認是商品本身的新品瑕疵，會幫您換貨，這個狀況您不需要支付任何額外費用～</p><p>【保固】：商品主機有一年保固，保固期內遇到使用問題，一樣要先與客服聯繫反應，後可寄回或由我們派車收件進行檢測，寄件的運費需要由您負擔。</p>"
-          }
-        },
-        "question_hdWqri": {
-          "type": "question",
-          "settings": {
-            "title": "鏟不停可以完全靠牆嗎？",
-            "answer": "<p>為確保正常運作，我們建議產品上方、後方、左右邊，都需要與牆面或其他遮蔽距離『5cm』以上，避免影響到偵測功能！<br/>*建議最佳預留空間為 15cm</p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "其他售後問題"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "商品鑑賞期7日，已拆封且倒入貓砂讓我家貓貓進去上廁所，但發現機器壞掉不能運轉了，可以退貨嗎？",
-            "answer": "<p>已倒入貓砂則視為已使用，便是走售後保固流程唷～</p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "商品鑑賞期7日，只有拆封檢查，機器運轉後就不動了，可以退貨嗎？",
-            "answer": "<p>若商品僅有拆封、未倒入貓砂使用，且原箱都有保留著，可完整恢復原包裝，便可聯繫官方客服申請退貨事宜喔。</p>"
-          }
-        },
-        "question_JPK9xk": {
-          "type": "question",
-          "settings": {
-            "title": "如果貓咪使用過幾次後，機器有問題可以使用售後保固嗎？",
-            "answer": "<p>可以的～如果使用上遇到問題，要先請您聯繫官方LINE客服反應，客服會優先與您確認機器的狀況，以安排後續處理唷！</p>"
-          }
-        },
-        "question_bPahtr": {
-          "type": "question",
-          "settings": {
-            "title": "收件後7日內，如果確定要退貨的話，你們會來收件嗎？",
-            "answer": "<p>會的，我們會派車與您收件，還請務必將商品恢復原包裝狀態！</p>"
-          }
-        },
-        "question_Qgb44y": {
-          "type": "question",
-          "settings": {
-            "title": "檢測處理折舊費用是什麼意思呢？退貨就會被收費嗎？",
-            "answer": "<p>收到欲退貨的商品，我們會進行檢測，若有使用或人為痕跡、損壞等，代表商品已經無法作為新品再次販售了，因此會需要向您收取一筆費用，會依據商品實際檢測狀況調整報價，最高3,600元，還請諒解。</p><p>小小補充！退貨商品若是能夠恢復為新品狀態，經檢測也並無使用痕跡或缺件等狀況，則不會向您收取額外費用囉！</p>"
-          }
-        },
-        "question_fkNi76": {
-          "type": "question",
-          "settings": {
-            "title": "若保固期內要送修，怎麼寄回商品？運費誰出？",
-            "answer": "<p>保固期內寄回檢修，需由您自行寄回唷！若有寄送上的困難，我們會協助派車收件，不過寄出的運費需由您負擔；商品完成保固作業後會由我們寄回，回程運費由我們負擔。</p>"
-          }
-        },
-        "question_MUncxK": {
-          "type": "question",
-          "settings": {
-            "title": "原箱子一定要保留一年才能保固嗎？",
-            "answer": "<p>由於鏟不停體積較大，若商品有問題需送回檢修，我們擔心您無法找到合適的外箱包材，且非原箱包裝在物流運送途中，可能造成商品外觀或本體受損（原外箱會有一定的保護力，且外箱大小符合鏟不停），故建議原紙箱要保留一年唷！</p>"
-          }
-        },
-        "question_89TiQX": {
-          "type": "question",
-          "settings": {
-            "title": "商品過保後，怎麼維修？",
-            "answer": "<p>過保後需申請付費維修，要麻煩您先與客服聯繫確認商品故障的情況，如有回收檢測需求，寄回我司的來回運費需由您負擔；我司收到商品檢測完成後，會提供維修報價，若您決定不維修，則需支付檢測費用（$200元）與寄回商品之運費。</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_xT9J6A",
-        "question_eGiYKz",
-        "question_hCpYUV",
-        "question_wk3cTf",
-        "question_dNDgLY",
-        "category_tUjCi3",
-        "question_dx9p8Y",
-        "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "question_hdWqri",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW",
-        "question_JPK9xk",
-        "question_bPahtr",
-        "question_Qgb44y",
-        "question_fkNi76",
-        "question_MUncxK",
-        "question_89TiQX"
-      ],
-      "settings": {
-        "show_navigation": true,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {}
-    },
-    "1725552081de692f66": {
-      "type": "apps",
-      "blocks": {
-        "vitals_product_reviews_WdCBfw": {
-          "type": "shopify://apps/vitals/blocks/product-reviews/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_product_reviews_WdCBfw"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    }
-  },
-  "order": [
-    "main",
-    "video_ehpiW4",
-    "slideshow_qLqk4M",
-    "slideshow_Cyhp4d",
-    "17217531779a9cbfe4",
-    "slideshow_aKypqM",
-    "custom_html_PmGXQW",
-    "slideshow_eGeMCM",
-    "slideshow_V96fVc",
-    "17217531875f804291",
-    "slideshow_jYKJkw",
-    "slideshow_PPXJ8W",
-    "slideshow_DbXYJw",
-    "slideshow_LFbjNJ",
-    "faq_7A9Tt9",
-    "product-content",
-    "1725552081de692f66"
-  ]
+    "order": [
+        "main",
+        "video_ehpiW4",
+        "slideshow_qLqk4M",
+        "slideshow_Cyhp4d",
+        "17217531779a9cbfe4",
+        "slideshow_aKypqM",
+        "custom_html_PmGXQW",
+        "slideshow_eGeMCM",
+        "slideshow_V96fVc",
+        "17217531875f804291",
+        "slideshow_jYKJkw",
+        "slideshow_PPXJ8W",
+        "slideshow_DbXYJw",
+        "slideshow_LFbjNJ",
+        "faq_7A9Tt9",
+        "product-content",
+        "1725552081de692f66"
+    ]
 }
