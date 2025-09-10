@@ -6,203 +6,202 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "1721752751939b7d14": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
+ */{
+    "sections": {
+        "1721752751939b7d14": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "section_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
+        },
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "10eed426-c481-4651-8503-74a9f6dc6018": {
+                    "type": "image",
+                    "settings": {
+                        "image": "{{ product.metafields.custom._123.value }}",
+                        "image_alignment": "left",
+                        "image_width": 270
+                    }
+                },
+                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+                    "type": "text",
+                    "settings": {
+                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+                    }
+                },
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+                    "type": "text",
+                    "settings": {
+                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+                    }
+                },
+                "variant_picker": {
+                    "type": "variant_picker",
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color",
+                        "size_chart_page": ""
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_payment_button": false,
+                        "atc_button_background": "rgba(0,0,0,0)",
+                        "atc_button_text_color": "rgba(0,0,0,0)",
+                        "buy_now_button_background": "rgba(0,0,0,0)",
+                        "buy_now_button_text_color": "rgba(0,0,0,0)"
+                    }
+                },
+                "liquid_hpmDVh": {
+                    "type": "liquid",
+                    "settings": {
+                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+                    }
+                },
+                "vitals_ub_product_bundles_6q9X7a": {
+                    "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+                    "settings": {}
+                }
+            },
+            "block_order": [
+                "10eed426-c481-4651-8503-74a9f6dc6018",
+                "df999a05-d00f-4f60-87d3-401d4a092ce9",
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+                "variant_picker",
+                "quantity_selector",
+                "buy_buttons",
+                "liquid_hpmDVh",
+                "vitals_ub_product_bundles_6q9X7a"
+            ],
+            "settings": {
+                "show_vendor": false,
+                "show_sku": false,
+                "show_taxes_included": false,
+                "show_product_rating": false,
+                "show_sticky_add_to_cart": true,
+                "show_share_buttons": true,
+                "related_collections": "{{ product.metafields.custom.attributes.value }}",
+                "help_page": "",
+                "enable_video_autoplay": true,
+                "enable_video_looping": false,
+                "enable_image_zoom": true,
+                "show_thumbnails_on_mobile": false,
+                "desktop_thumbnails_position": "left",
+                "transition_effect": "slide"
+            }
+        },
+        "17217886296359dc4e": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "playlist_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
+        },
+        "product-content": {
+            "type": "product-content",
+            "blocks": {
+                "description": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+                    "type": "content",
+                    "settings": {
+                        "title": "\u898f\u683c",
+                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+                        "page": ""
+                    }
+                }
+            },
+            "block_order": [
+                "description",
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+            ],
+            "settings": {}
+        },
+        "faq_WPQ9fb": {
+            "type": "faq",
+            "blocks": {
+                "category_jHkkmH": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u6ce8\u610f\u4e8b\u9805"
+                    }
+                },
+                "question_8px7hi": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u552e\u5f8c\u554f\u984c",
+                        "answer": "<p>\u203b \u653e\u4e0a\u624b\u6a5f\u5f8c\u5404\u90e8\u4f4d\u87ba\u7d72\u90fd\u8981\u9396\u7dca<br/>\u203b \u624b\u6a5f\u5c3a\u5bf8\u904e\u5927\u53ca\u6bd4\u4f8b\u7279\u6b8a(21:9)\uff0c\u6216\u662f\u624b\u6a5f\u6bbc\u904e\u5927\u904e\u539a\u53ef\u52a0\u88dd\u9632\u6454\u7db2<br/>\u203b \u6536\u5230\u5546\u54c1\u5f8c\u8acb\u6aa2\u67e5\u5546\u54c1\u662f\u5426\u6709\u7455\u75b5\u7f3a\u4ef6\uff0c\u82e5\u5546\u54c1\u6709\u7455\u75b5\u7f3a\u4ef6\u8acb\u806f\u7d61\u5ba2\u670d\u66f4\u63db\u826f\u54c1\u3002<br/>\u203b \u6a5f\u8eca\u7528\u624b\u6a5f\u67b6\u6709\u53ef\u80fd\u56e0\u70ba\u65e5\u66ec\u96e8\u6dcb\u7b49\u7b49\u5404\u7a2e\u74b0\u5883\u56e0\u7d20\uff0c\u6216\u662f\u906d\u5230\u4eba\u70ba\u7834\u58de\u5c0e\u81f4\u96f6\u4ef6\u8001\u5316\u6bc0\u640d\uff0c\u5efa\u8b70\u4f7f\u7528\u5b8c\u5f8c\u62c6\u4e0b\u4fdd\u5b58\u3002<br/>\u203b \u4f7f\u7528\u672c\u6a5f\u8eca\u7528\u624b\u6a5f\u67b6\u884c\u99db\u524d\uff0c\u8acb\u5148\u6aa2\u67e5\u8eca\u67b6\u662f\u5426\u6b63\u5e38\u7121\u7455\u75b5\u3001\u5b89\u88dd\u662f\u5426\u7262\u56fa\u3001\u9396\u7dca\u4e0d\u6703\u6389\u843d\uff0c\u82e5\u56e0\u6c92\u6709\u78ba\u5be6\u6aa2\u67e5\u7b49\u7b49\u4eba\u70ba\u56e0\u7d20\u9020\u6210\u624b\u6a5f\u6389\u843d\uff0c\u672c\u516c\u53f8\u6982\u4e0d\u8ca0\u8cac\u3002</p><p>\u3010\u514d\u8cac\u8072\u660e\u3011</p><p>\u7531\u65bc\u8def\u6cc1\u77ac\u606f\u842c\u8b8a\uff0c\u5982\u60a8\u64d4\u5fc3\u624b\u6a5f\u53ef\u80fd\u6703\u56e0\u610f\u5916\u60c5\u6cc1\u6ed1\u843d\uff0c\u5efa\u8b70\u984d\u5916\u5b89\u88dd\u9632\u7bc4\u63aa\u65bd\uff08\u5982\u9632\u6454\u7db2\u6216\u9632\u6454\u7e69\u7b49\uff09\u3002\u82e5\u6d88\u8cbb\u8005\u50c5\u4f7f\u7528\u672c\u516c\u53f8\u63d0\u4f9b\u7684\u624b\u6a5f\u652f\u67b6\u800c\u672a\u52a0\u88dd\u5176\u4ed6\u9632\u7bc4\u63aa\u65bd\uff0c\u4e26\u56e0\u6b64\u9020\u6210\u624b\u6a5f\u98db\u51fa\u6216\u640d\u58de\uff0c\u5247\u5728\u4fdd\u56fa\u671f\u5167\uff0c\u6211\u5011\u516c\u53f8\u50c5\u63d0\u4f9b\u624b\u6a5f\u652f\u67b6\u7684\u8cfc\u8cb7\u8cbb\u7528\u9000\u9084\uff1b\u8d85\u904e\u4fdd\u56fa\u671f\u5f8c\uff0c\u6055\u4e0d\u8ca0\u8cac\u3002</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "category_jHkkmH",
+                "question_8px7hi"
+            ],
+            "settings": {
+                "show_navigation": false,
+                "title": "FAQ",
+                "content": "",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "17339957580d14b91e": {
+            "type": "apps",
+            "blocks": {
+                "vitals_ub_product_bundles_xKNKpV": {
+                    "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+                    "settings": {}
+                }
+            },
+            "block_order": [
+                "vitals_ub_product_bundles_xKNKpV"
+            ],
+            "settings": {
+                "include_horizontal_margins": true,
+                "include_vertical_margins": true
+            }
         }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
     },
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
-            "image_alignment": "left",
-            "image_width": 270
-          }
-        },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-          }
-        },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
-        },
-        "vitals_ub_product_bundles_6q9X7a": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh",
-        "vitals_ub_product_bundles_6q9X7a"
-      ],
-      "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": true,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
-    },
-    "17217886296359dc4e": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {}
-    },
-    "faq_WPQ9fb": {
-      "type": "faq",
-      "blocks": {
-        "category_jHkkmH": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_8px7hi": {
-          "type": "question",
-          "settings": {
-            "title": "售後問題",
-            "answer": "<p>※ 放上手機後各部位螺絲都要鎖緊<br/>※ 手機尺寸過大及比例特殊(21:9)，或是手機殼過大過厚可加裝防摔網<br/>※ 收到商品後請檢查商品是否有瑕疵缺件，若商品有瑕疵缺件請聯絡客服更換良品。<br/>※ 機車用手機架有可能因為日曬雨淋等等各種環境因素，或是遭到人為破壞導致零件老化毀損，建議使用完後拆下保存。<br/>※ 使用本機車用手機架行駛前，請先檢查車架是否正常無瑕疵、安裝是否牢固、鎖緊不會掉落，若因沒有確實檢查等等人為因素造成手機掉落，本公司概不負責。</p><p>【免責聲明】</p><p>由於路況瞬息萬變，如您擔心手機可能會因意外情況滑落，建議額外安裝防範措施（如防摔網或防摔繩等）。若消費者僅使用本公司提供的手機支架而未加裝其他防範措施，並因此造成手機飛出或損壞，則在保固期內，我們公司僅提供手機支架的購買費用退還；超過保固期後，恕不負責。</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_jHkkmH",
-        "question_8px7hi"
-      ],
-      "settings": {
-        "show_navigation": false,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "17339957580d14b91e": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_product_bundles_xKNKpV": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_ub_product_bundles_xKNKpV"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
-    }
-  },
-  "order": [
-    "1721752751939b7d14",
-    "main",
-    "17339957580d14b91e",
-    "17217886296359dc4e",
-    "product-content",
-    "faq_WPQ9fb"
-  ]
+    "order": [
+        "1721752751939b7d14",
+        "main",
+        "17339957580d14b91e",
+        "17217886296359dc4e",
+        "product-content",
+        "faq_WPQ9fb"
+    ]
 }

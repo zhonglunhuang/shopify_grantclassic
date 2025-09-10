@@ -6,567 +6,566 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "settings": {
-            "image": "{{ product.metafields.custom._123.value }}",
-            "image_alignment": "left",
-            "image_width": 270
-          }
+ */{
+    "sections": {
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "10eed426-c481-4651-8503-74a9f6dc6018": {
+                    "type": "image",
+                    "settings": {
+                        "image": "{{ product.metafields.custom._123.value }}",
+                        "image_alignment": "left",
+                        "image_width": 270
+                    }
+                },
+                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+                    "type": "text",
+                    "settings": {
+                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+                    }
+                },
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+                    "type": "text",
+                    "settings": {
+                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+                    }
+                },
+                "photo_variant_picker_WwtNct": {
+                    "type": "photo_variant_picker",
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color"
+                    }
+                },
+                "variant_picker": {
+                    "type": "variant_picker",
+                    "disabled": true,
+                    "settings": {
+                        "hide_sold_out_variants": false,
+                        "selector_mode": "block",
+                        "color_mode": "color",
+                        "size_chart_page": ""
+                    }
+                },
+                "quantity_selector": {
+                    "type": "quantity_selector",
+                    "settings": {}
+                },
+                "buy_buttons": {
+                    "type": "buy_buttons",
+                    "settings": {
+                        "show_payment_button": false,
+                        "atc_button_background": "rgba(0,0,0,0)",
+                        "atc_button_text_color": "rgba(0,0,0,0)",
+                        "buy_now_button_background": "rgba(0,0,0,0)",
+                        "buy_now_button_text_color": "rgba(0,0,0,0)"
+                    }
+                },
+                "liquid_hpmDVh": {
+                    "type": "liquid",
+                    "settings": {
+                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+                    }
+                }
+            },
+            "block_order": [
+                "10eed426-c481-4651-8503-74a9f6dc6018",
+                "df999a05-d00f-4f60-87d3-401d4a092ce9",
+                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+                "photo_variant_picker_WwtNct",
+                "variant_picker",
+                "quantity_selector",
+                "buy_buttons",
+                "liquid_hpmDVh"
+            ],
+            "settings": {
+                "show_vendor": false,
+                "show_sku": false,
+                "show_taxes_included": false,
+                "show_product_rating": false,
+                "show_sticky_add_to_cart": true,
+                "show_share_buttons": false,
+                "related_collections": "{{ product.metafields.custom.attributes.value }}",
+                "help_page": "",
+                "enable_video_autoplay": true,
+                "enable_video_looping": false,
+                "enable_image_zoom": true,
+                "show_thumbnails_on_mobile": false,
+                "desktop_thumbnails_position": "left",
+                "transition_effect": "slide"
+            }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-          }
+        "video_ehpiW4": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+                "subheading": "",
+                "title": "",
+                "video_url": "https://vimeo.com/1000710325",
+                "background_type": "full_width",
+                "video_size": "auto",
+                "autoplay": true,
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
+        "17217531779a9cbfe4": {
+            "type": "apps",
+            "blocks": {
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
+                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+                    "settings": {
+                        "section_id": ""
+                    }
+                }
+            },
+            "block_order": [
+                "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+            ],
+            "settings": {
+                "include_horizontal_margins": false,
+                "include_vertical_margins": false
+            }
         },
-        "photo_variant_picker_WwtNct": {
-          "type": "photo_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
+        "slideshow_aKypqM": {
+            "type": "slideshow",
+            "blocks": {
+                "image_RazTdG": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_01.jpg",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_01.jpg",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_RazTdG"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
+        "video_nGV7RF": {
+            "type": "video",
+            "settings": {
+                "subheading": "",
+                "title": "",
+                "video_url": "https://vimeo.com/1041632006",
+                "background_type": "full_width",
+                "video_size": "auto",
+                "autoplay": true,
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
+        "slideshow_3bDkQd": {
+            "type": "slideshow",
+            "blocks": {
+                "image_bqhV9Y": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_02.gif",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_02.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_bqhV9Y"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
+        "slideshow_Bqdten": {
+            "type": "slideshow",
+            "blocks": {
+                "image_NEMAKQ": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_03.gif",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_03_6126ddc0-2f93-45d9-94b9-c6d8f317ad1e.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_NEMAKQ"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
         },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
+        "slideshow_Rk4MXh": {
+            "type": "slideshow",
+            "blocks": {
+                "image_3QECz3": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_04gif.gif",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_04.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_3QECz3"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_xzetDx": {
+            "type": "slideshow",
+            "blocks": {
+                "image_WBgGBc": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_05_7fd8d7a9-66e6-4b3d-bf0d-e816469165a2.jpg",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_05_fb0b62dd-7fff-4c4f-9825-d98044bbca5d.jpg",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_WBgGBc"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 4,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_E3anTw": {
+            "type": "slideshow",
+            "blocks": {
+                "image_F4XAUj": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_06_733f3dbd-338c-4b53-9a3c-22e8d6f1ac7e.jpg",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_06_684841d8-129d-4523-a657-d8ea0f9f3686.jpg",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_F4XAUj"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "reveal",
+                "autoplay": true,
+                "cycle_speed": 4,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_LreQAy": {
+            "type": "slideshow",
+            "blocks": {
+                "image_RwwQHY": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_07.gif",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_07.gif",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_RwwQHY"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "slideshow_QFCqnC": {
+            "type": "slideshow",
+            "blocks": {
+                "image_qdQMhE": {
+                    "type": "image",
+                    "settings": {
+                        "image": "shopify://shop_images/L132_web_20241218_08_de5da6e1-65ab-4b6e-b925-ee514b7243d9.jpg",
+                        "mobile_image": "shopify://shop_images/L132_phone_20241218_08_69fb68ed-24c2-4441-817c-9c0f4071d729.jpg",
+                        "text_position": "middle_center",
+                        "subheading": "",
+                        "title": "",
+                        "button_1_text": "",
+                        "button_1_link": "",
+                        "button_2_text": "",
+                        "button_2_link": "",
+                        "text_color": "#ffffff",
+                        "button_background": "#ffffff",
+                        "button_text_color": "#000000",
+                        "overlay_color": "#000000",
+                        "overlay_opacity": 0
+                    }
+                }
+            },
+            "block_order": [
+                "image_qdQMhE"
+            ],
+            "settings": {
+                "section_height": "auto",
+                "transition_type": "sweep",
+                "autoplay": true,
+                "cycle_speed": 5,
+                "background": "rgba(0,0,0,0)"
+            }
+        },
+        "faq_7A9Tt9": {
+            "type": "faq",
+            "blocks": {
+                "category_xT9J6A": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u7522\u54c1\u76f8\u95dc"
+                    }
+                },
+                "question_eGiYKz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u7522\u54c1\u53ef\u4ee5\u6e05\u6d17\u55ce\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528\u6fd5\u5e03\u8f15\u8f15\u64e6\u62ed \u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u639b\u7e69\u5145\u96fb\u7dda\u4ee5\u4fdd\u6301\u5176\u6e05\u6f54\uff0c\u4f46\u8acb\u907f\u514d\u5c07\u5176\u6d78\u6ce1\u5728\u6c34\u4e2d\u3002</p>"
+                    }
+                },
+                "question_hCpYUV": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u7684\u6700\u5927\u5145\u96fb\u529f\u7387\u662f\u591a\u5c11\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u652f\u6301\u9ad8\u9054 60W \u7684\u5feb\u901f\u5145\u96fb\uff0c\u9069\u5408\u70ba\u5404\u7a2e\u8a2d\u5099\u5feb\u901f\u88dc\u5145\u96fb\u91cf\u3002</p>"
+                    }
+                },
+                "question_wk3cTf": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6211\u53ef\u4ee5\u5728\u4f7f\u7528\u624b\u6a5f\u4fdd\u8b77\u6bbc\u7684\u540c\u6642\u4f7f\u7528 \u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u55ce\uff1f",
+                        "answer": "<p>\u662f\u7684\uff0c\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u517c\u5bb9\u5927\u591a\u6578\u6a19\u6e96\u7684\u624b\u6a5f\u4fdd\u8b77\u6bbc\uff0c\u7121\u9700\u62c6\u5378\u4fdd\u8b77\u6bbc\u5373\u53ef\u4f7f\u7528\u3002</p>"
+                    }
+                },
+                "question_dNDgLY": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u6709\u5e7e\u7a2e\u984f\u8272\u53ef\u4f9b\u9078\u64c7\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u63d0\u4f9b\u4e94\u7a2e\u984f\u8272\uff0c\u8b93\u60a8\u53ef\u4ee5\u6839\u64da\u500b\u4eba\u98a8\u683c\u9032\u884c\u9078\u64c7\u3002</p>"
+                    }
+                },
+                "category_tUjCi3": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u6ce8\u610f\u4e8b\u9805"
+                    }
+                },
+                "question_dx9p8Y": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u53ef\u4ee5\u5728\u4efb\u4f55\u74b0\u5883\u4e0b\u4f7f\u7528\u55ce\uff1f",
+                        "answer": "<p>\u96d6\u7136\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u8010\u7528\u4e14\u9069\u5408\u65e5\u5e38\u4f7f\u7528\uff0c\u4f46\u5efa\u8b70\u907f\u514d\u9577\u6642\u9593\u66b4\u9732\u5728\u6975\u7aef\u6f6e\u6fd5\u6216\u9ad8\u6eab\u74b0\u5883\u4e2d\u3002</p>"
+                    }
+                },
+                "question_6LKyRk": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6211\u53ef\u4ee5\u7528\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u9023\u63a5\u6240\u6709\u985e\u578b\u7684\u8a2d\u5099\u55ce\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u517c\u5bb9 USB-C \u548c\u860b\u679c\u8a2d\u5099\uff0c\u4f46\u8acb\u78ba\u8a8d\u60a8\u7684\u8a2d\u5099\u652f\u6301\u9019\u4e9b\u7aef\u53e3\u985e\u578b\u3002</p>"
+                    }
+                },
+                "question_pycbBH": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u5728\u4f7f\u7528\u904e\u7a0b\u4e2d\u6703\u7522\u751f\u904e\u71b1\u554f\u984c\u55ce\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u8a2d\u8a08\u5177\u5099\u512a\u826f\u7684\u6563\u71b1\u6027\u80fd\u3002</p>"
+                    }
+                },
+                "question_FKkLJz": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u5982\u4f55\u8abf\u6574\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u7684\u9577\u5ea6\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u914d\u6709\u7c21\u55ae\u6613\u7528\u7684\u9577\u5ea6\u8abf\u7bc0\u6a5f\u5236\uff0c\u8f15\u8f15\u62c9\u52d5\u5373\u53ef\u6839\u64da\u60a8\u7684\u9700\u6c42\u9032\u884c\u8abf\u6574\uff0c\u7e3d\u9577\u5ea6\u7d04\u83ab160cm\u3002</p>"
+                    }
+                },
+                "category_RazFtp": {
+                    "type": "category",
+                    "settings": {
+                        "title": "\u5ba2\u88fd\u5316\u5340\u57df"
+                    }
+                },
+                "question_qMDTY7": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u8acb\u554f\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u5ba2\u88fd\u5316\u9700\u8981\u591a\u9577\u6642\u9593\uff1f",
+                        "answer": "<p>\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro \u7684\u5ba2\u88fd\u5316\u8a02\u55ae\u901a\u5e38\u9700\u8981 7-10 \u500b\u5de5\u4f5c\u65e5\u8655\u7406\uff0c\u5177\u9ad4\u6642\u9593\u8996\u8a02\u55ae\u91cf\u800c\u5b9a\u3002</p>"
+                    }
+                },
+                "question_BbThaW": {
+                    "type": "question",
+                    "settings": {
+                        "title": "\u6211\u9700\u8981\u5927\u91cf\u8a02\u88fd\u7e69\u4f86\u904b\u8f49 Velvet Strap Pro\uff0c\u662f\u53ef\u4ee5\u7684\u55ce\uff1f",
+                        "answer": "<p>\u6211\u5011\u975e\u5e38\u6b61\u8fce\u4f01\u696d\u3001\u5718\u9ad4\u548c\u793e\u5718\u4f86\u8a02\u88fd\u5c08\u5c6c\u65bc\u4f60\u5011\u7684 \u7e69\u4f86\u904b\u8f49 Velvet Strap Pro\u3002\u6211\u5011\u5c07\u6839\u64da\u60a8\u7684\u9700\u6c42\u63d0\u4f9b\u5831\u50f9\uff0c\u76f8\u4fe1\u5927\u6279\u91cf\u8a02\u88fd\u80fd\u5920\u5728\u4f01\u696d\u5f62\u8c61\u548c\u50f9\u683c\u65b9\u9762\u70ba\u60a8\u5e36\u4f86\u6700\u5927\u7684\u512a\u52e2\u3002</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "category_xT9J6A",
+                "question_eGiYKz",
+                "question_hCpYUV",
+                "question_wk3cTf",
+                "question_dNDgLY",
+                "category_tUjCi3",
+                "question_dx9p8Y",
+                "question_6LKyRk",
+                "question_pycbBH",
+                "question_FKkLJz",
+                "category_RazFtp",
+                "question_qMDTY7",
+                "question_BbThaW"
+            ],
+            "settings": {
+                "show_navigation": true,
+                "title": "FAQ",
+                "content": "",
+                "background": "rgba(0,0,0,0)",
+                "text_color": "rgba(0,0,0,0)"
+            }
+        },
+        "product-content": {
+            "type": "product-content",
+            "blocks": {
+                "description": {
+                    "type": "description",
+                    "settings": {}
+                },
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+                    "type": "content",
+                    "settings": {
+                        "title": "\u898f\u683c",
+                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+                        "page": ""
+                    }
+                }
+            },
+            "block_order": [
+                "description",
+                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+            ],
+            "settings": {}
         }
-      },
-      "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "photo_variant_picker_WwtNct",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh"
-      ],
-      "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": false,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
     },
-    "video_ehpiW4": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/1000710325",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_aKypqM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_RazTdG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_01.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_01.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_RazTdG"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "video_nGV7RF": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/1041632006",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_3bDkQd": {
-      "type": "slideshow",
-      "blocks": {
-        "image_bqhV9Y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_02.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_02.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_bqhV9Y"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Bqdten": {
-      "type": "slideshow",
-      "blocks": {
-        "image_NEMAKQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_03.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_03_6126ddc0-2f93-45d9-94b9-c6d8f317ad1e.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_NEMAKQ"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_Rk4MXh": {
-      "type": "slideshow",
-      "blocks": {
-        "image_3QECz3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_04gif.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_04.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_3QECz3"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_xzetDx": {
-      "type": "slideshow",
-      "blocks": {
-        "image_WBgGBc": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_05_7fd8d7a9-66e6-4b3d-bf0d-e816469165a2.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_05_fb0b62dd-7fff-4c4f-9825-d98044bbca5d.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_WBgGBc"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_E3anTw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_F4XAUj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_06_733f3dbd-338c-4b53-9a3c-22e8d6f1ac7e.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_06_684841d8-129d-4523-a657-d8ea0f9f3686.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_F4XAUj"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_LreQAy": {
-      "type": "slideshow",
-      "blocks": {
-        "image_RwwQHY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_07.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_07.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_RwwQHY"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_QFCqnC": {
-      "type": "slideshow",
-      "blocks": {
-        "image_qdQMhE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241218_08_de5da6e1-65ab-4b6e-b925-ee514b7243d9.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241218_08_69fb68ed-24c2-4441-817c-9c0f4071d729.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_qdQMhE"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "faq_7A9Tt9": {
-      "type": "faq",
-      "blocks": {
-        "category_xT9J6A": {
-          "type": "category",
-          "settings": {
-            "title": "產品相關"
-          }
-        },
-        "question_eGiYKz": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 產品可以清洗嗎？",
-            "answer": "<p>是的，您可以使用濕布輕輕擦拭 繩來運轉 Velvet Strap Pro 掛繩充電線以保持其清潔，但請避免將其浸泡在水中。</p>"
-          }
-        },
-        "question_hCpYUV": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 的最大充電功率是多少？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 支持高達 60W 的快速充電，適合為各種設備快速補充電量。</p>"
-          }
-        },
-        "question_wk3cTf": {
-          "type": "question",
-          "settings": {
-            "title": "我可以在使用手機保護殼的同時使用 繩來運轉 Velvet Strap Pro 嗎？",
-            "answer": "<p>是的，繩來運轉 Velvet Strap Pro 兼容大多數標準的手機保護殼，無需拆卸保護殼即可使用。</p>"
-          }
-        },
-        "question_dNDgLY": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 有幾種顏色可供選擇？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 提供五種顏色，讓您可以根據個人風格進行選擇。</p>"
-          }
-        },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_dx9p8Y": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 可以在任何環境下使用嗎？",
-            "answer": "<p>雖然繩來運轉 Velvet Strap Pro 耐用且適合日常使用，但建議避免長時間暴露在極端潮濕或高溫環境中。</p>"
-          }
-        },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "我可以用繩來運轉 Velvet Strap Pro 連接所有類型的設備嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 兼容 USB-C 和蘋果設備，但請確認您的設備支持這些端口類型。</p>"
-          }
-        },
-        "question_pycbBH": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 在使用過程中會產生過熱問題嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 設計具備優良的散熱性能。</p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "如何調整繩來運轉 Velvet Strap Pro 的長度？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 配有簡單易用的長度調節機制，輕輕拉動即可根據您的需求進行調整，總長度約莫160cm。</p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問繩來運轉 Velvet Strap Pro 客製化需要多長時間？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 的客製化訂單通常需要 7-10 個工作日處理，具體時間視訂單量而定。</p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製繩來運轉 Velvet Strap Pro，是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 繩來運轉 Velvet Strap Pro。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
-          }
-        }
-      },
-      "block_order": [
-        "category_xT9J6A",
-        "question_eGiYKz",
-        "question_hCpYUV",
-        "question_wk3cTf",
-        "question_dNDgLY",
-        "category_tUjCi3",
-        "question_dx9p8Y",
-        "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
-      ],
-      "settings": {
-        "show_navigation": true,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "product-content": {
-      "type": "product-content",
-      "blocks": {
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-          "type": "content",
-          "settings": {
-            "title": "規格",
-            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-      ],
-      "settings": {}
-    }
-  },
-  "order": [
-    "main",
-    "video_ehpiW4",
-    "17217531779a9cbfe4",
-    "video_nGV7RF",
-    "slideshow_aKypqM",
-    "slideshow_3bDkQd",
-    "slideshow_Bqdten",
-    "slideshow_Rk4MXh",
-    "slideshow_xzetDx",
-    "slideshow_E3anTw",
-    "slideshow_LreQAy",
-    "slideshow_QFCqnC",
-    "faq_7A9Tt9",
-    "product-content"
-  ]
+    "order": [
+        "main",
+        "video_ehpiW4",
+        "17217531779a9cbfe4",
+        "video_nGV7RF",
+        "slideshow_aKypqM",
+        "slideshow_3bDkQd",
+        "slideshow_Bqdten",
+        "slideshow_Rk4MXh",
+        "slideshow_xzetDx",
+        "slideshow_E3anTw",
+        "slideshow_LreQAy",
+        "slideshow_QFCqnC",
+        "faq_7A9Tt9",
+        "product-content"
+    ]
 }
