@@ -1,0 +1,823 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "10eed426-c481-4651-8503-74a9f6dc6018": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
+            "image_alignment": "left",
+            "image_width": 370
+          }
+        },
+        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+          }
+        },
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+          }
+        },
+        "photo_variant_picker_WwtNct": {
+          "type": "photo_variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "liquid_hpmDVh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "10eed426-c481-4651-8503-74a9f6dc6018",
+        "df999a05-d00f-4f60-87d3-401d4a092ce9",
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+        "photo_variant_picker_WwtNct",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_hpmDVh"
+      ],
+      "settings": {
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "related_collections": "{{ product.metafields.custom.attributes.value }}",
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "left",
+        "transition_effect": "slide"
+      }
+    },
+    "video_J7Hw9R": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://player.vimeo.com/video/1001536153",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_q6KAET": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3XEhL6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-01.webp",
+            "mobile_image": "shopify://shop_images/00_a1aa73d8-525f-4b0e-821c-d691818459bc.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3XEhL6"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_46FQi4": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "喝不停 AquaLux 開箱",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "17217531875f804291": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "slideshow_aKypqM": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9PF8CN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-02.webp",
+            "mobile_image": "shopify://shop_images/02_298ce4ed-eb58-4d93-9d28-70b38979d054.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_9PF8CN"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_PPXJ8W": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mNFEtE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-03.webp",
+            "mobile_image": "shopify://shop_images/03_cb78440e-7ee9-4806-a075-cda92140337a.jpg",
+            "text_position": "top_right",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_mNFEtE"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_3bDkQd": {
+      "type": "slideshow",
+      "blocks": {
+        "image_bqhV9Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-04.webp",
+            "mobile_image": "shopify://shop_images/04_4a113d1d-a617-481f-87b4-1af51424b05f.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_bqhV9Y"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Rk4MXh": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3QECz3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-05.webp",
+            "mobile_image": "shopify://shop_images/05_ff4c6f2e-07b2-4850-82e2-6c0c076189a8.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3QECz3"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Bqdten": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NEMAKQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-06.webp",
+            "mobile_image": "shopify://shop_images/06_84963dc8-934a-4935-960d-14eb0e5b0712.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_NEMAKQ"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_iHtYDC": {
+      "type": "slideshow",
+      "blocks": {
+        "image_dq3Ew7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-07.webp",
+            "mobile_image": "shopify://shop_images/07_d4dc2027-4bb3-4278-a93e-aeb42ad4a3b6.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_dq3Ew7"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_xzetDx": {
+      "type": "slideshow",
+      "blocks": {
+        "image_WBgGBc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-08.webp",
+            "mobile_image": "shopify://shop_images/08_6b73698f-a4f4-49c0-aefe-e738c4be2f2e.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_WBgGBc"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_E3anTw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_F4XAUj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-09.webp",
+            "mobile_image": "shopify://shop_images/09_f0d89800-00cf-4caa-8476-e67a0eb2743b.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_F4XAUj"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_mfA8BL": {
+      "type": "slideshow",
+      "blocks": {
+        "image_VexMGy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-10.webp",
+            "mobile_image": "shopify://shop_images/10_0bb92f44-3a86-434c-920d-e614058f29a1.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_VexMGy"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_9M9Ugt": {
+      "type": "slideshow",
+      "blocks": {
+        "image_cN7HN6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-11.webp",
+            "mobile_image": "shopify://shop_images/17_c976748a-711c-490e-a6b2-cd0837d13eb3.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_cN7HN6"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_qw3dBp": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Hk4BDi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-12.webp",
+            "mobile_image": "shopify://shop_images/16_526b6204-44ad-4fce-91cc-fa46ebd805c3.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_Hk4BDi"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_CNEfkG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_kQQQww": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-13.webp",
+            "mobile_image": "shopify://shop_images/11_76f9c0f9-21cf-4279-95d5-17a09f49728c.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_kQQQww"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Vyp96P": {
+      "type": "slideshow",
+      "blocks": {
+        "image_rJaKB8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-14.webp",
+            "mobile_image": "shopify://shop_images/13_5374c5d2-5ab4-4aac-a23c-247413ff9a25.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_rJaKB8"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_cqm7eX": {
+      "type": "slideshow",
+      "blocks": {
+        "image_iCiecT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/L108_web-15.webp",
+            "mobile_image": "shopify://shop_images/14_ae72c6e6-c17b-4632-8486-6e42070581e4.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_iCiecT"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_7A9Tt9": {
+      "type": "faq",
+      "blocks": {
+        "category_xT9J6A": {
+          "type": "category",
+          "settings": {
+            "title": "產品相關"
+          }
+        },
+        "question_eGiYKz": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機的容量是多少？",
+            "answer": "<p>喝不停 AquaLux 飲水機的容量為 2 公升，能夠滿足日常需求，適合寵物全天使用。</p>"
+          }
+        },
+        "question_hCpYUV": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機需要插電嗎？",
+            "answer": "<p>不需要，喝不停 AquaLux 採用智能無線感應技術，續航可達 10 天。</p><p>但是建議都是插著電，電池屬於應付緊急狀況。</p>"
+          }
+        },
+        "question_pGFKkT": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機的材質是否安全？",
+            "answer": "<p>是的，喝不停 AquaLux 飲水機採用無毒高溫陶瓷製成，不導電且無重金屬，抗汙抗敏，對寵物安全無害。</p>"
+          }
+        },
+        "question_wk3cTf": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機的過濾系統如何運作？",
+            "answer": "<p>喝不停 AquaLux 使用離子交換過濾系統，有效清除水中的雜質與細菌，提供潔淨的飲水。</p>"
+          }
+        },
+        "question_dNDgLY": {
+          "type": "question",
+          "settings": {
+            "title": "如何清潔 喝不停 AquaLux 飲水機？",
+            "answer": "<p>喝不停 AquaLux 飲水機設計為全機可拆卸，無死角清洗，方便保持水源清潔。</p>"
+          }
+        },
+        "category_tUjCi3": {
+          "type": "category",
+          "settings": {
+            "title": "注意事項"
+          }
+        },
+        "question_dx9p8Y": {
+          "type": "question",
+          "settings": {
+            "title": "如何設定 喝不停 AquaLux 飲水機的感應出水功能？",
+            "answer": "<p>喝不停 AquaLux 飲水機主機上方可以做切換，感應模式與持續出水模式。</p>"
+          }
+        },
+        "question_6LKyRk": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機是否支援加熱功能？",
+            "answer": "<p>可以選配有專屬恆溫加熱盤底座，確保水溫適中，讓寵物飲用更舒適。</p>"
+          }
+        },
+        "question_pycbBH": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機是否適合所有寵物？",
+            "answer": "<p>喝不停 AquaLux 飲水機適合大部分貓狗使用，特別適合對飲水品質有較高要求的寵物。</p>"
+          }
+        },
+        "question_FKkLJz": {
+          "type": "question",
+          "settings": {
+            "title": "多久需要更換 喝不停 AquaLux 飲水機的濾心？",
+            "answer": "<ul><li>建議每月更換一次濾心，以確保水質清潔，保護您的寵物健康。</li></ul><h3></h3>"
+          }
+        },
+        "question_hPkyY6": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機濾芯內容物是什麼？",
+            "answer": "<p>喝不停濾心採用中性離子交換樹脂與活性碳粉雙重濾材設計，能高效吸附水中雜質，同時有效改善水質硬度，為寵物提供更健康的飲水體驗。<br/><br/>注意事項<br/>初次使用或更換濾心時，可能因活性碳粉的特性，導致少量黑色粉末殘留於水中。這屬於正常現象，對水質安全無影響。為避免此情況，建議在正式使用前，按照以下步驟處理：<br/>1. 濾心浸泡：將濾心浸泡於清水中約5-10分鐘，幫助活性碳粉穩定。<br/>2. 更換清水：浸泡完成後，將水倒掉，重新加入乾淨的水。<br/><br/>完成上述步驟後，寵物即可安心飲用。此過程能確保濾水效果最佳，並提升您的使用體驗。</p>"
+          }
+        },
+        "question_VNQBKQ": {
+          "type": "question",
+          "settings": {
+            "title": "喝不停 AquaLux 飲水機運作有聲音，是正常的嗎？",
+            "answer": "<p>本機馬達運作的音量設計為正常範圍 35-50 分貝。此音量範圍經測試，對於毛孩使用本產品無影響，請安心使用。<br/><br/>需要提醒的是，分貝數值會因測試工具、現場環境音、測試公差等因素有所差異，因此我們提供此區間範圍供您參考，以便更準確地判斷產品音量的正常範圍。<br/><br/>【如何測試馬達音量】若您希望自行確認馬達的音量大小，可透過下載免費的分貝測試工具來進行檢測。多數智慧型手機應用商店都有提供這類工具，下載後，請在距離產品約 50 公分 ~ 1 公尺處測量，以取得準確數據。<br/><br/>【售後服務說明】若您發現產品在使用時超過了 50 分貝，請聯繫我們的官方 LINE 客服【@grantclassic】，提供訂單編號與測試的影片或相關數據。針對產品運作聲音可能異常的疑慮，我們會協助您確認商品狀況以保障您的權益。<br/><br/>*若分貝數無超過上述範圍，則不符合免費退貨標準，若要進行退貨則按「退貨政策」規範處理。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_xT9J6A",
+        "question_eGiYKz",
+        "question_hCpYUV",
+        "question_pGFKkT",
+        "question_wk3cTf",
+        "question_dNDgLY",
+        "category_tUjCi3",
+        "question_dx9p8Y",
+        "question_6LKyRk",
+        "question_pycbBH",
+        "question_FKkLJz",
+        "question_hPkyY6",
+        "question_VNQBKQ"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "video_J7Hw9R",
+    "slideshow_q6KAET",
+    "rich_text_46FQi4",
+    "17217531875f804291",
+    "slideshow_aKypqM",
+    "slideshow_PPXJ8W",
+    "slideshow_3bDkQd",
+    "slideshow_Rk4MXh",
+    "slideshow_Bqdten",
+    "slideshow_iHtYDC",
+    "slideshow_xzetDx",
+    "slideshow_E3anTw",
+    "slideshow_mfA8BL",
+    "slideshow_9M9Ugt",
+    "slideshow_qw3dBp",
+    "slideshow_CNEfkG",
+    "slideshow_Vyp96P",
+    "slideshow_cqm7eX",
+    "faq_7A9Tt9",
+    "product-content"
+  ]
+}
