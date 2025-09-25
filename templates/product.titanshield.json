@@ -29,7 +29,7 @@
           "settings": {
             "hide_sold_out_variants": false,
             "selector_mode": "block",
-            "color_mode": "variant_image"
+            "color_mode": "color"
           }
         },
         "variant_picker": {
