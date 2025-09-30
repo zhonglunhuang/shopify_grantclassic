@@ -193,8 +193,8 @@
         "image_jn4tBP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_3000_2_1.svg",
+            "image": "shopify://shop_images/02_71674d9d-9971-4487-a6ba-b1cf151f89fc.jpg",
+            "mobile_image": "shopify://shop_images/02_71674d9d-9971-4487-a6ba-b1cf151f89fc.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -222,119 +222,14 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_3AKEmp": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_zjFPpw": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/DSC02396.jpg",
-            "tab_label": "Item",
-            "subheading": "",
-            "title": "固態電池，只發電，不發火。",
-            "content": "<p><strong>穩如鈦山 TITANSHIELD</strong> 採用全球領先的<strong>固態電池核心技術</strong>，即使遭遇<strong>摔落、刺穿、水浸、甚至火燒</strong>等極端測試，依然穩定供電、毫無異狀。</p><p>這不只是安全，更是對日常風險的全面免疫。無論在城市通勤或戶外探險，都能給你<strong>最踏實的行動電力後盾</strong>。</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_zjFPpw"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "right",
-        "text_alignment": "left",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "testimonials_RX38aa": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_fkjadR": {
-          "type": "testimonial",
-          "settings": {
-            "content": "原本只是想找一顆輕薄的 MagSafe 行動電源，沒想到這顆真的跌到地上都沒事，還是照樣充電！「只發電，不發火」真的不是講假的，用起來很安心。",
-            "author": "楊先生"
-          }
-        },
-        "testimonial_wRMMaB": {
-          "type": "testimonial",
-          "settings": {
-            "content": "每天在咖啡廳移動工作，行動電源是必備。我以前的電源常常會熱，這款用了快一個月幾乎都不會發燙，磁吸也很準，真的愛上。",
-            "author": "Irene"
-          }
-        },
-        "testimonial_gmW7ir": {
-          "type": "testimonial",
-          "settings": {
-            "content": "上山露營最怕電子設備出問題，我特地實測把它放在潮濕環境還插針試過，居然真的沒反應。看得出來是實心電芯，不是一般那種虛的固態名號。",
-            "author": "Leo"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_fkjadR",
-        "testimonial_wRMMaB",
-        "testimonial_gmW7ir"
-      ],
-      "name": "Testimonials",
-      "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_GNJUEa": {
-      "type": "image-with-text",
-      "blocks": {
-        "item_JKYMjj": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2-1_Main_0000.png",
-            "tab_label": "行動電源的新革命",
-            "subheading": "",
-            "title": "行動電源的新革命",
-            "content": "<p><strong>穩如鈦山 TITANSHIELD</strong> 將全球領先的<strong>固態電池技術</strong>正式導入行動電源領域，不僅帶來安全性的大幅躍升，更實現高達 <strong>200% 的性能優化</strong>，重新定義什麼才是真正可靠的電力夥伴。</p><p>內建 <strong>5000mAh 固態電芯</strong>，支援 <strong>15W MagSafe 無線快充</strong>，可為 iPhone 充電約 <strong>1.2 次</strong>。歷經超過 <strong>1,000 次完整充放電循環</strong>後，電池依然維持穩定輸出，無明顯衰退，展現前所未見的壽命與耐久。</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_JKYMjj"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "boxed",
-        "background_overlap": "text",
-        "image_position": "left",
-        "text_alignment": "left",
-        "cycle_speed": 7,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_jCqCWd": {
+    "slideshow_E4FChF": {
       "type": "slideshow",
       "blocks": {
-        "image_MdLcyM": {
+        "image_dkc3qG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3_1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_1400_3_1.svg",
+            "image": "shopify://shop_images/03_4ff37d51-0a8a-4888-8310-d95deff3bf0c.jpg",
+            "mobile_image": "shopify://shop_images/03_4ff37d51-0a8a-4888-8310-d95deff3bf0c.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -351,7 +246,147 @@
         }
       },
       "block_order": [
-        "image_MdLcyM"
+        "image_dkc3qG"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_FyKwdP": {
+      "type": "slideshow",
+      "blocks": {
+        "image_yTPFFJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/04_59ced83f-93b3-4b59-ab71-b6d034a30663.jpg",
+            "mobile_image": "shopify://shop_images/04_59ced83f-93b3-4b59-ab71-b6d034a30663.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_yTPFFJ"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_AiWUEW": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NjnBtf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/05_0db9bb05-7d19-47e1-a5c5-c860bf2953be.jpg",
+            "mobile_image": "shopify://shop_images/05_0db9bb05-7d19-47e1-a5c5-c860bf2953be.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_NjnBtf"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_EyVbPz": {
+      "type": "slideshow",
+      "blocks": {
+        "image_pijaTe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/06_f46ffc4e-ce6f-4914-8167-fcf07c8f0400.jpg",
+            "mobile_image": "shopify://shop_images/06_f46ffc4e-ce6f-4914-8167-fcf07c8f0400.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_pijaTe"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_DezmMz": {
+      "type": "slideshow",
+      "blocks": {
+        "image_yLw3mt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/08_701165ff-a22f-4f90-92af-d07a9bfa0a97.jpg",
+            "mobile_image": "shopify://shop_images/08_701165ff-a22f-4f90-92af-d07a9bfa0a97.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_yLw3mt"
       ],
       "name": "Slideshow",
       "settings": {
@@ -526,10 +561,11 @@
     "slideshow_K88RHB",
     "video_rG4P34",
     "slideshow_TEHnJw",
-    "image_with_text_3AKEmp",
-    "testimonials_RX38aa",
-    "image_with_text_GNJUEa",
-    "slideshow_jCqCWd",
+    "slideshow_E4FChF",
+    "slideshow_FyKwdP",
+    "slideshow_AiWUEW",
+    "slideshow_EyVbPz",
+    "slideshow_DezmMz",
     "collection_list_YkaaHQ",
     "product-content",
     "faq_JLMtcN"
