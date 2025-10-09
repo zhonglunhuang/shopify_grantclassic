@@ -776,42 +776,58 @@
             "title": "常見問題"
           }
         },
-        "question_LiDPCr": {
-          "type": "question",
-          "settings": {
-            "title": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
-          }
-        },
         "question_d3aeBf": {
           "type": "question",
           "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "購買後有保固嗎？",
+            "answer": "<p><strong>提供一年保固</strong>，非人為損壞皆可申請維修或換新。</p>"
           }
         },
-        "category_pDxVgB": {
-          "type": "category",
+        "question_LiDPCr": {
+          "type": "question",
           "settings": {
-            "title": "Other"
+            "title": "哪些安全帽可以使用？",
+            "answer": "<p>C600 適用於 <strong>全罩式、3/4 半罩式</strong> 安全帽，能靈活安裝。</p>"
           }
         },
         "question_daQxkG": {
           "type": "question",
           "settings": {
-            "title": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "續航力大概多久？",
+            "answer": "<p>滿電狀態下，可連續播放/通話約 <strong>30 小時</strong>；待機時間可達 <strong>一週以上</strong>。</p>"
+          }
+        },
+        "question_dbgq8J": {
+          "type": "question",
+          "settings": {
+            "title": "對講距離有多遠？",
+            "answer": "<p>在無干擾環境下，對講距離最遠可達 <strong>500 公尺</strong>。</p>"
+          }
+        },
+        "question_UtTigB": {
+          "type": "question",
+          "settings": {
+            "title": "可以同時連接幾台設備？",
+            "answer": "<p>支援 <strong>兩台設備同時連線</strong>。</p>"
+          }
+        },
+        "question_ECazkB": {
+          "type": "question",
+          "settings": {
+            "title": "防水嗎？遇到下雨能用嗎？",
+            "answer": "<p>具備 <strong>IPX6 防水等級</strong>，一般雨天或濺水環境可安心使用。</p>"
           }
         }
       },
       "block_order": [
         "category_9G7AfJ",
-        "question_LiDPCr",
         "question_d3aeBf",
-        "category_pDxVgB",
-        "question_daQxkG"
+        "question_LiDPCr",
+        "question_daQxkG",
+        "question_dbgq8J",
+        "question_UtTigB",
+        "question_ECazkB"
       ],
-      "disabled": true,
       "name": "FAQ",
       "settings": {
         "show_navigation": false,
