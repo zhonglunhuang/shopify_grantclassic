@@ -792,6 +792,7 @@
         "category_pDxVgB",
         "question_daQxkG"
       ],
+      "disabled": true,
       "name": "FAQ",
       "settings": {
         "show_navigation": false,
