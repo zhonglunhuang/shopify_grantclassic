@@ -4,7 +4,6 @@
 {% if request.path == '/apps/pagefly' %}
   <meta name="robots" content="noindex">
 {% endif %}
-
 {%- liquid
   assign isValidPageBuitByPageFly = true
   if template.suffix != 'blank' and template.suffix contains 'pf-'
