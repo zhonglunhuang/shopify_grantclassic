@@ -50,6 +50,25 @@
             "overlay_opacity": 0
           }
         },
+        "image_3a8yqE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/www.grantclassic.com_1.png",
+            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/luxair",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_fQxd4L": {
           "type": "image",
           "settings": {
@@ -87,33 +106,14 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        },
-        "image_3a8yqE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/99_OUTPUT-10.webp",
-            "mobile_image": "shopify://shop_images/99_OUTPUT-11.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/luxair",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
         }
       },
       "block_order": [
         "image_CbX6Bt",
         "image_RfXrF6",
+        "image_3a8yqE",
         "image_fQxd4L",
-        "image_P999HC",
-        "image_3a8yqE"
+        "image_P999HC"
       ],
       "settings": {
         "section_height": "auto",
