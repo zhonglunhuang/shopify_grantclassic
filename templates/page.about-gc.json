@@ -71,7 +71,7 @@
             "tab_label": "Item",
             "subheading": "",
             "title": "我們的使命",
-            "content": "<ul><li>做最好的事情</li><li>將我們的客戶視為夥伴</li><li>抵銷我們對環境的影響</li><li>快樂優先於成長</li></ul><p></p><p>這個使命，我們會一直不斷延續下去，恰巧學習一直都是我們團隊的最核心的目標，我們也將它寫下來了，grantclssic 將會一直學習下去，並創造研發更棒的產品。</p>",
+            "content": "<ul><li>做最好的事情</li><li>將我們的客戶視為夥伴</li><li>抵銷我們對環境的影響</li><li>快樂優先於成長</li></ul><p></p><p>這個使命，我們會一直不斷延續下去，恰巧學習一直都是我們團隊的最核心的目標，我們也將它寫下來了，grantclassic 將會一直學習下去，並創造研發更棒的產品。</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -101,7 +101,7 @@
         "image": "shopify://shop_images/DSC00692.jpg",
         "subheading": "",
         "title": "我們的目的",
-        "content": "<p>grantclssic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。</p>",
+        "content": "<p>grantclassic 的目的是為在這裡工作的人們創造快樂、有意義的生活。我們相信，只有當每天有 40 名（並且還在增加）自我實現、高度興奮的人熱情地走進 grantclssic 辦公室時，我們的使命才能實現。我們的宗旨和使命齊頭並進。</p>",
         "button_text": "",
         "button_link": "",
         "link_style": "link",
@@ -489,36 +489,6 @@
             "text_alignment": "left",
             "vertical_alignment": "start"
           }
-        },
-        "item_QJ3Nk9": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "彭佳玉",
-            "content": "<p><strong>設計師</strong></p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
-        "item_Gh3RYB": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2_8b8619bd-87c8-42d1-92eb-fbd715395786.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Annie",
-            "content": "<p><strong>財務</strong></p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
         }
       },
       "block_order": [
@@ -533,9 +503,7 @@
         "item_4ng8WV",
         "item_KBMxmM",
         "item_RAHyXi",
-        "item_VGXYYP",
-        "item_QJ3Nk9",
-        "item_Gh3RYB"
+        "item_VGXYYP"
       ],
       "settings": {
         "reveal_on_scroll": true,
