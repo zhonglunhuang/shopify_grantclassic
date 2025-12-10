@@ -99,19 +99,6 @@
         "transition_effect": "slide"
       }
     },
-    "video_YyGwGp": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://player.vimeo.com/video/1001419135",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_q6KAET": {
       "type": "slideshow",
       "blocks": {
@@ -143,6 +130,19 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "video_YyGwGp": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://player.vimeo.com/video/1001419135",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "rich_text_D3N4Xq": {
@@ -885,8 +885,8 @@
   },
   "order": [
     "main",
-    "video_YyGwGp",
     "slideshow_q6KAET",
+    "video_YyGwGp",
     "rich_text_D3N4Xq",
     "17217531875f804291",
     "17217531779a9cbfe4",
