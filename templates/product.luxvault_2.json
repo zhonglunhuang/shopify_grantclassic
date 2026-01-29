@@ -112,6 +112,24 @@
         "transition_effect": "slide"
       }
     },
+    "17217886296359dc4e": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
     "slideshow_zHNYTA": {
       "type": "slideshow",
       "blocks": {
@@ -400,24 +418,6 @@
         "include_vertical_margins": true
       }
     },
-    "17217886296359dc4e": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -444,6 +444,7 @@
   "order": [
     "1721752751939b7d14",
     "main",
+    "17217886296359dc4e",
     "slideshow_zHNYTA",
     "slideshow_WGi77R",
     "slideshow_Pgb6YC",
@@ -453,7 +454,6 @@
     "slideshow_k4QwKY",
     "slideshow_JVnBn4",
     "17339957580d14b91e",
-    "17217886296359dc4e",
     "product-content"
   ]
 }
