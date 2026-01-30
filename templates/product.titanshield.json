@@ -138,6 +138,41 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_TEHnJw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jn4tBP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160X540.jpg",
+            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jn4tBP"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_K88RHB": {
       "type": "slideshow",
       "blocks": {
@@ -185,41 +220,6 @@
         "autoplay": true,
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_TEHnJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_jn4tBP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X540.jpg",
-            "mobile_image": "shopify://shop_images/2160X540_1d6bf96c-f8e5-4e5b-8200-6e590478d589.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_jn4tBP"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
       }
     },
     "slideshow_WdypNk": {
