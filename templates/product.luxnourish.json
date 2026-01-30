@@ -99,6 +99,39 @@
         "transition_effect": "slide"
       }
     },
+    "slideshow_jWVkRN": {
+      "type": "slideshow",
+      "blocks": {
+        "image_t6Wj9i": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160X540_e0ef861d-c80d-4e59-9c24-40f3a6c7a354.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_t6Wj9i"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_q6KAET": {
       "type": "slideshow",
       "blocks": {
@@ -727,39 +760,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_jWVkRN": {
-      "type": "slideshow",
-      "blocks": {
-        "image_t6Wj9i": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/AI_2160X1080_17_f3bfdf70-9eac-4a33-b636-c9c02824a985.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_t6Wj9i"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "faq_7A9Tt9": {
       "type": "faq",
       "blocks": {
@@ -885,6 +885,7 @@
   },
   "order": [
     "main",
+    "slideshow_jWVkRN",
     "slideshow_q6KAET",
     "video_YyGwGp",
     "rich_text_D3N4Xq",
@@ -906,7 +907,6 @@
     "slideshow_eALAH9",
     "slideshow_rVAcP8",
     "slideshow_qBRWX3",
-    "slideshow_jWVkRN",
     "faq_7A9Tt9",
     "product-content"
   ]
