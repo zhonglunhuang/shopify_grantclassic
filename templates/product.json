@@ -6,174 +6,211 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
-    "sections": {
-        "1721752751939b7d14": {
-            "type": "apps",
-            "blocks": {
-                "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-                    "settings": {
-                        "section_id": ""
-                    }
-                }
-            },
-            "block_order": [
-                "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
-            ],
-            "settings": {
-                "include_horizontal_margins": false,
-                "include_vertical_margins": false
-            }
-        },
-        "main": {
-            "type": "main-product",
-            "blocks": {
-                "10eed426-c481-4651-8503-74a9f6dc6018": {
-                    "type": "image",
-                    "disabled": true,
-                    "settings": {
-                        "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
-                        "image_alignment": "left",
-                        "image_width": 370
-                    }
-                },
-                "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-                    "type": "text",
-                    "settings": {
-                        "text": "{{ product.metafields.custom._000test | metafield_tag }}"
-                    }
-                },
-                "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-                    "type": "text",
-                    "settings": {
-                        "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-                    }
-                },
-                "variant_picker": {
-                    "type": "variant_picker",
-                    "settings": {
-                        "hide_sold_out_variants": false,
-                        "selector_mode": "block",
-                        "color_mode": "color",
-                        "size_chart_page": ""
-                    }
-                },
-                "quantity_selector": {
-                    "type": "quantity_selector",
-                    "settings": {}
-                },
-                "buy_buttons": {
-                    "type": "buy_buttons",
-                    "settings": {
-                        "show_payment_button": false,
-                        "atc_button_background": "rgba(0,0,0,0)",
-                        "atc_button_text_color": "rgba(0,0,0,0)",
-                        "buy_now_button_background": "rgba(0,0,0,0)",
-                        "buy_now_button_text_color": "rgba(0,0,0,0)"
-                    }
-                },
-                "liquid_hpmDVh": {
-                    "type": "liquid",
-                    "settings": {
-                        "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-                    }
-                },
-                "vitals_ub_product_bundles_6q9X7a": {
-                    "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-                    "settings": {}
-                }
-            },
-            "block_order": [
-                "10eed426-c481-4651-8503-74a9f6dc6018",
-                "df999a05-d00f-4f60-87d3-401d4a092ce9",
-                "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-                "variant_picker",
-                "quantity_selector",
-                "buy_buttons",
-                "liquid_hpmDVh",
-                "vitals_ub_product_bundles_6q9X7a"
-            ],
-            "custom_css": [],
-            "settings": {
-                "show_vendor": true,
-                "show_sku": false,
-                "show_taxes_included": false,
-                "show_product_rating": false,
-                "show_sticky_add_to_cart": true,
-                "show_share_buttons": true,
-                "related_collections": "{{ product.metafields.custom.attributes.value }}",
-                "help_page": "",
-                "enable_video_autoplay": true,
-                "enable_video_looping": false,
-                "enable_image_zoom": true,
-                "show_thumbnails_on_mobile": false,
-                "desktop_thumbnails_position": "left",
-                "transition_effect": "slide"
-            }
-        },
-        "17339957580d14b91e": {
-            "type": "apps",
-            "blocks": {
-                "vitals_ub_product_bundles_xKNKpV": {
-                    "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-                    "settings": {}
-                }
-            },
-            "block_order": [
-                "vitals_ub_product_bundles_xKNKpV"
-            ],
-            "settings": {
-                "include_horizontal_margins": true,
-                "include_vertical_margins": true
-            }
-        },
-        "17217886296359dc4e": {
-            "type": "apps",
-            "blocks": {
-                "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-                    "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-                    "settings": {
-                        "playlist_id": ""
-                    }
-                }
-            },
-            "block_order": [
-                "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
-            ],
-            "settings": {
-                "include_horizontal_margins": false,
-                "include_vertical_margins": false
-            }
-        },
-        "product-content": {
-            "type": "product-content",
-            "blocks": {
-                "description": {
-                    "type": "description",
-                    "settings": {}
-                },
-                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
-                    "type": "content",
-                    "settings": {
-                        "title": "\u898f\u683c",
-                        "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
-                        "page": ""
-                    }
-                }
-            },
-            "block_order": [
-                "description",
-                "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
-            ],
-            "settings": {}
+ */
+{
+  "sections": {
+    "1721752751939b7d14": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "section_id": ""
+          }
         }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
     },
-    "order": [
-        "1721752751939b7d14",
-        "main",
-        "17339957580d14b91e",
-        "17217886296359dc4e",
-        "product-content"
-    ]
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "10eed426-c481-4651-8503-74a9f6dc6018": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
+            "image_alignment": "left",
+            "image_width": 370
+          }
+        },
+        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+          }
+        },
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "liquid_hpmDVh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
+        },
+        "vitals_ub_product_bundles_6q9X7a": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "10eed426-c481-4651-8503-74a9f6dc6018",
+        "df999a05-d00f-4f60-87d3-401d4a092ce9",
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_hpmDVh",
+        "vitals_ub_product_bundles_6q9X7a"
+      ],
+      "custom_css": [],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": true,
+        "related_collections": "{{ product.metafields.custom.attributes.value }}",
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "left",
+        "transition_effect": "slide"
+      }
+    },
+    "17339957580d14b91e": {
+      "type": "apps",
+      "blocks": {
+        "vitals_ub_product_bundles_xKNKpV": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_ub_product_bundles_xKNKpV"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "17217886296359dc4e": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "playlist_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "slideshow_UETiHb": {
+      "type": "slideshow",
+      "blocks": {
+        "image_PLf7iP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160X540_caf65196-967f-4fae-9174-8e480877ad89.jpg",
+            "mobile_image": "shopify://shop_images/1000X700_1b4ad36b-fc06-496f-a2a6-0acfd8155e15.jpg",
+            "text_position": "middle_center",
+            "subheading": "Tell your story",
+            "title": "Slide 1",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_PLf7iP"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "1721752751939b7d14",
+    "main",
+    "17339957580d14b91e",
+    "17217886296359dc4e",
+    "slideshow_UETiHb",
+    "product-content"
+  ]
 }
