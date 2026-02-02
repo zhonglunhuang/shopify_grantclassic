@@ -154,6 +154,40 @@
         "image_HrdgY7": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/2160X540_6cdfdb7e-08cc-410b-8114-1819a6ea8e76.jpg",
+            "mobile_image": "shopify://shop_images/1000X700_2eee20f8-a686-4c86-a91b-49ca78671209.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_HrdgY7"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_gHiV8P": {
+      "type": "slideshow",
+      "blocks": {
+        "image_z9adhX": {
+          "type": "image",
+          "settings": {
             "image": "shopify://shop_images/PC_01_fdfa844c-782c-4733-90eb-c20de72d7445.jpg",
             "mobile_image": "shopify://shop_images/01_127977fa-e255-467d-a279-9d21e4795f40.jpg",
             "text_position": "middle_center",
@@ -172,7 +206,7 @@
         }
       },
       "block_order": [
-        "image_HrdgY7"
+        "image_z9adhX"
       ],
       "settings": {
         "section_height": "auto",
@@ -223,7 +257,6 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/PC_03_30fa1cc5-7bd0-479a-8764-10e34fea0868.jpg",
-            "mobile_image": "shopify://shop_images/03_9fc09772-3843-4b81-8e1f-cab65868b09a.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -920,6 +953,7 @@
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
     "slideshow_hyKXDy",
+    "slideshow_gHiV8P",
     "slideshow_8HbLhT",
     "slideshow_bAQC4h",
     "slideshow_fQikp9",
