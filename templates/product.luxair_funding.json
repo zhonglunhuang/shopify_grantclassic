@@ -118,6 +118,40 @@
         "image_JkHREp": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/2160X540_0da936da-fa06-4e59-86e2-c253e1e1b42c.jpg",
+            "mobile_image": "shopify://shop_images/1000X700_44eee972-9bca-4e22-bfa3-c8d5d964e2d4.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://products/luxairhepah12151",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_JkHREp"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_apcewV": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RcpXDB": {
+          "type": "image",
+          "settings": {
             "image": "shopify://shop_images/web_01_20250102.jpg",
             "mobile_image": "shopify://shop_images/phone_01_20250102.jpg",
             "text_position": "middle_center",
@@ -136,7 +170,7 @@
         }
       },
       "block_order": [
-        "image_JkHREp"
+        "image_RcpXDB"
       ],
       "settings": {
         "section_height": "auto",
@@ -932,8 +966,9 @@
   },
   "order": [
     "main",
-    "video_xyFBfm",
     "slideshow_FB97hy",
+    "video_xyFBfm",
+    "slideshow_apcewV",
     "slideshow_BMUk7a",
     "custom_html_e4LdMb",
     "slideshow_4LpLdW",
