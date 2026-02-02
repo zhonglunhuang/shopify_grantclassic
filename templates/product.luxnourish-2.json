@@ -106,6 +106,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/2160X540_16fdcbd2-b292-470a-8673-4baff0a8e4dc.jpg",
+            "mobile_image": "shopify://shop_images/1000X700_df639272-c7a4-4598-babd-42a921df5135.jpg",
             "text_position": "top_right",
             "subheading": "",
             "title": "",
