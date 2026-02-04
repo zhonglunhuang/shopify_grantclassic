@@ -842,7 +842,6 @@
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "title": "規格",
             "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
