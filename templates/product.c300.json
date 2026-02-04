@@ -1,0 +1,867 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1721752751939b7d14": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "settings": {
+            "section_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "10eed426-c481-4651-8503-74a9f6dc6018": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
+            "image_alignment": "left",
+            "image_width": 370
+          }
+        },
+        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+          }
+        },
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "color",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "liquid_hpmDVh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
+          }
+        },
+        "vitals_ub_product_bundles_6q9X7a": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "10eed426-c481-4651-8503-74a9f6dc6018",
+        "df999a05-d00f-4f60-87d3-401d4a092ce9",
+        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_hpmDVh",
+        "vitals_ub_product_bundles_6q9X7a"
+      ],
+      "custom_css": [],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": true,
+        "related_collections": "{{ product.metafields.custom.attributes.value }}",
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "left",
+        "transition_effect": "slide"
+      }
+    },
+    "17339957580d14b91e": {
+      "type": "apps",
+      "blocks": {
+        "vitals_ub_product_bundles_xKNKpV": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_ub_product_bundles_xKNKpV"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "17217886296359dc4e": {
+      "type": "apps",
+      "blocks": {
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "disabled": true,
+          "settings": {
+            "playlist_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
+      ],
+      "settings": {
+        "include_horizontal_margins": false,
+        "include_vertical_margins": false
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
+          "type": "content",
+          "settings": {
+            "title": "規格",
+            "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+      ],
+      "settings": {}
+    },
+    "rich_text_rBANbQ": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<h3><strong>融合高端技術與騎士所需便利，C600 為每一次騎行帶來進化體驗。</strong></h3><p>搭載 <strong>CVC 降噪技術</strong>，即便在呼嘯的風聲或繁忙街道，也能確保通話與音樂的清晰度。</p><p>配備 <strong>1000mAh 超大容量電池</strong>，支援長時間續航，無論短途通勤還是長途旅行，都能輕鬆應對。</p><p>支援 <strong>智能語音提示</strong>，不同用戶皆能便捷使用。升級 多APP共享 功能，讓導航、音樂、通話無縫切換更高效。</p><p>對講功能覆蓋 <strong>500 米</strong>，與同伴共享旅程零距離；劇院級音效呈現深沉低頻與清晰高音，為你帶來沉浸式聽覺享受。</p><p>選擇「<strong>我聽你講 RideTune C600</strong>」，體驗音質、續航、安全的全面升級。</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_aerG7M": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Hf8gQi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-001_1a045ae5-7dd0-49f7-b827-113978daca7f.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_Hf8gQi"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_c9mcBf": {
+      "type": "slideshow",
+      "blocks": {
+        "image_UjapRP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-002_374c036e-e1d4-4bc1-b02b-401df98d7f28.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_UjapRP"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_qYEEaq": {
+      "type": "slideshow",
+      "blocks": {
+        "image_AAx6Rb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-003_2c524441-1578-497c-9dbc-44a795160d06.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_AAx6Rb"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Brmi93": {
+      "type": "slideshow",
+      "blocks": {
+        "image_74JwKK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-004_2738ba28-0e21-46d9-8a5a-958201d209a9.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_74JwKK"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_amz6Eq": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mXDBNH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-005_6703c1c3-5474-4554-9d61-2660dc8c9eda.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_mXDBNH"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_LMgnDE": {
+      "type": "slideshow",
+      "blocks": {
+        "image_nrqRL6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-006_34357e3d-9a35-4b7f-bfee-6edcb5b2acba.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_nrqRL6"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_AbWdH4": {
+      "type": "slideshow",
+      "blocks": {
+        "image_i3Kh6b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-007_2798f3f2-10d9-4bbc-91c0-6ee6227a9ebe.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_i3Kh6b"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_pz9Nat": {
+      "type": "slideshow",
+      "blocks": {
+        "image_nNp98W": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-008_4c21c65b-f546-4119-80d1-adea5b7b1ddf.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_nNp98W"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_tHUFGV": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mfpddT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-009_23f86256-96ae-4452-9a04-f5283d0fe9d4.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_mfpddT"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_nMrwzK": {
+      "type": "slideshow",
+      "blocks": {
+        "image_JEfqHm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-010_4de29601-f656-463f-b887-8539dc572c6e.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_JEfqHm"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_jNXBta": {
+      "type": "slideshow",
+      "blocks": {
+        "image_4ECYW4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-011_e2772dfc-2124-4a1c-907a-b44120276ae5.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_4ECYW4"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_7ALzmU": {
+      "type": "slideshow",
+      "blocks": {
+        "image_UpAUCf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-012_26bf97d6-79ce-49c7-ac0c-3c04b36a3d9a.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_UpAUCf"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_FeYQhn": {
+      "type": "slideshow",
+      "blocks": {
+        "image_BNckyU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-013_abce111e-dad1-4805-b3fa-77c82d850a1f.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_BNckyU"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_gAx97h": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3YWjCB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-014_83fc6c2e-0c81-4a15-9e64-9122896c44d7.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_3YWjCB"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_NFrDAL": {
+      "type": "slideshow",
+      "blocks": {
+        "image_WXDPMQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-015_50468c1f-bcaa-4669-90f3-6e8882733a11.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_WXDPMQ"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_g9pKV4": {
+      "type": "slideshow",
+      "blocks": {
+        "image_MDwxgE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-016_73fdfab2-57bf-4751-93ae-84a36d46713c.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_MDwxgE"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_Nheyca": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jD3kEi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000X1000-017_9c555134-5aa6-4df9-b951-1017ed96604f.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jD3kEi"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_6X6mTc": {
+      "type": "faq",
+      "blocks": {
+        "category_9G7AfJ": {
+          "type": "category",
+          "settings": {
+            "title": "常見問題"
+          }
+        },
+        "question_d3aeBf": {
+          "type": "question",
+          "settings": {
+            "title": "購買後有保固嗎？",
+            "answer": "<p><strong>提供一年保固</strong>，非人為損壞皆可申請維修或換新。</p>"
+          }
+        },
+        "question_LiDPCr": {
+          "type": "question",
+          "settings": {
+            "title": "哪些安全帽可以使用？",
+            "answer": "<p>C600 適用於 <strong>全罩式、3/4 半罩式</strong> 安全帽，能靈活安裝。</p>"
+          }
+        },
+        "question_daQxkG": {
+          "type": "question",
+          "settings": {
+            "title": "續航力大概多久？",
+            "answer": "<p>滿電狀態下，可連續播放/通話約 <strong>30 小時</strong>；待機時間可達 <strong>一週以上</strong>。</p>"
+          }
+        },
+        "question_dbgq8J": {
+          "type": "question",
+          "settings": {
+            "title": "對講距離有多遠？",
+            "answer": "<p>在無干擾環境下，對講距離最遠可達 <strong>500 公尺</strong>。</p>"
+          }
+        },
+        "question_UtTigB": {
+          "type": "question",
+          "settings": {
+            "title": "可以同時連接幾台設備？",
+            "answer": "<p>支援 <strong>兩台設備同時連線</strong>。</p>"
+          }
+        },
+        "question_ECazkB": {
+          "type": "question",
+          "settings": {
+            "title": "防水嗎？遇到下雨能用嗎？",
+            "answer": "<p>具備 <strong>IPX6 防水等級</strong>，一般雨天或濺水環境可安心使用。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_9G7AfJ",
+        "question_d3aeBf",
+        "question_LiDPCr",
+        "question_daQxkG",
+        "question_dbgq8J",
+        "question_UtTigB",
+        "question_ECazkB"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "1721752751939b7d14",
+    "main",
+    "17339957580d14b91e",
+    "17217886296359dc4e",
+    "product-content",
+    "rich_text_rBANbQ",
+    "slideshow_aerG7M",
+    "slideshow_c9mcBf",
+    "slideshow_qYEEaq",
+    "slideshow_Brmi93",
+    "slideshow_amz6Eq",
+    "slideshow_LMgnDE",
+    "slideshow_AbWdH4",
+    "slideshow_pz9Nat",
+    "slideshow_tHUFGV",
+    "slideshow_nMrwzK",
+    "slideshow_jNXBta",
+    "slideshow_7ALzmU",
+    "slideshow_FeYQhn",
+    "slideshow_gAx97h",
+    "slideshow_NFrDAL",
+    "slideshow_g9pKV4",
+    "slideshow_Nheyca",
+    "faq_6X6mTc"
+  ]
+}
