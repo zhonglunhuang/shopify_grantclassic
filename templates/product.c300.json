@@ -114,6 +114,22 @@
         "transition_effect": "slide"
       }
     },
+    "17339957580d14b91e": {
+      "type": "apps",
+      "blocks": {
+        "vitals_ub_product_bundles_xKNKpV": {
+          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vitals_ub_product_bundles_xKNKpV"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
     "rich_text_rBANbQ": {
       "type": "rich-text",
       "disabled": true,
@@ -837,27 +853,12 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {}
-    },
-    "17339957580d14b91e": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_product_bundles_xKNKpV": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_ub_product_bundles_xKNKpV"
-      ],
-      "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
-      }
     }
   },
   "order": [
     "1721752751939b7d14",
     "main",
+    "17339957580d14b91e",
     "rich_text_rBANbQ",
     "slideshow_aerG7M",
     "slideshow_c9mcBf",
@@ -878,7 +879,6 @@
     "slideshow_Nheyca",
     "slideshow_aXY4Hk",
     "faq_6X6mTc",
-    "product-content",
-    "17339957580d14b91e"
+    "product-content"
   ]
 }
