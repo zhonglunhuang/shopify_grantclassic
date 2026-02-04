@@ -22,7 +22,6 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
       ],
-      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
@@ -67,6 +66,7 @@
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
             "show_payment_button": false,
             "atc_button_background": "rgba(0,0,0,0)",
@@ -77,12 +77,14 @@
         },
         "liquid_hpmDVh": {
           "type": "liquid",
+          "disabled": true,
           "settings": {
             "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         },
         "vitals_ub_product_bundles_6q9X7a": {
           "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
           "settings": {}
         }
       },
