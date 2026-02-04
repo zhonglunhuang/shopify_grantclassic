@@ -77,7 +77,6 @@
         },
         "liquid_hpmDVh": {
           "type": "liquid",
-          "disabled": true,
           "settings": {
             "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
