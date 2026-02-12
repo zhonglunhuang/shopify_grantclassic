@@ -113,6 +113,20 @@
         "transition_effect": "slide"
       }
     },
+    "video_Hf64k3": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/TjnRQvmL_rw",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_jaf3XD": {
       "type": "slideshow",
       "blocks": {
@@ -853,6 +867,7 @@
   "order": [
     "1721752751939b7d14",
     "main",
+    "video_Hf64k3",
     "slideshow_jaf3XD",
     "slideshow_CmmeT8",
     "slideshow_E3HjUH",
