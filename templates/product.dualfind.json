@@ -773,47 +773,13 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_wwNbgH": {
-      "type": "slideshow",
-      "blocks": {
-        "image_8yx9pF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/page_20.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_8yx9pF"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_HqFKFY": {
       "type": "slideshow",
       "blocks": {
         "image_m4HXTk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/page_21.jpg",
+            "image": "shopify://shop_images/page_20_4517a075-90c6-43dd-9a91-d832cd33e498.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -831,6 +797,40 @@
       },
       "block_order": [
         "image_m4HXTk"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "slideshow_wwNbgH": {
+      "type": "slideshow",
+      "blocks": {
+        "image_8yx9pF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/page_26.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_8yx9pF"
       ],
       "name": "Slideshow",
       "settings": {
@@ -887,8 +887,8 @@
     "slideshow_YbRxzd",
     "slideshow_WJQUbX",
     "slideshow_NQzWhe",
-    "slideshow_wwNbgH",
     "slideshow_HqFKFY",
+    "slideshow_wwNbgH",
     "product-content"
   ]
 }
