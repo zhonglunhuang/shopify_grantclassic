@@ -80,6 +80,7 @@
       "block_order": [
         "template--16700043657459__e17288f0-7d27-4540-89b3-3ce37fd16c0d-167029537912454b61-0"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "background_type": "boxed",
@@ -95,6 +96,7 @@
     },
     "ccd916b6-ea5b-49e2-94a3-932089759e94": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "section_height": "auto",
@@ -310,21 +312,6 @@
     "f6837948-5c01-4068-8fb4-66a954a3b70c": {
       "type": "multi-column",
       "blocks": {
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/e1671487d92087120a6f70d71e8091cf.jpg",
-            "image_width": 100,
-            "image_border": "#2d2d2d",
-            "title": "Mars",
-            "content": "<p><strong>總經理<br/></strong></p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
-          }
-        },
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1": {
           "type": "item",
           "settings": {
@@ -333,6 +320,21 @@
             "image_border": "rgba(0,0,0,0)",
             "title": "Rebecca",
             "content": "<p><strong>副總經理<br/></strong></p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/e1671487d92087120a6f70d71e8091cf.jpg",
+            "image_width": 100,
+            "image_border": "#2d2d2d",
+            "title": "Mars",
+            "content": "<p><strong>總經理<br/></strong></p>",
             "link_text": "",
             "link_url": "",
             "link_style": "link",
@@ -492,8 +494,8 @@
         }
       },
       "block_order": [
-        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-1",
+        "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-0",
         "item_p3PA3d",
         "template--16700043657459__f6837948-5c01-4068-8fb4-66a954a3b70c-1670297360a877fa09-7",
         "4cd9343b-4890-4346-850f-8ccd5b891712",
@@ -505,6 +507,7 @@
         "item_RAHyXi",
         "item_VGXYYP"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "stack_items": true,
