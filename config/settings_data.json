@@ -296,7 +296,7 @@
         "settings": {
           "enable": true,
           "apparition_delay": 1,
-          "show_only_on_index": true,
+          "show_only_on_index": false,
           "show_only_for_visitors": false,
           "show_only_once": true,
           "image": "shopify://shop_images/7-1_Main_0000_1_7d4b85c4-d0a6-4d84-9b15-c5bcdc0bf9f9.png",
