@@ -12,6 +12,24 @@
     "slideshow_p99r8h": {
       "type": "slideshow",
       "blocks": {
+        "image_Ly7GDi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/PRO.png",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "https://www.surveycake.com/s/BoAVy",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
         "image_CbX6Bt": {
           "type": "image",
           "settings": {
@@ -90,6 +108,7 @@
         }
       },
       "block_order": [
+        "image_Ly7GDi",
         "image_CbX6Bt",
         "image_RfXrF6",
         "image_fQxd4L",
