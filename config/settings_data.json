@@ -294,17 +294,17 @@
       "ako-promo-popup": {
         "type": "ako-promo-popup",
         "settings": {
-          "enable": false,
+          "enable": true,
           "apparition_delay": 1,
-          "show_only_on_index": false,
-          "show_only_for_visitors": true,
+          "show_only_on_index": true,
+          "show_only_for_visitors": false,
           "show_only_once": true,
-          "image": "shopify://shop_images/19.png",
+          "image": "shopify://shop_images/7-1_Main_0000_1_7d4b85c4-d0a6-4d84-9b15-c5bcdc0bf9f9.png",
           "image_position": "right",
-          "title": "穩如鈦山 TITANSHIELD",
-          "content": "<p>採用固態電池的 MagSafe 行動電源<br/><strong>只發電、不發火</strong><br/><br/>固態電池技術<br/>相較傳統電池大幅降低熱膨脹與起火風險</p>",
-          "button_text": "嘖嘖開賣中",
-          "button_link": "https://www.zeczec.com/projects/grantclassic"
+          "title": "TITANSHIELD穩如鈦山Pro",
+          "content": "<p>全新升級的 MagSafe 固態行動電源<br/>Qi2.2 25W無線快充、TFT即時數位顯示、自帶支架</p><p><strong>只發電、不發火！</strong></p>",
+          "button_text": "填寫問卷 獲得早鳥優惠！",
+          "button_link": "https://www.surveycake.com/admin/tw/survey/BoAVy/report?v=b60d00000c2aca3a44a32c243a314b0c&layout=P"
         }
       }
     },
