@@ -138,6 +138,112 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "collection_list_YkaaHQ": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_nNCmGD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4-1_Main_0000.png",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_NFddKC": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.57.48.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_ARkFKW": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.59.11.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_7wihHM": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.59.48.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_mw4PaN": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_18.00.39.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_tFigzV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_18.01.51.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_nNCmGD",
+        "collection_NFddKC",
+        "collection_ARkFKW",
+        "collection_7wihHM",
+        "collection_mw4PaN",
+        "collection_tFigzV"
+      ],
+      "name": "Collection list",
+      "settings": {
+        "reveal_on_scroll": false,
+        "layout": "collage",
+        "subheading": "",
+        "title": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_TEHnJw": {
       "type": "slideshow",
       "blocks": {
@@ -179,19 +285,18 @@
         "image_XdMWNy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1_1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_1400_1.svg",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/2160X5400_01.jpg",
+            "text_position": "middle_left",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
+            "title": "即時顯示 全面掌握",
+            "button_1_text": "TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。",
             "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
-            "text_color": "#ffffff",
+            "text_color": "#282828",
             "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
+            "button_text_color": "#282828",
+            "overlay_color": "#ffffff",
             "overlay_opacity": 0
           }
         }
@@ -208,39 +313,24 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "video_rG4P34": {
-      "type": "video",
-      "name": "Video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://www.youtube.com/watch?v=EHXvkiIA8Po",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_WdypNk": {
       "type": "slideshow",
       "blocks": {
         "image_VWaqng": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/02_71674d9d-9971-4487-a6ba-b1cf151f89fc.jpg",
-            "mobile_image": "shopify://shop_images/02_71674d9d-9971-4487-a6ba-b1cf151f89fc.jpg",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/2160X5400_02_1daf44c8-b4df-4f96-afa3-00698ca3df93.jpg",
+            "text_position": "middle_right",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
+            "title": "Qi2.2 25W 無線快充",
+            "button_1_text": "採用革新 Qi2.2 充電技術，帶來更快速、更穩定的無線充電體驗，兼顧效率與便利，讓日常充電更加俐落自如。",
             "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
-            "text_color": "#ffffff",
+            "text_color": "#282828",
             "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
+            "button_text_color": "#282828",
+            "overlay_color": "#ffffff",
             "overlay_opacity": 0
           }
         }
@@ -263,18 +353,17 @@
         "image_dkc3qG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/03_4ff37d51-0a8a-4888-8310-d95deff3bf0c.jpg",
-            "mobile_image": "shopify://shop_images/03_4ff37d51-0a8a-4888-8310-d95deff3bf0c.jpg",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/2160X5400_03.jpg",
+            "text_position": "middle_left",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
+            "title": "革新固態電池技術",
+            "button_1_text": "採用 10,000mAh 固態電芯，兼具卓越穩定性與高安全表現，帶來更安心、更可靠的供電體驗，無論日常使用或外出攜帶，都能維持穩定輸出與出色效能。",
             "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
-            "text_color": "#ffffff",
+            "text_color": "#282828",
             "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "button_text_color": "#282828",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -298,19 +387,18 @@
         "image_yTPFFJ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/04_59ced83f-93b3-4b59-ab71-b6d034a30663.jpg",
-            "mobile_image": "shopify://shop_images/04_59ced83f-93b3-4b59-ab71-b6d034a30663.jpg",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/2160X5400_04.jpg",
+            "text_position": "middle_right",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
+            "title": "高工藝成就細節質感",
+            "button_1_text": "鋁合金框架結合石墨烯散熱層與 Corning 8.5H 強化玻璃，兼顧高效散熱、耐用防護與精緻外觀，讓性能與美感同步提升。",
             "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
-            "text_color": "#ffffff",
+            "text_color": "#282828",
             "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
+            "button_text_color": "#282828",
+            "overlay_color": "#ffffff",
             "overlay_opacity": 0
           }
         }
@@ -327,31 +415,30 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_AiWUEW": {
+    "slideshow_j8zD6Q": {
       "type": "slideshow",
       "blocks": {
-        "image_NjnBtf": {
+        "image_XaGxnK": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/05_0db9bb05-7d19-47e1-a5c5-c860bf2953be.jpg",
-            "mobile_image": "shopify://shop_images/05_0db9bb05-7d19-47e1-a5c5-c860bf2953be.jpg",
-            "text_position": "middle_center",
+            "image": "shopify://shop_images/2160X5400_05-2.jpg",
+            "text_position": "middle_left",
             "subheading": "",
-            "title": "",
-            "button_1_text": "",
+            "title": "摺疊支架 隨放隨用",
+            "button_1_text": "透過內建摺疊支架，輕鬆實現免持充電與觀看體驗，無論工作、旅行或日常使用，都更加便利自如。",
             "button_1_link": "",
             "button_2_text": "",
             "button_2_link": "",
-            "text_color": "#ffffff",
+            "text_color": "#282828",
             "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
+            "button_text_color": "#282828",
+            "overlay_color": "#ffffff",
             "overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "image_NjnBtf"
+        "image_XaGxnK"
       ],
       "name": "Slideshow",
       "settings": {
@@ -360,182 +447,6 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_EyVbPz": {
-      "type": "slideshow",
-      "blocks": {
-        "image_pijaTe": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/06_f46ffc4e-ce6f-4914-8167-fcf07c8f0400.jpg",
-            "mobile_image": "shopify://shop_images/06_f46ffc4e-ce6f-4914-8167-fcf07c8f0400.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_pijaTe"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_DezmMz": {
-      "type": "slideshow",
-      "blocks": {
-        "image_yLw3mt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/08_701165ff-a22f-4f90-92af-d07a9bfa0a97.jpg",
-            "mobile_image": "shopify://shop_images/08_701165ff-a22f-4f90-92af-d07a9bfa0a97.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_yLw3mt"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "collection_list_YkaaHQ": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_nNCmGD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/16.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_NFddKC": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/12_Main_0000.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_ARkFKW": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/19_74ea0833-ac51-4bb1-a23a-a127480f0e11.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_7wihHM": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/9_Main_0000.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_mw4PaN": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/9-1_Main_0000.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_tFigzV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/9-2_Main_0000.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "collection_nNCmGD",
-        "collection_NFddKC",
-        "collection_ARkFKW",
-        "collection_7wihHM",
-        "collection_mw4PaN",
-        "collection_tFigzV"
-      ],
-      "name": "Collection list",
-      "settings": {
-        "reveal_on_scroll": false,
-        "layout": "collage",
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
       }
     },
     "product-content": {
@@ -593,16 +504,13 @@
     "main",
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
+    "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
     "slideshow_K88RHB",
-    "video_rG4P34",
     "slideshow_WdypNk",
     "slideshow_E4FChF",
     "slideshow_FyKwdP",
-    "slideshow_AiWUEW",
-    "slideshow_EyVbPz",
-    "slideshow_DezmMz",
-    "collection_list_YkaaHQ",
+    "slideshow_j8zD6Q",
     "product-content",
     "faq_JLMtcN"
   ]
