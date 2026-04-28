@@ -279,6 +279,39 @@
         "background": "rgba(0,0,0,0)"
       }
     },
+    "image_with_text_37im98": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_xnknM4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1080X1080_01_e6e20036-7c72-410a-aea2-cd9ad64ba9c1.jpg",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "即時顯示 全面掌握",
+            "content": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_xnknM4"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
     "slideshow_K88RHB": {
       "type": "slideshow",
       "blocks": {
@@ -506,6 +539,7 @@
     "custom_liquid_VJFPhK",
     "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
+    "image_with_text_37im98",
     "slideshow_K88RHB",
     "slideshow_WdypNk",
     "slideshow_E4FChF",
