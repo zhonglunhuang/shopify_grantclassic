@@ -9,6 +9,103 @@
  */
 {
   "sections": {
+    "vitals_664c7c40_ActPYB": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_6zmpgQ": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_tNpqjr": {
+          "type": "heading",
+          "settings": {
+            "heading": "穩如鈦山Pro TITANSHIELD Pro 10000mAh 防爆固態行動電源",
+            "heading_size": "48",
+            "heading_color": "#2d2d2d",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_nghBYA": {
+          "type": "text",
+          "settings": {
+            "description": "<p><strong>固態電芯技術｜</strong>優於液態鋰電池的穩定結構，有效降低燃燒、冒煙與熱失控。</p><p><strong>Qi2.2 25W 無線快充｜</strong>新一代磁吸無線充電標準，精準對位，穩定高效輸出。</p><p><strong>TFT 數位螢幕顯示｜</strong>即時顯示電量與充電狀態，輸出資訊一目了然。</p><p><strong>內建折疊支架｜</strong>充電同時可追劇、視訊與瀏覽內容，解放雙手更便利。</p><p><strong>10000mAh 大容量配置｜</strong>滿足通勤、旅行、工作與日常外出的多元補電需求。</p>",
+            "description_size": "16",
+            "description_color": "#2d2d2d",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_kaEHQX": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "獲得早鳥優惠 ▸",
+            "primary_button_link": "https://www.surveycake.com/s/BoAVy",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#ff3b30",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 24,
+            "primary_new_tab": true,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_6zmpgQ",
+        "heading_tNpqjr",
+        "text_nghBYA",
+        "buttons_kaEHQX"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/2_Main_0000_d45f87e1-990f-4e86-932e-7d110df6a90f.png",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "original",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 57,
+        "text_box_background_style": "border",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(90deg, rgba(254, 217, 81, 1), rgba(255, 70, 199, 1) 100%)",
+        "enable_animation": false,
+        "border_color": "rgba(0,0,0,0)",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 80,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -73,6 +170,7 @@
         "buy_buttons",
         "liquid_hpmDVh"
       ],
+      "disabled": true,
       "settings": {
         "show_vendor": false,
         "show_sku": false,
@@ -914,6 +1012,7 @@
     }
   },
   "order": [
+    "vitals_664c7c40_ActPYB",
     "main",
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
