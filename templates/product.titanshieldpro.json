@@ -279,10 +279,10 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "vitals_664c7c40_kJTM93": {
+    "vitals_664c7c40_4DYPAj": {
       "type": "vitals-664c7c40",
       "blocks": {
-        "caption_xFePCB": {
+        "caption_9FhtmE": {
           "type": "caption",
           "settings": {
             "caption": "",
@@ -293,7 +293,7 @@
             "caption_font": "sans_serif_n4"
           }
         },
-        "heading_kqPcmJ": {
+        "heading_qCa33Q": {
           "type": "heading",
           "settings": {
             "heading": "即時顯示 全面掌握",
@@ -303,7 +303,7 @@
             "heading_font": "sans_serif_n4"
           }
         },
-        "text_MMRw7i": {
+        "text_nydXGH": {
           "type": "text",
           "settings": {
             "description": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
@@ -313,7 +313,7 @@
             "description_font": "sans_serif_n4"
           }
         },
-        "buttons_c7Tdex": {
+        "buttons_9jpXtb": {
           "type": "buttons",
           "settings": {
             "primary_button_label": "",
@@ -336,10 +336,10 @@
         }
       },
       "block_order": [
-        "caption_xFePCB",
-        "heading_kqPcmJ",
-        "text_MMRw7i",
-        "buttons_c7Tdex"
+        "caption_9FhtmE",
+        "heading_qCa33Q",
+        "text_nydXGH",
+        "buttons_9jpXtb"
       ],
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
@@ -764,174 +764,102 @@
         "margin_bottom_mobile": 0
       }
     },
-    "slideshow_K88RHB": {
-      "type": "slideshow",
+    "vitals_664c7c40_kJTM93": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_XdMWNy": {
-          "type": "image",
+        "caption_xFePCB": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/2160X5400_01.jpg",
-            "text_position": "middle_left",
-            "subheading": "",
-            "title": "即時顯示 全面掌握",
-            "button_1_text": "TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#282828",
-            "button_background": "#ffffff",
-            "button_text_color": "#282828",
-            "overlay_color": "#ffffff",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_kqPcmJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "即時顯示 全面掌握",
+            "heading_size": "48",
+            "heading_color": "#ffffff",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_MMRw7i": {
+          "type": "text",
+          "settings": {
+            "description": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
+            "description_size": "16",
+            "description_color": "#ffffff",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_c7Tdex": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_XdMWNy"
+        "caption_xFePCB",
+        "heading_kqPcmJ",
+        "text_MMRw7i",
+        "buttons_c7Tdex"
       ],
-      "name": "Slideshow",
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_WdypNk": {
-      "type": "slideshow",
-      "blocks": {
-        "image_VWaqng": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X5400_02_1daf44c8-b4df-4f96-afa3-00698ca3df93.jpg",
-            "text_position": "middle_right",
-            "subheading": "",
-            "title": "Qi2.2 25W 無線快充",
-            "button_1_text": "採用革新 Qi2.2 充電技術，帶來更快速、更穩定的無線充電體驗，兼顧效率與便利，讓日常充電更加俐落自如。",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#282828",
-            "button_background": "#ffffff",
-            "button_text_color": "#282828",
-            "overlay_color": "#ffffff",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_VWaqng"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_E4FChF": {
-      "type": "slideshow",
-      "blocks": {
-        "image_dkc3qG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X5400_03.jpg",
-            "text_position": "middle_left",
-            "subheading": "",
-            "title": "革新固態電池技術",
-            "button_1_text": "採用 10,000mAh 固態電芯，兼具卓越穩定性與高安全表現，帶來更安心、更可靠的供電體驗，無論日常使用或外出攜帶，都能維持穩定輸出與出色效能。",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#282828",
-            "button_background": "#ffffff",
-            "button_text_color": "#282828",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_dkc3qG"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_FyKwdP": {
-      "type": "slideshow",
-      "blocks": {
-        "image_yTPFFJ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X5400_04.jpg",
-            "text_position": "middle_right",
-            "subheading": "",
-            "title": "高工藝成就細節質感",
-            "button_1_text": "鋁合金框架結合石墨烯散熱層與 Corning 8.5H 強化玻璃，兼顧高效散熱、耐用防護與精緻外觀，讓性能與美感同步提升。",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#282828",
-            "button_background": "#ffffff",
-            "button_text_color": "#282828",
-            "overlay_color": "#ffffff",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_yTPFFJ"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_j8zD6Q": {
-      "type": "slideshow",
-      "blocks": {
-        "image_XaGxnK": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X5400_05-2.jpg",
-            "text_position": "middle_left",
-            "subheading": "",
-            "title": "摺疊支架 隨放隨用",
-            "button_1_text": "透過內建摺疊支架，輕鬆實現免持充電與觀看體驗，無論工作、旅行或日常使用，都更加便利自如。",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#282828",
-            "button_background": "#ffffff",
-            "button_text_color": "#282828",
-            "overlay_color": "#ffffff",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_XaGxnK"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/2_Main_0000.png",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "original",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "border",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(90deg, rgba(254, 217, 81, 1), rgba(255, 70, 199, 1) 100%)",
+        "enable_animation": false,
+        "border_color": "rgba(0,0,0,0)",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "background_image": "shopify://shop_images/9bc696334e1626f4faca0fd60c09b3d1.jpg",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 80,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "product-content": {
@@ -991,16 +919,12 @@
     "custom_liquid_VJFPhK",
     "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
-    "vitals_664c7c40_kJTM93",
+    "vitals_664c7c40_4DYPAj",
     "vitals_664c7c40_ixR9UD",
     "vitals_664c7c40_3ExpGC",
     "vitals_664c7c40_ynBDy6",
     "vitals_664c7c40_wigLyr",
-    "slideshow_K88RHB",
-    "slideshow_WdypNk",
-    "slideshow_E4FChF",
-    "slideshow_FyKwdP",
-    "slideshow_j8zD6Q",
+    "vitals_664c7c40_kJTM93",
     "product-content",
     "faq_JLMtcN"
   ]
