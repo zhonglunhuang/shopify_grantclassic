@@ -279,37 +279,101 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "image_with_text_37im98": {
-      "type": "image-with-text",
+    "vitals_664c7c40_kJTM93": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "item_xnknM4": {
-          "type": "item",
+        "caption_xFePCB": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/1080X1080_01_e6e20036-7c72-410a-aea2-cd9ad64ba9c1.jpg",
-            "tab_label": "Item",
-            "subheading": "",
-            "title": "即時顯示 全面掌握",
-            "content": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
-            "button_text": "",
-            "button_link": ""
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_kqPcmJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "即時顯示 全面掌握",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_MMRw7i": {
+          "type": "text",
+          "settings": {
+            "description": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_c7Tdex": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "item_xnknM4"
+        "caption_xFePCB",
+        "heading_kqPcmJ",
+        "text_MMRw7i",
+        "buttons_c7Tdex"
       ],
-      "name": "Image with text",
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1080X1080_01_9cb49f16-99a3-48c7-89fd-337662636156.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
         "text_alignment": "left",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "vitals_664c7c40_ixR9UD": {
@@ -330,7 +394,7 @@
           "type": "heading",
           "settings": {
             "heading": "Qi2.2 25W 無線快充",
-            "heading_size": "32",
+            "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
             "heading_font": "sans_serif_n4"
@@ -387,7 +451,298 @@
         "text_alignment": "left",
         "text_box_width": 50,
         "text_box_background_style": "color",
-        "text_box_background": "#F3F3F3",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_3ExpGC": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_QkGCBn": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_nrHNP4": {
+          "type": "heading",
+          "settings": {
+            "heading": "革新固態電池技術",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_JBDVna": {
+          "type": "text",
+          "settings": {
+            "description": "<p>採用 10,000mAh 固態電芯，兼具卓越穩定性與高安全表現，帶來更安心、更可靠的供電體驗，無論日常使用或外出攜帶，都能維持穩定輸出與出色效能。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_eAwEkm": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_QkGCBn",
+        "heading_nrHNP4",
+        "text_JBDVna",
+        "buttons_eAwEkm"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1080X1080_03.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_ynBDy6": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_h33Lwf": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_4DN7LG": {
+          "type": "heading",
+          "settings": {
+            "heading": "高工藝成就細節質感",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_3D9xwV": {
+          "type": "text",
+          "settings": {
+            "description": "<p>鋁合金框架結合石墨烯散熱層與 Corning 8.5H 強化玻璃，兼顧高效散熱、耐用防護與精緻外觀，讓性能與美感同步提升。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_ETqceP": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_h33Lwf",
+        "heading_4DN7LG",
+        "text_3D9xwV",
+        "buttons_ETqceP"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1080X1080_04.jpg",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_wigLyr": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_ryVw7w": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_WyWDdU": {
+          "type": "heading",
+          "settings": {
+            "heading": "摺疊支架 隨放隨用",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_DztDEJ": {
+          "type": "text",
+          "settings": {
+            "description": "<p>透過內建摺疊支架，輕鬆實現免持充電與觀看體驗，無論工作、旅行或日常使用，都更加便利自如。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_zrnQjx": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_ryVw7w",
+        "heading_WyWDdU",
+        "text_DztDEJ",
+        "buttons_zrnQjx"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1080X1080_05.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#ffffff",
         "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
         "enable_animation": false,
         "border_color": "#222222",
@@ -636,8 +991,11 @@
     "custom_liquid_VJFPhK",
     "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
-    "image_with_text_37im98",
+    "vitals_664c7c40_kJTM93",
     "vitals_664c7c40_ixR9UD",
+    "vitals_664c7c40_3ExpGC",
+    "vitals_664c7c40_ynBDy6",
+    "vitals_664c7c40_wigLyr",
     "slideshow_K88RHB",
     "slideshow_WdypNk",
     "slideshow_E4FChF",
