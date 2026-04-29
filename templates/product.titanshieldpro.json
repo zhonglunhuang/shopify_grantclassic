@@ -312,6 +312,103 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "vitals_664c7c40_ixR9UD": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_ABp8qH": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_cp7gKA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Qi2.2 25W 無線快充",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_VjrBAf": {
+          "type": "text",
+          "settings": {
+            "description": "<p>採用革新 Qi2.2 充電技術，帶來更快速、更穩定的無線充電體驗，兼顧效率與便利，讓日常充電更加俐落自如。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_9ydVy6": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_ABp8qH",
+        "heading_cp7gKA",
+        "text_VjrBAf",
+        "buttons_9ydVy6"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1080X1080_02.jpg",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
     "slideshow_K88RHB": {
       "type": "slideshow",
       "blocks": {
@@ -540,6 +637,7 @@
     "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
     "image_with_text_37im98",
+    "vitals_664c7c40_ixR9UD",
     "slideshow_K88RHB",
     "slideshow_WdypNk",
     "slideshow_E4FChF",
