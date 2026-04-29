@@ -138,112 +138,6 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "collection_list_YkaaHQ": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_nNCmGD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/4-1_Main_0000.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_NFddKC": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/iShot_2026-04-28_17.57.48.jpg",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_ARkFKW": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/iShot_2026-04-28_17.59.11.jpg",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_7wihHM": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/iShot_2026-04-28_17.59.48.jpg",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_mw4PaN": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/iShot_2026-04-28_18.00.39.jpg",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_tFigzV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/iShot_2026-04-28_18.01.51.jpg",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "collection_nNCmGD",
-        "collection_NFddKC",
-        "collection_ARkFKW",
-        "collection_7wihHM",
-        "collection_mw4PaN",
-        "collection_tFigzV"
-      ],
-      "name": "Collection list",
-      "settings": {
-        "reveal_on_scroll": false,
-        "layout": "collage",
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_TEHnJw": {
       "type": "slideshow",
       "blocks": {
@@ -277,6 +171,104 @@
         "autoplay": true,
         "cycle_speed": 5,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "vitals_664c7c40_kJTM93": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_xFePCB": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_kqPcmJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "只發電 不發火",
+            "heading_size": "48",
+            "heading_color": "#ffffff",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_MMRw7i": {
+          "type": "text",
+          "settings": {
+            "description": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
+            "description_size": "16",
+            "description_color": "#ffffff",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_c7Tdex": {
+          "type": "buttons",
+          "settings": {
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_xFePCB",
+        "heading_kqPcmJ",
+        "text_MMRw7i",
+        "buttons_c7Tdex"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/10_1_95af4c77-2c21-4a7c-977b-5ebff0c59696.png",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "original",
+        "image_source_mobile": "upload",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "border",
+        "text_box_background": "#ffffff",
+        "text_box_background_gradient": "linear-gradient(90deg, rgba(254, 217, 81, 1), rgba(255, 70, 199, 1) 100%)",
+        "enable_animation": false,
+        "border_color": "rgba(0,0,0,0)",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "background_image": "shopify://shop_images/ChatGPT_Image_2026_4_29_03_20_05.png",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 80,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "vitals_664c7c40_4DYPAj": {
@@ -344,7 +336,7 @@
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/1080X1080_01_9cb49f16-99a3-48c7-89fd-337662636156.jpg",
+        "image_desktop": "shopify://shop_images/1080X1080_01_2eee01ae-e107-48c4-b914-f37347adae5d.jpg",
         "image_desktop_url": "",
         "image_position": "right",
         "aspect_ratio": "square",
@@ -764,102 +756,110 @@
         "margin_bottom_mobile": 0
       }
     },
-    "vitals_664c7c40_kJTM93": {
-      "type": "vitals-664c7c40",
+    "collection_list_YkaaHQ": {
+      "type": "collection-list",
       "blocks": {
-        "caption_xFePCB": {
-          "type": "caption",
+        "collection_nNCmGD": {
+          "type": "collection",
           "settings": {
-            "caption": "",
-            "caption_size": "16",
-            "caption_weight": "400",
-            "caption_color": "#222222",
-            "caption_alternative_font": false,
-            "caption_font": "sans_serif_n4"
+            "collection": "",
+            "image": "shopify://shop_images/4-1_Main_0000.png",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         },
-        "heading_kqPcmJ": {
-          "type": "heading",
+        "collection_NFddKC": {
+          "type": "collection",
           "settings": {
-            "heading": "即時顯示 全面掌握",
-            "heading_size": "48",
-            "heading_color": "#ffffff",
-            "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.57.48.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         },
-        "text_MMRw7i": {
-          "type": "text",
+        "collection_ARkFKW": {
+          "type": "collection",
           "settings": {
-            "description": "<p>TFT 智慧螢幕整合電池健康、工作溫度、剩餘容量、無線充電功率與 Type-C 輸入／輸出資訊，關鍵數據即時顯示，讓安全與效能清晰掌握。</p>",
-            "description_size": "16",
-            "description_color": "#ffffff",
-            "description_alternative_font": false,
-            "description_font": "sans_serif_n4"
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.59.11.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         },
-        "buttons_c7Tdex": {
-          "type": "buttons",
+        "collection_7wihHM": {
+          "type": "collection",
           "settings": {
-            "primary_button_label": "",
-            "primary_button_link": "",
-            "primary_button_style": "solid",
-            "primary_text_color": "#ffffff",
-            "primary_background_color": "#222222",
-            "primary_border_color": "#222222",
-            "primary_button_corner": 0,
-            "primary_new_tab": false,
-            "secondary_button_label": "",
-            "secondary_button_link": "",
-            "secondary_button_style": "solid",
-            "secondary_text_color": "#ffffff",
-            "secondary_background_color": "#222222",
-            "secondary_border_color": "#222222",
-            "secondary_button_corner": 0,
-            "secondary_new_tab": false
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_17.59.48.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_mw4PaN": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_18.00.39.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_tFigzV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/iShot_2026-04-28_18.01.51.jpg",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "caption_xFePCB",
-        "heading_kqPcmJ",
-        "text_MMRw7i",
-        "buttons_c7Tdex"
+        "collection_nNCmGD",
+        "collection_NFddKC",
+        "collection_ARkFKW",
+        "collection_7wihHM",
+        "collection_mw4PaN",
+        "collection_tFigzV"
       ],
-      "name": "🧡 Vitals: Image & Text - Simple",
+      "name": "Collection list",
       "settings": {
-        "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/2_Main_0000.png",
-        "image_desktop_url": "",
-        "image_position": "right",
-        "aspect_ratio": "original",
-        "image_source_mobile": "upload",
-        "image_mobile_url": "",
-        "image_mobile_position": "above",
-        "text_alignment": "left",
-        "text_box_width": 50,
-        "text_box_background_style": "border",
-        "text_box_background": "#ffffff",
-        "text_box_background_gradient": "linear-gradient(90deg, rgba(254, 217, 81, 1), rgba(255, 70, 199, 1) 100%)",
-        "enable_animation": false,
-        "border_color": "rgba(0,0,0,0)",
-        "text_box_corner_radius": 0,
-        "section_background": "",
-        "background_image": "shopify://shop_images/9bc696334e1626f4faca0fd60c09b3d1.jpg",
-        "overlay_color": "#222222",
-        "overlay_opacity": 0,
-        "layout_type": "desktop",
-        "section_width": 80,
-        "section_width_mobile": 70,
-        "section_max_width": "",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
+        "reveal_on_scroll": false,
+        "layout": "collage",
+        "subheading": "",
+        "title": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "product-content": {
@@ -917,14 +917,14 @@
     "main",
     "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
-    "collection_list_YkaaHQ",
     "slideshow_TEHnJw",
+    "vitals_664c7c40_kJTM93",
     "vitals_664c7c40_4DYPAj",
     "vitals_664c7c40_ixR9UD",
     "vitals_664c7c40_3ExpGC",
     "vitals_664c7c40_ynBDy6",
     "vitals_664c7c40_wigLyr",
-    "vitals_664c7c40_kJTM93",
+    "collection_list_YkaaHQ",
     "product-content",
     "faq_JLMtcN"
   ]
