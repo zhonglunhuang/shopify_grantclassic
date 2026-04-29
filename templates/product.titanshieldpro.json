@@ -188,41 +188,6 @@
         "transition_effect": "slide"
       }
     },
-    "slideshow_LqGnMf": {
-      "type": "slideshow",
-      "blocks": {
-        "image_jNUBh9": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/web_11_20241028_af96e9c2-3a08-4edc-b05b-659494bfd4c3.jpg",
-            "mobile_image": "shopify://shop_images/phone_12_20241029.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_jNUBh9"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "custom_liquid_VJFPhK": {
       "type": "custom-liquid",
       "disabled": true,
@@ -234,41 +199,6 @@
         "background_type": "full_width",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_TEHnJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_jn4tBP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X540.jpg",
-            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_jn4tBP"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
       }
     },
     "vitals_664c7c40_kJTM93": {
@@ -854,6 +784,41 @@
         "margin_bottom_mobile": 0
       }
     },
+    "slideshow_TEHnJw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jn4tBP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160X540.jpg",
+            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jn4tBP"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "collection_list_YkaaHQ": {
       "type": "collection-list",
       "blocks": {
@@ -1014,9 +979,7 @@
   "order": [
     "vitals_664c7c40_ActPYB",
     "main",
-    "slideshow_LqGnMf",
     "custom_liquid_VJFPhK",
-    "slideshow_TEHnJw",
     "vitals_664c7c40_kJTM93",
     "vitals_664c7c40_4DYPAj",
     "vitals_664c7c40_ixR9UD",
@@ -1024,6 +987,7 @@
     "vitals_664c7c40_ynBDy6",
     "vitals_664c7c40_wigLyr",
     "collection_list_YkaaHQ",
+    "slideshow_TEHnJw",
     "product-content",
     "faq_JLMtcN"
   ]
