@@ -784,41 +784,6 @@
         "margin_bottom_mobile": 0
       }
     },
-    "slideshow_TEHnJw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_jn4tBP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2160X540.jpg",
-            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_jn4tBP"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "collection_list_YkaaHQ": {
       "type": "collection-list",
       "blocks": {
@@ -925,6 +890,41 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "slideshow_TEHnJw": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jn4tBP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160X540.jpg",
+            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jn4tBP"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
     "product-content": {
       "type": "product-content",
       "blocks": {
@@ -934,6 +934,7 @@
         },
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45": {
           "type": "content",
+          "disabled": true,
           "settings": {
             "title": "規格",
             "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
@@ -967,6 +968,7 @@
         "category_fqfHad",
         "category_FPcJmj"
       ],
+      "disabled": true,
       "settings": {
         "show_navigation": true,
         "title": "FAQ",
