@@ -52,6 +52,7 @@
         },
         "image_RfXrF6": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Catpalace_2200x1130_76f1de58-3e90-4f23-882b-7f68967348a8.jpg",
             "mobile_image": "shopify://shop_images/Catpalace_phone.jpg",
@@ -115,6 +116,7 @@
         "image_fQxd4L",
         "image_P999HC"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "auto",
         "transition_type": "sweep",
