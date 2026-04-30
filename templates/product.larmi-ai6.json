@@ -53,15 +53,17 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
-            "selector_mode": "block",
+            "selector_mode": "dropdown",
             "color_mode": "color",
             "size_chart_page": ""
           }
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -76,12 +78,14 @@
         },
         "liquid_hpmDVh": {
           "type": "liquid",
+          "disabled": true,
           "settings": {
             "liquid": "<div id=\"bundle-volume-discounts\"></div>"
           }
         },
         "vitals_ub_product_bundles_6q9X7a": {
           "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+          "disabled": true,
           "settings": {}
         }
       },
@@ -102,12 +106,12 @@
         "show_taxes_included": false,
         "show_product_rating": false,
         "show_sticky_add_to_cart": true,
-        "show_share_buttons": true,
+        "show_share_buttons": false,
         "related_collections": "{{ product.metafields.custom.attributes.value }}",
         "help_page": "",
-        "enable_video_autoplay": true,
+        "enable_video_autoplay": false,
         "enable_video_looping": false,
-        "enable_image_zoom": true,
+        "enable_image_zoom": false,
         "show_thumbnails_on_mobile": false,
         "desktop_thumbnails_position": "left",
         "transition_effect": "slide"
