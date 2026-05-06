@@ -99,19 +99,6 @@
         "transition_effect": "slide"
       }
     },
-    "video_xyFBfm": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/1030991900",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_FB97hy": {
       "type": "slideshow",
       "blocks": {
@@ -144,6 +131,19 @@
         "autoplay": true,
         "cycle_speed": 4,
         "background": "rgba(0,0,0,0)"
+      }
+    },
+    "video_xyFBfm": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/1030991900",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "slideshow_apcewV": {
@@ -553,40 +553,6 @@
         "background": "rgba(0,0,0,0)"
       }
     },
-    "slideshow_APTh6j": {
-      "type": "slideshow",
-      "blocks": {
-        "image_rXPMj7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/web_12_20241205.jpg",
-            "mobile_image": "shopify://shop_images/phone_12_20241205.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_rXPMj7"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "slideshow_Pc4i7V": {
       "type": "slideshow",
       "blocks": {
@@ -980,7 +946,6 @@
     "slideshow_3iRiqG",
     "slideshow_YFQRyc",
     "slideshow_7KaF4c",
-    "slideshow_APTh6j",
     "slideshow_Pc4i7V",
     "slideshow_RgjciP",
     "slideshow_TUGCKN",
