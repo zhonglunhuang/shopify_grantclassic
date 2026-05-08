@@ -201,6 +201,20 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "video_EhMJC4": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/N-aclB_sLog",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "vitals_664c7c40_kJTM93": {
       "type": "vitals-664c7c40",
       "blocks": {
@@ -982,6 +996,7 @@
     "vitals_664c7c40_ActPYB",
     "main",
     "custom_liquid_VJFPhK",
+    "video_EhMJC4",
     "vitals_664c7c40_kJTM93",
     "vitals_664c7c40_4DYPAj",
     "vitals_664c7c40_ixR9UD",
