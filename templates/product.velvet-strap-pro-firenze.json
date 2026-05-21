@@ -234,7 +234,7 @@
           "type": "heading",
           "settings": {
             "heading": "240W 高速充電",
-            "heading_size": "32",
+            "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
             "heading_font": "sans_serif_n4"
@@ -333,7 +333,7 @@
           "type": "heading",
           "settings": {
             "heading": "15mm 扁織帶設計",
-            "heading_size": "32",
+            "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
             "heading_font": "sans_serif_n4"
@@ -431,8 +431,8 @@
         "heading_aXX4jq": {
           "type": "heading",
           "settings": {
-            "heading": "鋅合金 × 鋁合金金屬扣件",
-            "heading_size": "32",
+            "heading": "鋅合金 × 鋁合金扣件",
+            "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
             "heading_font": "sans_serif_n4"
@@ -531,7 +531,7 @@
           "type": "heading",
           "settings": {
             "heading": "精品級隨身美學",
-            "heading_size": "32",
+            "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
             "heading_font": "sans_serif_n4"
