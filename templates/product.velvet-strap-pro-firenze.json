@@ -14,6 +14,7 @@
       "blocks": {
         "10eed426-c481-4651-8503-74a9f6dc6018": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "{{ product.metafields.custom._123.value }}",
             "image_alignment": "left",
@@ -98,117 +99,6 @@
         "transition_effect": "slide"
       }
     },
-    "video_ehpiW4": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/1000710325",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "17217531779a9cbfe4": {
-      "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_aKypqM": {
-      "type": "slideshow",
-      "blocks": {
-        "image_RazTdG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_01.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_01_2c8555c5-d91e-4c52-8e4e-2cd2b93ef269.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_RazTdG"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "custom_html_Ca9XyH": {
-      "type": "custom-html",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "html": "<meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>圓角嵌入的 Facebook 影片</title>\n    <style>\n        /* 設定影片容器樣式 */\n        .video-container {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            width: 100%;\n            max-width: 960px; /* 設定影片的最大寬度 */\n            aspect-ratio: 16 / 9; /* 維持16:9比例 */\n            margin: 0 auto; /* 水平置中 */\n            overflow: hidden; /* 確保圓角有效 */\n            border-radius: 20px; /* 設定圓角 */\n        }\n        iframe {\n            width: 100%;\n            height: 100%;\n            border: none;\n        }\n    </style>\n\n<div class=\"video-container\">\n<iframe src=\"https://www.youtube.com/embed/Bl8D_fyXvaE?rel=0&amp;autoplay=1?si=5Y4HtQm1TjB5EuH9;controls=0;start=1;\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; encrypted-media\" allowfullscreen=\"\">\n</iframe>\n</div>",
-        "add_vertical_spacing": true,
-        "background_type": "full_width",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_PPXJ8W": {
-      "type": "slideshow",
-      "blocks": {
-        "image_mNFEtE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_02.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_02.jpg",
-            "text_position": "top_right",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_mNFEtE"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
     "1724250482977559c7": {
       "type": "apps",
       "blocks": {
@@ -227,294 +117,601 @@
         "include_vertical_margins": false
       }
     },
-    "slideshow_3bDkQd": {
-      "type": "slideshow",
+    "vitals_664c7c40_NCY9fc": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_bqhV9Y": {
-          "type": "image",
+        "caption_Vmkdd8": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_03.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_03_53f5097d-be61-46d3-a7a0-38d23fd70435.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_pCqUJF": {
+          "type": "heading",
+          "settings": {
+            "heading": "掛繩 × 充電線一體化設計",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_4gzqkh": {
+          "type": "text",
+          "settings": {
+            "description": "<p>Velvet Strap Pro Firenze 將配戴、收納與補電機能整合於一體，讓充電線不再只是包包裡的備品，而是日常穿搭中自然存在的科技配件。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_GCiqUe": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_bqhV9Y"
+        "caption_Vmkdd8",
+        "heading_pCqUJF",
+        "text_4gzqkh",
+        "buttons_GCiqUe"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/G_05.png",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/G_05.png",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "slideshow_Bqdten": {
-      "type": "slideshow",
+    "vitals_664c7c40_jWRRAD": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_NEMAKQ": {
-          "type": "image",
+        "caption_4wDVr6": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_04.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_04_32f2fc75-c200-4810-87b6-891eba6fe8b7.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_pzXpL9": {
+          "type": "heading",
+          "settings": {
+            "heading": "240W 高速充電",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_kPHnQH": {
+          "type": "text",
+          "settings": {
+            "description": "<p>Type-C to Type-C 高功率充電線，最高支援 240W 快充輸出，從手機、平板到部分筆電皆可靈活應對。外出、通勤、旅行時，不必再額外尋找充電線，一掛在身上，就能隨時為裝置補電。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_nVnbri": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_NEMAKQ"
+        "caption_4wDVr6",
+        "heading_pzXpL9",
+        "text_kPHnQH",
+        "buttons_nVnbri"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/G_06.png",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/G_06.png",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "slideshow_Rk4MXh": {
-      "type": "slideshow",
+    "vitals_664c7c40_mmp8Ba": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_3QECz3": {
-          "type": "image",
+        "caption_MiGgDU": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_05.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_05_e7752459-40e2-4e7e-918f-fa4beda8b112.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_eEtzcj": {
+          "type": "heading",
+          "settings": {
+            "heading": "15mm 扁織帶設計",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_CMC4ER": {
+          "type": "text",
+          "settings": {
+            "description": "<p>15mm 寬版扁織帶，配戴時更穩定、更有份量感。相較一般細繩掛繩，扁帶設計能分散受力，長時間掛頸或斜背也更舒適，同時呈現俐落、有型的視覺比例。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_FC3ijU": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_3QECz3"
+        "caption_MiGgDU",
+        "heading_eEtzcj",
+        "text_CMC4ER",
+        "buttons_FC3ijU"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/G_03.png",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/G_03.png",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "slideshow_iHtYDC": {
-      "type": "slideshow",
+    "vitals_664c7c40_BXPEfW": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_dq3Ew7": {
-          "type": "image",
+        "caption_9cRWMW": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_06.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_06_16ae10ea-2ef9-4fe5-8d95-1551c94c2857.gif",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_aXX4jq": {
+          "type": "heading",
+          "settings": {
+            "heading": "鋅合金 × 鋁合金金屬扣件",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_4LKiER": {
+          "type": "text",
+          "settings": {
+            "description": "<p>細節處採用鋅合金與鋁合金雙金屬材質，提升結構穩定性與整體質感。金屬扣件帶有沉穩光澤，搭配織帶紋理，讓科技配件也能展現精品般的細節語言。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_Ui36B3": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_dq3Ew7"
+        "caption_9cRWMW",
+        "heading_aXX4jq",
+        "text_4LKiER",
+        "buttons_Ui36B3"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/G_07.png",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/G_07.png",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "slideshow_xzetDx": {
-      "type": "slideshow",
+    "vitals_664c7c40_yyqEGm": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "image_WBgGBc": {
-          "type": "image",
+        "caption_tye6gW": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_07.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_07_34723163-a528-4ee8-983b-e9e769f1ceab.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_gHt7iP": {
+          "type": "heading",
+          "settings": {
+            "heading": "精品級隨身美學",
+            "heading_size": "32",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4"
+          }
+        },
+        "text_bDrkKU": {
+          "type": "text",
+          "settings": {
+            "description": "<p>Firenze 配色以深綠織帶搭配紅色中央線條，呈現復古而高級的視覺層次。無論搭配手機、透明殼或日常服裝，都能讓科技配件跳脫單純工具感，成為穿搭的一部分。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_xcKtcR": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "image_WBgGBc"
+        "caption_tye6gW",
+        "heading_gHt7iP",
+        "text_bDrkKU",
+        "buttons_xcKtcR"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/003.png",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/G_07.png",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#F3F3F3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "17217531875f804291": {
-      "type": "apps",
+    "collection_list_nUytrd": {
+      "type": "collection-list",
       "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "collection_qMUdVC": {
+          "type": "collection",
           "settings": {
-            "playlist_id": "rl_pl_7979"
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
-      ],
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
-    "slideshow_E3anTw": {
-      "type": "slideshow",
-      "blocks": {
-        "image_F4XAUj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_08_c998259d-3d21-4bf1-9701-a450ea4ca3e7.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_08_0968ad1c-0813-4ff5-a916-07b9e58d72f6.jpg",
-            "text_position": "middle_center",
+            "collection": "",
+            "image": "shopify://shop_images/002.png",
             "subheading": "",
             "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 30
           }
-        }
-      },
-      "block_order": [
-        "image_F4XAUj"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "reveal",
-        "autoplay": true,
-        "cycle_speed": 4,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_LreQAy": {
-      "type": "slideshow",
-      "blocks": {
-        "image_RwwQHY": {
-          "type": "image",
+        },
+        "collection_C4GxXR": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_09.gif",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_09_1919edad-eed3-4d84-b181-408c56da9fe6.gif",
-            "text_position": "middle_center",
+            "collection": "",
+            "image": "shopify://shop_images/01A.png",
             "subheading": "",
             "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 30
           }
-        }
-      },
-      "block_order": [
-        "image_RwwQHY"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_QFCqnC": {
-      "type": "slideshow",
-      "blocks": {
-        "image_qdQMhE": {
-          "type": "image",
+        },
+        "collection_G6tkKL": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/L132_web_20241216_10.jpg",
-            "mobile_image": "shopify://shop_images/L132_phone_20241216_10_3795b50f-a6b3-41a4-823c-d20bbb04464e.jpg",
-            "text_position": "middle_center",
+            "collection": "",
             "subheading": "",
             "title": "",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 30
+          }
+        },
+        "collection_b3YL97": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_ijCtVi": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_PDekJd": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "image_qdQMhE"
+        "collection_qMUdVC",
+        "collection_C4GxXR",
+        "collection_G6tkKL",
+        "collection_b3YL97",
+        "collection_ijCtVi",
+        "collection_PDekJd"
       ],
+      "name": "Collection list",
       "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
+        "reveal_on_scroll": false,
+        "layout": "collage",
+        "subheading": "",
+        "title": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "faq_7A9Tt9": {
@@ -657,21 +854,13 @@
   },
   "order": [
     "main",
-    "video_ehpiW4",
-    "17217531779a9cbfe4",
-    "slideshow_aKypqM",
-    "custom_html_Ca9XyH",
-    "slideshow_PPXJ8W",
     "1724250482977559c7",
-    "slideshow_3bDkQd",
-    "slideshow_Bqdten",
-    "slideshow_Rk4MXh",
-    "slideshow_iHtYDC",
-    "slideshow_xzetDx",
-    "17217531875f804291",
-    "slideshow_E3anTw",
-    "slideshow_LreQAy",
-    "slideshow_QFCqnC",
+    "vitals_664c7c40_NCY9fc",
+    "vitals_664c7c40_jWRRAD",
+    "vitals_664c7c40_mmp8Ba",
+    "vitals_664c7c40_BXPEfW",
+    "vitals_664c7c40_yyqEGm",
+    "collection_list_nUytrd",
     "faq_7A9Tt9",
     "product-content"
   ]
