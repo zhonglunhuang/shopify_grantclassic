@@ -75,14 +75,13 @@
         "blocks": {
           "message-1": {
             "type": "message",
-            "disabled": true,
             "settings": {
-              "text": "喝不停-全陶瓷飲水機新品上市！",
+              "text": "grantclassic官方旗艦店全面支持線上付款 歡迎使用LINE Pay來進行購物",
               "learn_more_text": "Learn more",
               "title": "",
               "content": "",
               "button_text": "",
-              "button_link": "https://grantclassic.com/products/%E5%96%9D%E4%B8%8D%E5%81%9C-aqualux-%E5%AF%B5%E7%89%A9%E6%99%BA%E8%83%BD%E9%99%B6%E7%93%B7%E9%A3%B2%E6%B0%B4%E6%A9%9F"
+              "button_link": ""
             }
           },
           "6651169f-8d11-40fd-a1c1-472786c065bc": {
