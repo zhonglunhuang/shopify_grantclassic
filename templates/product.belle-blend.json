@@ -143,7 +143,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "liquid": "<div class=\"youtube-shorts-wrapper\">\n  <iframe\n    src=\"https://www.youtube.com/embed/T4LZsq4wpxs\"\n    title=\"BelleBlend 電動攪拌杯影片\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n    allowfullscreen>\n  </iframe>\n</div>\n\n<style>\n  .youtube-shorts-wrapper {\n    max-width: 500px;\n    margin: 0 auto;\n    aspect-ratio: 9 / 16;\n  }\n\n  .youtube-shorts-wrapper iframe {\n    width: 100%;\n    height: 100%;\n    border-radius: 16px;\n    display: block;\n  }\n</style>",
+        "liquid": "<div class=\"youtube-shorts-wrapper\">\n  <iframe\n    src=\"https://www.youtube.com/embed/T4LZsq4wpxs?vq=hd1080&hd=1\"\n    title=\"BelleBlend 電動攪拌杯影片\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n    allowfullscreen>\n  </iframe>\n</div>\n\n<style>\n  .youtube-shorts-wrapper {\n    max-width: 420px;\n    margin: 0 auto;\n    aspect-ratio: 9 / 16;\n  }\n\n  .youtube-shorts-wrapper iframe {\n    width: 100%;\n    height: 100%;\n    border-radius: 16px;\n    display: block;\n  }\n</style>",
         "add_vertical_spacing": true,
         "background_type": "full_width",
         "background": "rgba(0,0,0,0)",
