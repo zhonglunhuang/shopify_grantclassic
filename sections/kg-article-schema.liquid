@@ -1,0 +1,10 @@
+{%- comment -%} KG Article JSON-LD (works in any article template incl. PageFly; article in scope) {%- endcomment -%}
+{%- assign kg_a = article.metafields.grantclassic_kg.article_schema -%}
+{%- if kg_a -%}
+<script type="application/ld+json">{{ kg_a }}</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "KG Article Schema"
+}
+{% endschema %}
