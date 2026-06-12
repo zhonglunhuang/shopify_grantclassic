@@ -102,6 +102,12 @@
 {%- if kg_org_global -%}
 <script type="application/ld+json">{{ kg_org_global }}</script>
 {%- endif -%}
+{%- if template.name == 'article' -%}
+{%- assign kg_article_global = article.metafields.grantclassic_kg.article_schema -%}
+{%- if kg_article_global -%}
+<script type="application/ld+json">{{ kg_article_global }}</script>
+{%- endif -%}
+{%- endif -%}
 </head>
 
   {%- assign feature_classes = '' -%}
