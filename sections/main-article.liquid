@@ -147,6 +147,18 @@
   </div>
 </section>
 
+
+
+{%- comment -%} Shopify Knowledge Graph: read metafields → <script> in <head> {%- endcomment -%}
+{%- assign kg_article = article.metafields.grantclassic_kg.article_schema -%}
+{%- if kg_article -%}
+<script type="application/ld+json">{{ kg_article }}</script>
+{%- endif -%}
+{%- assign kg_org = shop.metafields.grantclassic_kg.organization_schema -%}
+{%- if kg_org -%}
+<script type="application/ld+json">{{ kg_org }}</script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Blog post",
