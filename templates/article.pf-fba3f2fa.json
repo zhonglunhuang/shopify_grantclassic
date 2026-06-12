@@ -12,14 +12,9 @@
     "pf-fba3f2fa": {
       "type": "pf-fba3f2fa",
       "settings": {}
-    },
-    "kg-article-schema": {
-      "type": "kg-article-schema",
-      "settings": {}
     }
   },
   "order": [
-    "pf-fba3f2fa",
-    "kg-article-schema"
+    "pf-fba3f2fa"
   ]
 }
