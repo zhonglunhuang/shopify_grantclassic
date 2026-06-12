@@ -1,5 +1,5 @@
+{%- comment -%} KG Article JSON-LD (any article template incl. PageFly; article in scope) {%- endcomment -%}
 {%- assign kg_a = article.metafields.grantclassic_kg.article_schema -%}
-<!-- KG-SEC rendered; handle={{ article.handle }}; kg_a_present={% if kg_a %}YES len={{ kg_a.size }}{% else %}NO{% endif %} -->
 {%- if kg_a -%}
 <script type="application/ld+json">{{ kg_a }}</script>
 {%- endif -%}
