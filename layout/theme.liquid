@@ -97,7 +97,12 @@
   
 {% render 'gsf-conversion-pixels' %}
 {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
-{% include 'hulk_po_vd' %}{% include 'pagefly-app-header' %}</head>
+{% include 'hulk_po_vd' %}{% include 'pagefly-app-header' %}{%- comment -%} Shopify Knowledge Graph: shop Organization JSON-LD (global, all pages) {%- endcomment -%}
+{%- assign kg_org_global = shop.metafields.grantclassic_kg.organization_schema -%}
+{%- if kg_org_global -%}
+<script type="application/ld+json">{{ kg_org_global }}</script>
+{%- endif -%}
+</head>
 
   {%- assign feature_classes = '' -%}
 
