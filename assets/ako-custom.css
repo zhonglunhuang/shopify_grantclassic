@@ -684,27 +684,32 @@ button#order-note-toggle {
 }
 
 /* Blog article typography - inspired by mrmad.com.tw */
-.article__content .rte {
+.article__content .rte,
+#ako-content {
     font-size: 18px !important;
     line-height: 1.85 !important;
     color: #4B4F58 !important;
 }
 
-.article__content .rte p {
+.article__content .rte p,
+#ako-content p {
     font-size: 18px !important;
     line-height: 1.85 !important;
     color: #4B4F58 !important;
     margin-bottom: 1.2em !important;
 }
 
-.article__content .rte li {
+.article__content .rte li,
+#ako-content li {
     font-size: 18px !important;
     line-height: 1.85 !important;
     color: #4B4F58 !important;
 }
 
 .article__content .rte td,
-.article__content .rte th {
+.article__content .rte th,
+#ako-content td,
+#ako-content th {
     font-size: 16px !important;
     line-height: 1.7 !important;
     color: #4B4F58 !important;
