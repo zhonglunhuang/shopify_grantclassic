@@ -682,3 +682,23 @@ button#order-note-toggle {
     margin-bottom: 0.8em;
     font-weight: 700 !important;
 }
+
+/* Blog article typography - inspired by mrmad.com.tw */
+.article__content .rte {
+    font-size: 18px;
+    line-height: 1.85;
+    color: #4B4F58;
+}
+
+.article__content .rte p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: #4B4F58;
+    margin-bottom: 1.2em;
+}
+
+.article__content .rte li {
+    font-size: 18px;
+    line-height: 1.85;
+    color: #4B4F58;
+}
