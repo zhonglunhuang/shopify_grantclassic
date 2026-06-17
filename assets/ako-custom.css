@@ -659,3 +659,12 @@ button#order-note-toggle {
 .contact__text-list{
    border-radius: 0 0 15px 15px !important;
 }
+
+/* Blog article content - link colour */
+.article__content .rte a {
+    color: #005BD3;
+    text-decoration: underline;
+}
+.article__content .rte a:hover {
+    color: #003f99;
+}
