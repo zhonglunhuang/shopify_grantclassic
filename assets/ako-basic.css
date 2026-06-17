@@ -42,7 +42,10 @@ html.js {
   font-weight: initial;
 }
 #ako-content p{
-  font-size:16px;
+  font-size:18px;
+  line-height:1.85;
+  color:#4B4F58;
+  margin-bottom:1.2em;
 }
 #ako-content blockquote h3{
   font-size:22px;
