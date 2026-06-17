@@ -685,20 +685,27 @@ button#order-note-toggle {
 
 /* Blog article typography - inspired by mrmad.com.tw */
 .article__content .rte {
-    font-size: 18px;
-    line-height: 1.85;
-    color: #4B4F58;
+    font-size: 18px !important;
+    line-height: 1.85 !important;
+    color: #4B4F58 !important;
 }
 
 .article__content .rte p {
-    font-size: 18px;
-    line-height: 1.85;
-    color: #4B4F58;
-    margin-bottom: 1.2em;
+    font-size: 18px !important;
+    line-height: 1.85 !important;
+    color: #4B4F58 !important;
+    margin-bottom: 1.2em !important;
 }
 
 .article__content .rte li {
-    font-size: 18px;
-    line-height: 1.85;
-    color: #4B4F58;
+    font-size: 18px !important;
+    line-height: 1.85 !important;
+    color: #4B4F58 !important;
+}
+
+.article__content .rte td,
+.article__content .rte th {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #4B4F58 !important;
 }
