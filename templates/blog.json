@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "4e75a528-9c24-41f5-a3da-ac609bc68bec": {
@@ -24,15 +33,13 @@
     },
     "main": {
       "type": "main-blog",
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "show_blog_title": false,
         "show_tags": true,
         "show_category": false,
         "show_excerpt": true,
-        "articles_per_page": 6
+        "articles_per_page": 12
       }
     }
   },
