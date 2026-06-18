@@ -714,3 +714,17 @@ button#order-note-toggle {
     line-height: 1.7 !important;
     color: #4B4F58 !important;
 }
+
+
+/* Blog listing - unified card image ratio (4:3) */
+a.article-item__image-container {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+img.article-item__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
