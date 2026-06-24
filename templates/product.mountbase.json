@@ -13,7 +13,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": ""
           }
@@ -130,7 +130,7 @@
         "image_Taxiqj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/page_18.jpg",
+            "image": "shopify://shop_images/page_18_7aec6a04-9e43-47e5-bd4c-041d6826c213.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
