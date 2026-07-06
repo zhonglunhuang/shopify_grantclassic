@@ -13,7 +13,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": ""
           }
@@ -133,7 +133,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": ""
           }
@@ -168,6 +168,38 @@
         "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
       ],
       "settings": {}
+    },
+    "178332369451c3e8be": {
+      "type": "apps",
+      "blocks": {
+        "doran_shoppable_videos_basic_widget_tdXahX": {
+          "type": "shopify://apps/doran-shoppable-videos/blocks/basic-widget/9f421243-1cc3-42c0-8a88-49922de1eacf",
+          "settings": {
+            "widgets": [],
+            "widget_type": "carousel",
+            "heading": "",
+            "heading_tag": "h2",
+            "description": "",
+            "alignment": "center",
+            "is_custom_grid": false,
+            "grid_item_in_desktop": 4,
+            "grid_item_in_tablet": 3,
+            "grid_item_in_mobile": 2,
+            "is_custom_carousel": false,
+            "carousel_item_in_desktop": 4,
+            "carousel_item_in_tablet": 3,
+            "carousel_item_in_mobile": 2
+          }
+        }
+      },
+      "block_order": [
+        "doran_shoppable_videos_basic_widget_tdXahX"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
     }
   },
   "order": [
@@ -175,6 +207,7 @@
     "main",
     "17339957580d14b91e",
     "17217886296359dc4e",
-    "product-content"
+    "product-content",
+    "178332369451c3e8be"
   ]
 }

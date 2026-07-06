@@ -314,16 +314,6 @@
         "disabled": false,
         "settings": {}
       },
-      "16278478101612877664": {
-        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
-        "disabled": false,
-        "settings": {}
-      },
-      "14327677521557774844": {
-        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
-        "disabled": false,
-        "settings": {}
-      },
       "9356323809658795675": {
         "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
         "disabled": false,
@@ -352,51 +342,13 @@
         "disabled": false,
         "settings": {}
       },
-      "5254528770348971878": {
-        "type": "shopify://apps/discount-mixer/blocks/app-embed/791c666a-e939-4fd3-bdd3-b122066bb588",
-        "disabled": true,
-        "settings": {
-          "general_banner": false,
-          "sticky_banner": false,
-          "title": "All products have a discount!",
-          "background-color": "#000000",
-          "text-color": "#ffffff",
-          "url": "",
-          "font-size": 16,
-          "text-align": "center"
-        }
-      },
-      "7322671195855991875": {
-        "type": "shopify://apps/discount-mixer/blocks/discount-view/791c666a-e939-4fd3-bdd3-b122066bb588",
-        "disabled": false,
-        "settings": {
-          "discounted-price-background-color": "#000000",
-          "card-discounted-price-font-size": 16,
-          "product-discounted-price-font-size": 18,
-          "home-badge": true,
-          "collection-badge": true,
-          "product-badge": true,
-          "round-price-to-whole-number": true,
-          "trailing-zero": false,
-          "sale-badge-text": "",
-          "sale-badge-background-color": "#000000",
-          "sale-badge-text-color": "#ffffff",
-          "sale-badge-font-size": 12,
-          "sale-badge-border-radius": 12,
-          "timeout": 500,
-          "show-tier-table": false,
-          "tier-quantity-header-text": "",
-          "tier-discount-header-text": "",
-          "tier-table-background-color": "transparent",
-          "tier-table-text-color": "#000000",
-          "tier-table-border-color": "#cccccc",
-          "tier-table-border-width": 1,
-          "tier-table-border-radius": 5,
-          "tier-table-font-size": 14
-        }
-      },
       "10142937387702430166": {
         "type": "shopify://apps/timesact-pre-order/blocks/app-embed/bf6c109b-79b5-457c-8752-0e5e9e9676e7",
+        "disabled": false,
+        "settings": {}
+      },
+      "4727195953647268973": {
+        "type": "shopify://apps/doran-shoppable-videos/blocks/app-embed/9f421243-1cc3-42c0-8a88-49922de1eacf",
         "disabled": false,
         "settings": {}
       }
