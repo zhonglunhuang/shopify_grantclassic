@@ -142,7 +142,6 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
       ],
-      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
@@ -176,6 +175,7 @@
       "block_order": [
         "doran_shoppable_videos_basic_widget_DqiwW4"
       ],
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": true,
         "include_vertical_margins": true
