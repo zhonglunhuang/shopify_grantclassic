@@ -208,12 +208,13 @@
         "slide_BYU4Yh",
         "slide_U6mMJH"
       ],
+      "disabled": true,
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
         "slider_view": 5,
         "slider_view_mobile": 1.5,
         "slider_rotate": 0,
-        "slider_advanced": false,
+        "slider_advanced": true,
         "slider_gap": 4,
         "slider_gap_mobile": 4,
         "card_ratio": "portrait",
