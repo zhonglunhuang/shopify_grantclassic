@@ -13,7 +13,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": ""
           }
@@ -133,7 +133,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": ""
           }
@@ -147,38 +147,145 @@
         "include_vertical_margins": false
       }
     },
-    "17833223450b0a9a9d": {
-      "type": "apps",
+    "ss_video_slider_c5427e_kQG8y8": {
+      "type": "ss-video-slider-c5427e",
       "blocks": {
-        "doran_shoppable_videos_basic_widget_DqiwW4": {
-          "type": "shopify://apps/doran-shoppable-videos/blocks/basic-widget/9f421243-1cc3-42c0-8a88-49922de1eacf",
+        "slide_B8dt9L": {
+          "type": "slide",
           "settings": {
-            "widgets": [
-              "33e39462-e33b-4bf3-b540-4c57be0141bd"
-            ],
-            "widget_type": "carousel",
-            "heading": "",
-            "heading_tag": "h2",
-            "description": "",
-            "alignment": "center",
-            "is_custom_grid": false,
-            "grid_item_in_desktop": 4,
-            "grid_item_in_tablet": 3,
-            "grid_item_in_mobile": 2,
-            "is_custom_carousel": false,
-            "carousel_item_in_desktop": 4,
-            "carousel_item_in_tablet": 3,
-            "carousel_item_in_mobile": 2
+            "video": "shopify://files/videos/米克-無期限.mov",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_U9zf9W": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/噗丸摳-無期限.mov",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_gmkUxL": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/富婆 FuPuo-無期限.mp4",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_y9L6br": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/龍貓-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_BYU4Yh": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/米米 -無期限.mp4",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_U6mMJH": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/歐力哥&雪球弟 ►-無期限.mp4",
+            "title": "",
+            "stars_count": 4.5
           }
         }
       },
       "block_order": [
-        "doran_shoppable_videos_basic_widget_DqiwW4"
+        "slide_B8dt9L",
+        "slide_U9zf9W",
+        "slide_gmkUxL",
+        "slide_y9L6br",
+        "slide_BYU4Yh",
+        "slide_U6mMJH"
       ],
-      "disabled": true,
+      "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
+        "slider_view": 5,
+        "slider_view_mobile": 1.5,
+        "slider_rotate": 0,
+        "slider_advanced": false,
+        "slider_gap": 4,
+        "slider_gap_mobile": 4,
+        "card_ratio": "portrait",
+        "card_ratio_mobile": "portrait",
+        "card_radius": 12,
+        "card_border_thickness": 0,
+        "card_overlay": 0,
+        "card_shadow": false,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "end",
+        "content_vertical_position_mobile": "end",
+        "card_advanced": false,
+        "card_padding_vertical": 24,
+        "card_padding_vertical_mobile": 24,
+        "card_padding_horizontal": 40,
+        "card_padding_horizontal_mobile": 30,
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 100,
+        "hide_stars": false,
+        "stars_size": 16,
+        "stars_size_mobile": 16,
+        "stars_mt": 16,
+        "stars_mt_mobile": 16,
+        "use_action": true,
+        "use_sound": true,
+        "action_size": 40,
+        "action_size_mobile": 40,
+        "action_border_thickness": 0,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_radius": 100,
+        "arrow_border_thickness": 0,
+        "arrow_hover_effect": "scale",
+        "title_color": "#ffffff",
+        "stars_color": "#ffffff",
+        "card_border_color": "#000000",
+        "card_shadow_color": "#000000",
+        "card_overlay_color": "#000000",
+        "action_color": "rgba(0,0,0,0)",
+        "action_hover_color": "rgba(0,0,0,0)",
+        "action_bg_color": "rgba(0,0,0,0)",
+        "action_bg_hover_color": "#ffffff",
+        "action_border_color": "#ffffff",
+        "action_border_hover_color": "#ffffff",
+        "arrow_color": "#ffffff",
+        "arrow_hover_color": "#000000",
+        "arrow_bg_color": "#434343",
+        "arrow_bg_hover_color": "#434343",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "background_style": "solid",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "lazy": false
       }
     },
     "slideshow_n9RfgE": {
@@ -788,7 +895,7 @@
     "main",
     "17339957580d14b91e",
     "17217886296359dc4e",
-    "17833223450b0a9a9d",
+    "ss_video_slider_c5427e_kQG8y8",
     "slideshow_n9RfgE",
     "slideshow_NRHHrM",
     "slideshow_bqPqim",
