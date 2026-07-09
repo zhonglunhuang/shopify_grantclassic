@@ -216,7 +216,7 @@
       ],
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
-        "slider_view": 5,
+        "slider_view": 6,
         "slider_view_mobile": 1.5,
         "slider_rotate": 0,
         "slider_advanced": true,
