@@ -195,8 +195,8 @@
         "slide_y9L6br"
       ],
       "custom_css": [
-        "@media screen and (min-width: 990px) {.swiper-slide, .splide__slide, .slick-slide {width: calc((100% - 48px) / 4) !important; min-width: calc((100% - 48px) / 4) !important; max-width: calc((100% - 48px) / 4) !important; flex: 0 0 calc((100% - 48px) / 4) !important; } .swiper-slide > *, .splide__slide > *, .slick-slide > * {width: 100% !important; max-width: 100% !important; }}",
-        "@media screen and (max-width: 989px) {.swiper-slide, .splide__slide, .slick-slide {width: 72% !important; min-width: 72% !important; max-width: 72% !important; flex: 0 0 72% !important; }}"
+        "@media(min-width:990px){.swiper-wrapper{display:flex!important;gap:16px!important;transform:none!important}.swiper-slide{width:calc((100% - 48px)/4)!important;min-width:calc((100% - 48px)/4)!important;max-width:calc((100% - 48px)/4)!important;flex:0 0 calc((100% - 48px)/4)!important;margin:0!important}.swiper-slide>*{width:100%!important}}",
+        "@media(max-width:989px){.swiper-slide{width:72%!important;flex:0 0 72%!important}}"
       ],
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
