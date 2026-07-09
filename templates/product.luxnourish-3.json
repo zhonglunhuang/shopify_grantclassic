@@ -148,40 +148,99 @@
         "include_vertical_margins": false
       }
     },
-    "ss_video_slider_c5427e_kQG8y8": {
-      "type": "ss-video-slider-c5427e",
+    "ss_video_slider_gwLaHN": {
+      "type": "ss-video-slider",
       "blocks": {
-        "slide_B8dt9L": {
+        "slide_zGQyxd": {
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/米克-無期限.mov",
-            "video_url": "",
             "title": "",
             "stars_count": 5
           }
         },
-        "slide_U9zf9W": {
+        "slide_ct4cak": {
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/噗丸摳-無期限.mov",
-            "video_url": "",
             "title": "",
             "stars_count": 5
           }
         },
-        "slide_gmkUxL": {
+        "slide_dyWNg6": {
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/富婆 FuPuo-無期限.mp4",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_pfMr7t": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/龍貓-無期限.mov",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_BjMYNj": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/米米 -無期限.mp4",
             "video_url": "",
             "title": "",
             "stars_count": 5
           }
         },
-        "slide_y9L6br": {
+        "slide_tYANpB": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/龍貓-無期限.mov",
+            "video": "shopify://files/videos/歐力哥&雪球弟 ►-無期限.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_aAaKFY": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/馬嚕-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_JyBNKj": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/烏咪-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_CjTa3h": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/英短雙寶一家-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_rhAX39": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/奶球-無期限.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_bhEm4P": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/ 姆姆-無期限.mov",
             "video_url": "",
             "title": "",
             "stars_count": 5
@@ -189,40 +248,46 @@
         }
       },
       "block_order": [
-        "slide_B8dt9L",
-        "slide_U9zf9W",
-        "slide_gmkUxL",
-        "slide_y9L6br"
+        "slide_zGQyxd",
+        "slide_ct4cak",
+        "slide_dyWNg6",
+        "slide_pfMr7t",
+        "slide_BjMYNj",
+        "slide_tYANpB",
+        "slide_aAaKFY",
+        "slide_JyBNKj",
+        "slide_CjTa3h",
+        "slide_rhAX39",
+        "slide_bhEm4P"
       ],
-      "custom_css": [],
-      "name": "SS - Video slider 🎛️ Preset 1",
+      "name": "SS - Video slider",
       "settings": {
-        "slider_view": 4,
-        "slider_view_mobile": 1.2,
+        "slider_view": 5,
+        "slider_view_mobile": 1.5,
         "slider_rotate": 0,
-        "slider_advanced": true,
-        "slider_gap": 16,
-        "slider_gap_mobile": 12,
+        "slider_advanced": false,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
         "card_ratio": "portrait",
         "card_ratio_mobile": "portrait",
-        "card_radius": 12,
+        "card_radius": 16,
         "card_border_thickness": 0,
-        "card_overlay": 0,
+        "card_overlay": 0.2,
         "card_shadow": false,
         "content_horizontal_position": "center",
         "content_horizontal_position_mobile": "center",
         "content_vertical_position": "end",
         "content_vertical_position_mobile": "end",
         "card_advanced": false,
-        "card_padding_vertical": 24,
-        "card_padding_vertical_mobile": 24,
-        "card_padding_horizontal": 40,
-        "card_padding_horizontal_mobile": 30,
+        "card_padding_vertical": 20,
+        "card_padding_vertical_mobile": 20,
+        "card_padding_horizontal": 20,
+        "card_padding_horizontal_mobile": 20,
         "title_custom": false,
         "title_font": "josefin_sans_n4",
         "title_size": 16,
         "title_size_mobile": 16,
-        "title_height": 100,
+        "title_height": 130,
         "hide_stars": false,
         "stars_size": 16,
         "stars_size_mobile": 16,
@@ -241,28 +306,28 @@
         "arrow_icon_size_mobile": 8,
         "arrow_radius": 100,
         "arrow_border_thickness": 0,
-        "arrow_hover_effect": "scale",
-        "title_color": "#ffffff",
-        "stars_color": "#ffffff",
-        "card_border_color": "#000000",
-        "card_shadow_color": "#000000",
-        "card_overlay_color": "#000000",
-        "action_color": "rgba(0,0,0,0)",
-        "action_hover_color": "rgba(0,0,0,0)",
-        "action_bg_color": "rgba(0,0,0,0)",
-        "action_bg_hover_color": "#ffffff",
-        "action_border_color": "#ffffff",
-        "action_border_hover_color": "#ffffff",
-        "arrow_color": "#ffffff",
-        "arrow_hover_color": "#000000",
-        "arrow_bg_color": "#434343",
-        "arrow_bg_hover_color": "#434343",
-        "arrow_border_color": "#000000",
-        "arrow_border_hover_color": "#000000",
+        "arrow_hover_effect": "color",
+        "title_color": "#FFFFFF",
+        "stars_color": "#FFFFFF",
+        "card_border_color": "#121212",
+        "card_shadow_color": "#121212",
+        "card_overlay_color": "#121212",
+        "action_color": "#FFFFFF",
+        "action_hover_color": "#FFFFFF",
+        "action_bg_color": "#FFFFFF",
+        "action_bg_hover_color": "#FFFFFF",
+        "action_border_color": "#FFFFFF",
+        "action_border_hover_color": "#FFFFFF",
+        "arrow_color": "#121212",
+        "arrow_hover_color": "#FFFFFF",
+        "arrow_bg_color": "#FFFFFF",
+        "arrow_bg_hover_color": "#121212",
+        "arrow_border_color": "#121212",
+        "arrow_border_hover_color": "#121212",
         "background_style": "solid",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
+        "background_color": "#FFFFFF",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
         "margin_top": 0,
         "margin_bottom": 0,
         "padding_top": 36,
@@ -272,7 +337,7 @@
         "width": "page",
         "content_width": 1200,
         "border_thickness": 0,
-        "lazy": false
+        "lazy": true
       }
     },
     "slideshow_n9RfgE": {
@@ -301,7 +366,6 @@
       "block_order": [
         "image_9jPwEX"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -336,7 +400,6 @@
       "block_order": [
         "image_j6kGDY"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -371,7 +434,6 @@
       "block_order": [
         "image_xQw4hH"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -406,7 +468,6 @@
       "block_order": [
         "image_Fj3yLb"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -441,7 +502,6 @@
       "block_order": [
         "image_jewCMY"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -476,7 +536,6 @@
       "block_order": [
         "image_htTLMD"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -511,7 +570,6 @@
       "block_order": [
         "image_Gcencp"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -546,7 +604,6 @@
       "block_order": [
         "image_dFgGN4"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -581,7 +638,6 @@
       "block_order": [
         "image_7D9w4t"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -616,7 +672,6 @@
       "block_order": [
         "image_XhnDCL"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -651,7 +706,6 @@
       "block_order": [
         "image_CTMiXQ"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -686,7 +740,6 @@
       "block_order": [
         "image_mxm8p7"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -721,7 +774,6 @@
       "block_order": [
         "image_mirzFQ"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -756,7 +808,6 @@
       "block_order": [
         "image_DJCTBx"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -791,7 +842,6 @@
       "block_order": [
         "image_CaRmgq"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -826,7 +876,6 @@
       "block_order": [
         "image_H8P6Uf"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -861,7 +910,6 @@
       "block_order": [
         "image_9KLW4p"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "section_height": "auto",
@@ -899,7 +947,7 @@
     "main",
     "17339957580d14b91e",
     "17217886296359dc4e",
-    "ss_video_slider_c5427e_kQG8y8",
+    "ss_video_slider_gwLaHN",
     "slideshow_n9RfgE",
     "slideshow_NRHHrM",
     "slideshow_bqPqim",
