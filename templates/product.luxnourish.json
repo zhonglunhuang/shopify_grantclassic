@@ -201,7 +201,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": ""
           }
@@ -210,27 +210,193 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_ABNaRk"
       ],
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
       }
     },
-    "17217531779a9cbfe4": {
-      "type": "apps",
+    "ss_video_slider_WqXMyL": {
+      "type": "ss-video-slider",
       "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "slide_Ycthrw": {
+          "type": "slide",
           "settings": {
-            "section_id": ""
+            "video": "shopify://files/videos/米克-無期限.mov",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_dLBPXh": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/噗丸摳-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_zWYnJF": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/富婆 FuPuo-無期限.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_ETzHrr": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/龍貓-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_h7AELw": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/米米 -無期限.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_iYU7cy": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/歐力哥&雪球弟 ►-無期限.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_Ticpj6": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/馬嚕-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_DYnBkG": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/烏咪-無期限.mov",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_bDLb7y": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/奶球-無期限.mp4",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_3eGweK": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/ 姆姆-無期限.mov",
+            "title": "",
+            "stars_count": 5
           }
         }
       },
       "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_g6cV3g"
+        "slide_Ycthrw",
+        "slide_dLBPXh",
+        "slide_zWYnJF",
+        "slide_ETzHrr",
+        "slide_h7AELw",
+        "slide_iYU7cy",
+        "slide_Ticpj6",
+        "slide_DYnBkG",
+        "slide_bDLb7y",
+        "slide_3eGweK"
       ],
+      "name": "SS - Video slider",
       "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
+        "slider_view": 4,
+        "slider_view_mobile": 1.2,
+        "slider_rotate": 0,
+        "slider_advanced": false,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "card_ratio": "portrait",
+        "card_ratio_mobile": "portrait",
+        "card_radius": 16,
+        "card_border_thickness": 0,
+        "card_overlay": 0.2,
+        "card_shadow": false,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "end",
+        "content_vertical_position_mobile": "end",
+        "card_advanced": false,
+        "card_padding_vertical": 20,
+        "card_padding_vertical_mobile": 20,
+        "card_padding_horizontal": 20,
+        "card_padding_horizontal_mobile": 20,
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 130,
+        "hide_stars": true,
+        "stars_size": 16,
+        "stars_size_mobile": 16,
+        "stars_mt": 16,
+        "stars_mt_mobile": 16,
+        "use_action": true,
+        "use_sound": true,
+        "action_size": 40,
+        "action_size_mobile": 40,
+        "action_border_thickness": 0,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_radius": 100,
+        "arrow_border_thickness": 0,
+        "arrow_hover_effect": "color",
+        "title_color": "#FFFFFF",
+        "stars_color": "#FFFFFF",
+        "card_border_color": "#121212",
+        "card_shadow_color": "#121212",
+        "card_overlay_color": "#121212",
+        "action_color": "#FFFFFF",
+        "action_hover_color": "#FFFFFF",
+        "action_bg_color": "#FFFFFF",
+        "action_bg_hover_color": "#FFFFFF",
+        "action_border_color": "#FFFFFF",
+        "action_border_hover_color": "#FFFFFF",
+        "arrow_color": "#121212",
+        "arrow_hover_color": "#FFFFFF",
+        "arrow_bg_color": "#FFFFFF",
+        "arrow_bg_hover_color": "#121212",
+        "arrow_border_color": "#121212",
+        "arrow_border_hover_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#FFFFFF",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "lazy": true
       }
     },
     "slideshow_q6KAET": {
@@ -825,7 +991,7 @@
     "video_YyGwGp",
     "rich_text_D3N4Xq",
     "17217531875f804291",
-    "17217531779a9cbfe4",
+    "ss_video_slider_WqXMyL",
     "slideshow_q6KAET",
     "slideshow_aKypqM",
     "slideshow_PPXJ8W",
