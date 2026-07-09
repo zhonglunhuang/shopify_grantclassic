@@ -186,33 +186,13 @@
             "title": "",
             "stars_count": 5
           }
-        },
-        "slide_BYU4Yh": {
-          "type": "slide",
-          "settings": {
-            "video": "shopify://files/videos/米米 -無期限.mp4",
-            "video_url": "",
-            "title": "",
-            "stars_count": 5
-          }
-        },
-        "slide_U6mMJH": {
-          "type": "slide",
-          "settings": {
-            "video": "shopify://files/videos/歐力哥&雪球弟 ►-無期限.mp4",
-            "video_url": "",
-            "title": "",
-            "stars_count": 4.5
-          }
         }
       },
       "block_order": [
         "slide_B8dt9L",
         "slide_U9zf9W",
         "slide_gmkUxL",
-        "slide_y9L6br",
-        "slide_BYU4Yh",
-        "slide_U6mMJH"
+        "slide_y9L6br"
       ],
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
