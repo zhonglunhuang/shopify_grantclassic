@@ -194,10 +194,7 @@
         "slide_gmkUxL",
         "slide_y9L6br"
       ],
-      "custom_css": [
-        "@media(min-width:990px){.swiper-wrapper{display:flex!important;gap:16px!important;transform:none!important}.swiper-slide{width:calc((100% - 48px)/4)!important;min-width:calc((100% - 48px)/4)!important;max-width:calc((100% - 48px)/4)!important;flex:0 0 calc((100% - 48px)/4)!important;margin:0!important}.swiper-slide>*{width:100%!important}}",
-        "@media(max-width:989px){.swiper-slide{width:72%!important;flex:0 0 72%!important}}"
-      ],
+      "custom_css": [],
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
         "slider_view": 4,
