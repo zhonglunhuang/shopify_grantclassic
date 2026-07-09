@@ -292,7 +292,7 @@
         "title_size": 16,
         "title_size_mobile": 16,
         "title_height": 130,
-        "hide_stars": false,
+        "hide_stars": true,
         "stars_size": 16,
         "stars_size_mobile": 16,
         "stars_mt": 16,
