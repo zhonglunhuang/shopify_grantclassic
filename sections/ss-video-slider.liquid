@@ -1203,6 +1203,60 @@
   }
 </script>
 
+
+<script>
+  (function() {
+    var sliderSelector = '.slider-slider-{{ section.id }}';
+
+    function prepareVideo(video) {
+      if (!video) return;
+      video.muted = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('preload', 'metadata');
+
+      function seekPreviewFrame() {
+        if (video.readyState >= 1 && video.currentTime === 0) {
+          try { video.currentTime = 0.05; } catch (error) {}
+        }
+      }
+
+      if (video.readyState === 0) {
+        try { video.load(); } catch (error) {}
+      }
+
+      if (video.readyState >= 1) {
+        seekPreviewFrame();
+      } else {
+        video.addEventListener('loadedmetadata', seekPreviewFrame, { once: true });
+      }
+    }
+
+    function prepareVisibleVideos() {
+      var slider = document.querySelector(sliderSelector);
+      if (!slider) return;
+      slider.querySelectorAll('.swiper-slide-visible video, .swiper-slide-active video, .swiper-slide-next video, .swiper-slide-prev video').forEach(prepareVideo);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      prepareVisibleVideos();
+      setTimeout(prepareVisibleVideos, 500);
+      setTimeout(prepareVisibleVideos, 1500);
+
+      var slider = document.querySelector(sliderSelector);
+      if (!slider || !window.MutationObserver) return;
+
+      var observer = new MutationObserver(prepareVisibleVideos);
+      observer.observe(slider, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.target && event.target.querySelector(sliderSelector)) {
+        setTimeout(prepareVisibleVideos, 300);
+      }
+    });
+  })();
+</script>
 {% schema %}
 {
   "name": "SS - Video slider",
