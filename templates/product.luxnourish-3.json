@@ -154,7 +154,8 @@
         "slide_zGQyxd": {
           "type": "slide",
           "settings": {
-            "video_url": "https://www.youtube.com/watch?v=I12GsrQFKF8&t=16s",
+            "video": "shopify://files/videos/米克-無期限.mov",
+            "video_url": "",
             "title": "",
             "stars_count": 5
           }
