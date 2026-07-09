@@ -13,7 +13,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "section_id": ""
           }
@@ -133,7 +133,7 @@
       "type": "apps",
       "blocks": {
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
           "settings": {
             "playlist_id": ""
           }
@@ -142,6 +142,7 @@
       "block_order": [
         "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
       ],
+      "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
@@ -154,6 +155,7 @@
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/米克-無期限.mov",
+            "video_url": "",
             "title": "",
             "stars_count": 5
           }
@@ -162,6 +164,7 @@
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/噗丸摳-無期限.mov",
+            "video_url": "",
             "title": "",
             "stars_count": 5
           }
@@ -170,6 +173,7 @@
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/富婆 FuPuo-無期限.mp4",
+            "video_url": "",
             "title": "",
             "stars_count": 5
           }
@@ -187,6 +191,7 @@
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/米米 -無期限.mp4",
+            "video_url": "",
             "title": "",
             "stars_count": 5
           }
@@ -195,6 +200,7 @@
           "type": "slide",
           "settings": {
             "video": "shopify://files/videos/歐力哥&雪球弟 ►-無期限.mp4",
+            "video_url": "",
             "title": "",
             "stars_count": 4.5
           }
@@ -208,7 +214,6 @@
         "slide_BYU4Yh",
         "slide_U6mMJH"
       ],
-      "disabled": true,
       "name": "SS - Video slider 🎛️ Preset 1",
       "settings": {
         "slider_view": 5,
