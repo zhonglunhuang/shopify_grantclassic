@@ -314,14 +314,6 @@
         "disabled": false,
         "settings": {}
       },
-      "9356323809658795675": {
-        "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-        "disabled": false,
-        "settings": {
-          "debugging_global_script": "",
-          "enable_reelPops": true
-        }
-      },
       "14868561720390754469": {
         "type": "shopify://apps/loloyal-com/blocks/boom-cend/930ac91f-2bf2-4655-9ba0-574771f782d6",
         "disabled": false,
@@ -349,6 +341,11 @@
       },
       "4727195953647268973": {
         "type": "shopify://apps/doran-shoppable-videos/blocks/app-embed/9f421243-1cc3-42c0-8a88-49922de1eacf",
+        "disabled": false,
+        "settings": {}
+      },
+      "16162820827775340088": {
+        "type": "shopify://apps/mapmigo/blocks/store-locator-default-page/019caf5c-f200-7d93-9ec6-52b7bc7e96fd",
         "disabled": false,
         "settings": {}
       }
