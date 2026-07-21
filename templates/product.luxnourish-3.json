@@ -11,17 +11,6 @@
   "sections": {
     "1721752751939b7d14": {
       "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_stories/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "section_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_stories_QwNXwR"
-      ],
       "settings": {
         "include_horizontal_margins": false,
         "include_vertical_margins": false
@@ -131,17 +120,6 @@
     },
     "17217886296359dc4e": {
       "type": "apps",
-      "blocks": {
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd": {
-          "type": "shopify://apps/reelup-shoppable-videos/blocks/reelup_playlist/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
-          "settings": {
-            "playlist_id": ""
-          }
-        }
-      },
-      "block_order": [
-        "reelup_shoppable_videos_reels_reelup_playlist_AY8agd"
-      ],
       "disabled": true,
       "settings": {
         "include_horizontal_margins": false,
@@ -387,8 +365,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_01_1f4feb21-a282-4a38-880f-ab4763fdf151.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -421,8 +399,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_04_452446e1-676d-4bf7-ab61-95cc1385df08.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -455,8 +433,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_02_0f66de67-3a29-4800-ba4e-682ab3306622.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -489,8 +467,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_03_a80eae00-e485-4baa-81dd-ca84c15fe949.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -523,8 +501,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_05_fa52b8bd-f1a8-47a3-868a-682f2da9dc6a.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -557,8 +535,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_07_51359408-1619-476a-bab8-46cfcec462b9.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -591,8 +569,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_08_8fc9b26b-8483-4c12-bb21-6e3c81f4d967.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -625,8 +603,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_09_64d6bbf4-d40c-4f10-8697-0ad462a45eb1.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -659,8 +637,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_10_7dbb2640-fc98-4e83-bdf9-e6eaa78ba8fe.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -693,8 +671,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_11_d90c63fa-01dc-439a-85fa-562e79c346e4.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -727,8 +705,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_12_497529ee-171a-4bad-96ab-eff91f1be18a.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -761,8 +739,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_13_874795d6-f429-408d-9804-51e53ecde5da.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -795,8 +773,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_14_cd63cfab-99a2-49e1-9726-a90fc61f5400.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -829,8 +807,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_15_2f8ccbac-dd4a-4106-8805-d1bc7284403e.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -863,8 +841,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_16_fe9b1b29-67d8-4230-a85b-7c3c6c13410b.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
@@ -897,8 +875,8 @@
           "settings": {
             "image": "shopify://shop_images/2160X1080_17_3bb37b92-ad29-4949-9bd5-3b1ee5ad6a38.jpg",
             "text_position": "middle_center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
+            "subheading": "",
+            "title": "",
             "button_1_text": "",
             "button_1_link": "",
             "button_2_text": "",
