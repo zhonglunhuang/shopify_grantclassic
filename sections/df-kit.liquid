@@ -1,0 +1,117 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  隨附配件 —— 照 insta360.com 的「隨附配件」那一段（Mars 2026-08-06 指定）。
+
+  做法上跟一般的卡片牆不一樣：**它是一整塊面板被線切開**，不是六張各自獨立的卡。
+  所以外框只有一個圓角，格子之間留 2px 讓底色透出來當分隔線——
+  這是那一段看起來「貴」的原因，做成六張獨立卡就散掉了。
+
+  格子可以標「佔兩格」，本體那張放大，其餘配件小格。
+  grid-auto-flow:dense 讓小格自己去補洞，順序隨便拖都不會留空。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-kit"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'kit' }}">
+    <div class="df__wrap" style="max-width:{{ s.wrap }}px">
+
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="dfkit__grid df__rise">
+          {%- for block in section.blocks -%}
+            {%- assign b = block.settings -%}
+            <div class="dfkit__cell {% if b.wide %}is-wide{% endif %}" {{ block.shopify_attributes }}>
+              <div class="dfkit__shot">
+                {%- if b.image -%}
+                  <img src="{{ b.image | image_url: width: 900 }}"
+                       srcset="{{ b.image | image_url: width: 500 }} 500w,
+                               {{ b.image | image_url: width: 900 }} 900w"
+                       sizes="(max-width:620px) 46vw, 30vw"
+                       alt="{{ b.name | escape }}"
+                       loading="lazy" decoding="async"
+                       width="{{ b.image.width }}" height="{{ b.image.height }}">
+                {%- else -%}
+                  {%- comment -%}
+                    這裡不帶 label——名稱本來就印在格子下面，
+                    佔位框再印一次會變成同一個詞出現兩遍。
+                  {%- endcomment -%}
+                  {%- render 'df-ph', no_label: true,
+                        hint: '單品去背・置中',
+                        ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+                {%- endif -%}
+              </div>
+              <p class="dfkit__name">
+                {{ b.name }}
+                {%- if b.note != blank -%}<span>{{ b.note }}</span>{%- endif -%}
+              </p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 隨附配件",
+  "tag": "section",
+  "class": "df-kit-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "kit" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "隨附配件" },
+    { "type": "text", "id": "head_b", "label": "大標第二行" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "盒子裡是完整的一套，拆開就能裝。不用另外補買轉接座。" },
+    { "type": "text", "id": "note", "label": "註腳", "default": "實際內容以出貨版本為準。" },
+    { "type": "range", "id": "wrap", "label": "整段最寬", "min": 900, "max": 1560, "step": 20, "unit": "px", "default": 1240 },
+    { "type": "checkbox", "id": "dark", "label": "改成深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "一件配件",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "配件" },
+        { "type": "text", "id": "note", "label": "括號裡的補充（選填）",
+          "info": "例如「已預先安裝」。會用小灰字接在名稱後面。" },
+        { "type": "checkbox", "id": "wide", "label": "佔兩格（放大）", "default": false,
+          "info": "本體那一件建議打開，其他配件維持小格。" },
+        { "type": "image_picker", "id": "image", "label": "單品照",
+          "info": "去背、置中、正方形。同一組的光線與角度要一致，排在一起才不會亂。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 隨附配件",
+      "blocks": [
+        { "type": "item", "settings": { "name": "支架本體", "note": "面板已預先裝好", "wide": true } },
+        { "type": "item", "settings": { "name": "圓管把手固定座" } },
+        { "type": "item", "settings": { "name": "內襯墊套" } },
+        { "type": "item", "settings": { "name": "橡膠墊片" } },
+        { "type": "item", "settings": { "name": "六角扳手" } },
+        { "type": "item", "settings": { "name": "說明書與保固卡" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

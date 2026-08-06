@@ -1,0 +1,111 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  一半的體積 —— 整頁最重要的一段（行銷計畫說這是真正的賣點）。
+
+  ！對照的那一格永遠不出現對手的品牌名（口徑：不要主動提對手，
+    每提一次都在強化他是基準）。所以左邊叫「一般機車架」。
+
+  兩格各有一條橫槓，長度就是相對體積——沒有照片也讀得懂。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %}"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'size' }}">
+    <div class="df__wrap df__mid">
+
+      <div class="df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}
+          <p class="df__lead df__col">{{ s.lead }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="dfsize df__rise">
+        {%- comment -%} 左：對照組。右：我們。 {%- endcomment -%}
+        {%- for i in (1..2) -%}
+          {%- if i == 1 -%}
+            {%- assign nm = s.a_name -%}{%- assign meta = s.a_meta -%}
+            {%- assign w = s.a_bar -%}{%- assign im = s.a_image -%}
+            {%- assign cls = 'dfsize__box' -%}
+          {%- else -%}
+            {%- assign nm = s.b_name -%}{%- assign meta = s.b_meta -%}
+            {%- assign w = s.b_bar -%}{%- assign im = s.b_image -%}
+            {%- assign cls = 'dfsize__box dfsize__box--us' -%}
+          {%- endif -%}
+
+          <div class="{{ cls }}">
+            <div class="dfsize__stage">
+              {%- comment -%}
+                沒放圖的時候給佔位框，上面寫著那一格該拍什麼。留空白的話會被當成壞掉，
+                而對照組本來就不一定拍得到照片（不能用對手的官方圖）。
+              {%- endcomment -%}
+              {%- unless im -%}
+                {%- render 'df-ph',
+                      label: nm,
+                      hint: '去背 PNG・同一個角度、同一個距離拍兩張，比例才對得起來',
+                      ratio: 'width:100%;height:230px;' -%}
+              {%- endunless -%}
+              {%- if im -%}
+                <img src="{{ im | image_url: width: 900 }}"
+                     srcset="{{ im | image_url: width: 500 }} 500w,
+                             {{ im | image_url: width: 900 }} 900w"
+                     sizes="(max-width:900px) 86vw, 44vw"
+                     alt="{{ nm | escape }}" loading="lazy" decoding="async"
+                     width="{{ im.width }}" height="{{ im.height }}">
+              {%- endif -%}
+            </div>
+            <div class="dfsize__bar" style="width:{{ w }}%"></div>
+            <p class="dfsize__name">{{ nm }}</p>
+            {%- if meta != blank -%}<p class="dfsize__meta">{{ meta }}</p>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if s.note != blank -%}<p class="df__note">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 體積對比",
+  "tag": "section",
+  "class": "df-size-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "size" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "一半體積" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "整個車頭，還是你的" },
+    { "type": "textarea", "id": "lead", "label": "說明" },
+
+    { "type": "header", "content": "左邊（對照）",
+      "info": "永遠不要填對手的品牌名——每提一次都在強化他是基準。" },
+    { "type": "text", "id": "a_name", "label": "名稱", "default": "一般機車架" },
+    { "type": "text", "id": "a_meta", "label": "下方小字" },
+    { "type": "image_picker", "id": "a_image", "label": "圖" },
+    { "type": "range", "id": "a_bar", "label": "橫槓長度", "min": 10, "max": 100, "step": 5, "unit": "%", "default": 100 },
+
+    { "type": "header", "content": "右邊（我們）" },
+    { "type": "text", "id": "b_name", "label": "名稱", "default": "Dualfind" },
+    { "type": "text", "id": "b_meta", "label": "下方小字" },
+    { "type": "image_picker", "id": "b_image", "label": "圖", "info": "留空就用商品主圖。" },
+    { "type": "range", "id": "b_bar", "label": "橫槓長度", "min": 10, "max": 100, "step": 5, "unit": "%", "default": 50 },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "checkbox", "id": "dark", "label": "深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "presets": [{ "name": "DF 體積對比" }]
+}
+{% endschema %}

@@ -1,0 +1,144 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  還可以加什麼 —— 照 insta360「創作再升級」那一排（Mars 2026-08-07 指定）。
+
+  跟「隨附配件」是**兩件不同的事**，不要混在一起：
+    隨附配件 = 盒子裡本來就有的（不用再花錢）
+    這一段   = 另外可以買的（要花錢）
+  混在一起客人會以為都送，客服會被問。
+
+  版型直接沿用面板牆那排橫向卡（.dfrail）——同一個店裡不要有兩種
+  「橫向可滑的卡片列」，看起來會像兩個人做的。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-shop"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'shop' }}">
+    <div class="df__wrap">
+
+      {%- comment -%}
+        標題置中（2026-08-07 統一）：整頁規則是
+        **左右兩欄的段落靠左、滿寬的段落置中**。
+        原本是抄 insta360 的「左標題＋右上連結」，但夾在兩個置中的段落中間
+        看起來就像做錯了——連結改放到卡片列下面置中（面板牆也是這樣）。
+      {%- endcomment -%}
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2"><b>{{ s.head_a }}</b></h2>
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="dfrail dfsh df__rise" data-df-rail>
+          <div class="dfrail__track">
+            {%- for block in section.blocks -%}
+              {%- assign b = block.settings -%}
+              <article class="dfrail__card dfsh__card" {{ block.shopify_attributes }}>
+                <div class="dfrail__shot dfsh__shot">
+                  {%- if b.image -%}
+                    <img src="{{ b.image | image_url: width: 900 }}"
+                         srcset="{{ b.image | image_url: width: 500 }} 500w,
+                                 {{ b.image | image_url: width: 900 }} 900w"
+                         sizes="(max-width:620px) 74vw, 25vw"
+                         alt="{{ b.name | escape }}" loading="lazy" decoding="async"
+                         width="{{ b.image.width }}" height="{{ b.image.height }}">
+                  {%- else -%}
+                    {%- render 'df-ph', no_label: true, hint: '單品去背・置中',
+                          ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+                  {%- endif -%}
+                </div>
+                <div class="dfrail__cap dfsh__cap">
+                  <b>{{ b.name }}</b>
+                  {%- if b.text != blank -%}<p>{{ b.text }}</p>{%- endif -%}
+                  {%- if b.price != blank -%}<i>{{ b.price }}</i>{%- endif -%}
+                  {%- if b.url != blank -%}
+                    <a class="dfsh__go" href="{{ b.url }}">
+                      {{ s.buy_label | default: '選購' }}
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8"
+                              stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+
+          <div class="dfrail__nav">
+            <button type="button" class="dfrail__arrow" data-df-rail-step="-1" aria-label="上一個">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="dfrail__arrow" data-df-rail-step="1" aria-label="下一個">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if s.all_url != blank -%}
+        <div class="df__btns" style="justify-content:center">
+          <a class="df__btn df__btn--line" href="{{ s.all_url }}">
+            {{ s.all_label | default: '看全部配件' }}</a>
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 加購配件",
+  "tag": "section",
+  "class": "df-shop-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "shop" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標", "default": "還可以再加一點" },
+    { "type": "text", "id": "buy_label", "label": "卡片上的按鈕字", "default": "選購" },
+
+    { "type": "header", "content": "右上角的連結" },
+    { "type": "text", "id": "all_label", "label": "文字", "default": "看全部配件" },
+    { "type": "url", "id": "all_url", "label": "連到哪", "info": "留空就不出現。" },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳",
+      "default": "這些是另外選購的，不含在盒裝裡。" },
+    { "type": "checkbox", "id": "dark", "label": "改成深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "一件配件",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "配件" },
+        { "type": "textarea", "id": "text", "label": "一句話",
+          "info": "講它解決什麼，不要只重複名稱。" },
+        { "type": "text", "id": "price", "label": "價格" },
+        { "type": "url", "id": "url", "label": "連到哪" },
+        { "type": "image_picker", "id": "image", "label": "單品照",
+          "info": "去背、置中。整排要同光線同角度，排在一起才不會亂。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 加購配件",
+      "blocks": [
+        { "type": "item", "settings": { "name": "配件一" } },
+        { "type": "item", "settings": { "name": "配件二" } },
+        { "type": "item", "settings": { "name": "配件三" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

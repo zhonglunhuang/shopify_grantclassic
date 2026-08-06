@@ -1,0 +1,130 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  通路信任帶 —— Mars 2026-08-07 拍板。
+
+  ！這一段是「信任訊號」，**不是經銷商目錄**。刻意不放店名、不放 logo、不放連結——
+    「全台 200+ 據點」讓人相信這是一家真的公司；
+    「這 200 家叫什麼、在哪」會把人送去毛利最低的通路。
+    行銷計畫寫得很清楚：鏈條到車行只剩 800，打不過對手給的 1,000，
+    這 90 天是線上與 3C 通路的仗。
+
+  所以結尾一定要把人拉回官網——官網才有序號綁保固與面板長期備貨，
+  那是門市給不了的。**沒有那句收尾，這一段就只是在幫別人打廣告。**
+
+  左邊台灣地圖（Mars 手上已經有），右邊三個數字。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-trust"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'trust' }}">
+    <div class="df__wrap" style="max-width:{{ s.wrap }}px">
+
+      <div class="dftr df__rise">
+
+        <div class="dftr__map">
+          {%- if s.map -%}
+            <img src="{{ s.map | image_url: width: 1200 }}"
+                 srcset="{{ s.map | image_url: width: 600 }} 600w,
+                         {{ s.map | image_url: width: 1200 }} 1200w"
+                 sizes="(max-width:900px) 72vw, 40vw"
+                 alt="{{ s.map_alt | default: '全台據點分布' | escape }}"
+                 loading="lazy" decoding="async"
+                 width="{{ s.map.width }}" height="{{ s.map.height }}">
+          {%- else -%}
+            {%- render 'df-ph', label: '全台據點分布圖',
+                  hint: '台灣地圖・各縣市標數字・淺灰底',
+                  ratio: 'aspect-ratio:3/4;width:100%;' -%}
+          {%- endif -%}
+        </div>
+
+        <div class="dftr__txt">
+          {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          <h2 class="df__h2">
+            <b>{{ s.head_a }}</b>
+            {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+          </h2>
+          {%- if s.lead != blank -%}<p class="df__lead">{{ s.lead }}</p>{%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <div class="dftr__nums">
+              {%- for block in section.blocks -%}
+                {%- assign b = block.settings -%}
+                <div class="dftr__num" {{ block.shopify_attributes }}>
+                  <b>{{ b.value }}{%- if b.unit != blank -%}<i>{{ b.unit }}</i>{%- endif -%}</b>
+                  <span>{{ b.label }}</span>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%}
+            收尾：把人拉回官網。沒有這一段，上面就只是在幫經銷商打廣告。
+          {%- endcomment -%}
+          {%- if s.close != blank -%}
+            <p class="dftr__close">{{ s.close }}</p>
+          {%- endif -%}
+        </div>
+
+      </div>
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 通路信任帶",
+  "tag": "section",
+  "class": "df-trust-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "trust" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "不是只有網路上看得到" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "全台都摸得到" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "我們自己做、自己出貨、自己保固。全台兩百多個據點在賣，不是找不到人的網路品牌。" },
+    { "type": "textarea", "id": "close", "label": "收尾那句",
+      "info": "**一定要留著。** 這一段的目的是建立信任，不是把人送去別的通路——結尾要把人帶回官網。",
+      "default": "官網買的序號自動綁保固，面板與配件長期備貨，出貨與客服都在台灣。" },
+
+    { "type": "header", "content": "地圖" },
+    { "type": "image_picker", "id": "map", "label": "全台據點分布圖",
+      "info": "台灣地圖、各縣市標數字。直式 3:4、淺灰底。**不要放經銷商的店名或 logo。**" },
+    { "type": "text", "id": "map_alt", "label": "圖片替代文字" },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "range", "id": "wrap", "label": "整段最寬", "min": 900, "max": 1560, "step": 20, "unit": "px", "default": 1180 },
+    { "type": "checkbox", "id": "dark", "label": "改成深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "num",
+      "name": "一個數字",
+      "settings": [
+        { "type": "text", "id": "value", "label": "數字", "default": "200" },
+        { "type": "text", "id": "unit", "label": "後綴（選填）", "info": "例如「+」或「間」。會用小一號的字接在數字後面。" },
+        { "type": "text", "id": "label", "label": "說明", "default": "全台據點" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 通路信任帶",
+      "blocks": [
+        { "type": "num", "settings": { "value": "200", "unit": "+", "label": "全台據點" } },
+        { "type": "num", "settings": { "value": "7", "unit": "", "label": "縣市都有" } },
+        { "type": "num", "settings": { "value": "100", "unit": "%", "label": "台灣出貨與客服" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,149 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  面板牆 —— 行銷計畫裡「會自己轉的輪子」那一層。
+
+  做法照 Casetify：十款排在一起讓人自己挑，不要當「配件」塞進分類。
+  色票點下去就換主圖，不重新整理頁面。
+
+  ！面板還沒上架的時候，連結留空即可——按鈕會自動不出現，
+    版位先佔好，之後把商品網址填進去就通了。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- comment -%} 沒放圖就顯示佔位框，不要退回商品主圖（白底 JPEG 在深色底上是白方塊） {%- endcomment -%}
+{%- assign first = section.blocks[0] -%}
+{%- assign hero_img = first.settings.image -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} df-panels"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'panels' }}">
+    <div class="df__wrap df__mid">
+
+      <div class="df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+      </div>
+
+      {%- comment -%}
+        Mars 2026-08-06 定案：改成 Apple Watch 那種橫向卡片列——
+        **一張卡就是一個顏色，直接用圖說明，不用先點色票才看得到。**
+        原本「一張大圖 ＋ 下面十顆色票」的做法要多一個動作才看得到東西，
+        而且一次只看得到一款，比不出來。
+      {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="dfrail df__rise" data-df-rail>
+          <div class="dfrail__track">
+            {%- for block in section.blocks -%}
+              {%- assign bs = block.settings -%}
+              <article class="dfrail__card" {{ block.shopify_attributes }}>
+                <div class="dfrail__shot" style="background:{{ bs.swatch }}">
+                  {%- if bs.image -%}
+                    <img src="{{ bs.image | image_url: width: 900 }}"
+                         srcset="{{ bs.image | image_url: width: 500 }} 500w,
+                                 {{ bs.image | image_url: width: 900 }} 900w"
+                         sizes="(max-width:620px) 74vw, 25vw"
+                         alt="{{ bs.name | escape }}" loading="lazy" decoding="async"
+                         width="{{ bs.image.width }}" height="{{ bs.image.height }}">
+                  {%- else -%}
+                    {%- render 'df-ph', label: bs.name,
+                          hint: '裝在車上的照片，不要拍平放的',
+                          ratio: 'width:100%;height:100%;border:0;background:rgba(0,0,0,.28);' -%}
+                  {%- endif -%}
+                </div>
+                <div class="dfrail__cap">
+                  <b>{{ bs.name }}</b><i>{{ bs.price }}</i>
+                  {%- if bs.note != blank -%}<p>{{ bs.note }}</p>{%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+
+          <div class="dfrail__nav">
+            <button type="button" class="dfrail__arrow" data-df-rail-step="-1" aria-label="上一個">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="dfrail__arrow" data-df-rail-step="1" aria-label="下一個">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if s.cta != blank and s.cta_url != blank -%}
+        <div class="df__btns" style="justify-content:center">
+          <a class="df__btn df__btn--fill" href="{{ s.cta_url }}">{{ s.cta }}</a>
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 面板牆",
+  "tag": "section",
+  "class": "df-panels-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "panels" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "十種花色" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "換個面板，換張臉" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "面板是磁吸的，徒手就換得下來。想換心情、想配車色、想跟別人不一樣——換一片就好，不用換整組。" },
+
+    { "type": "header", "content": "按鈕",
+      "info": "面板還沒上架就把連結留空，按鈕會自動不出現。" },
+    { "type": "text", "id": "cta", "label": "按鈕文字", "default": "看全部面板" },
+    { "type": "url",  "id": "cta_url", "label": "連到哪" },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "一款面板",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "碳纖維黑" },
+        { "type": "text", "id": "price", "label": "價格", "default": "NT$590" },
+        { "type": "text", "id": "note", "label": "一句話（選填）" },
+        { "type": "color", "id": "swatch", "label": "卡片底色", "default": "#1D1D1F",
+          "info": "沒放圖時看到的顏色，也是圖載入前的底色。" },
+        { "type": "image_picker", "id": "image", "label": "這一款的照片",
+          "info": "拍「裝在車上」的照片，不要拍平放的——賣點是車頭好看。直式 3:4。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 面板牆",
+      "blocks": [
+        { "type": "panel", "settings": { "name": "碳纖維黑", "price": "NT$590", "swatch": "#17181B" } },
+        { "type": "panel", "settings": { "name": "曜黑",     "price": "NT$590", "swatch": "#2B2D31" } },
+        { "type": "panel", "settings": { "name": "銀",       "price": "NT$590", "swatch": "#C9CDD2" } },
+        { "type": "panel", "settings": { "name": "鈦灰",     "price": "NT$590", "swatch": "#7C7F85" } },
+        { "type": "panel", "settings": { "name": "正紅",     "price": "NT$590", "swatch": "#B8322A" } },
+        { "type": "panel", "settings": { "name": "拉絲銀",   "price": "NT$590", "swatch": "#AEB2B7" } },
+        { "type": "panel", "settings": { "name": "浮世繪",   "price": "NT$290", "swatch": "#2E6FA8" } },
+        { "type": "panel", "settings": { "name": "大理石",   "price": "NT$290", "swatch": "#E6E4E0" } },
+        { "type": "panel", "settings": { "name": "卡皮巴拉", "price": "NT$290", "swatch": "#B98A55" } },
+        { "type": "panel", "settings": { "name": "聖母峰",   "price": "NT$290", "swatch": "#5C6B78" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

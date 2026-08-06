@@ -1,0 +1,197 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  系列對比 —— 照 dji.com 的「Osmo Pocket 系列產品對比」（Mars 2026-08-06 指定），
+  但**白底不要黑底**，而且比的是三條線：二勢力／八力架／四力架。
+
+  取代原本的「找出適合你的 Dualfind」（Air vs Pro）。
+  Air 與 Pro 的選擇沒有不見——它在下面的購買區，那裡本來就有
+  「多 200 元升級」的說明，兩個地方都放反而不知道哪個才算數。
+
+  ！三欄的順序與內容是設定，不是區塊——因為就是三條線，不會多也不會少。
+    下面比較表的每一列才是區塊（想加幾列就加幾列）。
+
+  ！旗艦那一欄用**系統藍**標，不用紅色。
+    整頁的動作色是藍的，紅色會跟頁面其他地方打架
+    （grantclassic 的紅是 logo 的品牌色，不是這一頁的強調色）。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-lineup"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'lineup' }}">
+    <div class="df__wrap" style="max-width:{{ s.wrap }}px">
+
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+      </div>
+
+      {%- comment -%}
+        三欄用迴圈跑，不要複製貼上三次——
+        欄位改一個地方就好，也不會有哪一欄漏改。
+      {%- endcomment -%}
+      {%- assign keys = 'a,b,c' | split: ',' -%}
+
+      <div class="dfln df__rise">
+
+        {%- comment -%} ── 上半：三張產品卡 ── {%- endcomment -%}
+        <div class="dfln__cards">
+          {%- for k in keys -%}
+            {%- assign kn    = k | append: '_name'  -%}
+            {%- assign kt    = k | append: '_tier'  -%}
+            {%- assign kp    = k | append: '_price' -%}
+            {%- assign ku    = k | append: '_url'   -%}
+            {%- assign ki    = k | append: '_image' -%}
+            {%- assign khero = k | append: '_hero'  -%}
+            {%- assign name  = s[kn] -%}
+            {%- if name == blank -%}{% continue %}{%- endif -%}
+
+            <article class="dfln__card {% if s[khero] %}is-hero{% endif %}">
+              {%- if s[khero] and s.hero_tag != blank -%}
+                <span class="dfln__flag">{{ s.hero_tag }}</span>
+              {%- endif -%}
+
+              <div class="dfln__stage">
+                {%- if s[ki] -%}
+                  <img src="{{ s[ki] | image_url: width: 800 }}"
+                       srcset="{{ s[ki] | image_url: width: 420 }} 420w,
+                               {{ s[ki] | image_url: width: 800 }} 800w"
+                       sizes="(max-width:820px) 88vw, 30vw"
+                       alt="{{ name | escape }}"
+                       loading="lazy" decoding="async"
+                       width="{{ s[ki].width }}" height="{{ s[ki].height }}">
+                {%- else -%}
+                  {%- render 'df-ph', label: name,
+                        hint: '去背 PNG・三支同角度同距離',
+                        ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+                {%- endif -%}
+              </div>
+
+              {%- if s[kt] != blank -%}<p class="dfln__tier">{{ s[kt] }}</p>{%- endif -%}
+              <h3 class="dfln__name">{{ name }}</h3>
+              {%- if s[kp] != blank -%}<p class="dfln__price">{{ s[kp] }}</p>{%- endif -%}
+
+              {%- if s[ku] != blank -%}
+                <a class="df__btn {% if s[khero] %}df__btn--fill{% else %}df__btn--line{% endif %} dfln__btn"
+                   href="{{ s[ku] }}">{{ s.cta | default: '看這一支' }}</a>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%}
+          ── 下半：比較表 ──
+          每一列一個 grid，欄寬跟上面的卡對齊（同一組 grid-template-columns）。
+          手機改成「一列一張小卡」，不要硬塞三欄（三欄各剩 100px 讀不了）。
+        {%- endcomment -%}
+        {%- if section.blocks.size > 0 -%}
+          <div class="dfln__table">
+            {%- for block in section.blocks -%}
+              {%- assign r = block.settings -%}
+              <div class="dfln__row" {{ block.shopify_attributes }}>
+                <div class="dfln__label">{{ r.label }}</div>
+                {%- for k in keys -%}
+                  {%- assign kn = k | append: '_name' -%}
+                  {%- if s[kn] == blank -%}{% continue %}{%- endif -%}
+                  {%- assign khero = k | append: '_hero' -%}
+                  <div class="dfln__val {% if s[khero] %}is-hero{% endif %}">
+                    <span class="dfln__vk">{{ s[kn] }}</span>
+                    {{ r[k] | default: '—' }}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 系列對比",
+  "tag": "section",
+  "class": "df-lineup-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "lineup" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "三條線" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "看你騎車在意什麼" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "都是我們自己做的。差別不在好不好，在你要的是哪一種——最小的體積、最多的爪子，還是最省的預算。" },
+    { "type": "text", "id": "cta", "label": "按鈕文字", "default": "看這一支" },
+    { "type": "text", "id": "hero_tag", "label": "旗艦那欄的標籤", "default": "旗艦" },
+
+    { "type": "header", "content": "第一欄" },
+    { "type": "text", "id": "a_name", "label": "名稱", "default": "二勢力 Dualfind" },
+    { "type": "text", "id": "a_tier", "label": "定位", "default": "旗艦款" },
+    { "type": "text", "id": "a_price", "label": "價格", "default": "NT$1,780 起" },
+    { "type": "url", "id": "a_url", "label": "連到哪" },
+    { "type": "image_picker", "id": "a_image", "label": "產品圖" },
+    { "type": "checkbox", "id": "a_hero", "label": "這一欄是旗艦", "default": true },
+
+    { "type": "header", "content": "第二欄" },
+    { "type": "text", "id": "b_name", "label": "名稱", "default": "八力架 OctaStand" },
+    { "type": "text", "id": "b_tier", "label": "定位", "default": "八爪進階款" },
+    { "type": "text", "id": "b_price", "label": "價格", "default": "NT$990 起" },
+    { "type": "url", "id": "b_url", "label": "連到哪" },
+    { "type": "image_picker", "id": "b_image", "label": "產品圖" },
+    { "type": "checkbox", "id": "b_hero", "label": "這一欄是旗艦", "default": false },
+
+    { "type": "header", "content": "第三欄" },
+    { "type": "text", "id": "c_name", "label": "名稱", "default": "四力架 4Power" },
+    { "type": "text", "id": "c_tier", "label": "定位", "default": "專業與基礎款" },
+    { "type": "text", "id": "c_price", "label": "價格", "default": "NT$480 起" },
+    { "type": "url", "id": "c_url", "label": "連到哪" },
+    { "type": "image_picker", "id": "c_image", "label": "產品圖" },
+    { "type": "checkbox", "id": "c_hero", "label": "這一欄是旗艦", "default": false },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "range", "id": "wrap", "label": "整段最寬", "min": 900, "max": 1560, "step": 20, "unit": "px", "default": 1240 },
+    { "type": "checkbox", "id": "dark", "label": "改成深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "比較表的一列",
+      "settings": [
+        { "type": "text", "id": "label", "label": "項目", "default": "項目" },
+        { "type": "text", "id": "a", "label": "第一欄的值", "default": "—" },
+        { "type": "text", "id": "b", "label": "第二欄的值", "default": "—" },
+        { "type": "text", "id": "c", "label": "第三欄的值", "default": "—" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 系列對比",
+      "blocks": [
+        { "type": "row", "settings": { "label": "固定結構",
+            "a": "兩爪鎖定，側邊鎖扣", "b": "八角鎖定", "c": "四角鎖定，一鍵開合" } },
+        { "type": "row", "settings": { "label": "減震",
+            "a": "四軸減震結構", "b": "四軸減震結構", "c": "四爪波狀矽膠墊；基礎款為一般防震" } },
+        { "type": "row", "settings": { "label": "材質",
+            "a": "304 不鏽鋼 × PU 包鋁底座", "b": "高強度鋁合金 × 金屬旋鈕", "c": "PC ＋ 不鏽鋼" } },
+        { "type": "row", "settings": { "label": "定位",
+            "a": "定位版 Pro 有", "b": "定位倉版有", "c": "部分型號有" } },
+        { "type": "row", "settings": { "label": "軍規與 SGS",
+            "a": "軍規抗震 ＋ SGS 檢驗", "b": "軍規抗震 ＋ SGS 檢驗", "c": "軍規抗震 ＋ SGS 檢驗" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  橫向擴張 banner —— 照 dji.com/tw/osmo-pocket-4p（Mars 2026-08-06 指定）。
+
+  捲動進來時：
+    1. 一開始是有留白的圓角框
+    2. 往下滑 → 左右擴張成滿版出血、圓角變 0
+    3. 接著文字浮現
+    4. 同時黑色漸層從底部籠罩上來
+
+  ！外框不能有 overflow——position:sticky 遇到有 overflow 的祖先會無聲失效。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- assign tall = s.pace | default: 180 -%}
+
+<div class="df df--dark df-banner"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  {%- assign scrim = s.scrim | divided_by: 100.0 -%}
+  <section class="dfbn" id="{{ s.anchor | default: 'banner' }}"
+           style="height:{{ tall }}svh;background:{{ s.bg }};
+                  --bn-inset:{{ s.inset }}vw;
+                  --bn-radius:{{ s.radius }}px;
+                  --bn-scrim:{{ scrim }};"
+           data-df-banner>
+    <div class="dfbn__pin">
+      <div class="dfbn__media" data-df-bn-media>
+
+        {%- if s.video != blank -%}
+          {{ s.video | video_tag:
+               autoplay: true, loop: true, muted: true,
+               controls: false, playsinline: true, image_size: '1600x' }}
+        {%- elsif s.image -%}
+          <img src="{{ s.image | image_url: width: 2400 }}"
+               srcset="{{ s.image | image_url: width: 1000 }} 1000w,
+                       {{ s.image | image_url: width: 1800 }} 1800w,
+                       {{ s.image | image_url: width: 2600 }} 2600w"
+               sizes="100vw"
+               alt="{{ s.image_alt | default: s.heading | escape }}"
+               loading="lazy" decoding="async"
+               width="{{ s.image.width }}" height="{{ s.image.height }}">
+        {%- elsif s.demo -%}
+          {%- comment -%}
+            ！樣稿用的示範素材——**這是 DJI 官網的行銷照，不是我們的**。
+              只是為了讓 Mars 先看得到「擴張＋文字浮現＋漸層籠罩」長什麼樣子。
+              上線前一定要關掉這個開關，換成 grantclassic 自己拍的實騎素材。
+            主題自己的檔案要用 asset_url，image_url 只吃「檔案」後台上傳的圖。
+          {%- endcomment -%}
+          <img src="{{ 'df-banner-demo.webp' | asset_url }}"
+               alt="示範素材（樣稿用）" decoding="async"
+               width="2400" height="1350">
+          <span class="dfbn__demo">示範素材・上線前要換掉</span>
+
+        {%- else -%}
+          {%- render 'df-ph',
+                label: s.ph_label,
+                hint: s.ph_hint,
+                ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+        {%- endif -%}
+
+        {%- comment -%} 漸層籠罩：跟著捲動加深，文字才站得住 {%- endcomment -%}
+        <span class="dfbn__scrim"></span>
+
+        <div class="dfbn__txt">
+          {%- if s.eyebrow != blank -%}<p class="dfbn__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.heading != blank -%}<h2 class="dfbn__h">{{ s.heading }}</h2>{%- endif -%}
+          {%- if s.text != blank -%}<p class="dfbn__p">{{ s.text }}</p>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 擴張 Banner",
+  "tag": "section",
+  "class": "df-banner-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "banner" },
+
+    { "type": "header", "content": "素材" },
+    { "type": "video", "id": "video", "label": "影片（優先於圖片）",
+      "info": "靜音自動循環。這一段最適合放實騎的情境影片。" },
+    { "type": "image_picker", "id": "image", "label": "圖片" },
+    { "type": "text", "id": "image_alt", "label": "圖片替代文字" },
+    { "type": "text", "id": "ph_label", "label": "沒放素材時的標題", "default": "橫幅情境素材" },
+    { "type": "text", "id": "ph_hint", "label": "沒放素材時的說明",
+      "default": "橫幅 16:9・實騎情境・會擴張到滿版，解析度要夠" },
+    { "type": "checkbox", "id": "demo", "label": "先用示範素材看效果", "default": false,
+      "info": "這張是別人家的行銷照，只給樣稿用。上線前一定要關掉、換成自己拍的。" },
+
+    { "type": "header", "content": "文字" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "heading", "label": "大標" },
+    { "type": "textarea", "id": "text", "label": "說明" },
+
+    { "type": "header", "content": "動作" },
+    { "type": "range", "id": "pace", "label": "整段要捲多久", "min": 120, "max": 300, "step": 10, "unit": "%", "default": 180,
+      "info": "越大擴張得越慢。這一段在靜態截圖上只看得到其中一格，要捲才看得出來。" },
+    { "type": "range", "id": "inset", "label": "一開始的左右留白", "min": 0, "max": 24, "step": 2, "unit": "%", "default": 14,
+      "info": "擴張前縮多少。0 就是一開始就滿版（等於沒有擴張效果）。" },
+    { "type": "range", "id": "radius", "label": "一開始的圓角", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 26 },
+    { "type": "range", "id": "scrim", "label": "漸層籠罩的濃度", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
+
+    { "type": "header", "content": "整段" },
+    { "type": "color", "id": "bg", "label": "底色", "default": "#000000" },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "presets": [{ "name": "DF 擴張 Banner" }]
+}
+{% endschema %}

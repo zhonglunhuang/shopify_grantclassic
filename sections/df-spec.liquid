@@ -1,0 +1,109 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  規格。DJI 的做法——攤開講，不害羞。
+  兩種區塊：「群組標題」開一個新群，「一列」放在它下面。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %}"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};
+            --dfv-wrap:{{ s.wrap }}px;">
+  <section class="df__sect" id="{{ s.anchor | default: 'spec' }}">
+    <div class="df__wrap">
+
+      {%- comment -%}
+        標題置中（2026-08-07 統一）：整頁的規則是
+        **左右兩欄的段落靠左、滿寬的段落置中**。
+        規格表是滿寬的，所以跟其他滿寬段一樣置中——
+        原本靠左會在一片置中的段落裡看起來像做錯了。
+      {%- endcomment -%}
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2"><b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+      </div>
+
+      <div class="df__rise" style="margin-top:48px">
+        {%- assign open = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'group' -%}
+            {%- if open -%}</dl></div>{%- endif -%}
+            <div class="dfspec__grp" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              <dl>
+            {%- assign open = true -%}
+          {%- else -%}
+            {%- unless open -%}<div class="dfspec__grp"><dl>{%- assign open = true -%}{%- endunless -%}
+            <div class="dfspec__row" {{ block.shopify_attributes }}>
+              <dt>{{ block.settings.k }}</dt>
+              <dd>{{ block.settings.v }}</dd>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if open -%}</dl></div>{%- endif -%}
+      </div>
+
+      {%- if s.note != blank -%}<p class="df__note">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 規格",
+  "tag": "section",
+  "class": "df-spec-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "spec" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "全部規格" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "該講的都在這裡" },
+    { "type": "range", "id": "wrap", "label": "這一段的寬度", "min": 800, "max": 1560, "step": 40, "unit": "px", "default": 1080,
+      "info": "跟版本比較段一樣收窄——表格放到滿版一行太寬，眼睛會跳行。" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "checkbox", "id": "dark", "label": "深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "群組標題",
+      "settings": [
+        { "type": "text", "id": "title", "label": "標題", "default": "尺寸與重量" }
+      ]
+    },
+    {
+      "type": "row",
+      "name": "一列",
+      "settings": [
+        { "type": "text", "id": "k", "label": "項目", "default": "尺寸" },
+        { "type": "text", "id": "v", "label": "內容", "default": "—" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 規格",
+      "blocks": [
+        { "type": "group", "settings": { "title": "本體" } },
+        { "type": "row", "settings": { "k": "材質", "v": "鋁合金 ＋ 工程塑料" } },
+        { "type": "row", "settings": { "k": "適用手機", "v": "拿掉上下套子可裝到 iPhone 17 Pro Max" } },
+        { "type": "row", "settings": { "k": "固定方式", "v": "側邊按鈕單手鎖定，雙重固定機構" } },
+        { "type": "row", "settings": { "k": "減震", "v": "軸減震結構" } },
+        { "type": "group", "settings": { "title": "定位（Pro 才有）" } },
+        { "type": "row", "settings": { "k": "iPhone", "v": "支援內建的「尋找」App" } },
+        { "type": "row", "settings": { "k": "Android", "v": "支援 Google「尋找我的裝置」" } },
+        { "type": "group", "settings": { "title": "安裝" } },
+        { "type": "row", "settings": { "k": "適用車型", "v": "圓管把手；另有後照鏡座版本" } },
+        { "type": "row", "settings": { "k": "工具", "v": "不需要特殊工具" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

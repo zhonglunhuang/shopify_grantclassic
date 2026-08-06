@@ -1,0 +1,169 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  格狀特點段 —— 照 dji.com/tw/osmo-pocket-4p 中段那個大小不一的卡片牆。
+
+  三種尺寸：大（佔一半、兩倍高）／中（四分之一、兩倍高）／小（四分之一、一倍高）。
+  後台的區塊列表就是版面圖，拖曳＝排版——跟首頁大磚同一套邏輯。
+
+  每張卡可以選文字在上面還是壓在圖上：
+  · 上面：適合去背產品圖（文字在上、產品在下）
+  · 壓在圖上：適合實拍情境照
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} dfbento"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'features' }}">
+    <div class="df__wrap">
+
+      {%- comment -%}
+        DJI 的第二頁開頭不是大標題，是**一整段置中的介紹文**
+        （「Osmo Pocket 4P，雙眸所見，皆成大片。…」那一段）。
+        所以大標是選填的，主力是 intro 那一段。
+      {%- endcomment -%}
+      {%- if s.head_a != blank or s.intro != blank -%}
+        <div class="df__mid df__rise">
+          {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+          {%- if s.head_a != blank -%}
+            <h2 class="df__h2">
+              <b>{{ s.head_a }}</b>
+              {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+            </h2>
+          {%- endif -%}
+          {%- if s.intro != blank -%}
+            <p class="dfb__intro">{{ s.intro }}</p>
+          {%- endif -%}
+          {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="dfb__grid df__rise">
+        {%- for block in section.blocks -%}
+          {%- comment -%} 沒放圖就顯示佔位框，不要退回商品主圖（白底 JPEG 會變白方塊） {%- endcomment -%}
+          {%- assign b = block.settings -%}
+          {%- assign img = b.image -%}
+
+          <article class="dfb__card dfb__card--{{ b.size }} {% if b.overlay %}is-over{% endif %}"
+                   style="--dfb-tint:{{ b.tint }};"
+                   {{ block.shopify_attributes }}>
+
+            <div class="dfb__txt">
+              <h3 class="dfb__h">{{ b.title }}</h3>
+              {%- if b.text != blank -%}<p class="dfb__p">{{ b.text }}</p>{%- endif -%}
+            </div>
+
+            <span class="dfb__img">
+              {%- comment -%}
+                影片優先於圖片。靜音、自動循環、不顯示控制列——
+                DJI 那些卡片裡的短片就是這樣（是氛圍不是要你按播放）。
+                一定要 playsinline，不然 iPhone 會自己全螢幕接管。
+              {%- endcomment -%}
+              {%- if b.video != blank -%}
+                {{ b.video | video_tag:
+                     autoplay: true, loop: true, muted: true,
+                     controls: false, playsinline: true,
+                     image_size: '1200x' }}
+              {%- elsif img -%}
+                <img src="{{ img | image_url: width: 1400 }}"
+                     srcset="{{ img | image_url: width: 600 }} 600w,
+                             {{ img | image_url: width: 1000 }} 1000w,
+                             {{ img | image_url: width: 1500 }} 1500w"
+                     sizes="{% if b.size == 'big' %}(max-width:900px) 94vw, 52vw{% else %}(max-width:900px) 94vw, 26vw{% endif %}"
+                     alt="{{ b.title | escape }}" loading="lazy" decoding="async"
+                     width="{{ img.width }}" height="{{ img.height }}">
+              {%- else -%}
+                {%- comment -%} 小卡空間不夠，只留圖示不放字（df__ph--tiny） {%- endcomment -%}
+                {%- assign tiny = '' -%}
+                {%- if b.size == 'small' -%}{%- assign tiny = ' df__ph--tiny' -%}{%- endif -%}
+                {%- render 'df-ph', label: b.ph, hint: '', extra: tiny,
+                      ratio: 'height:100%;width:100%;border-radius:0;border:0;' -%}
+              {%- endif -%}
+            </span>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} 收尾：一段置中文字 ＋ 一顆按鈕（DJI 的「瞭解更多」那一段） {%- endcomment -%}
+      {%- if s.outro != blank or s.outro_cta != blank -%}
+        <div class="dfb__outro df__mid df__rise">
+          {%- if s.outro != blank -%}<p class="dfb__intro">{{ s.outro }}</p>{%- endif -%}
+          {%- if s.outro_cta != blank -%}
+            <div class="df__btns" style="justify-content:center">
+              <a class="df__btn df__btn--ghost" href="{{ s.outro_url | default: '#buy' }}">{{ s.outro_cta }}</a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 格狀特點",
+  "tag": "section",
+  "class": "df-bento-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "features" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "info": "選填。DJI 這一段沒有大標，只有一段介紹文。" },
+    { "type": "text", "id": "head_b", "label": "大標第二行" },
+    { "type": "textarea", "id": "intro", "label": "開頭的一段介紹文",
+      "info": "置中、佔滿一整排。DJI 就是用這一段開場（「Osmo Pocket 4P，雙眸所見，皆成大片…」）。" },
+    { "type": "textarea", "id": "lead", "label": "小一號的說明（選填）" },
+
+    { "type": "header", "content": "收尾" },
+    { "type": "textarea", "id": "outro", "label": "結尾的一段文字" },
+    { "type": "text", "id": "outro_cta", "label": "結尾按鈕",
+      "info": "留空就不顯示按鈕。（schema 的 default 不能填空字串，Shopify 會拒收。）" },
+    { "type": "url", "id": "outro_url", "label": "結尾按鈕連到哪", "info": "留空跳到購買區。" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "一張卡",
+      "settings": [
+        { "type": "select", "id": "size", "label": "尺寸", "default": "small",
+          "info": "一排兩個。格數：大 = 2、小 = 1、寬 = 2。全部加起來要是偶數，最後才不會空一格。",
+          "options": [
+            { "value": "big",   "label": "大（一欄兩列・高的那張）" },
+            { "value": "small", "label": "小（一欄一列）" },
+            { "value": "wide",  "label": "寬（佔滿一整排）" }
+          ] },
+        { "type": "text", "id": "title", "label": "標題", "default": "一句話講完這個功能" },
+        { "type": "textarea", "id": "text", "label": "說明（選填）" },
+        { "type": "video", "id": "video", "label": "影片（優先於圖片）",
+          "info": "靜音、自動循環、沒有控制列——像 DJI 卡片裡那種氛圍短片。放了影片就不會用下面的圖。" },
+        { "type": "image_picker", "id": "image", "label": "圖", "info": "留空會顯示佔位框，上面寫著這格該拍什麼。" },
+        { "type": "text", "id": "ph", "label": "沒放圖時的提示", "default": "這裡放圖" },
+        { "type": "checkbox", "id": "overlay", "label": "文字壓在圖上", "default": false,
+          "info": "實拍情境照打勾；去背產品圖不要打勾（文字會在上面、產品在下面）。" },
+        { "type": "color", "id": "tint", "label": "卡片底色", "default": "#16171B" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 格狀特點",
+      "blocks": [
+        { "type": "card", "settings": { "size": "big",   "title": "側邊按鈕，拇指按得到" } },
+        { "type": "card", "settings": { "size": "small", "title": "裝得下 17 Pro Max" } },
+        { "type": "card", "settings": { "size": "small", "title": "軸減震結構" } },
+        { "type": "card", "settings": { "size": "small", "title": "面板磁吸可換" } },
+        { "type": "card", "settings": { "size": "big",   "title": "打開「尋找」就看得到車" } },
+        { "type": "card", "settings": { "size": "small", "title": "不需要特殊工具" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

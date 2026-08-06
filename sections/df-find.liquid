@@ -1,0 +1,141 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  打開「尋找」—— 護城河那一段。
+
+  口徑：不要說「獨家定位技術」（那要客人相信我們），
+  要說「打開 iPhone 的『尋找』」——那是他每天在用、已經相信的東西。
+
+  ！MFi 認證的欄位預設是空的。MFi 是 Apple 的註冊商標，
+    沒有認證編號就不要寫。空著的時候整行不會出現。
+
+  手機外框是純 CSS 畫的，沒有截圖也看得到樣子（裡面放一個會擴散的定位點）。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} dffind"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'find' }}">
+    <div class="df__wrap">
+      <div class="df__two {% if s.flip %}df__two--flip{% endif %} df__rise">
+
+        <div class="df__two-txt">
+          {%- if s.tag != blank -%}<span class="df__tag">{{ s.tag }}</span>{%- endif -%}
+          <h2 class="df__h2">
+            <b>{{ s.head_a }}</b>
+            {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+          </h2>
+          {%- if s.lead != blank -%}<p class="df__lead">{{ s.lead }}</p>{%- endif -%}
+          {%- if s.body != blank -%}<p class="df__body">{{ s.body }}</p>{%- endif -%}
+
+          {%- comment -%}
+            認證徽章列。
+
+            ！Apple 與 Google 的徽章圖檔**只發給通過認證的廠商**，
+              有規定的比例、留白與配色，不可以自己畫或從網路上抓。
+              Apple：MFi 網站（mfi.apple.com）登入後下載「Works with Apple Find My」識別包
+              Google：Find My Device network 合作夥伴的品牌包
+            圖還沒到之前用文字版頂著，圖一放進去文字版自動退場。
+          {%- endcomment -%}
+          {%- if section.blocks.size > 0 -%}
+            <div class="dffind__certs">
+              {%- for block in section.blocks -%}
+                {%- assign bs = block.settings -%}
+                <div class="dffind__cert" {{ block.shopify_attributes }}>
+                  {%- if bs.badge -%}
+                    <img class="dffind__badge"
+                         src="{{ bs.badge | image_url: height: 120 }}"
+                         alt="{{ bs.name | escape }}"
+                         loading="lazy" decoding="async">
+                  {%- else -%}
+                    <span class="dffind__cert-txt">
+                      <b>{{ bs.name }}</b>
+                      {%- if bs.note != blank -%}<span>{{ bs.note }}</span>{%- endif -%}
+                    </span>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if s.cert != blank -%}
+            <p class="df__note">{{ s.cert }}</p>
+          {%- endif -%}
+        </div>
+
+        <div>
+          <div class="dffind__phone">
+            <div class="dffind__screen">
+              {%- if s.screen -%}
+                <img src="{{ s.screen | image_url: width: 800 }}"
+                     alt="{{ s.screen_alt | default: '尋找 App 上的機車位置' | escape }}"
+                     loading="lazy" decoding="async"
+                     width="{{ s.screen.width }}" height="{{ s.screen.height }}">
+              {%- else -%}
+                <span class="dffind__ping"><i></i></span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 打開尋找",
+  "tag": "section",
+  "class": "df-find-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "find" },
+    { "type": "text", "id": "tag", "label": "徽章", "default": "定位版 Pro 才有",
+      "info": "標準版 Air 沒有定位倉，這裡一定要標清楚。" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "車停哪裡" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "打開「尋找」就知道" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "不用再裝一個 App、不用再記一組帳號。你的車就出現在 iPhone 內建的「尋找」裡，跟你的 AirPods 排在一起。" },
+    { "type": "textarea", "id": "body", "label": "補充",
+      "default": "Android 走 Google 的「尋找我的裝置」，一樣是系統內建。" },
+    { "type": "text", "id": "cert", "label": "認證註記",
+      "info": "MFi 是 Apple 的註冊商標——**拿到認證編號才填這一欄**，沒有就空著。" },
+
+    { "type": "header", "content": "手機畫面" },
+    { "type": "image_picker", "id": "screen", "label": "截圖",
+      "info": "「尋找」App 上顯示機車位置的畫面。留空會顯示一個定位動畫。" },
+    { "type": "text", "id": "screen_alt", "label": "圖片替代文字" },
+
+    { "type": "header", "content": "版面" },
+    { "type": "checkbox", "id": "flip", "label": "圖片放左邊", "default": false },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "一個認證徽章",
+      "settings": [
+        { "type": "image_picker", "id": "badge", "label": "官方徽章圖檔",
+          "info": "只能用原廠給的圖，不可以自己畫。Apple 在 mfi.apple.com 登入後下載；Google 找 Find My Device network 的品牌包。透明背景 PNG、高度 120px 以上。放進去之後下面的文字版就會自動消失。" },
+        { "type": "text", "id": "name", "label": "徽章名稱（沒有圖時顯示這個）",
+          "default": "Works with Apple Find My" },
+        { "type": "text", "id": "note", "label": "下面那行小字" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 打開尋找",
+      "blocks": [
+        { "type": "cert", "settings": { "name": "Works with Apple Find My", "note": "通過 Apple MFi 認證" } },
+        { "type": "cert", "settings": { "name": "Works with Google Find My Device", "note": "Android 系統內建" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

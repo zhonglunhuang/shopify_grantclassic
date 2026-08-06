@@ -1,0 +1,71 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-topbar.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  Dualfind 頂部列。
+
+  用 position:fixed 不是 sticky —— sticky 只在自己的 section 範圍內有效，
+  而 section 本身只有列高，等於一捲就跑掉。
+
+  往下捲收起、往上捲露出；捲到哪一段導覽就亮哪一項（邏輯在 df.js）。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+{%- comment -%}
+  一定要帶 df--dark：這條列是深色底，外框沒標的話 --ink 會是淺色底那一組（近黑），
+  而 df.css 的 `.df :where(a){color:inherit}` 會把字標與導覽全部染成近黑，
+  在黑色列上等於看不見（實測就是這樣）。
+{%- endcomment -%}
+<div class="df df--dark df-topbar">
+  <div class="dfbar" data-df-bar>
+    <div class="dfbar__in">
+      <a class="dfbar__logo" href="{{ product.url | default: '/' }}">{{ s.wordmark }}</a>
+
+      <nav class="dfbar__nav">
+        {%- for block in section.blocks -%}
+          <a class="dfbar__link" data-df-jump href="#{{ block.settings.anchor }}"
+             {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {%- endfor -%}
+      </nav>
+
+      <a class="dfbar__cta" href="#buy">{{ s.cta }}</a>
+    </div>
+  </div>
+  <div class="dfbar__spacer"></div>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 頂部列",
+  "tag": "section",
+  "class": "df-topbar-section",
+  "settings": [
+    { "type": "text", "id": "wordmark", "label": "左邊的字標", "default": "Dualfind" },
+    { "type": "text", "id": "cta", "label": "右邊的按鈕", "default": "購買" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "導覽項目",
+      "settings": [
+        { "type": "text", "id": "label", "label": "顯示文字", "default": "概覽" },
+        { "type": "text", "id": "anchor", "label": "跳到哪一段", "default": "overview",
+          "info": "填該段的錨點代號，例如 find、panels、spec。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 頂部列",
+      "blocks": [
+        { "type": "link", "settings": { "label": "概覽",  "anchor": "overview" } },
+        { "type": "link", "settings": { "label": "尋找",  "anchor": "find" } },
+        { "type": "link", "settings": { "label": "面板",  "anchor": "panels" } },
+        { "type": "link", "settings": { "label": "規格",  "anchor": "spec" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

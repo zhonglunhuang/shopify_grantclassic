@@ -1,0 +1,125 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  專利防盜鎖 —— Mars 2026-08-06 指定要加的。
+
+  排在「打開尋找」前面，因為兩段合起來就是標語的下半句「停車顧車」：
+      拔不走（這一段） → 找得到（下一段）
+  散開來各講各的就沒有這個力道。
+
+  ！文案主角是**機制**不是形容詞。
+    「堅固耐用」誰都能講；「轉到限位之後開始空轉」別人抄不走，
+    而且客人自己想像得出畫面——這是 Mars 的偏好（機制比數字有力）。
+
+  版型沿用 .df__two（跟「打開尋找」同一組），但預設圖在左邊，
+  兩段接著出現才不會看起來像同一張版重複貼。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} dflock"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'lock' }}">
+    <div class="df__wrap">
+      <div class="df__two {% unless s.flip %}df__two--flip{% endunless %} df__rise">
+
+        <div class="df__two-txt">
+          {%- if s.tag != blank -%}<span class="df__tag">{{ s.tag }}</span>{%- endif -%}
+          <h2 class="df__h2">
+            <b>{{ s.head_a }}</b>
+            {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+          </h2>
+          {%- if s.lead != blank -%}<p class="df__lead">{{ s.lead }}</p>{%- endif -%}
+
+          {%- comment -%}
+            機制三拍：轉 → 到限位 → 空轉。
+            把「為什麼拔不走」拆成看得懂的三步，比一段文字有效。
+          {%- endcomment -%}
+          {%- if section.blocks.size > 0 -%}
+            <ol class="dflock__steps">
+              {%- for block in section.blocks -%}
+                <li {{ block.shopify_attributes }}>
+                  <b>{{ block.settings.title }}</b>
+                  {%- if block.settings.text != blank -%}
+                    <span>{{ block.settings.text }}</span>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ol>
+          {%- endif -%}
+
+          {%- if s.note != blank -%}<p class="df__note">{{ s.note }}</p>{%- endif -%}
+        </div>
+
+        <div>
+          {%- if s.image -%}
+            <img src="{{ s.image | image_url: width: 1400 }}"
+                 srcset="{{ s.image | image_url: width: 700 }} 700w,
+                         {{ s.image | image_url: width: 1400 }} 1400w"
+                 sizes="(max-width:900px) 92vw, 48vw"
+                 alt="{{ s.image_alt | default: s.head_a | escape }}"
+                 loading="lazy" decoding="async"
+                 width="{{ s.image.width }}" height="{{ s.image.height }}">
+          {%- else -%}
+            {%- render 'df-ph', label: '防盜鎖特寫',
+                  hint: '鎖點的特寫・拍得出「轉到底」那個限位結構',
+                  ratio: 'aspect-ratio:4/3;width:100%;' -%}
+          {%- endif -%}
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 防盜鎖",
+  "tag": "section",
+  "class": "df-lock-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "lock" },
+    { "type": "text", "id": "tag", "label": "徽章", "default": "專利防盜鎖" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "轉到底" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "它就開始空轉" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "一般的鎖，工具伸進去就轉得下來。我們在鎖點裡做了限位——轉到最後不是鬆開，是空轉。想硬拆的人會一直轉，但什麼也不會發生。" },
+    { "type": "text", "id": "note", "label": "註腳",
+      "default": "裝好就進入保護狀態，不用另外再按一個開關。" },
+
+    { "type": "header", "content": "圖片" },
+    { "type": "image_picker", "id": "image", "label": "防盜鎖特寫",
+      "info": "拍鎖點本身，要看得出那個限位結構。橫式 4:3。" },
+    { "type": "text", "id": "image_alt", "label": "圖片替代文字" },
+
+    { "type": "header", "content": "版面" },
+    { "type": "checkbox", "id": "flip", "label": "圖片放右邊", "default": false,
+      "info": "預設圖在左邊——右邊是留給下一段「打開尋找」的手機，兩段錯開才不會看起來重複。" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "機制的一步",
+      "settings": [
+        { "type": "text", "id": "title", "label": "這一步", "default": "轉" },
+        { "type": "text", "id": "text", "label": "一句話" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 防盜鎖",
+      "blocks": [
+        { "type": "step", "settings": { "title": "轉", "text": "工具伸進去，跟一般的鎖沒兩樣" } },
+        { "type": "step", "settings": { "title": "到限位", "text": "轉到底，機構卡住" } },
+        { "type": "step", "settings": { "title": "空轉", "text": "再轉就只是空轉，拆不下來" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

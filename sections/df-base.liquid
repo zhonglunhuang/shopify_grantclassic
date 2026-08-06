@@ -1,0 +1,163 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  如何選擇底座 —— Mars 2026-08-07 指定（照他現有的那兩張「如何選擇底座」示意圖）。
+
+  這一段回答的是**購買前最後一個疑問**：「我的車裝得上嗎？」
+  所以每一格一定要有**管徑數字**——沒有數字客人還是不知道自己該挑哪個，
+  只寫「後照鏡底座」等於沒回答。
+
+  上面放一張「裝在車上、拉線標出位置」的示意圖（Mars 手上已經有），
+  下面四格是可以直接點去買的卡。示意圖沒放也不影響，四格自己看得懂。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-base"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'base' }}">
+    <div class="df__wrap" style="max-width:{{ s.wrap }}px">
+
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+      </div>
+
+      {%- comment -%}
+        示意圖：裝在車上、拉線指出位置。**兩張**——打檔車與速克達的車頭
+        差很多（一個有橫桿、一個是面板），Mars 手上本來就是分開兩張。
+        只放一張的話另一種車的人對不到自己的車。
+        第二張留空就只出現第一張，版面自己補滿。
+      {%- endcomment -%}
+      <div class="dfbs__maps df__rise">
+        {%- for i in (1..2) -%}
+          {%- if i == 1 -%}
+            {%- assign im = s.diagram -%}{%- assign cap = s.diagram_cap -%}
+            {%- assign alt = s.diagram_alt -%}{%- assign ph = '打檔車：三角台與橫桿的位置' -%}
+          {%- else -%}
+            {%- assign im = s.diagram2 -%}{%- assign cap = s.diagram2_cap -%}
+            {%- assign alt = s.diagram2_alt -%}{%- assign ph = '速克達：後照鏡與圓桿的位置' -%}
+          {%- endif -%}
+          {%- if im or i == 1 or s.show_two -%}
+            <figure class="dfbs__map">
+              {%- if im -%}
+                <img src="{{ im | image_url: width: 2000 }}"
+                     srcset="{{ im | image_url: width: 1000 }} 1000w,
+                             {{ im | image_url: width: 2000 }} 2000w"
+                     sizes="(max-width:900px) 94vw, 46vw"
+                     alt="{{ alt | default: cap | default: '底座裝在車上的位置' | escape }}"
+                     loading="lazy" decoding="async"
+                     width="{{ im.width }}" height="{{ im.height }}">
+              {%- else -%}
+                {%- render 'df-ph', label: '底座位置示意圖', hint: ph,
+                      ratio: 'aspect-ratio:4/3;width:100%;' -%}
+              {%- endif -%}
+              {%- if cap != blank -%}<figcaption>{{ cap }}</figcaption>{%- endif -%}
+            </figure>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="dfbs__grid df__rise">
+          {%- for block in section.blocks -%}
+            {%- assign b = block.settings -%}
+            {%- comment -%} 有連結才做成 <a>，沒有就是純展示的 <div> {%- endcomment -%}
+            {%- if b.url != blank -%}<a class="dfbs__card" href="{{ b.url }}"{% else %}<div class="dfbs__card"{% endif %}
+               {{ block.shopify_attributes }}>
+              <div class="dfbs__shot">
+                {%- if b.image -%}
+                  <img src="{{ b.image | image_url: width: 700 }}"
+                       srcset="{{ b.image | image_url: width: 380 }} 380w,
+                               {{ b.image | image_url: width: 700 }} 700w"
+                       sizes="(max-width:820px) 44vw, 22vw"
+                       alt="{{ b.name | escape }}"
+                       loading="lazy" decoding="async"
+                       width="{{ b.image.width }}" height="{{ b.image.height }}">
+                {%- else -%}
+                  {%- render 'df-ph', no_label: true, hint: '去背・置中',
+                        ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+                {%- endif -%}
+              </div>
+              <b class="dfbs__name">{{ b.name }}</b>
+              {%- comment -%} 管徑是這一段的重點，用等寬數字排整齊 {%- endcomment -%}
+              {%- if b.fits != blank -%}<span class="dfbs__fits">{{ b.fits }}</span>{%- endif -%}
+              {%- if b.price != blank -%}<span class="dfbs__price">{{ b.price }}</span>{%- endif -%}
+              {%- if b.tag != blank -%}<span class="dfbs__tag">{{ b.tag }}</span>{%- endif -%}
+            {%- if b.url != blank -%}</a>{% else %}</div>{% endif %}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 選底座",
+  "tag": "section",
+  "class": "df-base-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "base" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "我的車裝得上嗎" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "量一下管徑就知道" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "支架本體都一樣，差在底下鎖在哪。拿尺量一下你要裝的那根管子，對照下面的數字就對得上。" },
+
+    { "type": "header", "content": "示意圖",
+      "info": "兩張並排。打檔車與速克達的車頭差很多，分開畫客人才對得到自己的車。" },
+    { "type": "checkbox", "id": "show_two", "label": "沒放圖時也顯示兩個空框", "default": true },
+    { "type": "image_picker", "id": "diagram", "label": "示意圖一（打檔車）",
+      "info": "車頭正面、拉線指出底座各裝在哪。淺灰底。" },
+    { "type": "text", "id": "diagram_cap", "label": "圖一的說明", "default": "打檔車" },
+    { "type": "text", "id": "diagram_alt", "label": "圖一的替代文字" },
+    { "type": "image_picker", "id": "diagram2", "label": "示意圖二（速克達）" },
+    { "type": "text", "id": "diagram2_cap", "label": "圖二的說明", "default": "速克達" },
+    { "type": "text", "id": "diagram2_alt", "label": "圖二的替代文字" },
+
+    { "type": "header", "content": "整段" },
+    { "type": "text", "id": "note", "label": "註腳", "default": "管徑量的是外徑。量不出來可以拍照問客服。" },
+    { "type": "range", "id": "wrap", "label": "整段最寬", "min": 900, "max": 1560, "step": 20, "unit": "px", "default": 1240 },
+    { "type": "checkbox", "id": "dark", "label": "改成深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "base",
+      "name": "一種底座",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "後照鏡底座" },
+        { "type": "text", "id": "fits", "label": "適用管徑",
+          "info": "一定要寫數字。只寫名稱客人還是不知道自己該挑哪個。", "default": "Ø 8–10 mm" },
+        { "type": "text", "id": "price", "label": "價格" },
+        { "type": "text", "id": "tag", "label": "標註（選填）", "info": "例如「標配」或「選配」。" },
+        { "type": "url", "id": "url", "label": "連到哪",
+          "info": "留空就只展示不能點。" },
+        { "type": "image_picker", "id": "image", "label": "底座照片",
+          "info": "去背、置中、正方形。四個要同角度同光線。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 選底座",
+      "blocks": [
+        { "type": "base", "settings": { "name": "後照鏡底座", "fits": "Ø 8–10 mm", "tag": "標配" } },
+        { "type": "base", "settings": { "name": "圓桿底座", "fits": "Ø 10–16 mm", "tag": "選配" } },
+        { "type": "base", "settings": { "name": "防盜萬用底座", "fits": "Ø 12 mm 以上", "tag": "選配" } },
+        { "type": "base", "settings": { "name": "三角台底座", "fits": "Ø 17 / 25 mm", "tag": "選配" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

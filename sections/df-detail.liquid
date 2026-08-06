@@ -1,0 +1,179 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  細細看 —— 照 apple.com/tw/apple-watch-ultra-3 那一段（Mars 2026-08-06 指定）。
+
+    左邊一排可以展開的項目（外觀／顯示器／電池…），一次只開一個
+    右邊一張大產品圖，跟著選到的項目換
+    左側有上下箭頭可以一項一項走
+
+  為什麼這樣有用：**一個畫面只回答一個問題**。
+  規格全部攤開會變成一面牆，這個做法讓人自己挑他在意的那一項。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} df-detail"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'detail' }}">
+    <div class="df__wrap">
+
+      {%- comment -%}
+        Mars 2026-08-07 改成**捲動驅動**：不用一個一個點，往下滑就從第一項
+        一路開到最後一項，整塊面板在畫面中間釘住不動，走完才放行。
+
+        軌道（.dfd__track）是一條很高的空殼，高度＝一個畫面 ＋ 每項的捲動距離 × 項數；
+        面板（.dfd__pin）在裡面用 position:sticky 釘住。
+        JS 把「捲到軌道的第幾成」換算成第幾項。
+
+        ！**標題也放進釘住的那層**——放在外面的話，
+          釘住的那格是整個畫面高、面板在裡面置中，標題與面板之間就會空出
+          半個畫面（視窗越高空越多）。放進來兩個一起置中，間距就固定了。
+        ！`is-scrolly` 是 JS 加的——沒有 JS 就不加，軌道維持原本高度、
+          回到「用點的」那套。不然沒 JS 的人會看到一大段空白捲不完。
+        ！.dfd 自己有 overflow:hidden，所以 sticky 一定要掛在它**外面**那層。
+      {%- endcomment -%}
+      <div class="dfd__track"
+           style="--dfd-n:{{ section.blocks.size }};--dfd-step:{{ s.pace }};"
+           data-df-detail-track>
+        <div class="dfd__pin">
+
+          {%- if s.head_a != blank -%}
+            <div class="df__mid df__rise dfd__head">
+              {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+              <h2 class="df__h2">
+                <b>{{ s.head_a }}</b>
+                {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+              </h2>
+            </div>
+          {%- endif -%}
+
+      <div class="dfd df__rise" style="--dfd-bg:{{ s.panel_bg }};" data-df-detail>
+
+        {%- comment -%} 上下箭頭：一項一項走，不用去找下一個在哪 {%- endcomment -%}
+        <div class="dfd__nav">
+          <button type="button" class="dfd__arrow" data-df-step="-1" aria-label="上一項">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 15l6-6 6 6" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="dfd__arrow" data-df-step="1" aria-label="下一項">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="dfd__list">
+          {%- for block in section.blocks -%}
+            {%- comment -%}
+              ！收合的藥丸與展開的說明框是**同一個元素**（.dfd__box），不是兩個。
+              Apple 那個動畫是「同一個框往右伸展並長高」，
+              拆成兩個元素做的話怎麼調都只會像「一個消失、另一個出現」。
+
+              裡面兩層：
+                .dfd__face 收合時看到的「⊕ 標題」——展開時高度收到 0
+                .dfd__grow 展開後的說明文字——用 grid 0fr→1fr 長出來
+              寬度由 JS 量好寫進 --w（收合）與 --wfull（展開），
+              因為 px 跟 % 之間沒辦法做補間，兩端都必須是 px。
+            {%- endcomment -%}
+            <div class="dfd__item {% if forloop.first %}is-open{% endif %}"
+                 data-df-topic {{ block.shopify_attributes }}>
+              <button type="button" class="dfd__box"
+                      aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+                <span class="dfd__face">
+                  <span class="dfd__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10.2" stroke="currentColor" stroke-width="1.5"/>
+                      <path class="dfd__ico-v" d="M12 7.6v8.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="M7.6 12h8.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="dfd__label">{{ block.settings.title }}</span>
+                </span>
+                {%- if block.settings.text != blank -%}
+                  <span class="dfd__grow"><span><span class="dfd__body">
+                    <b>{{ block.settings.title }}。</b> {{ block.settings.text }}
+                  </span></span></span>
+                {%- endif -%}
+              </button>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="dfd__stage">
+          {%- for block in section.blocks -%}
+            {%- assign im = block.settings.image -%}
+            <div class="dfd__shot {% if forloop.first %}is-on{% endif %}" data-df-shot>
+              {%- if im -%}
+                <img src="{{ im | image_url: width: 1400 }}"
+                     srcset="{{ im | image_url: width: 700 }} 700w,
+                             {{ im | image_url: width: 1400 }} 1400w"
+                     sizes="(max-width:900px) 92vw, 52vw"
+                     alt="{{ block.settings.title | escape }}"
+                     loading="lazy" decoding="async"
+                     width="{{ im.width }}" height="{{ im.height }}">
+              {%- else -%}
+                {%- render 'df-ph', label: block.settings.title,
+                      hint: '這一項的產品特寫・去背 PNG',
+                      ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+        </div>
+      </div>
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 細細看",
+  "tag": "section",
+  "class": "df-detail-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "detail" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "經得起細細看。" },
+    { "type": "text", "id": "head_b", "label": "大標第二行" },
+    { "type": "color", "id": "panel_bg", "label": "面板底色", "default": "#0B0C0E" },
+    { "type": "range", "id": "pace", "label": "每一項要捲多久", "min": 30, "max": 90, "step": 5, "unit": "%", "default": 55,
+      "info": "數字越大，滑鼠要滾越久才換下一項。整段的長度＝這個數字 × 項數，項目多的時候不要調太大。" },
+    { "type": "text", "id": "note", "label": "註腳" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "topic",
+      "name": "一個項目",
+      "settings": [
+        { "type": "text", "id": "title", "label": "項目名稱", "default": "外觀" },
+        { "type": "textarea", "id": "text", "label": "展開後的說明" },
+        { "type": "image_picker", "id": "image", "label": "這一項的產品圖",
+          "info": "去背 PNG。每一項可以是不同角度的特寫，選到哪一項就換哪一張。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 細細看",
+      "blocks": [
+        { "type": "topic", "settings": { "title": "外觀", "text": "" } },
+        { "type": "topic", "settings": { "title": "夾持", "text": "" } },
+        { "type": "topic", "settings": { "title": "側邊按鈕", "text": "" } },
+        { "type": "topic", "settings": { "title": "減震", "text": "" } },
+        { "type": "topic", "settings": { "title": "定位倉", "text": "" } },
+        { "type": "topic", "settings": { "title": "面板", "text": "" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

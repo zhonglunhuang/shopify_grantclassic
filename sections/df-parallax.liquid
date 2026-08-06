@@ -1,0 +1,131 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  視差段 —— 捲滑鼠帶動的慢速特效。
+
+  做法：外框給很高的高度、裡面「釘住」一屏。捲動經過這一段時，
+  進度換算成 0→1 寫進 CSS 變數，產品跟著放大位移，文字一句一句換。
+
+  ！這一段的外框不能有 overflow——position:sticky 遇到有 overflow 的祖先
+    會整個失效，而且不報錯（穩如鈦山 Air 踩過，症狀是釘住段卡在最頂端）。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- comment -%} 沒放圖就顯示佔位框，不要退回商品主圖（白底 JPEG 放大後是一大塊白） {%- endcomment -%}
+{%- assign img = s.image -%}
+{%- comment -%}
+  整段高度＝句數 × 每句停留多久 ＋ 一屏。
+  原本一句配 90svh，三句就要捲 3.8 個螢幕才走完，太慢；收到 62。
+{%- endcomment -%}
+{%- assign beats = section.blocks.size | at_least: 1 -%}
+{%- assign per = s.pace | default: 45 -%}
+{%- assign tall = beats | times: per | plus: 102 -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} df-parallax"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="dfpx" id="{{ s.anchor | default: 'story' }}"
+           style="height:{{ tall }}svh;background:{{ s.bg }};"
+           data-df-px>
+    <div class="dfpx__pin">
+
+      <div class="dfpx__stage" data-df-px-stage>
+        <span class="dfpx__glow"></span>
+        {%- if img -%}
+          <img src="{{ img | image_url: width: 1600 }}"
+               srcset="{{ img | image_url: width: 800 }} 800w,
+                       {{ img | image_url: width: 1200 }} 1200w,
+                       {{ img | image_url: width: 1600 }} 1600w"
+               sizes="80vw"
+               alt="{{ s.image_alt | default: product.title | escape }}"
+               loading="lazy" decoding="async"
+               width="{{ img.width }}" height="{{ img.height }}">
+        {%- else -%}
+          {%- render 'df-ph', label: s.ph_label, hint: s.ph_hint,
+                ratio: 'width:min(74vw,700px);height:min(52svh,460px);' -%}
+        {%- endif -%}
+      </div>
+
+      <div class="dfpx__beats">
+        {%- comment -%}
+          走位：沒指定就照順序輪「置中 → 左 → 右」——
+          Mars 要的節奏就是第一句置中往上飄走、第二句從左邊進、第三句從右邊進。
+        {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- assign pos = block.settings.pos -%}
+          {%- if pos == blank or pos == 'auto' -%}
+            {%- assign m = forloop.index0 | modulo: 3 -%}
+            {%- if m == 0 -%}{%- assign pos = 'center' -%}
+            {%- elsif m == 1 -%}{%- assign pos = 'left' -%}
+            {%- else -%}{%- assign pos = 'right' -%}{%- endif -%}
+          {%- endif -%}
+          <div class="dfpx__beat dfpx__beat--{{ pos }} {% if forloop.first %}is-on{% endif %}"
+               data-df-beat {{ block.shopify_attributes }}>
+            <b>{{ block.settings.title }}</b>
+            {%- if block.settings.text != blank -%}
+              <span>{{ block.settings.text }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if s.show_bar -%}
+        <div class="dfpx__bar"><i></i></div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 視差段",
+  "tag": "section",
+  "class": "df-parallax-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "story" },
+    { "type": "image_picker", "id": "image", "label": "產品圖",
+      "info": "**用透明背景的去背圖**——這一段圖會放大，白底會變成一大塊白方塊。留空就用商品主圖。" },
+    { "type": "text", "id": "image_alt", "label": "圖片替代文字" },
+    { "type": "text", "id": "ph_label", "label": "沒放圖時顯示的標題", "default": "視差段產品圖" },
+    { "type": "text", "id": "ph_hint", "label": "沒放圖時顯示的說明",
+      "default": "去背 PNG・這段會放大到 1.26 倍，解析度要夠" },
+    { "type": "color", "id": "bg", "label": "底色", "default": "#0A0B0D" },
+    { "type": "range", "id": "pace", "label": "每一句要捲多久", "min": 25, "max": 90, "step": 5, "unit": "%", "default": 45,
+      "info": "越大越慢。這一段在靜態截圖上一定會看起來是一大片空白（因為它是捲動才會動的東西），調小可以少一點空白。" },
+    { "type": "checkbox", "id": "show_bar", "label": "顯示進度條", "default": true,
+      "info": "讓人知道這一段還有多長，不會以為畫面卡住。" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色文字以外的配色", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "beat",
+      "name": "一句話",
+      "settings": [
+        { "type": "text", "id": "title", "label": "大字" },
+        { "type": "textarea", "id": "text", "label": "小字（選填）" },
+        { "type": "select", "id": "pos", "label": "這一句出現在哪", "default": "auto",
+          "info": "自動＝照順序輪「置中 → 左 → 右」。手機一律置中在下方（左右塞不下）。",
+          "options": [
+            { "value": "auto",   "label": "自動" },
+            { "value": "center", "label": "置中（上方）" },
+            { "value": "left",   "label": "從左邊進來" },
+            { "value": "right",  "label": "從右邊進來" }
+          ] }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 視差段",
+      "blocks": [
+        { "type": "beat", "settings": { "title": "夾住的時候", "text": "兩支夾臂扣住兩側，卡榫扣住底部。" } },
+        { "type": "beat", "settings": { "title": "顛簸的時候", "text": "軸減震吸掉路面，畫面不抖。" } },
+        { "type": "beat", "settings": { "title": "你走開的時候", "text": "定位倉還醒著。" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

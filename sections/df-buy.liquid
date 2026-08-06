@@ -1,0 +1,134 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  購買區 ＋ 吸底列。
+
+  規格用的是商品真正的 variant id 與售價，不是寫死的字。
+
+  升級話術（行銷計畫第 09 條）做成機制不是文案：
+  客人一點到沒有定位倉的版本，那句話自動跳出來。
+  判斷方式是「規格名稱裡有沒有那個關鍵字」，關鍵字在後台可以改
+  ——不要寫死成 Air，將來改名就壞了。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- assign key = s.no_locator_key | default: 'Air' -%}
+{%- comment -%}
+  店家的金額格式吐出來是「$1,980」（沒有 NT），所以前綴只補 NT 不補錢字號，
+  否則會變成 NT$$1,980。整頁的售價都走這個變數，不要有的加有的不加。
+{%- endcomment -%}
+{%- assign cur = s.cur -%}
+
+<div class="df {% if s.dark %}df--dark{% endif %} df-buybar"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="buy" data-df-buysect>
+    <div class="df__wrap">
+      <div class="dfbuy__box df__rise">
+
+        <h2 class="df__h2"><b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+
+        {%- if product -%}
+          <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
+            <input type="hidden" name="form_type" value="product">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-df-id>
+
+            <div class="dfbuy__opts">
+              {%- for v in product.variants -%}
+                {%- assign has_loc = 'yes' -%}
+                {%- if v.title contains key -%}{%- assign has_loc = 'no' -%}{%- endif -%}
+                <button type="button" class="dfbuy__opt"
+                        data-df-variant="{{ v.id }}"
+                        data-price="{{ cur }}{{ v.price | money_without_trailing_zeros }}"
+                        data-compare="{% if v.compare_at_price > v.price %}{{ cur }}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}"
+                        data-locator="{{ has_loc }}"
+                        aria-pressed="{% if v.id == product.selected_or_first_available_variant.id %}true{% else %}false{% endif %}"
+                        {% unless v.available %}disabled{% endunless %}>
+                  {%- comment -%}
+                    說明文字用 <i> 不用 <span>——外層如果也是 span，
+                    `.dfbuy__opt span{font-size:14px}` 會連外層一起選到，整格被縮小。
+                  {%- endcomment -%}
+                  <span class="dfbuy__opt-t">
+                    <b>{{ v.title }}</b>
+                    <i>{% if has_loc == 'no' %}{{ s.label_no }}{% else %}{{ s.label_yes }}{% endif %}</i>
+                  </span>
+                  <em>{{ cur }}{{ v.price | money_without_trailing_zeros }}</em>
+                </button>
+              {%- endfor -%}
+            </div>
+
+            <p class="dfbuy__price">
+              <span data-df-price>{{ cur }}{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
+              <span class="dfbuy__was" data-df-compare></span>
+            </p>
+
+            {%- if s.nudge != blank -%}
+              <p class="dfbuy__nudge" data-df-nudge hidden>{{ s.nudge }}</p>
+            {%- endif -%}
+
+            <button type="submit" name="add" class="dfbuy__add">{{ s.add_label }}</button>
+          </form>
+
+          {%- if s.ship != blank -%}<p class="df__note">{{ s.ship }}</p>{%- endif -%}
+        {%- else -%}
+          <p class="df__body">（這一段要放在商品頁上才會顯示規格與售價。）</p>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 吸底列：捲過主視覺才出現，捲到購買區就收起來 {%- endcomment -%}
+  {%- if s.dock and product -%}
+    <div class="dfdock" data-df-dock>
+      <div class="dfdock__in">
+        <span class="dfdock__txt">
+          <b>{{ s.dock_name | default: product.title }}</b>
+          <span>{{ cur }}{{ product.price | money_without_trailing_zeros }} 起</span>
+        </span>
+        <a class="dfdock__go" href="#buy">{{ s.dock_cta }}</a>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 購買",
+  "tag": "section",
+  "class": "df-buy-section",
+  "settings": [
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "挑一個版本" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "剩下的都一樣" },
+    { "type": "text", "id": "add_label", "label": "按鈕文字", "default": "加入購物車" },
+    { "type": "text", "id": "cur", "label": "售價前綴", "default": "NT",
+      "info": "金額本身已經帶一個 $ 符號，這裡只要填 NT——填 NT$ 會變成 NT$$1,980。" },
+    { "type": "text", "id": "ship", "label": "註腳", "default": "滿 NT$499 免運．支援宅配與超商取貨" },
+
+    { "type": "header", "content": "規格說明" },
+    { "type": "text", "id": "no_locator_key", "label": "沒有定位倉的規格關鍵字", "default": "Air",
+      "info": "規格名稱裡有這個字，就當成沒有定位倉——升級話術會跳出來。" },
+    { "type": "text", "id": "label_yes", "label": "有定位的說明", "default": "含定位倉，打開「尋找」看得到車" },
+    { "type": "text", "id": "label_no", "label": "沒定位的說明", "default": "不含定位倉" },
+    { "type": "textarea", "id": "nudge", "label": "升級話術",
+      "default": "多 200 元升級定位版 Pro，等於用 200 元買到一個原價 980 的定位器。",
+      "info": "只有選到沒有定位倉的規格時才出現。" },
+
+    { "type": "header", "content": "吸底列" },
+    { "type": "checkbox", "id": "dock", "label": "顯示吸底購買列", "default": false,
+      "info": "預設關閉——頂部列已經一直跟著捲動了，上下各一條「購買」是重複的（Mars 2026-08-06）。" },
+    { "type": "text", "id": "dock_name", "label": "吸底列顯示的名稱", "info": "留空就用商品名稱。" },
+    { "type": "text", "id": "dock_cta", "label": "吸底列按鈕", "default": "購買" },
+
+    { "type": "header", "content": "整段" },
+    { "type": "checkbox", "id": "dark", "label": "深色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "presets": [{ "name": "DF 購買" }]
+}
+{% endschema %}

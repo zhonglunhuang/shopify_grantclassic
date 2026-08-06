@@ -1,0 +1,126 @@
+{{ 'df.css' | asset_url | stylesheet_tag }}
+{{ 'df-parts.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  堅固之證 —— 第三方測試報告。放在「全部規格」前面：
+  看完證據 → 看規格 → 買，這個順序最順。
+
+  ！報告的產品型號一定要跟這一頁的商品對得上。
+    穩如鈦山那次就差點掛錯份（記憶 titanshield-air-shopify：
+    「別拿 HE70029D 那份，那是別款的」）。
+    所以每一張都留了「報告編號」與「測試日期」欄位——填得出來才敢掛。
+
+  版型：三張卡並排，卡上放報告照片，下面是「測了什麼／結果」。
+  不用膠囊、不用彩色標籤——這一段的說服力來自第三方，不需要裝飾。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+
+<div class="df {% unless s.light %}df--dark{% endunless %} df-proof"
+     style="--df-accent:{{ s.accent }};--df-accent-dark:{{ s.accent_dark }};">
+  <section class="df__sect" id="{{ s.anchor | default: 'proof' }}">
+    <div class="df__wrap">
+
+      <div class="df__mid df__rise">
+        {%- if s.eyebrow != blank -%}<p class="df__eye">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2 class="df__h2">
+          <b>{{ s.head_a }}</b>
+          {%- if s.head_b != blank -%}<span>{{ s.head_b }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lead != blank -%}<p class="df__lead df__col">{{ s.lead }}</p>{%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="dfpf__grid df__rise">
+          {%- for block in section.blocks -%}
+            {%- assign bs = block.settings -%}
+            <article class="dfpf__card" {{ block.shopify_attributes }}>
+              <div class="dfpf__shot">
+                {%- if bs.image -%}
+                  <img src="{{ bs.image | image_url: width: 900 }}"
+                       srcset="{{ bs.image | image_url: width: 500 }} 500w,
+                               {{ bs.image | image_url: width: 900 }} 900w"
+                       sizes="(max-width:820px) 88vw, 30vw"
+                       alt="{{ bs.title | escape }}"
+                       loading="lazy" decoding="async"
+                       width="{{ bs.image.width }}" height="{{ bs.image.height }}">
+                {%- else -%}
+                  {%- render 'df-ph', label: bs.title,
+                        hint: '報告掃描檔・直式',
+                        ratio: 'width:100%;height:100%;border:0;background:transparent;' -%}
+                {%- endif -%}
+              </div>
+              <div class="dfpf__cap">
+                <b>{{ bs.title }}</b>
+                {%- if bs.what != blank -%}<p>{{ bs.what }}</p>{%- endif -%}
+                {%- if bs.result != blank -%}<i>{{ bs.result }}</i>{%- endif -%}
+                {%- comment -%} 編號與日期填了才出現——填不出來就是還沒查清楚 {%- endcomment -%}
+                {%- if bs.ref != blank or bs.date != blank -%}
+                  <span class="dfpf__ref">
+                    {{ bs.ref }}{% if bs.ref != blank and bs.date != blank %}・{% endif %}{{ bs.date }}
+                  </span>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.note != blank -%}<p class="df__note df__mid">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'df.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "DF 堅固之證",
+  "tag": "section",
+  "class": "df-proof-section",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "錨點代號", "default": "proof" },
+    { "type": "text", "id": "eyebrow", "label": "小標" },
+    { "type": "text", "id": "head_a", "label": "大標第一行", "default": "不是我們說穩" },
+    { "type": "text", "id": "head_b", "label": "大標第二行", "default": "是實驗室說的" },
+    { "type": "textarea", "id": "lead", "label": "說明",
+      "default": "夾持力、耐震、落摔都送第三方測過。報告編號都在下面，看得到才算數。" },
+    { "type": "text", "id": "note", "label": "註腳",
+      "info": "報告的產品型號要跟這一頁的商品對得上，對不上就不要掛。" },
+    { "type": "checkbox", "id": "light", "label": "改成淺色底", "default": false },
+    { "type": "color", "id": "accent", "label": "動作色（淺底）", "default": "#0071E3" },
+    { "type": "color", "id": "accent_dark", "label": "動作色（深底）", "default": "#2997FF" }
+  ],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "一份報告",
+      "settings": [
+        { "type": "text", "id": "title", "label": "測試名稱", "default": "SGS 搖動測試" },
+        { "type": "text", "id": "what", "label": "測了什麼" },
+        { "type": "text", "id": "result", "label": "結果" },
+        { "type": "text", "id": "ref", "label": "報告編號",
+          "info": "查得到編號才填。填了才會顯示。" },
+        { "type": "text", "id": "date", "label": "測試日期" },
+        { "type": "image_picker", "id": "image", "label": "報告掃描檔",
+          "info": "直式。個資與不必要的內容先塗掉再上傳。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DF 堅固之證",
+      "blocks": [
+        { "type": "cert", "settings": { "title": "SGS 搖動測試",
+            "what": "模擬實際行駛的震動，90 度搖動連續一小時",
+            "result": "穩定不鬆脫" } },
+        { "type": "cert", "settings": { "title": "SGS 振動測試",
+            "what": "上下位移 2.54 公分，連續一小時",
+            "result": "結構穩定無異常" } },
+        { "type": "cert", "settings": { "title": "軍規落摔測試",
+            "what": "MIL-STD-810G Method 514.6",
+            "result": "通過振動與落摔要求" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
