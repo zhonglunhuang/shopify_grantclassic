@@ -1,0 +1,536 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+/*
+ * Dualfind 商品頁
+ *
+ * layout: ts-air ＝ 乾淨版頁首（沒有公告列、沒有促銷彈窗、沒有 GC 導覽列）。
+ * Mars 2026-08-06 定案：**用 Dualfind 自己那條黑色產品列把它們全部蓋掉**，
+ * 而且那條列一開始就在、不是捲過主視覺才出現。
+ * （他一開始要求保留 GC 導覽列，看過實際畫面之後改成這樣。
+ *   要還原只要把這個 layout 鍵拿掉，主題原檔一個字都沒動。）
+ *
+ * 頁尾與購物車在 ts-air 裡有保留，所以還回得了首頁、加得了購物車。
+ *
+ * 版面節奏照 DJI：上面深色一路到底（主視覺→體積→視差→尋找→格狀→面板），
+ * 最後三段轉淺色收尾（版本→規格→購買）。
+ *
+ * 註：JSON 範本只吃這種註解，塞自訂鍵（例如 "_note"）會被 Shopify 拒絕。
+ */
+{
+  "layout": "ts-air",
+  "sections": {
+    "topbar": {
+      "type": "df-topbar",
+      "blocks": {
+        "b0": { "type": "link", "settings": { "label": "概覽", "anchor": "top" } },
+        "b1": { "type": "link", "settings": { "label": "體積", "anchor": "size" } },
+        "b2": { "type": "link", "settings": { "label": "尋找", "anchor": "find" } },
+        "b3": { "type": "link", "settings": { "label": "特點", "anchor": "features" } },
+        "b4": { "type": "link", "settings": { "label": "面板", "anchor": "panels" } },
+        "b5": { "type": "link", "settings": { "label": "規格", "anchor": "spec" } }
+      },
+      "block_order": ["b0", "b1", "b2", "b3", "b4", "b5"],
+      /* 字標的全大寫是 CSS 做的（a.dfbar__logo 的 text-transform），
+         這裡不用也不能給 caps——df-topbar 沒有那個設定。 */
+      "settings": { "wordmark": "Dualfind", "cta": "購買" }
+    },
+
+    "hero": {
+      "type": "df-hero",
+      "settings": {
+        "eyebrow": "機車手機支架",
+        "wordmark": "Dualfind",
+        "caps": true,
+        "heading": "騎車顧路，停車顧車。",
+        "show_price": true,
+        "price_prefix": "NT",
+        "glow": 55,
+        "scrim": 55,
+        "b1": "購買",
+        "b2": "進一步了解",
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "detail": {
+      "type": "df-detail",
+      "blocks": {
+        "t0": { "type": "topic", "settings": { "title": "外觀", "text": "整支只有一般機車架的一半大。車頭本來就擠——導航、行照架、行車紀錄器都要位置，所以我們先把自己縮小。" } },
+        "t1": { "type": "topic", "settings": { "title": "夾持", "text": "兩支夾臂扣住手機兩側，底部再用卡榫扣一次。兩道各自獨立——其中一道鬆了，另一道還在。夾爪內側附了緩衝墊套，手機不會在裡面晃。" } },
+        "t2": { "type": "topic", "settings": { "title": "側邊按鈕", "text": "按鍵在側邊不在背後。戴著手套、單手、不用低頭找。這是你每天要做兩次的動作，所以它必須快。" } },
+        "t3": { "type": "topic", "settings": { "title": "減震", "text": "四軸減震結構吸掉路面的震動。手機不會在你眼前一直抖，鏡頭也不會被高頻震動磨壞。" } },
+        "t4": { "type": "topic", "settings": { "title": "定位倉", "text": "定位版 Pro 才有。走 iPhone 內建的「尋找」與 Android 的「尋找我的裝置」——不用再裝一個 App、不用再記一組帳號。" } },
+        "t5": { "type": "topic", "settings": { "title": "面板", "text": "面板是磁吸的，徒手就換得下來。金屬版與設計款共十種花色，想配車色或想換心情，換一片就好。" } },
+        "t6": { "type": "topic", "settings": { "title": "安裝", "text": "圓管把手直接裝，不需要特殊工具。另有後照鏡座版本。" } },
+        /* Mars 2026-08-06 加：夾爪 304 不鏽鋼、本體與面板鋁合金。
+           放進「細細看」而不是自己一段——那一段本來就是給想看材質的人，
+           獨立成段會跟「一半體積」搶注意力。 */
+        "t7": { "type": "topic", "settings": { "title": "材質", "text": "夾爪是 304 不鏽鋼，抗鏽耐蝕，直接扛住夾持的力；本體和面板是鋁合金。夾爪內側還有一層緩衝墊套，金屬不會直接壓在機身上。" } }
+      },
+      "block_order": ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+      "settings": {
+        "anchor": "detail",
+        "head_a": "經得起細細看。",
+        "head_b": "",
+        "panel_bg": "#0B0C0E",
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "size": {
+      "type": "df-size",
+      "settings": {
+        "anchor": "size",
+        "head_a": "一半體積",
+        "head_b": "整個車頭，還是你的",
+        "lead": "機車的車頭就那麼大。導航、行照架、手機、行車紀錄器都想擠上去——所以我們把體積收到一般機車架的一半，位置還給你。",
+        "a_name": "一般機車架",
+        "a_meta": "一整塊擋在你面前",
+        "a_bar": 100,
+        "b_name": "Dualfind",
+        "b_meta": "只佔一半，車頭還是乾淨的",
+        "b_bar": 50,
+        "dark": true,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "story": {
+      "type": "df-parallax",
+      "blocks": {
+        "b0": { "type": "beat", "settings": { "title": "夾住的時候", "text": "兩支夾臂扣住兩側，卡榫扣住底部——兩道各自獨立的固定。" } },
+        "b1": { "type": "beat", "settings": { "title": "顛簸的時候", "text": "四軸減震結構吸掉路面的震動，手機不會在你眼前一直抖。" } },
+        "b2": { "type": "beat", "settings": { "title": "你走開的時候", "text": "定位倉還醒著。打開「尋找」，車就在上面。" } }
+      },
+      "block_order": ["b0", "b1", "b2"],
+      "settings": {
+        "anchor": "story",
+        "bg": "#0A0B0D",
+        "show_bar": true,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 防盜鎖排在「打開尋找」前面：兩段合起來就是標語的下半句「停車顧車」。
+       拔不走（這一段）→ 找得到（下一段）。 */
+    "lock": {
+      "type": "df-lock",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "轉", "text": "工具伸進去，跟一般的鎖沒兩樣" } },
+        "s2": { "type": "step", "settings": { "title": "到限位", "text": "轉到底，機構卡住" } },
+        "s3": { "type": "step", "settings": { "title": "空轉", "text": "再轉就只是空轉，拆不下來" } }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": {
+        "anchor": "lock",
+        "tag": "專利防盜鎖",
+        "head_a": "轉到底",
+        "head_b": "它就開始空轉",
+        "lead": "一般的鎖，工具伸進去就轉得下來。我們在鎖點裡做了限位——轉到最後不是鬆開，是空轉。想硬拆的人會一直轉，但什麼也不會發生。",
+        "note": "裝好就進入保護狀態，不用另外再按一個開關。",
+        "flip": false,
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "find": {
+      "type": "df-find",
+      /* 認證徽章。原廠圖檔一到就填 badge，文字版會自動退場。
+         以後有 NCC／BSMI 再往下加一個 c3 就好。 */
+      "blocks": {
+        "c1": { "type": "cert", "settings": {
+          "name": "Works with Apple Find My", "note": "通過 Apple MFi 認證" } },
+        "c2": { "type": "cert", "settings": {
+          "name": "Works with Google Find My Device", "note": "Android 系統內建" } }
+      },
+      "block_order": ["c1", "c2"],
+      "settings": {
+        "anchor": "find",
+        "tag": "定位版 Pro 才有",
+        "head_a": "車停哪裡",
+        "head_b": "打開「尋找」就知道",
+        "lead": "不用再裝一個 App、不用再記一組帳號。你的車就出現在 iPhone 內建的「尋找」裡，跟你的 AirPods 排在一起。",
+        "body": "Android 走 Google 的「尋找我的裝置」，一樣是系統內建。",
+        "cert": "",
+        "flip": false,
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "features": {
+      "type": "df-bento",
+      "blocks": {
+        "c0": { "type": "card", "settings": { "size": "big", "title": "側邊按鈕，拇指按得到", "text": "按鍵在側邊不在背後。戴著手套、單手、不用低頭找——這是你每天要做兩次的動作。", "tint": "#16171B" } },
+        "c1": { "type": "card", "settings": { "size": "small", "title": "裝得下 iPhone 17 Pro Max", "text": "把內襯墊套拿下來就進得去。", "tint": "#15171C" } },
+        "c2": { "type": "card", "settings": { "size": "small", "title": "厚殼、磁吸環、卡夾都不用拆", "tint": "#17181D" } },
+        "c3": { "type": "card", "settings": { "size": "small", "title": "四軸減震結構", "tint": "#131418" } },
+        "c4": { "type": "card", "settings": { "size": "big", "title": "面板磁吸更換，徒手就換得下來", "tint": "#15161A" } },
+        "c5": { "type": "card", "settings": { "size": "small", "title": "圓管把手直接裝", "tint": "#16171B" } },
+        "c6": { "type": "card", "settings": { "size": "small", "title": "另有後照鏡座版本", "tint": "#14151A" } },
+        "c7": { "type": "card", "settings": { "size": "small", "title": "不需要特殊工具", "tint": "#17181D" } }
+      },
+      "block_order": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "settings": {
+        "anchor": "features",
+        "head_a": "",
+        "head_b": "",
+        "intro": "Dualfind，車頭乾淨，車也顧著。體積收到一般機車架的一半，把導航、行照架、行車紀錄器的位置還給你。側邊按鈕讓你戴著手套也能單手三秒上架，夾臂加卡榫兩道獨立固定，四軸減震吸掉顛簸。定位版 Pro 還多一個定位倉——打開 iPhone 內建的「尋找」，車就在上面。",
+        "outro": "在 grantclassic 官網購買 Dualfind，序號自動綁保固、面板與配件長期備貨，出貨與客服都在台灣。滿 NT$499 免運，支援宅配與超商取貨。",
+        "outro_cta": "立即購買",
+        "outro_url": "",
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "banner": {
+      "type": "df-banner",
+      "settings": {
+        "anchor": "banner",
+        "eyebrow": "騎乘中",
+        "heading": "眼睛不用離開路。",
+        "text": "手機夾得穩、畫面不抖。導航看得到，但你不用一直低頭確認它還在不在。",
+        "ph_label": "橫幅情境素材",
+        "ph_hint": "橫幅 16:9・實騎情境影片最好・會擴張到滿版，解析度要夠",
+        /* 樣稿用：先借一張明亮的實拍照看擴張效果。
+           ！這是別人家的行銷照，上線前一定要改回 false 並換成自己拍的。 */
+        "demo": false,   /* 正式站：借來的 DJI 照片不上線 */
+        "pace": 180,
+        "inset": 14,
+        "radius": 26,
+        "scrim": 55,
+        "bg": "#000000",
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "panels": {
+      "type": "df-panels",
+      "blocks": {
+        "b0": { "type": "panel", "settings": { "name": "碳纖維黑", "price": "NT$590", "swatch": "#17181B" } },
+        "b1": { "type": "panel", "settings": { "name": "曜黑", "price": "NT$590", "swatch": "#2B2D31" } },
+        "b2": { "type": "panel", "settings": { "name": "銀", "price": "NT$590", "swatch": "#C9CDD2" } },
+        "b3": { "type": "panel", "settings": { "name": "鈦灰", "price": "NT$590", "swatch": "#7C7F85" } },
+        "b4": { "type": "panel", "settings": { "name": "正紅", "price": "NT$590", "swatch": "#B8322A" } },
+        "b5": { "type": "panel", "settings": { "name": "拉絲銀", "price": "NT$590", "swatch": "#AEB2B7" } },
+        "b6": { "type": "panel", "settings": { "name": "浮世繪", "price": "NT$290", "swatch": "#2E6FA8" } },
+        "b7": { "type": "panel", "settings": { "name": "大理石", "price": "NT$290", "swatch": "#E6E4E0" } },
+        "b8": { "type": "panel", "settings": { "name": "卡皮巴拉", "price": "NT$290", "swatch": "#B98A55" } },
+        "b9": { "type": "panel", "settings": { "name": "聖母峰", "price": "NT$290", "swatch": "#5C6B78" } }
+      },
+      "block_order": ["b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"],
+      "settings": {
+        "anchor": "panels",
+        "head_a": "十種花色",
+        "head_b": "換個面板，換張臉",
+        "lead": "面板是磁吸的，徒手就換得下來。想配車色、想換心情、想跟別人不一樣——換一片就好，不用換整組。",
+        "cta": "看全部面板",
+        "cta_url": "",
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+
+    /* 隨附配件排在系列對比前面：先講「這一盒裡有什麼」，再講「三條線怎麼選」。
+       ！本體那件打開「佔兩格」，其餘小格——六格全一樣大會很平。
+       ！內容物是我照規格推的，Mars 要對過（見 note）。 */
+    "kit": {
+      "type": "df-kit",
+      "blocks": {
+        "k1": { "type": "item", "settings": { "name": "支架本體", "note": "面板已預先裝好", "wide": true } },
+        "k2": { "type": "item", "settings": { "name": "圓管把手固定座" } },
+        "k3": { "type": "item", "settings": { "name": "內襯墊套" } },
+        "k4": { "type": "item", "settings": { "name": "橡膠墊片" } },
+        "k5": { "type": "item", "settings": { "name": "六角扳手" } },
+        "k6": { "type": "item", "settings": { "name": "說明書與保固卡" } }
+      },
+      "block_order": ["k1", "k2", "k3", "k4", "k5", "k6"],
+      "settings": {
+        "anchor": "kit",
+        "head_a": "隨附配件",
+        "lead": "盒子裡是完整的一套，拆開就能裝。不用另外補買轉接座。",
+        "note": "實際內容以出貨版本為準。",
+        "wrap": 1240,
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 選底座接在隨附配件後面：先看「盒子裡有什麼」，再看「我的車裝得上嗎」。
+       ！管徑數字是照 Mars 現有的示意圖抄的，商品連結是我在店裡對出來的，
+         名稱對不對他要覆核（店裡的品名跟示意圖上的講法不一樣）。 */
+    "base": {
+      "type": "df-base",
+      "blocks": {
+        "m1": { "type": "base", "settings": {
+          "name": "後照鏡底座", "fits": "Ø 8–10 mm", "tag": "標配" } },
+        "m2": { "type": "base", "settings": {
+          "name": "圓桿底座", "fits": "Ø 10–16 mm", "tag": "選配",
+          "price": "NT$780", "url": "/products/h0237101020" } },
+        "m3": { "type": "base", "settings": {
+          "name": "防盜萬用底座", "fits": "Ø 12 mm 以上", "tag": "選配",
+          "price": "NT$980", "url": "/products/h0237100920" } },
+        "m4": { "type": "base", "settings": {
+          "name": "三角台底座", "fits": "Ø 17 / 25 mm", "tag": "選配",
+          "price": "NT$980", "url": "/products/h0237101120" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4"],
+      "settings": {
+        "anchor": "base",
+        "head_a": "我的車裝得上嗎",
+        "head_b": "量一下管徑就知道",
+        "lead": "支架本體都一樣，差在底下鎖在哪。拿尺量一下你要裝的那根管子，對照下面的數字就對得上。",
+        "note": "管徑量的是外徑。量不出來可以拍照問客服。",
+        "wrap": 1240,
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 加購配件排在選底座後面：底座是「裝得上」的必要條件，
+       這一段是「還想多要什麼」的加購。兩件事不要混在一起。 */
+    "shop": {
+      "type": "df-shop",
+      "blocks": {
+        "a1": { "type": "item", "settings": {
+          "name": "盔甲罩 VentShield 遮陽罩",
+          "text": "夏天太陽直曬會讓手機過熱關機，罩上去擋掉直射。",
+          "price": "NT$200 起", "url": "/products/ventshield" } },
+        "a2": { "type": "item", "settings": {
+          "name": "GC-Tag 找得到",
+          "text": "已經有標準版 Air 的話，補一顆就有定位。iOS 與 Android 都能用。",
+          "price": "NT$590 起", "url": "/products/gc-tag-1" } },
+        "a3": { "type": "item", "settings": {
+          "name": "磁母手中線 FLEXMAG",
+          "text": "磁吸收納，不會在車頭甩來甩去。",
+          "price": "NT$490", "url": "/products/flexmag" } },
+        "a4": { "type": "item", "settings": {
+          "name": "一英吋球頭連桿",
+          "text": "位置不順手就加一節，角度自己喬。",
+          "price": "NT$149", "url": "/products/gc-c105-3-1" } }
+      },
+      "block_order": ["a1", "a2", "a3", "a4"],
+      "settings": {
+        "anchor": "shop",
+        "head_a": "還可以再加一點",
+        "buy_label": "選購",
+        "all_label": "看全部配件",
+        "note": "這些是另外選購的，不含在盒裝裡。",
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 系列對比取代原本的「找出適合你的 Dualfind」（Air vs Pro）。
+       Air／Pro 的選擇沒有不見——在下面的購買區，那裡本來就有升級說明。
+       價格是 2026-08-06 去店裡查的實際售價，不是估的。 */
+    "lineup": {
+      "type": "df-lineup",
+      "blocks": {
+        /* 型號放第一列——Mars 2026-08-07：客人要看得到「這條線底下有哪幾支」。
+           ！不做成六欄或八欄：手機（八成流量）三欄就已經各剩 100px，
+             六欄根本讀不了。型號寫在格子裡，欄位維持三欄。 */
+        "l0": { "type": "row", "settings": { "label": "型號",
+          "a": "二勢力 Air／二勢力 定位版 Pro",
+          "b": "八力架／八力架 定位倉版",
+          "c": "四力架 2／2S／2 Pro／2S Pro" } },
+        "l1": { "type": "row", "settings": { "label": "固定結構",
+          "a": "兩爪鎖定，側邊鎖扣", "b": "八角鎖定", "c": "四角鎖定，一鍵開合" } },
+        "l2": { "type": "row", "settings": { "label": "減震",
+          "a": "四軸減震結構", "b": "四軸減震結構", "c": "四爪波狀矽膠墊；基礎款為一般防震" } },
+        "l3": { "type": "row", "settings": { "label": "材質",
+          "a": "304 不鏽鋼 × PU 包鋁底座", "b": "高強度鋁合金 × 金屬旋鈕", "c": "PC ＋ 不鏽鋼" } },
+        "l4": { "type": "row", "settings": { "label": "防盜鎖",
+          "a": "專利空轉防拆", "b": "—", "c": "—" } },
+        "l5": { "type": "row", "settings": { "label": "定位",
+          "a": "定位版 Pro 有", "b": "定位倉版有", "c": "部分型號有" } },
+        "l6": { "type": "row", "settings": { "label": "軍規與 SGS",
+          "a": "軍規抗震 ＋ SGS 檢驗", "b": "軍規抗震 ＋ SGS 檢驗", "c": "軍規抗震 ＋ SGS 檢驗" } },
+        /* 這兩列 Mars 2026-08-07 親自確認過：
+             八力架**沒有**可換面板
+             無線充電**只有四力架 2S 有**
+           ！我原本照店裡的變體名推成「2S 與 2S Pro 有」，那是推的不是查的。
+             以他講的為準——寧可少講也不要多講，多講就是不實宣稱。 */
+        "l7": { "type": "row", "settings": { "label": "面板／外觀",
+          "a": "十種面板，磁吸徒手換", "b": "—", "c": "另有設計款與聯名款" } },
+        "l8": { "type": "row", "settings": { "label": "無線充電",
+          "a": "—", "b": "—", "c": "四力架 2S 有" } },
+        /* 推薦族群放最後一列——前面都是規格，這一列是「所以我該買哪支」。
+           分眾照行銷計畫寫的：二勢力賣的是外觀題（愛車的人），
+           外送員是八力架的客群（車是生財工具，不在意好不好看）。 */
+        "l9": { "type": "row", "settings": { "label": "推薦給",
+          "a": "在意車頭好不好看的人",
+          "b": "每天在路上跑、要最耐操的人",
+          "c": "預算優先、偶爾才用的人" } }
+      },
+      "block_order": ["l0", "l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9"],
+      "settings": {
+        "anchor": "lineup",
+        "head_a": "三條線",
+        "head_b": "看你騎車在意什麼",
+        "lead": "都是我們自己做的。差別不在好不好，在你要的是哪一種——最小的體積、最多的爪子，還是最省的預算。",
+        "cta": "看這一支",
+        "hero_tag": "旗艦",
+        "a_name": "二勢力 Dualfind", "a_tier": "旗艦款", "a_price": "NT$1,780 起",
+        "a_url": "/products/dualfind", "a_hero": true,
+        "b_name": "八力架 OctaStand", "b_tier": "八爪進階款", "b_price": "NT$990 起",
+        "b_url": "/products/octastand", "b_hero": false,
+        "c_name": "四力架 4Power", "c_tier": "專業與基礎款", "c_price": "NT$480 起",
+        "c_url": "/products/gc-c103", "c_hero": false,
+        "wrap": 1240,
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 通路信任帶放在規格與購買之間：規格看完了、要決定買不買的那一刻，
+       告訴他「這是一家全台兩百多個據點的公司，不是找不到人的網路品牌」。
+       ！刻意不放店名、不放 logo、不放連結——那會把人送去毛利最低的通路。
+         收尾那句一定要留著，把人帶回官網。 */
+    "trust": {
+      "type": "df-trust",
+      "blocks": {
+        "n1": { "type": "num", "settings": { "value": "200", "unit": "+", "label": "全台據點" } },
+        "n2": { "type": "num", "settings": { "value": "7", "label": "縣市都有" } },
+        "n3": { "type": "num", "settings": { "value": "100", "unit": "%", "label": "台灣出貨與客服" } }
+      },
+      "block_order": ["n1", "n2", "n3"],
+      "settings": {
+        "anchor": "trust",
+        "head_a": "不是只有網路上看得到",
+        "head_b": "全台都摸得到",
+        "lead": "我們自己做、自己出貨、自己保固。全台兩百多個據點在賣，不是找不到人的網路品牌。",
+        "close": "官網買的序號自動綁保固，面板與配件長期備貨，出貨與客服都在台灣。",
+        /* 整頁統一 1240 */
+        "wrap": 1240,
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    /* 堅固之證原本放在規格前面，2026-08-07 搬到「細細看」後面（見 order 的註解）。
+       ！報告編號與日期先空著——舊頁那三張是 2020 年、型號 GC-C10L，
+         看起來不是 Dualfind 這款，要對得上才敢掛（待 Mars 確認）。 */
+    "proof": {
+      "type": "df-proof",
+      "blocks": {
+        "p1": { "type": "cert", "settings": {
+          "title": "SGS 搖動測試",
+          "what": "模擬實際行駛的震動，90 度搖動連續一小時",
+          "result": "穩定不鬆脫" } },
+        "p2": { "type": "cert", "settings": {
+          "title": "SGS 振動測試",
+          "what": "上下位移 2.54 公分，連續一小時",
+          "result": "結構穩定無異常" } },
+        "p3": { "type": "cert", "settings": {
+          "title": "軍規落摔測試",
+          "what": "MIL-STD-810G Method 514.6",
+          "result": "通過振動與落摔要求" } }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "anchor": "proof",
+        "head_a": "不是我們說穩",
+        "head_b": "是實驗室說的",
+        "lead": "夾持力、耐震、落摔都送第三方測過。報告編號都在下面，看得到才算數。",
+        /* 搬到細細看後面之後改深色——上半段整段是深的，插一塊白的會斷掉 */
+        "light": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "spec": {
+      "type": "df-spec",
+      "blocks": {
+        "g0": { "type": "group", "settings": { "title": "本體" } },
+        /* Mars 2026-08-06 確認：夾爪是 304 不鏽鋼，本體與面板是鋁合金。
+           原本只寫「鋁合金 ＋ 工程塑料」，跟舊頁的「304 不鏽鋼」對不起來——
+           兩個都對，只是講的是不同部位，所以分開列。 */
+        "r0": { "type": "row", "settings": { "k": "夾爪", "v": "304 不鏽鋼，內附緩衝墊套" } },
+        "r1": { "type": "row", "settings": { "k": "本體與面板", "v": "鋁合金" } },
+        /* 客人最想知道的就是「我的手機加殼裝不裝得下」，所以給數字不要給形容詞 */
+        "r2": { "type": "row", "settings": { "k": "可夾長度", "v": "最長 19 公分" } },
+        "r3": { "type": "row", "settings": { "k": "可夾厚度", "v": "最厚 1.25 公分（含殼）" } },
+        "r4": { "type": "row", "settings": { "k": "適用手機", "v": "一般手機直接放；iPhone 17 Pro Max 這種大尺寸把內襯墊套拿下來就裝得進去" } },
+        "r5": { "type": "row", "settings": { "k": "固定方式", "v": "側邊按鈕單手鎖定，夾臂 ＋ 卡榫雙重固定" } },
+        "r6": { "type": "row", "settings": { "k": "防盜", "v": "專利防盜鎖，轉到限位後空轉" } },
+        "r7": { "type": "row", "settings": { "k": "減震", "v": "四軸減震結構（四顆緩衝橡膠球）" } },
+        "r8": { "type": "row", "settings": { "k": "面板", "v": "磁吸更換，金屬版與設計款共十種" } },
+        "g1": { "type": "group", "settings": { "title": "定位（Pro 才有）" } },
+        "r9": { "type": "row", "settings": { "k": "iPhone", "v": "支援系統內建的「尋找」App" } },
+        "r10": { "type": "row", "settings": { "k": "Android", "v": "支援 Google「尋找我的裝置」" } },
+        "g2": { "type": "group", "settings": { "title": "安裝" } },
+        "r11": { "type": "row", "settings": { "k": "適用車型", "v": "圓管把手；另有後照鏡座版本" } },
+        "r12": { "type": "row", "settings": { "k": "工具", "v": "不需要特殊工具" } }
+      },
+      "block_order": ["g0", "r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8",
+                      "g1", "r9", "r10", "g2", "r11", "r12"],
+      "settings": {
+        "anchor": "spec",
+        /* 整頁統一 1240，不要自己一個寬度（2026-08-07） */
+        "wrap": 1240,
+        "head_a": "全部規格",
+        "head_b": "該講的都在這裡",
+        "note": "規格以實際出貨為準。",
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    },
+
+    "buy": {
+      "type": "df-buy",
+      "settings": {
+        "head_a": "挑一個版本",
+        "head_b": "剩下的都一樣",
+        "add_label": "加入購物車",
+        "cur": "NT",
+        "ship": "滿 NT$499 免運．支援宅配與超商取貨",
+        "no_locator_key": "Air",
+        "label_yes": "含定位倉，打開「尋找」看得到車",
+        "label_no": "不含定位倉",
+        "nudge": "多 200 元升級定位版 Pro，等於用 200 元買到一個原價 980 的定位器。",
+        "dock": false,
+        "dock_cta": "購買",
+        "dark": false,
+        "accent": "#0071E3",
+        "accent_dark": "#2997FF"
+      }
+    }
+  },
+  /* Mars 2026-08-07：堅固之證從最下面（規格前）搬到「細細看」正後面。
+     那一段回答的是「會不會震一震手機就掉了」——客人產生這個疑問的時刻
+     是他在看夾持與減震的時候，不是快結帳的時候。
+     搬上來就要改成深色，不然會在一整段深色中間插一塊白的。 */
+  "order": [
+    "topbar", "hero", "features", "detail", "proof", "size", "story",
+    "lock", "find", "banner", "panels",
+    "kit", "base", "shop", "lineup", "spec", "trust", "buy"
+  ]
+}
