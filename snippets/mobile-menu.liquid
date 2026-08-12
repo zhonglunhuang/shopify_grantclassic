@@ -165,6 +165,7 @@
                                         width="720" height="720"
                                         src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
                                         loading="lazy"
+                                        alt="{{ sub_sub_link.title | escape }}"
                                       >
                                       {%- if sub_sub_link.object.metafields.custom.image_label -%}
                                         <span class="image_label">{{ sub_sub_link.object.metafields.custom.image_label }}</span>
