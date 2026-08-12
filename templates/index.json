@@ -16,7 +16,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/BN_2160x1080_51d0d255-87da-4493-ba84-5d3a91af1348.jpg",
-            "mobile_image": "shopify://shop_images/BN_1000x1400_9f5bf6d3-50ab-43a1-a11f-1ef25e51e331.jpg",
+            "mobile_image": "shopify://shop_images/BN_1000x1400_TITANSHIELD_PRO_optimized.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -35,7 +35,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/banner_aqualux_20241203-02.webp",
-            "mobile_image": "shopify://shop_images/banner_aqualux_20241203-12.webp",
+            "mobile_image": "shopify://shop_images/banner_aqualux_20241203-12_optimized.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -50,31 +50,11 @@
             "overlay_opacity": 0
           }
         },
-        "image_RfXrF6": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Catpalace_2200x1130_76f1de58-3e90-4f23-882b-7f68967348a8.jpg",
-            "mobile_image": "shopify://shop_images/Catpalace_phone.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/catpalace",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "image_fQxd4L": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/04.webp",
-            "mobile_image": "shopify://shop_images/05.webp",
+            "mobile_image": "shopify://shop_images/05_optimized.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -93,7 +73,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/230823_gctag.webp",
-            "mobile_image": "shopify://shop_images/230823_gctag_phone.webp",
+            "mobile_image": "shopify://shop_images/230823_gctag_phone_optimized.webp",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -112,7 +92,6 @@
       "block_order": [
         "image_Ly7GDi",
         "image_CbX6Bt",
-        "image_RfXrF6",
         "image_fQxd4L",
         "image_P999HC"
       ],
