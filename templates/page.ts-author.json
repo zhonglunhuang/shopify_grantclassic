@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "ts-author-page",
+      "settings": {},
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "number": "SGS",
+            "label": "固態電池送測檢驗"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "number": "18 條",
+            "label": "自有產品線"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "number": "7 天",
+            "label": "鑑賞期與在地保固"
+          }
+        },
+        "c1": {
+          "type": "cred",
+          "settings": {
+            "tag": "SGS 送測",
+            "text": "固態電池行動電源通過穿刺與短路測試（報告可供查驗）"
+          }
+        },
+        "c2": {
+          "type": "cred",
+          "settings": {
+            "tag": "售後紀錄",
+            "text": "文章的使用建議與 FAQ 來自真實售後與客服問答，非憑空想像"
+          }
+        },
+        "c3": {
+          "type": "cred",
+          "settings": {
+            "tag": "在地服務",
+            "text": "台灣出貨、7 天鑑賞期、保固維修由自家服務中心處理"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "c1",
+        "c2",
+        "c3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

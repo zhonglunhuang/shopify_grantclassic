@@ -1,0 +1,108 @@
+{%- comment -%} GOS E-E-A-T 作者頁本體（v2）：文章數與最新文章自動抓、檢測紀錄可編輯 {%- endcomment -%}
+{%- assign ts_blog = blogs[section.settings.blog_handle] -%}
+<style>
+  .ts-author-page{max-width:880px;margin:0 auto;padding:56px 24px 72px;color:#1d1d1f}
+  .ts-author-page__hero{text-align:center;margin-bottom:40px}
+  .ts-author-page__avatar{width:84px;height:84px;border-radius:50%;background:#1d1d1f;color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px;margin:0 auto 16px}
+  .ts-author-page__title{font-size:32px;font-weight:700;letter-spacing:-.02em;margin:0 0 8px}
+  .ts-author-page__sub{font-size:15px;color:#6e6e73;margin:0}
+  .ts-author-page__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:36px 0}
+  .ts-author-page__stat{background:#f5f5f7;border-radius:18px;padding:20px;text-align:center}
+  .ts-author-page__stat b{display:block;font-size:22px;letter-spacing:-.02em;margin-bottom:4px}
+  .ts-author-page__stat span{font-size:12.5px;color:#6e6e73}
+  .ts-author-page__body{font-size:15px;line-height:1.9;color:#424245}
+  .ts-author-page__h2{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:44px 0 14px}
+  .ts-author-page__creds{margin:0;padding:0;list-style:none}
+  .ts-author-page__creds li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;
+    border-bottom:1px solid #e8e8ed;font-size:14px;line-height:1.7}
+  .ts-author-page__creds li:last-child{border-bottom:0}
+  .ts-author-page__creds b{flex:none;min-width:92px;color:#1d1d1f}
+  .ts-author-page__creds span{color:#424245}
+  .ts-author-page__posts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .ts-author-page :where(.ts-author-page__post){display:block;background:#f5f5f7;border-radius:14px;
+    padding:16px 18px;text-decoration:none;color:#1d1d1f}
+  .ts-author-page :where(.ts-author-page__post):hover{background:#ececf0;text-decoration:none}
+  .ts-author-page__post b{display:block;font-size:13.5px;line-height:1.55;margin-bottom:6px}
+  .ts-author-page__post span{font-size:12px;color:#6e6e73}
+  @media (max-width:900px){
+    .ts-author-page__grid{grid-template-columns:repeat(2,1fr)}
+    .ts-author-page__posts{grid-template-columns:1fr}
+  }
+</style>
+<div class="ts-author-page">
+  <div class="ts-author-page__hero">
+    <div class="ts-author-page__avatar">GC</div>
+    <h1 class="ts-author-page__title">{{ section.settings.title }}</h1>
+    <p class="ts-author-page__sub">{{ section.settings.subtitle }}</p>
+  </div>
+  <div class="ts-author-page__grid">
+    {%- if ts_blog and section.settings.show_count -%}
+    <div class="ts-author-page__stat"><b>{{ ts_blog.articles_count }} 篇</b><span>已發布文章（自動統計）</span></div>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == "stat" -%}
+      <div class="ts-author-page__stat" {{ block.shopify_attributes }}>
+        <b>{{ block.settings.number }}</b><span>{{ block.settings.label }}</span>
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="ts-author-page__body">{{ section.settings.body }}</div>
+
+  {%- assign has_cred = false -%}
+  {%- for block in section.blocks -%}{%- if block.type == "cred" -%}{%- assign has_cred = true -%}{%- endif -%}{%- endfor -%}
+  {%- if has_cred -%}
+  <h2 class="ts-author-page__h2">檢測與依據</h2>
+  <ul class="ts-author-page__creds">
+    {%- for block in section.blocks -%}
+      {%- if block.type == "cred" -%}
+      <li {{ block.shopify_attributes }}><b>{{ block.settings.tag }}</b><span>{{ block.settings.text }}</span></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+
+  {%- if ts_blog and section.settings.show_posts -%}
+  <h2 class="ts-author-page__h2">最新文章</h2>
+  <div class="ts-author-page__posts">
+    {%- for article in ts_blog.articles limit: 6 -%}
+    <a class="ts-author-page__post" href="{{ article.url }}">
+      <b>{{ article.title }}</b>
+      <span>{{ article.published_at | date: "%Y/%m/%d" }}</span>
+    </a>
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "TS 作者頁",
+  "settings": [
+    {"type": "text", "id": "title", "label": "標題", "default": "grantclassic 產品團隊"},
+    {"type": "text", "id": "subtitle", "label": "副標", "default": "選品、送測、售後——文章背後的人"},
+    {"type": "richtext", "id": "body", "label": "內文", "default": "<p>特經典是台灣的 3C 與寵物智能品牌。部落格文章由產品團隊撰寫與審核：規格數據取自原廠資料與送測報告，使用建議來自售後服務中客人真實遇到的問題。我們不寫誇大的話——建議與一般情況為準，內容有更新會標註日期。</p>"},
+    {"type": "text", "id": "blog_handle", "label": "部落格 handle（自動統計用）", "default": "gc-blog"},
+    {"type": "checkbox", "id": "show_count", "label": "顯示文章數（自動）", "default": true},
+    {"type": "checkbox", "id": "show_posts", "label": "顯示最新文章（自動 6 篇）", "default": true}
+  ],
+  "blocks": [
+    {"type": "stat", "name": "數字格", "settings": [
+      {"type": "text", "id": "number", "label": "數字", "default": "18 條"},
+      {"type": "text", "id": "label", "label": "說明", "default": "自有產品線"}
+    ]},
+    {"type": "cred", "name": "檢測／依據一列", "settings": [
+      {"type": "text", "id": "tag", "label": "左側標籤", "default": "SGS 送測"},
+      {"type": "text", "id": "text", "label": "說明", "default": "固態電池行動電源通過穿刺與短路測試（報告可供查驗）"}
+    ]}
+  ],
+  "presets": [{"name": "TS 作者頁", "blocks": [
+    {"type": "stat", "settings": {"number": "SGS", "label": "固態電池送測檢驗"}},
+    {"type": "stat", "settings": {"number": "18 條", "label": "自有產品線"}},
+    {"type": "stat", "settings": {"number": "7 天", "label": "鑑賞期與在地保固"}},
+    {"type": "cred", "settings": {"tag": "SGS 送測", "text": "固態電池行動電源通過穿刺與短路測試（報告可供查驗）"}},
+    {"type": "cred", "settings": {"tag": "售後紀錄", "text": "文章的使用建議與 FAQ 來自真實售後與客服問答，非憑空想像"}},
+    {"type": "cred", "settings": {"tag": "在地服務", "text": "台灣出貨、7 天鑑賞期、保固維修由自家服務中心處理"}}
+  ]}]
+}
+{% endschema %}

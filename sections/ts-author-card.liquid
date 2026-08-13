@@ -1,0 +1,39 @@
+{%- comment -%} GOS E-E-A-T 作者卡（文章尾）：ts- 前綴、不動主題原檔 {%- endcomment -%}
+<style>
+  .ts-author-card{max-width:740px;margin:32px auto 48px;padding:0 24px}
+  .ts-author-card__box{display:flex;gap:18px;align-items:flex-start;background:#f5f5f7;
+    border-radius:18px;padding:22px 24px}
+  .ts-author-card__avatar{width:56px;height:56px;border-radius:50%;background:#1d1d1f;color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex:none}
+  .ts-author-card__name{font-weight:700;font-size:15px;color:#1d1d1f;margin:0 0 2px}
+  .ts-author-card__tag{font-size:12.5px;color:#6e6e73;margin:0 0 8px}
+  .ts-author-card__bio{font-size:13.5px;line-height:1.75;color:#424245;margin:0}
+  .ts-author-card__link{display:inline-block;margin-top:8px;font-size:13px;color:#0071e3;text-decoration:none}
+  .ts-author-card :where(a):hover{text-decoration:underline}
+  @media (max-width:900px){.ts-author-card__box{flex-direction:column;gap:12px}}
+</style>
+<div class="ts-author-card">
+  <div class="ts-author-card__box">
+    <div class="ts-author-card__avatar">GC</div>
+    <div>
+      <p class="ts-author-card__name">{{ section.settings.name }}</p>
+      <p class="ts-author-card__tag">{{ section.settings.tagline }}</p>
+      <p class="ts-author-card__bio">{{ section.settings.bio }}</p>
+      {%- if section.settings.author_page != blank -%}
+      <a class="ts-author-card__link" href="{{ section.settings.author_page.url }}">認識我們的團隊與檢測紀錄 →</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "TS 作者卡（文章尾）",
+  "settings": [
+    {"type": "text", "id": "name", "label": "作者名稱", "default": "grantclassic 產品團隊"},
+    {"type": "text", "id": "tagline", "label": "一句話資歷", "default": "自有品牌選品與檢測．SGS 送測．在地保固服務"},
+    {"type": "textarea", "id": "bio", "label": "簡介", "default": "我們是特經典的產品團隊：文章裡的規格與數據來自實際送測報告與售後服務紀錄，內容如有更新會標註日期。"},
+    {"type": "page", "id": "author_page", "label": "作者頁（連到哪一頁）"}
+  ],
+  "presets": [{"name": "TS 作者卡（文章尾）"}]
+}
+{% endschema %}
