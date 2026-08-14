@@ -48,10 +48,25 @@
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
-    {%- comment -%}Google Fonts{%- endcomment -%}
+    {%- comment -%}
+      Google Fonts：只有 PageFly 做的頁面才需要。
+      2026-08-14 實測：一般頁面下載 130 KB 的 Noto Sans TC CSS，實際字體檔下載 0 個，
+      因為 body 的字體堆疊是 Helvetica, Arial, sans-serif，根本沒有這個家族。
+      但 PageFly 的 CSS 寫死 font-family:"Noto Sans TC"，那些頁面真的在用（約 464 KB 字體切片），
+      所以不能整個刪，改成條件式。判斷條件與 pagefly-app-header 同一套。
+      要還原就把下面的 if / endif 兩行拿掉。
+    {%- endcomment -%}
+    {%- assign ts_needs_gfont = false -%}
+    {%- if template.suffix != 'blank' and template.suffix contains 'pf-' -%}
+      {%- assign ts_needs_gfont = true -%}
+    {%- elsif content_for_layout contains '__pagefly' or content_for_layout contains 'shopify-section-pagefly' -%}
+      {%- assign ts_needs_gfont = true -%}
+    {%- endif -%}
+    {%- if ts_needs_gfont -%}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    {%- endif -%}
 
     {%- comment -%}Preload important resources{%- endcomment -%}
     <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
