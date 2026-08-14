@@ -196,6 +196,20 @@
       {%- capture kg_out -%}{{ kg_a[0] }}{{ kg_head }}{{ shop.url }}{{ article.url }}#article{{ kg_tail }}{{ kg_b[1] }}{%- endcapture -%}
     {%- endif -%}
   {%- endif -%}
+  {%- comment -%}
+    中繼欄位裡的 dateModified 是產生當下寫死的，永遠等於發布日。這一份跟
+    BlogPosting 共用同一個 @id，Google 合併之後會拿到兩個互相矛盾的最後更新日。
+
+    只在「舊值剛好等於發布日」時才換掉——那才是壞掉的情況。
+    哪天有人真的填了正確的修改日，這裡就不會動它。
+  {%- endcomment -%}
+  {%- assign kg_pub_day = article.published_at | date: '%Y-%m-%d' -%}
+  {%- assign kg_upd_day = article.updated_at | date: '%Y-%m-%d' -%}
+  {%- if kg_upd_day != kg_pub_day -%}
+    {%- capture kg_mod_old -%}"dateModified":"{{ kg_pub_day }}"{%- endcapture -%}
+    {%- capture kg_mod_new -%}"dateModified":"{{ kg_upd_day }}"{%- endcapture -%}
+    {%- assign kg_out = kg_out | replace: kg_mod_old, kg_mod_new -%}
+  {%- endif -%}
 <script type="application/ld+json">{{ kg_out }}</script>
 {%- endif -%}
 {%- comment -%}
