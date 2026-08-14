@@ -200,15 +200,25 @@
     中繼欄位裡的 dateModified 是產生當下寫死的，永遠等於發布日。這一份跟
     BlogPosting 共用同一個 @id，Google 合併之後會拿到兩個互相矛盾的最後更新日。
 
-    只在「舊值剛好等於發布日」時才換掉——那才是壞掉的情況。
-    哪天有人真的填了正確的修改日，這裡就不會動它。
+    不能用「比對舊值再置換」——實測那些中繼欄位的日期格式至少三種
+    （`2026-07-24`／`2023-08-17T14:23:19+08:00`／連冒號後有沒有空格都不一定），
+    比對式的寫法只修得到其中一種，剩下的靜靜失敗。
+
+    改成不管值長什麼樣：切在 "dateModified" 這個鍵，把它後面「冒號＋一組引號值」
+    整段換掉，其餘原樣接回去。出現兩次以上就整個跳過，不冒險動 JSON。
   {%- endcomment -%}
   {%- assign kg_pub_day = article.published_at | date: '%Y-%m-%d' -%}
   {%- assign kg_upd_day = article.updated_at | date: '%Y-%m-%d' -%}
   {%- if kg_upd_day != kg_pub_day -%}
-    {%- capture kg_mod_old -%}"dateModified":"{{ kg_pub_day }}"{%- endcapture -%}
-    {%- capture kg_mod_new -%}"dateModified":"{{ kg_upd_day }}"{%- endcapture -%}
-    {%- assign kg_out = kg_out | replace: kg_mod_old, kg_mod_new -%}
+    {%- assign kg_dm = kg_out | split: '"dateModified"' -%}
+    {%- if kg_dm.size == 2 -%}
+      {%- assign kg_v = kg_dm[1] | split: '"' -%}
+      {%- if kg_v.size > 2 -%}
+        {%- capture kg_old_pair -%}{{ kg_v[0] }}"{{ kg_v[1] }}"{%- endcapture -%}
+        {%- assign kg_rest = kg_dm[1] | remove_first: kg_old_pair -%}
+        {%- capture kg_out -%}{{ kg_dm[0] }}"dateModified":"{{ article.updated_at | date: '%Y-%m-%dT%T' }}"{{ kg_rest }}{%- endcapture -%}
+      {%- endif -%}
+    {%- endif -%}
   {%- endif -%}
 <script type="application/ld+json">{{ kg_out }}</script>
 {%- endif -%}
