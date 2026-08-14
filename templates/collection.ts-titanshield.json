@@ -321,7 +321,7 @@
             "link_url": "",
             "modal_type": "doc",
             "asset_images": "",
-            "modal_html": "<p class=\"lead\">在台灣賣，這兩張跑不掉。</p><p><strong>BSMI 商品檢驗</strong>：行動電源在台灣屬於應施檢驗品項，沒有通過不能販售，商品本體與外盒都印有 BSMI 標章。<br><strong>NCC 審驗</strong>：無線充電屬於低功率射頻器材，須經國家通訊傳播委員會審驗，每個型號各有一組審驗合格標籤號碼。</p><div class=\"wrap\"><table>\n<tr>\n<th>BSMI 報驗義務人登錄字號</th>\n<td>\n<strong>R3I037</strong>　全系列共用一組</td>\n</tr>\n<tr>\n<th>NCC 審驗　5000 mAh</th>\n<td><strong>CCAH25LP6590T7</strong></td>\n</tr>\n<tr>\n<th>NCC 審驗　10000 mAh</th>\n<td><strong>CCAH25LPA560T2</strong></td>\n</tr>\n<tr>\n<th>主管機關</th>\n<td>經濟部標準檢驗局（BSMI）、國家通訊傳播委員會（NCC）</td>\n</tr>\n</table></div><p>BSMI 的 R 字號登錄的是「報驗義務人」也就是公司，所以全系列共用同一組；NCC 則是逐一型號審驗，兩個容量因此各有一組號碼。以上為標準版之號碼，可至標準檢驗局與 NCC 網站以號碼查詢。</p>",
+            "modal_html": "<p class=\"lead\">在台灣賣，這兩張跑不掉。</p><p><strong>BSMI 商品檢驗</strong>：行動電源在台灣屬於應施檢驗品項，沒有通過不能販售，商品本體與外盒都印有 BSMI 標章。<br><strong>NCC 審驗</strong>：無線充電屬於低功率射頻器材，須經國家通訊傳播委員會審驗，每個型號各有一組審驗合格標籤號碼。</p><div class=\"wrap\"><table>\n<tr>\n<th>BSMI 報驗義務人登錄字號</th>\n<td>\n<strong>R3I037</strong>　全系列共用一組</td>\n</tr>\n<tr>\n<th>NCC 審驗　標準版 5000 mAh</th>\n<td><strong>CCAH25LP6590T7</strong></td>\n</tr>\n<tr>\n<th>NCC 審驗　標準版 10000 mAh</th>\n<td><strong>CCAH25LPA560T2</strong></td>\n</tr>\n<tr>\n<th>NCC 審驗　Pro 10000 mAh</th>\n<td><strong>CCAP26LP2001T4</strong></td>\n</tr>\n<tr>\n<th>主管機關</th>\n<td>經濟部標準檢驗局（BSMI）、國家通訊傳播委員會（NCC）</td>\n</tr>\n</table></div><p>BSMI 的 R 字號登錄的是「報驗義務人」也就是公司，所以全系列共用同一組；NCC 則是逐一型號審驗，因此每個型號各有一組號碼。可至標準檢驗局與 NCC 網站以號碼查詢。</p>",
             "file_url": "",
             "foot": ""
           }
