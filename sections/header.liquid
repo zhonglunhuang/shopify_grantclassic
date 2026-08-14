@@ -544,13 +544,12 @@ img.header__logo-image.ako {
   document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
   document.documentElement.style.setProperty('--header-height-without-bottom-nav', headerHeightWithoutBottomNav + 'px');
 })();
-</script><script type="application/ld+json">
-{
-"@context": "https://schema.org",
-  "@type": "Organization",
-  "name": {{ shop.name | json }},{% if section.settings.logo %}
-  {% assign image_size = section.settings.logo.width | append: 'x' %}"logo" : {{ section.settings.logo | img_url: image_size | prepend: 'https:' | json }},{% endif %}"url": {{ shop.url | append: page.url | json }}
-}</script>{% schema %}
+</script>{%- comment -%}
+  Focal 原生的 Organization：只有 name / logo / url，沒有 @id 也沒有 sameAs。
+  中繼欄位那份（theme.liquid 全站輸出）已包含這些欄位且更完整，
+  留著只會產生第二個殘缺的 Organization 節點。2026-08-14 移除。
+  ※ 這是主題原檔，Focal 更新可能覆蓋，屆時要重做。
+{%- endcomment -%}{% schema %}
 {
   "name": "Header",
   "class": "shopify-section--header",

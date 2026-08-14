@@ -166,10 +166,12 @@
 {%- if kg_article -%}
 <script type="application/ld+json">{{ kg_article }}</script>
 {%- endif -%}
-{%- assign kg_org = shop.metafields.grantclassic_kg.organization_schema -%}
-{%- if kg_org -%}
-<script type="application/ld+json">{{ kg_org }}</script>
-{%- endif -%}
+{%- comment -%}
+  Organization 已由 layout/theme.liquid 全站輸出（同一個中繼欄位），
+  這裡再印一次是重複節點，2026-08-14 移除。要還原就把下面三行的註解拿掉。
+  {%- assign kg_org = shop.metafields.grantclassic_kg.organization_schema -%}
+  {%- if kg_org -%}<script type="application/ld+json">{{ kg_org }}</script>{%- endif -%}
+{%- endcomment -%}
 
 {% schema %}
 {
