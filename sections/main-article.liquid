@@ -150,7 +150,19 @@
 </style>
 <div class="article__content">
             <div class="rte" id="ako-content" {{ block.shopify_attributes }}>
-              {{- article.content -}}
+              {%- comment -%}
+                標題層級修正：實測全站文章 h2 數量為 0，有小標的那幾篇一律用 h3，
+                等於從 h1 直接跳到 h3，中間缺一層。Google 靠標題理解章節結構
+                （段落索引、搜尋結果的「跳至章節」都吃這個），層級斷掉會讀不出來。
+
+                只在「這篇完全沒有 h2」時才把 h3 升成 h2——
+                如果哪天有文章同時用了 h2 與 h3，這段不會動它，不會把層級壓平。
+              {%- endcomment -%}
+              {%- assign ts_body = article.content -%}
+              {%- unless ts_body contains '<h2' -%}
+                {%- assign ts_body = ts_body | replace: '<h3', '<h2' | replace: '</h3>', '</h2>' -%}
+              {%- endunless -%}
+              {{- ts_body -}}
             </div>
           </div>
         </div>
