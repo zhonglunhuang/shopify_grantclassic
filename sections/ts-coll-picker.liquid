@@ -32,6 +32,15 @@
               <span class="ts-coll__pick-img">
                 {{ pick_img | image_url: width: 520 | image_tag: loading: 'lazy', alt: block.settings.cap }}
               </span>
+            {%- elsif block.settings.image_asset != blank -%}
+              {%- comment -%}
+                保底圖：商品一旦下架或設成草稿，product.featured_image 會抓不到，
+                整個圖片區塊就消失。尚未開賣的系列一定要有這一張，卡片才不會缺一角。
+              {%- endcomment -%}
+              <span class="ts-coll__pick-img">
+                <img src="{{ block.settings.image_asset | asset_url }}"
+                     alt="{{ block.settings.cap | escape }}" loading="lazy" width="520" height="520">
+              </span>
             {%- endif -%}
             <span class="ts-coll__pick-who">{{ block.settings.who | escape }}</span>
             <span class="ts-coll__pick-cap">{{ block.settings.cap | escape }}</span>
@@ -80,6 +89,8 @@
           "info": "選了之後會自動抓它的主圖與連結；下面兩欄留白就用它的。" },
         { "type": "image_picker", "id": "image", "label": "自訂圖片",
           "info": "想用別張圖（例如新的渲染圖）就上傳這裡，會蓋過商品主圖。建議白底或透明背景。" },
+        { "type": "text", "id": "image_asset", "label": "保底圖（主題檔名）",
+          "info": "例：ts-pick-air.png。商品下架或設成草稿時，上面兩個圖片來源都會失效，這一張會頂上。" },
         { "type": "text", "id": "who", "label": "適合誰", "default": "上班通勤、外出半天" },
         { "type": "text", "id": "cap", "label": "系列名", "default": "TITANSHIELD" },
         { "type": "textarea", "id": "desc", "label": "說明", "default": "機身更薄更輕，放口袋不明顯。" },
