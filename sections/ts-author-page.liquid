@@ -75,6 +75,33 @@
   </div>
   {%- endif -%}
 </div>
+
+{%- comment -%}
+  ProfilePage：告訴 Google 這一頁「代表一個作者主體」。
+  主體用 Organization 而不是 Person，因為這是團隊不是個人——寫成 Person 但沒有真名，
+  反而是另一種對不上。文章那邊的 author 之後指到這個 @id。
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": {{ canonical_url | json }},
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": {{ canonical_url | append: '#author' | json }},
+    "name": {{ section.settings.title | json }},
+    "url": {{ canonical_url | json }},
+    {%- if section.settings.subtitle != blank %}
+    "description": {{ section.settings.subtitle | json }},
+    {%- endif %}
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }}
+    }
+  }
+}
+</script>
 {% schema %}
 {
   "name": "TS 作者頁",
