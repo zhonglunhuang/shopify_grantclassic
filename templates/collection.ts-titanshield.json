@@ -128,7 +128,8 @@
             "alarm": "",
             "thermal": "NTC 感測降載",
             "price": "NT$1,980",
-            "highlights": "thickness,weight"
+            "highlights": "thickness,weight",
+            "image_asset": "ts-pick-air.png"
           }
         },
         "m2": {
