@@ -38,7 +38,9 @@
     },
     "ts-author": {
       "type": "ts-author-card",
-      "settings": {}
+      "settings": {
+        "author_page": "author"
+      }
     }
   },
   "order": [
