@@ -35,7 +35,7 @@
       "type": "main-blog",
       "custom_css": [],
       "settings": {
-        "show_blog_title": false,
+        "show_blog_title": true,
         "show_tags": true,
         "show_category": false,
         "show_excerpt": true,
