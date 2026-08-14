@@ -117,12 +117,27 @@ Google 商家刊登結果要求的兩個欄位（2026-08 官網健檢補上）�
       "width": "1024",
       "height": "1024"
     },
+    {%- comment -%}
+      作者一律指向 /pages/author 的 ProfilePage，名稱直接讀那一頁的標題——
+      單一來源，之後改名不用回來改程式。
+      原本寫 article.user 的姓名，但那個員工帳號沒填 first/last name，
+      算出來是 " "（一個空格），等於告訴 Google 這篇沒有作者。
+    {%- endcomment -%}
+    {%- assign ts_author_page = pages['author'] -%}
+    {%- if ts_author_page != blank -%}
     "author": {
-      "@type": "Person",
-      "name": "{{ article.user.first_name | escape }} {{ article.user.last_name | escape }}",
-      "givenName": {{ article.user.first_name | json }},
-      "familyName": {{ article.user.last_name | json }}
+      "@type": "Organization",
+      "@id": "{{ shop.url }}{{ ts_author_page.url }}#author",
+      "name": {{ ts_author_page.title | json }},
+      "url": "{{ shop.url }}{{ ts_author_page.url }}"
     },
+    {%- else -%}
+    "author": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }}
+    },
+    {%- endif -%}
     "publisher": {
       "@type": "Organization",
       "name": {{ shop.name | json }}
