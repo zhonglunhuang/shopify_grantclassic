@@ -1,0 +1,200 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+{%- assign as_modal = false -%}
+{%- if section.settings.display_mode == 'modal' -%}{%- assign as_modal = true -%}{%- endif -%}
+<div class="ts-coll">
+  {%- unless as_modal -%}
+  <div class="ts-coll__band ts-coll__band--tight{% if section.settings.wash %} ts-coll__band--wash{% endif %}">
+    <div class="ts-coll__w--wide">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.sub != blank -%}
+          <p class="ts-coll__lead">{{ section.settings.sub | escape }}</p>
+        {%- endif -%}
+      </div>
+  {%- endunless -%}
+  {%- capture spec_table -%}
+
+      {%- comment -%}
+        規格表：每個 block 是一款產品（一欄），規格列在下面定死。
+        欄位留白就顯示「—」，不會出現空格子。
+        表格自己橫向捲動，手機不會把整頁撐爆。
+      {%- endcomment -%}
+      {%- assign rows = 'capacity|電池容量,color|顏色,thickness|機身厚度,weight|重量,wireless|無線輸出,wired|有線輸出,cell|電芯,watch|Apple Watch 充電,airpods|AirPods 充電,display|電量顯示,stand|折疊支架,alarm|防爆警鈴,thermal|溫度保護,price|建議售價' | split: ',' -%}
+
+      <div class="ts-coll__specwrap">
+        <table class="ts-coll__spec">
+          <thead>
+            <tr>
+              <th class="ts-coll__spec-corner"></th>
+              {%- for block in section.blocks -%}
+                {%- assign p = block.settings.product -%}
+                <th {{ block.shopify_attributes }}>
+                  {%- if p != blank and p.featured_image != blank -%}
+                    <span class="ts-coll__spec-img">
+                      {{ p.featured_image | image_url: width: 320 | image_tag: loading: 'lazy', alt: block.settings.name }}
+                    </span>
+                  {%- endif -%}
+                  <span class="ts-coll__spec-name">{{ block.settings.name | escape }}</span>
+                  {%- if block.settings.tagline != blank -%}
+                    <span class="ts-coll__spec-tag">{{ block.settings.tagline | escape }}</span>
+                  {%- endif -%}
+                </th>
+              {%- endfor -%}
+            </tr>
+          </thead>
+          <tbody>
+            {%- for row in rows -%}
+              {%- assign parts = row | split: '|' -%}
+              {%- assign key = parts[0] -%}
+              {%- capture line -%}
+                {%- for block in section.blocks -%}{{ block.settings[key] }}{%- endfor -%}
+              {%- endcapture -%}
+              {%- if line != blank -%}
+                <tr>
+                  <th scope="row">{{ parts[1] }}</th>
+                  {%- for block in section.blocks -%}
+                    {%- assign v = block.settings[key] -%}
+                    {%- comment -%}
+                      強項標記：block 的 highlights 欄位列出哪些規格是它的優勢，
+                      對到就給底色與粗體。前後補逗號才不會讓 wired 誤中 wireless。
+                    {%- endcomment -%}
+                    {%- assign hl = ',' | append: block.settings.highlights | replace: ' ', '' | append: ',' -%}
+                    {%- assign needle = ',' | append: key | append: ',' -%}
+                    {%- if hl contains needle -%}{%- assign cls = ' class="is-best"' -%}
+                    {%- else -%}{%- assign cls = '' -%}{%- endif -%}
+                    <td{{ cls }}>
+                      {%- if v == blank -%}<span class="ts-coll__spec-no">—</span>
+                      {%- elsif v == '✓' or v == 'v' or v == 'V' -%}
+                        <span class="ts-coll__spec-yes" aria-label="有">
+                          {%- comment -%} 圓底填的是 currentColor，換顏色只要改 CSS 那一行；勾是白的，永遠不用跟著改 {%- endcomment -%}
+                          <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+                            <circle cx="10" cy="10" r="10" fill="currentColor"/>
+                            <path d="M5.9 10.3l2.7 2.7 5.5-5.8" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                      {%- else -%}
+                        {%- comment -%} 值裡有 ｜ 就拆成「主值 ＋ 小字補充」 {%- endcomment -%}
+                        {%- assign vv = v | split: '|' -%}
+                        {{ vv[0] | strip }}
+                        {%- if vv.size > 1 -%}
+                          <span class="ts-coll__spec-sub">{{ vv[1] | strip | replace: "&lt;br&gt;", "<br>" }}</span>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </td>
+                  {%- endfor -%}
+                </tr>
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="ts-coll__specnote">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+  {%- endcapture -%}
+
+  {%- if as_modal -%}
+    {%- comment -%} 收進彈窗：頁面上不佔版面，由「比較全部規格」那顆按鈕叫出來 {%- endcomment -%}
+    <div class="ts-coll__ov ts-coll__ov--wide" id="ts-ov-spec" hidden>
+      <div class="ts-coll__ov-mask" data-ts-close></div>
+      <div class="ts-coll__ov-panel" role="dialog" aria-modal="true" aria-label="{{ section.settings.heading | escape }}">
+        <div class="ts-coll__ov-head">
+          <div>
+            <h3>{{ section.settings.heading | escape }}</h3>
+            {%- if section.settings.sub != blank -%}
+              <p class="ts-coll__ov-sub">{{ section.settings.sub | escape }}</p>
+            {%- endif -%}
+          </div>
+          <button type="button" class="ts-coll__ov-x" data-ts-close aria-label="關閉">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+          </button>
+        </div>
+        <div class="ts-coll__ov-body">{{ spec_table }}</div>
+      </div>
+    </div>
+  {%- else -%}
+      {{ spec_table }}
+    </div>
+  </div>
+  {%- endif -%}
+</div>
+
+{%- if as_modal -%}
+<script>
+(function(){
+  /* 彈窗邏輯與證書卡共用同一支；誰先載入誰註冊，另一個跳過 */
+  if (window.__tsCollOvInit) return;
+  window.__tsCollOvInit = true;
+  var last = null;
+  function close(){
+    document.querySelectorAll('.ts-coll__ov').forEach(function(o){ o.hidden = true; });
+    document.documentElement.style.overflow = '';
+    if (last) { last.focus(); last = null; }
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-ts-ov]');
+    if (t) {
+      var ov = document.getElementById('ts-ov-' + t.getAttribute('data-ts-ov'));
+      if (ov) {
+        e.preventDefault(); last = t; ov.hidden = false;
+        document.documentElement.style.overflow = 'hidden';
+        var x = ov.querySelector('.ts-coll__ov-x'); if (x) x.focus();
+      }
+      return;
+    }
+    if (e.target.closest('[data-ts-close]')) close();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "TS 分類頁：規格比較",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "四款，攤開來比。" },
+    { "type": "textarea", "id": "sub", "label": "說明" },
+    { "type": "select", "id": "display_mode", "label": "怎麼顯示", "default": "modal",
+      "info": "收進彈窗時，這一段在頁面上不佔版面，改由「選系列」下方的按鈕叫出來。",
+      "options": [
+        { "value": "modal", "label": "收進彈窗（按鈕在選系列下方）" },
+        { "value": "inline", "label": "直接攤在頁面上" }
+      ] },
+    { "type": "checkbox", "id": "wash", "label": "淺灰底（僅攤開時）", "default": false },
+    { "type": "textarea", "id": "note", "label": "表格下方註記" }
+  ],
+  "blocks": [
+    {
+      "type": "model",
+      "name": "機型",
+      "settings": [
+        { "type": "product", "id": "product", "label": "商品", "info": "選了會自動抓主圖。" },
+        { "type": "text", "id": "name", "label": "顯示名稱", "default": "TITANSHIELD" },
+        { "type": "text", "id": "tagline", "label": "一句定位", "info": "例：極致輕薄款" },
+        { "type": "header", "content": "規格（留白的列會自動顯示破折號；打 ✓ 會變成勾勾）" },
+        { "type": "text", "id": "capacity", "label": "電池容量" },
+        { "type": "text", "id": "color", "label": "顏色" },
+        { "type": "text", "id": "thickness", "label": "機身厚度" },
+        { "type": "text", "id": "weight", "label": "重量" },
+        { "type": "text", "id": "wireless", "label": "無線輸出" },
+        { "type": "text", "id": "wired", "label": "有線輸出" },
+        { "type": "text", "id": "cell", "label": "電芯" },
+        { "type": "text", "id": "watch", "label": "Apple Watch 充電" },
+        { "type": "text", "id": "airpods", "label": "AirPods 充電" },
+        { "type": "text", "id": "display", "label": "電量顯示" },
+        { "type": "text", "id": "stand", "label": "折疊支架" },
+        { "type": "text", "id": "alarm", "label": "防爆警鈴" },
+        { "type": "text", "id": "thermal", "label": "溫度保護" },
+        { "type": "text", "id": "price", "label": "建議售價" },
+        { "type": "header", "content": "強項標記" },
+        { "type": "text", "id": "highlights", "label": "這一款贏在哪幾列",
+          "info": "填規格代號、逗號分隔，例：thickness,weight。值裡打一個直線可拆成主值與小字說明。可用：capacity, color, thickness, weight, wireless, wired, cell, watch, airpods, display, stand, alarm, thermal, price。填了的格子會有底色與粗體。" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "TS 分類頁：規格比較" } ]
+}
+{% endschema %}

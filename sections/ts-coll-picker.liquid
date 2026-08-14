@@ -1,0 +1,81 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll">
+  <div class="ts-coll__band ts-coll__band--wash">
+    <div class="ts-coll__w">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.sub != blank -%}
+          <p class="ts-coll__lead">{{ section.settings.sub | escape }}</p>
+        {%- endif -%}
+      </div>
+      <div class="ts-coll__picks">
+        {%- for block in section.blocks -%}
+          {%- comment -%} 圖片：後台上傳的優先，沒上傳就自動抓該商品的主圖 {%- endcomment -%}
+          {%- assign pick_img = block.settings.image -%}
+          {%- if pick_img == blank and block.settings.product != blank -%}
+            {%- assign pick_img = block.settings.product.featured_image -%}
+          {%- endif -%}
+          {%- assign pick_link = block.settings.link -%}
+          {%- if pick_link == blank and block.settings.product != blank -%}
+            {%- assign pick_link = block.settings.product.url -%}
+          {%- endif -%}
+          <a class="ts-coll__pick" href="{{ pick_link | default: '#' }}" {{ block.shopify_attributes }}>
+            {%- if pick_img != blank -%}
+              <span class="ts-coll__pick-img">
+                {{ pick_img | image_url: width: 520 | image_tag: loading: 'lazy', alt: block.settings.cap }}
+              </span>
+            {%- endif -%}
+            <span class="ts-coll__pick-who">{{ block.settings.who | escape }}</span>
+            <span class="ts-coll__pick-cap">{{ block.settings.cap | escape }}</span>
+            <span class="ts-coll__pick-desc">{{ block.settings.desc | escape }}</span>
+            {%- if block.settings.price != blank -%}
+              <span class="ts-coll__pick-price">{{ block.settings.price | escape }}</span>
+            {%- endif -%}
+            {%- if block.settings.cta != blank -%}
+              <span class="ts-coll__pick-cta">{{ block.settings.cta | escape }} ›</span>
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+      {%- if section.settings.compare_text != blank -%}
+        <div class="ts-coll__comparebar">
+          <button type="button" class="ts-coll__comparebtn" data-ts-ov="spec" aria-haspopup="dialog">
+            {{ section.settings.compare_text | escape }}
+            <i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></i>
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TS 分類頁：選系列",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "三個系列，先挑一個" },
+    { "type": "textarea", "id": "sub", "label": "說明", "default": "兩種容量的差別只在撐多久與多大台。快充規格、磁吸方式、保固完全相同。" },
+    { "type": "text", "id": "compare_text", "label": "比較按鈕文字", "default": "比較全部規格", "info": "留白就不顯示。需要「規格比較」設定成收進彈窗才有作用。" }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "系列",
+      "settings": [
+        { "type": "product", "id": "product", "label": "代表商品",
+          "info": "選了之後會自動抓它的主圖與連結；下面兩欄留白就用它的。" },
+        { "type": "image_picker", "id": "image", "label": "自訂圖片",
+          "info": "想用別張圖（例如新的渲染圖）就上傳這裡，會蓋過商品主圖。建議白底或透明背景。" },
+        { "type": "text", "id": "who", "label": "適合誰", "default": "上班通勤、外出半天" },
+        { "type": "text", "id": "cap", "label": "系列名", "default": "TITANSHIELD" },
+        { "type": "textarea", "id": "desc", "label": "說明", "default": "機身更薄更輕，放口袋不明顯。" },
+        { "type": "text", "id": "price", "label": "價格", "info": "例：$1,980 起" },
+        { "type": "text", "id": "cta", "label": "連結文字", "default": "看這一款" },
+        { "type": "url", "id": "link", "label": "連到哪" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "TS 分類頁：選系列" } ]
+}
+{% endschema %}

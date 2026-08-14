@@ -1,0 +1,203 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll" data-ts-coll-certs>
+  <div class="ts-coll__band ts-coll__band--tight">
+    <div class="ts-coll__w--wide">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.sub != blank -%}
+          <p class="ts-coll__lead">{{ section.settings.sub | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- comment -%}
+        整張卡就是按鈕：點下去直接開彈窗（自家資料）或另開分頁（外部網站）。
+        原本「先展開明細、再點連結」是兩步，而且兩層內容一模一樣，多此一舉。
+        圖示會跟著行為走：＋ 表示會在站內展開，↗ 表示會離開這一頁。
+      {%- endcomment -%}
+      <div class="ts-coll__certs">
+        {%- for block in section.blocks -%}
+          {%- capture cert_inner -%}
+            <span class="ts-coll__cert-n">{{ block.settings.name | escape }}</span>
+            <span class="ts-coll__cert-v">{{ block.settings.code | escape }}</span>
+            <span class="ts-coll__more" aria-hidden="true">
+              {%- if block.settings.open_mode == 'modal' -%}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+              {%- else -%}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 8.6L8.6 3.4M4.4 3.4h4.2v4.2"/></svg>
+              {%- endif -%}
+            </span>
+          {%- endcapture -%}
+
+          {%- if block.settings.open_mode == 'modal' -%}
+            <button type="button" class="ts-coll__cert" data-ts-ov="{{ block.id }}"
+                    aria-haspopup="dialog" {{ block.shopify_attributes }}>{{ cert_inner }}</button>
+          {%- else -%}
+            <a class="ts-coll__cert" href="{{ block.settings.link_url | default: '#' }}"
+               target="_blank" rel="noopener" {{ block.shopify_attributes }}>{{ cert_inner }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} 彈窗：只有設定成「站內彈窗」的區塊才產生 {%- endcomment -%}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.open_mode == 'modal' -%}
+      <div class="ts-coll__ov" id="ts-ov-{{ block.id }}" hidden>
+        <div class="ts-coll__ov-mask" data-ts-close></div>
+        <div class="ts-coll__ov-panel" role="dialog" aria-modal="true" aria-label="{{ block.settings.name | escape }}">
+          <div class="ts-coll__ov-head">
+            <div>
+              <h3>{{ block.settings.name | escape }}</h3>
+              {%- if block.settings.code != blank -%}<p class="ts-coll__ov-sub">{{ block.settings.code | escape }}</p>{%- endif -%}
+            </div>
+            <button type="button" class="ts-coll__ov-x" data-ts-close aria-label="關閉">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+            </button>
+          </div>
+          <div class="ts-coll__ov-body">
+            {%- comment -%} 說明為主、證書縮圖擺旁邊；要看細節自己點圖另開原尺寸 {%- endcomment -%}
+            {%- if block.settings.modal_type == 'video' -%}
+              {%- if block.settings.video != blank -%}
+                {{ block.settings.video | video_tag: image_size: '1100x', controls: true }}
+              {%- else -%}
+                <div class="ts-coll__vid">
+                  <div class="ts-coll__vid-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1d1d1f"><path d="M8 5.5v13l11-6.5z"/></svg></div>
+                </div>
+              {%- endif -%}
+            {%- else -%}
+              <div class="ts-coll__ovgrid{% if block.settings.asset_images == blank and block.settings.image == blank %} ts-coll__ovgrid--solo{% endif %}">
+                <div class="ts-coll__ovmain">
+                  {%- if block.settings.modal_html != blank -%}
+                    <div class="ts-coll__rich">{{ block.settings.modal_html }}</div>
+                  {%- else -%}
+                    <div class="ts-coll__doc">
+                      <div class="ts-coll__doc-brand">{{ block.settings.name | escape }}</div>
+                      <div class="ts-coll__doc-rule"></div>
+                      <dl>
+                        {%- if block.settings.k1 != blank -%}<dt>{{ block.settings.k1 | escape }}</dt><dd>{{ block.settings.v1 | escape }}</dd>{%- endif -%}
+                        {%- if block.settings.k2 != blank -%}<dt>{{ block.settings.k2 | escape }}</dt><dd>{{ block.settings.v2 | escape }}</dd>{%- endif -%}
+                        {%- if block.settings.k3 != blank -%}<dt>{{ block.settings.k3 | escape }}</dt><dd>{{ block.settings.v3 | escape }}</dd>{%- endif -%}
+                      </dl>
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                {%- if block.settings.image != blank or block.settings.asset_images != blank -%}
+                  <div class="ts-coll__ovthumbs">
+                    {%- if block.settings.image != blank -%}
+                      <a class="ts-coll__shotimg" href="{{ block.settings.image | image_url: width: 2000 }}" target="_blank" rel="noopener" title="點圖放大">
+                        {{ block.settings.image | image_url: width: 420 | image_tag: alt: block.settings.name, loading: 'lazy' }}
+                      </a>
+                    {%- endif -%}
+                    {%- assign names = block.settings.asset_images | split: ',' -%}
+                    {%- for n in names -%}
+                      {%- assign fn = n | strip -%}
+                      {%- if fn != blank -%}
+                        <a class="ts-coll__shotimg" href="{{ fn | asset_url }}" target="_blank" rel="noopener" title="點圖放大">
+                          <img src="{{ fn | asset_url }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+                          <span class="ts-coll__zoom" aria-hidden="true">
+                            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="6" r="4.2"/><path d="M9.2 9.2L12.5 12.5M6 4.2v3.6M4.2 6h3.6"/></svg>
+                          </span>
+                        </a>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.file_url != blank -%}
+              <div class="ts-coll__ov-actions">
+                <a class="ts-coll__btn ts-coll__btn--primary" href="{{ block.settings.file_url }}" target="_blank" rel="noopener">下載存檔</a>
+                {%- if block.settings.link_url != blank -%}
+                  <a class="ts-coll__btn ts-coll__btn--plain" href="{{ block.settings.link_url }}" target="_blank" rel="noopener">到官方網站驗證</a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.foot != blank -%}
+              <p class="ts-coll__ov-foot">{{ block.settings.foot | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+<script>
+(function(){
+  if (window.__tsCollOvInit) return;   /* script 標籤會每個實例各跑一次，用旗標擋住 */
+  window.__tsCollOvInit = true;
+  var last = null;
+  function close(){
+    document.querySelectorAll('.ts-coll__ov').forEach(function(o){ o.hidden = true; });
+    document.documentElement.style.overflow = '';
+    if (last) { last.focus(); last = null; }
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-ts-ov]');
+    if (t) {
+      var ov = document.getElementById('ts-ov-' + t.getAttribute('data-ts-ov'));
+      if (ov) {
+        e.preventDefault();
+        last = t;
+        ov.hidden = false;
+        document.documentElement.style.overflow = 'hidden';
+        var x = ov.querySelector('.ts-coll__ov-x');
+        if (x) x.focus();
+      }
+      return;
+    }
+    if (e.target.closest('[data-ts-close]')) close();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "TS 分類頁：檢驗證書",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "這些你都可以自己查" },
+    { "type": "textarea", "id": "sub", "label": "說明", "default": "我們不只寫「通過檢驗」，直接把編號給你，你可以上主管機關網站核對。" }
+  ],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "證書",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "SGS 檢驗報告" },
+        { "type": "text", "id": "code", "label": "編號", "info": "直接顯示在卡片上，不用點就看得到——這是最重要的信任元件。" },
+        { "type": "header", "content": "展開後的三行明細" },
+        { "type": "text", "id": "k1", "label": "項目 1" }, { "type": "text", "id": "v1", "label": "內容 1" },
+        { "type": "text", "id": "k2", "label": "項目 2" }, { "type": "text", "id": "v2", "label": "內容 2" },
+        { "type": "text", "id": "k3", "label": "項目 3" }, { "type": "text", "id": "v3", "label": "內容 3" },
+        { "type": "header", "content": "連結" },
+        { "type": "text", "id": "link_text", "label": "連結文字", "default": "開啟報告" },
+        { "type": "select", "id": "open_mode", "label": "怎麼開", "default": "modal",
+          "info": "自家檔案用站內彈窗；政府或第三方網站一律另開分頁（對方會擋住被嵌入）。",
+          "options": [
+            { "value": "modal", "label": "站內彈窗（自家報告、影片）" },
+            { "value": "blank", "label": "另開分頁（外部網站）" }
+          ] },
+        { "type": "url", "id": "link_url", "label": "外部網址" },
+        { "type": "select", "id": "modal_type", "label": "彈窗內容", "default": "doc",
+          "options": [
+            { "value": "doc", "label": "明細表" },
+            { "value": "image", "label": "報告圖片" },
+            { "value": "video", "label": "影片" }
+          ] },
+        { "type": "image_picker", "id": "image", "label": "報告圖片", "info": "手機看 PDF 相容性差，建議報告轉成圖片放這裡。" },
+        { "type": "text", "id": "asset_images", "label": "證書圖（主題檔名，逗號分隔）",
+          "info": "例：ts-cert-pse-5000.jpg, ts-cert-pse-10000.jpg。點圖會另開原尺寸。" },
+        { "type": "html", "id": "modal_html", "label": "彈窗內容（表格）",
+          "info": "要放多項數據時用這裡，可寫表格。沒有圖片時才會顯示。" },
+        { "type": "video", "id": "video", "label": "測試影片" },
+        { "type": "url", "id": "file_url", "label": "PDF 下載連結" },
+        { "type": "textarea", "id": "foot", "label": "彈窗底部說明" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "TS 分類頁：檢驗證書" } ]
+}
+{% endschema %}

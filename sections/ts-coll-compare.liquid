@@ -1,0 +1,54 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll">
+  <div class="ts-coll__band ts-coll__band--dark">
+    <div class="ts-coll__w">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2" style="color:#fff">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.sub != blank -%}
+          <p class="ts-coll__lead">{{ section.settings.sub | escape }}</p>
+        {%- endif -%}
+      </div>
+      <div class="ts-coll__duo">
+        <div class="ts-coll__duocell ts-coll__duocell--hi">
+          <svg class="ts-coll__blob" viewBox="0 0 74 74" fill="none" aria-hidden="true">
+            <rect x="12" y="12" width="50" height="50" rx="17" fill="#2a8f66"/>
+            <path d="M23 29h28M23 37h28M23 45h18" stroke="#a8ecca" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="ts-coll__duolab">{{ section.settings.ours_label | escape }}</div>
+          <h3 class="ts-coll__h3">{{ section.settings.ours_title | escape }}</h3>
+          <p>{{ section.settings.ours_text | escape }}</p>
+        </div>
+        <div class="ts-coll__duocell">
+          <svg class="ts-coll__blob" viewBox="0 0 74 74" fill="none" aria-hidden="true">
+            <circle cx="37" cy="37" r="27" fill="#2b3f4d"/>
+            <path d="M17 40c6-5 11 4 17-1s12 5 22-3" stroke="#6f8ea3" stroke-width="3" stroke-linecap="round"/>
+            <path d="M17 49c6-5 11 4 17-1s12 5 22-3" stroke="#54748a" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <div class="ts-coll__duolab">{{ section.settings.theirs_label | escape }}</div>
+          <h3 class="ts-coll__h3">{{ section.settings.theirs_title | escape }}</h3>
+          <p>{{ section.settings.theirs_text | escape }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TS 分類頁：固態對照",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "差別，在看不見的地方" },
+    { "type": "textarea", "id": "sub", "label": "說明", "default": "同樣是行動電源，裡面那層電解質決定了它被刺穿時會發生什麼事。" },
+    { "type": "header", "content": "左邊（我們）" },
+    { "type": "text", "id": "ours_label", "label": "標籤", "default": "TITANSHIELD" },
+    { "type": "text", "id": "ours_title", "label": "標題", "default": "固態配方" },
+    { "type": "textarea", "id": "ours_text", "label": "說明", "default": "把液體換成不流動的固態配方，像果凍一樣。即使外殼變形，內部結構仍維持原位，不會因為流動而短路。" },
+    { "type": "header", "content": "右邊（一般產品）" },
+    { "type": "text", "id": "theirs_label", "label": "標籤", "default": "一般行動電源" },
+    { "type": "text", "id": "theirs_title", "label": "標題", "default": "液態電解質" },
+    { "type": "textarea", "id": "theirs_text", "label": "說明", "default": "裡面是會流動的液體。被刺穿、擠壓或高溫時，液體流動讓正負極直接接觸，這是起火與冒煙的來源。" }
+  ],
+  "presets": [ { "name": "TS 分類頁：固態對照" } ]
+}
+{% endschema %}

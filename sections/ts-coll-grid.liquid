@@ -1,0 +1,250 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll">
+  <div class="ts-coll__band">
+    <div class="ts-coll__w--wide">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">
+          {{ section.settings.heading | escape }}
+          {%- if section.settings.show_count -%} <span data-ts-count>{{ collection.products_count }}</span> 款{%- endif -%}
+        </h2>
+      </div>
+
+      {%- comment -%}
+        篩選：前端即時篩，不重新載入頁面。
+        理由 ①：商品只有十幾款，JS 篩比整頁重載快得多，也不會把人捲回頁面頂端。
+        理由 ②：Shopify 原生篩選會重載，網址一換就掉範本後綴，預覽時會跳回舊版。
+        分類靠標籤（series:air / look:design …），沒打標籤就用商品名自動判斷。
+      {%- endcomment -%}
+      {%- if section.settings.show_filters -%}
+        <div class="ts-coll__filters" data-ts-filters>
+          <div class="ts-coll__pills" role="group" aria-label="系列">
+            <button type="button" class="ts-coll__pill" data-f="series" data-v="all" aria-pressed="true">
+              {{ section.settings.label_all | escape }} <span class="ts-coll__n" data-n></span>
+            </button>
+            <button type="button" class="ts-coll__pill" data-f="series" data-v="air" aria-pressed="false">
+              {{ section.settings.label_air | escape }} <span class="ts-coll__n" data-n></span>
+            </button>
+            <button type="button" class="ts-coll__pill" data-f="series" data-v="standard" aria-pressed="false">
+              {{ section.settings.label_std | escape }} <span class="ts-coll__n" data-n></span>
+            </button>
+            <button type="button" class="ts-coll__pill" data-f="series" data-v="pro" aria-pressed="false">
+              {{ section.settings.label_pro | escape }} <span class="ts-coll__n" data-n></span>
+            </button>
+          </div>
+          {%- if section.settings.show_look -%}
+            <div class="ts-coll__pills ts-coll__pills--sub" role="group" aria-label="外觀">
+              <button type="button" class="ts-coll__pill" data-f="look" data-v="all" aria-pressed="true">
+                {{ section.settings.label_look_all | escape }} <span class="ts-coll__n" data-n></span>
+              </button>
+              <button type="button" class="ts-coll__pill" data-f="look" data-v="plain" aria-pressed="false">
+                {{ section.settings.label_plain | escape }} <span class="ts-coll__n" data-n></span>
+              </button>
+              <button type="button" class="ts-coll__pill" data-f="look" data-v="design" aria-pressed="false">
+                {{ section.settings.label_design | escape }} <span class="ts-coll__n" data-n></span>
+              </button>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="ts-coll__grid" data-ts-grid>
+        {%- for product in collection.products -%}
+
+          {%- comment -%} 系列：標籤優先，其次看商品名 {%- endcomment -%}
+          {%- assign p_series = 'standard' -%}
+          {%- if product.tags contains 'series:air' -%}
+            {%- assign p_series = 'air' -%}
+          {%- elsif product.tags contains 'series:pro' -%}
+            {%- assign p_series = 'pro' -%}
+          {%- elsif product.tags contains 'series:standard' -%}
+            {%- assign p_series = 'standard' -%}
+          {%- elsif product.title contains 'Air' -%}
+            {%- assign p_series = 'air' -%}
+          {%- elsif product.title contains 'Pro' -%}
+            {%- assign p_series = 'pro' -%}
+          {%- endif -%}
+
+          {%- comment -%} 外觀：標籤優先，其次看商品名有沒有「-款式名」 {%- endcomment -%}
+          {%- assign p_look = 'plain' -%}
+          {%- if product.tags contains 'look:design' -%}
+            {%- assign p_look = 'design' -%}
+          {%- elsif product.tags contains 'look:plain' -%}
+            {%- assign p_look = 'plain' -%}
+          {%- elsif product.title contains '-' -%}
+            {%- assign p_look = 'design' -%}
+          {%- endif -%}
+
+          <a class="ts-coll__item" href="{{ product.url }}" data-series="{{ p_series }}" data-look="{{ p_look }}">
+            <span class="ts-coll__shot">
+              {%- if product.compare_at_price > product.price -%}
+                {%- assign save = product.compare_at_price | minus: product.price -%}
+                <span class="ts-coll__badge">省 {{ save | money_without_trailing_zeros }}</span>
+              {%- endif -%}
+              {%- if product.featured_image -%}
+                {{ product.featured_image | image_url: width: 640 | image_tag: loading: 'lazy', alt: product.featured_image.alt | default: product.title }}
+              {%- endif -%}
+            </span>
+
+            {%- comment -%}
+              顏色點：顏色名不是 CSS 色碼（「黑色」餵給 background 會變空心圈），
+              所以走對照表；對不到的顏色就整個不顯示，不要留一顆空心的。
+            {%- endcomment -%}
+            {%- assign swatches = product.options_by_name['顏色'].values | default: product.options_by_name['Color'].values -%}
+            {%- if swatches.size > 1 -%}
+              {%- capture dots -%}
+                {%- for v in swatches limit: 5 -%}
+                  {%- assign hex = '' -%}
+                  {%- comment -%}
+                    後台若已設定原生色票（商品選項的「顏色樣本」），一律以它為準——
+                    之後顏色改名或調色都在 Shopify 裡做完，不用回來改程式。
+                    沒設定時才退回下面這張對照表。
+                  {%- endcomment -%}
+                  {%- if v.swatch.color != blank -%}{%- assign hex = v.swatch.color -%}{%- endif -%}
+                  {%- if hex == '' -%}
+                  {%- case v -%}
+                    {%- when '石墨黑', '黑色', '黑', 'Black' -%}{%- assign hex = '#3a3a3c' -%}
+                    {%- when '極地銀', '銀', '銀色', 'Silver' -%}{%- assign hex = '#d6d6da' -%}
+                    {%- when '霧晶白', '白', '白色', 'White' -%}{%- assign hex = '#eff0f2' -%}
+                    {%- when '金', '金色', 'Gold' -%}{%- assign hex = '#e3c9a0' -%}
+                    {%- when '粉', '粉色', 'Pink' -%}{%- assign hex = '#f0a8bd' -%}
+                    {%- when '藍', '藍色', 'Blue' -%}{%- assign hex = '#4a7fc1' -%}
+                    {%- when '綠', '綠色', 'Green' -%}{%- assign hex = '#5aa87c' -%}
+                    {%- when '紅', '紅色', 'Red' -%}{%- assign hex = '#d0453f' -%}
+                  {%- endcase -%}
+                  {%- endif -%}
+                  {%- if hex != '' -%}
+                    <span class="ts-coll__dot" style="background:{{ hex }}" title="{{ v | escape }}"></span>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- if dots contains 'ts-coll__dot' -%}
+                <span class="ts-coll__dots">{{ dots }}</span>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- assign flag = product.metafields.custom.flag -%}
+            {%- if flag != blank -%}
+              <span class="ts-coll__flag">{{ flag }}</span>
+            {%- elsif product.tags contains '最多人買' -%}
+              <span class="ts-coll__flag">最多人買</span>
+            {%- elsif product.tags contains '新品' -%}
+              <span class="ts-coll__flag">新品</span>
+            {%- endif -%}
+
+            <span class="ts-coll__name">{{ product.title | escape }}</span>
+
+            {%- assign s1 = product.metafields.custom.spec_1 -%}
+            {%- assign s2 = product.metafields.custom.spec_2 -%}
+            {%- if s1 != blank or s2 != blank -%}
+              <ul class="ts-coll__specs">
+                {%- if s1 != blank -%}<li>{{ s1 }}</li>{%- endif -%}
+                {%- if s2 != blank -%}<li>{{ s2 }}</li>{%- endif -%}
+              </ul>
+            {%- endif -%}
+
+            <span class="ts-coll__price">
+              {{ product.price | money }}
+              {%- if product.compare_at_price > product.price -%}
+                <s>{{ product.compare_at_price | money }}</s>
+              {%- endif -%}
+            </span>
+
+            {%- assign warranty = product.metafields.custom.warranty -%}
+            {%- if warranty != blank -%}
+              <span class="ts-coll__sold">保固 {{ warranty }}</span>
+            {%- endif -%}
+          </a>
+        {%- else -%}
+          <p class="ts-coll__body">這個分類目前沒有商品。</p>
+        {%- endfor -%}
+      </div>
+
+      <p class="ts-coll__empty" data-ts-empty hidden>沒有符合的款式，換個條件看看。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  if (window.__tsCollFilterInit) return;   /* section 可能被放兩次，旗標擋住重複綁定 */
+  window.__tsCollFilterInit = true;
+
+  function boot(root){
+    var bar   = root.querySelector('[data-ts-filters]');
+    var grid  = root.querySelector('[data-ts-grid]');
+    var empty = root.querySelector('[data-ts-empty]');
+    var countEl = root.querySelector('[data-ts-count]');
+    if (!bar || !grid) return;
+
+    var items = [].slice.call(grid.querySelectorAll('.ts-coll__item'));
+    var state = { series: 'all', look: 'all' };
+
+    function matches(el, s){
+      return (s.series === 'all' || el.getAttribute('data-series') === s.series) &&
+             (s.look   === 'all' || el.getAttribute('data-look')   === s.look);
+    }
+
+    function apply(){
+      var shown = 0;
+      items.forEach(function(el){
+        var ok = matches(el, state);
+        el.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+      if (countEl) countEl.textContent = shown;
+
+      /* 每顆按鈕標上「按下去會剩幾款」——在另一個維度已選的前提下算 */
+      bar.querySelectorAll('.ts-coll__pill').forEach(function(btn){
+        var f = btn.getAttribute('data-f'), v = btn.getAttribute('data-v');
+        var probe = { series: state.series, look: state.look };
+        probe[f] = v;
+        var n = items.filter(function(el){ return matches(el, probe); }).length;
+        var slot = btn.querySelector('[data-n]');
+        if (slot) slot.textContent = n;
+        btn.setAttribute('aria-pressed', String(state[f] === v));
+        btn.disabled = (n === 0 && state[f] !== v);   /* 篩完是 0 的直接不能按 */
+      });
+    }
+
+    bar.addEventListener('click', function(e){
+      var btn = e.target.closest('.ts-coll__pill');
+      if (!btn || btn.disabled) return;
+      state[btn.getAttribute('data-f')] = btn.getAttribute('data-v');
+      apply();
+    });
+
+    apply();
+  }
+
+  function init(){ document.querySelectorAll('.ts-coll').forEach(boot); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('shopify:section:load', init);   /* 後台編輯器重載用 */
+})();
+</script>
+
+{% schema %}
+{
+  "name": "TS 分類頁：商品列表",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "全系列" },
+    { "type": "checkbox", "id": "show_count", "label": "標題後面顯示款數", "default": true },
+    { "type": "header", "content": "篩選" },
+    { "type": "checkbox", "id": "show_filters", "label": "顯示系列篩選", "default": true },
+    { "type": "checkbox", "id": "show_look", "label": "顯示外觀篩選（純色／設計款）", "default": true },
+    { "type": "text", "id": "label_all", "label": "全部", "default": "全部" },
+    { "type": "text", "id": "label_air", "label": "Air", "default": "Air" },
+    { "type": "text", "id": "label_std", "label": "標準", "default": "標準款" },
+    { "type": "text", "id": "label_pro", "label": "Pro", "default": "Pro" },
+    { "type": "text", "id": "label_look_all", "label": "不限外觀", "default": "不限外觀" },
+    { "type": "text", "id": "label_plain", "label": "純色", "default": "純色" },
+    { "type": "text", "id": "label_design", "label": "設計款", "default": "設計款" },
+    { "type": "paragraph", "content": "分類方式：優先看商品標籤 series:air / series:standard / series:pro 與 look:plain / look:design；沒打標籤時用商品名自動判斷（名稱含 Air 或 Pro 歸該系列，含「-」的歸設計款）。打了標籤就以標籤為準，比較不會因為改名而跑掉。" },
+    { "type": "header", "content": "商品卡" },
+    { "type": "paragraph", "content": "賣點與保固來自商品的自訂欄位 custom.spec_1 / custom.spec_2 / custom.warranty；標籤來自 custom.flag 或商品標籤「最多人買」「新品」。沒填就不顯示，不會出現空白格。" }
+  ],
+  "presets": [ { "name": "TS 分類頁：商品列表" } ]
+}
+{% endschema %}

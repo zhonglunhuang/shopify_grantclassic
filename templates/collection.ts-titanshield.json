@@ -1,0 +1,445 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ts-coll-hero",
+      "blocks": {
+        "t1": {
+          "type": "trust",
+          "settings": {
+            "icon": "doc",
+            "value": "BSMI・NCC",
+            "label": "台灣法定檢驗"
+          }
+        },
+        "t2": {
+          "type": "trust",
+          "settings": {
+            "icon": "shield",
+            "value": "台灣監製",
+            "label": "grantclassic 特經典把關"
+          }
+        },
+        "t3": {
+          "type": "trust",
+          "settings": {
+            "icon": "clock",
+            "value": "保固 12 個月",
+            "label": "七天鑑賞期，不滿意可退"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "brand": "TITANSHIELD",
+        "slogan_cn": "穩如鈦山",
+        "slogan": "只發電、不發火",
+        "lede": "穩定，由芯開始。",
+        "basis": "",
+        "bg_desktop": "shopify://shop_images/titanshield-monolith-desktop-2880x1200.webp",
+        "bg_mobile": "shopify://shop_images/titanshield-monolith-mobile-1170x1560.webp"
+      }
+    },
+    "picker": {
+      "type": "ts-coll-picker",
+      "blocks": {
+        "s1": {
+          "type": "option",
+          "settings": {
+            "product": "titanshield-air",
+            "who": "極致輕薄",
+            "cap": "TITANSHIELD Air",
+            "desc": "6 mm。113 公克。放進口袋，你會忘記它在那裡。",
+            "price": "$1,980",
+            "cta": "進一步了解 Air",
+            "link": ""
+          }
+        },
+        "s2": {
+          "type": "option",
+          "settings": {
+            "product": "solid-state-power-bank-titanshield-5000",
+            "who": "日常均衡",
+            "cap": "TITANSHIELD",
+            "desc": "5000 或 10000 mAh，兩種容量。九款外觀，同一顆電芯。",
+            "price": "$1,980 起",
+            "cta": "看全部款式",
+            "link": "/collections/titanshield-solid-state-power-bank"
+          }
+        },
+        "s3": {
+          "type": "option",
+          "settings": {
+            "product": "titanshield_10000",
+            "who": "旗艦效能",
+            "cap": "TITANSHIELD Pro",
+            "desc": "25W 無線、30W 有線。立起來邊充，電池好不好它自己會說。",
+            "price": "$2,980",
+            "cta": "進一步了解 Pro",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "heading": "三個系列，一種技術。",
+        "sub": "都是準固態電芯。差別在多薄、多久、多能幹。",
+        "compare_text": "比較全部規格"
+      }
+    },
+    "spec": {
+      "type": "ts-coll-spec",
+      "blocks": {
+        "m1": {
+          "type": "model",
+          "settings": {
+            "product": "titanshield-air",
+            "name": "TITANSHIELD Air",
+            "tagline": "極致輕薄款",
+            "capacity": "5,000 mAh",
+            "color": "石墨黑 ／ 極地銀",
+            "thickness": "6 mm",
+            "weight": "113 g",
+            "wireless": "15W",
+            "wired": "18W",
+            "cell": "準固態鋰離子",
+            "watch": "",
+            "airpods": "✓",
+            "display": "",
+            "stand": "",
+            "alarm": "",
+            "thermal": "NTC 感測降載",
+            "price": "NT$1,980",
+            "highlights": "thickness,weight"
+          }
+        },
+        "m2": {
+          "type": "model",
+          "settings": {
+            "product": "solid-state-power-bank-titanshield-5000",
+            "name": "TITANSHIELD",
+            "tagline": "日常均衡款",
+            "capacity": "5,000 / 10,000 mAh",
+            "color": "石墨黑 ／ 霧晶白",
+            "thickness": "11 / 19 mm",
+            "weight": "155 / 255 g",
+            "wireless": "15W",
+            "wired": "20W",
+            "cell": "準固態鋰離子",
+            "watch": "✓",
+            "airpods": "✓",
+            "display": "",
+            "stand": "",
+            "alarm": "",
+            "thermal": "NTC 感測降載",
+            "price": "NT$1,980 起",
+            "highlights": "capacity,watch,price"
+          }
+        },
+        "m4": {
+          "type": "model",
+          "settings": {
+            "product": "titanshield_10000",
+            "name": "TITANSHIELD Pro",
+            "tagline": "旗艦效能款",
+            "capacity": "10,000 mAh",
+            "color": "石墨黑 ／ 極地銀",
+            "thickness": "13 mm",
+            "weight": "214 g",
+            "wireless": "25W",
+            "wired": "30W",
+            "cell": "準固態鋰離子",
+            "watch": "",
+            "airpods": "✓",
+            "display": "TFT 智慧螢幕|電池健康・工作溫度・剩餘容量<br>無線功率・Type-C 輸入／輸出",
+            "stand": "隱藏式支架|邊充邊看，不用手扶",
+            "alarm": "✓",
+            "thermal": "NTC 感測降載",
+            "price": "NT$2,980",
+            "highlights": "wireless,wired,display,stand,alarm"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m4"
+      ],
+      "settings": {
+        "heading": "三個系列，攤開來比。",
+        "sub": "差別在厚度、續航與功能。",
+        "display_mode": "modal",
+        "wash": false,
+        "note": "標準款有 5,000 與 10,000 兩種容量，表中以斜線並列（5000 ／ 10000）。三個系列都提供石墨黑與極地銀兩色。"
+      }
+    },
+    "grid": {
+      "type": "ts-coll-grid",
+      "settings": {
+        "heading": "TITANSHIELD 固態行動電源",
+        "show_count": true,
+        "show_filters": true,
+        "show_look": true,
+        "label_all": "全部",
+        "label_air": "Air",
+        "label_std": "標準款",
+        "label_pro": "Pro",
+        "label_look_all": "不限外觀",
+        "label_plain": "純色",
+        "label_design": "設計款"
+      }
+    },
+    "compare": {
+      "type": "ts-coll-compare",
+      "settings": {
+        "heading": "差別，在看不見的地方。",
+        "sub": "同樣是行動電源。被刺穿的那一刻，裡面發生的事完全不同。",
+        "ours_label": "TITANSHIELD",
+        "ours_title": "準固態電解質",
+        "ours_text": "電解質被鎖進高分子骨架——像水泥裡的水，凝固之後水還在，卻再也流不出來。刺穿只造成一個點的損傷，不會沿著整片電極連鎖下去。",
+        "theirs_label": "一般行動電源",
+        "theirs_title": "液態電解質",
+        "theirs_text": "電解液能在電池內部自由流動。隔膜一破，正負極立刻透過液體連通，短路從一個點擴散成整顆——新聞上那些起火與冒煙，就是這樣來的。"
+      }
+    },
+    "certs": {
+      "type": "ts-coll-certs",
+      "blocks": {
+        "c2": {
+          "type": "cert",
+          "settings": {
+            "name": "SGS 五項安全測試",
+            "code": "HE70029 系列・2025",
+            "k1": "測試對象",
+            "v1": "聚合物鋰離子電芯 706385",
+            "k2": "測試機構",
+            "v2": "SGS 台灣檢驗科技",
+            "k3": "測試期間",
+            "v3": "2025 年 7～8 月",
+            "link_text": "看五項數據",
+            "open_mode": "modal",
+            "link_url": "",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">五項測試。沒有一項起火。</p><p>刺穿它、灌爆它、榨乾它、短路它、烤它。每一格都是報告上的原始數據。</p><div class=\"wrap\"><table>\n<tr>\n<th>測試項目</th>\n<th>這是在測什麼</th>\n<th>最高溫度</th>\n<th>結果</th>\n</tr>\n<tr>\n<td>穿刺</td>\n<td>鋼針 100% 貫穿電芯，模擬被尖銳物刺穿</td>\n<td><strong>39.7°C</strong></td>\n<td class=\"ok\">無起火、無爆炸</td>\n</tr>\n<tr>\n<td>過充電</td>\n<td>2.5A 一直充到 6.6V，模擬充電器失控</td>\n<td><strong>98.6°C</strong></td>\n<td class=\"ok\">無起火、無爆炸</td>\n</tr>\n<tr>\n<td>過放電</td>\n<td>5A 連續放電 90 分鐘，把電榨到底</td>\n<td><strong>49.9°C</strong></td>\n<td class=\"ok\">無起火、無爆炸</td>\n</tr>\n<tr>\n<td>外部短路</td>\n<td>20mΩ 導體直接把正負極接起來</td>\n<td><strong>22.2°C</strong></td>\n<td class=\"ok\">無起火、無爆炸</td>\n</tr>\n<tr>\n<td>熱濫用</td>\n<td>升溫到 130°C 並恆溫 60 分鐘，模擬車內曝曬</td>\n<td>—</td>\n<td class=\"ok\">無起火、無爆炸</td>\n</tr>\n</table></div><p>測試機構：SGS 台灣檢驗科技可靠度實驗室（新北五股）。測試對象為電芯本體，型號 706385。報告編號 HE70029、HE70029A～HE70029D／2025，測試期間 2025 年 7～8 月。完整報告可向 SGS 以報告編號調閱。</p>",
+            "file_url": "",
+            "foot": ""
+          }
+        },
+        "c7": {
+          "type": "cert",
+          "settings": {
+            "name": "日本釘刺試驗",
+            "code": "No.251692・兩容量皆測",
+            "k1": "",
+            "v1": "",
+            "k2": "",
+            "v2": "",
+            "k3": "",
+            "v3": "",
+            "link_text": "看測試內容",
+            "open_mode": "modal",
+            "link_url": "",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">同一件事。換一個國家，再測一次。</p><p>SGS 那五項測的是 5000 的電芯。這份是日本ケミトックス（Chemitox）北杜 LiB 試驗中心獨立做的釘刺試驗，<strong>5000 與 10000 兩個容量都測了</strong>。報告標題寫的是「準固体電池の安全性試験報告書」——<strong>「準固態」這個分類就是從這份報告來的</strong>。</p><div class=\"wrap\"><table>\n<tr>\n<th>樣品</th>\n<th>發煙</th>\n<th>破裂</th>\n<th>發火</th>\n</tr>\n<tr>\n<td>MF706385（5000 mAh）</td>\n<td class=\"ok\">無</td>\n<td class=\"ok\">無</td>\n<td class=\"ok\">無</td>\n</tr>\n<tr>\n<td>MF146386（10000 mAh）</td>\n<td class=\"ok\">無</td>\n<td class=\"ok\">無</td>\n<td class=\"ok\">無</td>\n</tr>\n</table></div><div class=\"wrap\"><table>\n<tr>\n<th>報告編號</th>\n<td>No.251692（2025 年 11 月 12 日）</td>\n</tr>\n<tr>\n<th>測試機構</th>\n<td>株式会社ケミトックス 北杜 LiB 試験センター（山梨県）</td>\n</tr>\n<tr>\n<th>測試日期</th>\n<td>2025 年 11 月 7 日</td>\n</tr>\n<tr>\n<th>試驗方法</th>\n<td>從行動電源取出電芯，以 1mm/s 速度釘刺貫穿，環境溫度 20°C</td>\n</tr>\n</table></div>",
+            "file_url": "",
+            "foot": ""
+          }
+        },
+        "c5": {
+          "type": "cert",
+          "settings": {
+            "name": "日本 PSE 認證",
+            "code": "WTF25X10284942 等 2 張",
+            "k1": "5000 mAh",
+            "v1": "WTF25X10284942（2505-PA07）",
+            "k2": "10000 mAh",
+            "v2": "WTF25X10284943（2507-PA13）",
+            "k3": "依循標準",
+            "v3": "JIS C 62133-2: 2020",
+            "link_text": "看證書內容",
+            "open_mode": "modal",
+            "link_url": "",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">日本不給賣沒有 PSE 的行動電源。</p><p>PSE 是日本《電氣用品安全法》的強制認證——沒有它，產品進不了日本市場。TITANSHIELD 兩個容量都各自取得一張，依循的是 JIS C 62133-2:2020，這套標準專門規範可攜式設備用的鋰系二次電池。</p><div class=\"wrap\"><table>\n<tr>\n<th>5000 mAh</th>\n<td>\n<strong>WTF25X10284942</strong>　型號 2505-PA07<br>內建電池 3.8V／5000mAh／19Wh</td>\n</tr>\n<tr>\n<th>10000 mAh</th>\n<td>\n<strong>WTF25X10284943</strong>　型號 2507-PA13<br>內建電池 3.85V／10000mAh／38.5Wh</td>\n</tr>\n<tr>\n<th>依循標準</th>\n<td>JIS C 62133-2: 2020（可攜式設備二次電池安全 — 鋰系）</td>\n</tr>\n<tr>\n<th>發證機構</th>\n<td>Waltek Testing Group</td>\n</tr>\n<tr>\n<th>發證日期</th>\n<td>2025 年 12 月 22 日</td>\n</tr>\n</table></div><p>可憑證明書番號向發證機構 Waltek Testing Group 查核。</p>",
+            "file_url": "",
+            "foot": ""
+          }
+        },
+        "c6": {
+          "type": "cert",
+          "settings": {
+            "name": "中國 CCC 認證",
+            "code": "2025100914641049 等 2 張",
+            "k1": "5000 mAh",
+            "v1": "2025100914641049（2505-PA07）",
+            "k2": "10000 mAh",
+            "v2": "2025100914651048（2507-PA13）",
+            "k3": "依循標準",
+            "v3": "GB 31241-2022、GB 4943.1-2022",
+            "link_text": "看證書內容",
+            "open_mode": "modal",
+            "link_url": "",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">中國強制認證。兩個容量都過。</p><p>CCC 是中國國家強制性產品認證。行動電源與鋰電池自 2025 年起納入管制，沒有 CCC 不能在中國銷售。依循的 GB 31241-2022 是可攜式電子產品鋰離子電池的安全標準，涵蓋過充、過放、短路、擠壓、針刺等項目。</p><div class=\"wrap\"><table>\n<tr>\n<th>5000 mAh</th>\n<td>\n<strong>2025100914641049</strong>　型號 2505-PA07</td>\n</tr>\n<tr>\n<th>10000 mAh</th>\n<td>\n<strong>2025100914651048</strong>　型號 2507-PA13</td>\n</tr>\n<tr>\n<th>依循標準</th>\n<td>GB 31241-2022、GB 4943.1-2022</td>\n</tr>\n<tr>\n<th>發證機構</th>\n<td>中國質量認證中心（CQC）</td>\n</tr>\n<tr>\n<th>有效期至</th>\n<td>2030 年 11 月</td>\n</tr>\n</table></div><p>可上中國認監委網站（www.cnca.gov.cn）以證書編號查詢。</p>",
+            "file_url": "",
+            "foot": ""
+          }
+        },
+        "c8": {
+          "type": "cert",
+          "settings": {
+            "name": "BSMI・NCC",
+            "code": "R3I037・逐型號審驗",
+            "k1": "",
+            "v1": "",
+            "k2": "",
+            "v2": "",
+            "k3": "",
+            "v3": "",
+            "link_text": "看說明",
+            "open_mode": "modal",
+            "link_url": "",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">在台灣賣，這兩張跑不掉。</p><p><strong>BSMI 商品檢驗</strong>：行動電源在台灣屬於應施檢驗品項，沒有通過不能販售，商品本體與外盒都印有 BSMI 標章。<br><strong>NCC 審驗</strong>：無線充電屬於低功率射頻器材，須經國家通訊傳播委員會審驗，每個型號各有一組審驗合格標籤號碼。</p><div class=\"wrap\"><table>\n<tr>\n<th>BSMI 報驗義務人登錄字號</th>\n<td>\n<strong>R3I037</strong>　全系列共用一組</td>\n</tr>\n<tr>\n<th>NCC 審驗　5000 mAh</th>\n<td><strong>CCAH25LP6590T7</strong></td>\n</tr>\n<tr>\n<th>NCC 審驗　10000 mAh</th>\n<td><strong>CCAH25LPA560T2</strong></td>\n</tr>\n<tr>\n<th>主管機關</th>\n<td>經濟部標準檢驗局（BSMI）、國家通訊傳播委員會（NCC）</td>\n</tr>\n</table></div><p>BSMI 的 R 字號登錄的是「報驗義務人」也就是公司，所以全系列共用同一組；NCC 則是逐一型號審驗，兩個容量因此各有一組號碼。以上為標準版之號碼，可至標準檢驗局與 NCC 網站以號碼查詢。</p>",
+            "file_url": "",
+            "foot": ""
+          }
+        },
+        "c9": {
+          "type": "cert",
+          "settings": {
+            "name": "保固與退換",
+            "code": "12 個月・7 天鑑賞期",
+            "k1": "",
+            "v1": "",
+            "k2": "",
+            "v2": "",
+            "k3": "",
+            "v3": "",
+            "link_text": "看保固內容",
+            "open_mode": "modal",
+            "link_url": "/pages/warranty-policy",
+            "modal_type": "doc",
+            "asset_images": "",
+            "modal_html": "<p class=\"lead\">查完了。那買了之後呢。</p><div class=\"wrap\"><table>\n<tr>\n<th>保固期間</th>\n<td>\n<strong>12 個月</strong>（全系列相同）</td>\n</tr>\n<tr>\n<th>鑑賞期</th>\n<td>7 天，不滿意可退</td>\n</tr>\n<tr>\n<th>保固涵蓋</th>\n<td>正常使用下的功能異常</td>\n</tr>\n<tr>\n<th>不涵蓋</th>\n<td>人為損壞、進水、自行拆解或改裝</td>\n</tr>\n<tr>\n<th>電池衰退</th>\n<td>屬正常現象，非故障——充放電次數累積後蓄電量會自然下降</td>\n</tr>\n</table></div><p>完整條款與送修方式請見保固政策頁。</p>",
+            "file_url": "",
+            "foot": ""
+          }
+        }
+      },
+      "block_order": [
+        "c2",
+        "c7",
+        "c5",
+        "c6",
+        "c8",
+        "c9"
+      ],
+      "settings": {
+        "heading": "每一句話，都有一份文件。",
+        "sub": "報告編號、原始數據、證書本文，都在這裡。"
+      }
+    },
+    "faq": {
+      "type": "ts-coll-faq",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "q": "這是全固態電池嗎？還是半固態？",
+            "a": "<p>TITANSHIELD 用的是<strong>準固態（半固態）電芯</strong>，不是全固態。日本檢驗機構ケミトックス在 2025 年 11 月的釘刺試驗報告中，正式將它歸類為「準固体電池」。</p><p>市面上標示「固態行動電源」的產品絕大多數都是這一類——真正的全固態電池目前還沒有消費級量產。各國對「固態」的電解液含量門檻定義並不一致，所以我們不自己下定義，直接採用檢驗機構在報告上寫的分類。</p><p>不過同樣標示「固態」，各家的電芯與設計品質仍有差異——電解質配方、電芯來源、保護電路與散熱結構都不一樣，安全表現自然不會相同。<strong>名詞本身分辨不出來，能分辨的是檢驗報告。</strong></p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "q": "電池會膨脹或起火嗎？",
+            "a": "<p><strong>膨脹（鼓包）</strong>是鋰電池老化的自然現象，任何品牌、任何技術的鋰電池都可能發生，通常出現在使用多年或長期高溫存放之後。發現膨脹請立即停止使用並聯絡我們，不要繼續充電。</p><p><strong>起火</strong>正是準固態配方要解決的問題。SGS 五項測試——鋼針 100% 貫穿電芯、以 2.5A 過充到 6.6V、放進 130°C 的測試箱恆溫一小時——全數無起火、無爆炸。日本ケミトックス的釘刺試驗則是發煙、破裂、發火三項全無。</p><p>上述為實驗室條件下針對電芯本體的測試，適用範圍以受測樣品為限。鋰電池的實際表現仍受使用環境影響——請避免高溫、擠壓與不當充電，完整注意事項見頁面下方。</p>"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "q": "萬一出問題，你們怎麼處理？",
+            "a": "<p><strong>先停下來。</strong>不要繼續充電，把它放在遠離易燃物的地方。如果已經發燙或變形，不要自行拆解、也不要丟進一般垃圾。</p><p><strong>再聯絡我們。</strong>從網站的「聯絡我們」或客服管道告訴我們狀況，附上訂單編號與照片，我們會回覆你接下來怎麼做。</p><p>保固 12 個月，涵蓋正常使用下的功能異常；人為損壞、進水、自行拆解或改裝不在範圍內。另有 7 天鑑賞期，不滿意可退。完整條款見保固政策頁。</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "q": "5000 和 10000 該怎麼選？",
+            "a": "<p>通勤、外出半天選 5000，機身更薄更輕；整天在外、出差旅行選 10000，一天不用找插座。</p><p>兩款的快充規格、磁吸方式與保固完全相同，差別只在容量與體積。</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "q": "可以帶上飛機嗎？",
+            "a": "<p>可以，但必須<strong>隨身攜帶</strong>，不得放入託運行李。</p><p>國際航空運輸協會（IATA）與各國民航主管機關的通則，是依<strong>額定能量（Wh）</strong>分級：100 Wh 以下可隨身攜帶、無須事先申請；100～160 Wh 需航空公司同意；超過 160 Wh 不得攜帶。</p><p>TITANSHIELD 的額定能量標示在機身與認證文件上：<strong>5000 mAh 為 19 Wh</strong>（3.8V）、<strong>10000 mAh 為 38.5 Wh</strong>（3.85V），兩者都落在免申請的級距內。</p><p>實際規定以各航空公司與出發、轉機、抵達國的最新公告為準。部分航空另訂有攜帶數量上限，或要求飛行中不得使用、不得置於行李架，出發前建議再確認一次。</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "q": "在哪裡生產？",
+            "a": "<p>電芯由中國供應商生產，成品由 <strong>grantclassic 特經典</strong> 在台灣監製與品質把關。台灣的 BSMI 商品檢驗與 NCC 審驗、日本 PSE、中國 CCC，四項都通過。</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "q": "使用時要注意什麼？",
+            "a": "<ul><li>電量剩約 20% 再充，充飽後移除電源</li><li>長期不使用時，至少每三個月充電一次</li><li>避免放在車內、陽光直射處或高溫環境</li><li>請勿自行拆解或改裝，也不要用鬆動、老舊的延長線充電</li><li>不慎進水請立即停止使用，不要再充電</li><li>避免在無人看管時充電，外出請拔除電源</li></ul><p>另外，電池是消耗品。充放電累積之後，蓄電量會自然下降——任何品牌、任何技術都一樣，這是正常現象，不是故障。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q7",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "heading": "你可能會想問。",
+        "open_first": true,
+        "wash": true,
+        "care_heading": "",
+        "care_text": "電池是消耗品。充放電累積之後，蓄電量會自然下降——任何品牌、任何技術都一樣。這是正常，不是故障。",
+        "care_list": "<ul><li>電量剩約 20% 再充，充飽後移除電源</li><li>長期不使用時，至少每三個月充電一次</li><li>避免放在車內、陽光直射處或高溫環境</li><li>請勿自行拆解或改裝，也不要用鬆動、老舊的延長線充電</li><li>不慎進水請立即停止使用，不要再充電</li><li>避免在無人看管時充電，外出請拔除電源</li></ul>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "picker",
+    "spec",
+    "grid",
+    "compare",
+    "certs",
+    "faq"
+  ]
+}

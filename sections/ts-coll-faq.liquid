@@ -1,0 +1,57 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll">
+  <div class="ts-coll__band ts-coll__band--tight{% if section.settings.wash %} ts-coll__band--wash{% endif %}">
+    <div class="ts-coll__w">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">{{ section.settings.heading | escape }}</h2>
+      </div>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'qa' -%}
+          <details class="ts-coll__qa"{% if forloop.first and section.settings.open_first %} open{% endif %} {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.q | escape }}</summary>
+            <div class="ts-coll__qa-a">{{ block.settings.a }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if section.settings.care_heading != blank -%}
+        <div class="ts-coll__care" style="margin-top:56px">
+          <div>
+            <h2 class="ts-coll__h3">{{ section.settings.care_heading | escape }}</h2>
+            <p class="ts-coll__body" style="margin-top:14px;color:var(--ink2)">{{ section.settings.care_text | escape }}</p>
+          </div>
+          {%- if section.settings.care_list != blank -%}
+            <div class="ts-coll__body">{{ section.settings.care_list }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TS 分類頁：常見問題",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "買之前會想問的" },
+    { "type": "checkbox", "id": "open_first", "label": "第一題預設展開", "default": true },
+    { "type": "checkbox", "id": "wash", "label": "淺灰底", "default": true },
+    { "type": "header", "content": "電池壽命與使用注意（放在問答下方）" },
+    { "type": "text", "id": "care_heading", "label": "標題", "default": "我們也要告訴你的事" },
+    { "type": "textarea", "id": "care_text", "label": "說明", "default": "行動電源的電池是消耗品。不管哪個品牌、哪種技術，充放電次數累積後蓄電量都會自然下降，這是正常現象，不是故障。" },
+    { "type": "richtext", "id": "care_list", "label": "注意事項清單" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "問答",
+      "settings": [
+        { "type": "text", "id": "q", "label": "問題" },
+        { "type": "richtext", "id": "a", "label": "回答" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "TS 分類頁：常見問題" } ]
+}
+{% endschema %}

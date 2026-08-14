@@ -1,0 +1,104 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<div class="ts-coll">
+  {%- assign bg_wide = section.settings.bg_desktop -%}
+  {%- assign bg_tall = section.settings.bg_mobile -%}
+  {%- assign has_bg = false -%}
+  {%- if bg_wide != blank or bg_tall != blank -%}{%- assign has_bg = true -%}{%- endif -%}
+  <div class="ts-coll__hero{% if has_bg %} ts-coll__hero--img{% endif %}">
+    {%- if has_bg -%}
+      {%- comment -%}
+        兩張來源各自吃自己的斷點：桌機是 2.4:1 橫幅、手機是 3:4 直式。
+        不用同一張裁——這張圖兩座山在左右兩端，裁成直式會只剩中間的黑。
+      {%- endcomment -%}
+      <picture class="ts-coll__hero-bg">
+        {%- if bg_tall != blank -%}
+          <source media="(max-width:900px)"
+                  sizes="100vw"
+                  srcset="{{ bg_tall | image_url: width: 780 }} 780w,
+                          {{ bg_tall | image_url: width: 1170 }} 1170w,
+                          {{ bg_tall | image_url: width: 1560 }} 1560w">
+        {%- endif -%}
+        {%- assign src = bg_wide | default: bg_tall -%}
+        <img src="{{ src | image_url: width: 2880 }}"
+             sizes="100vw"
+             srcset="{{ src | image_url: width: 1440 }} 1440w,
+                     {{ src | image_url: width: 2160 }} 2160w,
+                     {{ src | image_url: width: 2880 }} 2880w"
+             alt="" loading="eager" fetchpriority="high">
+      </picture>
+    {%- endif -%}
+    <div class="ts-coll__w ts-coll__hero-in">
+      <h1 class="ts-coll__brand">{{ section.settings.brand | escape }}</h1>
+      {%- if section.settings.slogan != blank -%}
+        <p class="ts-coll__slogan">
+          {%- if section.settings.slogan_cn != blank -%}<em>{{ section.settings.slogan_cn | escape }}</em>{%- endif -%}
+          {{ section.settings.slogan | escape }}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.lede != blank -%}
+        <p class="ts-coll__hero-lede">{{ section.settings.lede | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.basis != blank -%}
+        <p class="ts-coll__hero-note">{{ section.settings.basis | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="ts-coll__trust">
+      {%- for block in section.blocks -%}
+        <div class="ts-coll__tcell" {{ block.shopify_attributes }}>
+          {%- case block.settings.icon -%}
+            {%- when 'shield' -%}
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l7.5 3.2v6.1c0 4.7-3.2 8-7.5 9.4-4.3-1.4-7.5-4.7-7.5-9.4V6.2L12 3z"/></svg>
+            {%- when 'doc' -%}
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.2" y="5" width="17.6" height="14" rx="2.2"/><path d="M7.4 10h9.2M7.4 14h5.6"/></svg>
+            {%- when 'clock' -%}
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.4 2.1"/></svg>
+            {%- else -%}
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.4 12a8.6 8.6 0 1 0 2.9-6.4"/><path d="M3.4 4.2V9h4.8"/></svg>
+          {%- endcase -%}
+          <b>{{ block.settings.value | escape }}</b>
+          <span>{{ block.settings.label | escape }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "TS 分類頁：主視覺",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "brand", "label": "品牌名（大寫）", "default": "TITANSHIELD" },
+    { "type": "text", "id": "slogan_cn", "label": "標語前綴（灰字）", "default": "穩如鈦山" },
+    { "type": "text", "id": "slogan", "label": "標語", "default": "只發電、不發火" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "裡面那層電解質，一般是會流動的液體。我們換成像果凍一樣不流動的固態配方。" },
+    { "type": "text", "id": "basis", "label": "依據（放檢驗報告編號）", "info": "留白就不顯示。宣稱要有依據才站得住。" },
+    { "type": "header", "content": "背景圖" },
+    { "type": "image_picker", "id": "bg_desktop", "label": "桌機（橫式）",
+      "info": "建議 2880 × 1200（2.4:1）。中央 1000 × 400 是文字安全區，重要畫面不要壓在那裡。" },
+    { "type": "image_picker", "id": "bg_mobile", "label": "手機（直式）",
+      "info": "建議 1170 × 1560（3:4）。要另外出一張，不要拿桌機那張裁——橫式構圖裁成直式通常只剩中間的空白。留白就沿用桌機那張。" }
+  ],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "信任項目",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "圖示", "default": "shield",
+          "options": [
+            { "value": "shield", "label": "盾牌" },
+            { "value": "doc", "label": "文件" },
+            { "value": "clock", "label": "時鐘" },
+            { "value": "back", "label": "退回" }
+          ] },
+        { "type": "text", "id": "value", "label": "數值", "default": "12 個月" },
+        { "type": "text", "id": "label", "label": "說明", "default": "原廠保固" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "TS 分類頁：主視覺" } ]
+}
+{% endschema %}
