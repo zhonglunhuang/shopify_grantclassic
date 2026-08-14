@@ -1,23 +1,23 @@
-{%- comment -%} 診斷：把 main-article 對中繼欄位做的手術原封不動跑一次，看結果 {%- endcomment -%}
 {%- assign kg_article = article.metafields.grantclassic_kg.article_schema -%}
 {%- assign kg_out = kg_article -%}
 {%- assign kg_pub_day = article.published_at | date: '%Y-%m-%d' -%}
-{%- assign kg_upd_day = article.updated_at | date: '%Y-%m-%d' -%}
-{%- if kg_upd_day != kg_pub_day -%}
-  {%- capture kg_mod_old -%}"dateModified":"{{ kg_pub_day }}"{%- endcapture -%}
-  {%- capture kg_mod_new -%}"dateModified":"{{ kg_upd_day }}"{%- endcapture -%}
-  {%- assign kg_out = kg_out | replace: kg_mod_old, kg_mod_new -%}
-{%- endif -%}
+  {%- assign kg_upd_day = article.updated_at | date: '%Y-%m-%d' -%}
+  {%- if kg_upd_day != kg_pub_day -%}
+    {%- assign kg_dm = kg_out | split: '"dateModified"' -%}
+    {%- if kg_dm.size == 2 -%}
+      {%- assign kg_v = kg_dm[1] | split: '"' -%}
+      {%- if kg_v.size > 2 -%}
+        {%- capture kg_old_pair -%}{{ kg_v[0] }}"{{ kg_v[1] }}"{%- endcapture -%}
+        {%- assign kg_rest = kg_dm[1] | remove_first: kg_old_pair -%}
+        {%- capture kg_out -%}{{ kg_dm[0] }}"dateModified":"{{ article.updated_at | date: '%Y-%m-%dT%T' }}"{{ kg_rest }}{%- endcapture -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
 <pre style="padding:20px;font:13px/1.7 ui-monospace,monospace;white-space:pre-wrap">
 TS_PROBE_START
-handle={{ article.handle }}
-published_day={{ kg_pub_day }}
-updated_day={{ kg_upd_day }}
-有中繼欄位={% if kg_article %}YES{% else %}NO{% endif %}
-要找的字串={{ kg_mod_old | escape }}
-換成={{ kg_mod_new | escape }}
-原本含有要找的字串={% if kg_article contains kg_mod_old %}YES{% else %}NO{% endif %}
-換完之後的 dateModified={{ kg_out | split: '"dateModified":"' | last | split: '"' | first }}
+published={{ kg_pub_day }}  updated={{ kg_upd_day }}
+換完的 dateModified={{ kg_out | split: '"dateModified"' | last | split: ',' | first }}
+JSON 還完整嗎（尾巴 40 字）={{ kg_out | slice: -40, 40 | escape }}
 TS_PROBE_END
 </pre>
 {% schema %}
