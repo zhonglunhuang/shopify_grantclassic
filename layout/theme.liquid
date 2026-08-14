@@ -76,6 +76,10 @@
     {%- comment -%}AkoCommerce Assets{%- endcomment -%}
     {{ 'ako-basic.css' | asset_url | stylesheet_tag }}
     {{ 'ako-custom.css' | asset_url | stylesheet_tag }}
+    {%- comment -%} TS 效能修補：1200px 以下不渲染大選單、手機抽屜關著時不載裡面的圖。
+         實測首頁手機下載量 8,185 KB -> 2,890 KB（省 65%）。
+         只加這一行，主題原檔沒有其他改動；刪掉這行就完全還原。 {%- endcomment -%}
+    {{ 'ts-perf.css' | asset_url | stylesheet_tag }}
     {% render 'ako-style-conditional' %}
 
     {%- comment -%}
