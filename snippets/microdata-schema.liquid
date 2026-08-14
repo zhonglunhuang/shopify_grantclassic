@@ -79,7 +79,12 @@ or change the format of some info
     "description": {{ article.excerpt_or_content | strip_html | truncatewords: 25 | json }},
     "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%T' }}",
     "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
-    "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+    {%- comment -%}
+      最後更新日要讀 updated_at 不是 published_at。原本兩個都填發布時間，
+      等於告訴 Google 與 AI「這篇從來沒有修過」——全站 71 篇的 dateModified
+      都跟 datePublished 一模一樣。法規與規格類的文章會因此被判定成過期資料。
+    {%- endcomment -%}
+    "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%T' }}",
     "image": {
       "@type": "ImageObject",
       "url": "https:{{ page_image | image_url: width: 1024 }}",

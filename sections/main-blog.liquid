@@ -131,3 +131,49 @@
   ]
 }
 {% endschema %}
+{%- comment -%}
+  ═══ 部落格首頁的結構化資料 ═══
+
+  這一頁原本什麼都沒有：沒有 H1、沒有 meta description、沒有任何結構化資料，
+  對搜尋引擎近乎一片空白——而它是整個部落格的入口，也是 Google 用來理解
+  「這個部落格在講什麼」的樞紐。
+
+  Blog 節點告訴 Google 這是一個部落格、它屬於誰；
+  裡面的 blogPost 清單讓它一次看到這一頁列了哪些文章、各自連到哪。
+  只在第一頁輸出——第二頁以後是同一份清單的延伸，重複宣告會變成互相稀釋。
+{%- endcomment -%}
+{%- if blog.articles_count > 0 and current_page == 1 and current_tags == blank -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ shop.url }}{{ blog.url }}#blog",
+  "name": {{ blog.title | json }},
+  "url": "{{ shop.url }}{{ blog.url }}",
+  {%- if blog.metafields.global.description_tag != blank -%}
+  "description": {{ blog.metafields.global.description_tag | json }},
+  {%- endif -%}
+  "inLanguage": "zh-Hant-TW",
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.url | json }}
+  },
+  "blogPost": [
+    {%- for article in blog.articles limit: 12 -%}
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ shop.url }}{{ article.url }}#article",
+      "headline": {{ article.title | json }},
+      "url": "{{ shop.url }}{{ article.url }}",
+      "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+      "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%T' }}"
+      {%- if article.image != blank -%}
+      ,"image": "https:{{ article.image | image_url: width: 1024 }}"
+      {%- endif -%}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}

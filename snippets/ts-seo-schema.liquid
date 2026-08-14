@@ -101,6 +101,12 @@ Google 商家刊登結果要求的兩個欄位（2026-08 官網健檢補上）�
 {%- elsif request.page_type == 'article' -%}
   {%- capture main_entity_microdata -%}
     "@type": "BlogPosting",
+    {%- comment -%}
+      @id 與中繼欄位那份手寫 Article 一致，讓 Google 把兩者併成同一個實體：
+      這邊提供 author（指向作者頁）、那邊提供 about（維基／Wikidata 實體連結），
+      合併後兩種訊號都算數，不用改 72 篇的中繼欄位。
+    {%- endcomment -%}
+    "@id": "{{ shop.url }}{{ article.url }}#article",
     "mainEntityOfPage": "{{ article.url }}",
     "articleSection": {{ blog.title | json }},
     "keywords": "{{ article.tags | join: ', ' }}",
@@ -108,7 +114,12 @@ Google 商家刊登結果要求的兩個欄位（2026-08 官網健檢補上）�
     "description": {{ article.excerpt_or_content | strip_html | truncatewords: 25 | json }},
     "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%T' }}",
     "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
-    "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+    {%- comment -%}
+      最後更新日要讀 updated_at 不是 published_at。原本兩個都填發布時間，
+      等於告訴 Google 與 AI「這篇從來沒有修過」——全站 71 篇的 dateModified
+      都跟 datePublished 一模一樣。法規與規格類的文章會因此被判定成過期資料。
+    {%- endcomment -%}
+    "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%T' }}",
     "image": {
       "@type": "ImageObject",
       "url": "https:{{ page_image | image_url: width: 1024 }}",
@@ -257,4 +268,58 @@ Google 商家刊登結果要求的兩個欄位（2026-08 官網健檢補上）�
       }
     }
   </script>
+{%- endif -%}
+{%- comment -%}
+  ═══ 文章的問答結構化資料 ═══
+
+  很多篇文章的小標本來就寫成問句（「行動電源鼓起來還能用嗎？」），內容早就是問答格式，
+  只是沒有告訴機器「這是問答」。這一段從內文自動生出 FAQPage，不用改任何一篇文章。
+
+  先說清楚它的價值在哪：Google 從 2023 年 8 月起，一般網站的問答已經不會顯示成
+  複合式搜尋結果，所以**搜尋結果的外觀不會有任何變化**。真正的用途是 GEO——
+  ChatGPT、Perplexity、Google AI 概覽在挑「哪一段可以直接引用」時，
+  有標記的問答段落是最容易被整段取用的形式。
+
+  規則：
+  - 只認 h2（h3 通常是段落內的細項，抓進來會變成一堆殘句）
+  - 小標要含「？」「?」或「嗎」才算問題
+  - 至少要三題才輸出——只有一兩題不算問答頁，硬掛反而像在灌訊號
+  - 答案取到下一個 h2 之前為止，剝掉標籤、限長，避免整篇被塞進 schema
+{%- endcomment -%}
+{%- if request.page_type == 'article' -%}
+  {%- assign ts_faq_chunks = article.content | split: '<h2' -%}
+  {%- assign ts_faq_n = 0 -%}
+  {%- capture ts_faq_items -%}
+    {%- for ts_chunk in ts_faq_chunks offset: 1 -%}
+      {%- assign ts_head_raw = ts_chunk | split: '</h2>' | first -%}
+      {%- assign ts_q = ts_head_raw | split: '>' | last | strip_html | strip -%}
+      {%- assign ts_is_q = false -%}
+      {%- if ts_q contains '？' or ts_q contains '?' or ts_q contains '嗎' -%}
+        {%- assign ts_is_q = true -%}
+      {%- endif -%}
+      {%- if ts_is_q and ts_q.size > 4 -%}
+        {%- assign ts_a = ts_chunk | split: '</h2>' | last | strip_html | strip | truncate: 900 -%}
+        {%- if ts_a.size > 20 -%}
+          {%- assign ts_faq_n = ts_faq_n | plus: 1 -%}
+          {%- unless ts_faq_n == 1 %},{% endunless %}
+          {
+            "@type": "Question",
+            "name": {{ ts_q | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ ts_a | json }} }
+          }
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if ts_faq_n >= 3 -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "{{ shop.url }}{{ article.url }}#faq",
+    "isPartOf": { "@id": "{{ shop.url }}{{ article.url }}#article" },
+    "mainEntity": [{{ ts_faq_items }}]
+  }
+  </script>
+  {%- endif -%}
 {%- endif -%}
