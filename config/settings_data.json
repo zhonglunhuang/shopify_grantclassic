@@ -348,6 +348,11 @@
         "type": "shopify://apps/mapmigo/blocks/store-locator-default-page/019caf5c-f200-7d93-9ec6-52b7bc7e96fd",
         "disabled": false,
         "settings": {}
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
