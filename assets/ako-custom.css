@@ -734,3 +734,13 @@ img.article-item__image {
     object-fit: cover;
     object-position: center;
 }
+
+/* 文章左欄：標籤只有 185px，長標籤（例「八力架 octastand 機車手機架」）會折成兩行，
+   而且中文沒有詞界，會斷在「機車手／機架」中間，看起來像壞掉。
+   縮字級無效（實測 12px、11.5px 都還是兩行），加寬欄位才有用。
+   240px 之後標籤最右到 312，內文從 386 開始，還有 74px 餘裕。 */
+@media (min-width: 1000px) {
+    .article__info {
+        grid-template-columns: 240px;
+    }
+}
