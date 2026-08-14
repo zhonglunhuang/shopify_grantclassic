@@ -243,6 +243,12 @@ a.ako-tag:hover {
         grid-column: span 2;
     }
 
+    /* 「聯絡我們」是倒數第二格，上面那條 :last-child 只蓋到社群那格，
+       所以它被留在 149px 的單欄裡，公司名與地址會斷在字中間。 */
+    .footer__item--text {
+        grid-column: span 2;
+    }
+
     .social-media__link {
         width: 36px !important;
         height: 36px !important;
