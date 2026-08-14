@@ -19,7 +19,15 @@
           {%- if pick_link == blank and block.settings.product != blank -%}
             {%- assign pick_link = block.settings.product.url -%}
           {%- endif -%}
+          {%- comment -%}
+            尚未開賣的系列改成不可點：整張卡從 <a> 換成 <div>，連結、hover、游標一起拿掉。
+            商品仍然綁著，所以主圖照樣自動抓得到。
+          {%- endcomment -%}
+          {%- if block.settings.soon -%}
+          <div class="ts-coll__pick ts-coll__pick--soon" {{ block.shopify_attributes }}>
+          {%- else -%}
           <a class="ts-coll__pick" href="{{ pick_link | default: '#' }}" {{ block.shopify_attributes }}>
+          {%- endif -%}
             {%- if pick_img != blank -%}
               <span class="ts-coll__pick-img">
                 {{ pick_img | image_url: width: 520 | image_tag: loading: 'lazy', alt: block.settings.cap }}
@@ -32,9 +40,14 @@
               <span class="ts-coll__pick-price">{{ block.settings.price | escape }}</span>
             {%- endif -%}
             {%- if block.settings.cta != blank -%}
-              <span class="ts-coll__pick-cta">{{ block.settings.cta | escape }} ›</span>
+              {%- if block.settings.soon -%}
+                {%- comment -%} 不可點就不要有箭頭——箭頭是「可以去某處」的訊號 {%- endcomment -%}
+                <span class="ts-coll__pick-cta ts-coll__pick-cta--soon">{{ block.settings.cta | escape }}</span>
+              {%- else -%}
+                <span class="ts-coll__pick-cta">{{ block.settings.cta | escape }} ›</span>
+              {%- endif -%}
             {%- endif -%}
-          </a>
+          {%- if block.settings.soon -%}</div>{%- else -%}</a>{%- endif -%}
         {%- endfor -%}
       </div>
       {%- if section.settings.compare_text != blank -%}
@@ -71,6 +84,8 @@
         { "type": "text", "id": "cap", "label": "系列名", "default": "TITANSHIELD" },
         { "type": "textarea", "id": "desc", "label": "說明", "default": "機身更薄更輕，放口袋不明顯。" },
         { "type": "text", "id": "price", "label": "價格", "info": "例：$1,980 起" },
+        { "type": "checkbox", "id": "soon", "label": "尚未開賣", "default": false,
+          "info": "打勾後整張卡不能點，行動呼籲也不會有箭頭。商品仍然綁著，主圖照樣自動抓。" },
         { "type": "text", "id": "cta", "label": "連結文字", "default": "看這一款" },
         { "type": "url", "id": "link", "label": "連到哪" }
       ]

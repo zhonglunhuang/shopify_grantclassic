@@ -1,0 +1,351 @@
+/* TITANSHIELD 分類頁 — 全部收在 .ts-coll 作用域，主題原檔一個都不改
+   字級/行高/字距皆為 apple.com/tw 實測值
+   重設一律包 :where() 把權重壓成 0（主題的 .rte a{} 之類會贏過我們） */
+
+.ts-coll{
+  --ink:#1d1d1f; --ink2:#6e6e73; --ink3:#86868b;
+  --line:#d2d2d7; --wash:#f5f5f7; --blue:#0071e3; --amber:#b64400;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;
+  font-size:17px; line-height:23px; letter-spacing:normal;
+  -webkit-font-smoothing:antialiased;
+}
+.ts-coll :where(*){box-sizing:border-box}
+.ts-coll :where(h1,h2,h3,h4,p,ul,ol,dl,dd,figure){margin:0;padding:0}
+.ts-coll :where(ul,ol){list-style:none}
+.ts-coll :where(a){text-decoration:none;color:inherit}
+.ts-coll :where(button){font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.ts-coll :where(img){max-width:100%;display:block}
+
+/* ── 字級（Apple 實測）── */
+.ts-coll__brand{font-size:56px;line-height:60px;font-weight:600;letter-spacing:.012em}
+.ts-coll__slogan{font-size:32px;line-height:39px;font-weight:600;letter-spacing:.004em}
+.ts-coll__h2{font-size:32px;line-height:39px;font-weight:600;letter-spacing:.004em}
+.ts-coll__h3{font-size:21px;line-height:29px;font-weight:600;letter-spacing:.011em}
+.ts-coll__lead{font-size:24px;line-height:28px;font-weight:600;letter-spacing:.009em;color:var(--ink3)}
+.ts-coll__body{font-size:17px;line-height:23px;font-weight:400}
+.ts-coll__note{font-size:14px;line-height:19px;font-weight:400}
+.ts-coll__tag{font-size:12px;line-height:16px;font-weight:600}
+
+/* ── 版面 ── */
+/* 容器只管左右。用 padding 簡寫會連上下一起歸零，跟同時掛在同一個元素上的
+   .ts-coll__hero-in 打架——誰寫在後面誰贏，手機版的主視覺就是這樣被壓扁的。 */
+.ts-coll__w{max-width:1024px;margin:0 auto;padding-inline:22px}
+.ts-coll__w--wide{max-width:1260px;margin:0 auto;padding-inline:22px}
+/* 量過 apple.com/tw 的主要段落是 160/216，這裡照抄；--tight 的 40/84 本來就對得上 */
+.ts-coll__band{padding:160px 0 216px}
+.ts-coll__band--tight{padding:40px 0 84px}
+/* 瀏覽器預設把 strong／b 算成 700，Apple 的字重最多到 600 */
+.ts-coll :where(strong,b){font-weight:600}
+.ts-coll__band--wash{background:var(--wash)}
+.ts-coll__band--dark{background:#000;color:#f5f5f7}
+.ts-coll__head{margin-bottom:48px;text-align:center}
+.ts-coll__head .ts-coll__lead{margin-top:16px;max-width:30em;margin-left:auto;margin-right:auto}
+.ts-coll__band--dark .ts-coll__lead{color:#a1a1a6}
+
+/* ── Hero ── */
+.ts-coll__hero{position:relative;background:#0a0a0a;color:#f5f5f7;overflow:hidden;isolation:isolate}
+.ts-coll__hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(120% 85% at 50% 8%,#2e2e30 0%,#141415 42%,#0a0a0a 100%)}
+.ts-coll__hero::after{content:"";position:absolute;left:50%;top:-14%;width:760px;height:340px;z-index:-1;
+  transform:translateX(-50%);border-radius:50%;filter:blur(72px);
+  background:radial-gradient(closest-side,rgba(120,180,255,.20),rgba(120,180,255,0))}
+.ts-coll__hero-in{padding-block:70px 74px;text-align:center;position:relative}
+/* 有背景圖時：關掉原本的漸層、改用圖，並給文字一層看不出來的暗罩 */
+.ts-coll__hero--img{min-height:600px;display:flex;align-items:center}
+.ts-coll__hero--img::before{background:#0a0a0a}
+.ts-coll__hero--img::after{left:0;top:0;width:100%;height:100%;transform:none;
+  border-radius:0;filter:none;
+  background:radial-gradient(58% 68% at 50% 50%,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 72%)}
+.ts-coll__hero-bg{position:absolute;inset:0;z-index:-1;display:block}
+.ts-coll__hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.ts-coll__hero .ts-coll__brand{color:#fff}
+.ts-coll__hero .ts-coll__slogan{color:#fff;margin-top:16px}
+.ts-coll__hero .ts-coll__slogan em{font-style:normal;color:#a1a1a6;margin-right:.45em}
+.ts-coll__hero-lede{font-size:19px;line-height:26px;letter-spacing:.012em;color:#a1a1a6;
+  max-width:25em;margin:20px auto 0}
+.ts-coll__hero-note{margin-top:24px;font-size:12px;line-height:16px;color:#6e6e73}
+
+/* ── 信任列 ── */
+.ts-coll__trust{display:flex;flex-wrap:wrap;background:#fff;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ts-coll__tcell{flex:1 1 0;min-width:0;padding:22px 18px;display:flex;flex-direction:column;
+  align-items:center;gap:7px;text-align:center;border-left:1px solid var(--line)}
+.ts-coll__tcell:first-child{border-left:0}
+.ts-coll__tcell svg{color:var(--ink)}
+.ts-coll__tcell b{font-size:14px;line-height:19px;font-weight:600}
+.ts-coll__tcell span{font-size:12px;line-height:16px;color:var(--ink2)}
+
+/* ── 選容量 ── */
+.ts-coll__picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.ts-coll__pick{background:#fff;border-radius:22px;padding:42px 28px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:11px;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.ts-coll__pick:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
+.ts-coll__pick-img{width:100%;max-width:186px;aspect-ratio:1/1;display:flex;
+  align-items:center;justify-content:center;margin-bottom:2px}
+.ts-coll__pick-img img{width:100%;height:100%;object-fit:contain;
+  /* 商品圖自帶 #f5f5f5 底，放在白卡上會看到一塊灰方框。
+     提亮 4.5% 剛好把 245 推到 255 融進白底，黑色機身幾乎不受影響。 */
+  filter:brightness(1.045);
+  transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.ts-coll__pick:hover .ts-coll__pick-img img{transform:scale(1.05)}
+.ts-coll__pick-who{font-size:14px;line-height:19px;color:var(--ink3)}
+.ts-coll__pick-cap{font-size:28px;line-height:35px;font-weight:600;letter-spacing:.007em}
+.ts-coll__pick-price{font-size:17px;line-height:23px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.ts-coll__pick-desc{font-size:17px;line-height:23px;color:var(--ink2);max-width:20em}
+.ts-coll__pick-cta{margin-top:8px;font-size:17px;line-height:23px;color:var(--blue)}
+/* 尚未開賣：不可點。拿掉 hover 浮起與手指游標，行動呼籲改成灰字 */
+.ts-coll__pick--soon{cursor:default}
+.ts-coll__pick--soon:hover{transform:none;box-shadow:none}
+.ts-coll__pick--soon:hover .ts-coll__pick-img img{transform:none}
+.ts-coll__pick-cta--soon{color:var(--ink3)}
+
+.ts-coll__comparebar{display:flex;justify-content:center;margin-top:34px}
+.ts-coll__comparebtn{display:inline-flex;align-items:center;gap:9px;font-size:17px;line-height:23px;
+  color:var(--blue);transition:opacity .18s}
+.ts-coll__comparebtn:hover{opacity:.7}
+.ts-coll__comparebtn:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:6px}
+.ts-coll__comparebtn i{display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-style:normal;flex:none}
+
+/* ── 商品列表：灰底 R 角 ── */
+.ts-coll__filters{margin-bottom:46px;display:flex;flex-direction:column;gap:10px}
+.ts-coll__pills{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:46px}
+.ts-coll__filters .ts-coll__pills{margin-bottom:0}
+.ts-coll__pills--sub .ts-coll__pill{font-size:14px;padding:6px 13px}
+.ts-coll__n{color:var(--ink3);font-variant-numeric:tabular-nums;margin-left:2px}
+.ts-coll__pill[aria-pressed="true"] .ts-coll__n{color:rgba(255,255,255,.62)}
+.ts-coll__pill:disabled{opacity:.34;cursor:not-allowed}
+.ts-coll__empty{text-align:center;padding:48px 0 0;font-size:17px;line-height:23px;color:var(--ink3)}
+.ts-coll__empty[hidden]{display:none}
+.ts-coll__pill{border:1.5px solid var(--line);background:#fff;border-radius:980px;
+  padding:7px 15px;font-size:14px;line-height:19px;color:var(--ink);transition:.16s}
+.ts-coll__pill[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ts-coll__pill:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+.ts-coll__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 26px}
+.ts-coll__item{min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center}
+.ts-coll__shot{width:100%;aspect-ratio:1/1;background:var(--wash);border-radius:22px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transition:box-shadow .3s;position:relative}
+.ts-coll__item:hover .ts-coll__shot{box-shadow:0 12px 30px rgba(0,0,0,.09)}
+.ts-coll__shot img{width:100%;height:100%;object-fit:contain;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.ts-coll__item:hover .ts-coll__shot img{transform:scale(1.06)}
+.ts-coll__badge{position:absolute;top:0;left:0;z-index:2;background:#e30613;color:#fff;
+  font-size:12px;line-height:16px;font-weight:600;padding:5px 11px;border-bottom-right-radius:9px;
+  font-variant-numeric:tabular-nums}
+.ts-coll__flag{margin-top:20px;color:var(--amber);font-size:12px;line-height:16px;font-weight:600}
+.ts-coll__name{margin-top:7px;font-size:17px;line-height:23px;font-weight:400;max-width:15em}
+.ts-coll__specs{margin-top:9px;display:flex;flex-direction:column;gap:3px}
+.ts-coll__specs li{font-size:12px;line-height:16px;color:var(--ink3)}
+.ts-coll__price{margin-top:12px;font-size:17px;line-height:23px;font-weight:400;
+  font-variant-numeric:tabular-nums}
+.ts-coll__price s{color:var(--ink3);margin-left:7px;font-size:14px}
+.ts-coll__dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.ts-coll__dot{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.16)}
+.ts-coll__sold{margin-top:8px;font-size:12px;line-height:16px;color:var(--ink3)}
+
+/* ── 固態 vs 液態（固態在左，略亮）── */
+.ts-coll__duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ts-coll__duocell{padding:50px 40px;text-align:center;border-radius:24px;
+  background:rgba(255,255,255,.028)}
+.ts-coll__duocell--hi{background:rgba(255,255,255,.075);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.ts-coll__blob{width:74px;height:74px;margin:0 auto 26px}
+.ts-coll__duolab{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em;
+  color:#8a8a8e;margin-bottom:16px}
+.ts-coll__duocell--hi .ts-coll__duolab{color:#c9c9ce}
+.ts-coll__duocell .ts-coll__h3{margin-bottom:12px;color:#d0d0d4}
+.ts-coll__duocell--hi .ts-coll__h3{color:#fff}
+.ts-coll__duocell p{font-size:17px;line-height:25px;color:#7d7d82;max-width:22em;margin-inline:auto}
+.ts-coll__duocell--hi p{color:#c2c2c7}
+
+/* ── 認證卡（可展開）── */
+.ts-coll__certs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.ts-coll__cert{background:var(--wash);border-radius:18px;padding:26px 22px 24px;text-align:center;
+  display:block;width:100%;cursor:pointer;color:inherit;text-decoration:none;
+  transition:background .2s,transform .25s cubic-bezier(.2,.7,.3,1)}
+.ts-coll__cert:hover{background:#eeeef0;transform:translateY(-2px)}
+.ts-coll__cert:active{transform:translateY(0)}
+.ts-coll__cert:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.ts-coll__cert-n{display:block;font-size:17px;line-height:23px;font-weight:600;margin-bottom:7px}
+.ts-coll__cert-v{display:block;font-size:12px;line-height:16px;color:var(--ink3);
+  font-variant-numeric:tabular-nums}
+.ts-coll__more{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:50%;background:var(--blue);color:#fff;margin-top:15px;transition:transform .25s}
+.ts-coll__cert:hover .ts-coll__more{transform:scale(1.08)}
+
+/* ── 彈窗（正式站可用 fixed）── */
+.ts-coll__ov[hidden]{display:none}
+.ts-coll__ov{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;
+  justify-content:center;padding:22px}
+.ts-coll__ov-mask{position:absolute;inset:0;background:rgba(0,0,0,.48);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.ts-coll__ov--wide .ts-coll__ov-panel{width:min(980px,100%)}
+.ts-coll__ov-panel{position:relative;width:min(720px,100%);max-height:86vh;overflow-y:auto;
+  background:#fff;color:var(--ink);border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.34);
+  animation:tsCollRise .3s cubic-bezier(.2,.7,.3,1)}
+@keyframes tsCollRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ts-coll__ov-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  padding:26px 26px 0}
+.ts-coll__ov-head h3{font-size:21px;line-height:29px;font-weight:600;letter-spacing:.011em}
+.ts-coll__ov-sub{font-size:14px;line-height:19px;color:var(--ink3);margin-top:5px}
+.ts-coll__ov-x{flex:none;width:32px;height:32px;border-radius:50%;background:#e8e8ed;color:#5a5a5f;
+  display:flex;align-items:center;justify-content:center;transition:background .18s}
+.ts-coll__ov-x:hover{background:#dcdce1}
+.ts-coll__ov-x:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ts-coll__ov-body{padding:22px 26px 26px}
+.ts-coll__doc{background:var(--wash);border-radius:14px;padding:26px;
+  font-size:14px;line-height:19px;color:var(--ink2)}
+.ts-coll__doc-brand{font-size:17px;line-height:23px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.ts-coll__doc-rule{height:1px;background:var(--line);margin:14px 0}
+.ts-coll__doc dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px}
+.ts-coll__doc dt{color:var(--ink3);white-space:nowrap}
+.ts-coll__doc dd{color:var(--ink)}
+/* 彈窗版面：說明佔主體，證書縮圖靠右 */
+.ts-coll__ovgrid{display:grid;grid-template-columns:minmax(0,1fr) 168px;gap:22px;align-items:start}
+.ts-coll__ovgrid--solo{grid-template-columns:minmax(0,1fr)}
+.ts-coll__ovmain{min-width:0}
+.ts-coll__ovthumbs{display:flex;flex-direction:column;gap:10px}
+.ts-coll__shotimg{position:relative;display:block;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;background:#fff;transition:border-color .2s,transform .25s cubic-bezier(.2,.7,.3,1)}
+.ts-coll__shotimg:hover{border-color:#8e8e93;transform:translateY(-2px)}
+.ts-coll__shotimg:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ts-coll__shotimg img{width:100%;height:auto;display:block}
+.ts-coll__zoom{position:absolute;right:6px;bottom:6px;width:24px;height:24px;border-radius:50%;
+  background:rgba(255,255,255,.94);color:var(--ink);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.ts-coll__rich{font-size:14px;line-height:20px;color:var(--ink2)}
+.ts-coll__rich .lead{font-size:17px;line-height:24px;font-weight:600;color:var(--ink);margin:0 0 16px}
+.ts-coll__rich table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ts-coll__rich th,.ts-coll__rich td{padding:11px 10px;text-align:left;
+  border-bottom:1px solid var(--line);vertical-align:top}
+.ts-coll__rich th{font-weight:600;color:var(--ink);font-size:14px;white-space:nowrap}
+.ts-coll__rich tr:last-child td{border-bottom:0}
+.ts-coll__rich td strong{color:var(--ink);font-weight:600}
+.ts-coll__rich .ok{color:#1a7f37;font-weight:600;white-space:nowrap}
+.ts-coll__rich p{margin-top:14px;font-size:14px;line-height:19px;color:var(--ink3)}
+.ts-coll__rich .wrap{overflow-x:auto}
+.ts-coll__vid{position:relative;aspect-ratio:16/9;background:#111;border-radius:14px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.ts-coll__vid-play{width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.94);
+  display:flex;align-items:center;justify-content:center}
+.ts-coll__ov-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.ts-coll__btn{font-size:14px;line-height:19px;border-radius:980px;padding:9px 18px;
+  display:inline-flex;align-items:center;gap:6px}
+.ts-coll__btn--primary{background:var(--blue);color:#fff}
+.ts-coll__btn--plain{color:var(--blue);border:1px solid var(--line)}
+.ts-coll__ov-foot{margin-top:16px;font-size:12px;line-height:16px;color:var(--ink3)}
+
+/* ── 規格比較表 ── */
+.ts-coll__specwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ts-coll__spec{width:100%;border-collapse:collapse;min-width:660px;
+  /* 鎖固定欄寬：不然像 TFT 那種長字會把自己那一欄撐大，三欄就不等寬了 */
+  table-layout:fixed;
+  font-variant-numeric:tabular-nums;text-align:left}
+.ts-coll__spec td,.ts-coll__spec th{overflow-wrap:anywhere}
+.ts-coll__spec th,.ts-coll__spec td{padding:16px 18px;border-bottom:1px solid var(--line);
+  vertical-align:middle}
+.ts-coll__spec thead th{border-bottom:1px solid var(--line);vertical-align:bottom;
+  padding-top:0;text-align:center}
+.ts-coll__spec-corner{width:150px}
+.ts-coll__spec-img{display:block;width:100%;max-width:126px;margin:0 auto 12px}
+.ts-coll__spec-img img{width:100%;height:auto;filter:brightness(1.045)}
+.ts-coll__spec-name{display:block;font-size:17px;line-height:23px;font-weight:600;color:var(--ink)}
+.ts-coll__spec-tag{display:block;font-size:12px;line-height:16px;font-weight:400;
+  color:var(--ink3);margin-top:3px}
+.ts-coll__spec tbody th{font-size:14px;line-height:19px;font-weight:400;color:var(--ink3);
+  white-space:nowrap}
+.ts-coll__spec tbody td{font-size:14px;line-height:19px;color:var(--ink2);text-align:center;font-weight:400}
+.ts-coll__spec tbody tr:last-child th,.ts-coll__spec tbody tr:last-child td{border-bottom:0}
+/* 綠圓底＋白勾。這顆綠是 Apple 的 systemGreen，改深淺只動這一行 */
+.ts-coll__spec-yes{display:inline-flex;vertical-align:-3px;color:#34c759}
+/* 強項不用色塊——Apple 的比較表靠文字深淺與粗細分層，
+   逐格上底色只會讓每一格寬度看起來都不一樣。 */
+.ts-coll__spec td.is-best{color:var(--ink);font-weight:600}
+.ts-coll__spec td.is-best .ts-coll__spec-sub{color:var(--ink2)}
+.ts-coll__spec-sub{display:block;margin-top:5px;font-size:11.5px;line-height:16px;
+  font-weight:400;color:var(--ink3);max-width:23em;margin-inline:auto}
+.ts-coll__spec-no{color:#d2d2d7}
+.ts-coll__specnote{margin-top:18px;font-size:14px;line-height:19px;color:var(--ink3)}
+
+/* ── FAQ ── */
+.ts-coll__qa{border-bottom:1px solid var(--line)}
+.ts-coll__qa:first-of-type{border-top:1px solid var(--line)}
+/* 問題用「粗」不用「大」——量過 Apple 的問答手風琴是 17/25/600，
+   跟內文同一個字級，靠字重分層。放大字級等於替這一段發明一個全頁沒有的尺寸。 */
+.ts-coll__qa summary{list-style:none;cursor:pointer;position:relative;
+  padding:17px 44px 17px 0;font-size:17px;line-height:25px;font-weight:600;color:var(--ink)}
+.ts-coll__qa summary::-webkit-details-marker{display:none}
+.ts-coll__qa summary::after{content:"";position:absolute;right:6px;top:50%;width:8px;height:8px;
+  border-right:1.6px solid var(--ink3);border-bottom:1.6px solid var(--ink3);
+  transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+.ts-coll__qa[open] summary::after{transform:translateY(-25%) rotate(-135deg)}
+.ts-coll__qa summary:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+.ts-coll__qa-a{padding:0 0 28px;font-size:17px;line-height:27px;color:var(--ink2);max-width:52em}
+.ts-coll__qa-a p+p{margin-top:12px}
+
+/* ── 誠實區 ── */
+.ts-coll__care{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+/* FAQ 答案裡的清單：上面的 reset 把項目符號整個拿掉了，這裡要補回來 */
+.ts-coll__qa-a ul{display:flex;flex-direction:column;gap:10px;padding-left:20px;list-style:disc}
+.ts-coll__qa-a p+ul,.ts-coll__qa-a ul+p{margin-top:14px}
+.ts-coll__care ul{display:flex;flex-direction:column;gap:11px;padding-left:18px;list-style:disc}
+.ts-coll__care li{font-size:15px;line-height:23px;color:var(--ink2)}
+
+/* ── 斷點 900（iPad 直放 768 要跟手機同組，坑 #10）── */
+@media screen and (max-width:900px){
+  .ts-coll__brand{font-size:32px;line-height:39px}
+  .ts-coll__slogan,.ts-coll__h2{font-size:24px;line-height:28px;letter-spacing:.009em}
+  .ts-coll__h3,.ts-coll__lead{font-size:19px;line-height:26px;letter-spacing:.012em}
+  .ts-coll__hero-in{padding-block:58px 62px}
+  .ts-coll__hero--img{min-height:520px}
+  .ts-coll__hero--img::after{background:radial-gradient(78% 46% at 50% 46%,rgba(0,0,0,.66) 0%,rgba(0,0,0,0) 76%)}
+  .ts-coll__hero-lede{font-size:17px;line-height:25px}
+  .ts-coll__band{padding:80px 0 108px}
+  .ts-coll__band--tight{padding:32px 0 48px}
+  .ts-coll__head{margin-bottom:28px}
+  .ts-coll__w,.ts-coll__w--wide{padding-inline:16px}
+  .ts-coll__tcell{padding:18px 6px}
+  .ts-coll__picks{grid-template-columns:1fr;gap:14px}
+  .ts-coll__pick{padding:30px 22px;border-radius:18px}
+  .ts-coll__pick-cap{font-size:24px;line-height:28px}
+  .ts-coll__grid{grid-template-columns:1fr 1fr;gap:22px 14px}
+  .ts-coll__shot{border-radius:16px}
+  .ts-coll__name{font-size:14px;line-height:20px}
+  .ts-coll__price{font-size:14px;line-height:20px}
+  .ts-coll__pills{margin-bottom:26px;gap:7px}
+  .ts-coll__filters{margin-bottom:26px;gap:8px}
+  .ts-coll__pill{font-size:14px;padding:6px 13px}
+  .ts-coll__pills--sub .ts-coll__pill{font-size:12px;padding:5px 11px}
+  .ts-coll__pick-img{max-width:150px}
+  .ts-coll__duo{grid-template-columns:1fr;gap:14px}
+  .ts-coll__duocell{padding:30px 20px;border-radius:18px}
+  .ts-coll__certs{grid-template-columns:1fr 1fr;gap:10px}
+  .ts-coll__cert{padding:20px 14px 18px}
+  .ts-coll__cert-n{font-size:14px}
+  .ts-coll__cert-v{font-size:12px}
+  .ts-coll__care{grid-template-columns:1fr;gap:22px}
+  .ts-coll__spec th,.ts-coll__spec td{padding:13px 12px}
+  .ts-coll__spec-corner{width:104px}
+  .ts-coll__spec tbody th{font-size:12px}
+  .ts-coll__spec tbody td{font-size:14px}
+  .ts-coll__spec-name{font-size:14px;line-height:19px}
+  .ts-coll__spec-img{max-width:88px}
+  .ts-coll__qa summary{font-size:17px;line-height:25px;padding:16px 34px 16px 0}
+  .ts-coll__qa-a{font-size:17px;line-height:25px}
+  .ts-coll__ov{padding:12px}
+  .ts-coll__ov-panel{border-radius:20px}
+  .ts-coll__ov-head{padding:20px 20px 0}
+  .ts-coll__ov-body{padding:18px 20px 22px}
+  .ts-coll__ovgrid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .ts-coll__ovthumbs{flex-direction:row;flex-wrap:wrap}
+  .ts-coll__ovthumbs .ts-coll__shotimg{flex:1 1 calc(50% - 5px);min-width:0}
+  .ts-coll__rich .lead{font-size:17px;line-height:25px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ts-coll *{transition:none !important;animation:none !important}
+}

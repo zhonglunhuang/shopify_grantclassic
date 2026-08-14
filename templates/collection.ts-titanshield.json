@@ -63,8 +63,9 @@
             "cap": "TITANSHIELD Air",
             "desc": "6 mm。113 公克。放進口袋，你會忘記它在那裡。",
             "price": "$1,980",
-            "cta": "進一步了解 Air",
-            "link": ""
+            "cta": "即將推出",
+            "link": "",
+            "soon": true
           }
         },
         "s2": {
