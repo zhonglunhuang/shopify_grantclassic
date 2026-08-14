@@ -164,7 +164,27 @@
 {%- comment -%} Shopify Knowledge Graph: read metafields → <script> in <head> {%- endcomment -%}
 {%- assign kg_article = article.metafields.grantclassic_kg.article_schema -%}
 {%- if kg_article -%}
-<script type="application/ld+json">{{ kg_article }}</script>
+  {%- comment -%}
+    中繼欄位裡的 @id 是拿「文章標題」組出來的，不是真實網址（例：
+    …/blogs/gc-blog/提供久坐一族最放鬆的體驗-火星犀牛…#article），
+    跟 ts-seo-schema 產生的 BlogPosting 對不起來，Google 因此把同一篇
+    當成兩個實體。這裡在輸出前把第一個 @id 換成正確網址，兩份就會合併。
+
+    錨點固定：{"@type":"Article","@id":"…","headline":…
+    （@id 全文出現 4 次，另外三個在 author／publisher 內，不會被動到。）
+    任何一段對不上就原樣輸出，不會弄壞 JSON。
+  {%- endcomment -%}
+  {%- assign kg_out = kg_article -%}
+  {%- assign kg_head = '"@type":"Article","@id":"' -%}
+  {%- assign kg_tail = '","headline"' -%}
+  {%- assign kg_a = kg_article | split: kg_head -%}
+  {%- if kg_a.size == 2 -%}
+    {%- assign kg_b = kg_a[1] | split: kg_tail -%}
+    {%- if kg_b.size == 2 -%}
+      {%- capture kg_out -%}{{ kg_a[0] }}{{ kg_head }}{{ shop.url }}{{ article.url }}#article{{ kg_tail }}{{ kg_b[1] }}{%- endcapture -%}
+    {%- endif -%}
+  {%- endif -%}
+<script type="application/ld+json">{{ kg_out }}</script>
 {%- endif -%}
 {%- comment -%}
   Organization 已由 layout/theme.liquid 全站輸出（同一個中繼欄位），
