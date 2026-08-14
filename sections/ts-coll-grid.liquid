@@ -164,6 +164,56 @@
   </div>
 </div>
 
+{%- comment -%}
+  結構化資料：告訴 Google 這頁是一份商品清單，以及裡面有哪幾款。
+  價格、庫存、網址全部從 collection.products 直接取，不手寫——
+  結構化資料跟畫面對不上會被判定為操弄，比沒有還糟。
+  字串一律過 json 濾鏡，商品名裡有引號也不會把 JSON 弄壞。
+{%- endcomment -%}
+{%- if section.settings.ld_json and collection.products.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ collection.title | json }},
+  "url": {{ canonical_url | json }},
+  {%- if collection.description != blank %}
+  "description": {{ collection.description | strip_html | strip_newlines | truncate: 300 | json }},
+  {%- endif %}
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ collection.products_count }},
+    "itemListElement": [
+      {%- for product in collection.products -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "item": {
+          "@type": "Product",
+          "name": {{ product.title | json }},
+          "url": {{ shop.url | append: product.url | json }}
+          {%- if product.featured_image -%}
+          ,"image": {{ product.featured_image | image_url: width: 800 | prepend: 'https:' | json }}
+          {%- endif -%}
+          {%- if product.vendor != blank -%}
+          ,"brand": { "@type": "Brand", "name": {{ product.vendor | json }} }
+          {%- endif -%}
+          ,"offers": {
+            "@type": "Offer",
+            "price": "{{ product.price | divided_by: 100.0 }}",
+            "priceCurrency": {{ cart.currency.iso_code | json }},
+            "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+            "url": {{ shop.url | append: product.url | json }}
+          }
+        }
+      }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+{%- endif -%}
+
 <script>
 (function(){
   if (window.__tsCollFilterInit) return;   /* section 可能被放兩次，旗標擋住重複綁定 */
@@ -230,6 +280,8 @@
   "tag": "section",
   "settings": [
     { "type": "text", "id": "heading", "label": "標題", "default": "全系列" },
+    { "type": "checkbox", "id": "ld_json", "label": "輸出結構化資料（CollectionPage / ItemList）", "default": true,
+      "info": "隱藏的 JSON，畫面不受影響。讓 Google 知道這頁是商品清單、裡面有哪幾款與各自價格。價格自動取自商品，不會跟畫面對不上。" },
     { "type": "checkbox", "id": "show_count", "label": "標題後面顯示款數", "default": true },
     { "type": "header", "content": "篩選" },
     { "type": "checkbox", "id": "show_filters", "label": "顯示系列篩選", "default": true },
