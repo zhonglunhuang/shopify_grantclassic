@@ -1,0 +1,32 @@
+{%- comment -%}
+  診斷用：印出這篇文章「存在 Shopify 後台的正文」有多少內容。
+  PageFly 排版的文章在前台看到的是 pf-* 區塊的內容，不是 article.content——
+  兩者可能完全不同。關掉 PageFly 之前一定要先確認後台正文還在不在。
+
+  只透過 ?view=ts-probe 才會被算繪，一般訪客永遠看不到。用完就刪。
+{%- endcomment -%}
+<pre id="ts-probe" style="padding:20px;font:13px/1.7 ui-monospace,monospace;white-space:pre-wrap">
+TS_PROBE_START
+handle={{ article.handle }}
+title={{ article.title }}
+template_suffix={{ article.template_suffix }}
+content_size={{ article.content | size }}
+excerpt_size={{ article.excerpt | size }}
+content_text_size={{ article.content | strip_html | strip | size }}
+published={{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' }}
+updated={{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S' }}
+created={{ article.created_at | date: '%Y-%m-%dT%H:%M:%S' }}
+image={{ article.image.src | default: 'NONE' }}
+tags={{ article.tags | join: ',' }}
+h1_in_content={% if article.content contains '<h1' %}YES{% else %}NO{% endif %}
+h2_in_content={% if article.content contains '<h2' %}YES{% else %}NO{% endif %}
+h3_in_content={% if article.content contains '<h3' %}YES{% else %}NO{% endif %}
+img_in_content={% if article.content contains '<img' %}YES{% else %}NO{% endif %}
+CONTENT_HEAD>>>{{ article.content | strip_html | strip | truncate: 300 }}<<<
+CONTENT_TAIL>>>{{ article.content | strip_html | strip | slice: -200, 200 }}<<<
+TS_PROBE_END
+</pre>
+
+{% schema %}
+{ "name": "TS 診斷：文章正文", "tag": "section" }
+{% endschema %}
