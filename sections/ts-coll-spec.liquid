@@ -33,6 +33,15 @@
                     <span class="ts-coll__spec-img">
                       {{ p.featured_image | image_url: width: 320 | image_tag: loading: 'lazy', alt: block.settings.name }}
                     </span>
+                  {%- elsif block.settings.image_asset != blank -%}
+                    {%- comment -%}
+                      商品下架或設成草稿時 featured_image 會抓不到，欄位頭就變成一個空格子。
+                      保底圖走主題資產，不依賴商品是否上架。
+                    {%- endcomment -%}
+                    <span class="ts-coll__spec-img">
+                      <img src="{{ block.settings.image_asset | asset_url }}"
+                           alt="{{ block.settings.name | escape }}" loading="lazy" width="320" height="320">
+                    </span>
                   {%- endif -%}
                   <span class="ts-coll__spec-name">{{ block.settings.name | escape }}</span>
                   {%- if block.settings.tagline != blank -%}
@@ -172,6 +181,8 @@
       "name": "機型",
       "settings": [
         { "type": "product", "id": "product", "label": "商品", "info": "選了會自動抓主圖。" },
+        { "type": "text", "id": "image_asset", "label": "保底圖（主題檔名）",
+          "info": "例：ts-pick-air.png。商品下架或設成草稿時，上面的商品主圖會失效，這一張會頂上。" },
         { "type": "text", "id": "name", "label": "顯示名稱", "default": "TITANSHIELD" },
         { "type": "text", "id": "tagline", "label": "一句定位", "info": "例：極致輕薄款" },
         { "type": "header", "content": "規格（留白的列會自動顯示破折號；打 ✓ 會變成勾勾）" },
