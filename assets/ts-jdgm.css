@@ -1,5 +1,5 @@
-/* ts-jdgm.css — Judge.me 評價區塊 A 方案（蘋果淺色）2026-08-16 r2
-   定案：桌機保留白卡外框，手機去外框滿版（Mars 2026-08-16 拍板）
+/* ts-jdgm.css — Judge.me 評價區塊 A 方案（蘋果淺色）2026-08-16 r3
+   定案：桌機保留白卡外框；手機去外框但保留左右留白（Mars 2026-08-16 拍板）
    還原：把範本 main 區塊裡的 ts_jdgm_css liquid 區塊移除即可 */
 .jdgm-rev-widg{background:#fff !important;border:1px solid rgba(0,0,0,.08) !important;border-radius:18px !important;padding:40px 36px !important;max-width:1080px !important;margin-left:auto !important;margin-right:auto !important;font-family:-apple-system,BlinkMacSystemFont,'SF Pro TC','PingFang TC','Noto Sans TC',sans-serif !important;box-shadow:0 1px 3px rgba(0,0,0,.04) !important}
 .jdgm-rev-widg__title{font-size:28px !important;font-weight:700 !important;letter-spacing:-.02em !important;color:#1d1d1f !important;text-align:left !important;margin-bottom:16px !important}
@@ -32,4 +32,4 @@
 .jdgm-rev__pics{margin-top:10px !important}
 .jdgm-rev__pic-link{width:76px !important;height:76px !important;border-radius:10px !important;margin-right:8px !important}
 .jdgm-rev__pic-img{width:76px !important;height:76px !important;border-radius:10px !important;object-fit:cover !important}
-@media (max-width:749px){.jdgm-rev-widg{border:none !important;border-radius:0 !important;box-shadow:none !important;padding:8px 0 16px !important;margin-left:-16px !important;margin-right:-16px !important}.jdgm-rev{padding:16px 14px !important;border-radius:12px !important;margin-bottom:10px !important}.jdgm-rev-widg__title{font-size:22px !important;padding-left:4px !important}.jdgm-rev-widg__summary{flex-wrap:wrap !important}.jdgm-histogram{width:100% !important;max-width:100% !important}.jdgm-rev__pic-link,.jdgm-rev__pic-img{width:64px !important;height:64px !important}}
+@media (max-width:749px){.jdgm-rev-widg{border:none !important;border-radius:0 !important;box-shadow:none !important;padding:8px 0 16px !important;margin-left:0 !important;margin-right:0 !important}.jdgm-rev{padding:16px 14px !important;border-radius:12px !important;margin-bottom:10px !important}.jdgm-rev-widg__title{font-size:22px !important;padding-left:4px !important}.jdgm-rev-widg__summary{flex-wrap:wrap !important}.jdgm-histogram{width:100% !important;max-width:100% !important}.jdgm-rev__pic-link,.jdgm-rev__pic-img{width:64px !important;height:64px !important}}
