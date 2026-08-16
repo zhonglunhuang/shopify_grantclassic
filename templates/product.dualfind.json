@@ -856,7 +856,7 @@
           "type": "liquid",
           "settings": {
             "title": "客戶評論",
-            "liquid": "<div class=\"ts-jdgm-tab\"><style>.ts-jdgm-tab .jdgm-widget{display:block !important}.ts-jdgm-tab .jdgm-rev-widg[data-number-of-reviews='0']{display:block !important}</style>{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}</div>"
+            "liquid": "{% assign ts_rc = product.metafields.reviews.rating_count.value | default: 0 %}{% if ts_rc > 0 %}{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}{% else %}<p style=\"color:#6E6E73;margin:0\">這項商品還沒有評論。購買後歡迎回來分享你的使用心得！</p>{% endif %}"
           }
         }
       },
