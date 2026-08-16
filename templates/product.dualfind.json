@@ -856,7 +856,7 @@
           "type": "liquid",
           "settings": {
             "title": "客戶評論",
-            "liquid": "{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}"
+            "liquid": "<div class=\"ts-jdgm-tab\"><style>.ts-jdgm-tab .jdgm-rev-widg[data-number-of-reviews='0']{display:block !important}</style>{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}</div>"
           }
         }
       },
