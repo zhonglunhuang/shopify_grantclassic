@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": false,
   "sections": {
@@ -6,30 +15,55 @@
       "blocks": {
         "variant_picker": {
           "type": "variant_picker",
-          "settings": {
-          }
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "settings": {}
+        },
+        "judgeme_badge": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "ts_jdgm_css": {
+          "type": "liquid",
           "settings": {
+            "liquid": "{{ 'ts-jdgm.css' | asset_url | stylesheet_tag }}"
           }
         }
       },
       "block_order": [
+        "judgeme_badge",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "ts_jdgm_css"
+      ],
+      "settings": {}
+    },
+    "judgeme-reviews": {
+      "type": "apps",
+      "blocks": {
+        "judgeme_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_widget"
       ],
       "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "judgeme-reviews"
   ]
 }

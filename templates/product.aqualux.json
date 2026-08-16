@@ -74,6 +74,12 @@
         "judgeme_badge": {
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
+        },
+        "ts_jdgm_css": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{{ 'ts-jdgm.css' | asset_url | stylesheet_tag }}"
+          }
         }
       },
       "block_order": [
@@ -85,7 +91,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "liquid_hpmDVh"
+        "liquid_hpmDVh",
+        "ts_jdgm_css"
       ],
       "settings": {
         "show_vendor": false,
