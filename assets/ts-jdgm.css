@@ -24,7 +24,12 @@
 .jdgm-rev__title{color:#1d1d1f !important;font-weight:600 !important;font-size:15px !important}
 .jdgm-rev__body{color:#424245 !important;font-size:14px !important;line-height:1.75 !important}
 .jdgm-rev .jdgm-star{font-size:14px !important}
-.jdgm-rev__replier-wrapper{background:#fff !important;border-radius:10px !important;border:1px solid rgba(0,0,0,.06) !important}
+.jdgm-rev__reply{background:#fff !important;border:1px solid rgba(0,0,0,.06) !important;border-radius:10px !important;padding:14px 16px !important;margin-top:12px !important}
+.jdgm-rev__replier-wrapper{background:transparent !important;border:none !important;border-radius:0 !important;padding:0 !important;margin:0 0 6px !important;font-size:0 !important;line-height:1 !important}
+.jdgm-rev__replier{font-size:13px !important;font-weight:600 !important;color:#6e6e73 !important;line-height:1.4 !important}
+.jdgm-rev__replier::after{content:" 的回覆" !important;font-weight:400 !important}
+.jdgm-rev__reply-content{margin:0 !important}
+.jdgm-rev__reply-content p{font-size:14px !important;line-height:1.7 !important;color:#424245 !important;margin:0 !important}
 .jdgm-write-rev-link{background:#0071e3 !important;color:#fff !important;border:none !important;border-radius:980px !important;padding:10px 24px !important;font-weight:500 !important;font-size:14px !important}
 .jdgm-write-rev-link:hover{background:#0077ed !important}
 .jdgm-paginate__page{color:#0071e3 !important}
