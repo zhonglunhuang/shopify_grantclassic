@@ -788,7 +788,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "/* Judge.me A-scheme 2026-08-16 revert=delete all */.jdgm-rev-widg{background:#fff !important;border:1px solid rgba(0,0,0,.08) !important;border-radius:18px !important;padding:40px 36px !important;max-width:1080px;margin-left:auto !important;margin-right:auto !important;font-family:-apple-system,BlinkMacSystemFont,\"SF Pro TC\",\"PingFang TC\",\"Noto Sans TC\",sans-serif !important;box-shadow:0 1px 3px rgba(0,0,0,.04)}",
+      "/* Judge.me A-scheme v2 2026-08-16 revert=delete all */.jdgm-rev-widg{background:#fff !important;border:1px solid rgba(0,0,0,.08) !important;border-radius:18px !important;padding:40px 36px !important;max-width:1080px;margin-left:auto !important;margin-right:auto !important;font-family:-apple-system,BlinkMacSystemFont,\"SF Pro TC\",\"PingFang TC\",\"Noto Sans TC\",sans-serif !important;box-shadow:0 1px 3px rgba(0,0,0,.04)}",
       ".jdgm-rev-widg__title{font-size:28px !important;font-weight:700 !important;letter-spacing:-.02em !important;color:#1d1d1f !important;text-align:left !important;margin-bottom:16px !important}",
       ".jdgm-rev-widg__header{text-align:left !important}",
       ".jdgm-rev-widg__summary-text{color:#6e6e73 !important;font-size:15px !important}",
