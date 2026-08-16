@@ -75,6 +75,7 @@
         "blocks": {
           "message-1": {
             "type": "message",
+            "disabled": true,
             "settings": {
               "text": "grantclassic官方旗艦店全面支持線上付款 歡迎使用LINE Pay來進行購物",
               "learn_more_text": "Learn more",
