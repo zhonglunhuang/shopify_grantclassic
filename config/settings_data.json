@@ -786,5 +786,23 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "/* Judge.me A-scheme 2026-08-16 revert=delete all */.jdgm-rev-widg{background:#fff !important;border:1px solid rgba(0,0,0,.08) !important;border-radius:18px !important;padding:40px 36px !important;max-width:1080px;margin-left:auto !important;margin-right:auto !important;font-family:-apple-system,BlinkMacSystemFont,\"SF Pro TC\",\"PingFang TC\",\"Noto Sans TC\",sans-serif !important;box-shadow:0 1px 3px rgba(0,0,0,.04)}",
+      ".jdgm-rev-widg__title{font-size:28px !important;font-weight:700 !important;letter-spacing:-.02em !important;color:#1d1d1f !important;text-align:left !important;margin-bottom:16px !important}",
+      ".jdgm-rev-widg__header{text-align:left !important}",
+      ".jdgm-rev-widg__summary-text{color:#6e6e73 !important;font-size:15px !important}",
+      ".jdgm-rev-widg__summary-stars .jdgm-star{font-size:20px !important}",
+      ".jdgm-histogram__bar{background:#e8e8ed !important;border:none !important;border-radius:99px !important;height:8px !important}",
+      ".jdgm-histogram__bar-content{background:#f5a623 !important;border-radius:99px !important}",
+      ".jdgm-histogram__star,.jdgm-histogram__frequency{color:#6e6e73 !important;font-size:12px !important}",
+      ".jdgm-sort-dropdown-wrapper,.jdgm-sort-dropdown,.jdgm-sort-dropdown-arrow{color:#0071e3 !important}",
+      ".jdgm-sort-dropdown{border:none !important;font-size:14px !important}",
+      ".jdgm-rev{background:#f5f5f7 !important;border:none !important;border-radius:14px !important;padding:20px 22px !important;margin-bottom:12px !important}",
+      ".jdgm-rev.jdgm-divider-top{border-top:none !important}",
+      ".jdgm-rev__icon{display:none !important}",
+      ".jdgm-rev__author{}"
+    ]
   }
 }
