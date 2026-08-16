@@ -851,11 +851,19 @@
             "content": "<p>{{ product.metafields.custom.spec | metafield_tag }}</p>",
             "page": ""
           }
+        },
+        "ts_jdgm_widget": {
+          "type": "liquid",
+          "settings": {
+            "title": "客戶評論",
+            "liquid": "{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}"
+          }
         }
       },
       "block_order": [
         "description",
-        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45"
+        "664ef6b1-9bd0-469c-9a3e-5f0b618bba45",
+        "ts_jdgm_widget"
       ],
       "settings": {}
     }
