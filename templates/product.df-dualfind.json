@@ -26,6 +26,12 @@
 {
   "layout": "ts-air",
   "sections": {
+    "judgeme-reviews": {
+      "type": "apps",
+      "blocks": { "judgeme_widget": { "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8", "settings": {} } },
+      "block_order": ["judgeme_widget"],
+      "settings": { "include_horizontal_margins": true, "include_vertical_margins": true }
+    },
     "topbar": {
       "type": "df-topbar",
       "blocks": {
@@ -531,6 +537,6 @@
   "order": [
     "topbar", "hero", "features", "detail", "proof", "size", "story",
     "lock", "find", "banner", "panels",
-    "kit", "base", "shop", "lineup", "spec", "trust", "buy"
+    "kit", "base", "shop", "lineup", "spec", "trust", "judgeme-reviews", "buy"
   ]
 }
