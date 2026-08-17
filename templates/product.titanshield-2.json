@@ -152,7 +152,6 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/2160X540.jpg",
-            "mobile_image": "shopify://shop_images/1000X1400_c92bbd68-9217-443e-97c4-76b9c75eccfd.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
@@ -418,7 +417,6 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/1_1.svg",
-            "mobile_image": "shopify://shop_images/1000_x_1400_1.svg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
