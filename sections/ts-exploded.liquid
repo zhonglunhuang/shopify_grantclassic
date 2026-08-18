@@ -1,0 +1,113 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  拆解段 2026-08-18 二改（Mars 拍板）：
+  ①文案換掉「只有這麼多東西」→ 講「薄歸薄、做工不馬虎」。
+  ②影片（24-1 演示，已調亮＋銳化）改成只播一次：進入視窗才播，播完定格在散開那格
+    （不掛 loop、瀏覽器天生停在最後一格）。
+  ③整段釘住一屏，往下滑時六組零件清單一個一個點亮、其他變暗——
+    亮的樣式沿用 ts-air.css 既有的 .xp__item.on（卡片底＋藍色編號），
+    變暗靠這裡的 .xps-live 規則；捲動邏輯在 ts-exploded.js。
+  ！釘住外框不能有 overflow（sticky 坑 #2）；段內覆寫選擇器多包一層防後段
+    重複的 stylesheet link 蓋掉（坑 #23）。
+{%- endcomment -%}
+<style>
+  .ts-air .xps{height:300svh;position:relative;padding:0;}
+  .ts-air .xps .xps__pin{position:sticky;top:0;height:100svh;
+    display:flex;align-items:center;overflow:hidden;}
+  .ts-air .xps .xps__pin .wrap{width:100%;}
+  /* 標題縮一號＋keep-all：「做工一點都不馬虎。」整句不斷字（Mars：虎不能掉下去） */
+  .ts-air .xps h2{font-size:clamp(30px,3.4vw,46px);word-break:keep-all;}
+  .ts-air .xps .xp__list{margin-top:clamp(28px,3.5vh,44px);}
+  .ts-air .xps .split{align-items:center;}
+  .ts-air .xps .xp__item{transition:opacity .35s,background .25s,color .25s;}
+  .ts-air .xps.xps-live .xp__item{opacity:.32;}
+  .ts-air .xps.xps-live .xp__item.on{opacity:1;}
+  /* 影片外框鎖 3:4（跟 1080×1440 同比例），掃描線疊在上面座標才不會漂 */
+  .ts-air .xps .xp__vidbox{position:relative;margin-inline:auto;aspect-ratio:3/4;
+    width:min(520px,100%,calc(78svh * .75));}
+  .ts-air .xps .xp__vidbox .xpvid{width:100%;height:100%;display:block;object-fit:cover;}
+  /* 線到線（Mars 拍板）：從影片裡那一層拉一條白色細引線、連到右邊亮起的那一項；
+     層端一顆藍點。座標由 ts-exploded.js 每次換層即時算（引線層蓋住整個 .split）。 */
+  .ts-air .xps .split{position:relative;}
+  .ts-air .xps .xp__linklayer{position:absolute;inset:0;pointer-events:none;
+    opacity:0;transition:opacity .4s;}
+  .ts-air .xps.xps-live .xp__linklayer{opacity:1;}
+  .ts-air .xps .xp__link{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+  .ts-air .xps .xp__linkpath{fill:none;stroke:rgba(255,255,255,.72);stroke-width:1;}
+  .ts-air .xps .xp__linkdot{position:absolute;width:6px;height:6px;border-radius:50%;
+    background:#2997FF;transform:translate(-50%,-50%);
+    box-shadow:0 0 10px rgba(41,151,255,.85),0 0 3px rgba(41,151,255,1);
+    transition:left .5s cubic-bezier(.22,.61,.21,1),top .5s cubic-bezier(.22,.61,.21,1);}
+  @media (max-width:860px){
+    .ts-air .xps .xp__linklayer{display:none;}
+  }
+  @media (max-width:768px){
+    .ts-air .xps .xp__vidbox{width:min(100%,calc(34svh * .75));}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ts-air .xps{height:auto;padding-block:clamp(88px,13vh,168px);}
+    .ts-air .xps .xps__pin{position:static;height:auto;overflow:visible;}
+    .ts-air .xps.xps-live .xp__item{opacity:1;}
+    .ts-air .xps .xp__linklayer{display:none;}
+  }
+</style>
+<div class="ts-air">
+<section class="sect xps" id="inside" data-ts-xps>
+  <div class="xps__pin">
+    <div class="wrap">
+      <div class="split">
+        <div class="rise">
+          <div class="xp__vidbox">
+            <video class="xpvid" muted playsinline preload="auto"
+                   aria-label="穩如鈦山 Air 內部結構拆解動畫" width="1080" height="1440">
+              <source src="{{ 'ts-air-exploded.mp4' | asset_url }}" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="rise" data-d="1">
+          <h2>{{ section.settings.heading | newline_to_br }}</h2>
+          <p class="lede">{{ section.settings.lede | newline_to_br }}</p>
+          {%- comment -%} 2026-08-19 SEO：七層清單改 Liquid 直接渲染（原本 JS 注入、爬蟲看不到）。
+              內容須與 ts-air.js 的 LAYERS 一致；ts-air.js 有守門、不會重複掛。 {%- endcomment -%}
+          <div class="xp__list" id="xpList">
+            <div class="xp__item" data-i="0"><i>01</i><div><b>鋁合金外殼</b><span>CNC 一體成型，同時是散熱面</span></div></div>
+            <div class="xp__item" data-i="1"><i>02</i><div><b>石墨烯散熱層</b><span>貼在電芯上方，把熱攤開帶走</span></div></div>
+            <div class="xp__item" data-i="2"><i>03</i><div><b>準固態鋰離子電芯</b><span>5000 mAh／19.25 Wh，兩層</span></div></div>
+            <div class="xp__item" data-i="3"><i>04</i><div><b>Type-C 接頭</b><span>輸入與輸出共用同一個埠</span></div></div>
+            <div class="xp__item" data-i="4"><i>05</i><div><b>隔熱金屬面板</b><span>擋在電芯與線圈之間，把熱隔開</span></div></div>
+            <div class="xp__item" data-i="5"><i>06</i><div><b>N52 磁力線圈</b><span>磁吸對位＋無線充電</span></div></div>
+            <div class="xp__item" data-i="6"><i>07</i><div><b>強化玻璃面板</b><span>貼著手機的那一面</span></div></div>
+          </div>
+        </div>
+
+        <div class="xp__linklayer" aria-hidden="true">
+          <svg class="xp__link" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="xp__linkpath" d=""/>
+          </svg>
+          <span class="xp__linkdot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+<script src="{{ 'ts-exploded.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 內部結構",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "薄歸薄，\n做工一點都不馬虎。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "6 mm 的機身裡疊著七層——從鋁合金外殼到強化玻璃面板，各有各的位置。往下滑，一層一層看清楚。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 內部結構"
+    }
+  ]
+}
+{% endschema %}

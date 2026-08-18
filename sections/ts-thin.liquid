@@ -1,0 +1,35 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect light" id="thin">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <img class="shot shot--thin" src="{{ 'ts-thin.webp' | asset_url }}" alt="TITANSHIELD Air 側面，機身厚度 6 mm" width="1700" height="695" loading="lazy">
+
+    <div class="thin__bars" id="bars">
+      <div class="tbar hi rise" data-mm="6"><div class="tbar__k">穩如鈦山 Air</div><div class="tbar__t"><div class="tbar__fill"></div><span class="tbar__v">6 mm</span></div></div>
+      <div class="tbar rise" data-d="1" data-mm="8.25"><div class="tbar__k">iPhone 17 Pro</div><div class="tbar__t"><div class="tbar__fill"></div><span class="tbar__v">8.25 mm</span></div></div>
+      <div class="tbar rise" data-d="2" data-mm="15"><div class="tbar__k">一般磁吸行動電源</div><div class="tbar__t"><div class="tbar__fill"></div><span class="tbar__v">約 15 mm</span></div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 6mm 厚度",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "6 mm。\n放進襯衫口袋還是平的。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "103.3 × 69.0 × 6 mm。下面三條是按實際毫米比例畫的對照。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 6mm 厚度"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect" id="tests">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="tests">
+      <div class="test rise">
+        <h3>穿刺</h3>
+        <p class="test__how">Φ4.0 mm 鋼針、32° 圓錐，以每秒 40 mm 的速度 100% 貫穿電芯。</p>
+        <p class="test__n">44.0<em>°C</em></p>
+        <p class="test__ok">無起火、無爆炸</p>
+      </div>
+      <div class="test rise" data-d="1">
+        <h3>熱濫用</h3>
+        <p class="test__how">充飽後放進恆溫箱，每分鐘升溫 5°C 到 130°C，再恆溫烤 60 分鐘。</p>
+        <p class="test__n">130<em>°C ／ 60 分</em></p>
+        <p class="test__ok">無起火、無爆炸</p>
+      </div>
+      <div class="test rise" data-d="2">
+        <h3>過充電</h3>
+        <p class="test__how">用 5A 一直充，一路充到 4.7V、超過一小時都不停。</p>
+        <p class="test__n">32.0<em>°C</em></p>
+        <p class="test__ok">無起火、無爆炸</p>
+      </div>
+      <div class="test rise" data-d="3">
+        <h3>過放電</h3>
+        <p class="test__how">用 5A 一直放電，連續 1.5 小時把電榨乾。</p>
+        <p class="test__n">58.4<em>°C</em></p>
+        <p class="test__ok">無起火、無爆炸</p>
+      </div>
+      <div class="test rise" data-d="4">
+        <h3>外部短路</h3>
+        <p class="test__how">用 15.14 mΩ 的外部阻抗直接把正負極短路。<b style="color:var(--fg);font-weight:600">電芯的極耳自己熔斷，把電路切開。</b></p>
+        <p class="test__n">23.4<em>°C</em></p>
+        <p class="test__ok">無起火、無爆炸</p>
+      </div>
+    </div>
+
+    <div class="certs rise">
+      <span class="cert">BSMI <b>R3I037</b></span>
+      <span class="cert">NCC <b>申請中</b></span>
+    </div>
+
+    <p class="small">由 SGS 台灣檢驗科技可靠度實驗室執行。報告編號 HE40037／2026（2026 年 5 月 8 日，含過充電、過放電、外部短路、熱濫用）與 HE50024／2026（2026 年 6 月 10 日，穿刺）。測試對象為本機所使用之電芯，型號 486578。各項數值為報告所載之最高表面溫度，僅代表送測樣品之結果。</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-swipe.js' | asset_url }}" defer></script>
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 五項安全測試",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "不只穿刺。\n五項測試，沒有一項起火。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "送 SGS 台灣檢驗科技做的電芯安全試驗——把電池往死裡操，看它會不會出事。下面每一格都是報告上的原始數據。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 五項安全測試"
+    }
+  ]
+}
+{% endschema %}

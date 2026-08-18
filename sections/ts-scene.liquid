@@ -1,0 +1,174 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  章節之間的滿版轉場圖，2026-08-18 升級成 Insta360／DJI 式「成長段」（Mars 拍板，
+  參考二勢力 df-parallax 的機制）：外框拉高、內層釘住一屏；捲動進度寫進 CSS 變數 --p，
+  圖從內縮小圖（0.62 倍、圓角）慢慢長成滿版出血，文字在後段才浮現。
+  ！外框不能有 overflow——sticky 遇到有 overflow 的祖先會無聲失效（坑 #2）。
+  prefers-reduced-motion 時整段退回靜態滿版。
+{%- endcomment -%}
+<style>
+  /* 白底（Mars 拍板）：小圖浮在白底上長成滿版，不能有黑帶破層；
+     基底 .ts-scene 是黑底、且會被後段重複的 stylesheet link 蓋回來（坑 #23），
+     所以這裡選擇器多疊一層 */
+  .ts-air .ts-scene.ts-scene--grow{height:190svh;position:relative;background:#FFFFFF;}
+  .ts-air .ts-scene--grow .ts-scene__pin{position:sticky;top:0;height:100svh;
+    display:grid;place-items:center;overflow:hidden;}
+  .ts-air .ts-scene--grow .ts-scene__frame{width:100vw;height:100svh;overflow:hidden;
+    transform:scale(calc(0.62 + 0.38 * var(--p,0)));
+    border-radius:calc(28px * (1 - var(--p,0)));}
+  .ts-air .ts-scene--grow .ts-scene__frame img{width:100%;height:100%;object-fit:cover;display:block;}
+  /* 蓋掉基底的「漸層底＋padding＋contain」——那是給去背產品圖用的，
+     在成長段會變成框中框（Mars：照片本身就是圓角那塊，長滿後不能有任何框） */
+  .ts-air .ts-scene--grow .ts-scene__media{background:none;height:100%;}
+  .ts-air .ts-scene--grow .ts-scene__media img{object-fit:cover;padding:0;}
+  /* 文字放最上面（Mars 拍板）；放大時照片頂部淡入由上往下的黑濾鏡墊在字後面 */
+  .ts-air .ts-scene--grow .ts-scene__frame{position:relative;}
+  .ts-air .ts-scene--grow .ts-scene__frame::after{content:"";position:absolute;inset:0;
+    pointer-events:none;z-index:1;
+    background:linear-gradient(180deg,rgba(0,0,0,.74),rgba(0,0,0,.34) 16%,transparent 32%);
+    opacity:clamp(0, calc((var(--p,0) - 0.5) / 0.3), 1);}
+  .ts-air .ts-scene--grow .ts-scene__cap{position:absolute;left:0;right:0;
+    top:clamp(76px,11svh,132px);bottom:auto;z-index:2;
+    opacity:clamp(0, calc((var(--p,0) - 0.5) / 0.3), 1);
+    transform:translateY(calc(-14px * (1 - clamp(0, calc((var(--p,0) - 0.5) / 0.3), 1))));}
+  /* 字加大（Mars 2026-08-18：太小、一滑就過沒看清楚） */
+  .ts-air .ts-scene--grow .ts-scene__cap p{font-size:clamp(30px,3.8vw,58px);}
+  /* 立體字（Mars 2026-08-18，照 Insta360）：去背前景層疊在字上面＝字從主體後面穿出來。
+     層序：照片 → 壓暗濾鏡 → 大字 → 前景去背層。字置中放大；濾鏡改成整張微壓暗。 */
+  .ts-air .ts-scene--grow .ts-scene__fg{position:absolute;inset:0;z-index:3;pointer-events:none;}
+  .ts-air .ts-scene--grow .ts-scene__fg img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__frame::after{
+    background:rgba(0,0,0,.30);}
+  /* 立體字錯開（Mars 2026-08-18）：兩截字一左上一右下，只有交界處藏進主體後面，
+     讀得到又有前後層次；口袋段主體在右，改兩行都靠左。 */
+  /* 第一行藏在主體後面（z2 < 前景 z3）、第二行整行壓在主體上面（z4 > z3）——
+     cap 不能有 transform（transform 會把兩行鎖進同一個堆疊層拆不開） */
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__cap{
+    top:32%;transform:none;z-index:auto;padding-inline:0;}
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capline{margin:0;color:#F5F5F7;
+    position:relative;
+    font-size:clamp(30px,6.6vw,104px);font-weight:700;letter-spacing:.005em;line-height:1.14;
+    text-shadow:0 1px 40px rgba(0,0,0,.55);}
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capline--1{text-align:left;padding-left:6vw;
+    z-index:2;}
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capline--2{text-align:right;padding-right:6vw;
+    margin-top:clamp(16px,6svh,72px);z-index:4;}
+  .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capsmall{display:block;text-align:right;
+    padding-right:6vw;margin-top:14px;font-size:clamp(15px,1.5vw,19px);color:#A1A1A6;
+    position:relative;z-index:4;}
+  /* 吊掛段：「去」永遠剛好被手機蓋 1/4（Mars 拍板，任何寬度都要成立）。
+     公式：cover 下圖寬=max(100vw,75svh)、手機左緣在圖的 35% →
+     手機左緣 = 50vw − 0.15×圖寬；文字右緣錨在手機左緣 + 0.25em，
+     再扣「吸上去」三個字（≈2.76em 含字距）得到 padding-left。
+     手機直式算出來會是負值，padding 會自動夾成 0——所以字級下限降到 30px 讓它算得正。 */
+  .ts-air .ts-scene--grow.ts-scene--depth-hang .ts-scene__capline--1{
+    padding-left:calc(50vw - max(15vw, 11.25svh) - 2.75em);}
+  .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__cap{top:20%;}
+  .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capline--2{text-align:left;
+    padding-left:6vw;margin-top:10px;}
+  .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capsmall{text-align:left;padding-left:6vw;}
+  @media (prefers-reduced-motion:reduce){
+    .ts-air .ts-scene.ts-scene--grow{height:auto;}
+    .ts-air .ts-scene--grow .ts-scene__pin{position:static;height:auto;}
+    .ts-air .ts-scene--grow .ts-scene__frame{transform:none;border-radius:0;height:auto;}
+    .ts-air .ts-scene--grow .ts-scene__frame img{height:auto;}
+    .ts-air .ts-scene--grow .ts-scene__cap{opacity:1;transform:none;}
+    .ts-air .ts-scene--grow .ts-scene__frame::after{opacity:1;}
+  }
+</style>
+{%- assign has_fg = false -%}
+{%- if section.settings.image == blank -%}
+  {%- if section.settings.shot == 'float' or section.settings.shot == 'hang' -%}
+    {%- assign has_fg = true -%}
+  {%- endif -%}
+{%- endif -%}
+<div class="ts-air">
+  <section class="ts-scene ts-scene--grow{% if has_fg %} ts-scene--depth ts-scene--depth-{{ section.settings.shot }}{% endif %}" data-ts-grow>
+    <div class="ts-scene__pin">
+      <div class="ts-scene__frame">
+        <div class="ts-scene__media" style="height:100%">
+          {%- if section.settings.image != blank -%}
+            <img src="{{ section.settings.image | image_url: width: 2400 }}"
+                 srcset="{{ section.settings.image | image_url: width: 900 }} 900w,
+                         {{ section.settings.image | image_url: width: 1600 }} 1600w,
+                         {{ section.settings.image | image_url: width: 2400 }} 2400w"
+                 sizes="100vw"
+                 alt="{{ section.settings.image.alt | default: section.settings.caption | escape }}"
+                 width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+                 loading="lazy">
+          {%- else -%}
+            {%- assign fallback = 'ts-scene-' | append: section.settings.shot | append: '.webp' -%}
+            {%- case section.settings.shot -%}
+              {%- when 'float' -%}{%- assign fw = 1800 -%}{%- assign fh = 1227 -%}
+              {%- when 'duo' -%}{%- assign fw = 1800 -%}{%- assign fh = 1125 -%}
+              {%- when 'hang' -%}{%- assign fw = 2000 -%}{%- assign fh = 2667 -%}
+              {%- else -%}{%- assign fw = 1800 -%}{%- assign fh = 900 -%}
+            {%- endcase -%}
+            {%- comment -%} alt 用描述句、不用口號（SEO 2026-08-19） {%- endcomment -%}
+            {%- case section.settings.shot -%}
+              {%- when 'hang' -%}{%- assign falt = 'TITANSHIELD Air 磁吸行動電源吸附在 iPhone 背面倒吊，N52 磁力咬合不鬆脫' -%}
+              {%- when 'float' -%}{%- assign falt = '把 TITANSHIELD Air 磁吸行動電源放進西裝褲口袋，6 mm 薄無凸起' -%}
+              {%- when 'duo' -%}{%- assign falt = 'TITANSHIELD Air 石墨黑與極地銀雙色機身並排' -%}
+              {%- else -%}{%- assign falt = 'TITANSHIELD Air 側面特寫，6 mm 薄的鋁合金機身' -%}
+            {%- endcase -%}
+            <img src="{{ fallback | asset_url }}" width="{{ fw }}" height="{{ fh }}"
+                 alt="{{ falt }}" loading="lazy">
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.caption != blank -%}
+          <div class="ts-scene__cap">
+            {%- if has_fg -%}
+              {%- assign cap_lines = section.settings.caption | newline_to_br | split: '<br />' -%}
+              {%- for line in cap_lines -%}
+                <p class="ts-scene__capline ts-scene__capline--{{ forloop.index }}">{{ line | strip }}</p>
+              {%- endfor -%}
+              {%- if section.settings.subcaption != blank -%}
+                <small class="ts-scene__capsmall">{{ section.settings.subcaption }}</small>
+              {%- endif -%}
+            {%- else -%}
+              <p>{{ section.settings.caption | newline_to_br }}
+                {%- if section.settings.subcaption != blank -%}
+                  <small>{{ section.settings.subcaption }}</small>
+                {%- endif -%}
+              </p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if has_fg -%}
+          {%- assign fgname = 'ts-scene-' | append: section.settings.shot | append: '-fg.webp' -%}
+          <div class="ts-scene__fg" aria-hidden="true">
+            <img src="{{ fgname | asset_url }}" alt="" width="{{ fw }}" height="{{ fh }}" loading="lazy">
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'ts-scene.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 轉場滿版圖",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "情境圖（留空就用內建圖）" },
+    { "type": "select", "id": "shot", "label": "內建圖", "default": "edge",
+      "options": [
+        { "value": "edge",  "label": "側面（薄）" },
+        { "value": "float", "label": "口袋（輕）" },
+        { "value": "duo",   "label": "黑銀雙機" },
+        { "value": "hang",  "label": "吊掛（磁吸力）" }
+      ] },
+    { "type": "textarea", "id": "caption", "label": "大字（可留空）" },
+    { "type": "text", "id": "subcaption", "label": "小字（可留空）" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 轉場滿版圖"
+    }
+  ]
+}
+{% endschema %}

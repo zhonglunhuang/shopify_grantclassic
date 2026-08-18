@@ -1,0 +1,124 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="pin" id="safety">
+  <div class="pin__stage">
+    <div class="pin__grid">
+
+      <div class="pin__copy">
+        <h2>{{ section.settings.heading | newline_to_br }}</h2>
+        <p class="lede">{{ section.settings.lede | newline_to_br }}</p>
+        <div class="pin__verdict" id="verdict">
+          <p style="margin:0;font-size:16.5px;line-height:1.7">
+            試驗前電壓 <b>4.458 V</b>，試驗後 <b>0 V</b>。<br>
+            最高溫度 <b>44.0 °C</b>，全程<b>不失控——無起火、無爆炸</b>。
+          </p>
+          <p class="small">試驗條件：Φ4.0 mm 鋼針、32° 圓錐、穿透速度 40 mm/s、100% 穿刺，刺針位置在面積最大中心處，環境溫度 25±2°C。由 SGS 台灣檢驗科技可靠度實驗室執行，2026 年 6 月 10 日出具報告，編號 HE50024／2026。測試對象為本機所使用之電芯（型號 486578）。本試驗於實驗室環境由專業人員執行，請勿自行模仿。</p>
+        </div>
+      </div>
+
+      <div class="pin__viz">
+        <div class="readout">
+          <div class="readout__t"><span id="temp">25.0</span><small>°C</small></div>
+          <div class="readout__v">電壓 <span id="volt">4.458</span> V</div>
+        </div>
+
+        <svg viewBox="0 0 520 400" style="width:100%" role="img" aria-label="鋼針穿刺電芯，溫度計只爬升到 44.0 度">
+          <defs>
+            <linearGradient id="needle" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7E858E"/><stop offset=".5" stop-color="#D7DBE0"/><stop offset="1" stop-color="#6A7078"/>
+            </linearGradient>
+            <linearGradient id="cellg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3A414B"/><stop offset="1" stop-color="#232830"/>
+            </linearGradient>
+            <linearGradient id="tape" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#C9A227"/><stop offset="1" stop-color="#8C6F14"/>
+            </linearGradient>
+            <linearGradient id="gg" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#5B626B"/><stop offset=".72" stop-color="#D9542F"/><stop offset="1" stop-color="#FF5A3C"/>
+            </linearGradient>
+            <radialGradient id="heat" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#FF5A3C" stop-opacity=".45"/>
+              <stop offset="1" stop-color="#FF5A3C" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <g transform="translate(70,0)">
+          <!-- 電芯本體 486578（2026-08-18 Mars 拍板改 2.5D 斜角視角）：
+               上面＝平行四邊形頂面（針從頂面中心刺入）、正面、右側面三面立體 -->
+          <g id="cell">
+            <!-- 頂面 -->
+            <polygon points="115,248 285,248 345,208 175,208" fill="#3E4650"/>
+            <polygon points="115,248 285,248 345,208 175,208" fill="none" stroke="#fff" stroke-opacity=".12"/>
+            <!-- 右側面 -->
+            <polygon points="285,248 345,208 345,290 285,330" fill="#20242B"/>
+            <!-- 正面 -->
+            <polygon points="115,248 285,248 285,330 115,330" fill="url(#cellg)"/>
+            <!-- 封裝金邊（正面上緣） -->
+            <polygon points="115,248 285,248 285,257 115,257" fill="url(#tape)"/>
+            <polygon points="285,248 345,208 345,217 285,257" fill="#8C6F14"/>
+            <!-- 疊層細線（正面） -->
+            <g stroke="#fff" stroke-opacity=".045">
+              <line x1="115" y1="276" x2="285" y2="276"/>
+              <line x1="115" y1="298" x2="285" y2="298"/>
+              <line x1="115" y1="318" x2="285" y2="318"/>
+            </g>
+            <text x="200" y="352" text-anchor="middle" fill="#fff" fill-opacity=".3" font-size="11" letter-spacing="1.4">486578 ／ No.1</text>
+          </g>
+
+          <circle id="glow" cx="230" cy="228" r="0" fill="url(#heat)"/>
+
+          <!-- 鋼針（垂直刺入頂面中心） -->
+          <g id="needleG" transform="translate(0,-330)">
+            <rect x="225" y="0" width="10" height="212" fill="url(#needle)"/>
+            <path d="M225 212 L235 212 L230 236 Z" fill="url(#needle)"/>
+            <rect x="218" y="0" width="24" height="26" rx="4" fill="#4A5058"/>
+          </g>
+
+          <!-- 破孔：斜角視的橢圓 -->
+          <ellipse id="hole" cx="230" cy="228" rx="0" ry="0" fill="#0B0C0E" opacity=".9"/>
+          </g>
+
+          <!-- 溫度計：0–100°C。重點是它只爬了一小截 -->
+          <g id="gauge" transform="translate(40,0)">
+            <rect x="400" y="60" width="18" height="280" rx="9" class="c-track" stroke="currentColor" stroke-width="1"/>
+            <rect id="gfill" x="402" y="338" width="14" height="0" rx="7" fill="url(#gg)"/>
+            <g stroke="currentColor">
+              <line x1="420" y1="62" x2="427" y2="62"/><line x1="420" y1="131" x2="425" y2="131"/>
+              <line x1="420" y1="200" x2="427" y2="200"/><line x1="420" y1="269" x2="425" y2="269"/>
+              <line x1="420" y1="338" x2="427" y2="338"/>
+            </g>
+            <g fill="currentColor" font-size="10" letter-spacing=".08em">
+              <text x="432" y="66">100°C</text>
+              <text x="432" y="204">50</text>
+              <text x="432" y="342">0</text>
+            </g>
+            <!-- 體溫基準線：44.0 只比這裡高一點點 -->
+            <line x1="352" y1="235.9" x2="418" y2="235.9" stroke="#7C8189" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="346" y="239" text-anchor="end" fill="currentColor" font-size="10" letter-spacing=".06em">體溫 37°C</text>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-pin.js' | asset_url }}" defer></script>
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 穿刺試驗",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "刺穿它。\n然後量它的溫度。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "穿刺試驗是電芯安全測試裡最直接的一種——用鋼針貫穿電芯本體，看它會不會失控。穩如鈦山 Air 用的電芯，送去做了這項試驗。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 穿刺試驗"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  多角度段 2026-08-18 三改（Mars 拍板）：23-1 渲染動畫＋「捲動控制旋轉」——
+  滑鼠往下滾多少、機身就轉多少（跟舊 WebGL 版同手感），速度由使用者決定。
+  影片是全關鍵幀編碼（-g 1），捲動刷 currentTime 才不會卡格。
+  整段釘住 260vh；prefers-reduced-motion 退回自動循環播放。
+  基底 .views 是 360vh，這裡蓋掉（選擇器多疊一層防坑 #23）。
+{%- endcomment -%}
+<style>
+  .ts-air .views.views--scrub{height:260vh;position:relative;}
+  .ts-air .views.views--scrub .views__pin{position:sticky;top:0;height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+  .ts-air .views.views--scrub .views__vid{width:min(860px,84vw);}
+  .ts-air .views.views--scrub video{width:100%;height:auto;display:block;object-fit:contain;}
+  .ts-air .views.views--scrub .views__cap{margin:18px auto 0;text-align:center;
+    font-size:15px;color:var(--fg-2);letter-spacing:-.01em;max-width:52ch;padding-inline:var(--gut);}
+  @media (prefers-reduced-motion:reduce){
+    .ts-air .views.views--scrub{height:auto;padding-block:clamp(56px,8vh,96px);}
+    .ts-air .views.views--scrub .views__pin{position:static;height:auto;overflow:visible;}
+  }
+</style>
+<div class="ts-air">
+<section class="views views--scrub" id="views" data-ts-viewscrub>
+  <div class="views__pin">
+    <div class="views__vid">
+      <video muted playsinline preload="auto"
+             aria-label="穩如鈦山 Air 多角度外觀（捲動旋轉）" width="1080" height="608">
+        <source src="{{ 'ts-air-views.mp4' | asset_url }}" type="video/mp4">
+      </video>
+    </div>
+    <p class="views__cap">往下捲，轉一圈——MagSafe 磁吸區、無縫鋁合金側面、2.5D 弧邊、Type-C 埠，每一面都看清楚。</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-views.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 多角度外觀",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "TS Air 多角度外觀"
+    }
+  ]
+}
+{% endschema %}

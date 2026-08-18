@@ -1,0 +1,203 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  四大數字＋特點總覽（bento 卡片牆）。
+  兩段本來是分開的 section，因為 Shopify 一個範本最多 25 段、Air 頁已滿，
+  把緊鄰的兩段併進同一個檔案——畫面與各自的樣式完全不變。
+  bento 版型抄 Pro 模擬稿「旗艦效能款，一次看懂」，內容換成 Air 的六個賣點，
+  配色走 Air 的深色＋藍調。
+{%- endcomment -%}
+<style>
+  .ts-air .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:clamp(36px,5vw,56px);}
+  /* 不描邊（Mars 2026-08-18：DJI/Insta360 的卡就是圓角照片、沒有線框） */
+  .ts-air .bento__b{background:var(--bg-2);border-radius:22px;overflow:hidden;
+    display:flex;flex-direction:column;min-height:280px;}
+  .ts-air .bento__b--wide{grid-column:span 4;}
+  .ts-air .bento__b--narrow{grid-column:span 2;}
+  .ts-air .bento__b--half{grid-column:span 3;}
+  .ts-air .bento__head{padding:26px 26px 0;text-align:center;}
+  .ts-air .bento__b h3{font-size:clamp(17px,1.8vw,21px);font-weight:650;line-height:1.3;}
+  .ts-air .bento__sub{margin:6px 0 0;font-size:13.5px;color:var(--fg-2);line-height:1.5;}
+  .ts-air .bento__fig{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;
+    padding:14px 20px 30px;}
+  .ts-air .bento__big{font-size:clamp(48px,6vw,76px);font-weight:600;letter-spacing:-.04em;line-height:1;
+    font-variant-numeric:tabular-nums;
+    background:linear-gradient(180deg,var(--fg) 30%,var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .ts-air .bento__big em{font-style:normal;font-size:.4em;font-weight:500;letter-spacing:-.01em;}
+  .ts-air .bento__tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .ts-air .bento__tags span{border:1px solid var(--line);border-radius:999px;padding:7px 13px;
+    font-size:12.5px;color:var(--fg-2);white-space:nowrap;}
+  .ts-air .bento__tags b{color:var(--accent);font-weight:600;}
+  .ts-air .bento__badge{border:1px solid var(--line);border-radius:999px;padding:5px 14px;
+    font-size:12.5px;color:var(--fg-2);margin-top:12px;}
+  .ts-air .bento__stack{display:flex;flex-direction:column;align-items:center;gap:0;}
+  {%- comment -%}
+    照片卡（Insta360 式，2026-08-18 Mars 三原則）：
+    ①照片鋪滿整張卡 ②文字疊上方、不壓重點 ③頂部籠罩漸層由上往下，白字永遠讀得到。
+  {%- endcomment -%}
+  .ts-air .bento__b--photo{position:relative;min-height:480px;}
+  .ts-air .bento__b--photo .bento__media{position:absolute;inset:0;margin:0;z-index:0;}
+  .ts-air .bento__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .ts-air .bento__b--photo::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(10,10,12,.86) 0%,rgba(10,10,12,.45) 30%,rgba(10,10,12,0) 56%);}
+  {%- comment -%}底部第二道籠罩：底部有數字/膠囊的卡，白字在亮照片上也讀得到{%- endcomment -%}
+  .ts-air .bento__b--photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(0deg,rgba(10,10,12,.66) 0%,rgba(10,10,12,0) 32%);}
+  {%- comment -%}照片卡上的膠囊加實心底色（Mars：防護膠囊在照片上看不清）{%- endcomment -%}
+  .ts-air .bento__b--photo .bento__tags span{background:rgba(15,15,18,.72);
+    border-color:rgba(255,255,255,.18);color:#D9D9DE;backdrop-filter:blur(4px);}
+  {%- comment -%}
+    磁吸卡定案版（Mars）：主體＝手機＋電源、手最少、靠左（合成在圖檔裡）；
+    文字整組放右側垂直置中。右半是淺灰底，文字改深色、15W 用藍漸層，不需要籠罩。
+  {%- endcomment -%}
+  .ts-air .bento__b--magnet::before,.ts-air .bento__b--magnet::after{display:none;}
+  .ts-air .bento__b--magnet .bento__media img{object-position:left center;}
+  .ts-air .bento__mgcol{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;max-width:46%;}
+  .ts-air .bento__b--magnet h3{color:#1D1D1F;}
+  .ts-air .bento__b--magnet .bento__sub{color:#6E6E73;}
+  .ts-air .bento__b--magnet .bento__big{
+    background:linear-gradient(180deg,#2997FF 10%,#0064D2);-webkit-background-clip:text;background-clip:text;}
+  .ts-air .bento__b--magnet .bento__badge{border-color:rgba(0,0,0,.28);color:#515154;margin-top:10px;}
+  @media (max-width:900px){
+    .ts-air .bento__mgcol{right:6%;max-width:52%;}
+  }
+  .ts-air .bento__b--photo .bento__head,
+  .ts-air .bento__b--photo .bento__fig{position:relative;z-index:2;}
+  @media (max-width:900px){
+    .ts-air .bento__b--wide,.ts-air .bento__b--narrow,.ts-air .bento__b--half{grid-column:span 6;}
+    .ts-air .bento__b{min-height:220px;}
+    .ts-air .bento__b--photo{min-height:400px;}
+  }
+</style>
+{%- comment -%}
+  2026-08-18 Mars 拍板：主視覺下的數字帶（6mm／113g／5000mAh）拿掉——下面各段都有介紹。
+  這個檔案現在只剩特點總覽（bento）。
+{%- endcomment -%}
+<div class="ts-air">
+<section class="sect" id="bento">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">{{ section.settings.bento_heading | newline_to_br }}</h2>
+
+    <div class="bento rise" data-d="1">
+      <div class="bento__b bento__b--wide bento__b--photo">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-cell.webp' | asset_url }}" alt="TITANSHIELD Air 準固態電芯分層結構拆解" width="1400" height="860" loading="lazy">
+        </div>
+        <div class="bento__head">
+          <h3>{{ section.settings.c1_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c1_sub }}</p>
+        </div>
+        <div class="bento__fig" style="flex:none;padding-bottom:8px;align-items:flex-start">
+          <div class="bento__tags">
+            <span>穿刺 <b>44.0°C</b></span><span>過充</span><span>過放</span>
+            <span>外部短路</span><span>熱濫用 130°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__b bento__b--narrow bento__b--photo">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-edge.webp' | asset_url }}" alt="鋁合金銑削邊緣局部特寫：Type-C 端口與磁吸接點" width="1000" height="1300" loading="lazy">
+        </div>
+        <div class="bento__head">
+          <h3>{{ section.settings.c2_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c2_sub }}</p>
+        </div>
+        <div class="bento__fig" style="flex:none;margin-top:auto;padding-bottom:20px;align-items:flex-end">
+          <div class="bento__big" style="font-size:clamp(38px,4.4vw,56px)">6<em>mm</em></div>
+        </div>
+      </div>
+
+      <div class="bento__b bento__b--narrow bento__b--photo">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-light.webp' | asset_url }}" alt="指尖頂著 TITANSHIELD Air，113 公克的輕" width="1000" height="1300" loading="lazy">
+        </div>
+        <div class="bento__head">
+          <h3>{{ section.settings.c3_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c3_sub }}</p>
+        </div>
+        <div class="bento__fig" style="flex:none;margin-top:auto;padding-bottom:20px;align-items:flex-end">
+          <div class="bento__big" style="font-size:clamp(38px,4.4vw,56px)">113<em>g</em></div>
+        </div>
+      </div>
+
+      <div class="bento__b bento__b--wide bento__b--photo bento__b--magnet">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-magnet.webp' | asset_url }}" alt="TITANSHIELD Air 磁吸行動電源貼合在 iPhone 背面，15W 無線充電" width="2000" height="1000" loading="lazy">
+        </div>
+        <div class="bento__mgcol">
+          <h3>{{ section.settings.c4_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c4_sub }}</p>
+          <div class="bento__big" style="font-size:clamp(40px,4.8vw,62px);margin-top:6px">15<em>W</em></div>
+          <span class="bento__badge">磁吸對位・隨貼隨充</span>
+        </div>
+      </div>
+
+      <div class="bento__b bento__b--half bento__b--photo">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-guard.webp' | asset_url }}" alt="機身背面：無線充電線圈與保護晶片所在" width="1100" height="1300" loading="lazy">
+        </div>
+        <div class="bento__head">
+          <h3>{{ section.settings.c5_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c5_sub }}</p>
+        </div>
+        <div class="bento__fig" style="flex:none;margin-top:auto;padding-bottom:20px">
+          <div class="bento__tags">
+            <span>過壓</span><span>過熱</span><span>過載</span>
+            <span>過充</span><span>短路</span><span>FOD 異物偵測</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__b bento__b--half bento__b--photo">
+        <div class="bento__media">
+          <img src="{{ 'ts-bento-day.webp' | asset_url }}" alt="咖啡廳裡邊充邊用的日常" width="1200" height="900" loading="lazy">
+        </div>
+        <div class="bento__head">
+          <h3>{{ section.settings.c6_title }}</h3>
+          <p class="bento__sub">{{ section.settings.c6_sub }}</p>
+        </div>
+        <div class="bento__fig" style="flex:none;padding-bottom:8px;align-items:flex-start">
+          <div class="bento__big" style="font-size:clamp(38px,4.4vw,56px)">5000<em>mAh</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 數字與特點總覽",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "bento_heading", "label": "特點總覽標題", "default": "極致輕薄款，一次看懂。" },
+    { "type": "header", "content": "卡 1（寬）電芯與實測" },
+    { "type": "text", "id": "c1_title", "label": "標題", "default": "準固態電芯・SGS 實測" },
+    { "type": "text", "id": "c1_sub", "label": "副文字", "default": "鋼針刺穿也不起火，五項測試都做過" },
+    { "type": "header", "content": "卡 2（窄）薄" },
+    { "type": "text", "id": "c2_title", "label": "標題", "default": "整塊鋁合金銑削" },
+    { "type": "text", "id": "c2_sub", "label": "副文字", "default": "放進襯衫口袋還是平的" },
+    { "type": "header", "content": "卡 3（窄）輕" },
+    { "type": "text", "id": "c3_title", "label": "標題", "default": "大約一顆檸檬的重量" },
+    { "type": "text", "id": "c3_sub", "label": "副文字", "default": "多帶一顆，肩膀不會知道" },
+    { "type": "header", "content": "卡 4（寬）磁吸充電" },
+    { "type": "text", "id": "c4_title", "label": "標題", "default": "磁吸無線充電" },
+    { "type": "text", "id": "c4_sub", "label": "副文字", "default": "貼上就位，邊充邊用" },
+    { "type": "header", "content": "卡 5（半）防護" },
+    { "type": "text", "id": "c5_title", "label": "標題", "default": "六大防護＋NTC 控溫" },
+    { "type": "text", "id": "c5_sub", "label": "副文字", "default": "一顆晶片全程盯著" },
+    { "type": "header", "content": "卡 6（半）電量" },
+    { "type": "text", "id": "c6_title", "label": "標題", "default": "一整天的安全感" },
+    { "type": "text", "id": "c6_sub", "label": "副文字", "default": "19.25 Wh，符合隨身登機規定" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 數字與特點總覽"
+    }
+  ]
+}
+{% endschema %}

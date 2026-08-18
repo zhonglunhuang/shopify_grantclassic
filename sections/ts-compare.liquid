@@ -1,0 +1,281 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  Air／TITANSHIELD／Pro 三欄對照＋常見問題（二合一）。
+  對照抄 Apple「找出適合你的 Mac」的骨架：上面三張卡各講一台，下面一條一條列規格；
+  FAQ 抄 Pro 模擬稿的版位、題目改寫成 Air 視角。
+  因為 Shopify 一個範本最多 25 段、Air 頁已滿，相鄰的兩段併在同一個檔案。
+
+  規格列（row）與問答（qa）都是後台可增刪的區塊；查不到官方數字的欄位留「待補」。
+  TITANSHIELD目前沒有渲染圖，圖留空會顯示「圖待補」的虛線框。
+{%- endcomment -%}
+<style>
+  .ts-air .faq{max-width:760px;margin:clamp(28px,4vw,48px) auto 0;}
+  .ts-air .faq details{border-bottom:1px solid var(--line);}
+  .ts-air .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;
+    align-items:center;gap:16px;padding:20px 4px;font-size:16.5px;font-weight:600;}
+  .ts-air .faq summary::-webkit-details-marker{display:none;}
+  .ts-air .faq summary::after{content:"+";font-size:22px;font-weight:400;color:var(--fg-2);flex:none;}
+  .ts-air .faq details[open] summary::after{content:"−";}
+  .ts-air .faq .faq__a{padding:0 4px 20px;font-size:14.5px;line-height:1.8;color:var(--fg-2);max-width:40em;}
+  {%- comment -%}
+    多一層 .cmp 是刻意的：每個段落都會各自載一次 ts-air.css，排在本段後面的段落
+    會把主樣式表重新宣告一次；同權重下「後宣告者贏」，覆寫必須比主樣式表高一層。
+  {%- endcomment -%}
+  .ts-air .cmp .cmp__cards{grid-template-columns:repeat(3,1fr);}
+  .ts-air .cmp .cmp__head,.ts-air .cmp .cmp__row{grid-template-columns:1.25fr 1fr 1fr 1fr;}
+  .ts-air .cmp .cmp__shot--todo{width:min(280px,72%);aspect-ratio:1;display:grid;place-items:center;
+    border:1px dashed var(--line);border-radius:14px;color:var(--fg-3);font-size:13px;
+    background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(0,0,0,.02) 12px 24px);}
+  @media (max-width:760px){
+    .ts-air .cmp .cmp__cards{grid-template-columns:1fr;gap:10px;}
+    .ts-air .cmp .cmp__shot--todo{width:100%;aspect-ratio:2.4;}
+    .ts-air .cmp .cmp__head{display:none;}
+    .ts-air .cmp .cmp__row{grid-template-columns:1fr 1fr 1fr;gap:3px clamp(10px,3vw,18px);}
+    .ts-air .cmp .cmp__row dt{grid-column:1/-1;}
+  }
+</style>
+<div class="ts-air">
+<section class="sect light cmp" id="compare">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    {%- if section.settings.lede != blank -%}
+      <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+    {%- endif -%}
+
+    <div class="cmp__cards rise" data-d="2">
+      {%- for n in (1..3) -%}
+        {%- if n == 1 -%}
+          {%- assign img = section.settings.image_a -%}
+          {%- assign fb = 'ts-compare-air.webp' -%}
+          {%- assign name = section.settings.name_a -%}
+          {%- assign spec = section.settings.spec_a -%}
+          {%- assign tag = section.settings.tag_a -%}
+          {%- assign price = section.settings.price_a -%}
+          {%- assign url = blank -%}
+          {%- assign cta = blank -%}
+          {%- assign here = true -%}
+        {%- elsif n == 2 -%}
+          {%- assign img = section.settings.image_m -%}
+          {%- assign fb = 'ts-compare-std.webp' -%}
+          {%- assign name = section.settings.name_m -%}
+          {%- assign spec = section.settings.spec_m -%}
+          {%- assign tag = section.settings.tag_m -%}
+          {%- assign price = section.settings.price_m -%}
+          {%- assign url = section.settings.url_m -%}
+          {%- assign cta = section.settings.cta_m -%}
+          {%- assign here = false -%}
+        {%- else -%}
+          {%- assign img = section.settings.image_b -%}
+          {%- assign fb = 'ts-compare-pro.webp' -%}
+          {%- assign name = section.settings.name_b -%}
+          {%- assign spec = section.settings.spec_b -%}
+          {%- assign tag = section.settings.tag_b -%}
+          {%- assign price = section.settings.price_b -%}
+          {%- assign url = section.settings.url_b -%}
+          {%- assign cta = section.settings.cta_b -%}
+          {%- assign here = false -%}
+        {%- endif -%}
+
+        <div class="cmp__card">
+          {%- if img != blank -%}
+            <div class="cmp__shot">
+              <img src="{{ img | image_url: width: 1100 }}" alt="{{ name | escape }}"
+                   width="{{ img.width }}" height="{{ img.height }}" loading="lazy">
+            </div>
+          {%- elsif fb != blank -%}
+            <div class="cmp__shot">
+              <img src="{{ fb | asset_url }}" alt="{{ name | escape }}"
+                   width="1000" height="1000" loading="lazy">
+            </div>
+          {%- else -%}
+            <div class="cmp__shot--todo">產品圖待補</div>
+          {%- endif -%}
+          <h3 class="cmp__name">{{ name | newline_to_br }}</h3>
+          {%- if spec != blank -%}<p class="cmp__spec">{{ spec }}</p>{%- endif -%}
+          {%- if tag != blank -%}<p class="cmp__tag">{{ tag | newline_to_br }}</p>{%- endif -%}
+          {%- if price != blank -%}<p class="cmp__price">{{ price }}</p>{%- endif -%}
+          <div class="cmp__acts">
+            {%- if here -%}
+              <span class="cmp__here">{{ section.settings.here_label }}</span>
+            {%- elsif url != blank -%}
+              <a class="btn" href="{{ url }}">{{ cta | default: '進一步了解' }}</a>
+            {%- else -%}
+              <span class="cmp__here">商品頁上線後補連結</span>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <dl class="cmp__rows rise" data-d="3">
+        <div class="cmp__head" aria-hidden="true">
+          <span></span>
+          <span>{{ section.settings.short_a }}</span>
+          <span>{{ section.settings.short_m }}</span>
+          <span>{{ section.settings.short_b }}</span>
+        </div>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'row' -%}
+          <div class="cmp__row" {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.label }}</dt>
+            <dd data-short="{{ section.settings.short_a }}"
+                {%- if block.settings.win == 'a' %} class="is-win"{% endif %}>{{ block.settings.a }}</dd>
+            <dd data-short="{{ section.settings.short_m }}"
+                {%- if block.settings.win == 'm' %} class="is-win"{% endif %}>{{ block.settings.m | default: '待補' }}</dd>
+            <dd data-short="{{ section.settings.short_b }}"
+                {%- if block.settings.win == 'b' %} class="is-win"{% endif %}>{{ block.settings.b }}</dd>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </dl>
+    {%- endif -%}
+
+    {%- if section.settings.note != blank -%}
+      <p class="small cmp__note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="sect light sect--tight" id="faq">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">{{ section.settings.faq_heading }}</h2>
+
+    <div class="faq rise" data-d="1">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'qa' -%}
+          <details {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.q }}</summary>
+            <div class="faq__a">{{ block.settings.a | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.faq_note != blank -%}
+      <p class="small" style="margin-top:18px;text-align:center;margin-inline:auto">{{ section.settings.faq_note }}</p>
+    {%- endif -%}
+
+    {%- comment -%} 2026-08-18 SEO 內鏈：兩篇固態部落格＋退換貨政策（網址與標題都查證過） {%- endcomment -%}
+    <p class="small rise" style="margin-top:24px;text-align:center;margin-inline:auto;line-height:2">
+      延伸閱讀：<a href="/blogs/gc-blog/solid-state-power-bank-safety">行動電源會不會爆炸？固態電池穿刺實測解析</a>・
+      <a href="/blogs/gc-blog/2025-solid-state-power-bank">2026 固態行動電源推薦與比較</a>・
+      <a href="/policies/refund-policy">退換貨政策</a>
+    </p>
+  </div>
+</section>
+</div>
+
+{%- comment -%}
+  FAQPage 結構化資料（GEO／SEO）：Google 可在搜尋結果展開問答、AI 搜尋可直接引用。
+  自動從上面的 qa 區塊產生——後台改題目，這裡跟著變，不用另外維護。
+{%- endcomment -%}
+{%- assign faq_blocks = section.blocks | where: 'type', 'qa' -%}
+{%- if faq_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in faq_blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ block.settings.q | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.a | json }} }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 三機型對照",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題", "default": "找出適合你的穩如鈦山。" },
+    { "type": "textarea", "id": "lede", "label": "說明",
+      "default": "行動電源怎麼挑？三台都是準固態電芯、都做過同一套安全測試。Air 極致輕薄、TITANSHIELD日常均衡、Pro 旗艦效能——挑你要的那一種。" },
+    { "type": "header", "content": "左邊（Air）" },
+    { "type": "image_picker", "id": "image_a", "label": "圖（留空用內建）" },
+    { "type": "text", "id": "name_a", "label": "名稱", "default": "TITANSHIELD Air" },
+    { "type": "text", "id": "spec_a", "label": "規格一行", "default": "5000 mAh ／ 6 mm ／ 113 g" },
+    { "type": "textarea", "id": "tag_a", "label": "一句話", "default": "薄到你會忘記它在口袋裡。" },
+    { "type": "text", "id": "price_a", "label": "價格", "default": "NT$1,980" },
+    { "type": "text", "id": "short_a", "label": "對照表欄位名", "default": "Air" },
+    { "type": "text", "id": "here_label", "label": "「目前看的就是這台」", "default": "目前查看的機型" },
+    { "type": "header", "content": "中間（TITANSHIELD）" },
+    { "type": "image_picker", "id": "image_m", "label": "圖（留空顯示待補框）" },
+    { "type": "text", "id": "name_m", "label": "名稱", "default": "TITANSHIELD" },
+    { "type": "text", "id": "spec_m", "label": "規格一行", "default": "5000／10000 mAh ／ 15W ／ Watch 充電" },
+    { "type": "textarea", "id": "tag_m", "label": "一句話", "default": "五合一充電，一台抵一桌線。" },
+    { "type": "text", "id": "price_m", "label": "價格", "default": "NT$1,980 起" },
+    { "type": "url", "id": "url_m", "label": "連結" },
+    { "type": "text", "id": "cta_m", "label": "按鈕文字", "default": "進一步了解" },
+    { "type": "text", "id": "short_m", "label": "對照表欄位名", "default": "TITANSHIELD" },
+    { "type": "header", "content": "右邊（Pro）" },
+    { "type": "image_picker", "id": "image_b", "label": "圖（留空用內建）" },
+    { "type": "text", "id": "name_b", "label": "名稱", "default": "TITANSHIELD Pro" },
+    { "type": "text", "id": "spec_b", "label": "規格一行", "default": "10000 mAh ／ Qi2.2 25W ／ TFT 螢幕" },
+    { "type": "textarea", "id": "tag_b", "label": "一句話", "default": "容量加倍，還會在出事前先叫你。" },
+    { "type": "text", "id": "price_b", "label": "價格", "default": "NT$2,980" },
+    { "type": "url", "id": "url_b", "label": "連結" },
+    { "type": "text", "id": "cta_b", "label": "按鈕文字", "default": "進一步了解" },
+    { "type": "text", "id": "short_b", "label": "對照表欄位名", "default": "Pro" },
+    { "type": "header", "content": "註腳" },
+    { "type": "text", "id": "note", "label": "小字（留空不顯示）" },
+    { "type": "header", "content": "常見問題" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ 標題", "default": "常見問題" },
+    { "type": "text", "id": "faq_note", "label": "FAQ 小字（留空不顯示）" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "問答",
+      "settings": [
+        { "type": "text", "id": "q", "label": "問題" },
+        { "type": "textarea", "id": "a", "label": "回答" }
+      ]
+    },
+    {
+      "type": "row",
+      "name": "對照項目",
+      "settings": [
+        { "type": "text", "id": "label", "label": "項目" },
+        { "type": "text", "id": "a", "label": "Air" },
+        { "type": "text", "id": "m", "label": "TITANSHIELD" },
+        { "type": "text", "id": "b", "label": "Pro" },
+        { "type": "select", "id": "win", "label": "哪邊要標重點", "default": "none",
+          "options": [
+            { "value": "none", "label": "都不標" },
+            { "value": "a", "label": "Air" },
+            { "value": "m", "label": "TITANSHIELD" },
+            { "value": "b", "label": "Pro" }
+          ] }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 三機型對照",
+      "blocks": [
+        { "type": "row", "settings": { "label": "電池容量", "a": "5000 mAh", "m": "5000／10000 mAh", "b": "10000 mAh", "win": "b" } },
+        { "type": "row", "settings": { "label": "機身厚度", "a": "6 mm", "m": "11／19 mm", "b": "待補", "win": "a" } },
+        { "type": "row", "settings": { "label": "重量", "a": "113 g", "m": "155／255 g", "b": "待補", "win": "a" } },
+        { "type": "row", "settings": { "label": "無線輸出", "a": "磁吸 15W", "m": "15W", "b": "Qi2.2 磁吸 25W", "win": "b" } },
+        { "type": "row", "settings": { "label": "有線輸出", "a": "18W", "m": "20W", "b": "30W", "win": "b" } },
+        { "type": "row", "settings": { "label": "Apple Watch 充電", "a": "—", "m": "✓", "b": "—", "win": "m" } },
+        { "type": "row", "settings": { "label": "電量顯示", "a": "—", "m": "—", "b": "TFT 數位螢幕", "win": "b" } },
+        { "type": "row", "settings": { "label": "折疊支架", "a": "—", "m": "—", "b": "隱藏式支架", "win": "b" } },
+        { "type": "row", "settings": { "label": "防爆警鈴", "a": "—", "m": "—", "b": "有", "win": "b" } },
+        { "type": "row", "settings": { "label": "電芯", "a": "準固態鋰離子", "m": "準固態鋰離子", "b": "準固態鋰離子", "win": "none" } },
+        { "type": "row", "settings": { "label": "溫度保護", "a": "NTC 感測降載", "m": "NTC 感測降載", "b": "NTC 感測降載", "win": "none" } },
+        { "type": "row", "settings": { "label": "建議售價", "a": "NT$1,980", "m": "NT$1,980 起", "b": "NT$2,980", "win": "none" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

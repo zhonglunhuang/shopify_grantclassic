@@ -1,0 +1,96 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  主視覺影片（2026-08-18 Mars 指定 3.mp4）：
+  自動播放必須靜音＋playsinline（iOS 規定），循環播放；
+  poster 用原本的渲染圖，影片載入前與不支援的環境看到的是原圖，回不去只要把 use_video 關掉。
+  檔案 8.7MB 偏重，之後可請渲染師出 1920 寬的壓縮版換上。
+{%- endcomment -%}
+<style>
+  {%- comment -%}
+    滿版出血（Mars 拍板）：影片撐滿整個視窗寬，手從螢幕邊緣伸進來，不框圓角盒。
+    多一層 .hero 是權重墊高（坑 #23）；影片本身是黑底，跟主視覺的黑無縫接起來。
+  {%- endcomment -%}
+  .ts-air .hero .hero__video{
+    width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);
+    display:block;border-radius:0;
+  }
+  .ts-air .hero .hero__model{margin-top:clamp(4px,1.5vh,18px);}
+  .ts-air .hero{padding-bottom:0;}
+  .ts-air .hero .hero__tag{margin-top:clamp(10px,1.8vh,20px);}
+  .ts-air .hero .hero__eyebrow{margin:0 0 clamp(8px,1.4vh,16px);
+    font-size:clamp(15px,1.5vw,19px);font-weight:600;letter-spacing:.04em;color:var(--fg-2);}
+  .ts-air .hero .lede{margin-top:clamp(10px,1.4vh,16px);}
+  {%- comment -%}
+    光暈是為靜態渲染圖設計的，會在影片上緣切出一條看得見的色階邊界（Mars 2026-08-18 抓到）。
+    影片本身的黑就是純黑，拿掉光暈讓整個主視覺同一片黑、無縫。
+  {%- endcomment -%}
+  .ts-air .hero .hero__glow{display:none;}
+  {%- comment -%}
+    Apple 式首屏第二版（Mars 4K 實測後拍板：影片不准裁、字壓上去沒關係）：
+    桌機首屏＝一個視窗高，影片絕對定位鋪滿整個首屏、object-fit:contain 完整呈現不裁切、
+    貼齊下緣；文案疊在影片上層（影片上半部本來就是黑的，字完全清晰）。
+    比例不合時多出的黑邊落在上方或左右，黑對黑看不見。
+    手機維持原比例流式。
+  {%- endcomment -%}
+  {%- comment -%}
+    2026-08-18 尾聲：試過三版「首屏鎖視窗高」的排法（cover 裁切／字疊影片／下移錨定），
+    Mars 實測 4K/5K 都不滿意，拍板改回原本的流式排法——文字在上、影片滿版出血自然比例接在下面。
+    要再挑戰 4K 首屏，正解是請渲染師出「主角在下半部、上方留天空」構圖的素材，不是用 CSS 硬喬。
+  {%- endcomment -%}
+</style>
+<div class="ts-air">
+<header class="hero">
+  <div class="hero__glow"></div>
+  <div class="wrap hero__in">
+    {%- comment -%} 2026-08-18 Mars 拍板：照 Pro 首屏公式——小眉標中文名（記憶點）＋
+        「只發電，不發火。」開頭的對句 slogan {%- endcomment -%}
+    <p class="hero__eyebrow rise">穩如鈦山 Air・磁吸固態行動電源</p>
+    <h1 class="wordmark rise"><b>TITANSHIELD</b> <em>Air</em></h1>
+    <p class="hero__tag rise" data-d="1">只發電，不發火。安全，輕如空氣。</p>
+    <p class="lede rise" data-d="2">{{ section.settings.lede | newline_to_br }}</p>
+  </div>
+
+  {%- comment -%}影片放在 .wrap 外面：絕對定位才能鋪滿整個首屏而不是被內容寬度框住{%- endcomment -%}
+  <div class="hero__model rise" data-d="3" id="heroModel">
+      {%- if section.settings.use_video -%}
+        {%- comment -%}
+          只播一次、停在最後一格（Mars 拍板），不掛 loop。
+          雙檔機制（Apple 式）：桌機載 1920 寬（1.4MB）、768 以下載 1080 寬（0.4MB），
+          由下面的小腳本按螢幕寬挑檔——HTML 不先掛 src，手機才不會多下載桌機版。
+        {%- endcomment -%}
+        <video class="hero__video" autoplay muted playsinline preload="auto"
+               poster="{{ 'ts-hero.webp' | asset_url }}"
+               data-src-desktop="{{ 'ts-air-hero.mp4' | asset_url }}"
+               data-src-mobile="{{ 'ts-air-hero-mobile.mp4' | asset_url }}"
+               aria-label="TITANSHIELD Air 產品影片" width="1920" height="1080"></video>
+        <script>
+          (function(){
+            var v=document.currentScript.previousElementSibling;
+            v.src=matchMedia('(max-width: 768px)').matches?v.dataset.srcMobile:v.dataset.srcDesktop;
+            var p=v.play(); if(p&&p.catch){p.catch(function(){});}
+          })();
+        </script>
+      {%- else -%}
+        <img class="shot shot--hero" src="{{ 'ts-hero.webp' | asset_url }}" alt="TITANSHIELD Air 石墨黑機身" width="1500" height="1125">
+      {%- endif -%}
+  </div>
+</header>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 主視覺",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "6 mm、113 公克，5000 mAh 準固態鋰離子電池。" },
+    { "type": "checkbox", "id": "use_video", "label": "用影片當主視覺（關掉回渲染圖）", "default": true }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 主視覺"
+    }
+  ]
+}
+{% endschema %}

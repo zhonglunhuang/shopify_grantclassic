@@ -1,0 +1,116 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect light" id="charge" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="split">
+      <div class="rise">
+        <h2>{{ section.settings.heading | newline_to_br }}</h2>
+        <p class="lede">{{ section.settings.lede | newline_to_br }}</p>
+
+        <div style="display:flex;gap:48px;margin-top:38px;flex-wrap:wrap">
+          <div>
+            <div style="font-size:34px;font-weight:600;letter-spacing:-.03em">15<em style="font-style:normal;font-size:.45em;color:var(--fg-2);margin-left:.2em">W</em></div>
+            <p class="small">磁吸無線</p>
+          </div>
+          <div>
+            <div style="font-size:34px;font-weight:600;letter-spacing:-.03em">18<em style="font-style:normal;font-size:.45em;color:var(--fg-2);margin-left:.2em">W</em></div>
+            <p class="small">Type-C 有線</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rise" data-d="1" style="display:flex;flex-direction:column;align-items:center;gap:14px">
+        {%- comment -%} 2026-08-18 Mars：SVG 示意換成真渲染（9-1，耳機盒放機身上無線充） {%- endcomment -%}
+        <img src="{{ 'ts-charge-pods.webp' | asset_url }}" alt="AirPods 充電盒放在 TITANSHIELD Air 上無線充電"
+             width="1200" height="1323" loading="lazy"
+             style="display:block;width:min(380px,72vw);height:auto">
+        <p class="small" style="margin:0">磁吸無線充電・支援 AirPods 無線充電</p>
+      </div>
+    </div>
+
+    <!-- Qi2 15W vs Qi 7.5W -->
+    <div style="margin-top:clamp(56px,8vw,96px)">
+      <h3 class="rise" style="font-size:clamp(22px,2.8vw,32px)">15W 無線，是舊規格 7.5W 的兩倍。</h3>
+      <p class="lede rise" data-d="1">同樣一段時間，能推進去的電量差一倍。許多無線充電板還停在 7.5W 的時候，它已經走到終點。</p>
+
+      <div class="chart rise" data-d="2" id="chart">
+        <svg viewBox="0 0 680 340" role="img" aria-label="磁吸無線 15W 與舊規格 7.5W 的充電進度對照曲線">
+          <defs>
+            <linearGradient class="g-accent" id="areaFast" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-opacity=".34"/>
+              <stop offset="1" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient class="g-mute" id="areaSlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-opacity=".2"/>
+              <stop offset="1" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <g stroke="currentColor" stroke-width="1">
+            <line x1="70" y1="50" x2="650" y2="50"/>
+            <line x1="70" y1="165" x2="650" y2="165"/>
+            <line x1="70" y1="280" x2="650" y2="280"/>
+          </g>
+          <g fill="currentColor" font-size="12" text-anchor="end">
+            <text x="58" y="54">100%</text><text x="58" y="169">50%</text><text x="58" y="284">0%</text>
+          </g>
+
+          <line x1="360" y1="50" x2="360" y2="280" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+
+          <g class="chart__rise chart__rise--late">
+            <path d="M70,280 C290,215 450,130 650,50 L650,280 Z" fill="url(#areaSlow)"/>
+            <path class="chart__line chart__line--slow" d="M70,280 C290,215 450,130 650,50"/>
+          </g>
+          <g class="chart__rise">
+            <path d="M70,280 C180,180 250,90 360,50 L360,280 Z" fill="url(#areaFast)"/>
+            <path class="chart__line chart__line--fast" d="M70,280 C180,180 250,90 360,50"/>
+          </g>
+
+          <g class="chart__dot">
+            <circle cx="360" cy="50" r="5.5" class="c-accent"/>
+            <text x="374" y="46" class="c-accent" font-size="14" font-weight="600">磁吸無線 15W</text>
+            <text x="374" y="64" fill="currentColor" font-size="12">充飽</text>
+            <circle cx="360" cy="167" r="5" fill="currentColor"/>
+            <text x="374" y="186" fill="currentColor" font-size="13">舊規格 7.5W 此時大約在一半</text>
+          </g>
+
+          <text x="650" y="306" text-anchor="end" fill="currentColor" font-size="12">時間</text>
+        </svg>
+      </div>
+      <p class="small rise">曲線為原理示意：功率兩倍，同樣時間推入的電量約為兩倍。實際充電時間依機型、剩餘電量與環境溫度而異。</p>
+    </div>
+
+    <!-- 雙裝置同時充（2026-08-18 Mars：放 8 號渲染，文字併左欄、圖右欄） -->
+    <div class="split" style="margin-top:clamp(56px,8vw,96px);align-items:center">
+      <div class="rise">
+        <h3 style="font-size:clamp(22px,2.8vw,32px)">手機貼上面，<br>耳機插旁邊。</h3>
+        <p class="lede">上面磁吸充手機，同時用 Type-C 拉一條線充 AirPods 或手錶盒。一顆同時顧兩台，出門不用帶第二顆。</p>
+        <p class="small">兩邊同時輸出時，功率各分一半。耳機這類小電流裝置，雙擊電源鍵進入低電流模式，就不會被誤判成充飽而斷電。</p>
+      </div>
+      <div class="rise" data-d="1" style="display:flex;justify-content:center">
+        <img src="{{ 'ts-charge-dual.webp' | asset_url }}" alt="TITANSHIELD Air 磁吸在手機背面，同時用 Type-C 線充 AirPods"
+             width="1400" height="2088" loading="lazy"
+             style="display:block;width:min(400px,78vw);height:auto">
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 充電",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "貼上去\n就開始充。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "磁吸對準無線充電區，放上去自動開始。要插線也行，磁吸無線 15W、Type-C 有線 18W，兩種方式同一顆機身。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 充電"
+    }
+  ]
+}
+{% endschema %}

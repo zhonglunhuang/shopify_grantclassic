@@ -1,0 +1,36 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect" id="magnet" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="mag">
+      <div class="rise">
+        <h2>{{ section.settings.heading | newline_to_br }}</h2>
+        <p class="lede">{{ section.settings.lede | newline_to_br }}</p>
+        <p class="small">我們把厚度做到 6 mm，磁吸吸力仍維持在 1.5 公斤——薄，不代表要拿吸力去換。</p>
+      </div>
+      <div class="rise" data-d="1">
+        <p class="mag__n" data-count="1.5" data-dec="1">0.0<em>kg</em></p>
+        <p class="lede">磁吸吸力，與 Apple MagSafe 同級。<br>薄到 6 mm，這個數字還是沒有讓步。</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 磁吸",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "吸得住，\n甩不掉。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "N52 磁鐵，符合 Apple MagSafe 的 1.5 公斤規範。貼上去是「扣住」不是「放著」，走路、掏口袋、單手滑都不會滑開。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 磁吸"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,134 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  六重防護 2026-08-18 三改（Mars 拍板，參考他給的示意圖）：
+  左＝標題＋六個防護的切換列（藍色底線）＋「會動的示意曲線」——每個防護一條：
+  過壓衝過門檻即切斷、過熱到線先降載、過載自動限流、過充充飽即止、短路瞬斷、FOD 停輸出；
+  3 秒自動輪播、點了就停（跟固態段同邏輯）。右＝2 號渲染（透明底、斜擺機身）。
+  曲線動畫在 ts-guard.js；NTC 精準控溫卡與說明書小字保留在下方。
+{%- endcomment -%}
+<style>
+  .ts-air .gx{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);
+    align-items:center;margin-top:clamp(32px,4.5vw,52px);}
+  .ts-air .gx__tabs{display:flex;gap:clamp(12px,2vw,28px);border-bottom:1px solid var(--line);
+    flex-wrap:wrap;}
+  .ts-air .gx__tabs button{background:none;border:0;color:var(--fg-2);font-size:15px;
+    font-weight:600;padding:8px 2px 12px;cursor:pointer;position:relative;letter-spacing:.01em;}
+  .ts-air .gx__tabs button.on{color:var(--fg);}
+  .ts-air .gx__tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;
+    height:2px;background:var(--accent);}
+  /* 靜態說明清單：畫面上隱藏（gx__cap 會輪播顯示同內容），DOM 裡保留給爬蟲 */
+  .ts-air .gx__srlist{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;margin:0;}
+  .ts-air .gx__chart{margin-top:24px;}
+  .ts-air .gx__chart svg{width:100%;height:auto;display:block;}
+  .ts-air .gx__chart .axis{stroke:var(--line);stroke-width:1;}
+  .ts-air .gx__chart .th{stroke:rgba(255,255,255,.4);stroke-width:1;stroke-dasharray:5 5;}
+  .ts-air .gx__chart .curve{stroke:var(--accent);stroke-width:2.4;fill:none;
+    stroke-linecap:round;stroke-linejoin:round;}
+  .ts-air .gx__chart .dot{fill:#FF453A;opacity:0;transition:opacity .3s;}
+  .ts-air .gx__chart .dot.on{opacity:1;}
+  .ts-air .gx__chart text{fill:var(--fg-3);font-size:12px;}
+  .ts-air .gx__cap{margin-top:16px;font-size:15px;color:var(--fg-2);min-height:1.7em;}
+  .ts-air .gx__img img{width:100%;height:auto;display:block;}
+  @media (max-width:860px){
+    .ts-air .gx{grid-template-columns:1fr;}
+    .ts-air .gx__img{order:-1;}
+    .ts-air .gx__img img{max-width:420px;margin-inline:auto;}
+  }
+  .ts-air .ntcbox{margin-top:clamp(40px,5vw,60px);background:var(--bg-2);border:1px solid var(--line);
+    border-radius:18px;padding:28px 26px;display:flex;gap:26px;align-items:center;flex-wrap:wrap;}
+  .ts-air .ntcbox__t{flex:1 1 300px;}
+  .ts-air .ntcbox h3{margin:0;font-size:19px;font-weight:650;}
+  .ts-air .ntcbox p{margin:8px 0 0;font-size:14.5px;line-height:1.7;color:var(--fg-2);}
+  .ts-air .ntcbox__flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13.5px;font-weight:600;}
+  .ts-air .ntcbox__flow .s{background:var(--bg-3);border-radius:10px;padding:9px 14px;}
+  .ts-air .ntcbox__flow .a{color:var(--accent);}
+</style>
+<div class="ts-air">
+<section class="sect" id="guard" data-ts-guard>
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="gx rise" data-d="2">
+      <div>
+        {%- comment -%} 2026-08-19 SEO：分頁鈕改 Liquid 渲染（原本 JS 生成、爬蟲看不到）；
+            曲線資料仍在 ts-guard.js 的 MODES（順序必須一致）。 {%- endcomment -%}
+        <div class="gx__tabs" id="gxTabs" role="tablist" aria-label="六重防護">
+          <button type="button" class="on" role="tab" aria-selected="true">過壓</button>
+          <button type="button" role="tab" aria-selected="false">過熱</button>
+          <button type="button" role="tab" aria-selected="false">過載</button>
+          <button type="button" role="tab" aria-selected="false">過充</button>
+          <button type="button" role="tab" aria-selected="false">短路</button>
+          <button type="button" role="tab" aria-selected="false">異物偵測</button>
+        </div>
+        {%- comment -%} 六句說明的靜態版：給搜尋引擎與螢幕報讀器（畫面上由下方 gx__cap 輪播顯示） {%- endcomment -%}
+        <dl class="gx__srlist">
+          <dt>過壓防護</dt><dd>電壓衝過門檻的瞬間，直接切斷輸出。</dd>
+          <dt>過熱防護</dt><dd>溫度碰到 45°C 先降載續充，降溫後恢復功率。</dd>
+          <dt>過載防護</dt><dd>輸出異常爬升，到上限就鎖住，自動限流。</dd>
+          <dt>過充防護</dt><dd>充到滿就停在滿，不硬灌、不涓流虐待電芯。</dd>
+          <dt>短路防護</dt><dd>偵測到短路突波，瞬間斷路，保住整顆電芯。</dd>
+          <dt>FOD 異物偵測</dt><dd>鑰匙、硬幣放上充電區，立刻停止輸出。</dd>
+        </dl>
+        <div class="gx__chart">
+          <svg viewBox="0 0 560 260" aria-hidden="true">
+            <line class="axis" x1="40" y1="232" x2="540" y2="232"/>
+            <line class="axis" x1="40" y1="28"  x2="40"  y2="232"/>
+            <line class="th" id="gxTh" x1="40" y1="70" x2="540" y2="70"/>
+            <text id="gxThLabel" x="540" y="60" text-anchor="end">門檻</text>
+            <text id="gxAxis" x="40" y="18">電壓</text>
+            <text x="540" y="252" text-anchor="end">時間</text>
+            <path class="curve" id="gxCurve" d=""/>
+            <circle class="dot" id="gxDot" r="5" cx="0" cy="0"/>
+          </svg>
+        </div>
+        <p class="gx__cap" id="gxCap"></p>
+      </div>
+
+      <div class="gx__img">
+        <img src="{{ 'ts-guard-hero.webp' | asset_url }}" alt="TITANSHIELD Air 斜擺機身"
+             width="1500" height="1214" loading="lazy">
+      </div>
+    </div>
+
+    <div class="ntcbox rise" data-d="3">
+      <div class="ntcbox__t">
+        <h3>{{ section.settings.ntc_title }}</h3>
+        <p>{{ section.settings.ntc_text }}</p>
+      </div>
+      <div class="ntcbox__flow" aria-label="NTC 控溫流程">
+        <span class="s">溫度升高</span><span class="a">→</span>
+        <span class="s">自動降瓦數</span><span class="a">→</span>
+        <span class="s">降溫後恢復高功率</span>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:20px">{{ section.settings.note }}</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+<script src="{{ 'ts-guard.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 六重防護",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "六重防護，\n一顆晶片全程盯著。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "充放電的每一秒，保護晶片都在監看電壓、電流與溫度——異常發生的瞬間就出手，不等你發現。" },
+    { "type": "text", "id": "ntc_title", "label": "NTC 卡標題", "default": "NTC 精準控溫" },
+    { "type": "textarea", "id": "ntc_text", "label": "NTC 卡說明",
+      "default": "機身裡的 NTC 溫度感測器即時監測電芯溫度，到達 45°C 不是直接斷充，而是降功率續充——充電不燙手、進度不中斷。" },
+    { "type": "text", "id": "note", "label": "小字",
+      "default": "45°C 降載門檻出自產品使用說明書；六項防護的觸發條件與曲線為原理示意，實際行為依產品韌體而異。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 六重防護"
+    }
+  ]
+}
+{% endschema %}

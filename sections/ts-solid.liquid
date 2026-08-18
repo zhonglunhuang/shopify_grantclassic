@@ -1,0 +1,161 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  接在穿刺之後回答「為什麼它沒事」。
+
+  三層等距圖是手繪 SVG，不是圖片 —— 標註是真的文字，手機上照樣讀得清楚，
+  而且可以即時在「固態／液態」之間切換，同一張圖說完兩件事。
+  顏色沿用頁面的語意：藍＝安全與數據，橘紅＝溫度與危險。
+{%- endcomment -%}
+<style>
+  /* 2026-08-18 Mars 拍板：改捲動驅動——往下滑前半段看固態、後半段自動切到傳統液態，
+     兩種一定都會看到。釘住一屏，捲動進度過半就換邊；點分頁會跳到對應的捲動位置。
+     prefers-reduced-motion 退回原本的點擊切換（不釘住）。 */
+  .ts-air .ssb.ssb--scrub{height:240vh;position:relative;padding:0;}
+  .ts-air .ssb--scrub .ssb__pin{position:sticky;top:0;height:100svh;overflow:hidden;
+    display:flex;align-items:center;}
+  .ts-air .ssb--scrub .ssb__pin > .wrap{width:100%;}
+  .ts-air .ssb--scrub .ssb__fig{max-height:56svh;}
+  @media (prefers-reduced-motion:reduce){
+    .ts-air .ssb.ssb--scrub{height:auto;padding-block:clamp(88px,13vh,168px);}
+    .ts-air .ssb--scrub .ssb__pin{position:static;height:auto;overflow:visible;display:block;}
+    .ts-air .ssb--scrub .ssb__fig{max-height:none;}
+  }
+</style>
+<div class="ts-air">
+<section class="sect ssb ssb--scrub" id="solid" data-ts-solidscrub>
+  <div class="ssb__pin">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="ssb__box rise" data-d="2">
+      <div class="ssb__seg" role="tablist" aria-label="電解質型態">
+        <button type="button" class="ssb__tab is-on" role="tab" aria-selected="true" data-ssb="solid">
+          {{ section.settings.tab_solid }}
+        </button>
+        <button type="button" class="ssb__tab" role="tab" aria-selected="false" data-ssb="liquid">
+          {{ section.settings.tab_liquid }}
+        </button>
+      </div>
+
+      <svg class="ssb__fig" viewBox="0 0 700 510" role="img"
+           aria-label="正極層、電解質、負極層三層結構的對照圖">
+        <defs>
+          <linearGradient id="ssbTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2A2E35"/><stop offset="1" stop-color="#16181C"/>
+          </linearGradient>
+          <linearGradient id="ssbSide" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#191C21"/><stop offset="1" stop-color="#0D0F12"/>
+          </linearGradient>
+          <linearGradient id="ssbGel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7FC4FF"/><stop offset="1" stop-color="#1E7FE0"/>
+          </linearGradient>
+          <linearGradient id="ssbGelSide" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1E7FE0"/><stop offset="1" stop-color="#0E4F8F"/>
+          </linearGradient>
+          <linearGradient id="ssbLiq" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FF8A6E"/><stop offset="1" stop-color="#C7301A"/>
+          </linearGradient>
+          <linearGradient id="ssbLiqSide" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C7301A"/><stop offset="1" stop-color="#7A1B0D"/>
+          </linearGradient>
+          <filter id="ssbSpill" x="-30%" y="-40%" width="160%" height="180%">
+            <feGaussianBlur stdDeviation="7"/>
+          </filter>
+        </defs>
+
+        {%- comment -%}
+          由下往上畫，上面那片才會正確蓋住下面那片。
+          電解質是「中間」那一層 —— 它就是隔開正負極的東西，
+          放在最上面等於把圖說錯了。正負極層維持黑色半透明，讓中間那層是唯一的主角。
+        {%- endcomment -%}
+        {%- comment -%}負極層（最下）{%- endcomment -%}
+        <g class="ssb__pole">
+          <path d="M35 377.5 L210 465 L210 480 L35 392.5 Z" fill="url(#ssbSide)"/>
+          <path d="M210 465 L325 407.5 L325 422.5 L210 480 Z" fill="url(#ssbSide)"/>
+          <path d="M150 320 L325 407.5 L210 465 L35 377.5 Z" fill="url(#ssbTop)"/>
+        </g>
+        {%- comment -%}電解質（中間）：固態是一塊完整的膠；液態會外漏{%- endcomment -%}
+        <g class="ssb__solid">
+          <path d="M35 232.5 L210 320 L210 335 L35 247.5 Z" fill="url(#ssbGelSide)"/>
+          <path d="M210 320 L325 262.5 L325 277.5 L210 335 Z" fill="url(#ssbGelSide)"/>
+          <path d="M150 175 L325 262.5 L210 320 L35 232.5 Z" fill="url(#ssbGel)" opacity=".92"/>
+        </g>
+        <g class="ssb__liquid">
+          <path d="M150 175 L325 262.5 L210 320 L35 232.5 Z" fill="url(#ssbLiq)"
+                filter="url(#ssbSpill)" opacity=".85"/>
+          <path d="M35 232.5 L210 320 L210 335 L35 247.5 Z" fill="url(#ssbLiqSide)"/>
+          <path d="M210 320 L325 262.5 L325 277.5 L210 335 Z" fill="url(#ssbLiqSide)"/>
+          <path d="M150 175 L325 262.5 L210 320 L35 232.5 Z" fill="url(#ssbLiq)"/>
+          <g fill="#FF5A3C" opacity=".85">
+            <circle cx="28" cy="257" r="3"/><circle cx="52" cy="273" r="2.2"/>
+            <circle cx="86" cy="291" r="2.6"/><circle cx="128" cy="313" r="2"/>
+            <circle cx="196" cy="345" r="3"/><circle cx="238" cy="331" r="2.3"/>
+            <circle cx="288" cy="303" r="2.6"/><circle cx="330" cy="281" r="2"/>
+          </g>
+        </g>
+        {%- comment -%}正極層（最上）{%- endcomment -%}
+        <g class="ssb__pole">
+          <path d="M35 87.5 L210 175 L210 190 L35 102.5 Z" fill="url(#ssbSide)"/>
+          <path d="M210 175 L325 117.5 L325 132.5 L210 190 Z" fill="url(#ssbSide)"/>
+          <path d="M150 30 L325 117.5 L210 175 L35 87.5 Z" fill="url(#ssbTop)"/>
+        </g>
+
+        {%- comment -%}指示線與標註{%- endcomment -%}
+        <g class="ssb__lead">
+          <path d="M328 118 L392 96"/>
+          <path d="M328 263 L392 249"/>
+          <path d="M328 408 L392 432"/>
+        </g>
+        <text class="ssb__lb" x="400" y="82">{{ section.settings.label_top }}</text>
+        <text class="ssb__lb ssb__lb--mid ssb__solid" x="400" y="238">{{ section.settings.solid_a }}</text>
+        <text class="ssb__lb ssb__lb--mid ssb__solid" x="400" y="260">{{ section.settings.solid_b }}</text>
+        <text class="ssb__lb ssb__lb--hot ssb__liquid" x="400" y="228">{{ section.settings.liquid_a }}</text>
+        <text class="ssb__lb ssb__lb--hot ssb__liquid" x="400" y="250">{{ section.settings.liquid_b }}</text>
+        <text class="ssb__lb ssb__lb--hot ssb__liquid" x="400" y="272">{{ section.settings.liquid_c }}</text>
+        <text class="ssb__lb" x="400" y="446">{{ section.settings.label_bottom }}</text>
+      </svg>
+
+      <div class="ssb__say">
+        <p class="ssb__solid">{{ section.settings.text_solid | newline_to_br }}</p>
+        <p class="ssb__liquid">{{ section.settings.text_liquid | newline_to_br }}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-solid.js' | asset_url }}" defer></script>
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 固態電解質",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題",
+      "default": "準固態行動電源，\n刺穿了為什麼沒事？" },
+    { "type": "textarea", "id": "lede", "label": "說明",
+      "default": "因為隔開正負極的那一層，是準固態的。" },
+    { "type": "text", "id": "tab_solid", "label": "分頁一", "default": "固態電解質" },
+    { "type": "text", "id": "tab_liquid", "label": "分頁二", "default": "傳統液態電解質" },
+    { "type": "text", "id": "label_top", "label": "上層標註", "default": "正極層" },
+    { "type": "text", "id": "label_bottom", "label": "下層標註", "default": "負極層" },
+    { "type": "text", "id": "solid_a", "label": "固態標註 1", "default": "固態電解質" },
+    { "type": "text", "id": "solid_b", "label": "固態標註 2", "default": "被刺穿也維持結構" },
+    { "type": "text", "id": "liquid_a", "label": "液態標註 1", "default": "液態電解質" },
+    { "type": "text", "id": "liquid_b", "label": "液態標註 2", "default": "破損後外漏" },
+    { "type": "text", "id": "liquid_c", "label": "液態標註 3", "default": "正負極接觸、熱失控" },
+    { "type": "textarea", "id": "text_solid", "label": "固態說明",
+      "default": "準固態電解質被鋼針貫穿之後仍然維持原本的結構，不會流動、不會把正負極連在一起。所以穿刺試驗裡，它的反應只是升到 44.0°C，然後停在那裡。" },
+    { "type": "textarea", "id": "text_liquid", "label": "液態說明",
+      "default": "一般行動電源用液態電解質。隔離膜一旦被刺穿或撞破，液體流出、正負極直接接觸，短路產生的熱會再推高反應——這就是「熱失控」，也是新聞上看到的起火與爆炸。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 固態電解質"
+    }
+  ]
+}
+{% endschema %}

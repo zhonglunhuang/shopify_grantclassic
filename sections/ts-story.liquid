@@ -1,0 +1,257 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  品牌信任段（二合一）：募資成績 → 他們也在用（KOL 牆）。
+  版型與文案抄 Pro 模擬稿；範本 25 段上限所以兩段共用一個 section 檔。
+  拆機工藝與 R 角本來也在這裡，2026-08-18 Mars 拍板搬到介紹中段（併進 ts-details）。
+  - 募資截圖還沒有 → 待補框，後台圖片欄位換上即隱藏
+  - KOL 牆全部是版位示意，上線後由 GrantOS 背書牆帶真資料
+{%- endcomment -%}
+<style>
+  .ts-air .ph-box{border:1px dashed var(--line);border-radius:18px;display:grid;place-items:center;
+    color:var(--fg-3);font-size:13.5px;text-align:center;padding:20px;
+    background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(0,0,0,.02) 12px 24px);}
+  .ts-air .ph-box b{display:block;font-weight:600;color:var(--fg-2);margin-bottom:8px;}
+  .ts-air .ph-box .todo{display:inline-block;border:1px dashed currentColor;border-radius:999px;
+    padding:4px 12px;font-size:12px;margin-top:10px;opacity:.6;}
+
+  /* 2026-08-18 三改（Apple 版式）：主數字在標題下、輪播＋文字分頁 */
+  .ts-air .fund__total{margin:clamp(18px,2.4vw,28px) 0 0;}
+  .ts-air .fund__total span{display:block;font-size:15px;color:var(--fg-2);}
+  .ts-air .fund__total b{display:block;margin-top:4px;font-size:clamp(34px,4.6vw,52px);
+    font-weight:700;letter-spacing:-.02em;color:var(--fg);}
+  /* 輪播卡：截圖需要一圈微線框才立得起來（Mars 2026-08-18） */
+  .ts-air .fund__car{position:relative;margin-top:clamp(32px,4.5vw,48px);
+    aspect-ratio:21/10;border-radius:18px;overflow:hidden;background:var(--bg-2);
+    border:1px solid rgba(0,0,0,.10);}
+  .ts-air .fund__car img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;transition:opacity .6s ease;}
+  .ts-air .fund__car img.on{opacity:1;}
+  /* 分頁改 Insta360 式滑動黑膠囊（灰軌＋浮起膠囊，dk-seg 同語言） */
+  .ts-air .fund__tabswrap{display:flex;justify-content:center;margin-top:22px;}
+  .ts-air .fund__tabs{position:relative;display:inline-flex;gap:2px;
+    background:#E9E9EE;border-radius:999px;padding:4px;}
+  .ts-air .fund__tabs .fund__pill{position:absolute;top:4px;bottom:4px;left:4px;width:0;
+    background:#1D1D1F;border-radius:999px;
+    transition:left .35s cubic-bezier(.3,.6,.2,1),width .35s cubic-bezier(.3,.6,.2,1);}
+  .ts-air .fund__tabs button{background:none;border:0;padding:9px 18px;cursor:pointer;
+    border-radius:999px;font-size:14.5px;font-weight:600;color:#6E6E73;
+    position:relative;z-index:1;letter-spacing:.01em;transition:color .3s;}
+  .ts-air .fund__tabs button.on{color:#FFFFFF;}
+  @media (max-width:520px){
+    .ts-air .fund__tabs button{padding:8px 12px;font-size:13.5px;}
+  }
+  .ts-air .fund__nums{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(24px,3.6vw,40px);}
+  .ts-air .fund__n{background:var(--bg);border:1px solid var(--line);border-radius:18px;
+    padding:26px 20px;text-align:center;}
+  .ts-air .fund__n b{display:block;font-size:clamp(26px,3.4vw,38px);font-weight:650;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;}
+  .ts-air .fund__n span{display:block;margin-top:6px;font-size:13px;color:var(--fg-2);line-height:1.5;}
+
+  .ts-air .kol{columns:3;column-gap:14px;margin-top:clamp(36px,5vw,56px);}
+  .ts-air .kol>*{break-inside:avoid;margin-bottom:14px;}
+  .ts-air .kol__m{position:relative;border-radius:18px;overflow:hidden;display:flex;align-items:flex-end;
+    color:#fff;border:1px solid var(--line);}
+  .ts-air .kol__m--v{aspect-ratio:9/16;background:linear-gradient(160deg,#23252B,#101116);}
+  .ts-air .kol__m--h{aspect-ratio:16/9;background:linear-gradient(160deg,#2A2320,#14100E);}
+  .ts-air .kol__m--s{aspect-ratio:4/5;background:linear-gradient(160deg,#1F2A22,#0E1410);}
+  .ts-air .kol__play{position:absolute;top:50%;left:50%;translate:-50% -50%;width:52px;height:52px;
+    border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);display:grid;place-items:center;}
+  .ts-air .kol__play svg{width:18px;height:18px;fill:#fff;margin-left:3px;}
+  .ts-air .kol__tag{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:600;
+    background:rgba(0,0,0,.45);border-radius:6px;padding:4px 8px;backdrop-filter:blur(4px);}
+  .ts-air .kol__info{position:relative;width:100%;padding:16px;font-size:13px;
+    background:linear-gradient(to top,rgba(0,0,0,.68),transparent);}
+  .ts-air .kol__info b{display:block;font-size:14px;font-weight:650;}
+  .ts-air .kol__info span{opacity:.85;font-size:12px;}
+  .ts-air .kol__q{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px;
+    display:flex;flex-direction:column;gap:12px;}
+  .ts-air .kol__qh{display:flex;align-items:center;gap:12px;}
+  .ts-air .kol__ava{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;
+    background:var(--bg-3);color:var(--fg);font-weight:650;font-size:17px;}
+  .ts-air .kol__who b{display:block;font-size:14.5px;font-weight:650;}
+  .ts-air .kol__who span{font-size:12px;color:var(--fg-2);}
+  .ts-air .kol__stars{color:#F5A623;font-size:14px;letter-spacing:2px;}
+  .ts-air .kol__q q{quotes:none;font-size:14.5px;line-height:1.75;}
+
+  @media (max-width:900px){.ts-air .kol{columns:2;}}
+  @media (max-width:760px){
+    .ts-air .fund__shots{grid-template-columns:1fr;}
+    .ts-air .fund__nums{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){.ts-air .kol{columns:1;}}
+</style>
+<div class="ts-air">
+<section class="sect light" id="fund">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.fund_heading | newline_to_br }}</h2>
+    {%- comment -%} 2026-08-18 三改（Mars 拍板，走 Apple 版式）：
+        總金額當主數字放大標正下方；數字卡整排拿掉（截圖上就有數字）；
+        輪播下方掛三個分頁鈕，約兩秒一格依序播、點了交還手動 {%- endcomment -%}
+    <p class="fund__total rise" data-d="1"><span>系列產品三場募資累計總金額</span><b>約 NT$ 1,323 萬</b></p>
+    <p class="lede rise" data-d="1">{{ section.settings.fund_lede | newline_to_br }}</p>
+
+    <div class="fund__car rise" data-d="2" id="fundCar">
+      <img class="on" src="{{ 'ts-fund-w-tw1.webp' | asset_url }}" alt="嘖嘖募資頁：第一代 NT$10,351,535、4,184 人贊助、103,515% 達成" width="1180" height="560" loading="lazy">
+      <img src="{{ 'ts-fund-w-pro.webp' | asset_url }}" alt="嘖嘖募資頁：Pro NT$2,427,988、915 人贊助、2,427% 達成" width="1180" height="560" loading="lazy">
+      <img src="{{ 'ts-fund-w-jp.webp' | asset_url }}" alt="Makuake 募資頁：¥2,230,800、226 人支持、2,230% 達成" width="1050" height="500" loading="lazy">
+    </div>
+
+    <div class="fund__tabswrap rise" data-d="3">
+      <div class="fund__tabs" id="fundTabs" role="tablist" aria-label="募資場次">
+        <i class="fund__pill" aria-hidden="true"></i>
+        <button type="button" class="on" role="tab" aria-selected="true">台灣第一檔</button>
+        <button type="button" role="tab" aria-selected="false">台灣第二檔</button>
+        <button type="button" role="tab" aria-selected="false">日本第一檔</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect light sect--tight" id="kol" style="background:var(--bg-2)">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">{{ section.settings.kol_heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1" style="text-align:center;margin-inline:auto">{{ section.settings.kol_lede | newline_to_br }}</p>
+
+    <div class="kol rise" data-d="2">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'media' -%}
+          <div class="kol__m kol__m--{{ block.settings.shape }}" {{ block.shopify_attributes }}>
+            <span class="kol__tag">{{ block.settings.tag }}</span>
+            {%- if block.settings.is_video -%}
+              <span class="kol__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            {%- endif -%}
+            <div class="kol__info"><b>{{ block.settings.who }}</b><span>{{ block.settings.cap }}</span></div>
+          </div>
+        {%- elsif block.type == 'quote' -%}
+          <div class="kol__q" {{ block.shopify_attributes }}>
+            <div class="kol__qh">
+              <span class="kol__ava" aria-hidden="true">{{ block.settings.who | slice: 0 }}</span>
+              <div class="kol__who"><b>{{ block.settings.who }}</b><span>{{ block.settings.cap }}</span></div>
+            </div>
+            <div class="kol__stars" aria-label="五顆星">★★★★★</div>
+            <q>{{ block.settings.text }}</q>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <p class="small" style="margin-top:20px;text-align:center;margin-inline:auto">{{ section.settings.kol_note }}</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+<script>
+/* 募資大圖輪播：3.5 秒淡入換場、數字卡同步亮起兼分頁鈕；點了就停自動 */
+if (!window.__tsFundCar) {
+  window.__tsFundCar = 1;
+  (function () {
+    function start() {
+      var car = document.getElementById("fundCar");
+      var nums = document.getElementById("fundTabs");
+      if (!car || !nums) return;
+      var imgs = [].slice.call(car.querySelectorAll("img"));
+      var btns = [].slice.call(nums.querySelectorAll("button"));
+      var pill = nums.querySelector(".fund__pill");
+      var cur = 0, manual = false, timer = null;
+      function movePill() {
+        var b = btns[cur];
+        if (pill && b) {
+          pill.style.left = b.offsetLeft + "px";
+          pill.style.width = b.offsetWidth + "px";
+        }
+      }
+      function go(i) {
+        cur = i;
+        imgs.forEach(function (im, j) { im.classList.toggle("on", j === i); });
+        btns.forEach(function (b, j) {
+          b.classList.toggle("on", j === i);
+          b.setAttribute("aria-selected", j === i ? "true" : "false");
+        });
+        movePill();
+      }
+      addEventListener("resize", movePill);
+      movePill();
+      btns.forEach(function (b, i) {
+        b.addEventListener("click", function () { manual = true; go(i); });
+      });
+      if (matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting && !timer && !manual) {
+              timer = setInterval(function () {
+                if (!manual) go((cur + 1) % imgs.length);
+              }, 2200);
+            } else if (!e.isIntersecting && timer) { clearInterval(timer); timer = null; }
+          });
+        }, { threshold: 0.35 }).observe(car);
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", start);
+    } else { start(); }
+  })();
+}
+</script>
+
+{% schema %}
+{
+  "name": "TS Air 品牌信任（二合一）",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "① 募資成績" },
+    { "type": "textarea", "id": "fund_heading", "label": "標題", "default": "台灣起家，進軍日本。" },
+    { "type": "textarea", "id": "fund_lede", "label": "說明",
+      "default": "穩如鈦山第一代在台灣嘖嘖募資突破千萬；Pro 這一代，台灣與日本兩地募資都達標成功——安全這件事，跨語言都聽得懂。" },
+    { "type": "image_picker", "id": "image_tw", "label": "台灣募資截圖（留空顯示待補框）" },
+    { "type": "image_picker", "id": "image_jp", "label": "日本募資截圖（留空顯示待補框）" },
+    { "type": "text", "id": "fund_note", "label": "小字",
+      "default": "數字取自嘖嘖與 Makuake 專案頁；日本場依 ¥1 ≈ NT$0.205 估算折合，總額以各平台頁面為準。" },
+    { "type": "header", "content": "② 他們也在用" },
+    { "type": "textarea", "id": "kol_heading", "label": "標題", "default": "他們也在用。" },
+    { "type": "textarea", "id": "kol_lede", "label": "說明", "default": "KOL 與真實用戶的開箱、實測與評價。" },
+    { "type": "text", "id": "kol_note", "label": "小字",
+      "default": "以上為版位示意內容，非真實評價——上線後由 GrantOS 背書牆自動帶入真實的 KOL 開箱與買家評價。" }
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "KOL 媒體卡（示意）",
+      "settings": [
+        { "type": "select", "id": "shape", "label": "比例", "default": "s",
+          "options": [
+            { "value": "v", "label": "直式 9:16" },
+            { "value": "h", "label": "橫式 16:9" },
+            { "value": "s", "label": "方形 4:5" }
+          ] },
+        { "type": "checkbox", "id": "is_video", "label": "顯示播放鍵", "default": true },
+        { "type": "text", "id": "tag", "label": "左上標籤", "default": "Reels・直式影片" },
+        { "type": "text", "id": "who", "label": "帳號／名稱" },
+        { "type": "text", "id": "cap", "label": "一句說明" }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "KOL 引用卡（示意）",
+      "settings": [
+        { "type": "text", "id": "who", "label": "名稱" },
+        { "type": "text", "id": "cap", "label": "平台／身分" },
+        { "type": "textarea", "id": "text", "label": "引用內容" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 品牌信任（四合一）",
+      "blocks": [
+        { "type": "media", "settings": { "shape": "v", "is_video": true, "tag": "Reels・直式影片", "who": "@daily.gadget", "cap": "「摔下去撿回來繼續充」開箱 45 秒" } },
+        { "type": "media", "settings": { "shape": "h", "is_video": true, "tag": "YouTube・橫式影片", "who": "阿哲・3C 開箱", "cap": "穿刺實測＋拆解 12:36" } },
+        { "type": "quote", "settings": { "who": "Mia 通勤日常", "cap": "Threads・真實買家", "text": "出門前手機剩 20%，磁吸貼著化妝，出門已經六成。薄到放小包包完全沒感覺。" } },
+        { "type": "media", "settings": { "shape": "s", "is_video": false, "tag": "Instagram・照片", "who": "@cafe.worker", "cap": "咖啡廳邊充邊追劇的日常" } },
+        { "type": "media", "settings": { "shape": "h", "is_video": true, "tag": "UGC・橫式影片", "who": "買家投稿", "cap": "汽車輾壓後照樣能充" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

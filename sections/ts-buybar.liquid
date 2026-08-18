@@ -1,0 +1,51 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  浮動購買列：接的是 Shopify 真正的購物車表單，不是假按鈕。
+  變體、售價、庫存都直接讀商品資料，不寫死。
+{%- endcomment -%}
+
+{%- assign v = product.selected_or_first_available_variant -%}
+
+<div class="ts-air ts-buybar" role="complementary" aria-label="購買">
+  <div class="ts-buybar__in">
+    <div class="ts-buybar__txt">
+      <div class="ts-buybar__name">{{ product.title }}</div>
+      <div class="ts-buybar__price">
+        {%- if v -%}
+          {{ v.price | money }}
+          {%- if section.settings.specs != blank %} ／ {{ section.settings.specs }}{% endif -%}
+        {%- else -%}
+          {{ section.settings.specs }}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if v and v.available -%}
+      {%- form 'product', product, id: 'ts-buybar-form' -%}
+        <input type="hidden" name="id" value="{{ v.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" name="add" class="ts-buybar__btn">
+          {{ section.settings.button_label }}
+        </button>
+      {%- endform -%}
+    {%- else -%}
+      <button class="ts-buybar__btn" disabled>{{ section.settings.soldout_label }}</button>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'ts-cart.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 浮動購買列",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "specs", "label": "副標（規格）", "default": "5000 mAh ／ 113 g ／ 6 mm" },
+    { "type": "text", "id": "button_label", "label": "按鈕文字", "default": "加入購物車" },
+    { "type": "text", "id": "soldout_label", "label": "缺貨時的文字", "default": "暫時缺貨" }
+  ],
+  "presets": [{ "name": "TS Air 浮動購買列" }]
+}
+{% endschema %}

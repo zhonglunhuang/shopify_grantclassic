@@ -1,0 +1,84 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect light" id="alloy">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="heat" id="heat">
+      <div class="heat__card rise">
+        <div class="heat__plate heat__plate--al"><span class="heat__spot"></span></div>
+        <h3>鋁合金</h3>
+        <p class="heat__n">150–170<em>W/m·K</em></p>
+        <p>熱從中心往整片機身擴散，摸起來是整體溫溫的。</p>
+      </div>
+      <div class="heat__card rise" data-d="1">
+        <div class="heat__plate heat__plate--pc"><span class="heat__spot"></span></div>
+        <h3>ABS／PC 塑膠</h3>
+        <p class="heat__n">0.2–0.3<em>W/m·K</em></p>
+        <p>熱散不出去，集中在電芯附近，只有一小塊特別燙。</p>
+      </div>
+    </div>
+
+    <div class="chart rise" style="margin-top:20px">
+      <svg viewBox="0 0 680 340" role="img" aria-label="鋁合金與塑膠外殼的機身溫度上升趨勢對照">
+        <defs>
+          <linearGradient class="g-cool" id="areaAl" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-opacity=".3"/><stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient class="g-heat" id="areaPc" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-opacity=".2"/><stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <g stroke="currentColor" stroke-width="1">
+          <line x1="76" y1="60" x2="520" y2="60"/><line x1="76" y1="170" x2="520" y2="170"/><line x1="76" y1="280" x2="520" y2="280"/>
+        </g>
+        <g fill="currentColor" font-size="12" text-anchor="end">
+          <text x="66" y="64">燙</text><text x="66" y="284">室溫</text>
+        </g>
+
+        <g class="chart__rise chart__rise--late">
+          <path d="M76,280 C170,196 250,142 330,124 L520,116 L520,280 Z" fill="url(#areaPc)"/>
+          <path class="chart__line c-heat-stroke" d="M76,280 C170,196 250,142 330,124 L520,116"/>
+        </g>
+        <g class="chart__rise">
+          <path d="M76,280 C170,238 250,208 330,198 L520,194 L520,280 Z" fill="url(#areaAl)"/>
+          <path class="chart__line chart__line--fast" d="M76,280 C170,238 250,208 330,198 L520,194"/>
+        </g>
+
+        <g class="chart__dot">
+          <circle cx="520" cy="116" r="5" class="c-heat"/>
+          <text x="534" y="112" class="c-heat" font-size="13.5" font-weight="600">塑膠外殼</text>
+          <text x="534" y="130" fill="currentColor" font-size="12">熱悶在裡面，一路往上</text>
+          <circle cx="520" cy="194" r="5.5" class="c-accent"/>
+          <text x="534" y="190" class="c-accent" font-size="13.5" font-weight="600">鋁合金外殼</text>
+          <text x="534" y="208" fill="currentColor" font-size="12">散得掉，早一步打平</text>
+        </g>
+
+        <text x="520" y="306" text-anchor="end" fill="currentColor" font-size="12">充電時間</text>
+      </svg>
+    </div>
+
+    <p class="small">數值為鋁合金與 ABS／PC 塑膠常見的熱傳導係數區間，兩者相差約 600 倍以上。上方兩張圖與曲線皆為原理示意，非實測熱影像。</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 鋁合金散熱",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "鋁合金機身。\n它同時是散熱片。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "外殼不只是外殼。充電時電芯產生的熱，會沿著整塊鋁合金散開；塑膠殼做不到這件事，熱只會悶在裡面。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 鋁合金散熱"
+    }
+  ]
+}
+{% endschema %}

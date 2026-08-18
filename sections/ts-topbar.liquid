@@ -1,0 +1,73 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  取代主題原本的公告列＋促銷彈窗＋白底導覽列（那三段由 layout/ts-air.liquid 關掉）。
+  左邊永遠留一條回首頁的路，右邊是頁內錨點與購買。
+{%- endcomment -%}
+<div class="ts-topbar" data-hide-app="{% if section.settings.hide_app_bar %}1{% else %}0{% endif %}">
+  <div class="ts-topbar__in">
+
+    <a class="ts-topbar__home" href="{{ routes.root_url }}">
+      <svg viewBox="0 0 6 11" fill="none" aria-hidden="true">
+        <path d="M5 1L1 5.5L5 10" stroke="currentColor" stroke-width="1.4"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      {%- if section.settings.logo != blank -%}
+        <img class="ts-topbar__logo" src="{{ section.settings.logo | image_url: width: 400 }}"
+             alt="{{ section.settings.home_label | escape }}"
+             width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}">
+      {%- else -%}
+        {%- comment -%}主題頁首同一顆 logo，內嵌著色跟著列走{%- endcomment -%}
+        {%- render 'ts-logo' -%}
+      {%- endif -%}
+    </a>
+
+    <span class="ts-topbar__sep" aria-hidden="true"></span>
+    <span class="ts-topbar__name">{{ section.settings.product_label }}</span>
+
+    <nav class="ts-topbar__links" aria-label="{{ section.settings.product_label }}">
+      <a href="#safety">安全</a>
+      <a href="#inside">結構</a>
+      <a href="#thin">輕薄</a>
+      <a href="#charge">充電</a>
+      <a href="#spec">規格</a>
+    </nav>
+
+    {%- assign v = product.selected_or_first_available_variant -%}
+    {%- if v and v.available -%}
+      {%- form 'product', product, id: 'ts-topbar-form' -%}
+        <input type="hidden" name="id" value="{{ v.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" name="add" class="ts-topbar__buy">{{ section.settings.button_label }}</button>
+      {%- endform -%}
+    {%- else -%}
+      <a class="ts-topbar__buy" href="{{ product.url | default: routes.root_url }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+
+  </div>
+</div>
+<div class="ts-topbar__spacer" aria-hidden="true"></div>
+
+<script src="{{ 'ts-topbar.js' | asset_url }}" defer></script>
+
+<script src="{{ 'ts-cart.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 頂部列",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo（留空就用主題頁首那一顆）" },
+    { "type": "text", "id": "home_label", "label": "Logo 的替代文字（點了回首頁）", "default": "grantclassic" },
+    { "type": "text", "id": "product_label", "label": "商品名", "default": "TITANSHIELD Air" },
+    { "type": "text", "id": "button_label", "label": "購買按鈕", "default": "購買" },
+    { "type": "checkbox", "id": "hide_app_bar", "default": true,
+      "label": "隱藏 App 的行銷列（Vitals 折扣券那條）",
+      "info": "只影響這一頁，其他頁面照舊。取消勾選就會回來。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 頂部列"
+    }
+  ]
+}
+{% endschema %}

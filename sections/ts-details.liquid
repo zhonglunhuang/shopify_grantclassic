@@ -1,0 +1,100 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  機身細節＋拆機工藝＋R 角（三合一）。
+  2026-08-18 Mars 拍板：拆機工藝與 R 角要放在介紹中段、不能壓在規格後面，
+  於是從品牌信任段搬過來，跟「細節」併成同一個檔案（範本 25 段上限，不能再開新段）。
+  拆機照與 R 角特寫仍是待補框，後台傳圖即換上。
+  「與 MacBook 同曲率」是照 Pro 寫的，Air 是否同工藝待 Mars 核對。
+{%- endcomment -%}
+<style>
+  .ts-air .ph-box{border:1px dashed var(--line);border-radius:18px;display:grid;place-items:center;
+    color:var(--fg-3);font-size:13.5px;text-align:center;padding:20px;
+    background:repeating-linear-gradient(45deg,transparent 0 12px,rgba(0,0,0,.02) 12px 24px);}
+  .ts-air .ph-box b{display:block;font-weight:600;color:var(--fg-2);margin-bottom:8px;}
+  .ts-air .ph-box .todo{display:inline-block;border:1px dashed currentColor;border-radius:999px;
+    padding:4px 12px;font-size:12px;margin-top:10px;opacity:.6;}
+  /* R 角照片：圓角滿寬，跟拆機對比卡同語言 */
+  .ts-air .corner__photo{width:100%;height:auto;border-radius:18px;display:block;
+    margin-top:clamp(36px,5vw,56px);}
+  .ts-air .craft__shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(36px,5vw,56px);}
+  .ts-air .craft__shots .ph-box{aspect-ratio:4/3;}
+  .ts-air .craft__shots img{width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;}
+  /* 對比版：兩張鎖同比例、圖下各掛一行標示 */
+  .ts-air .craft__vs{margin:0;}
+  .ts-air .craft__vs img{aspect-ratio:4/3;height:auto;}
+  .ts-air .craft__vs figcaption{text-align:center;margin-top:12px;}
+  .ts-air .craft__vs figcaption b{display:block;font-weight:600;font-size:15.5px;}
+  .ts-air .craft__vs figcaption span{display:block;margin-top:3px;font-size:13px;color:var(--fg-3);}
+  .ts-air .craft__caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    margin-top:clamp(28px,4vw,44px);text-align:center;}
+  .ts-air .craft__caps b{display:block;font-size:15.5px;font-weight:650;}
+  .ts-air .craft__caps span{display:block;margin-top:4px;font-size:13.5px;color:var(--fg-2);}
+  .ts-air .corner__ph{margin-top:clamp(36px,5vw,56px);aspect-ratio:21/9;}
+  .ts-air .corner img{width:100%;border-radius:18px;display:block;margin-top:clamp(36px,5vw,56px);}
+  @media (max-width:760px){
+    .ts-air .craft__shots{grid-template-columns:1fr;}
+    .ts-air .craft__caps{grid-template-columns:1fr;gap:16px;}
+  }
+</style>
+<div class="ts-air">
+{%- comment -%}
+  「看不到的地方也做完了。」細節三卡段 2026-08-18 Mars 整塊拿掉
+  （石墨烯已在拆解段講、LED 已在低電流互動講過、AG 玻璃併入規格）。
+{%- endcomment -%}
+{%- comment -%}
+  「看不到的地方，照 Apple 的標準做。」拆機對比段 2026-08-18 Mars 先拿下——
+  「市面常見的做法」是渲染示意、有被指廣告不實的風險。素材留在主題資產
+  （ts-craft-ours/generic/coil/board.webp），要復活隨時可以。
+{%- endcomment -%}
+
+{%- comment -%}
+  R 角段 2026-08-18 定版：照片到貨（Air 貼 MacBook 角、同曲率）。
+  釘住放大的版本 Mars 打槍（效果不好），改回安靜的流式排版：
+  標題＋說明在上、大圖圓角滿寬在下，跟拆機對比卡同一個視覺語言。
+{%- endcomment -%}
+<section class="sect light corner" id="corner" style="background:var(--bg-2)">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.corner_heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.corner_lede | newline_to_br }}</p>
+
+    {%- if section.settings.corner_image != blank -%}
+      <img class="corner__photo rise" data-d="2" src="{{ section.settings.corner_image | image_url: width: 2400 }}"
+           alt="{{ section.settings.corner_heading | escape }}" loading="lazy"
+           width="{{ section.settings.corner_image.width }}" height="{{ section.settings.corner_image.height }}">
+    {%- else -%}
+      <img class="corner__photo rise" data-d="2" src="{{ 'ts-corner.webp' | asset_url }}"
+           alt="TITANSHIELD Air 貼著 MacBook 邊角，R 角圓潤服貼" loading="lazy"
+           width="2000" height="1333">
+    {%- endif -%}
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 機身細節",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "看不到的地方\n也做完了。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "溫控、面板、散熱、電量顯示，四件事各自有它該有的作法。" },
+    { "type": "header", "content": "拆機工藝" },
+    { "type": "textarea", "id": "craft_heading", "label": "標題（換行=Enter）", "default": "看不到的地方，\n照 Apple 的標準做。" },
+    { "type": "textarea", "id": "craft_lede", "label": "說明",
+      "default": "打開機身才看得到的部分，我們用拆機照直接給你看：精準元件排布，走線科學、效能更穩；精緻焊點處理，圓潤飽滿、品質更耐久。" },
+    { "type": "image_picker", "id": "image_coil", "label": "拆機照——線圈面（留空顯示待補框）" },
+    { "type": "image_picker", "id": "image_board", "label": "拆機照——焊點面（留空顯示待補框）" },
+    { "type": "header", "content": "R 角工藝" },
+    { "type": "textarea", "id": "corner_heading", "label": "標題", "default": "R 角，放在一起毫無違和。" },
+    { "type": "textarea", "id": "corner_lede", "label": "說明",
+      "default": "整塊鋁合金 CNC 成型，R 角做得圓潤服貼——跟 MacBook 疊在一起，像原生配件。蘋果迷會懂。" },
+    { "type": "image_picker", "id": "corner_image", "label": "特寫圖（留空顯示待補框）" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 機身細節"
+    }
+  ]
+}
+{% endschema %}

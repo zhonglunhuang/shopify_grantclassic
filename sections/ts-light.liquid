@@ -1,0 +1,52 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  2026-08-18 Mars 拍板：標題搬到右欄最上面；左欄只放去背照，
+  手的底邊往下貼齊段落底部的分隔線——看起來像從框裡伸出去。
+{%- endcomment -%}
+<style>
+  .ts-air .light__figure{align-self:end;}
+  .ts-air .light__figure .shot--light{margin:0 auto;display:block;
+    margin-bottom:calc(-1 * clamp(88px,13vh,168px));}
+  @media (max-width:860px){
+    .ts-air .light__figure .shot--light{margin-bottom:0;}
+  }
+</style>
+<div class="ts-air">
+<section class="sect light" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="split">
+      <div class="rise light__figure">
+        <img class="shot shot--light" src="{{ 'ts-light.webp' | asset_url }}" alt="TITANSHIELD Air 立在指尖上" width="1100" height="1935" loading="lazy">
+      </div>
+      <div class="rise" data-d="1">
+        <h2>{{ section.settings.heading | newline_to_br }}</h2>
+        <p class="lede">{{ section.settings.lede | newline_to_br }}</p>
+
+        <div class="wbars" id="wbars">
+          <div class="wbar hi" data-g="113"><span class="wbar__k">穩如鈦山 Air</span><span class="wbar__t"><i></i></span><span class="wbar__v">113 g</span></div>
+          <div class="wbar" data-g="115"><span class="wbar__k">一顆檸檬</span><span class="wbar__t"><i></i></span><span class="wbar__v">約 115 g</span></div>
+          <div class="wbar" data-g="200"><span class="wbar__k">一支手機</span><span class="wbar__t"><i></i></span><span class="wbar__v">約 200 g</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 113 公克",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "113 公克。\n輕到會忘記。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "大約一顆檸檬的重量，比一支手機輕得多。多帶一顆出門，肩膀不會知道。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 113 公克"
+    }
+  ]
+}
+{% endschema %}

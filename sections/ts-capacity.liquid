@@ -1,0 +1,41 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect light" id="capacity">
+  <div class="wrap">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="phones rise" data-d="2" id="phones">
+      <div class="phone" data-pct="100"><span class="phone__n">iPhone 16</span><span class="phone__c">約 3,561 mAh ／ 13.8 Wh</span><span class="phone__p">100<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="99"><span class="phone__n">iPhone 17</span><span class="phone__c">3,692 mAh ／ 約 14.2 Wh</span><span class="phone__p">99<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="91"><span class="phone__n">iPhone 17 Pro</span><span class="phone__c">3,988 mAh ／ 約 15.4 Wh</span><span class="phone__p">91<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="75"><span class="phone__n">iPhone 17 Pro Max</span><span class="phone__c">4,823 mAh ／ 約 18.6 Wh</span><span class="phone__p">75<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="90"><span class="phone__n">Galaxy S25</span><span class="phone__c">4,000 mAh ／ 約 15.5 Wh</span><span class="phone__p">90<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="72"><span class="phone__n">Galaxy S25 Ultra</span><span class="phone__c">5,000 mAh ／ 約 19.4 Wh</span><span class="phone__p">72<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="74"><span class="phone__n">Pixel 10 Pro</span><span class="phone__c">4,870 mAh ／ 約 18.8 Wh</span><span class="phone__p">74<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+      <div class="phone" data-pct="70"><span class="phone__n">Pixel 10 Pro XL</span><span class="phone__c">5,200 mAh ／ 約 20.1 Wh</span><span class="phone__p">70<em style="font-style:normal;font-size:.5em">%</em></span><span class="phone__t"><i></i></span></div>
+    </div>
+
+    {%- comment -%} 2026-08-18 Mars：長篇方法論不上正式站，縮成一句免責小字 {%- endcomment -%}
+    <p class="small">以上為初估參考值，實際可充電量依機型、剩餘電量與使用情境而異。</p>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 容量",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "5000 mAh。\n大約可以充滿一支手機。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "每一款手機的電池大小都不一樣，能充到的電量也就不一樣。下面是 iPhone、三星與 Google 旗艦各自的結果。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 容量"
+    }
+  ]
+}
+{% endschema %}

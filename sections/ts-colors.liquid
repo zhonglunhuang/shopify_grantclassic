@@ -1,0 +1,37 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+<div class="ts-air">
+<section class="sect" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap" style="text-align:center">
+    <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
+    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
+
+    <div class="swatchbox rise" data-d="2" id="swatchbox">
+      <img data-col="#2B2D31" class="on" src="{{ 'ts-black.webp' | asset_url }}" alt="TITANSHIELD Air 石墨黑 鋁合金陽極氧化機身" width="1050" height="1050" loading="lazy">
+      <img data-col="#B9BDC2" src="{{ 'ts-silver.webp' | asset_url }}" alt="TITANSHIELD Air 極地銀 鋁合金陽極氧化機身" width="1050" height="1050" loading="lazy">
+    </div>
+
+    <div class="sw rise" data-d="3" style="justify-content:center" id="sw">
+      <button type="button" data-c="#2B2D31" aria-pressed="true"><i style="background:#2B2D31"></i>石墨黑</button>
+      <button type="button" data-c="#B9BDC2" aria-pressed="false"><i style="background:#B9BDC2"></i>極地銀</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 顏色",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "兩個顏色。" },
+    { "type": "textarea", "id": "lede", "label": "說明", "default": "石墨黑與極地銀。兩色都是鋁合金陽極氧化，不是烤漆。" }
+  ],
+  "presets": [
+    {
+      "name": "TS Air 顏色"
+    }
+  ]
+}
+{% endschema %}
