@@ -1,0 +1,723 @@
+/* TITANSHIELD Air —— 由已驗證的原型轉出。
+   全部收在 .ts-air 之下：Focal 影響不到裡面，裡面也滲不出去。 */
+.ts-air{
+  
+  --bg:#000000;
+  --bg-2:#1D1D1F;
+  --bg-3:#2A2A2C;
+  --line:#333336;
+  --fg:#F5F5F7;
+  --fg-2:#A1A1A6;
+  --fg-3:#86868B;
+  --accent:#2997FF;       
+  --accent-2:#6FB9FF;
+  --btn:#0071E3;          
+  --btn-fg:#FFFFFF;
+  --heat:#FF5A3C;         
+  --heat-2:#FF8A6E;
+
+  --sans:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang TC","Noto Sans TC",sans-serif;
+
+  --gut:clamp(20px,5vw,64px);
+  --col:1180px;
+  --body:#2B2D31;         
+}
+.ts-air .light{
+  --bg:#FFFFFF;
+  --bg-2:#F5F5F7;
+  --bg-3:#EBEBED;
+  --line:#D2D2D7;
+  --fg:#1D1D1F;
+  --fg-2:#6E6E73;
+  --fg-3:#86868B;
+  --accent:#0066CC;
+  --accent-2:#0071E3;
+  background:var(--bg);color:var(--fg);
+}
+.ts-air,.ts-air{color-scheme:light dark;}
+.ts-air *{box-sizing:border-box;}
+.ts-air{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:var(--sans);
+  font-size:17px;line-height:1.47;
+  letter-spacing:-.012em;
+  
+  -webkit-font-smoothing:antialiased;
+}
+.ts-air img,.ts-air svg{max-width:100%;display:block;}
+.ts-air a{color:inherit;}
+.ts-air :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+.ts-air .wrap{max-width:var(--col);margin-inline:auto;padding-inline:var(--gut);}
+.ts-air .sect{padding-block:clamp(88px,13vh,168px);position:relative;}
+.ts-air .sect--tight{padding-block:clamp(56px,8vh,96px);}
+.ts-air h1,.ts-air h2,.ts-air h3{margin:0;text-wrap:balance;font-weight:600;}
+.ts-air h1{font-size:clamp(40px,6.6vw,80px);line-height:1.05;letter-spacing:-.015em;}
+.ts-air h2{font-size:clamp(32px,4.6vw,56px);line-height:1.07;letter-spacing:-.009em;}
+.ts-air h3{font-size:clamp(21px,2.2vw,28px);line-height:1.14;letter-spacing:.007em;}
+.ts-air .lede{font-size:clamp(19px,1.9vw,24px);line-height:1.38;letter-spacing:.011em;color:var(--fg-2);max-width:52ch;margin:24px 0 0;font-weight:400;}
+.ts-air .small{font-size:14px;line-height:1.43;letter-spacing:-.016em;color:var(--fg-3);max-width:62ch;}
+.ts-air .rise{opacity:0;transform:translateY(26px);transition:opacity .95s cubic-bezier(.16,.84,.44,1),transform .95s cubic-bezier(.16,.84,.44,1);}
+.ts-air .rise.in{opacity:1;transform:none;}
+.ts-air .rise[data-d="1"]{transition-delay:.1s}
+.ts-air .rise[data-d="2"]{transition-delay:.2s}
+.ts-air .rise[data-d="3"]{transition-delay:.3s}
+.ts-air .rise[data-d="4"]{transition-delay:.4s}
+@media (max-width:820px){}
+.ts-air .btn{
+  font:inherit;font-size:14.5px;font-weight:500;border:0;cursor:pointer;
+  background:var(--btn);color:var(--btn-fg);padding:11px 26px;border-radius:980px;
+  transition:transform .18s,background .18s;white-space:nowrap;letter-spacing:.01em;
+}
+.ts-air .btn:hover{background:#0077ED;transform:translateY(-1px);}
+.ts-air .btn:active{transform:none;}
+.ts-air .btn--ghost{background:transparent;color:var(--fg);border:1px solid var(--line);}
+.ts-air .btn--ghost:hover{background:var(--bg-3);}
+@media (max-width:560px){.ts-air .btn{padding:11px 18px;}}
+.ts-air .hero{display:flex;flex-direction:column;justify-content:center;padding-top:80px;position:relative;overflow:hidden;}
+.ts-air .hero__glow{
+  position:absolute;left:50%;top:52%;width:min(1100px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(150,180,220,.16),rgba(120,150,190,.05) 40%,transparent 66%);
+  pointer-events:none;
+}
+.ts-air .hero__in{position:relative;text-align:center;}
+.ts-air .wordmark{
+  margin:0;font-size:clamp(42px,8.4vw,106px);line-height:1.02;font-weight:400;
+  display:flex;justify-content:center;align-items:baseline;gap:.2em;flex-wrap:wrap;
+}
+.ts-air .wordmark b{font-weight:700;letter-spacing:-.038em;}
+/* 2026-08-18 Mars 拍板：bento 的「白轉藍」漸層全頁沿用，Air 字樣從銀灰改成這組 */
+.ts-air .wordmark em{
+  font-style:normal;font-weight:100;letter-spacing:-.022em;
+  background:linear-gradient(180deg,#F5F5F7 30%,#2997FF);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.ts-air .light .wordmark em{
+  background:linear-gradient(180deg,#6FB9FF 20%,#0071E3);
+  -webkit-background-clip:text;background-clip:text;
+}
+.ts-air .hero__tag{
+  margin:clamp(16px,2.6vh,30px) 0 0;font-size:clamp(21px,3.1vw,38px);font-weight:600;
+  line-height:1.1;letter-spacing:-.02em;text-wrap:balance;
+}
+.ts-air .hero h1{margin-bottom:0;}
+.ts-air .hero .lede{margin-inline:auto;text-align:center;max-width:52ch;font-size:clamp(17px,1.6vw,20px);margin-top:clamp(14px,2vh,22px);}
+.ts-air .hero__model{margin:0 auto;width:100%;}
+.ts-air .pv{--sheen:rgba(255,255,255,.5);}
+.ts-air .pv .shell{fill:var(--body);}
+.ts-air svg text{font-family:var(--sans);font-variant-numeric:tabular-nums;}
+.ts-air .chart svg,.ts-air .pin__viz svg,.ts-air #charge svg{color:var(--fg-3);}
+.ts-air .c-accent{fill:var(--accent);}
+.ts-air .c-heat{fill:var(--heat);}
+.ts-air .c-heat-stroke{stroke:var(--heat);}
+.ts-air .g-heat stop{stop-color:var(--heat);}
+.ts-air .g-cool stop{stop-color:var(--accent);}
+.ts-air .c-accent-stroke{stroke:var(--accent);}
+.ts-air .c-track{fill:var(--bg-3);}
+.ts-air .g-accent stop{stop-color:var(--accent);}
+.ts-air .g-mute stop{stop-color:var(--fg-3);}
+.ts-air .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line);}
+@media (max-width:1020px){.ts-air .stats{grid-template-columns:repeat(2,1fr);}}
+.ts-air .stat{background:var(--bg);padding:clamp(28px,4vw,46px) clamp(16px,2.4vw,30px);}
+.ts-air .stat__n{font-size:clamp(38px,6vw,66px);font-weight:600;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;}
+.ts-air .stat__n em{font-style:normal;font-size:.36em;font-weight:500;color:var(--fg-2);margin-left:.24em;letter-spacing:-.01em;}
+.ts-air .stat__l{margin-top:14px;font-size:13.5px;color:var(--fg-2);line-height:1.5;}
+.ts-air .stat--hot .stat__n{color:var(--heat);}
+@media (max-width:720px){.ts-air .stats{grid-template-columns:1fr;}
+.ts-air .stat{padding:26px var(--gut);}}
+.ts-air .pin{height:420vh;position:relative;background:linear-gradient(180deg,var(--bg),#0E1013 22%,#0E1013 78%,var(--bg));}
+.ts-air .pin__stage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;}
+.ts-air .pin__grid{
+  max-width:var(--col);margin-inline:auto;padding-inline:var(--gut);width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center;
+}
+.ts-air .pin__copy h2,.ts-air .xp__grid h2{font-size:clamp(30px,3.9vw,48px);}
+.ts-air .pin__verdict{
+  margin-top:30px;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;
+}
+.ts-air .pin__verdict.on{opacity:1;transform:none;}
+.ts-air .pin__verdict b{color:var(--heat);font-weight:600;}
+.ts-air .pin__viz{position:relative;aspect-ratio:1/1;max-height:64svh;margin-inline:auto;width:100%;}
+.ts-air .readout{
+  position:absolute;left:0;top:1%;font-variant-numeric:tabular-nums;line-height:1.25;
+}
+.ts-air .readout__t{font-size:clamp(32px,5vw,56px);color:var(--heat);font-variant-numeric:tabular-nums;letter-spacing:-.03em;}
+.ts-air .readout__t small{font-size:.36em;letter-spacing:.02em;}
+.ts-air .readout__v{font-size:12px;color:var(--fg-3);margin-top:8px;letter-spacing:.08em;}
+@media (max-width:860px){.ts-air .pin{height:360vh;}
+.ts-air .pin__grid{grid-template-columns:1fr;gap:18px;}
+.ts-air .pin__viz{max-height:38svh;}
+.ts-air .pin__copy .lede{display:none;}
+.ts-air .readout{position:static;text-align:left;margin-bottom:10px;}}
+.ts-air .xp{height:340vh;position:relative;}
+.ts-air .xp__stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden;}
+.ts-air .xp__grid{max-width:var(--col);margin-inline:auto;padding-inline:var(--gut);width:100%;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(20px,4vw,60px);align-items:center;}
+.ts-air .xp__scene{position:relative;height:min(72svh,640px);}
+.ts-air #xpGL,.ts-air #heroGL{display:block;width:100%;height:100%;}
+.ts-air .xp__stack{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d;}
+.ts-air .xp__layer{
+  position:absolute;width:min(260px,46vw);transform-style:preserve-3d;will-change:transform;
+  transition:filter .3s;
+}
+.ts-air .xp__layer.dimmed{filter:brightness(.42) saturate(.5);}
+.ts-air .xp__list{display:flex;flex-direction:column;gap:2px;}
+.ts-air .xp__item{
+  display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:baseline;
+  padding:11px 14px;border-radius:9px;cursor:default;
+  transition:background .25s,color .25s;color:var(--fg-3);
+}
+.ts-air .xp__item.on{background:var(--bg-2);color:var(--fg);}
+.ts-air .xp__item i{font-variant-numeric:tabular-nums;font-size:12px;font-style:normal;color:var(--fg-3);transition:color .25s;}
+.ts-air .xp__item.on i{color:var(--accent);}
+.ts-air .xp__item b{font-weight:500;font-size:15.5px;letter-spacing:-.008em;}
+.ts-air .xp__item span{display:block;font-size:13px;color:var(--fg-3);margin-top:3px;}
+@media (max-width:900px){.ts-air .xp{height:300vh;}
+.ts-air .xp__grid{grid-template-columns:1fr;gap:12px;}
+.ts-air .xp__scene{height:34svh;}
+.ts-air .xp__item span{display:none;}
+.ts-air .xp__item{padding:7px 10px;}}
+.ts-air .thin__bars{display:flex;flex-direction:column;gap:22px;margin-top:44px;}
+.ts-air .tbar{display:grid;grid-template-columns:clamp(96px,13vw,150px) 1fr;gap:18px;align-items:center;}
+.ts-air .tbar__k{font-size:14px;color:var(--fg-2);}
+.ts-air .tbar__t{position:relative;height:38px;display:flex;align-items:center;}
+.ts-air .tbar__fill{flex:none;width:0;height:0;background:#C7C7CC;border-radius:3px;transition:width 1.1s cubic-bezier(.16,.84,.44,1),height .9s cubic-bezier(.16,.84,.44,1);}
+.ts-air .tbar.hi .tbar__fill{background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+.ts-air .tbar__v{flex:none;font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--fg-3);margin-left:14px;white-space:nowrap;}
+.ts-air .tbar.hi .tbar__v{color:var(--accent);}
+.ts-air .wbars{display:flex;flex-direction:column;gap:14px;margin-top:34px;}
+.ts-air .wbar{display:grid;grid-template-columns:clamp(88px,11vw,130px) 1fr auto;gap:16px;align-items:center;font-size:14px;color:var(--fg-2);}
+.ts-air .wbar__t{display:block;height:10px;background:var(--bg-3);border-radius:99px;overflow:hidden;}
+.ts-air .wbar__t i{display:block;height:100%;width:0;background:#B9B9C0;border-radius:99px;transition:width 1s cubic-bezier(.16,.84,.44,1);}
+.ts-air .wbar.hi .wbar__t i{background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+.ts-air .wbar.hi{color:var(--fg);}
+.ts-air .wbar__v{font-variant-numeric:tabular-nums;font-size:13px;color:var(--fg-3);white-space:nowrap;}
+.ts-air .wbar.hi .wbar__v{color:var(--accent);}
+.ts-air .heat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px;}
+.ts-air .heat__card{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:24px;min-width:0;}
+.ts-air .heat__card h3{margin:22px 0 4px;}
+.ts-air .heat__card p{margin:0;font-size:14.5px;line-height:1.6;color:var(--fg-2);}
+.ts-air .heat__n{font-size:26px !important;font-weight:600;color:var(--fg) !important;letter-spacing:-.02em;margin-bottom:12px !important;font-variant-numeric:tabular-nums;}
+.ts-air .heat__n em{font-style:normal;font-size:.5em;color:var(--fg-3);margin-left:.4em;font-weight:400;}
+.ts-air .heat__plate{
+  position:relative;aspect-ratio:16/7;border-radius:12px;overflow:hidden;
+  background:linear-gradient(140deg,#2A3038,#171B21);border:1px solid var(--line);
+}
+.ts-air .heat__spot{
+  position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.18);
+  background:radial-gradient(circle,#FFB199,rgba(255,90,60,.62) 45%,rgba(255,90,60,0) 72%);
+  transition:transform 2.4s cubic-bezier(.3,.7,.3,1),opacity 2.4s;
+}
+.ts-air .heat__plate--al.on .heat__spot{transform:translate(-50%,-50%) scale(3.4);opacity:.62;}
+.ts-air .heat__plate--pc.on .heat__spot{transform:translate(-50%,-50%) scale(.5);opacity:1;}
+@media (max-width:720px){.ts-air .heat{grid-template-columns:1fr;}}
+.ts-air .chart{margin-top:48px;background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,34px);}
+.ts-air .chart svg{width:100%;height:auto;}
+.ts-air .chart__line{fill:none;stroke-width:3;stroke-linecap:round;}
+.ts-air .chart__line--fast{stroke:var(--accent);}
+.ts-air .chart__line--slow{stroke:currentColor;}
+.ts-air .chart__rise{clip-path:inset(0 100% 0 0);}
+.ts-air .chart.on .chart__rise{transition:clip-path 1.7s cubic-bezier(.25,.78,.3,1);clip-path:inset(0 0 0 0);}
+.ts-air .chart.on .chart__rise--late{transition-delay:.2s;}
+.ts-air .chart__dot{opacity:0;transition:opacity .5s 1.5s;}
+.ts-air .chart.on .chart__dot{opacity:1;}
+.ts-air .cap{margin-top:44px;}
+.ts-air .cap__track{height:56px;border-radius:12px;background:var(--bg-3);border:1px solid var(--line);display:flex;overflow:hidden;}
+.ts-air .cap__real{width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.3s cubic-bezier(.16,.84,.44,1);}
+.ts-air .cap__loss{flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--fg-3);}
+.ts-air .cap__keys{display:flex;justify-content:space-between;margin-top:12px;font-size:13.5px;color:var(--fg-2);gap:16px;}
+.ts-air .cap__keys b{color:var(--accent);font-weight:600;}
+.ts-air .phones{margin-top:44px;border-top:1px solid var(--line);}
+.ts-air .phone{display:grid;grid-template-columns:1.3fr 1fr 88px 1fr;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);}
+.ts-air .phone__n{font-size:16.5px;font-weight:500;}
+.ts-air .phone__c{font-size:13.5px;color:var(--fg-3);font-variant-numeric:tabular-nums;}
+.ts-air .phone__p{font-size:24px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-align:right;}
+.ts-air .phone__t{height:8px;border-radius:99px;background:var(--bg-3);overflow:hidden;}
+.ts-air .phone__t i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:99px;transition:width 1.1s cubic-bezier(.16,.84,.44,1);}
+@media (max-width:780px){.ts-air .phone{grid-template-columns:1fr auto;gap:6px 14px;}
+.ts-air .phone__c{grid-column:1;}
+.ts-air .phone__p{grid-row:1;grid-column:2;}
+.ts-air .phone__t{grid-column:1/-1;margin-top:6px;}}
+.ts-air .views{height:360vh;position:relative;}
+.ts-air .views__stage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:70px var(--gut) 0;}
+.ts-air #viewGL{display:block;width:min(760px,86vw);height:min(58svh,520px);}
+.ts-air .views__caps{position:relative;height:96px;width:100%;max-width:640px;margin-top:8px;}
+.ts-air .views__caps p{position:absolute;inset:0;margin:0;text-align:center;opacity:0;transition:opacity .45s;}
+.ts-air .views__caps p.on{opacity:1;}
+.ts-air .views__caps b{display:block;font-size:clamp(21px,2.2vw,28px);font-weight:600;letter-spacing:.007em;line-height:1.14;}
+.ts-air .views__caps span{display:block;margin-top:8px;font-size:15px;color:var(--fg-2);letter-spacing:-.01em;}
+.ts-air .views__dots{display:flex;gap:7px;margin-top:6px;}
+.ts-air .views__dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .3s;}
+.ts-air .views__dots i.on{background:var(--accent);}
+@media (max-width:820px){.ts-air .views{height:300vh;}
+.ts-air #viewGL{height:42svh;}}
+.ts-air .mag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center;}
+.ts-air .mag__n{font-size:clamp(52px,9vw,116px);font-weight:600;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,var(--fg) 30%,var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.ts-air .mag__n em{font-style:normal;font-size:.28em;color:var(--fg-2);margin-left:.2em;font-weight:500;}
+@media (max-width:860px){.ts-air .mag{grid-template-columns:1fr;}}
+.ts-air .shot{display:block;width:100%;height:auto;}
+.ts-air .shot--hero{width:min(760px,88vw);margin:clamp(24px,4vh,52px) auto 0;}
+.ts-air .shot--thin{width:min(900px,92vw);margin:clamp(30px,5vh,56px) auto 4px;}
+.ts-air .shot--light{width:min(480px,72vw);margin:0 0 6px;}
+.ts-air .swatchbox{position:relative;margin:44px auto 0;width:min(420px,76vw);aspect-ratio:1;}
+.ts-air .swatchbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  opacity:0;transition:opacity .45s cubic-bezier(.4,0,.2,1);}
+.ts-air .swatchbox img.on{opacity:1;}
+.ts-air .tests{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:52px;}
+.ts-air .test{background:var(--bg);padding:26px 22px;display:flex;flex-direction:column;min-width:0;}
+.ts-air .test h3{font-size:19px;letter-spacing:-.01em;margin-bottom:12px;}
+.ts-air .test__how{font-size:13.5px;line-height:1.55;color:var(--fg-2);flex:1;letter-spacing:-.01em;}
+.ts-air .test__n{margin:18px 0 0;font-size:30px;font-weight:600;letter-spacing:-.03em;
+  color:var(--heat);font-variant-numeric:tabular-nums;line-height:1;}
+.ts-air .test__n em{font-style:normal;font-size:.42em;color:var(--fg-3);margin-left:.2em;font-weight:500;}
+.ts-air .test__ok{margin:12px 0 0;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:-.01em;}
+@media (max-width:1080px){.ts-air .tests{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.ts-air .tests{grid-template-columns:1fr;}}
+.ts-air .certs{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;}
+.ts-air .cert{border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;color:var(--fg-2);
+  letter-spacing:-.01em;}
+.ts-air .cert b{color:var(--fg);font-weight:600;}
+.ts-air .grid4{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px;}
+.ts-air .card{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:26px 24px;min-width:0;}
+.ts-air .card h3{margin-bottom:10px;}
+.ts-air .card p{margin:0;font-size:14.5px;line-height:1.65;color:var(--fg-2);}
+.ts-air .card__ic{margin-bottom:20px;color:var(--accent);}
+@media (max-width:980px){.ts-air .grid4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.ts-air .grid4{grid-template-columns:1fr;}}
+.ts-air .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center;}
+@media (max-width:860px){.ts-air .split{grid-template-columns:1fr;}}
+.ts-air .sw{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+.ts-air .sw button{
+  display:flex;align-items:center;gap:11px;background:transparent;border:1px solid var(--line);
+  color:var(--fg-2);border-radius:980px;padding:8px 18px 8px 8px;cursor:pointer;font:inherit;font-size:14px;
+  transition:border-color .22s,color .22s;
+}
+.ts-air .sw button:hover{border-color:var(--fg-3);}
+.ts-air .sw button[aria-pressed="true"]{border-color:var(--accent);color:var(--fg);}
+.ts-air .sw i{width:24px;height:24px;border-radius:50%;display:block;border:1px solid rgba(255,255,255,.18);}
+.ts-air .spec{border-top:1px solid var(--line);margin-top:40px;}
+.ts-air .spec__row{display:grid;grid-template-columns:minmax(140px,240px) 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--line);font-size:15px;}
+.ts-air .spec__row dt{color:var(--fg-2);margin:0;}
+.ts-air .spec__row dd{margin:0;font-variant-numeric:tabular-nums;font-size:13.5px;letter-spacing:.01em;line-height:1.7;}
+.ts-air details.fold{border-top:1px solid var(--line);}
+.ts-air details.fold summary{
+  list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;
+  font-size:17px;font-weight:500;
+}
+.ts-air details.fold summary::-webkit-details-marker{display:none;}
+.ts-air details.fold summary::after{content:"";width:9px;height:9px;border-right:1.5px solid var(--fg-2);border-bottom:1.5px solid var(--fg-2);transform:rotate(45deg);transition:transform .25s;margin-right:4px;}
+.ts-air details.fold[open] summary::after{transform:rotate(-135deg);}
+.ts-air .close{text-align:center;padding-block:clamp(88px,13vh,168px);}
+.ts-air .close h2{margin-bottom:20px;}
+.ts-air .close .cta{display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap;}
+.ts-air .foot{border-top:1px solid var(--line);padding-block:40px 120px;font-size:12.5px;color:var(--fg-3);line-height:1.8;}
+@media (max-width:900px){}
+.ts-air .note{
+  font-variant-numeric:tabular-nums;font-size:11px;letter-spacing:.09em;color:var(--fg-3);
+  border:1px dashed var(--line);border-radius:8px;padding:9px 13px;display:inline-block;margin-top:22px;
+}
+@media (prefers-reduced-motion:reduce){.ts-air .rise{opacity:1;transform:none;transition:none;}
+.ts-air *{animation-duration:.001ms !important;transition-duration:.06s !important;}}
+.ts-air [id]{scroll-margin-top:64px;}
+
+/* ══ 手寫的部分：不是從原型轉出來的，build 會把這個檔接在後面 ══
+   （放成獨立檔案是因為上一版直接貼在產出的 CSS 尾巴，一重建就被洗掉） */
+
+/* ---------- 頂部列：取代主題原本那三層，但留得回首頁 ----------
+   黑底＋白 logo。logo 是內嵌 SVG 用 currentColor 上色（snippets/ts-logo.liquid），
+   所以它永遠跟著這裡的 color 走 —— 之後要改回白底只要換這一段的顏色，logo 自己會變。 */
+.ts-topbar{position:fixed;top:0;left:0;right:0;z-index:70;
+  background:rgba(22,22,23,.72);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.10);color:#F5F5F7;
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;}
+.ts-topbar__in{max-width:1180px;margin-inline:auto;padding:0 clamp(16px,5vw,64px);
+  height:48px;display:flex;align-items:center;gap:clamp(10px,2vw,18px);}
+.ts-topbar a{text-decoration:none;color:inherit;}
+.ts-topbar__home{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
+  font-size:14px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;
+  color:#F5F5F7;transition:opacity .2s;}
+.ts-topbar__home:hover{opacity:.72;}
+.ts-topbar__home svg:not(.ts-topbar__logo){width:6px;height:11px;flex:none;opacity:.55;}
+.ts-topbar__logo{height:17px;width:auto;max-width:132px;display:block;flex:none;}
+.ts-topbar__sep{width:1px;height:16px;background:rgba(255,255,255,.16);flex:none;}
+.ts-topbar__name{font-size:14px;font-weight:600;letter-spacing:-.012em;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;min-width:0;color:#F5F5F7;}
+.ts-topbar__links{display:flex;gap:clamp(14px,2.2vw,26px);margin-left:auto;
+  font-size:12.5px;color:#C7C7CC;white-space:nowrap;}
+.ts-topbar__links a{transition:color .2s;}
+.ts-topbar__links a:hover{color:#fff;}
+.ts-topbar__buy{flex:none;white-space:nowrap;background:#0071E3;color:#fff;border-radius:980px;
+  padding:6px 17px;font-size:12.5px;font-weight:500;transition:background .18s;}
+.ts-topbar__buy:hover{background:#0077ED;}
+.ts-topbar__spacer{height:48px;}
+@media (max-width:900px){
+  .ts-topbar__links{display:none;}
+  .ts-topbar__name{margin-left:auto;font-weight:500;color:#D2D2D7;}
+}
+@media (max-width:560px){
+  .ts-topbar__in{height:44px;}
+  .ts-topbar__spacer{height:44px;}
+  .ts-topbar__home,.ts-topbar__name{font-size:13px;}
+  .ts-topbar__logo{height:15px;max-width:112px;}
+  /* 底部已經有購買列了，上面再放一顆是重複 */
+  .ts-topbar__buy{display:none;}
+  .ts-topbar__sep{display:none;}
+}
+
+/* ---------- 手機版修正（量出來才加的，不是憑感覺） ---------- */
+/* 段落上下留白原本是 clamp(88px,13vh,168px) —— 跟著「螢幕高度」走。
+   手機又高又窄，13vh 給到 106px，兩段之間就空了 212px（812 高的螢幕上是四分之一頁），
+   看起來像頁面已經結束。手機上真正的限制是寬度不是高度，所以改成跟 vw 走。 */
+@media (max-width:760px){
+  .ts-air .sect{padding-block:clamp(44px,8vw,68px);}
+  .ts-air .sect--tight{padding-block:clamp(34px,6vw,52px);}
+  .ts-air .close{padding-block:clamp(52px,10vw,80px);}
+  .ts-air .hero{padding-top:56px;}
+}
+/* 厚度對照的長條：JS 把最長那條設成 width:100%，後面又接一個 flex:none 的數字，
+   100% ＋ 數字必然超出格線；格線項目預設 min-width:auto 不肯縮，於是整頁被撐寬、
+   右邊露出白邊。把數字改成絕對定位、長條的 100% 改成算在「扣掉數字」之後的寬度，
+   三條的比例還是對的，但永遠不會超出去。
+   （這個只有等長條動畫跑完才看得到 —— 量的時候要先捲過整頁再量。） */
+.ts-air .tbar__t{min-width:0;padding-right:74px;box-sizing:border-box;}
+.ts-air .tbar__v{position:absolute;right:0;top:50%;transform:translateY(-50%);margin-left:0;}
+.ts-air .wbar__t{min-width:0;}
+@media (max-width:600px){
+  /* 標籤太長時擠掉長條，不如上下排，長條就能用整行 */
+  .ts-air .tbar{grid-template-columns:1fr;gap:2px;}
+  .ts-air .tbar__k{font-size:12.5px;}
+  .ts-air .tbar__t{height:30px;padding-right:66px;}
+}
+/* 規格表在 375 寬時，值那一欄只剩 77px，「2607-PM07」被拆成兩行。
+   標籤改成放在值的上面，值就有整行可以用。 */
+@media (max-width:600px){
+  .ts-air .spec__row{grid-template-columns:1fr;gap:3px;padding:14px 0;}
+  .ts-air .spec__row dt{font-size:13px;letter-spacing:.01em;}
+  .ts-air .spec__row dd{font-size:15px;line-height:1.55;}
+}
+/* 回首頁那個連結原本只有 15px 高，手指按不到（建議至少 44px）。
+   用 padding 撐開可按範圍，再用等量負 margin 抵銷，版面完全不動。 */
+.ts-topbar__home{padding-block:15px;margin-block:-15px;}
+
+/* ---------- 釘住的穿刺段：讓人知道「還在動、可以繼續捲」 ----------
+   原本 360vh 但動畫 74% 就演完，剩下三分之二個螢幕完全靜止 → 看起來像當掉。
+   三件事一起做：把段落縮短、動畫拉長到接近尾端、再給兩個看得見的訊號
+   （底部進度線 ＋ 捲動提示）。 */
+.ts-air .pin__prog{position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  border-radius:0 2px 2px 0;transition:width .12s linear;z-index:3;}
+.ts-air .pin__hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  font-size:11.5px;letter-spacing:.08em;color:var(--fg-3);
+  transition:opacity .45s;pointer-events:none;z-index:3;}
+.ts-air .pin__hint.is-done{opacity:0;}
+.ts-air .pin__hint svg{width:13px;height:8px;animation:tsNudge 1.7s ease-in-out infinite;}
+@keyframes tsNudge{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(4px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.ts-air .pin__hint svg{animation:none;}}
+@media (max-width:860px){
+  .ts-air .pin{height:240vh;}          /* 原本 360vh，空捲太久 */
+  .ts-air .pin__viz{max-height:46svh;} /* 穿刺圖放大，這才是這段的主角 */
+  .ts-air .pin__hint{bottom:14px;}
+  /* 結論區塊在出現前是透明的，但照樣佔著位子 —— 標題和溫度之間就空了一大塊。
+     改成高度也一起收起來，等它要出現時再撐開，順便變成一個「揭曉」的動作。 */
+  .ts-air .pin__verdict{max-height:0;overflow:hidden;margin:0;
+    transition:max-height .5s cubic-bezier(.16,.84,.44,1),opacity .5s;}
+  .ts-air .pin__verdict.on{max-height:60svh;}
+}
+
+/* ---------- 固態電解質對照（接在穿刺之後回答「為什麼沒事」） ----------
+   同一張 SVG 講兩件事，靠切換 class 換層。圖是畫的不是貼的，
+   所以標註在 375 寬的手機上照樣是可讀的文字。 */
+.ts-air .ssb__box{margin-top:clamp(30px,4vw,52px);}
+.ts-air .ssb__seg{display:flex;gap:26px;border-bottom:1px solid var(--line);}
+.ts-air .ssb__tab{appearance:none;background:none;border:0;cursor:pointer;font:inherit;
+  font-size:14.5px;font-weight:500;color:var(--fg-3);padding:0 0 12px;position:relative;
+  transition:color .22s;white-space:nowrap;}
+.ts-air .ssb__tab:hover{color:var(--fg-2);}
+.ts-air .ssb__tab.is-on{color:var(--fg);}
+.ts-air .ssb__tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;
+  transition:transform .28s cubic-bezier(.16,.84,.44,1);}
+.ts-air .ssb__tab.is-on::after{transform:scaleX(1);}
+.ts-air .ssb__fig{display:block;width:100%;max-width:760px;margin:clamp(18px,3vw,34px) auto 0;height:auto;}
+.ts-air .ssb__lead path{stroke:var(--fg-3);stroke-width:1;fill:none;opacity:.55;}
+.ts-air .ssb__lb{fill:var(--fg-2);font-size:14px;letter-spacing:.01em;}
+.ts-air .ssb__lb--mid{fill:var(--accent);}
+.ts-air .ssb__lb--hot{fill:var(--heat);}
+.ts-air .ssb__say{max-width:62ch;margin-top:clamp(20px,3vw,34px);}
+.ts-air .ssb__say p{margin:0;font-size:16px;line-height:1.62;color:var(--fg-2);}
+/* 預設兩組都藏起來，由 JS 加的 class 決定顯示哪一組；
+   JS 沒跑起來時至少看得到固態那一組，不會整塊空白 */
+.ts-air .ssb__liquid{display:none;}
+.ts-air .ssb__box.show-liquid .ssb__solid{display:none;}
+.ts-air .ssb__box.show-liquid .ssb__liquid{display:initial;}
+.ts-air .ssb__box.show-liquid p.ssb__liquid{display:block;}
+@media (max-width:700px){
+  .ts-air .ssb__seg{gap:18px;}
+  .ts-air .ssb__tab{font-size:13px;}
+  .ts-air .ssb__lb{font-size:19px;}      /* 圖被縮小，字要相對放大才讀得到 */
+  .ts-air .ssb__say p{font-size:15px;}
+}
+
+/* ---------- 手機上的左滑卡片（照 Apple「看這裡，畫重點」） ----------
+   吸附與慣性全部交給原生 scroll-snap，手感最好。JS 只加圓點與播放鍵。 */
+.ts-swipe__ctl{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px;}
+.ts-swipe__ctl[hidden]{display:none;}
+.ts-swipe__dots{display:flex;align-items:center;gap:9px;
+  background:rgba(127,127,127,.16);border-radius:999px;padding:9px 14px;}
+.ts-swipe__dots button{width:7px;height:7px;padding:0;border:0;border-radius:999px;
+  background:currentColor;opacity:.32;cursor:pointer;
+  transition:width .3s cubic-bezier(.16,.84,.44,1),opacity .3s;}
+.ts-swipe__dots button.is-on{width:22px;opacity:.85;}
+.ts-swipe__play{width:34px;height:34px;flex:none;padding:0;border:0;cursor:pointer;
+  border-radius:999px;background:rgba(127,127,127,.16);color:inherit;position:relative;}
+/* ▶ 用兩條邊框做三角形，暫停時換成兩根直條，不必載入圖示 */
+.ts-swipe__play::before{content:"";position:absolute;top:50%;left:50%;
+  transform:translate(-42%,-50%);border-style:solid;
+  border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor;
+  opacity:.85;}
+.ts-swipe__play.is-playing::before{transform:translate(-50%,-50%);
+  border-width:0;width:8px;height:10px;
+  border-left:3px solid currentColor;border-right:3px solid currentColor;
+  box-sizing:border-box;background:transparent;}
+@media (max-width:760px){
+  /* 格線改成一條可以左右滑的軌道。
+     重點：桌機版是「一整片格線、用 1px 細線分隔」，那個外觀搬到手機上會變成
+     「一條連續的長帶在滑」，看不出是一塊一塊的。所以手機版要拆開——
+     背景透明、卡片之間留真的空隙、每張自己圓角，才像 Apple 那樣是獨立的卡。 */
+  .ts-air .tests{display:flex;grid-template-columns:none;overflow-x:auto;
+    background:transparent;border:0;gap:12px;
+    padding-inline:var(--gut);margin-inline:calc(var(--gut) * -1);
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;scroll-padding-inline:var(--gut);}
+  .ts-air .tests::-webkit-scrollbar{display:none;}
+  .ts-air .test{flex:0 0 82%;scroll-snap-align:center;
+    background:var(--bg-2);border-radius:18px;padding:24px 20px;}
+  .ts-air .sect.light .tests .test{background:#FFFFFF;
+    box-shadow:0 0 0 1px rgba(0,0,0,.06);}
+}
+
+/* ---------- Air 與 Pro 對照（抄 Apple「找出適合你的 Mac」的骨架） ----------
+   卡片底色用 --bg-2（淺灰），兩張產品圖也去背後壓在同一個灰上，接得起來。 */
+.ts-air .cmp__cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,36px);
+  margin-top:clamp(34px,4vw,58px);}
+.ts-air .cmp__card{background:var(--bg-2);border-radius:18px;
+  padding:clamp(22px,2.6vw,38px) clamp(16px,2vw,30px) clamp(26px,3vw,40px);
+  text-align:center;display:flex;flex-direction:column;align-items:center;}
+.ts-air .cmp__shot{width:min(280px,72%);aspect-ratio:1;display:grid;place-items:center;}
+.ts-air .cmp__shot img{width:100%;height:100%;object-fit:contain;display:block;}
+.ts-air .cmp__name{margin:14px 0 0;font-size:clamp(21px,2.2vw,28px);font-weight:600;
+  letter-spacing:-.018em;line-height:1.2;}
+.ts-air .cmp__spec{margin:9px 0 0;font-size:13.5px;color:var(--fg-2);
+  font-variant-numeric:tabular-nums;letter-spacing:.005em;}
+.ts-air .cmp__tag{margin:14px 0 0;font-size:15px;line-height:1.5;color:var(--fg);text-wrap:balance;}
+.ts-air .cmp__price{margin:16px 0 0;font-size:15.5px;font-weight:500;font-variant-numeric:tabular-nums;}
+.ts-air .cmp__acts{margin-top:18px;min-height:38px;display:flex;align-items:center;}
+.ts-air .cmp__here{font-size:14px;color:var(--fg-2);}
+
+.ts-air .cmp__rows{margin-top:clamp(42px,5vw,74px);border-top:1px solid var(--line);}
+.ts-air .cmp__head,.ts-air .cmp__row{display:grid;grid-template-columns:1.25fr 1fr 1fr;
+  gap:clamp(12px,2vw,24px);padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.ts-air .cmp__head{padding:9px 0;font-size:11.5px;letter-spacing:.07em;color:var(--fg-3);}
+.ts-air .cmp__row dt{margin:0;font-size:14px;color:var(--fg-2);}
+.ts-air .cmp__row dd{margin:0;font-size:15px;line-height:1.45;font-variant-numeric:tabular-nums;}
+.ts-air .cmp__row dd.is-win{font-weight:600;}
+.ts-air .cmp__row dd::before{content:none;}
+.ts-air .cmp__note{margin-top:20px;}
+@media (max-width:760px){
+  /* 手機也要左右並排 —— 上下疊起來就看不出哪張是哪台了（Apple 也是並排）。
+     縮的是字級與留白，不是欄數。文字改靠左，窄欄置中會很零散。 */
+  .ts-air .cmp__cards{grid-template-columns:1fr 1fr;gap:10px;}
+  .ts-air .cmp__card{padding:16px 12px 20px;border-radius:14px;text-align:left;align-items:stretch;}
+  .ts-air .cmp__shot{width:100%;}
+  .ts-air .cmp__name{font-size:clamp(15px,4.3vw,19px);letter-spacing:-.02em;margin-top:10px;}
+  .ts-air .cmp__spec{font-size:11.5px;margin-top:6px;line-height:1.45;}
+  .ts-air .cmp__tag{font-size:12.5px;margin-top:9px;line-height:1.45;text-wrap:initial;}
+  .ts-air .cmp__price{font-size:14px;margin-top:11px;}
+  .ts-air .cmp__acts{margin-top:13px;min-height:34px;}
+  .ts-air .cmp__acts .btn{padding:9px 15px;font-size:13px;}
+  .ts-air .cmp__here{font-size:12px;}
+  .ts-air .cmp__head{display:none;}
+  /* 手機一列塞不下三欄：項目自己一行，兩台並排，各自標上是哪一台 */
+  .ts-air .cmp__row{grid-template-columns:1fr 1fr;gap:3px clamp(12px,4vw,22px);padding:14px 0;}
+  .ts-air .cmp__row dt{grid-column:1/-1;font-size:12.5px;}
+  .ts-air .cmp__row dd::before{content:attr(data-short);display:block;
+    font-size:10.5px;letter-spacing:.05em;color:var(--fg-3);margin-bottom:1px;}
+}
+
+/* ---------- 章節之間的滿版轉場 ---------- */
+.ts-air .ts-scene{position:relative;background:#000;}
+.ts-air .ts-scene__media{position:relative;overflow:hidden;
+  height:clamp(420px,78svh,900px);
+  background:radial-gradient(118% 96% at 50% 40%,#23262B 0%,#12151A 48%,#000 100%);}
+/* contain 不是 cover：這幾張是去背的產品圖，cover 在手機直式會把機身裁掉一半。
+   滿版的感覺由底下那層漸層負責，產品本身永遠完整。 */
+.ts-air .ts-scene__media img{width:100%;height:100%;object-fit:contain;object-position:center;
+  display:block;will-change:transform;padding:clamp(16px,4vw,56px);box-sizing:border-box;}
+.ts-air .ts-scene__cap{position:absolute;left:0;right:0;bottom:clamp(30px,6vw,68px);
+  text-align:center;padding-inline:var(--gut);}
+.ts-air .ts-scene__cap p{margin:0;font-size:clamp(21px,2.6vw,34px);font-weight:600;
+  letter-spacing:-.016em;line-height:1.22;color:#F5F5F7;text-wrap:balance;
+  text-shadow:0 1px 40px rgba(0,0,0,.55);}
+.ts-air .ts-scene__cap small{display:block;margin-top:10px;font-size:clamp(13px,1.3vw,16px);
+  font-weight:400;letter-spacing:-.004em;color:#A1A1A6;}
+@media (max-width:700px){
+  .ts-air .ts-scene__media{height:clamp(320px,58svh,520px);}
+  .ts-air .ts-scene__cap{bottom:24px;}
+}
+
+/* ---------- 浮動購買列（接真的購物車） ---------- */
+.ts-buybar{position:fixed;left:0;right:0;bottom:0;z-index:60;
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.16,.84,.44,1);
+  background:rgba(22,22,23,.86);backdrop-filter:saturate(180%) blur(22px);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);
+  border-top:1px solid rgba(255,255,255,.12);color:#F5F5F7;
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;}
+.ts-buybar.is-up{transform:none;}
+.ts-buybar__in{max-width:1180px;margin-inline:auto;padding:11px clamp(16px,5vw,64px);
+  display:flex;align-items:center;gap:18px;}
+.ts-buybar__txt{flex:1;min-width:0;}
+.ts-buybar__name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ts-buybar__price{font-size:12px;color:#A1A1A6;font-variant-numeric:tabular-nums;}
+.ts-buybar__btn{font:inherit;font-size:14.5px;font-weight:500;border:0;cursor:pointer;
+  background:#0071E3;color:#fff;padding:11px 26px;border-radius:980px;
+  transition:background .18s,transform .18s;white-space:nowrap;}
+.ts-buybar__btn:hover{background:#0077ED;transform:translateY(-1px);}
+.ts-buybar__btn[disabled]{opacity:.5;cursor:not-allowed;transform:none;}
+@media (max-width:560px){.ts-buybar__price{display:none;}.ts-buybar__btn{padding:11px 18px;}}
+
+/* ══════════ 全頁字級與間距的唯一標準 ══════════
+   Mars 反映各段落不一致。量過之後確認有三個來源在各自為政：
+     ① CSS 裡有針對特定段落的覆蓋（例如釘住段的 h2 被改小成 30px）
+     ② 每種卡片各自寫自己的內文大小（13.5／14.5／15／16.5px 都有）
+     ③ HTML 裡寫死的 style="margin-top:…"（那個連 CSS 都蓋不過）
+   ③ 已在 build_sections.py 裡把 .small／.lede 的行內 margin 拿掉，
+   剩下的兩個由這一段收斂。**這一段接在最後面，所以它說了算。**
+
+   照 Apple 的階層，標題一律負字距（越大的字收得越緊），
+   只有 lede 是正字距（那是刻意的，讀起來比較鬆）。 */
+
+/* 標題：同一層級全站只有一種寫法 */
+.ts-air .pin__copy h2,
+.ts-air .xp__grid h2{font-size:clamp(32px,4.6vw,56px);}   /* 原本被改小成 30px */
+.ts-air h3{line-height:1.18;letter-spacing:-.012em;}       /* 原本是 +.007em，跟 h1/h2 反向 */
+.ts-air .test h3,
+.ts-air .card h3,
+.ts-air .heat__card h3{font-size:clamp(19px,1.7vw,22px);letter-spacing:-.012em;}
+
+/* 內文：兩級。段落層級用 17px（Apple 的 body），卡片裡用小一級 */
+.ts-air .sect > .wrap > p:not(.lede):not(.small),
+.ts-air .ssb__say p{font-size:17px;line-height:1.47;letter-spacing:-.012em;}
+.ts-air .test p,
+.ts-air .card p,
+.ts-air .heat__card p,
+.ts-air .pin__verdict p:not(.small){font-size:15.5px;line-height:1.58;letter-spacing:-.012em;}
+.ts-air .stat__l{font-size:14px;line-height:1.43;letter-spacing:-.016em;}
+
+/* 間距：同一種關係只有一個數字 */
+/* 只設上緣，不要用 margin 簡寫 —— 簡寫會把 margin-inline:auto 一起清掉，
+   置中的段落（顏色、收尾）裡，說明區塊就貼到左邊、整段看起來歪掉。 */
+.ts-air .lede{margin-top:clamp(18px,2vw,24px);}
+.ts-air .small{margin-top:16px;}
+.ts-air .test h3{margin:0 0 10px;}
+.ts-air .card h3,.ts-air .heat__card h3{margin:0 0 10px;}
+
+/* 收尾段的大字是品牌字樣（跟首屏同一個），不是 h2，維持原樣不收斂 */
+
+@media (max-width:860px){
+  /* 結論區塊收起來時 margin 也一起歸零，展開後標題會跟內文黏在一起。
+     改成只收高度，上緣間距留著。 */
+  .ts-air .pin__verdict{margin:clamp(18px,2vw,24px) 0 0;}
+  .ts-air .pin__verdict:not(.on){margin-top:0;}
+}
+
+/* 首屏的 lede 原本自己一套（17px／上緣 14px），跟其他段的 19px／18px 對不上。
+   置中與最大寬度保留，字級與間距回到全站標準。 */
+.ts-air .hero .lede{font-size:clamp(19px,1.9vw,24px);margin-top:clamp(18px,2vw,24px);
+  margin-inline:auto;}
+/* 對照卡的品名是窄欄裡的卡片標題，可以小一級，但字距跟其他標題同向 */
+.ts-air .cmp__name{letter-spacing:-.012em;}
+
+/* 正負極層做成黑色半透明：它們只是「上下兩片」的交代，
+   真正要看的是中間那層電解質，所以壓下去讓對比出來。 */
+.ts-air .ssb__pole{opacity:.62;}
+
+/* 置中的段落裡，有 max-width 的區塊要自己置中，否則會貼到左邊 */
+/* 置中的段落裡，有 max-width 的區塊要自己置中，否則會貼到左邊。
+   注意 text-align:center 可能寫在 .sect、也可能寫在 .wrap（顏色那段就是寫在 wrap），
+   所以選擇器不能綁死在某一層 —— 用「任何祖先」去比對。 */
+.ts-air [style*="text-align:center"] .lede,
+.ts-air [style*="text-align:center"] .small,
+.ts-air .close .lede,
+.ts-air .close .small,
+.ts-air .hero .lede{margin-inline:auto;}
+
+/* ---------- 五項測試：桌機也要是一塊一塊的卡 ----------
+   原本桌機是「一整片格線＋1px 細線分隔」，看起來是一個表格不是五張卡。
+   Mars 要的是 Apple 那種獨立卡片，兩種螢幕都一樣。 */
+.ts-air .tests{background:transparent;border:0;gap:clamp(10px,1.1vw,16px);}
+.ts-air .test{background:var(--bg-2);border-radius:18px;padding:clamp(22px,2vw,28px) clamp(18px,1.6vw,24px);}
+.ts-air .sect.light .tests .test{background:#FFFFFF;box-shadow:0 0 0 1px rgba(0,0,0,.06);}
+
+/* 卡片標題：我前面把 margin 收成 0，結果接在圖片下面的標題（散熱那兩張）
+   直接貼到圖上、又跟下面的數字擠在一起。改成「不是第一個元素就給上緣」。 */
+.ts-air .test h3,
+.ts-air .card h3,
+.ts-air .heat__card h3{margin:clamp(16px,1.6vw,22px) 0 8px;}
+.ts-air .test h3:first-child,
+.ts-air .card h3:first-child,
+.ts-air .heat__card h3:first-child{margin-top:0;}
+/* 標題底下那個大數字也要一點呼吸 */
+.ts-air .heat__card .num,
+.ts-air .heat__card > p:first-of-type{margin-top:2px;}
+
+/* ---------- 五項測試：卡片放大，往右出血到視窗邊緣（Apple 就是這樣） ----------
+   左邊對齊內容欄，右邊直接切到畫面外，讓人一眼知道右邊還有東西。
+   出血用 50% - 50vw；多出來的部分由段落的 overflow-x:clip 收掉
+   （用 clip 不用 hidden —— hidden 會變成捲動容器，會弄死別處的 sticky）。 */
+.ts-air #tests{overflow-x:clip;}
+.ts-air .tests{display:flex;grid-template-columns:none;background:transparent;border:0;
+  gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  margin-right:calc(50% - 50vw);padding-right:var(--gut);
+  margin-inline-start:0;padding-inline-start:0;scroll-padding-inline:0;}
+.ts-air .tests::-webkit-scrollbar{display:none;}
+.ts-air .test{flex:0 0 clamp(268px,27vw,364px);scroll-snap-align:start;
+  background:var(--bg-2);border-radius:18px;
+  padding:clamp(26px,2.2vw,34px) clamp(22px,1.8vw,28px);}
+.ts-air .sect.light .tests .test{background:#FFFFFF;box-shadow:0 0 0 1px rgba(0,0,0,.06);}
+@media (max-width:760px){
+  .ts-air .test{flex:0 0 78%;}
+}
+
+/* 穿刺圖：高度由寬高比決定，容器不再預留用不到的空間。
+   max-height 只當上限，避免在很矮的視窗上圖太大。 */
+/* 一定要指定方向：預設是 row，讀數會跑到圖的左邊、把圖擠窄 */
+.ts-air .pin__viz{display:flex;flex-direction:column;align-items:stretch;justify-content:center;}
+.ts-air .pin__viz svg{width:100%;height:auto;max-height:100%;}
+@media (max-width:860px){
+  /* 高螢幕上內容只佔中間一小塊、上下各空 200px，看起來很空。
+     把圖撐大填掉一半，順便讓穿刺變成這一段真正的主角。 */
+  .ts-air .pin__viz{max-height:min(56svh,calc(100vw * 1.12));}
+}
+
+/* 首屏數字改成三個（44.0°C 那格移到穿刺段去講），格線跟著改成三欄。
+   平板改兩欄會讓最後一格獨佔一整行，很怪，所以直接三欄到底、只在手機才直排。 */
+.ts-air .stats{grid-template-columns:repeat(3,1fr);}
+@media (max-width:1020px){.ts-air .stats{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:720px){.ts-air .stats{grid-template-columns:1fr;}}
+
+/* 手機版右上角也要有購買鍵（Apple 就是這樣）。
+   375 寬要塞下「‹ logo ＋ 商品名 ＋ 購買」，所以 logo 縮一點、
+   商品名可壓縮並在放不下時用刪節號，購買鍵永遠不被擠掉。 */
+@media (max-width:560px){
+  .ts-topbar__buy{display:inline-block;padding:5px 14px;font-size:12px;}
+  .ts-topbar__logo{max-width:92px;height:14px;}
+  .ts-topbar__name{margin-left:10px;margin-right:auto;flex:0 1 auto;min-width:0;
+    font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ts-topbar__in{gap:8px;}
+}
