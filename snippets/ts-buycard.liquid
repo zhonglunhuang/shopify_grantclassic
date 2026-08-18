@@ -1,0 +1,57 @@
+{%- comment -%}
+  購買卡（2026-08-19 Mars 拍板）：放在比較表之後、常見問題之前（ts-compare 內 render）。
+  「選擇顏色」radio 直接叫 name="id"——Shopify /cart/add 原生參數，JS 掛了照樣能買；
+  ts-cart.js 會攔截改走 API（抓 [name="id"]:checked）。頂部列與浮動列的「購買」跳 #buy 到這裡。
+{%- endcomment -%}
+<style>
+  .ts-air .close.close--card{padding-block:clamp(48px,7vh,96px);}
+  .ts-air .close .close__pick{margin:30px 0 0;font-size:14px;color:#6E6E73;}
+  .ts-air .close .close__colors{border:0;padding:0;margin:12px 0 0;
+    display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .ts-air .close .close__color{display:flex;align-items:center;gap:10px;
+    padding:12px 22px;border:1px solid #D2D2D7;border-radius:999px;cursor:pointer;
+    font-size:15px;font-weight:600;color:#1D1D1F;background:#FFFFFF;position:relative;
+    transition:border-color .2s,box-shadow .2s;}
+  .ts-air .close .close__color input{position:absolute;opacity:0;pointer-events:none;}
+  .ts-air .close .close__color i{width:18px;height:18px;border-radius:50%;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);}
+  .ts-air .close .close__color:has(input:checked){border-color:var(--accent);
+    box-shadow:0 0 0 1px var(--accent);}
+  .ts-air .close .close__color.is-off{opacity:.45;cursor:not-allowed;}
+  .ts-air .close .close__color.is-off span{text-decoration:line-through;}
+  .ts-air .close .cta{margin-top:26px;}
+</style>
+<section class="close light close--card" id="buy">
+  <div class="wrap">
+    <p class="wordmark rise" style="font-size:clamp(38px,6.4vw,82px)"><b>TITANSHIELD</b> <em>Air</em></p>
+    <p class="lede rise" data-d="1">6 mm ／ 113 g ／ 5000 mAh ／ 磁吸 15W</p>
+    <p class="rise" data-d="2" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em;margin:18px 0 0">{{ product.selected_or_first_available_variant.price | money }}</p>
+    {%- if product.available -%}
+      {%- form 'product', product, id: 'ts-close-form' -%}
+        <p class="close__pick rise" data-d="2" id="closePickLabel">選擇顏色</p>
+        <div class="close__colors rise" data-d="2" role="radiogroup" aria-labelledby="closePickLabel">
+          {%- for cv in product.variants -%}
+            <label class="close__color{% unless cv.available %} is-off{% endunless %}">
+              <input type="radio" name="id" value="{{ cv.id }}"
+                     {% if cv.id == product.selected_or_first_available_variant.id %}checked{% endif %}
+                     {% unless cv.available %}disabled{% endunless %}>
+              <i style="background:{% if cv.title contains '黑' %}#2C2C2E{% else %}linear-gradient(145deg,#E8E8EC,#C9C9CF){% endif %}" aria-hidden="true"></i>
+              <span>{{ cv.title }}{% unless cv.available %}（缺貨）{% endunless %}</span>
+            </label>
+          {%- endfor -%}
+        </div>
+        <div class="cta rise" data-d="3">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" name="add" class="btn">加入購物車</button>
+          <button type="button" class="btn btn--ghost" onclick="document.getElementById('spec').scrollIntoView()">看完整規格</button>
+        </div>
+      {%- endform -%}
+    {%- else -%}
+      <div class="cta rise" data-d="2">
+        <button class="btn" disabled>暫時缺貨</button>
+        <button type="button" class="btn btn--ghost" onclick="document.getElementById('spec').scrollIntoView()">看完整規格</button>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+<script src="{{ 'ts-cart.js' | asset_url }}" defer></script>

@@ -21,14 +21,10 @@
       </div>
     </div>
 
+    {%- comment -%} 2026-08-19（Mars 拍板）：不再直接加車（會盲加石墨黑）——
+        改跳到頁尾購買卡（#buy）先選顏色再加入購物車 {%- endcomment -%}
     {%- if v and v.available -%}
-      {%- form 'product', product, id: 'ts-buybar-form' -%}
-        <input type="hidden" name="id" value="{{ v.id }}">
-        <input type="hidden" name="quantity" value="1">
-        <button type="submit" name="add" class="ts-buybar__btn">
-          {{ section.settings.button_label }}
-        </button>
-      {%- endform -%}
+      <a class="ts-buybar__btn" href="#buy">購買</a>
     {%- else -%}
       <button class="ts-buybar__btn" disabled>{{ section.settings.soldout_label }}</button>
     {%- endif -%}

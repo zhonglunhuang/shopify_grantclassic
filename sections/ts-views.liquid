@@ -20,15 +20,19 @@
   }
 </style>
 <div class="ts-air">
-<section class="views views--scrub" id="views" data-ts-viewscrub>
+{%- comment -%} 手機的捲動旋轉走「圖片序列＋canvas」（Apple 官網同招）：
+    iOS 不讓沒播放過的影片刷 currentTime（整塊黑），但換圖沒問題。
+    data-frames 給第 1 張的網址、JS 換序號載其餘 72 張（快到段落才開載）。 {%- endcomment -%}
+<section class="views views--scrub" id="views" data-ts-viewscrub
+         data-frames="{{ 'ts-views-001.jpg' | asset_url }}" data-frame-count="73">
   <div class="views__pin">
     <div class="views__vid">
       <video muted playsinline preload="auto"
-             aria-label="穩如鈦山 Air 多角度外觀（捲動旋轉）" width="1080" height="608">
+             aria-label="穩如鈦山 Air 多角度外觀（捲動旋轉）" width="1080" height="1080">
         <source src="{{ 'ts-air-views.mp4' | asset_url }}" type="video/mp4">
       </video>
     </div>
-    <p class="views__cap">往下捲，轉一圈——MagSafe 磁吸區、無縫鋁合金側面、2.5D 弧邊、Type-C 埠，每一面都看清楚。</p>
+    <p class="views__cap"><span class="views__scrollhint">往下捲，轉一圈——</span>MagSafe 磁吸區、無縫鋁合金側面、2.5D 弧邊、Type-C 埠，每一面都看清楚。</p>
   </div>
 </section>
 </div>

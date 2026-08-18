@@ -32,16 +32,9 @@
       <a href="#spec">規格</a>
     </nav>
 
-    {%- assign v = product.selected_or_first_available_variant -%}
-    {%- if v and v.available -%}
-      {%- form 'product', product, id: 'ts-topbar-form' -%}
-        <input type="hidden" name="id" value="{{ v.id }}">
-        <input type="hidden" name="quantity" value="1">
-        <button type="submit" name="add" class="ts-topbar__buy">{{ section.settings.button_label }}</button>
-      {%- endform -%}
-    {%- else -%}
-      <a class="ts-topbar__buy" href="{{ product.url | default: routes.root_url }}">{{ section.settings.button_label }}</a>
-    {%- endif -%}
+    {%- comment -%} 2026-08-19（Mars 拍板）：不再直接加車（會盲加石墨黑）——
+        改跳到頁尾購買卡（#buy）先選顏色再加入購物車 {%- endcomment -%}
+    <a class="ts-topbar__buy" href="#buy">{{ section.settings.button_label }}</a>
 
   </div>
 </div>

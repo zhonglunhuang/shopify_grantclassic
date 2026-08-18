@@ -9,6 +9,8 @@
   TITANSHIELD目前沒有渲染圖，圖留空會顯示「圖待補」的虛線框。
 {%- endcomment -%}
 <style>
+  /* 比較表→購買卡→常見問題的縫收窄（Mars 2026-08-19：原本兩段 .sect 相接空太大） */
+  .ts-air .sect.cmp{padding-bottom:clamp(48px,7vh,88px);}
   .ts-air .faq{max-width:760px;margin:clamp(28px,4vw,48px) auto 0;}
   .ts-air .faq details{border-bottom:1px solid var(--line);}
   .ts-air .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;
@@ -136,6 +138,9 @@
     {%- endif -%}
   </div>
 </section>
+
+{%- comment -%} 購買卡（Mars 2026-08-19：放常見問題上面）——內容只有一份，在 snippets/ts-buycard {%- endcomment -%}
+{%- render 'ts-buycard' -%}
 
 <section class="sect light sect--tight" id="faq">
   <div class="wrap">

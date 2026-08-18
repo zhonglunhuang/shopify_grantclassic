@@ -88,19 +88,27 @@ if (!window.__tsGuardInit) {
 
       show(0);
 
-      /* 2026-08-19 Mars 拍板：改「邊滑邊變化」——段落穿過視窗的進度決定顯示第幾條防護
-         （前 14% 與後 16% 留白，中段均分六條）；點分頁可暫時手動、再捲動就交還。 */
+      /* 2026-08-19 Mars 三改：手機＝釘住舞台（260vh sticky）、進度讀舞台捲了多少；
+         桌機＝不釘（視窗高、置中會空一大截），進度讀段落穿過視窗多少（頭尾各留白）。
+         兩邊都是邊滑邊換模式；點分頁可暫時手動、再捲動 120px 就交還。 */
       if (!reduce) {
+        var stage = sec.querySelector(".gxstage") || sec;
+        var mobilePin = matchMedia("(max-width:860px)");
         var ticking = false;
         lastY = scrollY;
         function update() {
           ticking = false;
-          var vh = innerHeight, r = sec.getBoundingClientRect();
+          var vh = innerHeight, r = stage.getBoundingClientRect();
           if (r.bottom < 0 || r.top > vh) return;
-          var p = (vh - r.top) / (vh + r.height);
+          var p;
+          if (mobilePin.matches) {
+            var h = stage.offsetHeight - vh;
+            p = (0 - r.top) / (h > 0 ? h : 1);
+          } else {
+            p = ((vh - r.top) / (vh + r.height) - 0.14) / 0.7;
+          }
           if (p < 0) p = 0; else if (p > 1) p = 1;
-          var idx = Math.floor((p - 0.14) / 0.7 * MODES.length);
-          if (idx < 0) idx = 0;
+          var idx = Math.floor(p * MODES.length * 0.999);
           if (idx > MODES.length - 1) idx = MODES.length - 1;
           if (!manual && idx !== cur) show(idx);
         }

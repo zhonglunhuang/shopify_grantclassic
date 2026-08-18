@@ -1,37 +1,19 @@
 {{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  2026-08-19：購買卡改放比較表與常見問題之間（ts-compare 內 render 'ts-buycard'），
+  本 section 已從 product.ts-air.json 移除、目前沒掛在頁上。留著這個殼是為了
+  哪天要再單獨擺回頁尾時直接加回 order 就好——內容只有一份（snippet），不會漂。
+{%- endcomment -%}
 <div class="ts-air">
-<section class="close light">
-  <div class="wrap">
-    <p class="wordmark rise" style="font-size:clamp(38px,6.4vw,82px)"><b>TITANSHIELD</b> <em>Air</em></p>
-    <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
-    <p class="rise" data-d="2" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em;margin:18px 0 0">{{ product.selected_or_first_available_variant.price | money }}</p>
-    <div class="cta rise" data-d="2">
-      {%- assign v = product.selected_or_first_available_variant -%}
-      {%- if v and v.available -%}
-        {%- form 'product', product, id: 'ts-close-form' -%}
-          <input type="hidden" name="id" value="{{ v.id }}">
-          <input type="hidden" name="quantity" value="1">
-          <button type="submit" name="add" class="btn">加入購物車</button>
-        {%- endform -%}
-      {%- else -%}
-        <button class="btn" disabled>暫時缺貨</button>
-      {%- endif -%}
-      <button class="btn btn--ghost" onclick="document.getElementById('spec').scrollIntoView()">看完整規格</button>
-    </div>
-  </div>
-</section>
+  {%- render 'ts-buycard' -%}
 </div>
-
-<script src="{{ 'ts-cart.js' | asset_url }}" defer></script>
 <script src="{{ 'ts-air.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
   "name": "TS Air 收尾",
   "tag": "section",
-  "settings": [
-    { "type": "textarea", "id": "lede", "label": "說明", "default": "6 mm ／ 113 g ／ 5000 mAh ／ 磁吸 15W" }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "TS Air 收尾"

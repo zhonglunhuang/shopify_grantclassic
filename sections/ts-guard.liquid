@@ -7,6 +7,17 @@
   曲線動畫在 ts-guard.js；NTC 精準控溫卡與說明書小字保留在下方。
 {%- endcomment -%}
 <style>
+  /* 釘住只給手機（Mars 2026-08-19 二改）：手機整組剛好一屏、釘住不飄很順；
+     桌機視窗高、內容置中會上下空一大截（被打槍），改回不釘、照樣邊滑邊換模式。
+     ！sticky 坑 #2：.wrap/.sect 都沒 overflow，安全。 */
+  .ts-air .gxstage{height:auto;position:relative;margin-top:clamp(32px,4.5vw,52px);}
+  .ts-air .gxstage__pin{position:static;}
+  .ts-air .gxstage__pin .gx{width:100%;margin-top:0;}
+  @media (max-width:860px){
+    .ts-air .gxstage{height:260vh;}
+    .ts-air .gxstage__pin{position:sticky;top:0;height:100svh;
+      display:flex;align-items:center;overflow:hidden;}
+  }
   .ts-air .gx{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);
     align-items:center;margin-top:clamp(32px,4.5vw,52px);}
   .ts-air .gx__tabs{display:flex;gap:clamp(12px,2vw,28px);border-bottom:1px solid var(--line);
@@ -29,11 +40,25 @@
   .ts-air .gx__chart .dot.on{opacity:1;}
   .ts-air .gx__chart text{fill:var(--fg-3);font-size:12px;}
   .ts-air .gx__cap{margin-top:16px;font-size:15px;color:var(--fg-2);min-height:1.7em;}
+  @media (max-width:700px){.ts-air .gx__cap{min-height:3.4em;}}
   .ts-air .gx__img img{width:100%;height:auto;display:block;}
   @media (max-width:860px){
-    .ts-air .gx{grid-template-columns:1fr;}
+    .ts-air .gx{grid-template-columns:1fr;gap:14px;}
     .ts-air .gx__img{order:-1;}
-    .ts-air .gx__img img{max-width:420px;margin-inline:auto;}
+    /* 渲染圖完整、放大（Mars 2026-08-19：420px 上限縮過頭）；
+       釘住後整組要塞進一屏，分頁列縮成一行、間距收緊 */
+    .ts-air .gx__tabs{flex-wrap:nowrap;gap:10px;overflow-x:auto;scrollbar-width:none;}
+    .ts-air .gx__tabs button{font-size:13px;white-space:nowrap;padding:6px 0 10px;}
+    .ts-air .gx__chart{margin-top:14px;}
+    .ts-air .gx__cap{margin-top:10px;}
+  }
+  /* 矮螢幕保險：整組超過一屏時把圖限高，寧可小也不能被上下裁掉 */
+  @media (max-width:860px) and (max-height:660px){
+    .ts-air .gx__img img{max-height:34svh;width:auto;max-width:100%;margin-inline:auto;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ts-air .gxstage{height:auto;}
+    .ts-air .gxstage__pin{position:static;height:auto;overflow:visible;}
   }
   .ts-air .ntcbox{margin-top:clamp(40px,5vw,60px);background:var(--bg-2);border:1px solid var(--line);
     border-radius:18px;padding:28px 26px;display:flex;gap:26px;align-items:center;flex-wrap:wrap;}
@@ -55,6 +80,8 @@
     <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
     <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
 
+    <div class="gxstage">
+    <div class="gxstage__pin">
     <div class="gx rise" data-d="2">
       <div>
         {%- comment -%} 2026-08-19 SEO：分頁鈕改 Liquid 渲染（原本 JS 生成、爬蟲看不到）；
@@ -95,6 +122,8 @@
         <img src="{{ 'ts-guard-hero.webp' | asset_url }}" alt="TITANSHIELD Air 斜擺機身"
              width="1500" height="1214" loading="eager">
       </div>
+    </div>
+    </div>
     </div>
 
     <div class="ntcbox rise" data-d="3">

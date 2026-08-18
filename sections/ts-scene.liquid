@@ -68,13 +68,15 @@
     padding-left:6vw;margin-top:10px;}
   .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capsmall{text-align:left;padding-left:6vw;}
   /* 手機版三修（Mars 2026-08-19）：吊掛字下移防頭重腳輕；口袋「輕，」被前景蓋住
-     →兩行都提到最前層並加大；黑銀雙機 cover 裁太兇→改 contain 完整呈現（黑底補滿） */
+     →兩行都提到最前層並加大；黑銀雙機維持滿版 cover（Mars 2026-08-19 二改：
+     contain 縮圖被打槍），改「框高縮到 56svh」——橫向仍滿版、直向裁切大減，
+     兩台機身看得到；整段捲動高度同步縮到 150svh 免得空滑 */
   @media (max-width:700px){
     .ts-air .ts-scene--grow.ts-scene--depth-hang .ts-scene__cap{top:47%;}
     .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capline--1{z-index:4;}
     .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capline{font-size:clamp(40px,10.5vw,58px);}
-    .ts-air .ts-scene--shot-duo .ts-scene__media{background:#000;}
-    .ts-air .ts-scene--shot-duo .ts-scene__media img{object-fit:contain;}
+    .ts-air .ts-scene.ts-scene--shot-duo{height:150svh;}
+    .ts-air .ts-scene--shot-duo .ts-scene__frame{height:56svh;}
   }
   @media (prefers-reduced-motion:reduce){
     .ts-air .ts-scene.ts-scene--grow{height:auto;}
