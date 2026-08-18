@@ -7,6 +7,12 @@
   配色走 Air 的深色＋藍調。
 {%- endcomment -%}
 <style>
+  /* 標題下移＋微漸層（Mars 手機版 2026-08-19） */
+  .ts-air #bento h2{background:linear-gradient(180deg,#F5F5F7 35%,#8FB8E8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  @media (max-width:700px){
+    .ts-air #bento{padding-top:clamp(120px,26vw,168px);}
+  }
   .ts-air .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:clamp(36px,5vw,56px);}
   /* 不描邊（Mars 2026-08-18：DJI/Insta360 的卡就是圓角照片、沒有線框） */
   .ts-air .bento__b{background:var(--bg-2);border-radius:22px;overflow:hidden;
@@ -61,6 +67,12 @@
   .ts-air .bento__b--magnet .bento__badge{border-color:rgba(0,0,0,.28);color:#515154;margin-top:10px;}
   @media (max-width:900px){
     .ts-air .bento__mgcol{right:6%;max-width:52%;}
+  }
+  @media (max-width:700px){
+    .ts-air .bento__b--magnet{min-height:320px;}
+    .ts-air .bento__b--magnet .bento__media img{object-position:12% center;}
+    .ts-air .bento__mgcol{right:3%;max-width:44%;gap:2px;}
+    .ts-air .bento__b--magnet .bento__big{font-size:clamp(32px,9vw,42px);}
   }
   .ts-air .bento__b--photo .bento__head,
   .ts-air .bento__b--photo .bento__fig{position:relative;z-index:2;}

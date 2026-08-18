@@ -67,6 +67,15 @@
   .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capline--2{text-align:left;
     padding-left:6vw;margin-top:10px;}
   .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capsmall{text-align:left;padding-left:6vw;}
+  /* 手機版三修（Mars 2026-08-19）：吊掛字下移防頭重腳輕；口袋「輕，」被前景蓋住
+     →兩行都提到最前層並加大；黑銀雙機 cover 裁太兇→改 contain 完整呈現（黑底補滿） */
+  @media (max-width:700px){
+    .ts-air .ts-scene--grow.ts-scene--depth-hang .ts-scene__cap{top:47%;}
+    .ts-air .ts-scene--grow.ts-scene--depth-float .ts-scene__capline--1{z-index:4;}
+    .ts-air .ts-scene--grow.ts-scene--depth .ts-scene__capline{font-size:clamp(40px,10.5vw,58px);}
+    .ts-air .ts-scene--shot-duo .ts-scene__media{background:#000;}
+    .ts-air .ts-scene--shot-duo .ts-scene__media img{object-fit:contain;}
+  }
   @media (prefers-reduced-motion:reduce){
     .ts-air .ts-scene.ts-scene--grow{height:auto;}
     .ts-air .ts-scene--grow .ts-scene__pin{position:static;height:auto;}
@@ -83,7 +92,7 @@
   {%- endif -%}
 {%- endif -%}
 <div class="ts-air">
-  <section class="ts-scene ts-scene--grow{% if has_fg %} ts-scene--depth ts-scene--depth-{{ section.settings.shot }}{% endif %}" data-ts-grow>
+  <section class="ts-scene ts-scene--grow ts-scene--shot-{{ section.settings.shot }}{% if has_fg %} ts-scene--depth ts-scene--depth-{{ section.settings.shot }}{% endif %}" data-ts-grow>
     <div class="ts-scene__pin">
       <div class="ts-scene__frame">
         <div class="ts-scene__media" style="height:100%">

@@ -173,8 +173,8 @@
 @media (max-width:900px){.ts-air .xp{height:300vh;}
 .ts-air .xp__grid{grid-template-columns:1fr;gap:12px;}
 .ts-air .xp__scene{height:34svh;}
-.ts-air .xp__item span{display:none;}
-.ts-air .xp__item{padding:7px 10px;}}
+.ts-air .xp__item span{font-size:12px;}
+.ts-air .xp__item{padding:8px 10px;}}
 .ts-air .thin__bars{display:flex;flex-direction:column;gap:22px;margin-top:44px;}
 .ts-air .tbar{display:grid;grid-template-columns:clamp(96px,13vw,150px) 1fr;gap:18px;align-items:center;}
 .ts-air .tbar__k{font-size:14px;color:var(--fg-2);}
