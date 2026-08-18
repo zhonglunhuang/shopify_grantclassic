@@ -35,14 +35,30 @@
     .ts-air .cmp .cmp__row{grid-template-columns:1fr 1fr 1fr;gap:3px clamp(10px,3vw,18px);}
     .ts-air .cmp .cmp__row dt{grid-column:1/-1;}
   }
+  /* 手機版兩件（Mars 2026-08-19）：①比較內容先收起來、按鈕點了才展開
+     （桌機不變、按鈕不出現）；②選購卡排到比較段上面（flex order，桌機維持原順序） */
+  .ts-air .cmp__toggle{display:none;}
+  @media (max-width:760px){
+    .ts-air.cmpwrap{display:flex;flex-direction:column;}
+    .ts-air.cmpwrap .close--card{order:-1;}
+    .ts-air .cmp__toggle{display:inline-flex;margin-top:18px;}
+    .ts-air .cmp:not(.cmp--open) .cmp__cards,
+    .ts-air .cmp:not(.cmp--open) .cmp__rows,
+    .ts-air .cmp:not(.cmp--open) .cmp__note{display:none;}
+    .ts-air .cmp.cmp--open .cmp__toggle{display:none;}
+  }
 </style>
-<div class="ts-air">
+<div class="ts-air cmpwrap">
 <section class="sect light cmp" id="compare">
   <div class="wrap">
     <h2 class="rise">{{ section.settings.heading | newline_to_br }}</h2>
     {%- if section.settings.lede != blank -%}
       <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
     {%- endif -%}
+    {%- comment -%} 手機版預設收起、按了展開（Mars：整段直接攤開在手機不好逛）；
+        之後 Mars 給「穩如鈦山」總覽頁的話，這顆可改成連過去 {%- endcomment -%}
+    <button type="button" class="btn btn--ghost cmp__toggle rise" data-d="2"
+            onclick="this.closest('.cmp').classList.add('cmp--open')">展開三款比較</button>
 
     <div class="cmp__cards rise" data-d="2">
       {%- for n in (1..3) -%}

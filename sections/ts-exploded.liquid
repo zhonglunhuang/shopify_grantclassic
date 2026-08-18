@@ -42,7 +42,11 @@
     .ts-air .xps .xp__linklayer{display:none;}
   }
   @media (max-width:768px){
-    .ts-air .xps .xp__vidbox{width:min(100%,calc(34svh * .75));}
+    /* 手機取消釘住（Mars 2026-08-19：影片＋七層塞不進一屏、影片上緣被裁）——
+       改流式、影片放大完整呈現；點亮改隨頁面捲動（ts-exploded.js 手機走另一條進度公式） */
+    .ts-air .xps{height:auto;padding-block:clamp(64px,10vh,120px);}
+    .ts-air .xps .xps__pin{position:static;height:auto;overflow:visible;}
+    .ts-air .xps .xp__vidbox{width:min(420px,92%);}
   }
   @media (prefers-reduced-motion:reduce){
     .ts-air .xps{height:auto;padding-block:clamp(88px,13vh,168px);}
