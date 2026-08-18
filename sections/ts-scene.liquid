@@ -95,7 +95,7 @@
                  sizes="100vw"
                  alt="{{ section.settings.image.alt | default: section.settings.caption | escape }}"
                  width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
-                 loading="lazy">
+                 loading="eager">
           {%- else -%}
             {%- assign fallback = 'ts-scene-' | append: section.settings.shot | append: '.webp' -%}
             {%- case section.settings.shot -%}
@@ -112,7 +112,7 @@
               {%- else -%}{%- assign falt = 'TITANSHIELD Air 側面特寫，6 mm 薄的鋁合金機身' -%}
             {%- endcase -%}
             <img src="{{ fallback | asset_url }}" width="{{ fw }}" height="{{ fh }}"
-                 alt="{{ falt }}" loading="lazy">
+                 alt="{{ falt }}" loading="eager">
           {%- endif -%}
         </div>
 
@@ -139,7 +139,7 @@
         {%- if has_fg -%}
           {%- assign fgname = 'ts-scene-' | append: section.settings.shot | append: '-fg.webp' -%}
           <div class="ts-scene__fg" aria-hidden="true">
-            <img src="{{ fgname | asset_url }}" alt="" width="{{ fw }}" height="{{ fh }}" loading="lazy">
+            <img src="{{ fgname | asset_url }}" alt="" width="{{ fw }}" height="{{ fh }}" loading="eager">
           </div>
         {%- endif -%}
       </div>

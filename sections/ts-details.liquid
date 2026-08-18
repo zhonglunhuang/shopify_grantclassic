@@ -59,11 +59,11 @@
 
     {%- if section.settings.corner_image != blank -%}
       <img class="corner__photo rise" data-d="2" src="{{ section.settings.corner_image | image_url: width: 2400 }}"
-           alt="{{ section.settings.corner_heading | escape }}" loading="lazy"
+           alt="{{ section.settings.corner_heading | escape }}" loading="eager"
            width="{{ section.settings.corner_image.width }}" height="{{ section.settings.corner_image.height }}">
     {%- else -%}
       <img class="corner__photo rise" data-d="2" src="{{ 'ts-corner.webp' | asset_url }}"
-           alt="TITANSHIELD Air 貼著 MacBook 邊角，R 角圓潤服貼" loading="lazy"
+           alt="TITANSHIELD Air 貼著 MacBook 邊角，R 角圓潤服貼" loading="eager"
            width="2000" height="1333">
     {%- endif -%}
   </div>
