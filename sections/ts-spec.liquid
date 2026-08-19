@@ -1,4 +1,10 @@
 {{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  2026-08-19（Mars 要求）：規格表原本整張寫死在這裡、後台改不了字——
+  改成每一列都是 block（項目＋內容），折疊說明（安全測試等）也是 block，
+  Mars 在主題編輯器就能自由改字、增刪、拖曳排序。
+  現有內容已搬進 templates/product.ts-air.json 的 blocks（防塵收納袋同批拿掉）。
+{%- endcomment -%}
 <div class="ts-air">
 <section class="sect light" id="spec">
   <div class="wrap">
@@ -6,45 +12,28 @@
     <p class="lede rise" data-d="1">{{ section.settings.lede | newline_to_br }}</p>
 
     <dl class="spec rise" data-d="2" style="margin-top:52px">
-      <div class="spec__row"><dt>品牌</dt><dd>grantclassic</dd></div>
-      <div class="spec__row"><dt>品名</dt><dd>TITANSHIELD Air ／ 穩如鈦山 Air 磁吸行動電源 5000mAh</dd></div>
-      <div class="spec__row"><dt>型號</dt><dd>2607-PM07</dd></div>
-      <div class="spec__row"><dt>電池技術</dt><dd>準固態鋰離子電池</dd></div>
-      <div class="spec__row"><dt>電池容量</dt><dd>5000 mAh（3.85V ／ 19.25Wh）</dd></div>
-      <div class="spec__row"><dt>額定容量</dt><dd>2800 mAh（5V ／ 14.0Wh）</dd></div>
-      <div class="spec__row"><dt>無線輸出</dt><dd>磁吸無線，最高 15W</dd></div>
-      <div class="spec__row"><dt>Type-C 有線</dt><dd>最高 18W（輸入／輸出）</dd></div>
-      <div class="spec__row"><dt>同時輸出</dt><dd>無線與有線同時使用時，功率各分一半</dd></div>
-      <div class="spec__row"><dt>磁吸吸力</dt><dd>1.5 kg（N52 磁鐵，符合 MagSafe 規範）</dd></div>
-      <div class="spec__row"><dt>機身材質</dt><dd>鋁合金 CNC 一體成型（220 號噴砂＋陽極氧化）</dd></div>
-      <div class="spec__row"><dt>面板</dt><dd>2.5D AG 光學防爆玻璃</dd></div>
-      <div class="spec__row"><dt>保護</dt><dd>NTC 溫度感測，電芯達 45°C 自動降低輸出功率</dd></div>
-      <div class="spec__row"><dt>尺寸</dt><dd>103.3 × 69.0 × 6 mm</dd></div>
-      <div class="spec__row"><dt>重量</dt><dd>113 g</dd></div>
-      <div class="spec__row"><dt>建議售價</dt><dd>NT$ 1,980</dd></div>
-      <div class="spec__row"><dt>包裝內容</dt><dd>本體、使用說明書、保固卡、Type-C 充電線、防塵收納袋</dd></div>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'row' -%}
+          <div class="spec__row" {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.label }}</dt><dd>{{ block.settings.value | newline_to_br }}</dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </dl>
 
+    {%- assign folds = section.blocks | where: 'type', 'fold' -%}
+    {%- if folds.size > 0 -%}
     <div style="margin-top:48px">
-      <details class="fold">
-        <summary>安全測試</summary>
-        <div style="padding-bottom:26px">
-          <p class="small">SGS 台灣檢驗科技可靠度實驗室穿刺試驗，報告編號 HE50024／2026，2026 年 6 月 10 日。樣品型號 486578，試驗前電壓 4.458 V、試驗後 0 V，最高溫度 44.0 °C，目視檢查無起火、無爆炸。</p>
-        </div>
-      </details>
-      <details class="fold">
-        <summary>溫度保護</summary>
-        <div style="padding-bottom:26px">
-          <p class="small">內建 NTC 溫度感測器，當電芯溫度達到或超過 45°C 時，產品會自動降低輸出功率。</p>
-        </div>
-      </details>
-      <details class="fold">
-        <summary>保固與服務</summary>
-        <div style="padding-bottom:26px">
-<p class="small">保固一年。在官網完成線上登記可再延長一年，合計兩年。</p>
-        </div>
-      </details>
+      {%- for block in folds -%}
+        <details class="fold" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.title }}</summary>
+          <div style="padding-bottom:26px">
+            <p class="small">{{ block.settings.text | newline_to_br }}</p>
+          </div>
+        </details>
+      {%- endfor -%}
     </div>
+    {%- endif -%}
   </div>
 </section>
 </div>
@@ -58,6 +47,24 @@
   "settings": [
     { "type": "textarea", "id": "heading", "label": "標題（換行=Enter）", "default": "全部的數字。" },
     { "type": "textarea", "id": "lede", "label": "說明", "default": "說明書上寫的每一項，原封不動列在這裡。" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "規格列",
+      "settings": [
+        { "type": "text", "id": "label", "label": "項目（左欄）" },
+        { "type": "textarea", "id": "value", "label": "內容（右欄）" }
+      ]
+    },
+    {
+      "type": "fold",
+      "name": "折疊說明",
+      "settings": [
+        { "type": "text", "id": "title", "label": "標題" },
+        { "type": "textarea", "id": "text", "label": "內文" }
+      ]
+    }
   ],
   "presets": [
     {

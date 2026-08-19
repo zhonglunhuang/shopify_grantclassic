@@ -1,0 +1,573 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "ts-air",
+  "sections": {
+    "ts_topbar": {
+      "type": "ts-topbar",
+      "settings": {}
+    },
+    "ts_hero": {
+      "type": "ts-hero",
+      "settings": {}
+    },
+    "ts_stats": {
+      "type": "ts-stats",
+      "settings": {}
+    },
+    "ts_puncture": {
+      "type": "ts-puncture",
+      "settings": {}
+    },
+    "ts_solid": {
+      "type": "ts-solid",
+      "settings": {}
+    },
+    "ts_tests": {
+      "type": "ts-tests",
+      "settings": {}
+    },
+    "ts_exploded": {
+      "type": "ts-exploded",
+      "settings": {}
+    },
+    "ts_scene_edge": {
+      "type": "ts-scene",
+      "settings": {
+        "shot": "hang",
+        "caption": "吸上去，\n就不打算下來。",
+        "subcaption": "N52 磁力環，倒著拿也咬得緊"
+      }
+    },
+    "ts_thin": {
+      "type": "ts-thin",
+      "settings": {}
+    },
+    "ts_light": {
+      "type": "ts-light",
+      "settings": {}
+    },
+    "ts_thermal": {
+      "type": "ts-thermal",
+      "settings": {}
+    },
+    "ts_scene_float": {
+      "type": "ts-scene",
+      "settings": {
+        "shot": "float",
+        "caption": "輕，\n到你忘了它。",
+        "subcaption": "放進口袋就出門，一整天不覺得多帶了什麼"
+      }
+    },
+    "ts_charge": {
+      "type": "ts-charge",
+      "settings": {}
+    },
+    "ts_capacity": {
+      "type": "ts-capacity",
+      "settings": {}
+    },
+    "ts_magnet": {
+      "type": "ts-magnet",
+      "settings": {}
+    },
+    "ts_details": {
+      "type": "ts-details",
+      "settings": {}
+    },
+    "ts_scene_duo": {
+      "type": "ts-scene",
+      "settings": {
+        "shot": "duo",
+        "caption": "石墨黑　極地銀"
+      }
+    },
+    "ts_colors": {
+      "type": "ts-colors",
+      "settings": {}
+    },
+    "ts_views": {
+      "type": "ts-views",
+      "settings": {}
+    },
+    "ts_spec": {
+      "type": "ts-spec",
+      "settings": {},
+      "blocks": {
+        "row1": {
+          "type": "row",
+          "settings": {
+            "label": "品牌",
+            "value": "grantclassic"
+          }
+        },
+        "row2": {
+          "type": "row",
+          "settings": {
+            "label": "品名",
+            "value": "TITANSHIELD Air ／ 穩如鈦山 Air 磁吸行動電源 5000mAh"
+          }
+        },
+        "row3": {
+          "type": "row",
+          "settings": {
+            "label": "型號",
+            "value": "2607-PM07"
+          }
+        },
+        "row4": {
+          "type": "row",
+          "settings": {
+            "label": "電池技術",
+            "value": "準固態鋰離子電池"
+          }
+        },
+        "row5": {
+          "type": "row",
+          "settings": {
+            "label": "電池容量",
+            "value": "5000 mAh（3.85V ／ 19.25Wh）"
+          }
+        },
+        "row6": {
+          "type": "row",
+          "settings": {
+            "label": "額定容量",
+            "value": "2800 mAh（5V ／ 14.0Wh）"
+          }
+        },
+        "row7": {
+          "type": "row",
+          "settings": {
+            "label": "無線輸出",
+            "value": "磁吸無線，最高 15W"
+          }
+        },
+        "row8": {
+          "type": "row",
+          "settings": {
+            "label": "Type-C 有線",
+            "value": "最高 18W（輸入／輸出）"
+          }
+        },
+        "row9": {
+          "type": "row",
+          "settings": {
+            "label": "同時輸出",
+            "value": "無線與有線同時使用時，功率各分一半"
+          }
+        },
+        "row10": {
+          "type": "row",
+          "settings": {
+            "label": "磁吸吸力",
+            "value": "1.5 kg（N52 磁鐵，符合 MagSafe 規範）"
+          }
+        },
+        "row11": {
+          "type": "row",
+          "settings": {
+            "label": "機身材質",
+            "value": "鋁合金 CNC 一體成型（220 號噴砂＋陽極氧化）"
+          }
+        },
+        "row12": {
+          "type": "row",
+          "settings": {
+            "label": "面板",
+            "value": "2.5D AG 光學防爆玻璃"
+          }
+        },
+        "row13": {
+          "type": "row",
+          "settings": {
+            "label": "保護",
+            "value": "NTC 溫度感測，電芯達 45°C 自動降低輸出功率"
+          }
+        },
+        "row14": {
+          "type": "row",
+          "settings": {
+            "label": "尺寸",
+            "value": "103.3 × 69.0 × 6 mm"
+          }
+        },
+        "row15": {
+          "type": "row",
+          "settings": {
+            "label": "重量",
+            "value": "113 g"
+          }
+        },
+        "row16": {
+          "type": "row",
+          "settings": {
+            "label": "建議售價",
+            "value": "NT$ 1,980"
+          }
+        },
+        "row17": {
+          "type": "row",
+          "settings": {
+            "label": "包裝內容",
+            "value": "本體、使用說明書、保固卡、Type-C 充電線"
+          }
+        },
+        "fold1": {
+          "type": "fold",
+          "settings": {
+            "title": "安全測試",
+            "text": "SGS 台灣檢驗科技可靠度實驗室穿刺試驗，報告編號 HE50024／2026，2026 年 6 月 10 日。樣品型號 486578，試驗前電壓 4.458 V、試驗後 0 V，最高溫度 44.0 °C，目視檢查無起火、無爆炸。"
+          }
+        },
+        "fold2": {
+          "type": "fold",
+          "settings": {
+            "title": "溫度保護",
+            "text": "內建 NTC 溫度感測器，當電芯溫度達到或超過 45°C 時，產品會自動降低輸出功率。"
+          }
+        },
+        "fold3": {
+          "type": "fold",
+          "settings": {
+            "title": "保固與服務",
+            "text": "保固一年。在官網完成線上登記可再延長一年，合計兩年。"
+          }
+        }
+      },
+      "block_order": [
+        "row1",
+        "row2",
+        "row3",
+        "row4",
+        "row5",
+        "row6",
+        "row7",
+        "row8",
+        "row9",
+        "row10",
+        "row11",
+        "row12",
+        "row13",
+        "row14",
+        "row15",
+        "row16",
+        "row17",
+        "fold1",
+        "fold2",
+        "fold3"
+      ]
+    },
+    "ts_compare": {
+      "type": "ts-compare",
+      "settings": {
+        "url_b": "/products/titanshield_10000",
+        "cta_b": "查看 TITANSHIELD Pro",
+        "url_m": "/products/solid-state-power-bank-titanshield-5000",
+        "cta_m": "查看 TITANSHIELD"
+      },
+      "blocks": {
+        "row1": {
+          "type": "row",
+          "settings": {
+            "label": "電池容量",
+            "a": "5000 mAh",
+            "b": "10000 mAh",
+            "win": "b",
+            "m": "5000／10000 mAh"
+          }
+        },
+        "row2": {
+          "type": "row",
+          "settings": {
+            "label": "機身厚度",
+            "a": "6 mm",
+            "b": "13 mm",
+            "win": "a",
+            "m": "11／19 mm"
+          }
+        },
+        "row3": {
+          "type": "row",
+          "settings": {
+            "label": "重量",
+            "a": "113 g",
+            "b": "214 g",
+            "win": "a",
+            "m": "155／255 g"
+          }
+        },
+        "row4": {
+          "type": "row",
+          "settings": {
+            "label": "無線輸出",
+            "a": "磁吸 15W",
+            "b": "Qi2.2 磁吸 25W",
+            "win": "b",
+            "m": "15W"
+          }
+        },
+        "row5": {
+          "type": "row",
+          "settings": {
+            "label": "電量顯示",
+            "a": "—",
+            "b": "TFT 數位螢幕",
+            "win": "b",
+            "m": "—"
+          }
+        },
+        "row6": {
+          "type": "row",
+          "settings": {
+            "label": "折疊支架",
+            "a": "—",
+            "b": "隱藏式支架",
+            "win": "b",
+            "m": "—"
+          }
+        },
+        "row7": {
+          "type": "row",
+          "settings": {
+            "label": "防爆警鈴",
+            "a": "—",
+            "b": "有",
+            "win": "b",
+            "m": "—"
+          }
+        },
+        "row8": {
+          "type": "row",
+          "settings": {
+            "label": "電芯",
+            "a": "準固態鋰離子",
+            "b": "準固態鋰離子",
+            "win": "none",
+            "m": "準固態鋰離子"
+          }
+        },
+        "row9": {
+          "type": "row",
+          "settings": {
+            "label": "溫度保護",
+            "a": "NTC 感測降載",
+            "b": "NTC 感測降載",
+            "win": "none",
+            "m": "NTC 感測降載"
+          }
+        },
+        "row10": {
+          "type": "row",
+          "settings": {
+            "label": "建議售價",
+            "a": "NT$1,980",
+            "b": "NT$2,980",
+            "win": "none",
+            "m": "NT$1,980 起"
+          }
+        },
+        "row11": {
+          "type": "row",
+          "settings": {
+            "label": "有線輸出",
+            "a": "18W",
+            "m": "20W",
+            "b": "30W",
+            "win": "b"
+          }
+        },
+        "row12": {
+          "type": "row",
+          "settings": {
+            "label": "Apple Watch 充電",
+            "a": "—",
+            "m": "✓",
+            "b": "—",
+            "win": "m"
+          }
+        },
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "q": "保固怎麼算？",
+            "a": "購買即享一年基本保固；到官網完成保固登錄，再延長一年——共 1+1 年。保固涵蓋正常使用下的瑕疵或損壞，不含耗材與外力損傷。"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "q": "可以帶上飛機嗎？",
+            "a": "可以隨身登機。Air 的 5000mAh 額定能量約 19.25Wh，遠低於民航規定的 100Wh 上限。提醒：行動電源一律隨身攜帶，不可放託運行李。"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "q": "我的手機沒有 MagSafe，也能用嗎？",
+            "a": "支援無線充電的手機都能充。沒有磁吸的手機，可以加磁吸環貼片，或直接用 Type-C 線充。"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "q": "Air 有防爆警鈴嗎？",
+            "a": "沒有。防爆警鈴與 TFT 螢幕是 Pro 的功能；Air 主打極致輕薄，把安全做在看不見的地方——準固態電芯、SGS 實測與六大防護。想要會出聲提醒的，請看 Pro。"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "q": "Air 跟TITANSHIELD、Pro 差在哪？",
+            "a": "Air 是極致輕薄款：6 mm、113 g 的 5000mAh 磁吸行動電源。TITANSHIELD是日常均衡款，多了 Apple Watch 充電；Pro 是旗艦效能款，多了防爆警鈴、TFT 螢幕與 25W 快充。詳細差異見上方比較表。"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "q": "退換貨怎麼辦理？",
+            "a": "全站購物享商品到貨七天鑑賞期，若商品有任何問題可於七天內申請退貨。鑑賞期非試用期，退回商品須為全新狀態且包裝完整。詳見官網退換貨說明。"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "q": "固態電池行動電源跟一般的差在哪？",
+            "a": "差在隔開正負極的電解質是固態的。一般行動電源用液態電解質，隔離膜破損時液體流出、正負極接觸就可能熱失控起火；固態電解質被刺穿仍維持結構。TITANSHIELD Air 的電芯經 SGS 鋼針穿刺試驗，最高溫 44.0°C，無起火、無爆炸。"
+          }
+        },
+        "q8": {
+          "type": "qa",
+          "settings": {
+            "q": "行動電源為什麼會爆炸？怎麼避免？",
+            "a": "絕大多數起火來自液態電解質的「熱失控」——電芯被擠壓、刺穿或過充後隔離膜破損、正負極短路，溫度連鎖上升。建議選有安全認證與過充保護的產品、不要壓在棉被枕頭下充電、外殼鼓起就停用。Air 從電芯端降低這個風險：準固態電解質不流動，加上六大防護與 NTC 控溫。"
+          }
+        }
+      },
+      "block_order": [
+        "row1",
+        "row2",
+        "row3",
+        "row4",
+        "row11",
+        "row12",
+        "row5",
+        "row6",
+        "row7",
+        "row8",
+        "row9",
+        "row10",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q7",
+        "q8",
+        "q5",
+        "q6"
+      ]
+    },
+    "ts_buybar": {
+      "type": "ts-buybar",
+      "settings": {}
+    },
+    "ts_guard": {
+      "type": "ts-guard",
+      "settings": {}
+    },
+    "ts_story": {
+      "type": "ts-story",
+      "settings": {},
+      "blocks": {
+        "k1": {
+          "type": "media",
+          "settings": {
+            "shape": "v",
+            "is_video": true,
+            "tag": "Reels・直式影片",
+            "who": "@daily.gadget",
+            "cap": "「摔下去撿回來繼續充」開箱 45 秒"
+          }
+        },
+        "k2": {
+          "type": "media",
+          "settings": {
+            "shape": "h",
+            "is_video": true,
+            "tag": "YouTube・橫式影片",
+            "who": "阿哲・3C 開箱",
+            "cap": "穿刺實測＋拆解 12:36"
+          }
+        },
+        "k3": {
+          "type": "quote",
+          "settings": {
+            "who": "Mia 通勤日常",
+            "cap": "Threads・真實買家",
+            "text": "出門前手機剩 20%，磁吸貼著化妝，出門已經六成。薄到放小包包完全沒感覺。"
+          }
+        },
+        "k4": {
+          "type": "media",
+          "settings": {
+            "shape": "s",
+            "is_video": false,
+            "tag": "Instagram・照片",
+            "who": "@cafe.worker",
+            "cap": "咖啡廳邊充邊追劇的日常"
+          }
+        },
+        "k5": {
+          "type": "media",
+          "settings": {
+            "shape": "h",
+            "is_video": true,
+            "tag": "UGC・橫式影片",
+            "who": "買家投稿",
+            "cap": "汽車輾壓後照樣能充"
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4",
+        "k5"
+      ]
+    }
+  },
+  "order": [
+    "ts_topbar",
+    "ts_hero",
+    "ts_stats",
+    "ts_puncture",
+    "ts_solid",
+    "ts_tests",
+    "ts_exploded",
+    "ts_scene_edge",
+    "ts_thin",
+    "ts_light",
+    "ts_thermal",
+    "ts_scene_float",
+    "ts_charge",
+    "ts_capacity",
+    "ts_magnet",
+    "ts_guard",
+    "ts_details",
+    "ts_scene_duo",
+    "ts_colors",
+    "ts_views",
+    "ts_spec",
+    "ts_story",
+    "ts_compare",
+    "ts_buybar"
+  ]
+}
