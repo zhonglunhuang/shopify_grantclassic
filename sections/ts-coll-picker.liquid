@@ -1,4 +1,8 @@
 {{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+<style>
+  /* 卡片小字備註（GOS：Air 預購中）——中性灰、不搶 CTA；選擇器多包一層防後段蓋掉 */
+  .ts-coll .ts-coll__pick-note{display:block;margin-top:6px;font-size:12.5px;color:#86868b;}
+</style>
 <div class="ts-coll">
   <div class="ts-coll__band ts-coll__band--wash">
     <div class="ts-coll__w">
@@ -56,6 +60,9 @@
                 <span class="ts-coll__pick-cta">{{ block.settings.cta | escape }} ›</span>
               {%- endif -%}
             {%- endif -%}
+            {%- if block.settings.note != blank -%}
+              <span class="ts-coll__pick-note">{{ block.settings.note | escape }}</span>
+            {%- endif -%}
           {%- if block.settings.soon -%}</div>{%- else -%}</a>{%- endif -%}
         {%- endfor -%}
       </div>
@@ -98,7 +105,9 @@
         { "type": "checkbox", "id": "soon", "label": "尚未開賣", "default": false,
           "info": "打勾後整張卡不能點，行動呼籲也不會有箭頭。商品仍然綁著，主圖照樣自動抓。" },
         { "type": "text", "id": "cta", "label": "連結文字", "default": "看這一款" },
-        { "type": "url", "id": "link", "label": "連到哪" }
+        { "type": "url", "id": "link", "label": "連到哪" },
+        { "type": "text", "id": "note", "label": "小字備註",
+          "info": "顯示在連結下面的一行灰字，例：預購中：預計 9/15 前後陸續出貨。留白就不顯示。" }
       ]
     }
   ],

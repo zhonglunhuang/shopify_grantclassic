@@ -1,0 +1,85 @@
+{{ 'ts-coll.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  分類頁「延伸閱讀」（2026-08-25 Mars 拍板，參考 Belkin）：商品旁邊擺知識文章——
+  ①SEO：分類頁權重灌給文章、文章的搜尋流量回導商品（補「部落格與商品頁零互連」的洞）；
+  ②GEO：商品＋知識同網域互相佐證，AI 搜尋更愛引用；③轉換：疑慮在站內被解掉。
+  文章用後台的文章選擇器挑，標題、圖、摘要自動抓，換文章不用進程式。
+{%- endcomment -%}
+<style>
+  /* 跟著 ts-coll 的段落節奏走；選擇器多包一層防後段重複的 stylesheet link 蓋掉 */
+  .ts-coll .ts-coll__reads{display:grid;grid-template-columns:repeat(3,1fr);
+    gap:clamp(14px,2vw,24px);margin-top:clamp(28px,4vw,44px);}
+  .ts-coll .ts-coll__read{display:block;background:#FFFFFF;border-radius:18px;
+    overflow:hidden;text-decoration:none;color:inherit;
+    box-shadow:0 1px 2px rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;}
+  .ts-coll .ts-coll__read:hover{transform:translateY(-3px);
+    box-shadow:0 10px 28px rgba(0,0,0,.10);}
+  .ts-coll .ts-coll__read:hover,.ts-coll .ts-coll__read:hover *{text-decoration:none;}
+  .ts-coll .ts-coll__read-img{display:block;aspect-ratio:16/9;background:#F0F0F2;}
+  .ts-coll .ts-coll__read-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ts-coll .ts-coll__read-body{padding:18px 20px 22px;}
+  .ts-coll .ts-coll__read-title{font-size:16.5px;font-weight:650;line-height:1.45;
+    letter-spacing:-.01em;display:block;}
+  .ts-coll .ts-coll__read-ex{margin-top:8px;font-size:13.5px;line-height:1.7;color:#6E6E73;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .ts-coll .ts-coll__read-cta{display:inline-block;margin-top:12px;font-size:13.5px;
+    font-weight:600;color:#0071E3;}
+  @media (max-width:860px){
+    .ts-coll .ts-coll__reads{grid-template-columns:1fr;}
+  }
+</style>
+<div class="ts-coll">
+  <div class="ts-coll__band ts-coll__band--wash">
+    <div class="ts-coll__w">
+      <div class="ts-coll__head">
+        <h2 class="ts-coll__h2">{{ section.settings.heading | escape }}</h2>
+        {%- if section.settings.sub != blank -%}
+          <p class="ts-coll__lead">{{ section.settings.sub | escape }}</p>
+        {%- endif -%}
+      </div>
+      <div class="ts-coll__reads">
+        {%- for block in section.blocks -%}
+          {%- assign a = block.settings.article -%}
+          {%- if a != blank -%}
+          <a class="ts-coll__read" href="{{ a.url }}" {{ block.shopify_attributes }}>
+            {%- if a.image -%}
+              <span class="ts-coll__read-img">
+                {{ a.image | image_url: width: 720 | image_tag: loading: 'lazy', alt: a.title }}
+              </span>
+            {%- endif -%}
+            <span class="ts-coll__read-body">
+              <span class="ts-coll__read-title">{{ a.title | escape }}</span>
+              <span class="ts-coll__read-ex">{{ a.excerpt_or_content | strip_html | truncatewords: 34 }}</span>
+              <span class="ts-coll__read-cta">閱讀文章 ›</span>
+            </span>
+          </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TS 分類頁：延伸閱讀",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "標題", "default": "還在做功課？" },
+    { "type": "textarea", "id": "sub", "label": "說明",
+      "default": "行動電源的安全、挑選與固態技術，我們用實測寫給你看。" }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "文章",
+      "settings": [
+        { "type": "article", "id": "article", "label": "選文章",
+          "info": "標題、圖片、摘要都自動抓，這裡只要挑哪一篇。" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [ { "name": "TS 分類頁：延伸閱讀" } ]
+}
+{% endschema %}

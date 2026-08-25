@@ -63,10 +63,11 @@
             "cap": "TITANSHIELD Air",
             "desc": "6 mm。113 公克。放進口袋，你會忘記它在那裡。",
             "price": "$1,980",
-            "cta": "即將推出",
-            "link": "",
-            "soon": true,
-            "image_asset": "ts-pick-air.png"
+            "cta": "進一步了解 Air",
+            "link": "/products/titanshield-air",
+            "soon": false,
+            "image_asset": "ts-pick-air.png",
+            "note": "預購中：預計 9/15 前後陸續出貨"
           }
         },
         "s2": {
@@ -434,6 +435,38 @@
         "care_text": "電池是消耗品。充放電累積之後，蓄電量會自然下降——任何品牌、任何技術都一樣。這是正常，不是故障。",
         "care_list": "<ul><li>電量剩約 20% 再充，充飽後移除電源</li><li>長期不使用時，至少每三個月充電一次</li><li>避免放在車內、陽光直射處或高溫環境</li><li>請勿自行拆解或改裝，也不要用鬆動、老舊的延長線充電</li><li>不慎進水請立即停止使用，不要再充電</li><li>避免在無人看管時充電，外出請拔除電源</li></ul>"
       }
+    },
+    "reads": {
+      "type": "ts-coll-reads",
+      "blocks": {
+        "a1": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/solid-state-power-bank-safety"
+          }
+        },
+        "a2": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/2025-solid-state-power-bank"
+          }
+        },
+        "a3": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/is-swollen-power-bank-dangerous"
+          }
+        }
+      },
+      "block_order": [
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "settings": {
+        "heading": "還在做功課？",
+        "sub": "行動電源的安全、挑選與固態技術，我們用實測寫給你看。"
+      }
     }
   },
   "order": [
@@ -443,6 +476,7 @@
     "grid",
     "compare",
     "certs",
+    "reads",
     "faq"
   ]
 }
