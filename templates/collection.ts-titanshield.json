@@ -456,12 +456,33 @@
           "settings": {
             "article": "gc-blog/is-swollen-power-bank-dangerous"
           }
+        },
+        "a4": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-safety-certification-guide"
+          }
+        },
+        "a5": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-thermal-runaway-explained"
+          }
+        },
+        "a6": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-recall-guide-self-check"
+          }
         }
       },
       "block_order": [
         "a1",
         "a2",
-        "a3"
+        "a3",
+        "a4",
+        "a5",
+        "a6"
       ],
       "settings": {
         "heading": "還在做功課？",
