@@ -6,7 +6,9 @@
       <h2>大家怎麼說。</h2>
     </div>
     <div class="tsp-rev-widget">
-      <div class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}"></div>
+      <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}">
+        {{ product.metafields.judgeme.widget }}
+      </div>
     </div>
   </div>
 </section>

@@ -425,3 +425,5 @@
   .tsp-pro .topbar .logo{height:15px;max-width:112px}
   .tsp-pro .topbar .btn-buy{padding:5px 14px;font-size:12px}
 }
+
+.tsp-pro .tsp-rev .jdgm-rev-widg__title{display:none!important}
