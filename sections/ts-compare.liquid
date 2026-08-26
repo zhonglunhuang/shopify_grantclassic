@@ -158,6 +158,39 @@
 {%- comment -%} 購買卡（Mars 2026-08-19：放常見問題上面）——內容只有一份，在 snippets/ts-buycard {%- endcomment -%}
 {%- render 'ts-buycard' -%}
 
+{%- comment -%} 顧客評價（2026-08-26）：Judge.me 掛件＋metafield 資料源（缺 metafield 掛件永遠空殼，Pro 頁踩過）；
+    沒有半則評論時整段自動收起，評論進來自動出現 {%- endcomment -%}
+<section class="sect light sect--tight ts-rev" id="ts-reviews">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">大家怎麼說。</h2>
+    <div class="ts-rev__widget rise" data-d="1">
+      <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}">
+        {{ product.metafields.judgeme.widget }}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .ts-air .ts-rev__widget{max-width:880px;margin:clamp(20px,3vw,36px) auto 0}
+  .ts-air .ts-rev .jdgm-rev-widg__title{display:none!important}
+  .ts-air .ts-rev .jdgm-review-widget{display:block!important}
+  .ts-air .ts-rev .jdgm-rev{background:#fff;border:1px solid rgba(0,0,0,.07)!important;border-radius:16px;
+    padding:20px 22px!important;margin-bottom:14px!important}
+  .ts-air .ts-rev .jdgm-rev__header,.ts-air .ts-rev .jdgm-rev__content{border:0!important}
+</style>
+<script>
+(function(){
+  if (window.__tsRevInit) return; window.__tsRevInit = true;
+  var sec = document.getElementById('ts-reviews');
+  if (!sec) return;
+  function check(){ sec.style.display = sec.querySelectorAll('.jdgm-rev').length ? '' : 'none'; }
+  setTimeout(check, 6000); setTimeout(check, 15000);
+  if ('MutationObserver' in window) new MutationObserver(function(){
+    if (sec.querySelectorAll('.jdgm-rev').length) sec.style.display = '';
+  }).observe(sec, { childList:true, subtree:true });
+})();
+</script>
+
 <section class="sect light sect--tight" id="faq">
   <div class="wrap">
     <h2 class="rise" style="text-align:center">{{ section.settings.faq_heading }}</h2>
