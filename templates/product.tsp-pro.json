@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "tsp-pro",
+  "sections": {
+    "tsp_hero": {
+      "type": "tsp-hero",
+      "settings": {}
+    },
+    "tsp_bento": {
+      "type": "tsp-bento",
+      "settings": {}
+    },
+    "tsp_safety": {
+      "type": "tsp-safety",
+      "settings": {}
+    },
+    "tsp_night": {
+      "type": "tsp-night",
+      "settings": {}
+    },
+    "tsp_thermal": {
+      "type": "tsp-thermal",
+      "settings": {}
+    },
+    "tsp_bridge": {
+      "type": "tsp-bridge",
+      "settings": {}
+    },
+    "tsp_charge": {
+      "type": "tsp-charge",
+      "settings": {}
+    },
+    "tsp_daily": {
+      "type": "tsp-daily",
+      "settings": {}
+    },
+    "tsp_proof": {
+      "type": "tsp-proof",
+      "settings": {}
+    },
+    "tsp_compare": {
+      "type": "tsp-compare",
+      "settings": {}
+    },
+    "tsp_buy": {
+      "type": "tsp-buy",
+      "settings": {}
+    },
+    "tsp_faq": {
+      "type": "tsp-faq",
+      "settings": {}
+    },
+    "tsp_end": {
+      "type": "tsp-end",
+      "settings": {}
+    },
+    "tsp_reviews": {
+      "type": "tsp-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "tsp_hero",
+    "tsp_bento",
+    "tsp_safety",
+    "tsp_night",
+    "tsp_thermal",
+    "tsp_bridge",
+    "tsp_charge",
+    "tsp_daily",
+    "tsp_proof",
+    "tsp_compare",
+    "tsp_buy",
+    "tsp_reviews",
+    "tsp_faq",
+    "tsp_end"
+  ]
+}
