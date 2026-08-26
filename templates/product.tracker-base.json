@@ -130,17 +130,21 @@
         "heading_pCqUJF": {
           "type": "heading",
           "settings": {
-            "heading": "掛繩 × 充電線一體設計",
+            "heading": "專利定位倉轉接支架",
             "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
         "text_4gzqkh": {
           "type": "text",
           "settings": {
-            "description": "<p>Velvet Strap Pro Firenze 將配戴、收納與補電機能整合於一體，讓充電線不再只是包包裡的備品，而是日常穿搭中自然存在的科技配件。</p>",
+            "description": "<p>將機車手機支架加入定位倉設計，定位隨時掌握，安心守護愛車！</p>",
             "description_size": "16",
             "description_color": "#222222",
             "description_alternative_font": false,
@@ -151,6 +155,7 @@
           "type": "buttons",
           "disabled": true,
           "settings": {
+            "primary_button_behaviour": "link",
             "primary_button_label": "Button Label",
             "primary_button_link": "",
             "primary_button_style": "solid",
@@ -179,12 +184,12 @@
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/G_05.png",
+        "image_desktop": "shopify://shop_images/001_ccbd3e45-5fb9-4553-8ba8-ddd35fd20e29.jpg",
         "image_desktop_url": "",
         "image_position": "left",
         "aspect_ratio": "square",
         "image_source_mobile": "upload",
-        "image_mobile": "shopify://shop_images/G_05.png",
+        "image_mobile": "shopify://shop_images/001_d25c2ff9-bfbd-474a-a9eb-afef5d8108d5.jpg",
         "image_mobile_url": "",
         "image_mobile_position": "above",
         "text_alignment": "left",
@@ -229,17 +234,21 @@
         "heading_pzXpL9": {
           "type": "heading",
           "settings": {
-            "heading": "240W 高速充電",
+            "heading": "找不到車？",
             "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
         "text_kPHnQH": {
           "type": "text",
           "settings": {
-            "description": "<p>Type-C to Type-C 高功率充電線，最高支援 240W 快充輸出，從手機、平板到部分筆電皆可靈活應對。外出、通勤、旅行時，不必再額外尋找充電線，一掛在身上，就能隨時為裝置補電。</p>",
+            "description": "<p>停車位置記不清，繞了好幾圈還是找不到嗎？</p><p>讓定位倉解救你！</p>",
             "description_size": "16",
             "description_color": "#222222",
             "description_alternative_font": false,
@@ -250,6 +259,7 @@
           "type": "buttons",
           "disabled": true,
           "settings": {
+            "primary_button_behaviour": "link",
             "primary_button_label": "Button Label",
             "primary_button_link": "",
             "primary_button_style": "solid",
@@ -278,12 +288,12 @@
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/G_06.png",
+        "image_desktop": "shopify://shop_images/002_0c768ac3-c468-4362-9866-ba9d2b1688ac.jpg",
         "image_desktop_url": "",
         "image_position": "right",
         "aspect_ratio": "square",
         "image_source_mobile": "upload",
-        "image_mobile": "shopify://shop_images/G_06.png",
+        "image_mobile": "shopify://shop_images/002_1c24ce63-8d9d-40d4-b0cf-50e007472307.jpg",
         "image_mobile_url": "",
         "image_mobile_position": "above",
         "text_alignment": "left",
@@ -328,17 +338,21 @@
         "heading_eEtzcj": {
           "type": "heading",
           "settings": {
-            "heading": "15mm 扁織帶設計",
+            "heading": "專利定位倉 輕鬆找愛車",
             "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
         "text_CMC4ER": {
           "type": "text",
           "settings": {
-            "description": "<p>15mm 寬版扁織帶，配戴時更穩定、更有份量感。相較一般細繩掛繩，扁帶設計能分散受力，長時間掛頸或斜背也更舒適，同時呈現俐落、有型的視覺比例。</p>",
+            "description": "<p>將定位器整合於手機架專用定位倉內。<br/>面對大型停車場或陌生街區，查找愛車位置更輕鬆。</p>",
             "description_size": "16",
             "description_color": "#222222",
             "description_alternative_font": false,
@@ -349,6 +363,7 @@
           "type": "buttons",
           "disabled": true,
           "settings": {
+            "primary_button_behaviour": "link",
             "primary_button_label": "Button Label",
             "primary_button_link": "",
             "primary_button_style": "solid",
@@ -377,12 +392,12 @@
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/G_03.png",
+        "image_desktop": "shopify://shop_images/003_56dd41b6-1dc0-43f0-b062-77bc730a393b.jpg",
         "image_desktop_url": "",
         "image_position": "left",
         "aspect_ratio": "square",
         "image_source_mobile": "upload",
-        "image_mobile": "shopify://shop_images/G_03.png",
+        "image_mobile": "shopify://shop_images/003_006f3267-c077-4034-b888-da0693952abc.jpg",
         "image_mobile_url": "",
         "image_mobile_position": "above",
         "text_alignment": "left",
@@ -427,17 +442,21 @@
         "heading_aXX4jq": {
           "type": "heading",
           "settings": {
-            "heading": "鋅合金 × 鋁合金扣件",
+            "heading": "Apple、Android原生定位系統",
             "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
-        "text_4LKiER": {
+        "text_GeNJBx": {
           "type": "text",
           "settings": {
-            "description": "<p>細節處採用鋅合金與鋁合金雙金屬材質，提升結構穩定性與整體質感。金屬扣件帶有沉穩光澤，搭配織帶紋理，讓科技配件也能展現精品般的細節語言。</p>",
+            "description": "<p>支援 Apple Find My 與 Android Find Hub 原生定位系統，可依手機系統直接配對使用，無須另外下載 App。開啟手機內建尋找功能，即可查看定位、協助查找愛車。</p>",
             "description_size": "16",
             "description_color": "#222222",
             "description_alternative_font": false,
@@ -448,6 +467,7 @@
           "type": "buttons",
           "disabled": true,
           "settings": {
+            "primary_button_behaviour": "link",
             "primary_button_label": "Button Label",
             "primary_button_link": "",
             "primary_button_style": "solid",
@@ -470,18 +490,18 @@
       "block_order": [
         "caption_9cRWMW",
         "heading_aXX4jq",
-        "text_4LKiER",
+        "text_GeNJBx",
         "buttons_Ui36B3"
       ],
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/G_07.png",
+        "image_desktop": "shopify://shop_images/004_4dbd314d-71b9-435f-b05c-a191899e1f79.jpg",
         "image_desktop_url": "",
         "image_position": "right",
         "aspect_ratio": "square",
         "image_source_mobile": "upload",
-        "image_mobile": "shopify://shop_images/G_07.png",
+        "image_mobile": "shopify://shop_images/004_ebc27ff0-3c9d-4573-88cf-22c0f503636b.jpg",
         "image_mobile_url": "",
         "image_mobile_position": "above",
         "text_alignment": "left",
@@ -526,17 +546,21 @@
         "heading_gHt7iP": {
           "type": "heading",
           "settings": {
-            "heading": "精品級隨身美學",
+            "heading": "限位防盜鎖",
             "heading_size": "48",
             "heading_color": "#222222",
             "heading_alternative_font": false,
-            "heading_font": "sans_serif_n4"
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
         "text_bDrkKU": {
           "type": "text",
           "settings": {
-            "description": "<p>Firenze 配色以深綠織帶搭配紅色中央線條，呈現復古而高級的視覺層次。無論搭配手機、透明殼或日常服裝，都能讓科技配件跳脫單純工具感，成為穿搭的一部分。</p>",
+            "description": "<p>旋鈕鎖定到底後，自動進入空轉狀態，即使持續旋轉也無法拆卸。有效降低手機架遭惡意取下的風險，臨時停車更多一層防護。</p>",
             "description_size": "16",
             "description_color": "#222222",
             "description_alternative_font": false,
@@ -547,6 +571,7 @@
           "type": "buttons",
           "disabled": true,
           "settings": {
+            "primary_button_behaviour": "link",
             "primary_button_label": "Button Label",
             "primary_button_link": "",
             "primary_button_style": "solid",
@@ -575,12 +600,12 @@
       "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
         "image_source_desktop": "upload",
-        "image_desktop": "shopify://shop_images/003.png",
+        "image_desktop": "shopify://shop_images/005_f9930203-bd81-41fa-9815-dcfc4f131678.jpg",
         "image_desktop_url": "",
         "image_position": "left",
         "aspect_ratio": "square",
         "image_source_mobile": "upload",
-        "image_mobile": "shopify://shop_images/G_07.png",
+        "image_mobile": "shopify://shop_images/005_603de594-b9af-4698-9ba2-db71f3a95dd4.jpg",
         "image_mobile_url": "",
         "image_mobile_position": "above",
         "text_alignment": "left",
@@ -608,225 +633,524 @@
         "margin_bottom_mobile": 0
       }
     },
-    "collection_list_nUytrd": {
-      "type": "collection-list",
+    "vitals_664c7c40_9H8kQM": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "collection_qMUdVC": {
-          "type": "collection",
+        "caption_8Dc9z4": {
+          "type": "caption",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/002.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
           }
         },
-        "collection_C4GxXR": {
-          "type": "collection",
+        "heading_TqmtLr": {
+          "type": "heading",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/G_02.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "heading": "多款底座靈活搭配",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
-        "collection_G6tkKL": {
-          "type": "collection",
+        "text_itP4jU": {
+          "type": "text",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/03A_80feb661-5747-4b17-82f1-49b48adc4a9e.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "description": "<p>適用25 mm 球頭規格，可依車型與安裝位置，搭配後照鏡底座、冠座球頭底座、圓桿底座、三角台底座或大力夾使用，滿足不同車款的安裝需求。<br/><br/>＊底座為選配配件</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
           }
         },
-        "collection_b3YL97": {
-          "type": "collection",
+        "buttons_zMagWV": {
+          "type": "buttons",
+          "disabled": true,
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/001.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_ijCtVi": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/01A.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_PDekJd": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/G_08.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "primary_button_behaviour": "link",
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "collection_qMUdVC",
-        "collection_C4GxXR",
-        "collection_G6tkKL",
-        "collection_b3YL97",
-        "collection_ijCtVi",
-        "collection_PDekJd"
+        "caption_8Dc9z4",
+        "heading_TqmtLr",
+        "text_itP4jU",
+        "buttons_zMagWV"
       ],
-      "name": "Collection list",
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "reveal_on_scroll": false,
-        "layout": "collage",
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/006_fd3fdc13-3622-4e79-a3ae-5d383b47b7bc.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/006_80d78293-5c05-4fa8-8382-044020786de8.jpg",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#f3f3f3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
-    "faq_7A9Tt9": {
-      "type": "faq",
+    "vitals_664c7c40_Mk93CM": {
+      "type": "vitals-664c7c40",
       "blocks": {
-        "category_xT9J6A": {
-          "type": "category",
+        "caption_LcAynR": {
+          "type": "caption",
           "settings": {
-            "title": "產品相關"
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
           }
         },
-        "question_eGiYKz": {
-          "type": "question",
+        "heading_Wk4tYF": {
+          "type": "heading",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 產品可以清洗嗎？",
-            "answer": "<p>是的，您可以使用濕布輕輕擦拭 繩來運轉 Velvet Strap Pro 掛繩充電線以保持其清潔，但請避免將其浸泡在水中。</p>"
+            "heading": "專利定位倉",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
           }
         },
-        "question_hCpYUV": {
-          "type": "question",
+        "text_cAcN7a": {
+          "type": "text",
           "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 的最大充電功率是多少？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 支持高達 60W 的快速充電，適合為各種設備快速補充電量。</p>"
+            "description": "<p>取得中華民國新型專利 M674513，將定位器容置功能整合於手機架夾具之中，兼顧俐落外型與實用機能，讓愛車定位更完整、更安心。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
           }
         },
-        "question_wk3cTf": {
-          "type": "question",
+        "buttons_EbUKw8": {
+          "type": "buttons",
+          "disabled": true,
           "settings": {
-            "title": "我可以在使用手機保護殼的同時使用 繩來運轉 Velvet Strap Pro 嗎？",
-            "answer": "<p>是的，繩來運轉 Velvet Strap Pro 兼容大多數標準的手機保護殼，無需拆卸保護殼即可使用。</p>"
-          }
-        },
-        "question_dNDgLY": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 有幾種顏色可供選擇？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 提供五種顏色，讓您可以根據個人風格進行選擇。</p>"
-          }
-        },
-        "category_tUjCi3": {
-          "type": "category",
-          "settings": {
-            "title": "注意事項"
-          }
-        },
-        "question_dx9p8Y": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 可以在任何環境下使用嗎？",
-            "answer": "<p>雖然繩來運轉 Velvet Strap Pro 耐用且適合日常使用，但建議避免長時間暴露在極端潮濕或高溫環境中。</p>"
-          }
-        },
-        "question_6LKyRk": {
-          "type": "question",
-          "settings": {
-            "title": "我可以用繩來運轉 Velvet Strap Pro 連接所有類型的設備嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 兼容 USB-C 和蘋果設備，但請確認您的設備支持這些端口類型。</p>"
-          }
-        },
-        "question_pycbBH": {
-          "type": "question",
-          "settings": {
-            "title": "繩來運轉 Velvet Strap Pro 在使用過程中會產生過熱問題嗎？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 設計具備優良的散熱性能。</p>"
-          }
-        },
-        "question_FKkLJz": {
-          "type": "question",
-          "settings": {
-            "title": "如何調整繩來運轉 Velvet Strap Pro 的長度？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 配有簡單易用的長度調節機制，輕輕拉動即可根據您的需求進行調整，總長度約莫160cm。</p>"
-          }
-        },
-        "category_RazFtp": {
-          "type": "category",
-          "settings": {
-            "title": "客製化區域"
-          }
-        },
-        "question_qMDTY7": {
-          "type": "question",
-          "settings": {
-            "title": "請問繩來運轉 Velvet Strap Pro 客製化需要多長時間？",
-            "answer": "<p>繩來運轉 Velvet Strap Pro 的客製化訂單通常需要 7-10 個工作日處理，具體時間視訂單量而定。</p>"
-          }
-        },
-        "question_BbThaW": {
-          "type": "question",
-          "settings": {
-            "title": "我需要大量訂製繩來運轉 Velvet Strap Pro，是可以的嗎？",
-            "answer": "<p>我們非常歡迎企業、團體和社團來訂製專屬於你們的 繩來運轉 Velvet Strap Pro。我們將根據您的需求提供報價，相信大批量訂製能夠在企業形象和價格方面為您帶來最大的優勢。</p>"
+            "primary_button_behaviour": "link",
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
           }
         }
       },
       "block_order": [
-        "category_xT9J6A",
-        "question_eGiYKz",
-        "question_hCpYUV",
-        "question_wk3cTf",
-        "question_dNDgLY",
-        "category_tUjCi3",
-        "question_dx9p8Y",
-        "question_6LKyRk",
-        "question_pycbBH",
-        "question_FKkLJz",
-        "category_RazFtp",
-        "question_qMDTY7",
-        "question_BbThaW"
+        "caption_LcAynR",
+        "heading_Wk4tYF",
+        "text_cAcN7a",
+        "buttons_EbUKw8"
       ],
+      "name": "🧡 Vitals: Image & Text - Simple",
       "settings": {
-        "show_navigation": true,
-        "title": "FAQ",
-        "content": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/007_776dfc46-d6b9-4b57-9627-5b7276d10160.jpg",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/007_6535a9d2-d626-4e29-b796-2f9593b2d96f.jpg",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#f3f3f3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_LDenfJ": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_iQT3eL": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_CkM3gA": {
+          "type": "heading",
+          "settings": {
+            "heading": "各大通路均有販售",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
+          }
+        },
+        "text_kC4pjg": {
+          "type": "text",
+          "settings": {
+            "description": "",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_487rG8": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_behaviour": "link",
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_iQT3eL",
+        "heading_CkM3gA",
+        "text_kC4pjg",
+        "buttons_487rG8"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/1000X1000_08_fab233ca-93f7-4a19-9ec0-6e1c0b143ba0.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/1000X1000_08_80e0d199-2650-4cb6-b6da-2ae377ebd4ad.jpg",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#f3f3f3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_7gBkFp": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_ygMFN9": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_mqd3RH": {
+          "type": "heading",
+          "settings": {
+            "heading": "適用各大廠牌支架",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
+          }
+        },
+        "text_XzaVQg": {
+          "type": "text",
+          "settings": {
+            "description": "<p>定位倉轉接頭採用通用 25mm 球頭規格，可搭配 grantclassic 全系列支架款，亦適用 RAM MOUNTS、五匹（MWUPP／osopro）、KEWIG 凱威格、十碼（SMNU）等品牌1 吋／25mm 球頭規格的支架與底座。<br/>保留原有支架系統，即可輕鬆升級定位功能。<br/><br/>＊實際適用情況請以原支架的球頭尺寸與結構為準；1 吋球頭約為 25.4mm。</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_WRq9YX": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_behaviour": "link",
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_ygMFN9",
+        "heading_mqd3RH",
+        "text_XzaVQg",
+        "buttons_WRq9YX"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/009.jpg",
+        "image_desktop_url": "",
+        "image_position": "left",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/009_49e7846f-463b-459f-ba9c-4d9538cdb636.jpg",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#f3f3f3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "vitals_664c7c40_jRAC3f": {
+      "type": "vitals-664c7c40",
+      "blocks": {
+        "caption_rKt3yH": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "caption_size": "16",
+            "caption_weight": "400",
+            "caption_color": "#222222",
+            "caption_alternative_font": false,
+            "caption_font": "sans_serif_n4"
+          }
+        },
+        "heading_kxkMDp": {
+          "type": "heading",
+          "settings": {
+            "heading": "商品規格",
+            "heading_size": "48",
+            "heading_color": "#222222",
+            "heading_alternative_font": false,
+            "heading_font": "sans_serif_n4",
+            "heading_background": "none",
+            "heading_background_color": "#f5f5f5",
+            "heading_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+            "heading_background_corner_style": "round"
+          }
+        },
+        "text_TWUt8c": {
+          "type": "text",
+          "settings": {
+            "description": "<p>產品名稱｜機車手機支架專用配件 定位倉<br/>適用球頭直徑｜25mm<br/>材質｜ABS<br/>產品尺寸｜70 x 36.8 x 55.2 mm<br/>包裝尺寸｜87.6 x 57.2 x 90 mm<br/>淨重｜54 g</p>",
+            "description_size": "16",
+            "description_color": "#222222",
+            "description_alternative_font": false,
+            "description_font": "sans_serif_n4"
+          }
+        },
+        "buttons_tHpUNn": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "primary_button_behaviour": "link",
+            "primary_button_label": "Button Label",
+            "primary_button_link": "",
+            "primary_button_style": "solid",
+            "primary_text_color": "#ffffff",
+            "primary_background_color": "#222222",
+            "primary_border_color": "#222222",
+            "primary_button_corner": 0,
+            "primary_new_tab": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "solid",
+            "secondary_text_color": "#ffffff",
+            "secondary_background_color": "#222222",
+            "secondary_border_color": "#222222",
+            "secondary_button_corner": 0,
+            "secondary_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_rKt3yH",
+        "heading_kxkMDp",
+        "text_TWUt8c",
+        "buttons_tHpUNn"
+      ],
+      "name": "🧡 Vitals: Image & Text - Simple",
+      "settings": {
+        "image_source_desktop": "upload",
+        "image_desktop": "shopify://shop_images/e91789c6afb4d9a64c4374fc25ab8a1a_e7286cf6-d3b5-49dd-a05b-106e428f548e.jpg",
+        "image_desktop_url": "",
+        "image_position": "right",
+        "aspect_ratio": "square",
+        "image_source_mobile": "upload",
+        "image_mobile": "shopify://shop_images/e91789c6afb4d9a64c4374fc25ab8a1a_46f2ea84-9c25-4472-90f3-542695f3d73a.jpg",
+        "image_mobile_url": "",
+        "image_mobile_position": "above",
+        "text_alignment": "left",
+        "text_box_width": 50,
+        "text_box_background_style": "color",
+        "text_box_background": "#f3f3f3",
+        "text_box_background_gradient": "linear-gradient(to right, #fed951, #ff46c7)",
+        "enable_animation": false,
+        "border_color": "#222222",
+        "text_box_corner_radius": 0,
+        "section_background": "",
+        "overlay_color": "#222222",
+        "overlay_opacity": 0,
+        "layout_type": "desktop",
+        "section_width": 70,
+        "section_width_mobile": 70,
+        "section_max_width": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "product-content": {
@@ -856,7 +1180,12 @@
       "blocks": {
         "judgeme_widget": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
         }
       },
       "block_order": [
@@ -876,8 +1205,11 @@
     "vitals_664c7c40_mmp8Ba",
     "vitals_664c7c40_BXPEfW",
     "vitals_664c7c40_yyqEGm",
-    "collection_list_nUytrd",
-    "faq_7A9Tt9",
+    "vitals_664c7c40_9H8kQM",
+    "vitals_664c7c40_Mk93CM",
+    "vitals_664c7c40_LDenfJ",
+    "vitals_664c7c40_7gBkFp",
+    "vitals_664c7c40_jRAC3f",
     "product-content",
     "judgeme-reviews"
   ]
