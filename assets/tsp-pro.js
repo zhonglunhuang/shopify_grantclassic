@@ -449,7 +449,7 @@ document.body.classList.add('tsp-page');
     o.connect(g); g.connect(actx.destination);
     o.start(t0); o.stop(t0 + dur + 0.02);
   }
-  abtn.addEventListener('click', function(){
+  function fireAlarm(){
     try{
       if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
       if (actx.state === 'suspended') actx.resume();      /* Safari：手勢裡不喚醒就永遠無聲 */
@@ -459,7 +459,10 @@ document.body.classList.add('tsp-page');
     asec.classList.add('alarming');
     clearTimeout(alarmSoundingTimer);
     alarmSoundingTimer = setTimeout(function(){ asec.classList.remove('alarming'); }, 2200);
-  });
+  }
+  abtn.addEventListener('click', fireAlarm);
+  var atry = document.getElementById('alarmtry');
+  if (atry) atry.addEventListener('click', fireAlarm);
 
   /* TFT 圈圈進場動畫 */
   var screen = document.getElementById('tftscreen');
@@ -1237,13 +1240,6 @@ document.body.classList.add('tsp-page');
         if (sec.querySelectorAll('.jdgm-rev').length > 0) sec.style.display = '';
       }).observe(sec, { childList:true, subtree:true });
     }
-  })();
-
-  /* 警鈴試聽膠囊：跟產品同一個觸發 */
-  (function(){
-    var pill = document.getElementById('alarmtry');
-    var abtn2 = document.getElementById('alarmbtn');
-    if (pill && abtn2) pill.addEventListener('click', function(){ abtn2.click(); });
   })();
 
 })();

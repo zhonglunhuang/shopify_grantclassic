@@ -467,3 +467,7 @@
   cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s}
 .tsp-pro .alarm-try:hover{background:rgba(255,255,255,.18)}
 .tsp-pro .alarm-try svg{width:15px;height:15px;flex:0 0 auto}
+
+.tsp-pro .alarm-try-row{text-align:center;margin-top:20px}
+.tsp-pro .prot-ntc-sec{padding-bottom:clamp(48px,6vw,88px)}
+.tsp-pro .prot-ntc-sec .protection-detail{margin:0;padding:0}
