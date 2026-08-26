@@ -5,8 +5,8 @@
       {% assign tsp_price = product.price | money_without_trailing_zeros | remove: 'NT' | remove: '$' | strip %}
       <p class="p">NT$ <b>{{ tsp_price }}</b></p>
       <div class="color-stage buy-stage">
-        <img id="img-black" src="{{ 'tsp-titanshield-pro-color-black-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 石墨黑">
-        <img id="img-silver" class="hide" src="{{ 'tsp-titanshield-pro-color-silver-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 極地銀">
+        <img id="img-black" src="{{ 'tsp-titanshield-pro-color-black-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 石墨黑" loading="lazy">
+        <img id="img-silver" class="hide" src="{{ 'tsp-titanshield-pro-color-silver-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 極地銀" loading="lazy">
       </div>
       <p id="colorname" hidden>石墨黑</p>
       {% assign v_black = product.variants | where: 'title', '石墨黑' | first | default: product.variants.first %}
