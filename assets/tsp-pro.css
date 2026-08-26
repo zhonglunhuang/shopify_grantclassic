@@ -392,3 +392,8 @@
 
 /* Judge.me 的 JS 會對非 app-block 安裝的掛件硬塞 display:none——這頁只有這一個掛件，蓋回來 */
 .tsp-pro .tsp-rev .jdgm-review-widget{display:block!important}
+
+/* topbar 返回鍵＋logo 變成回首頁連結 */
+.tsp-pro .topbar .brand-home{display:inline-flex;align-items:center;gap:10px;color:inherit;
+  text-decoration:none!important;cursor:pointer}
+.tsp-pro .topbar .brand-home:hover{opacity:.75}
