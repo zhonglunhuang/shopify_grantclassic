@@ -427,3 +427,20 @@
 }
 
 .tsp-pro .tsp-rev .jdgm-rev-widg__title{display:none!important}
+
+/* ── 2026-08-26 iPhone 實機七修 ── */
+@media (max-width:760px){
+  /* 3. 頂欄錨點連結手機收起（跟 Air 一致，只留 logo＋品名＋購買） */
+  .tsp-pro .topbar .spy{display:none}
+  /* 1. 六重防護：產品圖縮小，讓頁籤與圖表擠得進一屏 */
+  .tsp-pro .protection-scroll .prot-img{height:clamp(150px,26svh,220px)!important}
+  .tsp-pro .protection-scroll .prot-img img{object-fit:contain}
+  /* 4. 咖啡情境：膠囊改掛左上，不再壓到標題 */
+  .tsp-pro #coffee .scene-cap{top:14px;left:14px;bottom:auto;right:auto}
+  /* 6. 深夜情境：膠囊抬高，iOS 工具列伸縮也蓋不到 */
+  .tsp-pro .scene.scene-immersive .scene-cap{bottom:96px}
+  /* 5. 口袋情境：手機版放大到近滿版 */
+  .tsp-pro .pocket-scene .scene-frame{width:94vw;margin-left:calc(50% - 47vw);
+    aspect-ratio:auto;height:62svh;min-height:400px}
+  .tsp-pro .pocket-scene .scene-frame img{width:100%;height:100%;object-fit:cover}
+}
