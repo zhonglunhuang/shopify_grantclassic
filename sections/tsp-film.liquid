@@ -1,0 +1,18 @@
+<div class="tsp-pro"><div class="act-dark">
+<section class="film-grow" id="filmgrow" aria-label="穩如鈦山 Pro 形象影片">
+  <div class="fg-scroll" id="fg-scroll">
+    <div class="fg-pin">
+      <div class="fg-frame" id="fg-frame">
+        <video id="fg-video" muted loop playsinline preload="none" poster="{{ 'tsp-film-thumb.jpg' | asset_url }}" data-src="{{ 'tsp-film-720.mp4' | asset_url }}" aria-hidden="true" tabindex="-1"></video>
+        <button class="fg-full film-open" type="button">
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4.4 2.6v8.8L11.4 7z" fill="currentColor"/></svg>
+          <span>完整影片・開聲音</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+</div></div>
+{% schema %}
+{ "name": "TSP film", "settings": [] }
+{% endschema %}

@@ -1,0 +1,58 @@
+<div class="tsp-pro"><div class="act-dark">
+<section class="sec scene scene-immersive" id="nightscene" style="padding-top:0">
+    <div class="wrap">
+      <div class="scene-frame" style="background:linear-gradient(rgba(8,8,12,.2),rgba(8,8,12,.4)),url('{{ 'tsp-bg-night-3.jpg' | asset_url }}') center/cover no-repeat">
+        <div class="scene-title"><h2 style="color:#f5f5f7">睡著了，<br>也有它醒著。</h2></div>
+        
+        <span class="scene-cap"><b>深夜充電</b><span>異常警鈴＋六重防護守著</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec protection-scroll" id="protection" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" style="color:var(--ring)">智慧防護晶片</p>
+        <h2>六重防護，<br>一顆晶片全程盯著。</h2>
+        <p class="lede">充放電的每一秒，保護晶片都在監看電壓、電流與溫度——異常發生的瞬間就出手，不等你發現。</p>
+      </div>
+      <div class="prot">
+        <div>
+          <div class="prot-tabs" role="tablist" aria-label="六重防護">
+            <button type="button" class="on" role="tab" aria-selected="true">過壓</button>
+            <button type="button" role="tab" aria-selected="false">過熱</button>
+            <button type="button" role="tab" aria-selected="false">過載</button>
+            <button type="button" role="tab" aria-selected="false">過充</button>
+            <button type="button" role="tab" aria-selected="false">短路</button>
+            <button type="button" role="tab" aria-selected="false">異物偵測</button>
+          </div>
+          <svg class="prot-chart" id="protchart" viewBox="0 0 480 320" role="img" aria-label="防護觸發曲線（原理示意）">
+            <g stroke="rgba(255,255,255,.1)" stroke-width="1"><line x1="50" y1="280" x2="440" y2="280"/><line x1="50" y1="40" x2="50" y2="280"/></g>
+            <text id="protYlab" x="46" y="30" fill="#9b9ba1" font-size="12" text-anchor="end">電壓</text>
+            <text x="440" y="302" fill="#9b9ba1" font-size="12" text-anchor="end">時間</text>
+            <line id="protDash" x1="50" y1="92" x2="440" y2="92" stroke="rgba(255,255,255,.25)" stroke-dasharray="5 5"/>
+            <path id="protLine" d="M50,260 C150,230 250,160 310,92 L316,92 L316,235 L440,235" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1200"/>
+            <circle id="protDot" cx="313" cy="92" r="5.5" fill="#ff453a"/>
+          </svg>
+          <p class="prot-cap" id="protCap">電壓一越線，輸出當場切斷。</p>
+        </div>
+        <div class="prot-img"><img id="protimg" src="{{ 'tsp-hero-titanshield-pro-black.webp' | asset_url }}" alt="穩如鈦山 Pro 黑色機身斜角特寫"></div>
+      </div>
+      <div class="protection-detail" aria-label="NTC 精準控溫說明">
+        <div class="ntc">
+          <div class="t">
+            <h3>NTC 精準控溫</h3>
+            <p>即時監測溫度、電流、電壓，動態調節功率——不是熱了就斷充，而是降功率續充，充電不燙手、進度不中斷。</p>
+          </div>
+          <div class="flow" aria-label="控溫邏輯">
+            <span class="s">溫度升高</span><span class="a">→</span><span class="s">自動降瓦數</span><span class="a">→</span><span class="s">降溫後恢復高功率</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</div></div>
+{% schema %}
+{ "name": "TSP night", "settings": [] }
+{% endschema %}

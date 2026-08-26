@@ -1,0 +1,81 @@
+<div class="tsp-pro"><div class="act-dark">
+<section class="heat-story" id="thermal" data-shopify-section="thermal-story">
+    <div class="wrap">
+      <div class="heat-intro">
+        <p class="eyebrow" style="color:var(--ring)">散熱</p>
+        <h2>散熱，從材質開始。</h2>
+        <p class="lede">一體式鋁合金機身，內藏手機等級石墨烯導熱層。先把熱能攤開，再從大面積金屬機身向外帶走。</p>
+      </div>
+
+      <div class="thermal-proof">
+        <figure class="thermal-visual">
+          <img src="{{ 'tsp-thermal-02-proof-clean-v2.webp' | asset_url }}" alt="同條件充電下，一般塑膠外殼出現集中高溫熱點，TITANSHIELD Pro 的熱能分佈較均勻" loading="lazy">
+          <figcaption class="thermal-visual-labels"><span>一般塑膠外殼</span><span class="pro">TITANSHIELD Pro</span></figcaption>
+        </figure>
+        <article class="thermal-reading">
+          <div>
+            <p class="eyebrow">熱像對比</p>
+            <h3>熱，不該停留。</h3>
+            <p>同樣 25W 快充條件，一般塑膠殼形成集中熱點；鋁合金機身與石墨烯導熱層，讓熱能更均勻地向外擴散。</p>
+          </div>
+          <div class="thermal-temp"><strong>≤ 45°C</strong><span>25W 快充環境目標表面溫度<br>實際結果依環境與測點而異</span></div>
+        </article>
+      </div>
+
+      <section class="thermal-chart" aria-labelledby="thermal-chart-title">
+        <header class="thermal-chart-head">
+          <div><p class="eyebrow" style="color:var(--ring)">材料對比</p><h2 id="thermal-chart-title" style="font-size:inherit">三條線，<br>看懂散熱差距。</h2></div>
+          <p>石墨烯先攤平熱點，鋁合金再整面帶走。<br>以導熱係數計，<b style="color:var(--ring);font-weight:650">是塑膠外殼的 6,000 倍以上</b>。</p>
+        </header>
+        <div class="tc2-grid" id="tc2">
+          <div class="tc2-plot">
+            <span class="tc2-ylabel">相對散熱能力</span>
+            <div class="tc2-svgwrap">
+              <svg viewBox="0 40 760 326" role="img" aria-label="三種機身材料的導熱係數對比：Pro 約 1200、Air 約 200、塑膠 0.2 W/mK">
+                <line class="tc2-grid-l" x1="54" y1="78" x2="730" y2="78"></line>
+                <line class="tc2-grid-l" x1="54" y1="214" x2="730" y2="214"></line>
+                <line class="tc2-axis" x1="54" y1="350" x2="730" y2="350"></line>
+                <line class="tc2-axis" x1="54" y1="54" x2="54" y2="350"></line>
+                <path class="tc2-line pro" pathLength="1" d="M54 350 C240 336 470 240 716 78"></path>
+                <path class="tc2-line air" pathLength="1" d="M54 350 C280 348 500 328 716 305"></path>
+                <path class="tc2-line plastic" pathLength="1" d="M54 350 C240 349.6 494 349 716 348"></path>
+                <circle class="tc2-dot pro" cx="716" cy="78" r="9"></circle>
+                <circle class="tc2-dot air" cx="716" cy="305" r="8"></circle>
+                <circle class="tc2-dot plastic" cx="716" cy="348" r="8"></circle>
+              </svg>
+              <span class="tc2-xlabel">材料散熱結構升級</span>
+            </div>
+          </div>
+          <div class="tc2-legend">
+            <div class="tc2-item pro"><i></i><div class="tc2-name"><b>TITANSHIELD Pro</b><span>石墨烯導熱片</span></div><strong>約 1,200<em>W/mK</em></strong></div>
+            <div class="tc2-item air"><i></i><div class="tc2-name"><b>TITANSHIELD Air</b><span>鋁合金機身</span></div><strong>約 200<em>W/mK</em></strong></div>
+            <div class="tc2-item plastic"><i></i><div class="tc2-name"><b>一般塑膠外殼</b><span>ABS／PC</span></div><strong>0.2<em>W/mK</em></strong></div>
+          </div>
+        </div>
+        <div class="tc-more">
+          <button type="button" id="tcmorebtn" aria-expanded="false" aria-controls="tcmoretxt"><i>＋</i>數據說明</button>
+          <p class="tc-note" id="tcmoretxt" hidden>導熱係數為各材料典型值（石墨烯導熱片／鋁合金／ABS・PC 塑膠）。石墨烯導熱片的數值為面內方向；Pro 的散熱路徑由石墨烯導熱片攤平熱點，再由鋁合金機身向外帶走。</p>
+        </div>
+        
+        
+      </section>
+      
+    </div>
+  </section>
+
+  <section class="sec scene pocket-scene" id="pocket-scene">
+    <div class="wrap">
+      <div class="scene-frame" style="background:linear-gradient(rgba(8,8,12,.32),rgba(8,8,12,.5)),url('{{ 'tsp-bg-thermal-4.jpg' | asset_url }}') center/cover no-repeat">
+        <div class="scene-title"><h2 style="color:#f5f5f7">一整天的電力，<br>輕裝帶著走。</h2></div>
+        
+        <span class="scene-cap"><b>口袋進、口袋出</b><span>10,000mAh，日常隨手帶著走</span></span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════ 橋段：黑轉白 ═════════ -->
+</div></div>
+{% schema %}
+{ "name": "TSP thermal", "settings": [] }
+{% endschema %}

@@ -1,0 +1,48 @@
+<div class="tsp-pro"><div class="act-light">
+<section class="buy" id="buy">
+    <div class="wrap">
+      <h2>TITANSHIELD Pro</h2>
+      {% assign tsp_price = product.price | money_without_trailing_zeros | remove: 'NT' | remove: '$' | strip %}
+      <p class="p">NT$ <b>{{ tsp_price }}</b></p>
+      <div class="color-stage buy-stage">
+        <img id="img-black" src="{{ 'tsp-titanshield-pro-color-black-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 石墨黑">
+        <img id="img-silver" class="hide" src="{{ 'tsp-titanshield-pro-color-silver-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 極地銀">
+      </div>
+      <p id="colorname" hidden>石墨黑</p>
+      {% assign v_black = product.variants | where: 'title', '石墨黑' | first | default: product.variants.first %}
+      {% assign v_silver = product.variants | where: 'title', '極地銀' | first | default: product.variants.last %}
+      <div class="opts">
+        <button class="opt on" type="button" id="sw-black" data-c="石墨黑" data-vid="{{ v_black.id }}">石墨黑</button>
+        <button class="opt" type="button" id="sw-silver" data-c="極地銀" data-vid="{{ v_silver.id }}">極地銀</button>
+      </div>
+      <form method="post" action="/cart/add" id="tsp-buyform">
+        <input type="hidden" name="id" id="tsp-vid" value="{{ v_black.id }}">
+        <button class="btn btn-main" type="submit" id="buybtn"{% unless v_black.available %} disabled{% endunless %}>加入購物車</button>
+      </form>
+      <div class="spec-full">
+        <h3>完整規格</h3>
+        <dl>
+          <div><dt>電池容量</dt><dd>10,000mAh（額定能量 37Wh）</dd></div>
+          <div><dt>電芯</dt><dd>準固態鋰電芯</dd></div>
+          <div><dt>無線輸出</dt><dd>Qi2.2 磁吸無線快充・最高 25W</dd></div>
+          <div><dt>有線輸出</dt><dd>Type-C・最高 30W</dd></div>
+          <div><dt>有線輸入</dt><dd>Type-C・最高 30W</dd></div>
+          <div><dt>顯示</dt><dd>TFT 智慧螢幕（電量／溫度／功率／安全警示）</dd></div>
+          <div><dt>磁吸</dt><dd>N52 磁圈</dd></div>
+          <div><dt>支架</dt><dd>隱藏式折疊支架</dd></div>
+          <div><dt>安全</dt><dd>防爆警鈴＋六大防護＋NTC 控溫</dd></div>
+          <div><dt>機身</dt><dd>鋁合金 CNC＋石墨烯導熱片</dd></div>
+          <div><dt>重量／厚度</dt><dd>214g・13mm</dd></div>
+          <div><dt>顏色</dt><dd>石墨黑・極地銀</dd></div>
+          <div><dt>認證</dt><dd>WPC Qi2.2（QI-ID 27410）・SGS HE40037／2026・BSMI R3I037・NCC CCAP26LP2000T2</dd></div>
+          <div><dt>保固</dt><dd>1 年＋登錄延長 1 年</dd></div>
+          
+        </dl>
+      </div>
+      
+    </div>
+  </section>
+</div></div>
+{% schema %}
+{ "name": "TSP buy", "settings": [] }
+{% endschema %}

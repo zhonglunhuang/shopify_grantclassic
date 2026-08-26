@@ -1,0 +1,189 @@
+<div class="tsp-pro"><div class="act-dark">
+<section class="sec" id="safety">
+    <div class="wrap">
+      <div class="cell-scroll" id="cellscroll">
+        <div class="cell-pin">
+      <div class="sec-head center">
+        <p class="eyebrow" id="cellkicker" style="color:var(--ring)">準固態電芯</p>
+        <h2>穩定，從電芯開始。</h2>
+        <p class="lede">同一根鋼釘刺下去，兩種電芯是兩個世界。繼續往下滑，看反應如何發生。</p>
+      </div>
+
+      <div class="mviz" id="cellviz">
+        <div class="mviz-stage" role="img" aria-label="電芯受鋼釘刺穿的反應示意動畫：準固態只有局部反應、結構穩定；液態引發熱失控連鎖擴散">
+          <svg viewBox="0 0 700 480" aria-hidden="true">
+            <defs>
+              <linearGradient id="cvRed" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="rgba(255,90,60,.85)"/>
+                <stop offset="1" stop-color="rgba(199,48,26,.7)"/>
+              </linearGradient>
+              <linearGradient id="slabTop" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2f2f36"/><stop offset="1" stop-color="#1c1c21"/>
+              </linearGradient>
+              <linearGradient id="slabSide" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b1b20"/><stop offset="1" stop-color="#0f0f13"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(170,-16)">
+              <!-- 下層電極 -->
+              <path d="M35 347.5 L210 435 L210 453 L35 365.5 Z" fill="url(#slabSide)"/>
+              <path d="M210 435 L325 377.5 L325 395.5 L210 453 Z" fill="url(#slabSide)"/>
+              <path d="M150 290 L325 377.5 L210 435 L35 347.5 Z" fill="url(#slabTop)" stroke="rgba(255,255,255,.07)"/>
+              <!-- 中層電解質（準固態） -->
+              <g class="sol">
+                <path d="M35 242.5 L210 330 L210 348 L35 260.5 Z" fill="#3a4a18"/>
+                <path d="M210 330 L325 272.5 L325 290.5 L210 348 Z" fill="#2c3a12"/>
+                <path d="M150 185 L325 272.5 L210 330 L35 242.5 Z" fill="rgba(181,233,65,.22)" stroke="rgba(181,233,65,.45)"/>
+                <g fill="rgba(181,233,65,.55)">
+                  <circle cx="120" cy="248" r="2.6"/><circle cx="170" cy="262" r="2.6"/><circle cx="222" cy="276" r="2.6"/>
+                  <circle cx="150" cy="230" r="2.6"/><circle cx="200" cy="243" r="2.6"/><circle cx="250" cy="258" r="2.6"/>
+                  <circle cx="180" cy="212" r="2.6"/><circle cx="232" cy="226" r="2.6"/><circle cx="272" cy="252" r="2.6"/>
+                </g>
+              </g>
+              <!-- 中層電解質（液態） -->
+              <g class="liq">
+                <path d="M35 242.5 L210 330 L210 348 L35 260.5 Z" fill="#6e2418"/>
+                <path d="M210 330 L325 272.5 L325 290.5 L210 348 Z" fill="#571c10"/>
+                <path d="M150 185 L325 272.5 L210 330 L35 242.5 Z" fill="rgba(255,110,80,.16)" stroke="rgba(255,90,60,.4)"/>
+                <path class="cv-spread" d="M150 185 L325 272.5 L210 330 L35 242.5 Z" fill="url(#cvRed)"/>
+                <g class="cv-dend" stroke="#ffd9a0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M180 257 l-34 -8 l-20 9 l-28 -7"/>
+                  <path d="M180 257 l36 -12 l18 6 l30 -10"/>
+                  <path d="M180 257 l-30 12 l-16 -4 l-26 12"/>
+                  <path d="M180 257 l32 14 l17 -5 l28 13"/>
+                </g>
+                <path class="cv-spark" d="M180 234 l3.2 8.2 8.2 3.2 -8.2 3.2 -3.2 8.2 -3.2 -8.2 -8.2 -3.2 8.2 -3.2 z" fill="#ffd166"/>
+                <ellipse class="cv-ring cv-ring-danger" cx="180" cy="257" rx="62" ry="27" fill="none" stroke="#ff5a3c" stroke-width="2"/>
+                <ellipse class="cv-ring cv-ring-danger d2" cx="180" cy="257" rx="102" ry="45" fill="none" stroke="#ff5a3c" stroke-width="1.5"/>
+              </g>
+              <!-- 中層穿刺孔 -->
+              <ellipse cx="180" cy="257" rx="7" ry="3" fill="rgba(0,0,0,.5)"/>
+              <!-- 上層電極 -->
+              <path d="M35 127.5 L210 215 L210 233 L35 145.5 Z" fill="url(#slabSide)"/>
+              <path d="M210 215 L325 157.5 L325 175.5 L210 233 Z" fill="url(#slabSide)"/>
+              <path d="M150 70 L325 157.5 L210 215 L35 127.5 Z" fill="url(#slabTop)" stroke="rgba(255,255,255,.07)"/>
+              <!-- 上層入針孔 -->
+              <ellipse cx="180" cy="142.5" rx="7" ry="3" fill="#0e0e12"/>
+              <!-- 鋼釘：穿過上層後，板體內那段被遮住 -->
+              <g class="cv-nail">
+                <rect x="177" y="60" width="6" height="82.5" rx="3" fill="#c9c9cf"/>
+                <rect x="177" y="218" width="6" height="16" fill="#b9b9c0"/>
+                <path d="M177 234 h6 l-3 18 z" fill="#b9b9c0"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="seg">
+          <div class="seg-in" role="tablist" aria-label="電芯型態">
+            <button type="button" class="on" role="tab" aria-selected="true" style="--dur:5s"
+              data-cap="釘子刺進去——沒有反應，就是最好的反應。電解液壓到 5% 以下、結構穩定；日本 CHEMITOX 釘刺一小時實測：無起火、無發煙、無破裂。">準固態電芯<span class="vs-prog"><i></i></span></button>
+            <button type="button" role="tab" aria-selected="false" style="--dur:7.5s"
+              data-cap="受損處長出結晶（鋰枝晶），刺穿隔離膜引發內部短路——火花一閃，熱失控開始連鎖。（示意動畫，非實驗影像）">一般液態電芯<span class="vs-prog"><i></i></span></button>
+          </div>
+        </div>
+        <p class="seg-cap" id="cellcap">釘子刺進去——沒有反應，就是最好的反應。電解液壓到 5% 以下、結構穩定；日本 CHEMITOX 釘刺一小時實測：無起火、無發煙、無破裂。</p>
+      </div>
+        </div>
+      </div>
+      <div class="vidshow" id="vidshow">
+        <div class="sec-head center" style="margin-bottom:32px">
+          <p class="eyebrow" style="color:var(--ring)">極端實測</p>
+          <h2>摔下去。敲下去。<br>結果，直接看。</h2>
+        </div>
+        <div class="vs-stage">
+          <div id="yt-test-player" aria-label="我是鐵爸 iamIRONPA 的 TITANSHIELD Pro 實測影片"></div>
+          <div id="yt-test-player2" aria-hidden="true"></div>
+          <div class="yt-test-cover" id="yt-test-cover" aria-hidden="true"></div>
+          <span class="yt-test-status" id="yt-test-badge" role="status" aria-live="polite">摔落實測・00:18–00:24</span>
+        </div>
+        <div class="seg">
+          <div class="seg-in" role="tablist" aria-label="實測影片選擇">
+            <button class="vs-tab on" type="button" role="tab" aria-selected="true">摔落實測<span class="vs-prog"><i></i></span></button>
+            <button class="vs-tab" type="button" role="tab" aria-selected="false">敲擊實測<span class="vs-prog"><i></i></span></button>
+          </div>
+        </div>
+        <div class="yt-test-meta">
+          <p>影片引用自 YouTube 頻道 <a href="https://www.youtube.com/@iamIRONPA" target="_blank" rel="noopener noreferrer">我是鐵爸 iamIRONPA</a><span class="source-sep" aria-hidden="true">・</span><a href="https://www.youtube.com/watch?v=onFuVqgYKbY" target="_blank" rel="noopener noreferrer">觀看完整影片 ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="verification">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--ring)">第三方檢驗</p>
+      <h2>不只釘刺。<br>六項測試，沒有一項起火。</h2>
+      <p class="lede">日本 CHEMITOX 與 SGS 台灣檢驗科技的電芯安全試驗——把電池往死裡操，看它會不會出事。每一格都是報告上的原始數據。</p>
+      <div class="tests6">
+        <div class="test6">
+          <h3>釘刺・60 分鐘</h3>
+          <p class="t-how">日本 CHEMITOX：3mm 鋼釘貫穿電芯後不拔出，持續插著 60 分鐘，全程量測電流與電壓。</p>
+          <p class="t-n">0<em>起火・發煙・破裂</em></p>
+          <p class="t-ok">10,000／5,000mAh 皆完成測試</p>
+        </div>
+        <div class="test6">
+          <h3>穿刺</h3>
+          <p class="t-how">Φ4.0 mm 鋼針、32° 圓錐，以每秒 40 mm 的速度 100% 貫穿電芯。</p>
+          <p class="t-n">44.0<em>°C</em></p>
+          <p class="t-ok">無起火、無爆炸</p>
+        </div>
+        <div class="test6">
+          <h3>熱濫用</h3>
+          <p class="t-how">充飽後放進恆溫箱，每分鐘升溫 5°C 到 130°C，再恆溫烤 60 分鐘。</p>
+          <p class="t-n">130<em>°C／60 分</em></p>
+          <p class="t-ok">無起火、無爆炸</p>
+        </div>
+        <div class="test6">
+          <h3>過充電</h3>
+          <p class="t-how">用 5A 一直充，一路充到 4.7V、超過一小時都不停。</p>
+          <p class="t-n">32.0<em>°C</em></p>
+          <p class="t-ok">無起火、無爆炸</p>
+        </div>
+        <div class="test6">
+          <h3>過放電</h3>
+          <p class="t-how">用 5A 一直放電，連續 1.5 小時把電榨乾。</p>
+          <p class="t-n">58.4<em>°C</em></p>
+          <p class="t-ok">無起火、無爆炸</p>
+        </div>
+        <div class="test6">
+          <h3>外部短路</h3>
+          <p class="t-how">用 15.14 mΩ 的外部阻抗直接把正負極短路。<b style="color:#f5f5f7;font-weight:600">電芯的極耳自己熔斷，把電路切開。</b></p>
+          <p class="t-n">23.4<em>°C</em></p>
+          <p class="t-ok">無起火、無爆炸</p>
+        </div>
+      </div>
+      <p class="small t-note">釘刺試驗由日本 CHEMITOX 執行。其餘由 SGS 台灣檢驗科技可靠度實驗室執行，報告編號 HE40037／2026（過充電、過放電、外部短路、熱濫用）與 HE50024／2026（穿刺），測試對象為本機所使用之準固態電芯（型號 486578），各項數值為報告所載之最高表面溫度，僅代表送測樣品之結果。</p>
+      
+    </div>
+  </section>
+
+  <section class="sec alarm-sec" id="alarmsec">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--ring)">全球首創・防爆警鈴</p>
+      <h2 style="font-size:clamp(32px,5.2vw,52px);margin-top:14px">異常，它會先開口。</h2>
+      <p class="lede" style="margin:16px auto 0;max-width:32em">行動電源出狀況時，多數人是最後一個知道的。穩如鈦山 Pro 內建警鈴——偵測到異常狀況，當場響給你聽，讓你第一時間遠離。警鈴也能自己測試，先熟悉它的聲音。</p>
+      <div class="alarm-stage">
+        <img class="alarm-wave-art" src="{{ 'tsp-overview-alarm-acoustic-waves-vector-v2.svg' | asset_url }}" alt="" aria-hidden="true">
+        <span class="alarm-rip p0" aria-hidden="true"></span>
+        <span class="alarm-rip p1" aria-hidden="true"></span>
+        <span class="alarm-rip p2" aria-hidden="true"></span>
+        <span class="alarm-rip p3" aria-hidden="true"></span>
+        <button class="alarm-dev" id="alarmbtn" type="button" aria-label="按一下試聽警鈴（模擬音）">
+          <img class="alarm-product-view alarm-product-enter" src="{{ 'tsp-hero-titanshield-pro-black.webp' | asset_url }}" alt="" aria-hidden="true">
+          <img class="alarm-product-view alarm-product-front" src="{{ 'tsp-overview-titanshield-pro-front-cutout-v1.webp' | asset_url }}" alt="穩如鈦山 Pro 正面">
+          <img class="alarm-product-view alarm-product-lay" src="{{ 'tsp-hero-titanshield-pro-black.webp' | asset_url }}" alt="" aria-hidden="true">
+          <img src="{{ 'tsp-embed-4.webp' | asset_url }}" alt="穩如鈦山 Pro">
+        </button>
+      </div>
+      <p class="alarm-hint">按一下產品，試聽警鈴（模擬音）。實機也能這樣自己測試。</p>
+      <div class="alarm-how">
+        <span class="chip"><b style="color:var(--fog)">1</b>　平時就能自己測試，先熟悉警鈴的聲音</span>
+        <span class="chip"><b style="color:var(--fog)">2</b>　偵測到異常，當場響給你聽</span>
+        <span class="chip"><b style="color:var(--fog)">3</b>　聽到就遠離、移到通風處——爭取的就是反應時間</span>
+      </div>
+    </div>
+  </section>
+</div></div>
+{% schema %}
+{ "name": "TSP safety", "settings": [] }
+{% endschema %}
