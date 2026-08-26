@@ -444,3 +444,26 @@
     aspect-ratio:auto;height:62svh;min-height:400px}
   .tsp-pro .pocket-scene .scene-frame img{width:100%;height:100%;object-fit:cover}
 }
+
+/* ── 白章 topbar：對齊 Air 那輪的 !important 誤傷了變色機制，蓋回來 ── */
+.tsp-pro .topbar.bridge-light-nav{background:rgba(251,251,253,.82)!important;
+  border-bottom:1px solid rgba(0,0,0,.07);color:#1d1d1f}
+.tsp-pro .topbar.bridge-light-nav .brand-home,
+.tsp-pro .topbar.bridge-light-nav .name{color:#1d1d1f}
+.tsp-pro .topbar.bridge-light-nav .back{color:rgba(29,29,31,.62)}
+.tsp-pro .topbar.bridge-light-nav .sep{background:rgba(0,0,0,.18)}
+.tsp-pro .topbar.bridge-light-nav .spy a{color:rgba(29,29,31,.52)}
+.tsp-pro .topbar.bridge-light-nav .spy a:hover,
+.tsp-pro .topbar.bridge-light-nav .spy a.on{color:#1d1d1f}
+/* ── 防護段手機版：產品再縮、圖表整張入鏡（含底線） ── */
+@media (max-width:760px){
+  .tsp-pro .protection-scroll .prot-img{height:clamp(96px,15svh,128px)!important;margin-bottom:4px}
+  .tsp-pro svg.prot-chart{width:auto!important;max-width:100%!important;height:auto!important;max-height:30svh!important;display:block;margin:0 auto}
+}
+/* ── 警鈴試聽膠囊 ── */
+.tsp-pro .alarm-try{display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  padding:11px 20px;border-radius:980px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.22);color:#f5f5f7;font-size:14px;font-weight:600;
+  cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s}
+.tsp-pro .alarm-try:hover{background:rgba(255,255,255,.18)}
+.tsp-pro .alarm-try svg{width:15px;height:15px;flex:0 0 auto}

@@ -452,6 +452,7 @@ document.body.classList.add('tsp-page');
   abtn.addEventListener('click', function(){
     try{
       if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();      /* Safari：手勢裡不喚醒就永遠無聲 */
       var t = actx.currentTime;
       for (var i = 0; i < 6; i++) beep(t + i * 0.22, 0.12, i % 2 ? 2350 : 2800);
     }catch(e){}
@@ -1236,6 +1237,13 @@ document.body.classList.add('tsp-page');
         if (sec.querySelectorAll('.jdgm-rev').length > 0) sec.style.display = '';
       }).observe(sec, { childList:true, subtree:true });
     }
+  })();
+
+  /* 警鈴試聽膠囊：跟產品同一個觸發 */
+  (function(){
+    var pill = document.getElementById('alarmtry');
+    var abtn2 = document.getElementById('alarmbtn');
+    if (pill && abtn2) pill.addEventListener('click', function(){ abtn2.click(); });
   })();
 
 })();
