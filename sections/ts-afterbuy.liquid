@@ -1,0 +1,273 @@
+{{ 'ts-air.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  Air 頁收尾段（2026-08-26 Mars 拍板重排）：評論 → 常見問題 → 延伸閱讀卡片列 → It's got you covered。
+  原本評論與 FAQ 寫在 ts-compare 裡，跟「規格卡要插在購買卡後面」打架，整包搬出來自成一段；
+  qa 區塊（FAQ 內容）與 FAQPage 結構化資料一起搬。延伸閱讀從三條文字連結升級成
+  Apple 式橫滑卡片列（跟分類頁同款，起點對齊 .wrap 內容欄）；結尾抄 Pro 的 tsp-end。
+{%- endcomment -%}
+<style>
+  /* FAQ（樣式跟著內容一起搬過來，不倚賴 ts-compare 的樣式殘留） */
+  .ts-air .faq{max-width:760px;margin:clamp(28px,4vw,48px) auto 0;}
+  .ts-air .faq details{border-bottom:1px solid var(--line);}
+  .ts-air .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;
+    align-items:center;gap:16px;padding:20px 4px;font-size:16.5px;font-weight:600;}
+  .ts-air .faq summary::-webkit-details-marker{display:none;}
+  .ts-air .faq summary::after{content:"+";font-size:22px;font-weight:400;color:var(--fg-2);flex:none;}
+  .ts-air .faq details[open] summary::after{content:"−";}
+  .ts-air .faq .faq__a{padding:0 4px 20px;font-size:14.5px;line-height:1.8;color:var(--fg-2);max-width:40em;}
+
+  /* 評論（Judge.me） */
+  .ts-air .ts-rev__widget{max-width:880px;margin:clamp(20px,3vw,36px) auto 0}
+  .ts-air .ts-rev .jdgm-rev-widg__title{display:none!important}
+  .ts-air .ts-rev .jdgm-review-widget{display:block!important}
+  .ts-air .ts-rev .jdgm-rev{background:#fff;border:1px solid rgba(0,0,0,.07)!important;border-radius:16px;
+    padding:20px 22px!important;margin-bottom:14px!important}
+  .ts-air .ts-rev .jdgm-rev__header,.ts-air .ts-rev .jdgm-rev__content{border:0!important}
+
+  /* 延伸閱讀橫滑列（跟分類頁同款；兩個坑：捲動容器會裁掉垂直溢出→上下呼吸墊＋負邊距吸回；
+     snap 會把起點吸走→scroll-padding-left） */
+  .ts-air .ts-reads{padding-block:clamp(56px,8vh,96px) clamp(44px,6vh,72px);}
+  .ts-air .ts-reads__rail{
+    --tsr-gut:calc(max((100vw - 1180px) / 2, 0px) + var(--gut));
+    margin-top:calc(clamp(24px,3.5vw,40px) - 16px);
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-padding-left:var(--tsr-gut);
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    padding:16px var(--tsr-gut) 44px;margin-bottom:-30px;
+    display:flex;gap:20px;cursor:grab;}
+  .ts-air .ts-reads__rail::-webkit-scrollbar{display:none;}
+  .ts-air .ts-reads__rail.dragging{cursor:grabbing;scroll-snap-type:none;}
+  .ts-air .ts-reads__card{flex:0 0 min(340px,78vw);scroll-snap-align:start;
+    display:block;background:#FFFFFF;border-radius:18px;overflow:hidden;
+    text-decoration:none;color:#1D1D1F;
+    border:1px solid rgba(0,0,0,.07);
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+    transition:transform .3s cubic-bezier(.2,.6,.25,1),box-shadow .3s;}
+  .ts-air .ts-reads__card:hover{transform:translateY(-6px);
+    box-shadow:0 16px 34px rgba(0,0,0,.12);}
+  .ts-air .ts-reads__card:hover,.ts-air .ts-reads__card:hover *{text-decoration:none!important;}
+  .ts-air .ts-reads__img{display:block;aspect-ratio:16/10;background:#F2F2F4;}
+  .ts-air .ts-reads__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ts-air .ts-reads__body{display:block;padding:18px 20px 22px;}
+  .ts-air .ts-reads__title{display:block;font-size:16.5px;font-weight:650;line-height:1.45;
+    letter-spacing:-.01em;color:#1D1D1F;}
+  .ts-air .ts-reads__ex{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+    overflow:hidden;margin-top:8px;font-size:13.5px;line-height:1.6;color:#6E6E73;}
+  .ts-air .ts-reads__cta{display:inline-block;margin-top:12px;font-size:13.5px;
+    font-weight:600;color:#0071E3;}
+  .ts-air .ts-reads__ctrl{display:flex;justify-content:flex-end;gap:12px;margin-top:18px;}
+  .ts-air .ts-reads__ctrl button{width:38px;height:38px;border-radius:50%;border:0;
+    cursor:pointer;background:#E8E8ED;color:#1D1D1F;font-size:18px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,opacity .2s;}
+  .ts-air .ts-reads__ctrl button:hover{background:#DCDCE1;}
+  .ts-air .ts-reads__ctrl button:disabled{opacity:.35;cursor:default;}
+
+  /* 結尾——數值照 Pro 的 tsp-end 實測值一比一抄（Mars：要一模一樣）：
+     logo 127px／標題 64px 粗體縮字距／內文 17px 灰、行高 1.75、寬 578 */
+  .ts-air .ts-end{text-align:center;padding-top:clamp(40px,6vh,80px);padding-bottom:110px;}
+  .ts-air .ts-end .wrap{max-width:640px;padding-inline:22px;}  /* Pro 是 22px，照抄才擠得下一行 */
+  .ts-air .ts-end svg{display:block;width:127px;height:auto;color:#1D1D1F;margin:0 auto 22px;}
+  .ts-air .ts-end h2{font-size:clamp(38px,4.5vw,64px);font-weight:700;
+    letter-spacing:-.04em;line-height:1.08;margin:12px 0 0;}
+  .ts-air .ts-end .lede{font-size:17px;line-height:1.75;color:#6E6E73;
+    max-width:578px;margin:14px auto 0;}
+</style>
+<div class="ts-air">
+
+{%- comment -%} 顧客評價：Judge.me 掛件＋metafield 資料源（缺 metafield 掛件永遠空殼，Pro 頁踩過）；
+    沒有半則評論時整段自動收起，評論進來自動出現 {%- endcomment -%}
+<section class="sect light sect--tight ts-rev" id="ts-reviews">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">大家怎麼說。</h2>
+    <div class="ts-rev__widget rise" data-d="1">
+      <div id="judgeme_product_reviews" class="jdgm-widget jdgm-review-widget" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}">
+        {{ product.metafields.judgeme.widget }}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  if (window.__tsRevInit) return; window.__tsRevInit = true;
+  var sec = document.getElementById('ts-reviews');
+  if (!sec) return;
+  function check(){ sec.style.display = sec.querySelectorAll('.jdgm-rev').length ? '' : 'none'; }
+  setTimeout(check, 6000); setTimeout(check, 15000);
+  if ('MutationObserver' in window) new MutationObserver(function(){
+    if (sec.querySelectorAll('.jdgm-rev').length) sec.style.display = '';
+  }).observe(sec, { childList:true, subtree:true });
+})();
+</script>
+
+<section class="sect light sect--tight" id="faq">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">{{ section.settings.faq_heading }}</h2>
+    <div class="faq rise" data-d="1">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'qa' -%}
+          <details {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.q }}</summary>
+            <div class="faq__a">{{ block.settings.a | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.faq_note != blank -%}
+      <p class="small" style="margin-top:18px;text-align:center;margin-inline:auto">{{ section.settings.faq_note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- comment -%} 延伸閱讀（2026-08-26：文字連結升級成卡片橫滑列，SEO 內鏈不減反增） {%- endcomment -%}
+{%- assign read_blocks = section.blocks | where: 'type', 'article' -%}
+{%- if read_blocks.size > 0 -%}
+<section class="sect light sect--tight ts-reads" id="reads">
+  <div class="wrap">
+    <h2 class="rise" style="text-align:center">{{ section.settings.reads_heading }}</h2>
+    {%- if section.settings.reads_sub != blank -%}
+      <p class="lede rise" data-d="1" style="text-align:center;margin-inline:auto">{{ section.settings.reads_sub }}</p>
+    {%- endif -%}
+  </div>
+  <div class="ts-reads__rail" data-ts-rail>
+    {%- for block in read_blocks -%}
+      {%- assign a = block.settings.article -%}
+      {%- if a != blank -%}
+      <a class="ts-reads__card" href="{{ a.url }}" {{ block.shopify_attributes }}>
+        {%- if a.image -%}
+          <span class="ts-reads__img">
+            {{ a.image | image_url: width: 720 | image_tag: loading: 'lazy', alt: a.title }}
+          </span>
+        {%- endif -%}
+        <span class="ts-reads__body">
+          <span class="ts-reads__title">{{ a.title | escape }}</span>
+          <span class="ts-reads__ex">{{ a.excerpt_or_content | strip_html | truncatewords: 34 }}</span>
+          <span class="ts-reads__cta">閱讀文章 ›</span>
+        </span>
+      </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="wrap">
+    <div class="ts-reads__ctrl">
+      <button type="button" data-ts-rail-prev aria-label="上一批">‹</button>
+      <button type="button" data-ts-rail-next aria-label="下一批">›</button>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- comment -%} 結尾品牌段（照 Pro 的 tsp-end） {%- endcomment -%}
+<section class="sect light sect--tight ts-end">
+  <div class="wrap rise">
+    {%- render 'ts-logo' -%}
+    <h2>{{ section.settings.end_heading }}</h2>
+    <p class="lede">{{ section.settings.end_text }}</p>
+  </div>
+</section>
+</div>
+
+{%- comment -%} FAQPage 結構化資料（GEO／SEO）：自動從 qa 區塊產生，後台改題目這裡跟著變 {%- endcomment -%}
+{%- assign faq_blocks = section.blocks | where: 'type', 'qa' -%}
+{%- if faq_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in faq_blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ block.settings.q | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.a | json }} }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<script>
+/* 橫滑列（跟分類頁同一套）：原生捲動＋滑鼠拖曳＋圓鈕 */
+if (!window.__tsAirRailInit) {
+  window.__tsAirRailInit = 1;
+  (function () {
+    function start() {
+      var rail = document.querySelector(".ts-reads [data-ts-rail]");
+      if (!rail) return;
+      var prev = document.querySelector("[data-ts-rail-prev]");
+      var next = document.querySelector("[data-ts-rail-next]");
+      var STEP = 360;
+      function updateBtns() {
+        if (!prev) return;
+        prev.disabled = rail.scrollLeft <= 4;
+        next.disabled = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 4;
+      }
+      if (prev) {
+        prev.addEventListener("click", function () { rail.scrollBy({ left: -STEP * 2, behavior: "smooth" }); });
+        next.addEventListener("click", function () { rail.scrollBy({ left: STEP * 2, behavior: "smooth" }); });
+        rail.addEventListener("scroll", updateBtns, { passive: true });
+        addEventListener("resize", updateBtns);
+        updateBtns();
+      }
+      var down = false, startX = 0, startL = 0, moved = false;
+      rail.addEventListener("pointerdown", function (e) {
+        if (e.pointerType !== "mouse") return;
+        down = true; moved = false; startX = e.clientX; startL = rail.scrollLeft;
+        rail.classList.add("dragging");
+      });
+      addEventListener("pointermove", function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        rail.scrollLeft = startL - dx;
+      });
+      addEventListener("pointerup", function () {
+        down = false; rail.classList.remove("dragging");
+      });
+      rail.addEventListener("click", function (e) { if (moved) { e.preventDefault(); } }, true);
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", start);
+    } else { start(); }
+  })();
+}
+</script>
+<script src="{{ 'ts-air.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS Air 收尾（評論+FAQ+閱讀+品牌）",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "faq_heading", "label": "FAQ 標題", "default": "常見問題" },
+    { "type": "text", "id": "faq_note", "label": "FAQ 小字（留空不顯示）" },
+    { "type": "text", "id": "reads_heading", "label": "延伸閱讀標題", "default": "還在做功課？" },
+    { "type": "text", "id": "reads_sub", "label": "延伸閱讀說明",
+      "default": "行動電源的安全、挑選與固態技術，我們用實測寫給你看。" },
+    { "type": "text", "id": "end_heading", "label": "結尾標題", "default": "It’s got you covered." },
+    { "type": "textarea", "id": "end_text", "label": "結尾說明",
+      "default": "該顧的，都有它顧著。GC 特經典來自美國加州，團隊橫跨台灣與美國——從產品創意、開發到品管製造，每一件產品，都經得起你天天用。" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "常見問題",
+      "settings": [
+        { "type": "text", "id": "q", "label": "問題" },
+        { "type": "textarea", "id": "a", "label": "回答" }
+      ]
+    },
+    {
+      "type": "article",
+      "name": "延伸閱讀文章",
+      "settings": [
+        { "type": "article", "id": "article", "label": "選文章",
+          "info": "標題、圖片、摘要都自動抓，這裡只要挑哪一篇。" }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [ { "name": "TS Air 收尾（評論+FAQ+閱讀+品牌）" } ]
+}
+{% endschema %}

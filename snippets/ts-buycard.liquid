@@ -5,7 +5,7 @@
 {%- endcomment -%}
 <style>
   .ts-air .close.close--card{padding-block:clamp(48px,7vh,96px);}
-  .ts-air .close .close__pick{margin:30px 0 0;font-size:14px;color:#6E6E73;}
+  .ts-air .close .close__pick{margin:14px 0 0;font-size:14px;color:#6E6E73;}
   .ts-air .close .close__colors{border:0;padding:0;margin:12px 0 0;
     display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .ts-air .close .close__color{display:flex;align-items:center;gap:10px;
@@ -20,12 +20,34 @@
   .ts-air .close .close__color.is-off{opacity:.45;cursor:not-allowed;}
   .ts-air .close .close__color.is-off span{text-decoration:line-through;}
   .ts-air .close .cta{margin-top:26px;}
+    .ts-air .close .close__img{margin-top:24px;text-align:center;}
+  /* hidden 屬性只是 UA 層的 display:none，主題任何 img display 規則都會蓋掉它——
+     這裡自己把兩態寫死：沒 hidden 顯示、有 hidden 一定藏 */
+  .ts-air .close .close__img [data-vimg]{display:inline-block;width:min(420px,78vw);height:auto;
+    transform:translateX(16px);}  /* 光學置中：斜擺機身視覺重量偏左，往右推補償（Mars 調校） */
+  /* 選購控制整組跟著機身的視覺中心走（Mars 畫框指定位置）；只給桌機，手機會爆版 */
+  @media (min-width:761px){
+    .ts-air .close #ts-close-form{transform:translate(48px,20px);}
+  }
+  .ts-air .close .close__img [data-vimg][hidden]{display:none!important;}
 </style>
 <section class="close light close--card" id="buy">
   <div class="wrap">
     <p class="wordmark rise" style="font-size:clamp(38px,6.4vw,82px)"><b>TITANSHIELD</b> <em>Air</em></p>
     <p class="lede rise" data-d="1">6 mm ／ 113 g ／ 5000 mAh ／ 磁吸 15W</p>
     <p class="rise" data-d="2" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em;margin:18px 0 0">{{ product.selected_or_first_available_variant.price | money }}</p>
+    {%- comment -%} 選色連動產品圖（2026-08-26 Mars）：每個變體一張、radio 切換顯示 {%- endcomment -%}
+    <div class="close__img rise" data-d="2">
+      {%- comment -%} 用裁好置中的主題資產（原變體圖機身偏左 4.6%、透明留白過大）；
+          之後換渲染圖記得同步更新 assets/ts-buy-black.png / ts-buy-silver.png {%- endcomment -%}
+      {%- for cv in product.variants -%}
+        {%- assign vasset = 'ts-buy-silver.png' -%}
+        {%- if cv.title contains '黑' -%}{%- assign vasset = 'ts-buy-black.png' -%}{%- endif -%}
+        <img data-vimg="{{ cv.id }}" src="{{ vasset | asset_url }}"
+             alt="{{ product.title | escape }} {{ cv.title | escape }}" width="420" height="418"
+             loading="lazy"{% unless cv.id == product.selected_or_first_available_variant.id %} hidden{% endunless %}>
+      {%- endfor -%}
+    </div>
     {%- if product.available -%}
       {%- form 'product', product, id: 'ts-close-form' -%}
         <p class="close__pick rise" data-d="2" id="closePickLabel">選擇顏色</p>
@@ -58,4 +80,17 @@
     {%- endif -%}
   </div>
 </section>
+<script>
+/* 選色→換圖：radio 一動就把對應變體的圖亮出來（守門旗標防重複掛） */
+if (!window.__tsBuyImgInit) {
+  window.__tsBuyImgInit = 1;
+  document.addEventListener("change", function (e) {
+    var r = e.target;
+    if (!r || r.name !== "id" || !r.closest("#ts-close-form")) return;
+    document.querySelectorAll(".close__img [data-vimg]").forEach(function (img) {
+      img.hidden = img.dataset.vimg !== r.value;
+    });
+  });
+}
+</script>
 <script src="{{ 'ts-cart.js' | asset_url }}" defer></script>
