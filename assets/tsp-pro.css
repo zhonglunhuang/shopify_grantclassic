@@ -477,3 +477,32 @@
   .tsp-pro .prot-ntc-sec .ntc .flow{flex-wrap:nowrap;gap:5px;font-size:11.5px}
   .tsp-pro .prot-ntc-sec .ntc .flow .s{padding:6px 9px;white-space:nowrap}
 }
+
+/* ── 設計款展示牆 ── */
+.tsp-pro .tsp-designs{padding-top:44px}
+.tsp-pro .dsg-row{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;
+  width:100vw;margin-left:calc(50% - 50vw);
+  padding:22px max(calc(50vw - 530px),24px) 30px;
+  scroll-padding-left:max(calc(50vw - 530px),24px);
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tsp-pro .dsg-row::-webkit-scrollbar{display:none}
+.tsp-pro .dsg-card{flex:0 0 240px;scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;
+  background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:18px;overflow:hidden;
+  text-decoration:none!important;box-shadow:0 1px 3px rgba(0,0,0,.04);
+  transition:transform .3s cubic-bezier(.2,.6,.25,1),box-shadow .3s}
+.tsp-pro .dsg-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.12)}
+.tsp-pro .dsg-pic{display:block;aspect-ratio:1/1;background:#f5f5f7}
+.tsp-pro .dsg-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.tsp-pro .dsg-card b{padding:14px 16px 0;font-size:15px;line-height:1.4;letter-spacing:-.01em;color:#1d1d1f}
+.tsp-pro .dsg-price{padding:0 16px 16px;font-size:13.5px;color:#6e6e73}
+.tsp-pro .dsg-more{justify-content:center;align-items:center;background:#f5f5f7;border-style:dashed}
+.tsp-pro .dsg-more-in{display:flex;align-items:center;gap:6px;color:var(--act)}
+.tsp-pro .dsg-more-in b{padding:0;font-size:15.5px;color:var(--act)}
+.tsp-pro .dsg-go{font-size:20px;line-height:1}
+@media (max-width:760px){
+  .tsp-pro .dsg-card{flex-basis:200px}
+  .tsp-pro .dsg-row{gap:14px;padding-left:20px;padding-right:20px;scroll-padding-left:20px}
+}
+
+.tsp-pro .tsp-designs .sec-head{max-width:900px}
+.tsp-pro .tsp-designs h2{text-wrap:balance}

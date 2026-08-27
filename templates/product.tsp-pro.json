@@ -65,6 +65,126 @@
     "tsp_reviews": {
       "type": "tsp-reviews",
       "settings": {}
+    },
+    "tsp_designs": {
+      "type": "tsp-designs",
+      "blocks": {
+        "d0": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "旺財寶運貴氣紅",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_6c0c9078-f216-4b30-a2b4-48f191000e39.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157234419"
+          }
+        },
+        "d1": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "浮世繪藍色海洋",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_c70f243c-f5e6-4629-a05d-109299402e7e.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157267187"
+          }
+        },
+        "d2": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "登上聖母峰",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_b6955e56-1424-461b-8341-d9d34faaacd3.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157299955"
+          }
+        },
+        "d3": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "圓嘟嘟卡皮巴拉",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_31264e3f-79f3-4c07-8107-66e6d0dae3a3.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157332723"
+          }
+        },
+        "d4": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "機械電子",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_bb58aef1-aa62-426e-93dc-9f9ad44bfee7.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157365491"
+          }
+        },
+        "d5": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-design",
+            "label": "白色大理石",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_4bcb7b86-37c8-44a7-9270-91518ac33116.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-design?variant=50542157398259"
+          }
+        },
+        "d6": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-mirror",
+            "label": "鏡面・基礎款",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_LOGO_51a7edbe-8483-4f0a-942d-74b06672c26a.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-mirror?variant=50542107623667"
+          }
+        },
+        "d7": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-mirror",
+            "label": "鏡面・拍張照吧",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_85f16cbd-4479-406c-8354-1718a7267585.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-mirror?variant=50542107656435"
+          }
+        },
+        "d8": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-mirror",
+            "label": "鏡面・蝴蝶結",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_715d2e5c-2124-4b91-a30f-8ccf780380d5.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-mirror?variant=50542107689203"
+          }
+        },
+        "d9": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-mirror",
+            "label": "鏡面・四角框",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_881c691e-386d-475b-9585-d421bd6ce9c7.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-mirror?variant=50542107721971"
+          }
+        },
+        "d10": {
+          "type": "item",
+          "settings": {
+            "product": "pro-titanshield-pro-10000mah-mirror",
+            "label": "鏡面・夏日海灘",
+            "img": "https://cdn.shopify.com/s/files/1/0608/5338/7507/files/PRO_d3be28aa-aa9f-4ef2-93bf-e9266fa96802.jpg?v=1",
+            "link": "/products/pro-titanshield-pro-10000mah-mirror?variant=50542107754739"
+          }
+        }
+      },
+      "block_order": [
+        "d10",
+        "d8",
+        "d1",
+        "d0",
+        "d7",
+        "d2",
+        "d3",
+        "d4",
+        "d9",
+        "d5",
+        "d6"
+      ],
+      "settings": {
+        "more_url": ""
+      }
     }
   },
   "order": [
@@ -78,6 +198,7 @@
     "tsp_daily",
     "tsp_proof",
     "tsp_compare",
+    "tsp_designs",
     "tsp_buy",
     "tsp_reviews",
     "tsp_faq",

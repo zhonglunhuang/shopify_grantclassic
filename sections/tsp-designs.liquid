@@ -1,0 +1,67 @@
+{%- comment -%}
+  設計款展示牆（2026-08-27）：後台區塊掛商品，沒掛任何商品時整段不輸出。
+  上新花色：主題編輯器 → 這個段落 → 新增區塊選商品即可，不用改程式。
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+<div class="tsp-pro"><div class="act-light">
+<section class="sec tsp-designs" id="designs">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:8px">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="lede" style="margin:14px auto 0;max-width:30em">{{ section.settings.sub }}</p>
+    </div>
+    <div class="dsg-row">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p != blank -%}
+        {%- assign card_url = p.url -%}
+        {%- if block.settings.link != blank -%}{%- assign card_url = block.settings.link -%}{%- endif -%}
+        <a class="dsg-card" href="{{ card_url }}" {{ block.shopify_attributes }}>
+          <span class="dsg-pic">
+            {%- if block.settings.img != blank -%}
+              <img src="{{ block.settings.img }}&width=640" alt="{{ block.settings.label | default: p.title | escape }}" width="640" height="640">
+            {%- elsif p.featured_image -%}
+              <img src="{{ p.featured_image | image_url: width: 640 }}" alt="{{ p.title | escape }}" width="640" height="640">
+            {%- endif -%}
+          </span>
+          <b>{{ block.settings.label | default: p.title }}</b>
+          <span class="dsg-price">{{ p.price | money_without_trailing_zeros }}</span>
+        </a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if section.settings.more_url != blank -%}
+      <a class="dsg-card dsg-more" href="{{ section.settings.more_url }}">
+        <span class="dsg-more-in"><b>{{ section.settings.more_text }}</b><span class="dsg-go">›</span></span>
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+</div></div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "TSP designs",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "眉標", "default": "設計款系列" },
+    { "type": "text", "id": "heading", "label": "標題", "default": "同一份安全，不只一種樣子。" },
+    { "type": "text", "id": "sub", "label": "副標", "default": "同一顆準固態電芯，換上鏡面與聯名設計——挑一顆合你風格的。" },
+    { "type": "url", "id": "more_url", "label": "「看全部」連結（留空不顯示）" },
+    { "type": "text", "id": "more_text", "label": "「看全部」文字", "default": "看全部款式" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "設計款商品",
+      "settings": [
+        { "type": "product", "id": "product", "label": "商品" },
+        { "type": "text", "id": "label", "label": "顯示名稱（留空用商品名）" },
+        { "type": "text", "id": "img", "label": "指定圖片網址（留空用商品主圖）" },
+        { "type": "text", "id": "link", "label": "指定連結（留空連商品頁；可帶 ?variant= 直達花色）" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "TSP designs" }]
+}
+{% endschema %}
