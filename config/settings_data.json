@@ -332,7 +332,7 @@
       },
       "10142937387702430166": {
         "type": "shopify://apps/timesact-pre-order/blocks/app-embed/bf6c109b-79b5-457c-8752-0e5e9e9676e7",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
       "4727195953647268973": {

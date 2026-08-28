@@ -82,6 +82,10 @@
     {{ 'ts-perf.css' | asset_url | stylesheet_tag }}
     {% render 'ako-style-conditional' %}
 
+    {%- comment -%}gc 覆寫：頁首瘦身。整行拿掉＋刪 assets/gc-header.{css,js} 即完全還原{%- endcomment -%}
+    {{ 'gc-header.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
+
     {%- comment -%}
       IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
       product or collection pages). In order to keep a main JS file size minimal, the theme also lazyloads non-essential
