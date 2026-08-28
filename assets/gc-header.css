@@ -1,0 +1,375 @@
+/* ============================================================
+   gc-header.css —— grantclassic 頁首瘦身
+   ------------------------------------------------------------
+   這支是「疊在最上面」的覆寫檔，主題原檔一個字都沒改。
+   要完全還原：刪掉這個檔 ＋ 拿掉 layout/theme.liquid 裡載入它的那一行。
+
+   基準是量出來的，不是目測（2026-08-27）：
+     現況 grantclassic  列高 87px｜字 16px/500｜項目間距 50px｜logo 190×32
+     Insta360           列高 64px｜字 16px/400｜文字空隙 40px｜logo  89×17
+     Apple              列高 44px｜字 12px/400｜文字空隙 29px｜logo 14px 寬
+
+   照 Insta360 走不照 Apple：它一樣是中文、一樣多條產品線，
+   Apple 那 12px 是英文才撐得住的。
+
+   為什麼要 !important：外包的 ako-custom.css 本來就用 !important
+   把字重與間距寫死，同權重時只有一樣用 !important 才蓋得過去。
+   ============================================================ */
+
+/* --- 1. logo：桌機 190 → 150（手機本來就是 150，維持） --------- */
+@media screen and (min-width: 741px) {
+  .header .header__logo-image { width: 150px !important; }
+}
+
+/* --- 1b. 手機的 logo 本來沒有固定寬度 ---------------------------
+   主題只寫 max-width:100%，所以 logo 會被容器「撐到最大」——
+   實測 375 寬時變成 180px、列高 72px，比桌機還胖。
+   80% 的人在手機上看，這裡才是重點。 */
+@media screen and (max-width: 740px) {
+  /* 140 → 120（Mars 2026-08-28 拍板）。三家手機版量出來的對照：
+       原本的 140x24 ／ DJI 112x24 ／ Air 頂部列 81x14
+     Air 之所以最精緻，是「小 logo ＋ 深色毛玻璃」；
+     但白底上不能照搬 81，會顯空，所以取中間的 120。 */
+  .header .header__logo-image {
+    width: 120px !important;
+    max-width: 120px !important;
+  }
+  .header .header__wrapper { padding-top: 15px !important; padding-bottom: 15px !important; }
+}
+
+/* --- 2. 列高：87 → 63（上下 padding 27 → 19） ------------------
+   算式：logo 150px 寬 ÷ 原比例 190/32 = 高 25px；25 + 19×2 = 63
+   手機端主題原本就是 padding 20px、logo 150px（= 65px），不動它。 */
+@media screen and (min-width: 741px) {
+  .header .header__wrapper { padding-top: 19px !important; padding-bottom: 19px !important; }
+}
+
+/* --- 3. 導覽字重：500 → 400（字級 16px 不動） ------------------
+   這是「沒質感」最直接的來源：粗體等於在喊「這句很重要」，
+   但導覽列是路標，不該跟商品搶注意力。Insta360 與 Apple 都是 400。 */
+.header .header__linklist-link { font-weight: 400 !important; }
+
+/* --- 4. 項目間距：50 → 40（Insta360 的數字） ------------------- */
+[dir="ltr"] .header .header__linklist-item:not(:last-child) { margin-right: 40px !important; }
+[dir="rtl"] .header .header__linklist-item:not(:last-child) { margin-left: 40px !important; }
+
+/* --- 5. 底部分隔線 -------------------------------------------
+   現在頁首跟首圖直接黏在一起，中間沒有交界。 */
+.header.header--bordered { border-bottom: 1px solid rgba(0, 0, 0, .08); }
+
+/* --- 6. 捲動時再收窄一點（63 → 55） --------------------------
+   用捲動驅動動畫做，不需要任何 JS。
+   舊瀏覽器不支援就整段跳過，頁首維持 63px —— 不會壞掉，只是沒有這個效果。 */
+@supports (animation-timeline: scroll()) {
+  @media screen and (min-width: 741px) {
+    @property --gc-header-pad {
+      syntax: '<length>'; inherits: true; initial-value: 19px;
+    }
+    .header {
+      animation: gc-header-shrink linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 160px;
+    }
+    .header .header__wrapper {
+      padding-top: var(--gc-header-pad) !important;
+      padding-bottom: var(--gc-header-pad) !important;
+    }
+    @keyframes gc-header-shrink {
+      from { --gc-header-pad: 19px; }
+      to   { --gc-header-pad: 15px; }
+    }
+  }
+}
+
+/* --- 7. 手機：漢堡 → logo 靠左，搜尋與購物車靠右 ---------------
+   原本：[漢堡 搜尋] [logo 置中] [購物車]
+   改成：[漢堡] [logo] ..................... [搜尋] [購物車]
+   （DJI 與 Insta360 都是這個排法）
+
+   為什麼原本會置中：左右兩塊都被設成 flex:1 1 0（等寬），
+   兩邊一樣寬就把中間的 logo 頂到正中央。
+
+   為什麼要「攤平」：搜尋跟漢堡被包在同一個 <nav> 裡，購物車在另一個容器。
+   CSS 不能把節點搬家，但 display:contents 可以讓容器自己「消失」、
+   把裡面的東西變成同一排的成員 —— 這樣才排得動順序。 */
+/* 斷點是 1199 不是 740：主題的桌機導覽在 min-width:1200 才出現
+   （.hidden-desk 到 1200 才隱藏）。741～1199 這一段（iPad 直放 768 就在裡面）
+   一樣是「漢堡＋圖示」的精簡模式，卻吃不到這段規則，logo 就還是置中的。 */
+@media screen and (max-width: 1199px) {
+  .header .header__wrapper > .header__inline-navigation,
+  .header .header__wrapper > .header__inline-navigation > .header__icon-list,
+  .header .header__wrapper > .header__secondary-links,
+  .header .header__wrapper > .header__secondary-links > .header__icon-list {
+    display: contents !important;
+  }
+
+  /* 坑：display:contents 只改「畫出來的排版」，CSS 選擇器比對的還是原本的 DOM。
+     所以這裡不能寫 .header__wrapper > button（比不到，第一版就是這樣排錯的），
+     要照 DOM 的真實層級寫 .header__icon-list > button。 */
+
+  /* 漢堡 */
+  .header .header__icon-list > button.header__icon-wrapper { order: 1 !important; }
+
+  /* logo：緊接漢堡，margin-right:auto 把後面兩個推到最右邊 */
+  .header .header__wrapper > .header__logo {
+    order: 2 !important;
+    margin-left: 14px !important;
+    margin-right: auto !important;
+  }
+
+  /* 搜尋（桌機會隱藏的那顆才是搜尋） */
+  .header .header__icon-list > a.header__icon-wrapper.hidden-desk { order: 3 !important; }
+
+  /* 購物車、登入…等右側其餘圖示 */
+  .header .header__icon-list > a.header__icon-wrapper:not(.hidden-desk) { order: 4 !important; }
+
+  /* 右側每個圖示之間都要有間距。
+     原本只給了搜尋一個 margin-right，但 iPad 寬度右邊有三顆
+     （搜尋／登入／購物車），登入跟購物車之間間距是 0、直接貼在一起。
+     改成每一顆都帶左邊距，不管有幾顆都一致。 */
+  .header .header__icon-list > a.header__icon-wrapper { margin-left: 20px !important; }
+}
+
+/* --- 8. 透明頁首：把 logo 翻白（目前休眠中，2026-08-28 Mars 拍板關掉）----
+   為什麼關掉：主題在大選單打開時會把 header--transparent 拿掉、關掉又加回來
+   （實測 hover 一趟導覽列翻了 8 次）。頁首因此在「透明＋白 logo」與
+   「白底＋紅 logo」之間反覆跳，整條列一直閃，切換瞬間 logo 還會整個消失。
+   那個行為是對的（白面板配白 logo 會看不見），錯的是不該讓兩種狀態差這麼多。
+   → 透明留到之後做 ts-hero 首圖段、我們自己控制大選單開關時再開。
+   下面規則因為 .header--transparent 不會出現，等於自動失效，留著當現成的開關。
+   ------------------------------------------------------------
+   主題有「透明時專用 logo」欄位，但那是圖片上傳（要先傳進 Shopify 的
+   「內容 → 檔案」）。沒設就會退回原本的紅 logo。
+   這裡用 CSS 直接翻白，先看得到效果、不用先上傳檔案。
+
+   原理：logo 是單色 SVG —— brightness(0) 先壓成純黑，invert(1) 再翻成純白。
+   之後改成「每張 banner 自己標黑或白」時，把這條換成切 class 就好。 */
+.header--transparent .header__logo-image { filter: brightness(0) invert(1); }
+
+/* 透明時不要那條分隔線（會變成橫在 banner 上的一條線） */
+.header.header--transparent { border-bottom-color: transparent; }
+
+/* --- 9. 行距收緊 ＋ 可點區域撐滿整條列 ------------------------
+   量出來的三家對照（2026-08-28）：
+     你的      行距 27.7px（1.73 倍）   可點高度 28px（列高的 42%）
+     Insta360  行距 約 19px（1.2 倍）   可點高度 64px（整條列）
+     DJI       行距 20px（1.43 倍）     可點高度 64px（整條列）
+   字級 16px 與文字空隙 40px 已經跟 Insta360 一樣，不動。
+
+   註：`::after` 不能用，主題拿它做底線動畫了
+   （.link--animated::after 是那條 1px 的底線）。所以感應區用 ::before。 */
+@media screen and (min-width: 741px) {
+
+  /* ① 行距 1.73 倍 → 1.2 倍。連帶列高 66 → 64（跟 Insta360 一樣） */
+  .header .header__linklist-link { line-height: 1.2; }
+
+  /* ② 可點範圍撐到整條列高。
+     用「疊一塊透明感應區」而不是加 padding —— 加 padding 會把整條列撐高。
+     連結本身已經是 position:relative，所以這塊會正確錨在它身上。 */
+  .header .header__linklist-link::before {
+    content: "";
+    position: absolute;
+    /* 上下：撐滿整條列 */
+    top: -24px;
+    bottom: -24px;
+    /* 左右：把項目之間那 40px 的空隙補起來，各吃一半。
+       不補的話滑鼠從「寵物生活」移到「手機周邊」中間會經過死角，
+       hover 一斷大選單就關掉再重開 —— 看起來就是「整個消失、點不到」。 */
+    left: -20px;
+    right: -20px;
+  }
+}
+
+/* --- 10. 導覽字級 16 → 14 ------------------------------------
+   2026-08-28 重量。我第一次量錯了：Insta360 外層容器是 16px，
+   但真正包著文字的 <a> 是 13px。三家實際字級：
+     你的 16px（每個中文字寬 16.0）
+     Insta360 13px（13.0）
+     DJI 14px（13.7，另有 -0.28px 負字距）
+   → 你的中文比 Insta360 大 23%、比 DJI 大 17%。Mars 看出來的。
+
+   取 14px（DJI 的數字）：13px 對繁體中文偏小，而且「會員保固登記」有六個字。
+   文字空隙先維持 40px —— 40÷14 = 2.86，落在 DJI 的 2.29 與 Insta360 的 3.08 中間。 */
+.header .header__linklist-link { font-size: 14px; }
+
+/* --- 11. 導覽 hover：底線移到整條列的底部，而且會滑動 ----------
+   原本：主題的底線貼在字底下（.link--animated::after，bottom:2px）
+   改成：底線坐在整條列的最底部，游標移到別項時「滑」過去（DJI／Insta360 的做法）
+
+   註：滑動要知道上一項與下一項的位置，CSS 做不到，所以配一支 gc-header.js。
+   JS 沒載到的話這裡會退回「沒有底線」而不是壞掉。 */
+@media screen and (min-width: 741px) {
+
+  /* 關掉主題那條貼著字的底線 */
+  .header .header__linklist-link::after { display: none !important; }
+
+  /* hover 不加底色（Mars 2026-08-28 指定）。感應區保持全透明，
+     只有底部那條線在動。 */
+
+  /* 滑動的底線本體。位置與寬度由 gc-header.js 設定 */
+  .header .header__wrapper { position: relative; }
+  .header .gc-nav-ind {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(0);
+    transition: transform .28s cubic-bezier(.4, 0, .2, 1),
+                width     .28s cubic-bezier(.4, 0, .2, 1),
+                opacity   .16s ease;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header .gc-nav-ind { transition: opacity .16s ease; }
+}
+
+/* --- 12. 大選單：左右滿版 ＋ 換選單時有過渡 --------------------
+   ① 滿版：面板原本的寬度是跟著頁首的內容容器走的
+      （1585 視窗下只有 1505，左右各裸露 40px 讓 banner 透出來）。
+      改成跟著視窗寬。用 --gc-vw（由 gc-header.js 設成
+      document.documentElement.clientWidth）而不是 100vw——
+      100vw 含捲軸寬度，會多出幾 px 造成整頁橫向捲動。
+   ② 過渡：主題寫了 transition:all 但**沒寫秒數，等於 0s**，
+      所以換選單是硬切（Mars：「啪啪啪」）。補上時間就會淡入淡出。 */
+@media screen and (min-width: 741px) {
+  .header .tmenu {
+    width: var(--gc-vw, 100%) !important;
+    left: calc((100% - var(--gc-vw, 100%)) / 2) !important;
+  }
+
+  /* 過渡：只讓「內容」淡，白底不要跟著淡。
+     原本我把 opacity 下在整片面板上 —— 淡的過程中背景是半透明的，
+     banner 從商品後面透出來，看起來就是「商品先出來、底色才出來」
+     （Mars 錄影，實測 8.408～8.618 秒整片是透的）。
+     改成：面板本身瞬間顯示（白底一直在，換選單時因為兩片都是白的、
+     同樣滿版，看起來就是連續的），只有裡面的內容做 0.2 秒淡入。 */
+  .header .tmenu { transition: none !important; }
+  .header .tmenu > .tmenu-container {
+    opacity: 1;
+    transition: opacity .2s ease;
+  }
+  .header .tmenu[hidden] > .tmenu-container { opacity: 0; }
+}
+
+/* --- 15. 選單裡的商品卡：滑過去稍微放大 ------------------------
+   Mars：「滑到商品上沒有任何互動，不知道自己有沒有選到」。
+   照 Insta360 的做法（他們是 .product:hover .picture{scale(1.1)}）。
+
+   不能用 overflow:hidden 裁切 —— 紅色標籤（image_label）是伸到容器外面的
+   （實測上緣 -12px、左緣 -24px），裁了就會被切掉。
+   直接放大圖就好：卡片 203px、彼此間距 50px，放大 1.07 每邊只多 7px，撞不到隔壁。 */
+.header .tmenu .tmenu_image {
+  transition: transform .35s cubic-bezier(.2, .6, .2, 1);
+}
+.header .tmenu a:hover .tmenu_image,
+.header .tmenu a:focus-visible .tmenu_image {
+  transform: scale(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .tmenu .tmenu_image,
+  .header .tmenu > .tmenu-container { transition: none !important; }
+  .header .tmenu a:hover .tmenu_image { transform: none; }
+}
+
+/* --- 13. 頁首換狀態時用淡的，不要用閃的 ------------------------
+   頁首在「透明」與「白底」之間切換是主題的正常行為（白面板配白 logo
+   會看不見，所以它必須切回不透明）。之前的問題不是切換本身，
+   是切換太硬——整條列瞬間變色，掃過六個項目就閃六次。
+   顏色來自 CSS 變數（--header-background / --header-text-color），
+   變數本身不會過渡，所以要對「算出來的屬性」下 transition。 */
+.header,
+.header .header__wrapper,
+.header .header__linklist-link,
+.header .header__icon-wrapper {
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease;
+}
+.header .header__logo-image { transition: filter .28s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .header, .header .header__wrapper, .header .header__linklist-link,
+  .header .header__icon-wrapper, .header .header__logo-image,
+  .header .tmenu { transition: none !important; }
+}
+
+/* --- 14. 透明頁首什麼時候變白底 -------------------------------
+   兩個時機（Mars 2026-08-28 指定，也是 Apple／DJI 的做法）：
+     ① 往下捲過首圖 → 變白底（不然白 logo 會壓在白色內容上看不見）
+     ② 滑鼠移到頁首上 → 變白底（大選單也是這時候開，順勢就對上了）
+   主題自己在 .header 上有 0.2s 的 background/color 過渡，所以是「淡」進去不是「閃」。
+
+   顏色照主題的變數格式寫（實測是 "r, g, b" 三個數字）：
+     透明時  --header-background: transparent  / --header-text-color: 255,255,255
+     不透明  --header-background: 255,255,255  / --header-text-color: 45,45,45 */
+.header.header--transparent.gc-solid,
+.header.header--transparent:hover,
+.header.header--transparent:focus-within {
+  /* 一定要 !important：主題那條是 `.js #shopify-section-header.header--transparent`，
+     權重 (1,2,0) 帶一個 ID，壓過我這三個 class 的 (0,3,0)。
+     不加的話這整段等於沒寫（實測就是這樣，白底一直沒出現）。 */
+  --header-background: 255, 255, 255 !important;
+  --header-text-color: 45, 45, 45 !important;
+  --header-border-color: 224, 224, 224 !important;
+  /* 購物車數字泡泡：底色跟著 --header-text-color 走、數字用這個變數。
+     只改前者的話，白底狀態會變成「深灰底＋深灰字」＝一坨看不見數字的黑點
+     （Mars 回報「往下滑購物車有時候變全黑」，實測就是這個）。 */
+  --header-transparent-bubble-text-color: 255, 255, 255 !important;
+  background-color: #fff !important;
+}
+
+/* logo 跟著翻回紅色（透明時是 CSS 濾鏡翻白的，這裡把濾鏡拿掉） */
+.header.header--transparent.gc-solid .header__logo-image,
+.header.header--transparent:hover .header__logo-image,
+.header.header--transparent:focus-within .header__logo-image {
+  filter: none !important;
+}
+
+/* --- 16. 大選單的字級階層 -------------------------------------
+   量出來的問題（2026-08-28，Mars 指出「左邊的字跟上面的不一樣大」）：
+     頂部導覽    14px ／ 行距 1.2
+     左側子分類  15px ／ 行距 1.73   ← 大 1px，但行距差很多，看起來大很多
+     商品名稱    15px ／ 行距 1.73   ← 跟左側同級，階層是平的
+     紅色標籤    12px ／ 行距 1.73
+
+   Apple 的做法：階層用「字級 ＋ 留白」分，不靠顏色或粗細；
+   UI 文字行距落在 1.2～1.45，不會到 1.7（那是內文段落的行距，不是介面的）。
+
+   改成三階：
+     左側子分類 = 導覽層級 → 跟頂部導覽同字級 14px
+     商品名稱   = 說明文字 → 低一階 13px（會折兩行，所以行距給到 1.5）
+     紅色標籤   = 再低一階 11px
+   ------------------------------------------------------------ */
+
+/* 左側子分類：跟頂部導覽同一階。行距 1.73 → 1.35，每列高 50 → 41
+   （Apple 的清單列大約 36～44px） */
+.header .tmenu .tmenu_submenu_link {
+  font-size: 14px;
+  line-height: 1.35;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+/* 商品名稱：比導覽低一階。折兩行，所以行距比單行的鬆一點 */
+.header .tmenu a > p {
+  font-size: 13px;
+  line-height: 1.5;
+  /* 圖到文字 15 → 12：Apple 的圖說會「黏」在圖上，
+     而卡片之間留大空隙（這裡是 50px），眼睛才讀得出「一組一組」 */
+  margin-top: 12px;
+}
+
+/* 紅色標籤：最低一階。膠囊裡不需要大行距 */
+.header .tmenu .image_label {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* 左側每列的高度其實是被那條紅色指示條撐住的
+   （.tmenu_submenu_link_icon 寫死 height:50px，連結再跟著它拉伸）。
+   文字改 14px/1.35 之後連結自己只需要 41px，所以指示條也要一起收，
+   不然列高會停在 50 不動。44px 是留一點餘裕，Apple 的清單列大約 36～44。 */
+.header .tmenu .tmenu_submenu_link_icon { height: 44px; }
