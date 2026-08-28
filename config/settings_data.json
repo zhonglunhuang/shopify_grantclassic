@@ -142,7 +142,7 @@
           "reduce_desktop_padding": false,
           "show_locale_selector": false,
           "show_country_selector": false,
-          "enable_transparent_header": true,
+          "enable_transparent_header": false,
           "transparent_header_text_color": "#ffffff",
           "search_menu": ""
         }
