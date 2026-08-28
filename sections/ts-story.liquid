@@ -107,6 +107,8 @@
   </div>
 </section>
 
+{%- comment -%} 背書牆先隱藏（2026-08-28 Mars 指示）：目前是版位示意內容，等 GrantOS 背書牆串好真實資料，後台把「顯示他們也在用」勾起來就會出現。{%- endcomment -%}
+{%- if section.settings.show_kol -%}
 <section class="sect light sect--tight" id="kol" style="background:var(--bg-2)">
   <div class="wrap">
     <h2 class="rise" style="text-align:center">{{ section.settings.kol_heading | newline_to_br }}</h2>
@@ -138,6 +140,7 @@
     <p class="small" style="margin-top:20px;text-align:center;margin-inline:auto">{{ section.settings.kol_note }}</p>
   </div>
 </section>
+{%- endif -%}
 </div>
 
 <script src="{{ 'ts-air.js' | asset_url }}" defer></script>
@@ -200,44 +203,136 @@ if (!window.__tsFundCar) {
   "name": "TS Air 品牌信任（二合一）",
   "tag": "section",
   "settings": [
-    { "type": "header", "content": "① 募資成績" },
-    { "type": "textarea", "id": "fund_heading", "label": "標題", "default": "台灣起家，進軍日本。" },
-    { "type": "textarea", "id": "fund_lede", "label": "說明",
-      "default": "穩如鈦山第一代在台灣嘖嘖募資突破千萬；Pro 這一代，台灣與日本兩地募資都達標成功——安全這件事，跨語言都聽得懂。" },
-    { "type": "image_picker", "id": "image_tw", "label": "台灣募資截圖（留空顯示待補框）" },
-    { "type": "image_picker", "id": "image_jp", "label": "日本募資截圖（留空顯示待補框）" },
-    { "type": "text", "id": "fund_note", "label": "小字",
-      "default": "數字取自嘖嘖與 Makuake 專案頁；日本場依 ¥1 ≈ NT$0.205 估算折合，總額以各平台頁面為準。" },
-    { "type": "header", "content": "② 他們也在用" },
-    { "type": "textarea", "id": "kol_heading", "label": "標題", "default": "他們也在用。" },
-    { "type": "textarea", "id": "kol_lede", "label": "說明", "default": "KOL 與真實用戶的開箱、實測與評價。" },
-    { "type": "text", "id": "kol_note", "label": "小字",
-      "default": "以上為版位示意內容，非真實評價——上線後由 GrantOS 背書牆自動帶入真實的 KOL 開箱與買家評價。" }
+    {
+      "type": "checkbox",
+      "id": "show_kol",
+      "label": "顯示「他們也在用」背書牆",
+      "info": "目前是版位示意內容。等 GrantOS 背書牆串好真實的 KOL 開箱與買家評價，再把這裡勾起來。",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "① 募資成績"
+    },
+    {
+      "type": "textarea",
+      "id": "fund_heading",
+      "label": "標題",
+      "default": "台灣起家，進軍日本。"
+    },
+    {
+      "type": "textarea",
+      "id": "fund_lede",
+      "label": "說明",
+      "default": "穩如鈦山第一代在台灣嘖嘖募資突破千萬；Pro 這一代，台灣與日本兩地募資都達標成功——安全這件事，跨語言都聽得懂。"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_tw",
+      "label": "台灣募資截圖（留空顯示待補框）"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_jp",
+      "label": "日本募資截圖（留空顯示待補框）"
+    },
+    {
+      "type": "text",
+      "id": "fund_note",
+      "label": "小字",
+      "default": "數字取自嘖嘖與 Makuake 專案頁；日本場依 ¥1 ≈ NT$0.205 估算折合，總額以各平台頁面為準。"
+    },
+    {
+      "type": "header",
+      "content": "② 他們也在用"
+    },
+    {
+      "type": "textarea",
+      "id": "kol_heading",
+      "label": "標題",
+      "default": "他們也在用。"
+    },
+    {
+      "type": "textarea",
+      "id": "kol_lede",
+      "label": "說明",
+      "default": "KOL 與真實用戶的開箱、實測與評價。"
+    },
+    {
+      "type": "text",
+      "id": "kol_note",
+      "label": "小字",
+      "default": "以上為版位示意內容，非真實評價——上線後由 GrantOS 背書牆自動帶入真實的 KOL 開箱與買家評價。"
+    }
   ],
   "blocks": [
     {
       "type": "media",
       "name": "KOL 媒體卡（示意）",
       "settings": [
-        { "type": "select", "id": "shape", "label": "比例", "default": "s",
+        {
+          "type": "select",
+          "id": "shape",
+          "label": "比例",
+          "default": "s",
           "options": [
-            { "value": "v", "label": "直式 9:16" },
-            { "value": "h", "label": "橫式 16:9" },
-            { "value": "s", "label": "方形 4:5" }
-          ] },
-        { "type": "checkbox", "id": "is_video", "label": "顯示播放鍵", "default": true },
-        { "type": "text", "id": "tag", "label": "左上標籤", "default": "Reels・直式影片" },
-        { "type": "text", "id": "who", "label": "帳號／名稱" },
-        { "type": "text", "id": "cap", "label": "一句說明" }
+            {
+              "value": "v",
+              "label": "直式 9:16"
+            },
+            {
+              "value": "h",
+              "label": "橫式 16:9"
+            },
+            {
+              "value": "s",
+              "label": "方形 4:5"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "is_video",
+          "label": "顯示播放鍵",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "左上標籤",
+          "default": "Reels・直式影片"
+        },
+        {
+          "type": "text",
+          "id": "who",
+          "label": "帳號／名稱"
+        },
+        {
+          "type": "text",
+          "id": "cap",
+          "label": "一句說明"
+        }
       ]
     },
     {
       "type": "quote",
       "name": "KOL 引用卡（示意）",
       "settings": [
-        { "type": "text", "id": "who", "label": "名稱" },
-        { "type": "text", "id": "cap", "label": "平台／身分" },
-        { "type": "textarea", "id": "text", "label": "引用內容" }
+        {
+          "type": "text",
+          "id": "who",
+          "label": "名稱"
+        },
+        {
+          "type": "text",
+          "id": "cap",
+          "label": "平台／身分"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "引用內容"
+        }
       ]
     }
   ],
@@ -245,11 +340,54 @@ if (!window.__tsFundCar) {
     {
       "name": "TS Air 品牌信任（四合一）",
       "blocks": [
-        { "type": "media", "settings": { "shape": "v", "is_video": true, "tag": "Reels・直式影片", "who": "@daily.gadget", "cap": "「摔下去撿回來繼續充」開箱 45 秒" } },
-        { "type": "media", "settings": { "shape": "h", "is_video": true, "tag": "YouTube・橫式影片", "who": "阿哲・3C 開箱", "cap": "穿刺實測＋拆解 12:36" } },
-        { "type": "quote", "settings": { "who": "Mia 通勤日常", "cap": "Threads・真實買家", "text": "出門前手機剩 20%，磁吸貼著化妝，出門已經六成。薄到放小包包完全沒感覺。" } },
-        { "type": "media", "settings": { "shape": "s", "is_video": false, "tag": "Instagram・照片", "who": "@cafe.worker", "cap": "咖啡廳邊充邊追劇的日常" } },
-        { "type": "media", "settings": { "shape": "h", "is_video": true, "tag": "UGC・橫式影片", "who": "買家投稿", "cap": "汽車輾壓後照樣能充" } }
+        {
+          "type": "media",
+          "settings": {
+            "shape": "v",
+            "is_video": true,
+            "tag": "Reels・直式影片",
+            "who": "@daily.gadget",
+            "cap": "「摔下去撿回來繼續充」開箱 45 秒"
+          }
+        },
+        {
+          "type": "media",
+          "settings": {
+            "shape": "h",
+            "is_video": true,
+            "tag": "YouTube・橫式影片",
+            "who": "阿哲・3C 開箱",
+            "cap": "穿刺實測＋拆解 12:36"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "who": "Mia 通勤日常",
+            "cap": "Threads・真實買家",
+            "text": "出門前手機剩 20%，磁吸貼著化妝，出門已經六成。薄到放小包包完全沒感覺。"
+          }
+        },
+        {
+          "type": "media",
+          "settings": {
+            "shape": "s",
+            "is_video": false,
+            "tag": "Instagram・照片",
+            "who": "@cafe.worker",
+            "cap": "咖啡廳邊充邊追劇的日常"
+          }
+        },
+        {
+          "type": "media",
+          "settings": {
+            "shape": "h",
+            "is_video": true,
+            "tag": "UGC・橫式影片",
+            "who": "買家投稿",
+            "cap": "汽車輾壓後照樣能充"
+          }
+        }
       ]
     }
   ]

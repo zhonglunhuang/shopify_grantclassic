@@ -23,6 +23,8 @@
     </div>
   </section>
 
+{%- comment -%} 背書牆先隱藏（2026-08-28 Mars 指示）：目前是版位示意內容，等 GrantOS 背書牆串好真實資料，後台把「顯示他們也在用」勾起來就會出現。{%- endcomment -%}
+{%- if section.settings.show_kol -%}
   <section class="sec">
     <div class="wrap">
       <div class="sec-head center">
@@ -91,7 +93,19 @@
       <p style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--ink-2)">以上為版位示意內容，非真實評價——上線後由 GrantOS 背書牆自動帶入真實的 KOL 開箱與買家評價。</p>
     </div>
   </section>
+{%- endif -%}
 </div></div>
 {% schema %}
-{ "name": "TSP proof", "settings": [] }
+{
+  "name": "TSP proof",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_kol",
+      "label": "顯示「他們也在用」背書牆",
+      "info": "目前是版位示意內容。等 GrantOS 背書牆串好真實的 KOL 開箱與買家評價，再把這裡勾起來。",
+      "default": false
+    }
+  ]
+}
 {% endschema %}
