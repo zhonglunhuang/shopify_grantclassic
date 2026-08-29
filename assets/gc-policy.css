@@ -367,3 +367,56 @@
   .gc-legal .gc-legal__sec + .gc-legal__sec{ margin-top:24px; padding-top:16px; border-top:1px solid #ccc; }
   .gc-legal h2{ page-break-after:avoid; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   /pages/ 兩頁專用：把 ako-basic.css 蓋掉的字級拿回來
+
+   保固政策與付款方式是 Shopify Page，內容包在 id="ako-content" 裡
+   （外包做的全站樣式）。ako-basic.css 用 ID 選擇器改字級：
+     #ako-content h1 → 36px    #ako-content h2 → 28px
+     #ako-content h3 → 26px    #ako-content p  → 18px !important
+     #ako-content li → 18px !important
+   ID 的權重一定贏過 class，p 與 li 還加了 !important——
+   所以只有這一段必須同樣用 ID ＋ !important 才拿得回來。
+   （2026-08-29 實測：保固頁標題 36px、服務條款 32px，六頁對不齊就是這個原因。）
+
+   /policies/ 那四頁沒有這個 id，完全不受這一段影響。
+   ═══════════════════════════════════════════════════════════════ */
+#ako-content .gc-legal .gc-legal__title{
+  font-size:var(--lg-t1) !important;
+  line-height:var(--lg-t1-lh) !important;
+  font-weight:600 !important;
+  color:var(--lg-ink) !important;
+}
+#ako-content .gc-legal h2{
+  font-size:var(--lg-t2) !important;
+  line-height:var(--lg-t2-lh) !important;
+  font-weight:600 !important;
+  color:var(--lg-ink) !important;
+}
+#ako-content .gc-legal h3{
+  font-size:var(--lg-t3) !important;
+  line-height:var(--lg-t3-lh) !important;
+  font-weight:600 !important;
+  color:var(--lg-ink) !important;
+}
+#ako-content .gc-legal p,
+#ako-content .gc-legal li{
+  font-size:var(--lg-body) !important;
+  line-height:var(--lg-body-lh) !important;
+  color:var(--lg-body-ink) !important;
+}
+#ako-content .gc-legal .gc-legal__meta,
+#ako-content .gc-legal .gc-legal__related-label{
+  font-size:var(--lg-meta) !important;
+  color:var(--lg-muted) !important;
+}
+#ako-content .gc-legal .gc-legal__toc-title{
+  font-size:11px !important;
+  color:var(--lg-muted) !important;
+}
+#ako-content .gc-legal .gc-legal__toc a{ font-size:14px !important; }
+#ako-content .gc-legal .gc-legal__related a{ font-size:14px !important; color:var(--lg-link) !important; }
+#ako-content .gc-legal .gc-legal__cta{ font-size:15px !important; color:#fff !important; }
+#ako-content .gc-legal strong{ color:var(--lg-ink) !important; font-weight:600 !important; }
