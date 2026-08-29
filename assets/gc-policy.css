@@ -261,10 +261,14 @@
     position:sticky;
     top:96px;
     margin:0;
-    padding:0 0 0 0;
-    background:none;
-    border:none;
-    border-radius:0;
+    /* 方框在桌機也留著（Mars 2026-08-29 指定）：
+       原本桌機把背景與邊框拿掉、只留文字清單，手機卻是方框，
+       兩邊看起來像兩個不同的東西。留著框，左欄一看就知道是導覽面板。
+       標題對齊的是「框的左緣」，所以 450 那條線沒有變。 */
+    padding:16px 18px;
+    background:var(--lg-surface);
+    border:1px solid var(--lg-rule-soft);
+    border-radius:10px;
   }
   .gc-legal:has(.gc-legal__toc) > *:first-child{ margin-top:0; }
 
