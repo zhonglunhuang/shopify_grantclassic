@@ -58,12 +58,16 @@
       之後有 us 官網時，這一行的品牌方不用改，只有代理那半段各站不同。
     {%- endcomment -%}
     {%- comment -%}
-      每一段包成 nowrap 的 <span>，斷點只留在段與段之間（<wbr>）。
-      不這樣做的話手機上會斷在詞中間——實測斷成「…（統」／「一編號 95471965）」
-      （2026-08-29 Mars 指出）。文字一個字都沒改，只是加了斷點控制。
+      每一段包成 nowrap 的 <span>，斷點只留在段與段之間。
+      不這樣做手機上會斷在詞中間（2026-08-29 Mars 指出）。
+
+      2026-08-29 拿掉「（統一編號 95471965）」：Mars 觀察其他官網的底欄不寫統編。
+      法規要求的揭露不受影響——統編仍在三個地方：
+      頁尾「聯絡我們」欄位（每一頁）、/policies/contact-information
+      （結帳頁與 Merchant Center 讀的那份）、服務條款第一條企業經營者資訊。
     {%- endcomment -%}
     <p class="gc-legalbar__copy">
-      <span>© {{ 'now' | date: '%Y' }} grantclassic</span><span class="gc-legalbar__sep">　</span><span>台灣總代理：曜瑩國際有限公司</span><wbr><span>（統一編號 95471965）</span>
+      <span>© {{ 'now' | date: '%Y' }} grantclassic</span><span class="gc-legalbar__sep">　</span><span>台灣總代理：曜瑩國際有限公司</span>
     </p>
     </div>
   </div>
