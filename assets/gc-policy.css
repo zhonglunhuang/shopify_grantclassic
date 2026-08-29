@@ -1,0 +1,369 @@
+/* ═══════════════════════════════════════════════════════════════
+   gc 法律文件版型（2026-08-29，第二版：兩欄分頁式）
+
+   套用範圍：六份政策文件
+     /policies/terms-of-service   服務條款
+     /policies/shipping-policy    運送政策
+     /policies/refund-policy      退款政策
+     /policies/contact-information 聯絡資訊
+     /pages/warranty-policy       保固政策
+     /pages/payment-method        付款方式
+
+   作用域是內容裡的 .gc-legal 這個 class，不是頁面網址——
+   只有「內容包在 .gc-legal 裡」的頁面會套到，其他頁面完全不受影響。
+   要讓某一頁退出，把它內容最外層的 <div class="gc-legal"> 拿掉即可。
+
+   樣式不寫在內容裡的原因：Shopify 會把 <style> 從政策內容剝掉
+   （2026-08-29 實測：class／id／nav／錨點都保留，只有 style 被拿走）。
+
+   ── 字級是量出來的，不是憑感覺 ──
+   Apple 台灣法律頁：內文 17px/1.47、每行 54 個中文字、章節標題 24px
+   DJI  台灣隱私權：內文 14px/1.71、每行 58 個中文字、章節標題 20px
+   第一版做成 17px/1.78、每行只有 40 字——字級跟 Apple 一樣但行太窄、
+   行高又太鬆，字塊看起來就大一號。這一版改成 15px/1.72、每行約 48 字，
+   落在兩個參考之間。
+
+   ── 為什麼分頁不影響 SEO ──
+   所有章節都在 HTML 裡，只是用 CSS 藏起來（不是點了才載入）。
+   Google 對分頁／摺疊裡的內容照樣索引也不扣分。
+   .is-tabbed 只有在 gc-policy.js 真的接手之後才會加上去，
+   所以 JS 掛掉或被擋，畫面自動退回一份完整長文件。
+
+   要還原：拿掉 theme.liquid 那兩行 ＋ 刪 gc-policy.css / gc-policy.js。
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 變數放 :root 不放 .gc-legal——政策頁的 h1 由主題輸出、在 .gc-legal 外面，
+   定義在 .gc-legal 上它讀不到，font-size 會整個失效掉回 16px（實測踩到）。 */
+:root{
+  --lg-t1:32px;   --lg-t1-lh:1.2;   --lg-t1-ls:-.015em;
+  --lg-t2:20px;   --lg-t2-lh:1.45;  --lg-t2-ls:-.006em;
+  --lg-t3:16px;   --lg-t3-lh:1.7;
+  --lg-body:15px; --lg-body-lh:1.72;
+  --lg-meta:13px;
+
+  --lg-ink:#16181c;
+  --lg-body-ink:#3f424a;
+  --lg-muted:#71767e;
+  --lg-rule:#e3e5e9;
+  --lg-rule-soft:#eef0f3;
+  --lg-surface:#f7f8fa;
+  /* 系統藍動作色（CLAUDE.md 設計規範）。#0066cc 是 Apple 自己的連結藍，
+     白底上對比 4.6:1，過 WCAG AA；比主題的 #2932fc 收斂。 */
+  --lg-link:#0066cc;
+  --lg-link-hover:#00509e;
+
+  --lg-measure:720px;   /* 15px 下約 48 個中文字，介於 Apple 54 與我第一版 40 之間 */
+  --lg-rail:236px;
+  --lg-gap:64px;
+}
+
+.gc-legal{
+  max-width:var(--lg-measure);
+  margin:0 auto;
+  color:var(--lg-body-ink);
+  font-size:var(--lg-body);
+  line-height:var(--lg-body-lh);
+  text-align:left;
+  overflow-wrap:break-word;
+}
+
+/* 主題的政策容器本來把內文鎖在 670px；交給 .gc-legal 控制寬度，
+   桌機才有空間放左欄。 */
+.shopify-policy__body:has(.gc-legal){ max-width:none; }
+
+/* ── 標題 ───────────────────────────────────────────────── */
+
+/* /policies/ 的 h1 由主題輸出、在 .gc-legal 外面；
+   /pages/ 兩頁主題完全不輸出標題，所以由內容自己帶一個 .gc-legal__title。
+   兩者寫在一起，六頁看起來才是同一份文件。 */
+/* 標題與左欄「左緣切齊」——標題屬於整份文件、不屬於右欄，
+   Apple 與 Stripe 的法律頁都是這樣。
+   刻意不用 padding-left 去位移：主題若不是 border-box，padding 會加到
+   max-width 上，整塊置中就會偏掉（第一版量到標題左緣 440、左欄 290、
+   內文 590，卡在中間，就是這個原因）。 */
+.shopify-policy__container:has(.gc-legal) .shopify-policy__title,
+.gc-legal__head{
+  box-sizing:border-box;
+  max-width:var(--lg-measure);
+  margin:0 auto;
+  text-align:left;
+}
+.shopify-policy__container:has(.gc-legal) .shopify-policy__title h1,
+.gc-legal__title{
+  font-size:var(--lg-t1);
+  line-height:var(--lg-t1-lh);
+  letter-spacing:var(--lg-t1-ls);
+  font-weight:600;
+  color:var(--lg-ink);
+  margin:0 0 10px;
+  text-wrap:balance;
+}
+
+.gc-legal h2{
+  font-size:var(--lg-t2);
+  line-height:var(--lg-t2-lh);
+  letter-spacing:var(--lg-t2-ls);
+  font-weight:600;
+  color:var(--lg-ink);
+  margin:0 0 18px;
+  text-wrap:balance;
+  scroll-margin-top:96px;
+}
+.gc-legal h3{
+  font-size:var(--lg-t3);
+  line-height:var(--lg-t3-lh);
+  font-weight:600;
+  color:var(--lg-ink);
+  margin:28px 0 8px;
+  scroll-margin-top:96px;
+}
+.gc-legal h3:first-child{ margin-top:0; }
+
+/* 沒有分頁時（JS 未接手 / 短文件）章節之間要有界線，不然會糊成一片 */
+.gc-legal:not(.is-tabbed) h2{
+  margin:52px 0 18px;
+  padding-top:24px;
+  border-top:1px solid var(--lg-rule);
+}
+.gc-legal:not(.is-tabbed) > h2:first-of-type{ margin-top:32px; }
+
+/* ── 內文 ───────────────────────────────────────────────── */
+
+.gc-legal p{ margin:0 0 14px; }
+.gc-legal p:last-child{ margin-bottom:0; }
+.gc-legal strong{ font-weight:600; color:var(--lg-ink); }
+
+.gc-legal ul,
+.gc-legal ol{ margin:0 0 14px; padding-left:1.5em; }
+.gc-legal li{ margin:0 0 7px; }
+.gc-legal li:last-child{ margin-bottom:0; }
+.gc-legal ul li::marker{ color:var(--lg-muted); }
+.gc-legal ol{ font-variant-numeric:tabular-nums; }
+.gc-legal ol li::marker{ color:var(--lg-muted); font-weight:500; }
+
+/* 連結：預設不畫底線（Mars 2026-08-29 指定）。
+   但也不能只是把底線拿掉——主題讓連結色＝內文色 rgb(45,45,45)，
+   沒有任何差別的話讀者看不出哪裡可以點。改用系統藍，
+   這也是 CLAUDE.md 設計規範本來就寫的「macOS 中性灰白＋系統藍動作色」。
+   滑過才補底線：無障礙上「顏色不能是唯一線索」，hover/focus 給第二個訊號。 */
+/* ⚠️ 權重門檻：Focal 的 theme.css 有
+     `p a:not(.button), .rte a:not(.button), .link { text-decoration:underline }`
+   `:not(.button)` 裡的 class 是算進權重的，所以那條是 (0,2,1)。
+   底下每一條連結規則都必須超過 (0,2,1)，否則底線會被畫回來
+   （2026-08-29 實測：`.gc-legal li a` 只有 (0,1,2)，class 數 1 < 2 就輸了）。
+   加上 :not(.gc-legal__cta) 之後是 (0,2,2)，順便把按鈕排除在外。 */
+.gc-legal p a:not(.gc-legal__cta),
+.gc-legal li a:not(.gc-legal__cta){
+  color:var(--lg-link);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+.gc-legal p a:not(.gc-legal__cta):hover,
+.gc-legal li a:not(.gc-legal__cta):hover{
+  color:var(--lg-link-hover);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+}
+.gc-legal a:focus-visible{
+  outline:2px solid var(--lg-ink);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ── 最後更新日期 ───────────────────────────────────────── */
+.gc-legal__meta{
+  font-size:var(--lg-meta);
+  line-height:1.6;
+  color:var(--lg-muted);
+  margin:0 0 6px;
+  letter-spacing:.01em;
+}
+
+/* ── 左欄（章節清單）────────────────────────────────────── */
+
+.gc-legal__toc{
+  margin:26px 0 6px;
+  padding:16px 18px;
+  background:var(--lg-surface);
+  border:1px solid var(--lg-rule-soft);
+  border-radius:10px;
+}
+.gc-legal__toc-title{
+  font-size:11px;
+  letter-spacing:.14em;
+  color:var(--lg-muted);
+  margin:0 0 10px;
+  font-weight:600;
+}
+.gc-legal__toc ol{
+  margin:0; padding:0; list-style:none;
+  display:flex; flex-direction:column; gap:2px;
+  font-variant-numeric:normal;
+}
+.gc-legal__toc li{ margin:0; }
+/* 多包一層 .gc-legal 把權重拉到 (0,2,1)，才蓋得過內文連結的
+   `.gc-legal li a` (0,1,2)——目錄項目是 <li>，第一版就是這樣被畫上底線的
+   （2026-08-29 Mars 指出）。 */
+.gc-legal div.gc-legal__toc a{
+  display:block;
+  color:var(--lg-muted);
+  text-decoration:none;
+  font-size:14px;
+  line-height:1.45;
+  padding:7px 10px;
+  margin:0 -10px;
+  border-radius:7px;
+  transition:color .12s ease, background-color .12s ease;
+}
+.gc-legal div.gc-legal__toc a:hover{ color:var(--lg-ink); background:rgba(0,0,0,.035); text-decoration:none; }
+.gc-legal div.gc-legal__toc a.is-on{ color:var(--lg-ink); font-weight:600; background:rgba(0,0,0,.055); }
+
+.gc-legal__expand{
+  appearance:none;
+  margin:12px 0 0;
+  padding:0;
+  border:0;
+  background:none;
+  font:inherit;
+  font-size:12.5px;
+  color:var(--lg-link);
+  text-decoration:none;
+  cursor:pointer;
+}
+.gc-legal__expand:hover{ color:var(--lg-link-hover); text-decoration:underline; text-underline-offset:3px; }
+.gc-legal__expand:focus-visible{ outline:2px solid var(--lg-ink); outline-offset:3px; border-radius:2px; }
+
+/* ── 分頁：只顯示選中的章節 ─────────────────────────────── */
+/* .is-tabbed 由 JS 加上，所以 JS 沒跑＝全部照常顯示 */
+.gc-legal.is-tabbed .gc-legal__sec{ display:none; }
+.gc-legal.is-tabbed .gc-legal__sec.is-on{ display:block; }
+.gc-legal.is-tabbed.is-expanded .gc-legal__sec{ display:block; }
+.gc-legal.is-tabbed.is-expanded .gc-legal__sec + .gc-legal__sec{
+  margin-top:44px; padding-top:24px; border-top:1px solid var(--lg-rule);
+}
+
+/* ── 桌機：左欄釘住、右欄顯示內文 ───────────────────────── */
+@media (min-width:1000px){
+  .gc-legal:has(.gc-legal__toc){
+    max-width:calc(var(--lg-rail) + var(--lg-gap) + var(--lg-measure));
+    display:grid;
+    grid-template-columns:var(--lg-rail) minmax(0, var(--lg-measure));
+    column-gap:var(--lg-gap);
+    align-items:start;
+  }
+  .gc-legal:has(.gc-legal__toc) > *{ grid-column:2; }
+
+  /* 這條選擇器要比上面的 `> *`（0,2,0）高，
+     不然左欄會被那條規則拉回第二欄（實測踩到）。 */
+  .gc-legal:has(.gc-legal__toc) > .gc-legal__toc{
+    grid-column:1;
+    position:sticky;
+    top:96px;
+    margin:0;
+    padding:0 0 0 0;
+    background:none;
+    border:none;
+    border-radius:0;
+  }
+  .gc-legal:has(.gc-legal__toc) > *:first-child{ margin-top:0; }
+
+  /* 標題整塊置中，左緣自然落在左欄的左緣（290），六頁一致 */
+  .shopify-policy__container:has(.gc-legal) .shopify-policy__title{
+    max-width:calc(var(--lg-rail) + var(--lg-gap) + var(--lg-measure));
+    margin-inline:auto;
+  }
+
+  /* 頁首（標題＋更新日期）橫跨兩欄，左欄從第二列開始。
+     用一個 <header> 包起來、固定在第一列，列數才是確定的——
+     /policies/ 的 h1 在外面、/pages/ 的在裡面，不包的話兩邊列數會不一樣。 */
+  /* margin-inline:0 是必要的：基礎規則有 margin:0 auto，格線項目一旦帶 auto 邊界
+     就會縮成內容寬再置中（實測標題跑到 710，應該在 290）。 */
+  .gc-legal:has(.gc-legal__toc) > .gc-legal__head{ grid-column:1 / -1; max-width:none; margin-inline:0; }
+  .gc-legal:has(.gc-legal__toc) > .gc-legal__toc{ grid-row:2 / span 200; }
+
+  /* 沒有左欄的短文件（聯絡資訊）也對齊同一個左緣，六頁的標題不會各站各的位置 */
+  .gc-legal:not(:has(.gc-legal__toc)){
+    max-width:calc(var(--lg-rail) + var(--lg-gap) + var(--lg-measure));
+  }
+  .gc-legal:not(:has(.gc-legal__toc)) > *{ max-width:var(--lg-measure); margin-inline:0; }
+}
+
+/* ── 底部「其他政策」列 ─────────────────────────────────── */
+.gc-legal__related{
+  margin:52px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid var(--lg-rule);
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px 22px;
+  font-size:14px;
+}
+.gc-legal__related-label{
+  color:var(--lg-muted);
+  font-size:var(--lg-meta);
+  width:100%;
+  margin:0 0 2px;
+}
+/* 權重同樣要蓋過 `.gc-legal li a`，所以多包一層 */
+.gc-legal div.gc-legal__related a{
+  color:var(--lg-link);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+.gc-legal div.gc-legal__related a:hover{
+  color:var(--lg-link-hover);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+/* ── 行動呼籲（保固登錄那顆）───────────────────────────── */
+/* 這顆也要多包一層：它包在 <p> 裡，會被 `.gc-legal p a` (0,1,2) 蓋成藍字
+   （2026-08-29 拿掉底線改藍字時踩到）。 */
+.gc-legal p a.gc-legal__cta,
+.gc-legal .gc-legal__cta{
+  display:inline-block;
+  margin:4px 0 6px;
+  padding:11px 22px;
+  background:var(--lg-ink);
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:8px;
+  transition:opacity .15s ease;
+}
+.gc-legal p a.gc-legal__cta:hover,
+.gc-legal .gc-legal__cta:hover{ opacity:.85; color:#fff; text-decoration:none; }
+.gc-legal .gc-legal__cta:focus-visible{ outline:2px solid var(--lg-ink); outline-offset:3px; }
+
+/* ── /pages/ 兩頁：把麵包屑藏起來 ───────────────────────── */
+/* /policies/ 那四頁主題不輸出麵包屑，/pages/ 這兩頁會——六頁擺在一起就不一致
+   （Mars 2026-08-29 指出）。藏的只是畫面上那一列，
+   結構化資料的 BreadcrumbList 是另一份 ld+json 標記，不受影響、SEO 不損失。 */
+.shopify-section--main-page:has(.gc-legal) .page-header{ display:none; }
+
+/* ── 窄螢幕 ─────────────────────────────────────────────── */
+@media (max-width:749px){
+  :root{
+    --lg-t1:26px;
+    --lg-t2:18px;
+    --lg-t3:15px;
+    --lg-body:15px;
+  }
+  .gc-legal__toc{ padding:14px 16px; }
+  .gc-legal__related{ margin-top:40px; gap:9px 18px; }
+}
+
+/* ── 列印：一定要印出完整文件 ───────────────────────────── */
+/* 定型化契約要讓消費者能完整審閱與留存，分頁不能延伸到紙上 */
+@media print{
+  .gc-legal__toc,
+  .gc-legal__related,
+  .gc-legal__cta{ display:none !important; }
+  .gc-legal,
+  .gc-legal.is-tabbed{ max-width:none; display:block; font-size:11pt; }
+  .gc-legal.is-tabbed .gc-legal__sec{ display:block !important; }
+  .gc-legal .gc-legal__sec + .gc-legal__sec{ margin-top:24px; padding-top:16px; border-top:1px solid #ccc; }
+  .gc-legal h2{ page-break-after:avoid; }
+}
