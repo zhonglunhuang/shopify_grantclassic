@@ -43,6 +43,23 @@
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x96' }}" type="image/png">
     {%- endif -%}
 
+    {%- comment -%}
+      gc 覆寫：分頁圖示（2026-08-29）
+
+      放在主題原本那行「之後」——兩個同時存在時瀏覽器會挑最適合的：
+      Chrome 優先用 SVG（任何尺寸都清晰），Safari 加到主畫面時用 apple-touch-icon。
+      主題設定裡那張 favicon_96x96.png 是 2022 年上傳的舊圖，留著當最後的退路。
+
+      圖是方形圓角（rx 114 ≈ iOS 的圓角比例）、純黑底、白色標記——
+      Mars 從四個版本裡選的 A 版。刻意不用品牌紅：分頁列上一堆彩色小圖時，
+      純黑白反而最容易被認出來（Insta360、綠聯都是這個做法）。
+
+      要還原：把下面三行拿掉，再刪 assets/gc-favicon*。主題設定那張會自動接手。
+    {%- endcomment -%}
+    <link rel="icon" type="image/svg+xml" href="{{ 'gc-favicon.svg' | asset_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'gc-favicon-32.png' | asset_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'gc-favicon-180.png' | asset_url }}">
+
     {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
