@@ -37,7 +37,13 @@
 <div class="gc-legalbar"
      style="--gc-lb-bg:{{ settings.footer_background.red }},{{ settings.footer_background.green }},{{ settings.footer_background.blue }};
             --gc-lb-ink:{{ settings.footer_text_color.red }},{{ settings.footer_text_color.green }},{{ settings.footer_text_color.blue }};">
-  <div class="gc-legalbar__inner">
+  {%- comment -%}
+    刻意套用主題自己的 .container：那個 class 在每個斷點的寬度與內距都跟頁尾一致
+    （桌機 max-width 1600 ＋ 左右 40；手機 width 90% ＋ 左右 24）。
+    自己用 calc 算寬度的話，手機會差 19px 對不齊（2026-08-29 實測 24 vs 43）。
+  {%- endcomment -%}
+  <div class="container">
+    <div class="gc-legalbar__inner">
     <nav class="gc-legalbar__links" aria-label="法律資訊">
       <a href="/policies/terms-of-service">服務條款</a>
       <a href="/policies/privacy-policy">隱私權政策</a>
@@ -54,5 +60,6 @@
     <p class="gc-legalbar__copy">
       © {{ 'now' | date: '%Y' }} grantclassic<span class="gc-legalbar__sep">　</span>台灣總代理：曜瑩國際有限公司（統一編號 95471965）
     </p>
+    </div>
   </div>
 </div>

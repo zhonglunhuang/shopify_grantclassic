@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════════════════════════
+   gc 頁尾底欄（2026-08-29）
+
+   結構抄的是 UGREEN／Anker 的底部法律列，但每個數字都對回我們自己的刻度：
+   字級 13（跟頁尾同一級）、一條 1px 細線、灰階降到 55%。
+
+   為什麼灰階要壓那麼低：這一列的功能是「需要時找得到」，不是「被看到」。
+   跟上面的導覽一樣顯眼的話，頁尾會變成兩排一樣重的連結，讀起來是雜訊。
+
+   ── 為什麼是獨立檔案 ──
+   這段樣式原本住在 gc-type.css（全站字體系統，352 行）裡。
+   那支會覆寫整站的字體、字級、字重，不能為了一條底欄整包帶上正式站
+   （Mars 2026-08-29 拍板：只上底欄，字體系統留在測試主題）。
+   所以抽出來獨立，不依賴 gc-type.css 的任何變數——
+   var(--gc-t-footer,13px) 那個 fallback 就是給這個情況用的。
+
+   要還原：拿掉 theme.liquid 那兩行，再刪這個檔案與
+   snippets/gc-footer-legal.liquid。主題原檔一行都沒改。
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 主題在頁尾最下面留了一個空的 .footer__aside——它本來是放版權／付款圖示／
+   地區選擇的地方，這個店三個都沒用，但它自己帶了一條 border-top 與 25px 內距。
+   結果就是「兩條線中間一段空白」（2026-08-29 Mars 指出）。
+   它是空的才藏，之後若有人在主題編輯器把那區填了內容就會自動回來。 */
+#shopify-section-footer .footer__aside:not(:has(*)){ display:none; }
+
+.gc-legalbar{ background:rgb(var(--gc-lb-bg,45,45,45)); }
+
+.gc-legalbar__inner{
+  /* 寬度完全交給主題的 .container（snippet 裡包了一層），這裡只管邊線與排列。
+     自己用 calc 算過一版：桌機對得上、手機差 19px——因為主題的 .container
+     在手機是 width:90% ＋ margin:auto，不是單純的 gutter（2026-08-29 實測）。 */
+  padding:26px 0 34px;
+  border-top:1px solid rgba(var(--gc-lb-ink,255,255,255),.16);
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:18px 32px;
+  flex-wrap:wrap;
+}
+
+.gc-legalbar__links{ display:flex; gap:22px; flex-wrap:wrap; }
+
+/* 權重要壓過主題的 `.rte a:not(.button)` 等規則（那條是 (0,2,1)），
+   所以連結一律寫成 .gc-legalbar a 再加一層保險的 :not()。 */
+.gc-legalbar a:not(.button){
+  font-size:var(--gc-t-footer,13px);
+  line-height:1.55;
+  color:rgba(var(--gc-lb-ink,255,255,255),.55);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+.gc-legalbar a:not(.button):hover,
+.gc-legalbar a:not(.button):focus-visible{
+  color:rgba(var(--gc-lb-ink,255,255,255),.95);
+  text-decoration:none;
+}
+.gc-legalbar a:focus-visible{
+  outline:2px solid rgba(var(--gc-lb-ink,255,255,255),.6);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.gc-legalbar__sep{ opacity:.35; }
+
+.gc-legalbar__copy{
+  margin:0;
+  font-size:var(--gc-t-footer,13px);
+  line-height:1.55;
+  color:rgba(var(--gc-lb-ink,255,255,255),.42);
+}
+
+/* 主題有一條 `.footer .container{ width:90% }`（@max-width:740），
+   我的底欄在 .footer 外面所以吃不到，手機上就跟頁尾差 19px
+   （實測我的線 24–351、頁尾欄位 43–332）。這裡照抄同一條、同一個斷點。
+   斷點寫 740 不是 749，是為了跟主題完全一致。 */
+@media screen and (max-width:740px){
+  .gc-legalbar .container{ width:90%; }
+}
+
+@media (max-width:749px){
+  .gc-legalbar__inner{ flex-direction:column; gap:14px; padding:22px 0 28px; }
+  .gc-legalbar__links{ gap:14px 18px; }
+}
