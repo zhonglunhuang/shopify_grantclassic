@@ -176,9 +176,12 @@
   font-size:var(--lg-meta);
   line-height:1.6;
   color:var(--lg-muted);
-  margin:0 0 6px;
+  margin:0;
   letter-spacing:.01em;
 }
+/* 用 padding 不用 margin：頁首是格線項目，第一個子元素的 margin-top
+   會被收合掉，量出來標題到日期是 0px（2026-08-29 實測）。padding 不會收合。 */
+.gc-legal__head .gc-legal__meta{ padding-top:12px; }
 
 /* ── 左欄（章節清單）────────────────────────────────────── */
 
@@ -196,12 +199,12 @@
   margin:0 0 10px;
   font-weight:600;
 }
-.gc-legal__toc ol{
+.gc-legal div.gc-legal__toc ol{
   margin:0; padding:0; list-style:none;
-  display:flex; flex-direction:column; gap:2px;
+  display:flex; flex-direction:column; gap:3px;
   font-variant-numeric:normal;
 }
-.gc-legal__toc li{ margin:0; }
+.gc-legal div.gc-legal__toc li{ margin:0; }
 /* 多包一層 .gc-legal 把權重拉到 (0,2,1)，才蓋得過內文連結的
    `.gc-legal li a` (0,1,2)——目錄項目是 <li>，第一版就是這樣被畫上底線的
    （2026-08-29 Mars 指出）。 */
@@ -210,8 +213,8 @@
   color:var(--lg-muted);
   text-decoration:none;
   font-size:14px;
-  line-height:1.45;
-  padding:7px 10px;
+  line-height:1.55;
+  padding:8px 10px;
   margin:0 -10px;
   border-radius:7px;
   transition:color .12s ease, background-color .12s ease;
@@ -250,6 +253,12 @@
     display:grid;
     grid-template-columns:var(--lg-rail) minmax(0, var(--lg-measure));
     column-gap:var(--lg-gap);
+    /* ⚠️ 這裡千萬不要用 row-gap。
+       左欄為了能一路釘住，設了 grid-row:2/span 200，那會產生 200 個空列；
+       一旦有 row-gap，每個空列都會長出一段間距——實測頁面高度爆成 7,632px、
+       多出 6,400px 的空白，可以一直往下拉（2026-08-29 Mars 發現）。
+       頁首與底下的間隔改用 margin-bottom，只作用在一個元素上。 */
+    row-gap:0;
     align-items:start;
   }
   .gc-legal:has(.gc-legal__toc) > *{ grid-column:2; }
@@ -264,8 +273,14 @@
     /* 方框在桌機也留著（Mars 2026-08-29 指定）：
        原本桌機把背景與邊框拿掉、只留文字清單，手機卻是方框，
        兩邊看起來像兩個不同的東西。留著框，左欄一看就知道是導覽面板。
-       標題對齊的是「框的左緣」，所以 450 那條線沒有變。 */
-    padding:16px 18px;
+
+       margin-inline 是負的內距，讓「框內的文字」跟標題切齊而不是「框的邊」：
+       量過原本框邊在 290、框內文字在 309～323，標題在 290——
+       眼睛看的是文字不是框線，所以會覺得整個清單往右偏（Mars 指出）。
+       框往外長 18px、文字就回到 290。底色是背景，背景可以外溢，
+       macOS 側欄的選取膠囊也是這樣處理。 */
+    padding:18px;
+    margin-inline:-18px;
     background:var(--lg-surface);
     border:1px solid var(--lg-rule-soft);
     border-radius:10px;
@@ -283,7 +298,7 @@
      /policies/ 的 h1 在外面、/pages/ 的在裡面，不包的話兩邊列數會不一樣。 */
   /* margin-inline:0 是必要的：基礎規則有 margin:0 auto，格線項目一旦帶 auto 邊界
      就會縮成內容寬再置中（實測標題跑到 710，應該在 290）。 */
-  .gc-legal:has(.gc-legal__toc) > .gc-legal__head{ grid-column:1 / -1; max-width:none; margin-inline:0; }
+  .gc-legal:has(.gc-legal__toc) > .gc-legal__head{ grid-column:1 / -1; max-width:none; margin-inline:0; margin-bottom:32px; }
   .gc-legal:has(.gc-legal__toc) > .gc-legal__toc{ grid-row:2 / span 200; }
 
   /* 沒有左欄的短文件（聯絡資訊）也對齊同一個左緣，六頁的標題不會各站各的位置 */
@@ -450,3 +465,43 @@
     padding-bottom:64px;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   元件的邊界重設（2026-08-29）
+
+   主題與外包的樣式都會從外面塞 margin／padding 給我做的元件，
+   造成「同一個版型在 /policies/ 與 /pages/ 長得不一樣」：
+     .rte h1                       → margin-bottom 32px（我要的是 10）
+     #ako-content p !important     → margin-bottom 1.2em（日期到框多 15.6px）
+     .ordered-list li              → padding-left 9px（章節左緣被推到 300，應該 290）
+     .text-container ol            → margin-left 1em
+
+   實測：保固頁「標題→日期」48px、運送頁 15px；章節左緣一個 300 一個 290。
+   所以這裡把元件的邊界全部寫死，權重分兩層：
+   一般頁面用型別選擇器墊高，/pages/ 的 #ako-content 只能用 ID ＋ !important。
+   ═══════════════════════════════════════════════════════════════ */
+.gc-legal h1.gc-legal__title{ margin:0 0 10px; }
+.gc-legal .gc-legal__head .gc-legal__meta{ margin:0; padding-top:12px; }
+.gc-legal div.gc-legal__toc ol{ margin:0; padding:0; }
+.gc-legal div.gc-legal__toc li{ margin:0; padding:0; }
+.gc-legal div.gc-legal__toc .gc-legal__toc-title{ margin:0 0 10px; }
+
+#ako-content .gc-legal h1.gc-legal__title{ margin:0 0 10px !important; }
+#ako-content .gc-legal .gc-legal__head .gc-legal__meta{ margin:0 !important; padding-top:12px !important; }
+#ako-content .gc-legal .gc-legal__toc ol{ margin:0 !important; padding:0 !important; }
+#ako-content .gc-legal .gc-legal__toc li{ margin:0 !important; padding:0 !important; }
+#ako-content .gc-legal .gc-legal__toc-title{ margin:0 0 10px !important; }
+
+
+/* 「標題 → 日期」的間隔只由一個地方決定（2026-08-29）
+
+   兩種頁面的 h1 外邊距來源不同（/policies/ 是主題、/pages/ 是 .rte h1），
+   量出來一個 15px 一個 26px。把兩邊的外邊距都歸零，
+   間隔統一交給日期的 padding-top，兩頁才會真的一樣。 */
+.shopify-policy__container:has(.gc-legal) .shopify-policy__title{ margin-bottom:0; }
+.shopify-policy__container:has(.gc-legal) .shopify-policy__title h1{ margin-bottom:0; }
+.gc-legal h1.gc-legal__title{ margin-bottom:0; }
+#ako-content .gc-legal h1.gc-legal__title{ margin-bottom:0 !important; }
+.gc-legal .gc-legal__head .gc-legal__meta{ padding-top:18px; }
+#ako-content .gc-legal .gc-legal__head .gc-legal__meta{ padding-top:18px !important; }

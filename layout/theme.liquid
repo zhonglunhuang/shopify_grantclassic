@@ -121,6 +121,8 @@
     {%- endcomment -%}
     {{ 'gc-policy.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'gc-policy.js' | asset_url }}" defer></script>
+    {%- comment -%}gc：頁尾底欄的樣式。這一行拿掉＋刪 assets/gc-footer.css 即完全還原{%- endcomment -%}
+    {{ 'gc-footer.css' | asset_url | stylesheet_tag }}
 
     <script src="{{ 'vendor.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -218,6 +220,8 @@
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
       {%- render 'facebook-messanger' -%}
       {%- section 'footer' -%}
+      {%- comment -%}gc：頁尾底欄（法律連結＋版權）。這一行拿掉＋刪 snippets/gc-footer-legal.liquid 即完全還原{%- endcomment -%}
+      {%- render 'gc-footer-legal' -%}
     {%- endif -%}
   <!-- subify Snippet Start -->
 {% if content_for_header contains 'https:\/\/app-subify.shopgram.app\/subify-script-tag-for-snippet.js' %} 

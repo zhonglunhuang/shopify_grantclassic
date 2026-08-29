@@ -1,0 +1,58 @@
+{%- comment -%}
+  gc 頁尾底欄（2026-08-29）
+
+  參考 UGREEN 與 Anker 的頁尾底部：一條細線 ＋ 一列法律連結 ＋ 版權。
+  那條之所以看起來「完成」，不是因為字是英文，是因為它有結構——
+  細線把它跟上面的導覽切開、字級最小、灰階、排成一列。
+
+  刻意用中文不用英文：他們是美國站所以是英文，我們是 zh-TW 的台灣站，
+  把英文標籤搬過來是照抄不是講究。
+
+  刻意「沒有」放進來的東西，理由寫在這裡免得以後有人想補：
+  - Cookie 設定／Cookie Notice：台灣沒有 cookie 同意的法定要求
+    （那是歐盟 GDPR 與加州 CCPA）。放一個不會真的管控 cookie 的按鈕
+    比沒有更糟——那是給自己找麻煩。
+  - Do Not Sell or Share My Personal Information：純加州 CCPA 條款，
+    我們不賣美國，放了只是裝飾。
+  - 地區／語言選擇：只賣台灣，沒有第二個地區可選。
+  - 品牌 logo 列（Anker 那種）：他們旗下有多個獨立品牌
+    （Anker／eufy／soundcore）；我們是產品線不是品牌，不適用。
+
+  2026-08-29 更新：三條連結改指 /policies/（原本指的 /pages/ 已 301 轉址，
+  留著會讓使用者多跳一次）。保固維持 /pages/——Shopify 沒有保固政策這個欄位。
+
+  連結全部指向真的存在的頁面，沒有一個是編的：
+  - 服務條款用 Shopify 內建的 /policies/terms-of-service
+    ——這一條原本整個站沒有任何地方連得到，是真的缺口。
+  - 其餘沿用頁尾上面既有的自製頁，不另開一份，免得同一份政策有兩個版本。
+
+  要還原：把 theme.liquid 那一行 render 拿掉，再刪這個檔案。
+{%- endcomment -%}
+
+{%- comment -%}
+  底色與文字色直接取自 settings.footer_background / footer_text_color——
+  跟 sections/footer.liquid 用的是同一組設定。
+  寫死顏色的話，哪天在主題編輯器改了頁尾配色，這一條會變成一道色差。
+{%- endcomment -%}
+<div class="gc-legalbar"
+     style="--gc-lb-bg:{{ settings.footer_background.red }},{{ settings.footer_background.green }},{{ settings.footer_background.blue }};
+            --gc-lb-ink:{{ settings.footer_text_color.red }},{{ settings.footer_text_color.green }},{{ settings.footer_text_color.blue }};">
+  <div class="gc-legalbar__inner">
+    <nav class="gc-legalbar__links" aria-label="法律資訊">
+      <a href="/policies/terms-of-service">服務條款</a>
+      <a href="/policies/privacy-policy">隱私權政策</a>
+      <a href="/policies/refund-policy">退換貨政策</a>
+      <a href="/pages/warranty-policy">保固政策</a>
+      <a href="/policies/shipping-policy">運送與配送</a>
+    </nav>
+    {%- comment -%}
+      版權歸品牌、代理身分分開寫（Mars 2026-08-29 指正）：
+      grantclassic 是 2016 創立於美國加州的品牌，曜瑩國際是台灣總代理（2018 起）。
+      原本寫成「© 曜瑩國際有限公司」等於宣稱曜瑩擁有這個品牌，是錯的。
+      之後有 us 官網時，這一行的品牌方不用改，只有代理那半段各站不同。
+    {%- endcomment -%}
+    <p class="gc-legalbar__copy">
+      © {{ 'now' | date: '%Y' }} grantclassic<span class="gc-legalbar__sep">　</span>台灣總代理：曜瑩國際有限公司（統一編號 95471965）
+    </p>
+  </div>
+</div>
