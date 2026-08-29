@@ -1,0 +1,74 @@
+{%- comment -%}
+  gc 結構化資料：把公司資料補完整（G2）
+
+  主題本來就有一個 Organization 節點，但只有名稱、網址、logo。
+  AI 在回答「這家公司是誰、可不可信」時看的就是這裡——
+  沒有地址、沒有客服管道、沒有社群，它只能說「有一個叫 grantclassic 的網站」。
+
+  這裡用「同一個 @id」再輸出一次：schema.org 的規則是同 @id 會合併，
+  不是覆蓋、也不是變成兩家公司。所以主題那份留著不用動，我們只是把欄位補齊。
+
+  2026-08-29 更正：原本寫 alternateName「曜瑩國際有限公司」，
+  那等於跟 Google 說「grantclassic 就是曜瑩國際」——錯的。
+  grantclassic 是 2016 創立於美國加州的品牌；曜瑩國際是 2018 起的台灣總代理。
+  台灣的統編／地址／電話留著（那是這個網站的法定經營者資料），
+  但不再宣稱品牌與代理是同一個名字。
+
+  待確認（等 Mars 回覆後再補）：品牌與代理要不要在結構化資料裡拆成兩個節點。
+  之後要開 us 官網，那邊的 Organization 會是同一個品牌、不同的經營者。
+
+  下面每一個欄位都是從你自己的頁尾抄下來的真實資料，沒有一項是我編的：
+  統一編號 95471965／臺北市中山區復興北路70號9樓／02-7739-7992／
+  support@grantclassic.com／FB、IG、YouTube、TikTok 四個官方帳號。
+  2026-08-29 補：品牌 2016 創立於美國加州、台灣 2018 進入、
+  全系列 1 年保固、BSMI／SGS／NCC／CCC 四項認證（Mars 提供）。
+  2026-08-29 拿掉 taxID（統一編號）：Mars 交代官網不寫統編，結構化資料雖然不顯示
+  但一樣公開在原始碼裡，所以一併拿掉。要加回來就是一行：
+    "taxID": "95471965",
+  要改就改這個檔案，一個地方改完 Google 與 AI 兩邊一起換。
+  logo 欄位刻意不寫——主題那份已經有了，同 @id 合併之後會保留，
+  我們再寫一次只會多一個可能指錯的網址。
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "{{ shop.url }}/#organization",
+  "name": "grantclassic 特經典",
+  "url": "{{ shop.url }}",
+  "description": "該顧的，都有它顧著。喝不停、餵不停、穩如鈦山、二勢力、八力架——寵物家電、機車周邊、行動電源與手機配件。",
+  "foundingDate": "2016",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": { "@type": "PostalAddress", "addressRegion": "California", "addressCountry": "US" }
+  },
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "product certification", "name": "BSMI 商品檢驗標識" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "product certification", "name": "SGS 檢測報告" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "product certification", "name": "NCC 型式認證" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "product certification", "name": "CCC 中國強制性產品認證" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "復興北路70號9樓",
+    "addressLocality": "中山區",
+    "addressRegion": "臺北市",
+    "addressCountry": "TW"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+886-2-7739-7992",
+    "email": "support@grantclassic.com",
+    "areaServed": "TW",
+    "availableLanguage": ["zh-Hant"]
+  }],
+  "sameAs": [
+    "https://www.facebook.com/Grantclassic.taiwan/",
+    "https://www.instagram.com/grantclassic.taiwan/",
+    "https://www.youtube.com/@grantclassic",
+    "https://www.tiktok.com/@gc.taiwan"
+  ]
+}
+</script>
