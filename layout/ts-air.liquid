@@ -98,7 +98,15 @@
 
     {% render 'social-meta-tags' %}
     {% render 'gc-ld-org' %}
-    {% render 'microdata-schema' %}
+    {%- comment -%}
+      2026-08-29：原本這裡是主題原廠的 microdata-schema，它產出的 Product 少了
+      退貨政策與運送資訊（hasMerchantReturnPolicy / shippingDetails / sku）——
+      那正是 Google 購物結果商品卡下面「免運・可退貨」那行的來源。
+      Pro 的 layout 早就換成 ts-seo-schema 了，這裡補上同一套，兩頁口徑一致。
+      是「換」不是「加」：兩支都留會變成兩份 Product，Google 會判重複。
+      要還原：把下面那行換回 {% raw %}{% render 'microdata-schema' %}{% endraw %}。
+    {%- endcomment -%}
+    {% render 'ts-seo-schema' %}
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
 

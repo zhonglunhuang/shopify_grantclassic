@@ -10,7 +10,8 @@ Google 商家刊登結果要求的兩個欄位（2026-08 官網健檢補上）�
 原檔 microdata-schema.liquid 完全沒動，把 theme.liquid 的 render 改回去即可還原。
 {%- endcomment -%}
 
-{%- assign ts_free_shipping_threshold = 49900 -%}
+{%- comment -%}2026-08-29：49900（滿 499）改 49000——正式站運送政策寫的是「滿 490 元免運」，結構化資料原本跟政策差 9 元。改這裡兩頁（Air／Pro）一起對齊。{%- endcomment -%}
+{%- assign ts_free_shipping_threshold = 49000 -%}
 {%- assign ts_paid_shipping_fee = 100 -%}
 
 {%- if request.page_type == 'product' -%}
