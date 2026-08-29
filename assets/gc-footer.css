@@ -63,6 +63,10 @@
 
 .gc-legalbar__sep{ opacity:.35; }
 
+/* 版權行的每一段都不可斷開，斷點只在段與段之間（snippet 裡的 <wbr>）。
+   手機寬度不夠時整段換行，不會斷在詞中間。 */
+.gc-legalbar__copy > span{ white-space:nowrap; }
+
 .gc-legalbar__copy{
   margin:0;
   font-size:var(--gc-t-footer,13px);
@@ -79,6 +83,15 @@
 }
 
 @media (max-width:749px){
-  .gc-legalbar__inner{ flex-direction:column; gap:14px; padding:22px 0 28px; }
-  .gc-legalbar__links{ gap:14px 18px; }
+  /* 下內距吃進 iPhone 的 home indicator 安全區：底欄的深色會延伸過去，
+     顏色是連續的，不會看起來像下面多了一塊莫名的空白
+     （2026-08-29 Mars 在實機上看到）。沒有安全區的裝置就是 18px。 */
+  .gc-legalbar__inner{
+    flex-direction:column;
+    gap:12px;
+    padding:20px 0 max(18px, env(safe-area-inset-bottom, 0px));
+  }
+  /* 連結列原本佔 3 行，收緊間距讓它收成 2 行 */
+  .gc-legalbar__links{ gap:8px 14px; }
+  .gc-legalbar__copy{ line-height:1.7; }
 }

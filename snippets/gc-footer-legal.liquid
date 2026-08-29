@@ -57,8 +57,13 @@
       原本寫成「© 曜瑩國際有限公司」等於宣稱曜瑩擁有這個品牌，是錯的。
       之後有 us 官網時，這一行的品牌方不用改，只有代理那半段各站不同。
     {%- endcomment -%}
+    {%- comment -%}
+      每一段包成 nowrap 的 <span>，斷點只留在段與段之間（<wbr>）。
+      不這樣做的話手機上會斷在詞中間——實測斷成「…（統」／「一編號 95471965）」
+      （2026-08-29 Mars 指出）。文字一個字都沒改，只是加了斷點控制。
+    {%- endcomment -%}
     <p class="gc-legalbar__copy">
-      © {{ 'now' | date: '%Y' }} grantclassic<span class="gc-legalbar__sep">　</span>台灣總代理：曜瑩國際有限公司（統一編號 95471965）
+      <span>© {{ 'now' | date: '%Y' }} grantclassic</span><span class="gc-legalbar__sep">　</span><span>台灣總代理：曜瑩國際有限公司</span><wbr><span>（統一編號 95471965）</span>
     </p>
     </div>
   </div>
