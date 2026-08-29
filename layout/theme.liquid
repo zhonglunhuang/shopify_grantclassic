@@ -112,6 +112,16 @@
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
+    {%- comment -%}
+      gc 覆寫：六份政策文件的版型（服務條款／運送／退款／聯絡資訊／保固／付款方式）。
+      刻意放在 theme.css 之後——主題樣式表後載入會贏同權重的規則。
+      只作用於內容裡有 .gc-legal 的頁面，其他頁面完全不受影響。
+      要還原：把這三行拿掉，再刪 assets/gc-policy.css 與 assets/gc-policy.js，
+      畫面會自動變回一份完整的長文件，內容一個字都不會少。
+    {%- endcomment -%}
+    {{ 'gc-policy.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'gc-policy.js' | asset_url }}" defer></script>
+
     <script src="{{ 'vendor.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script src="{{ 'custom.js' | asset_url }}" defer></script>
