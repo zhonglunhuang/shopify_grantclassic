@@ -420,3 +420,29 @@
 #ako-content .gc-legal .gc-legal__related a{ font-size:14px !important; color:var(--lg-link) !important; }
 #ako-content .gc-legal .gc-legal__cta{ font-size:15px !important; color:#fff !important; }
 #ako-content .gc-legal strong{ color:var(--lg-ink) !important; font-weight:600 !important; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   頁面上下留白
+
+   Shopify 自己給政策頁的 policy-*.css 只設了左右 padding，
+   上下是 0——標題會直接貼在頁首下緣，一點呼吸空間都沒有
+   （2026-08-29 實測：頁首底部 y=65、標題頂部 y=65，空隙 0px）。
+
+   /pages/ 兩頁的容器由主題控制，但為了六頁一致，這裡一起指定。
+   ═══════════════════════════════════════════════════════════════ */
+.shopify-policy__container:has(.gc-legal){
+  padding-top:80px;
+  padding-bottom:104px;
+}
+.shopify-section--main-page:has(.gc-legal){
+  padding-top:80px;
+  padding-bottom:104px;
+}
+@media (max-width:749px){
+  .shopify-policy__container:has(.gc-legal),
+  .shopify-section--main-page:has(.gc-legal){
+    padding-top:44px;
+    padding-bottom:64px;
+  }
+}
