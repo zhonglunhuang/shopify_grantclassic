@@ -95,3 +95,85 @@
   .gc-legalbar__links{ gap:8px 14px; }
   .gc-legalbar__copy{ line-height:1.7; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   地區選擇器（2026-08-29）
+
+   位置 A：頁尾底欄右側，接在版權行後面。
+   排版：分組式——「目前開放」與「即將推出」用一條細線分開。
+
+   用 <details> 不用 JS：原生展開元件，鍵盤與螢幕閱讀器都支援，
+   JS 掛掉也還能用。marker 要用兩種寫法關掉（Safari 只認 ::-webkit-details-marker）。
+
+   圖示用線條地球不用國旗：設計規範寫「不用 emoji 當 icon」，
+   而且旗幟代表國家不代表市場——馬來西亞站可能同時服務新加坡。
+   ═══════════════════════════════════════════════════════════════ */
+
+.gc-region{ position:relative; font-size:var(--gc-t-footer,13px); }
+
+.gc-region__toggle{
+  list-style:none;
+  display:inline-flex; align-items:center; gap:7px;
+  padding:8px 11px; margin:-8px -11px;
+  border-radius:8px; cursor:pointer;
+  color:rgba(var(--gc-lb-ink,255,255,255),.62);
+  line-height:1.55;
+  transition:color .18s ease, background-color .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.gc-region__toggle::-webkit-details-marker{ display:none; }
+.gc-region__toggle::marker{ content:''; }
+.gc-region__toggle:hover{ color:rgba(var(--gc-lb-ink,255,255,255),.95); background:rgba(var(--gc-lb-ink,255,255,255),.08); }
+.gc-region__toggle:focus-visible{ outline:2px solid rgba(var(--gc-lb-ink,255,255,255),.6); outline-offset:2px; }
+.gc-region__globe{ width:15px; height:15px; flex:0 0 auto; }
+.gc-region__chev{ width:11px; height:11px; opacity:.6; transition:transform .18s ease; }
+.gc-region[open] .gc-region__chev{ transform:rotate(180deg); }
+
+/* ── 展開的面板 ── */
+.gc-region__panel{
+  /* 靠右對齊：選擇器在底欄的最右邊，面板往右展開會超出畫面
+     （2026-08-29 實測面板右緣 1702 > 視窗 1600）。手機上它在最左邊，
+     所以下面的窄螢幕規則會把它改回靠左。 */
+  position:absolute; bottom:calc(100% + 12px); right:0; left:auto;
+  min-width:230px;
+  background:#fff; color:#2d2d2d;
+  border:1px solid rgba(0,0,0,.06); border-radius:11px;
+  box-shadow:0 16px 44px rgba(0,0,0,.24);
+  padding:8px; z-index:40; text-align:left;
+}
+.gc-region__grp{
+  margin:0; padding:10px 12px 6px;
+  font-size:10px; letter-spacing:.14em; font-weight:600; color:#a2a7ae;
+}
+.gc-region__grp:first-child{ padding-top:6px; }
+.gc-region__div{ height:1px; background:#eceef1; margin:6px 8px; }
+
+.gc-region__opt{
+  display:flex; align-items:center; gap:9px;
+  padding:9px 12px; border-radius:8px;
+  color:#2d2d2d; text-decoration:none; font-size:14px; line-height:1.5;
+  transition:background-color .12s ease;
+}
+a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
+.gc-region__opt.is-current{ background:#f4f5f7; }
+.gc-region__opt.is-current .gc-region__name{ font-weight:600; }
+.gc-region__opt.is-soon .gc-region__name{ color:#9aa0a8; }
+.gc-region__name{ white-space:nowrap; }
+.gc-region__lang{
+  margin-left:auto; padding-left:20px;
+  font-size:12px; color:#9aa0a8; white-space:nowrap;
+}
+.gc-region__tick{ width:13px; height:13px; flex:0 0 auto; color:#0066cc; }
+
+@media (max-width:749px){
+  /* 手機的觸控區做到 44px（Apple 人機介面指南的最小值） */
+  .gc-region__toggle{ min-height:44px; padding:0 11px; margin:0 0 0 -11px; }
+  /* 面板改成靠左貼齊、寬度跟著底欄，才不會超出畫面 */
+  .gc-region__panel{ left:0; right:auto; min-width:0; width:230px; }
+}
+
+/* 版權行與地區選擇器放同一組，靠右。手機上疊成上下。 */
+.gc-legalbar__right{ display:flex; align-items:center; gap:34px; }
+@media (max-width:749px){
+  .gc-legalbar__right{ flex-direction:column; align-items:flex-start; gap:10px; }
+}

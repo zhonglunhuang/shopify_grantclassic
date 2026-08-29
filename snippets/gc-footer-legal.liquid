@@ -66,9 +66,13 @@
       頁尾「聯絡我們」欄位（每一頁）、/policies/contact-information
       （結帳頁與 Merchant Center 讀的那份）、服務條款第一條企業經營者資訊。
     {%- endcomment -%}
-    <p class="gc-legalbar__copy">
-      <span>© {{ 'now' | date: '%Y' }} grantclassic</span><span class="gc-legalbar__sep">　</span><span>台灣總代理：曜瑩國際有限公司</span>
-    </p>
+    <div class="gc-legalbar__right">
+      <p class="gc-legalbar__copy">
+        <span>© {{ 'now' | date: '%Y' }} grantclassic</span><span class="gc-legalbar__sep">　</span><span>台灣總代理：曜瑩國際有限公司</span>
+      </p>
+      {%- comment -%}gc：地區選擇器。這一行拿掉＋刪 snippets/gc-region.liquid 即完全還原{%- endcomment -%}
+      {%- render 'gc-region' -%}
+    </div>
     </div>
   </div>
 </div>
