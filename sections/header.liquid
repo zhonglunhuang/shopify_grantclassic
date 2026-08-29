@@ -264,7 +264,7 @@ img.header__logo-image.ako {
               width="{{ section.settings.logo.width }}"
               height="{{ section.settings.logo.height }}"
               src="{{ section.settings.logo-svg }}"
-              alt="logo">
+              alt="{{ shop.name | escape }}">
           {% else %}
             <img
               class="header__logo-image"
