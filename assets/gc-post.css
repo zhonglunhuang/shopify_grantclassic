@@ -1,0 +1,368 @@
+/* ═══════════════════════════════════════════════════════════
+   gc-post ── 文章頁（2026-08-30）
+
+   Mars 拍板：右側固定目錄、重點框四種（A 結論／F 注意／G 提示／J 步驟）、
+   十個元件全上。
+
+   ── 為什麼目錄在右邊 ──
+   實測五個站：Wikipedia 左、Shopify 左、MDN 右、Qiita 右、UGREEN 右（2:3）。
+   真正的規則不是左右哪個好，是「左邊那條有沒有被站台導覽佔走」——
+   有文件側欄的站放左邊，純文章的站放右邊。我們是後者。
+
+   ── 重設一律包 :where() ──
+   主題原本有 `.article a{}` 這種 (0,1,1) 的規則，會打敗我們 (0,1,0) 的
+   `.gc-post__cta{}`，按鈕會變成白字白底完全看不見（Air 頁踩過）。
+   :where() 把權重壓成 0，我們自己的規則才排得上。
+
+   要還原：把文章的範本切回 `article`（預設），這一整套就消失。
+   ═══════════════════════════════════════════════════════════ */
+
+.gc-post{
+  /* 頁首是固定的（sticky，實測 57px）。所有「黏在畫面上」的東西都要讓開它，
+     否則會滑到頁首底下被蓋住（2026-08-30 Mars 截圖：目錄標題被吃掉）。
+     用主題自己的 --header-height，不要寫死 57——
+     後台改頁首高度時這裡會自己跟上。 */
+  --gcp-top:calc(var(--header-height, 57px) + 20px);
+  --gcp-col:668px;          /* 內文欄寬——一行約 30～34 個中文字，最好讀 */
+  --gcp-side:326px;         /* 目錄欄寬，量 UGREEN 得到的 */
+  --gcp-gap:56px;
+  --gcp-ink:#141416;
+  --gcp-mute:rgba(20,20,22,.5);
+  --gcp-line:rgba(20,20,22,.12);
+  --gcp-soft:#F8F9FC;
+  --gcp-pad:40px;
+  color:var(--gcp-ink);
+}
+.gc-post__in{max-width:1400px;margin:0 auto;padding:0 var(--gcp-pad) 60px}
+
+/* ── 閱讀進度條 ──
+   它是 .gc-post 的直接子元素、在有內距的 .gc-post__in 外面，
+   所以本來就已經跨滿整個畫面寬——**不可以再加負邊距**。
+   第一版照抄比稿的 -40px（比稿裡它在有內距的舞台裡面），
+   結果整頁往右溢出 40px（2026-08-30 實測 left:-41 right:1479 / 視窗 1440）。 */
+.gc-post__prog{
+  /* 進度條貼在頁首正下方，不是畫面頂端——頂端已經被頁首佔走了 */
+  position:sticky;top:var(--header-height, 57px);z-index:3;height:3px;
+  background:rgba(20,20,22,.10);
+  margin:0;
+}
+.gc-post__prog i{display:block;height:100%;width:0;background:var(--gcp-ink);
+  transition:width .1s linear}
+
+/* ── ② 麵包屑 ── */
+.gc-post__crumb{
+  margin:22px 0 0;font-size:13px;line-height:1.6;color:var(--gcp-mute);
+}
+.gc-post__crumb :where(a){color:var(--gcp-mute);text-decoration:none}
+.gc-post__crumb :where(a):hover{color:var(--gcp-ink);text-decoration:underline;text-underline-offset:3px}
+.gc-post__crumb span{margin:0 7px;opacity:.5}
+
+/* ── 兩欄：內文置中、目錄靠右 ── */
+.gc-post__grid{
+  display:grid;grid-template-columns:minmax(0,var(--gcp-col)) var(--gcp-side);
+  gap:var(--gcp-gap);justify-content:center;align-items:start;
+  margin-top:28px;
+}
+.gc-post__main{min-width:0}   /* 沒有這行，長表格會把整欄撐爆 */
+
+/* ── 目錄要跟著捲動 ──
+   `position:sticky` **只能在自己父層的範圍內移動**。
+   格線寫了 `align-items:start`，側欄的高度就等於目錄本身的高度
+   （實測都是 429）＝可黏的距離是 0，所以目錄完全不動
+   （2026-08-30 Mars 反映「希望它跟著往下滑」）。
+
+   讓側欄撐滿整列（＝內文欄的 5896），目錄才有空間可以黏。
+   只改側欄不改 align-items，內文欄維持靠上、不受影響。 */
+.gc-post__side{align-self:stretch}
+
+.gc-post__hd{margin:0 0 34px}
+article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__t{
+  margin:0 0 10px;font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.35;
+}
+
+/* ── Banner 的文章大標也要拉到 34 ──
+   那個區塊是主題原本的（blog-post-banner），不在 .gc-post 裡面，
+   而且被外包的 `ako-custom.css` 用 `!important` 鎖死在 26px
+   （`.article__header-content .article__title` — 頁首瘦身時的同一個元凶）。
+   要蓋過 !important 只能同樣用 !important，但**必須關在這個範本裡**：
+   `body:has(.gc-post)` 只有切到 gc-post 範本的文章才成立，
+   其他部落格頁一個字都不會變。切回舊範本就完全還原。
+
+   為什麼非拉不可：章節標題現在是 26，大標若還是 26 就會「小標跟大標一樣大」，
+   階層等於沒有頂。 */
+body:has(.gc-post) .article__header-content .article__title{
+  font-size:34px !important;
+  line-height:1.35 !important;
+  font-weight:600 !important;
+  letter-spacing:-.02em;
+  /* 顏色也要接手：banner 原本是 #282828，比章節標題的 #141416 還淡——
+     大標比小標淡＝階層是反的（2026-08-30 實測抓到）。 */
+  color:#141416 !important;
+}
+.gc-post__meta{margin:0;font-size:13px;line-height:1.6;color:var(--gcp-mute)}
+.gc-post__cover{width:100%;border-radius:12px;overflow:hidden;margin:0 0 30px;background:#F1F2F5}
+.gc-post__cover img{width:100%;height:auto;display:block}
+
+/* ── ① 右側固定目錄 ── */
+.gc-post__toc{
+  position:sticky;top:var(--gcp-top);
+  background:var(--gcp-soft);border-radius:8px;padding:24px;
+  /* 可視高度也要扣掉頁首，不然很矮的視窗會被切掉底下幾條 */
+  max-height:calc(100vh - var(--header-height, 57px) - 40px);overflow-y:auto;
+}
+/* 權重要墊高，理由同上面內文標題那段：gc-type.css 用 (0,4,1) 綁走全站 h2。
+   **這一頁裡每一個 h2 都要各自處理**——內文的、目錄的、CTA 的、
+   凡是不在同一條選擇器涵蓋範圍內的都會被搶走（CTA 標題就是這樣漏掉、
+   跑成 40px，2026-08-30 逐項比對才抓到）。 */
+article.gc-post .gc-post__grid .gc-post__side .gc-post__toc h2{
+  margin:0 0 12px;font-size:15px;line-height:1.4;font-weight:700;letter-spacing:0;
+}
+.gc-post__toc ol{list-style:none;margin:0;padding:0}
+.gc-post__toc :where(a){
+  display:block;padding:7px 0;font-size:14px;line-height:1.6;
+  color:rgba(20,20,22,.66);text-decoration:none;
+  border-left:2px solid transparent;padding-left:10px;margin-left:-10px;
+  transition:color .15s,border-color .15s;
+}
+.gc-post__toc :where(a):hover{color:var(--gcp-ink)}
+.gc-post__toc :where(a).is-on{color:var(--gcp-ink);font-weight:600;border-left-color:var(--gcp-ink)}
+.gc-post__toc li.lv3 :where(a){padding-left:22px;font-size:13.5px}
+
+/* ══════════ 內文 ══════════ */
+/* 內文用 82% 濃度不是純黑（2026-08-30 拍板）。
+   掃描五個中文內容站的結論：INSIDE 內文是灰 #555、UGREEN 是 80%，
+   **我們原本兩層都是純黑**——這是跟所有人差最多的一項。
+   標題一個字都不用放大，光把內文轉淡，標題就自己跳出來了，而且不吵。 */
+.gc-post__body{
+  font-size:18px;line-height:1.85;color:rgba(20,20,22,.82);
+  /* 防線：內文貼到「連在一起、中間沒有空格」的東西時，讓它換行而不是撐破版面。
+     實測案例：gc-tag-unboxing-review 內文殘留一整排 <a>1</a>…<a>72</a> 的分頁連結
+     （搬家時留下的垃圾），相鄰的行內元素之間沒有換行點，整頁被撐寬 102px。
+     內容該刪，但寫文章的人隨時會再貼進來別的，版面不該因此壞掉。
+     只影響「本來就會溢出」的內容，正常段落一個字都不會變。 */
+  overflow-wrap:anywhere;
+}
+.gc-post__body :where(p){margin:0 0 22px}
+/* ══ 標題不可以包 :where() ══
+   `assets/gc-type.css`（我們自己的全站字體系統，Mars 拍板不上正式站、
+   但測試主題的 theme.liquid 有載）用
+     .shopify-section h2:not(.ts-series__h):not([class*="ts-"]):not([class*="tsp-"])
+   把全站 h2 綁成 40px，權重 (0,4,1)；h3 那條更高，(0,5,1)。
+   我原本整份都包 :where() 權重是 0，**標題全被它搶走**——
+   h2 變 40px、跟頁面主標題 34px 差不多大，
+   內文 18px 對 h2 40px＝2.22 倍，比稿裡是 23px＝1.28 倍，節奏整個垮掉
+   （2026-08-30 Mars 說「模擬比較漂亮」，量出來就是這一項）。
+
+   :where() 只該用在「不想跟人吵架的重設」（例如連結顏色）；
+   **自己真的要生效的值不能包**。這裡不用小聰明，直接寫出真實的 DOM 路徑
+   把權重墊到 (0,5,2)，穩穩蓋過上面兩條。
+   正式站沒有 gc-type.css，這樣寫在兩邊都是同一個結果。 */
+/* ── 級距「B 拉開級距」（Mars 2026-08-30 拍板）──
+   大標 34／章節 26／小節 20／內文 18，字重 600，內文轉淡 82%。
+   章節對內文＝1.44 倍：正好是 INSIDE 的數字，也落在台灣五站
+   （1.22–1.64）的區間中間。原本的 1.28 是全場最低，所以他覺得「分不出來」。
+
+   字重用 600 不是 700：掃描到的四個台灣站都只加一級（400→500），
+   INSIDE 甚至完全不加，700 在中文會偏重、有廣告感。
+   （比稿頁上他看到的樣張是 700，這裡刻意降一級，已跟他講。）
+
+   上留白 52 ／ 下 14 ＝ 約 3.7 倍。標題屬於它「底下」那段，
+   離上一段遠、離自己的內文近，讀者才不會誤讀成上一段的結尾。 */
+article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__body h2{
+  font-size:26px;line-height:1.55;font-weight:600;letter-spacing:-.015em;
+  color:#141416;
+  margin:52px 0 14px;scroll-margin-top:var(--gcp-top);
+}
+article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__body h3{
+  font-size:20px;line-height:1.5;font-weight:600;letter-spacing:-.005em;
+  color:#141416;
+  margin:32px 0 10px;scroll-margin-top:var(--gcp-top);
+}
+article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__body h4{
+  font-size:17px;line-height:1.55;font-weight:700;margin:22px 0 8px;
+}
+.gc-post__body :where(ul),.gc-post__body :where(ol){margin:0 0 22px;padding-left:22px}
+.gc-post__body :where(li){margin:6px 0;line-height:1.85}
+.gc-post__body :where(a){color:#1D5FD0;text-decoration:underline;text-underline-offset:3px}
+.gc-post__body :where(img){max-width:100%;height:auto;border-radius:10px;display:block}
+.gc-post__body :where(strong),.gc-post__body :where(b){font-weight:700}
+.gc-post__body :where(hr){border:0;border-top:1px solid var(--gcp-line);margin:36px 0}
+
+/* ── ④ 圖說 ──
+   實測 6 篇文章：平均 3.8 張圖、最多 7 張，**圖說 0 個**，
+   而且 alt 是壞的（整篇每張都寫文章標題，或寫「情境示意圖」，或空的）。
+   有 <figcaption> 就照這個樣式排；沒有的話圖照舊，不會壞。 */
+.gc-post__body :where(figure){margin:0 0 26px}
+.gc-post__body :where(figure) :where(img){border-radius:12px}
+/* 置中，不是左邊一條線——比稿是這樣，Mars 核可的也是這樣。
+   我搬進主題時自己改成左線，被他抓到（2026-08-30）。 */
+.gc-post__body :where(figcaption){
+  margin-top:9px;font-size:13.5px;line-height:1.7;
+  color:var(--gcp-mute);text-align:center;
+}
+
+/* ── ⑥ 比較表格 ──
+   站上已經有 2 篇寫了表格，但範本**完全沒給樣式**——沒有格線、
+   表頭沒底色、表頭字重是 400，看起來就是散開的文字。
+   .gc-post__tw 是 JS 自動包上去的橫向捲軸；
+   直接對 table 設 overflow 沒有作用，一定要外面包一層。 */
+.gc-post__tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 26px}
+.gc-post__body :where(table){
+  width:100%;min-width:420px;border-collapse:collapse;font-size:14px;line-height:1.7;
+}
+.gc-post__body :where(th),.gc-post__body :where(td){
+  padding:12px;border-bottom:1px solid #E3E7EB;text-align:left;vertical-align:top;
+}
+.gc-post__body :where(th){background:#F5F6F9;font-weight:700;white-space:nowrap}
+/* 第一欄是「這一列在講什麼」，加粗才讀得出是列標題（比稿的做法） */
+.gc-post__body :where(td:first-child){font-weight:600}
+/* 數字欄位對齊：等寬數字讓上下位數對得起來 */
+.gc-post__body :where(td){font-variant-numeric:tabular-nums}
+
+/* ══════════ 重點框：Mars 選的四種 ══════════
+   顏色是有語意的，不是隨便配：
+   中性灰＝結論、琥珀＝注意、系統藍＝提示。
+   **紅色不用**——設計規範裡紅色留給真正的警示與品牌 logo。 */
+.gc-call{margin:0 0 24px;padding:20px 22px;border-radius:12px;font-size:16px}
+.gc-call > :where(h4){margin:0 0 8px;font-size:15px;font-weight:700;letter-spacing:.01em}
+.gc-call > :where(p){margin:0 0 10px;font-size:16px;line-height:1.8}
+.gc-call > :where(p:last-child){margin-bottom:0}
+.gc-call :where(ul),.gc-call :where(ol){margin:0;padding-left:18px}
+.gc-call :where(li){font-size:16px;line-height:1.8;margin:4px 0}
+.gc-call__lb{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  padding:4px 9px;border-radius:5px;margin-bottom:10px;
+}
+
+/* A 結論框：淺灰底 ＋ 黑色左粗線。一篇裡用最多次的就是它。 */
+.gc-call--a{background:#F5F6F9;border-left:4px solid #141416;border-radius:0 12px 12px 0}
+/* F 注意框：琥珀。電池膨脹、過熱這類警告。 */
+.gc-call--f{background:#FFF8E8;border-left:4px solid #E4A11B;border-radius:0 12px 12px 0}
+.gc-call--f .gc-call__lb{background:#E4A11B;color:#fff}
+/* G 提示框：系統藍。解釋專有名詞——熱失控、BSMI、Qi2。 */
+.gc-call--g{background:#EFF5FF;border-left:4px solid #2563EB;border-radius:0 12px 12px 0}
+.gc-call--g .gc-call__lb{background:#2563EB;color:#fff}
+/* J 步驟框：圓形編號。一半的文章是教學型。 */
+.gc-call--j{background:#F5F6F9;counter-reset:gcstep}
+.gc-call--j :where(ul),.gc-call--j :where(ol){padding-left:0;list-style:none}
+.gc-call--j :where(li){
+  counter-increment:gcstep;list-style:none;position:relative;
+  padding-left:32px;margin:11px 0;
+}
+.gc-call--j :where(li)::before{
+  content:counter(gcstep);position:absolute;left:0;top:3px;
+  width:22px;height:22px;border-radius:50%;
+  background:#141416;color:#fff;font-size:12px;font-weight:700;
+  display:grid;place-items:center;
+}
+
+/* ── ⑧ 文中商品卡 ──
+   ★ 現在文章與商品是**雙向 0 連結**：部落格單篇 868 點擊是全站第 3 名，
+   卻一個商品連結都沒有。這張卡就是把那些流量接到商品頁。 */
+/* 比稿是 grid 96px / 1fr / auto，中間是「名稱＋一句描述」——不是價格。
+   我原本做成價格，被 Mars 抓到跟模擬不一樣（2026-08-30）。 */
+.gc-post__pcard{
+  display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;
+  margin:0 0 24px;padding:16px;
+  border:1px solid rgba(20,20,22,.14);border-radius:14px;
+  text-decoration:none;color:var(--gcp-ink);
+  transition:border-color .18s,box-shadow .18s;
+}
+.gc-post__pcard:where(a):hover{
+  text-decoration:none;border-color:rgba(20,20,22,.28);
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+}
+.gc-post__pcard img{width:96px;height:96px;object-fit:cover;
+  border-radius:10px;background:#F1F2F5;display:block}
+.gc-post__pcard__x{min-width:0}
+.gc-post__pcard__n{margin:0;font-size:16px;font-weight:600;line-height:1.45}
+.gc-post__pcard__d{margin:4px 0 0;font-size:13.5px;line-height:1.6;color:rgba(20,20,22,.58)}
+.gc-post__pcard__go{
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-size:14px;font-weight:600;padding:11px 20px;border-radius:999px;
+  background:#141416;color:#fff;
+}
+.gc-post__pcard__go svg{width:14px;height:14px}
+
+/* ── ⑨ FAQ 手風琴 ──
+   標題本身就是問句，做成手風琴還能吃 Google 的「常見問題」版位。 */
+/* 比稿是「標題留在內文流裡 ＋ 底下一張有外框的圓角卡片」。
+   我原本做成整段一條上框線、問題之間光禿禿的橫線——
+   結果上面文章本來就有一條 <hr>，變成兩條線夾著一片空白
+   （2026-08-30 Mars 截圖抓到）。改回卡片就沒有這個問題。 */
+.gc-post__faq{
+  margin:0 0 24px;
+  border:1px solid rgba(20,20,22,.12);border-radius:12px;overflow:hidden;
+}
+.gc-post__faq details{border-bottom:1px solid rgba(20,20,22,.10)}
+.gc-post__faq details:last-child{border-bottom:0}
+.gc-post__faq summary{
+  list-style:none;cursor:pointer;padding:16px 18px;
+  font-size:15.5px;font-weight:600;line-height:1.6;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.gc-post__faq summary::-webkit-details-marker{display:none}
+.gc-post__faq summary::after{
+  content:"";flex:none;width:9px;height:9px;
+  border-right:2px solid rgba(20,20,22,.4);border-bottom:2px solid rgba(20,20,22,.4);
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .18s;
+}
+.gc-post__faq details[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.gc-post__faq__a{padding:0 18px 16px}
+.gc-post__faq__a :where(p),.gc-post__faq__a :where(li){
+  font-size:15px;line-height:1.8;color:rgba(20,20,22,.7);
+}
+.gc-post__faq__a > :where(p){margin:0 0 10px}
+.gc-post__faq__a > :where(p:last-child){margin-bottom:0}
+
+/* ── ⑩ 文末 CTA ──
+   現在讀完就結束，沒有下一步。 */
+/* 比稿是白底細框、文字置中、一顆黑色藥丸鈕。
+   我原本做成整塊黑底反白——那個重量級的深色卡在比稿裡是留給
+   「信任保證區」那種段落的，放在文章結尾太重（Mars 2026-08-30 抓到）。 */
+.gc-post__cta{
+  margin:32px 0 0;padding:26px;border-radius:14px;text-align:center;
+  border:1px solid rgba(20,20,22,.14);
+}
+article.gc-post .gc-post__grid .gc-post__main .gc-post__cta h2{
+  margin:0 0 6px;font-size:19px;line-height:1.45;font-weight:600;letter-spacing:-.01em;
+}
+.gc-post__cta p{margin:0 0 16px;font-size:14.5px;line-height:1.7;color:rgba(20,20,22,.58)}
+.gc-post__cta :where(a){
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:999px;
+  background:#141416;color:#fff;font-size:15px;font-weight:600;text-decoration:none;
+  transition:transform .18s;
+}
+.gc-post__cta :where(a):hover{text-decoration:none;transform:translateY(-1px)}
+.gc-post__cta svg{width:15px;height:15px}
+
+/* ── 手機 ── */
+@media (max-width:1099px){
+  /* 目錄欄放不下就整個收掉：擠成 200 寬的話中文標題會折三行，比沒有還糟。
+     斷點取 1099 是因為 668 ＋ 326 ＋ 56 ＝ 1050，再加左右內距就滿了。 */
+  .gc-post__grid{grid-template-columns:minmax(0,var(--gcp-col));justify-content:center}
+  .gc-post__side{display:none}
+}
+@media (max-width:749px){
+  .gc-post{--gcp-pad:20px}
+  /* 手機整組降一階，但**比例要守住**：章節 21／內文 16＝1.31。
+     手機欄窄，硬套桌機的 1.44（＝23px）會讓標題折成三行。 */
+  article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__t{font-size:26px}
+  body:has(.gc-post) .article__header-content .article__title{font-size:26px !important}
+  .gc-post__body{font-size:16px}
+  article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__body h2{font-size:21px;margin:40px 0 12px}
+  article.gc-post .gc-post__in .gc-post__grid .gc-post__main .gc-post__body h3{font-size:18px;margin:26px 0 9px}
+  .gc-post__hd{margin-bottom:24px}
+  .gc-post__grid{margin-top:20px}
+  article.gc-post .gc-post__grid .gc-post__main .gc-post__cta h2{font-size:18px}
+  /* 商品卡在手機改直排——橫排的話圖 96 ＋ 按鈕，文字只剩 100 出頭寬 */
+  .gc-post__pcard{grid-template-columns:1fr;gap:14px;justify-items:start}
+  .gc-post__pcard__go{justify-self:stretch;justify-content:center}
+  .gc-post__cta{padding:22px}
+  .gc-call{padding:18px 18px;font-size:15.5px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .gc-post__prog i,.gc-post__cta :where(a),.gc-post__faq summary::after{transition:none}
+}
