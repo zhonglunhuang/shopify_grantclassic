@@ -121,7 +121,8 @@
                               <div class="image_container">
                                 <img class="tmenu_image" loading="lazy"
                                   width="720" height="720"
-                                  src="{{ sub_sub_link.object.metafields.custom.image | img_url: 'master'}}"
+                                  {%- comment -%}gc 2026-08-31：原本 'master'＝送原圖（4096px 塞進 136px 格子）。改 '404x'（桌機下拉顯示 202px×2）。不動原圖，CDN 即時產圖。還原：改回 'master'。{%- endcomment -%}
+                                  src="{{ sub_sub_link.object.metafields.custom.image | img_url: '404x'}}"
                                   alt="{{ sub_sub_link.title | escape }}"
                                 >
                                 {%- if sub_sub_link.object.metafields.custom.image_label -%}
