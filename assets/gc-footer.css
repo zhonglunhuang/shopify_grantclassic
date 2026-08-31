@@ -177,3 +177,35 @@ a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
 @media (max-width:749px){
   .gc-legalbar__right{ flex-direction:column; align-items:flex-start; gap:10px; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   頁尾字級（2026-08-31 從測試主題的 gc-type.css 抄過來）
+
+   Mars 拿正式站與測試站並排比對：正式站頁尾整片 15px/400（欄標題與連結
+   同級＝沒有階層），測試站是 欄標題 14/600、內文 13——「比較符合品牌調性」。
+
+   測試主題這套值住在 gc-type.css（整套字級系統），**正式站刻意不搬那一整包**
+   （它會動到全站標題）；只把頁尾這一段抄成寫死數值的獨立版。
+   出處與依據（Apple 台灣頁尾 12/600＋12、B&O 16+12；中文取 14/13）寫在
+   測試主題 gc-type.css 的同名段落，這裡不重複。
+
+   之後若整套 gc-type.css 上了正式站，這段會被同值覆蓋、無害，可一併刪除。
+   ══════════════════════════════════════════════════════════════════════ */
+#shopify-section-footer,
+#shopify-section-footer p,
+#shopify-section-footer a,
+#shopify-section-footer li,
+#shopify-section-footer span,
+#shopify-section-footer div{
+  font-size:13px;
+  line-height:1.55;
+}
+#shopify-section-footer .footer__item-title,
+#shopify-section-footer .heading{
+  font-size:14px;
+  font-weight:600;
+  line-height:1.42;
+}
+/* 頁尾的輸入框不能跟著縮——低於 16px 的輸入框會讓 iOS 自動放大整頁 */
+#shopify-section-footer input,
+#shopify-section-footer button{ font-size:16px; }
