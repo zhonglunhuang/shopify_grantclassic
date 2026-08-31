@@ -44,7 +44,13 @@
    釘住時要讓開主題頁首——用主題自己的 --header-height，不要寫死
    （正式站 65px、測試主題 57px，寫死一定有一邊是錯的）。 */
 .gcx__bar{
-  position:sticky;top:var(--header-height,57px);z-index:5;
+  /* **z-index 一定要低於主題頁首。** 實測主題的 #shopify-section-header 與
+     store-header.header 都是 position:sticky + z-index:4；我原本寫 5，
+     5 贏 4 → 主選單（寵物生活那些）的下拉被我這條 bar 蓋住
+     （Mars 2026-08-31 回報）。**最上面那層永遠優先。**
+     改 3：還是壓得過內文（內文是 auto/0），但讓得開頁首。
+     注意這條 bar 自己就是一個堆疊脈絡，所以底下的 hover 面板也一起降下去——那是對的。 */
+  position:sticky;top:var(--header-height,57px);z-index:3;
   background:rgba(255,255,255,.86);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   backdrop-filter:saturate(180%) blur(20px);
