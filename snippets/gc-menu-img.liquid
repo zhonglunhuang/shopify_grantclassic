@@ -1,0 +1,54 @@
+{%- comment -%}
+  gc-menu-img ── 選單圖網址（含 12 張肥圖的替身表）2026-08-31
+
+  背景：12 張選單圖的原始檔是「掛著 .webp 副檔名的 2000px PNG」，
+  CDN 對無損來源產無損縮圖，272px 也要 270 KB——12 張佔了首頁六成重量。
+  Mars 在對照頁驗過 q85 有損版肉眼分不出（平均像素差 0.15～0.97/255）。
+
+  這個 snippet 是**過渡做法**：正常情況照舊回 CDN 縮圖網址，
+  只有撞到那 12 張才改回主題資產裡壓好的版本（gc-mimg-*.webp，810px q85）。
+  **治本**是把分類 metafield（custom.image）指到重新上傳的檔案，
+  到時候整個 snippet 刪掉、兩個選單 snippet 的 src 改回一行 img_url 就還原。
+
+  參數：image（metafield 的圖）、size（'272x' 或 '404x'）
+
+  比對用「檔名雜湊」不是商品名——同一檔案不管出現幾次都蓋得到。
+  注意最後那組 webp.webp：token 不能只寫 "webp"（每個網址都含 .webp 會全中），
+  要帶完整檔名含尺寸字尾。
+{%- endcomment -%}
+{%- liquid
+  assign url = image | img_url: size
+  assign swap = ''
+  if url contains '/web_fb06d202-33b5-489e-91e1-311b81b864d5'
+    assign swap = 'gc-mimg-aqualux-uv.webp'
+  elsif url contains '/webp_d0a42a16-f3bd-4377-b28a-5c681515af3e'
+    assign swap = 'gc-mimg-aqualux-brush.webp'
+  elsif url contains '/webp_9ae456c3-6582-48b8-bda0-537fd93b5eea'
+    assign swap = 'gc-mimg-aqualux-unit.webp'
+  elsif url contains '/webp_a2910936-2761-4e2f-a959-735f1f4d676c'
+    assign swap = 'gc-mimg-luxnourish-dry.webp'
+  elsif url contains '/16b54faa4af5aac7489d85e792b47e07'
+    assign swap = 'gc-mimg-catpalace-bag.webp'
+  elsif url contains '/045409c68f3f1771ed34284fc47c10b5'
+    assign swap = 'gc-mimg-catpalace-scent.webp'
+  elsif url contains '/black_typec'
+    assign swap = 'gc-mimg-velvet-cable.webp'
+  elsif url contains '/3ef23df5b5360179741dda0eab6e5e06_1300x_7cb0cb97'
+    assign swap = 'gc-mimg-velvet-gasket.webp'
+  elsif url contains '/3ef23df5b5360179741dda0eab6e5e06_5accd1f9-872a-4c91-b2a3-162398794f8a'
+    assign swap = 'gc-mimg-flex-cable.webp'
+  elsif url contains '/webp02_2_'
+    assign swap = 'gc-mimg-gctag-card.webp'
+  elsif url contains '/webp_3a843ec6-c961-4aa5-8d1d-6914e8061ebe'
+    assign swap = 'gc-mimg-ridetune-clip.webp'
+  elsif url contains '/webp_afe9f4cf-4edb-4ac7-8e22-ed4c45d344f9'
+    assign swap = 'gc-mimg-ridetune-mic.webp'
+  elsif url contains '/webp_272x.webp' or url contains '/webp_404x.webp'
+    assign swap = 'gc-mimg-aqualux-main.webp'
+  endif
+  if swap != blank
+    echo swap | asset_url
+  else
+    echo url
+  endif
+-%}
