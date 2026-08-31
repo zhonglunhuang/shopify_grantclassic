@@ -1,0 +1,263 @@
+/* ══════════════════════════════════════════════════════════════
+   gc-blog-index ── 部落格首頁（選購筆記）2026-08-31
+   Apple 的骨 ＋ 科技說的資訊密度。Mars 拍板「加寬版」。
+
+   三條從 apple.com 量出來的規則，別破：
+     ① 大圖不加圓角（Apple 首頁 35 張大圖，圓角 0 的比例 100%）
+     ② 圓角只給「拿得起來的小物件」：側欄縮圖、面板縮圖、按鈕
+     ③ 階層靠字級與留白，不靠色塊與框線
+   例外只有一個：**頭條的文字壓在圖上**（Mars 2026-08-31 指定）。
+   那是刻意跟 Apple 反著做，所以漸層要夠深、標題要有陰影，見下面 .gcx__leadPic。
+
+   要還原：把 templates/blog.gc-index.json 刪掉就好，主題原檔一個都沒改。
+   ══════════════════════════════════════════════════════════════ */
+
+.gcx{
+  --r-obj:12px;          /* 小物件圓角 */
+  --r-ctl:980px;         /* 藥丸 */
+  --gut:1020px;          /* 內容寬——1600px 以上會換成 1440，見最下面 */
+  --t-page:40px;         /* 頁面大標 */
+  --t-lead:30px;         /* 頭條標題（比文章頁大標 34 小，點進去才有放大感）*/
+  --t-sec:24px;
+  --t-card:19px;
+  --t-body:17px;
+  --t-meta:13px;
+  --t-kick:12px;
+  --ink:#1D1D1F;
+  --dim:#6E6E73;
+  --dim2:#86868B;
+  --line:#E8E8ED;
+  --blue:#0071E3;
+  color:var(--ink);
+  overflow-wrap:anywhere;      /* 貼進來的長網址不會把版面撐寬 */
+}
+
+/* 連結重設用 :where() 把權重壓成 0，下面各自的樣式才蓋得過去。
+   反過來把「自己要生效的值」包進 :where() 是這個專案踩過的坑，別再做。 */
+.gcx :where(a){color:inherit;text-decoration:none}
+
+.gcx__in{max-width:var(--gut);margin:0 auto;padding:0 22px}
+
+/* ── ① 區域導覽（第二條 bar）──────────────────────────────
+   Apple 自己就疊兩條：globalnav 44px（連結 17px）＋ localnav 52px（連結 12px）。
+   關鍵是第二條要**明顯比第一條輕**：字小、無底色、只有一條細線。
+   釘住時要讓開主題頁首——用主題自己的 --header-height，不要寫死
+   （正式站 65px、測試主題 57px，寫死一定有一邊是錯的）。 */
+.gcx__bar{
+  position:sticky;top:var(--header-height,57px);z-index:5;
+  background:rgba(255,255,255,.86);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.gcx__barIn{max-width:var(--gut);margin:0 auto;padding:0 22px;height:52px;
+  display:flex;align-items:center;gap:28px}
+.gcx__barT{font-size:19px;font-weight:600;letter-spacing:-.014em;white-space:nowrap}
+.gcx__barNav{display:flex;gap:22px;font-size:12px;margin-left:auto;
+  overflow-x:auto;scrollbar-width:none}
+.gcx__barNav::-webkit-scrollbar{display:none}
+.gcx__barNav a{color:var(--dim);white-space:nowrap;padding:18px 0;position:relative}
+.gcx__barNav a.is-on,.gcx__barNav a.is-open{color:var(--ink);font-weight:600}
+.gcx__barNav a.is-open::after{content:"";position:absolute;left:0;right:0;bottom:-1px;
+  height:2px;background:var(--ink)}
+
+/* ── 滑過展開的面板 ──
+   兩個實際會出事的地方都處理了：
+   ① 主選單本來就有下拉，滑鼠往下移動會「經過」這條 bar → 開啟等 180ms（意圖延遲）
+   ② bar 與面板之間有空隙 → 離開等 220ms，不然會關在滑鼠半路上
+   手機沒有 hover，這條 bar 就是單純連結。**面板還是會被印出來**（Liquid 不知道視窗多寬），
+   所以窄畫面一定要用 CSS 擋掉——只靠 JS 判斷會漏：JS 只在載入時判斷一次，
+   桌機把視窗拉窄之後事件還掛著。 */
+.gcx__panel{position:absolute;left:0;right:0;top:100%;background:#fff;
+  border-bottom:1px solid var(--line);box-shadow:0 12px 28px rgba(0,0,0,.08);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .12s ease-out,transform .12s ease-out,visibility .12s}
+.gcx__panel.is-show{opacity:1;visibility:visible;transform:none}
+.gcx__panelIn{max-width:var(--gut);margin:0 auto;padding:26px 22px 30px;
+  display:grid;grid-template-columns:186px 1fr;gap:34px}
+/* **hidden 屬性擋不住 display:grid。** hidden 只是 UA 樣式表的 display:none，
+   任何作者寫的 display 都贏過它——沒有這一行，五塊面板會全部疊著顯示
+   （實測面板高 1592px，應該是 250）。而且它不會報錯，只是看起來很怪。 */
+.gcx__panelIn[hidden]{display:none}
+.gcx__panelSub{border-right:1px solid var(--line);padding-right:22px}
+.gcx__panelSub a{display:block;padding:11px 0;font-size:14px;color:var(--ink);
+  border-bottom:1px solid #EFEFF2}
+.gcx__panelSub a:last-child{border-bottom:0}
+.gcx__panelSub a:hover{color:var(--blue)}
+.gcx__panelG{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gcx__pCard{display:block;color:var(--ink)}
+/* 面板縮圖是「小物件」，所以有圓角——跟側欄縮圖同一級。
+   「大圖不加圓角」那條規則只管版面上的主圖。 */
+.gcx__pCard .p{display:block;overflow:hidden;border-radius:var(--r-obj);background:#F5F5F7}
+.gcx__pCard .p img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+.gcx__pCard .t{margin:11px 0 0;font-size:14px;font-weight:600;line-height:1.5;
+  letter-spacing:-.008em;display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden}
+
+/* ── ② 頁首 ── */
+.gcx__head{padding:48px 0 34px}
+.gcx__crumb{margin:0 0 14px;font-size:12px;color:var(--dim2)}
+.gcx__crumb span{margin:0 6px}
+.gcx__h1{margin:0 0 10px;font-size:var(--t-page);font-weight:600;
+  letter-spacing:-.026em;line-height:1.16;text-wrap:balance}
+.gcx__lead{margin:0;font-size:var(--t-body);line-height:1.62;color:var(--dim);max-width:580px}
+
+/* ── ③ 頭條：文字壓在圖上（刻意跟 Apple 反著做）──
+   要做就要做到讀得住：
+   ① 漸層夠深夠高——底部 88%、到 62% 才完全透明。淺漸層在亮照片上會失效。
+   ② 標題加一層很淡的陰影當保險，圖再亮也不會糊掉。
+   ③ 標題寬度壓住——滿版白字壓照片會跟背景打架。
+   大圖依然沒有圓角，那條規則沒破。 */
+.gcx__lead2{margin:34px 0 0}
+.gcx__leadPic{display:block;position:relative;overflow:hidden;background:#F5F5F7}
+.gcx__leadPic img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.gcx__leadPic::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,
+    rgba(0,0,0,.88) 0%,rgba(0,0,0,.66) 16%,rgba(0,0,0,.30) 38%,rgba(0,0,0,0) 62%)}
+.gcx__leadTx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:36px 40px 34px}
+.gcx__k{display:block;margin:0 0 10px;font-size:var(--t-kick);font-weight:600;
+  letter-spacing:.06em;color:rgba(255,255,255,.82)}
+.gcx__leadT{display:block;margin:0;font-size:var(--t-lead);font-weight:600;
+  line-height:1.34;letter-spacing:-.02em;color:#fff;max-width:78%;
+  text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.gcx__leadE{display:-webkit-box;margin:12px 0 0;font-size:var(--t-body);line-height:1.65;
+  color:rgba(255,255,255,.8);max-width:62%;text-shadow:0 1px 10px rgba(0,0,0,.35);
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gcx__link{display:inline-flex;align-items:center;gap:5px;margin:16px 0 0;
+  color:#fff;font-size:var(--t-body);font-weight:600}
+.gcx__link svg{width:16px;height:16px}
+.gcx__link:hover{text-decoration:underline}
+
+/* ── ④ 文章卡：圖沒有圓角，字在下面 ── */
+.gcx__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:52px 34px;margin:64px 0 0}
+.gcx__card{display:block;color:var(--ink)}
+.gcx__cardPic{display:block;overflow:hidden;background:#F5F5F7}
+.gcx__cardPic img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.gcx__card:hover .gcx__cardPic img{transform:scale(1.02)}
+/* 沒有分類的文章這一行是空的——用 min-height 撐住，卡片才對得齊 */
+.gcx__cardK{margin:16px 0 6px;font-size:var(--t-kick);font-weight:600;letter-spacing:.06em;
+  color:var(--dim);min-height:calc(var(--t-kick) * 1.4);line-height:1.4}
+.gcx__cardT{margin:0;font-size:var(--t-card);font-weight:600;line-height:1.45;
+  letter-spacing:-.012em;display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden}
+.gcx__cardD{margin:9px 0 0;font-size:var(--t-meta);color:var(--dim2)}
+
+/* ── ⑤ 熱門文章側欄：這裡才用圓角，因為縮圖是小物件 ── */
+.gcx__two{display:grid;grid-template-columns:1fr 300px;gap:60px;margin:64px 0 0;align-items:start}
+.gcx__sideH{margin:0 0 6px;font-size:var(--t-sec);font-weight:600;letter-spacing:-.016em}
+.gcx__sideS{margin:0 0 20px;font-size:13.5px;color:var(--dim2)}
+.gcx__item{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.gcx__item:last-child{border-bottom:0}
+.gcx__itemP{width:64px;height:64px;overflow:hidden;background:#F5F5F7;border-radius:var(--r-obj)}
+.gcx__itemP img{width:100%;height:100%;object-fit:cover;display:block}
+.gcx__itemK{margin:0 0 4px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:var(--dim2)}
+.gcx__itemT{margin:0;font-size:14.5px;font-weight:600;line-height:1.45;letter-spacing:-.008em;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── ⑥ 產品線分節：科技說用「置中標題＋兩側細線」，那是雜誌手法。
+   Apple 不置中——靠左、一條上框線、標題大一級就夠了。 */
+.gcx__sec{border-top:1px solid var(--line);margin:72px 0 0;padding:38px 0 0}
+.gcx__secHd{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin:0 0 28px}
+.gcx__secT{margin:0;font-size:var(--t-sec);font-weight:600;letter-spacing:-.016em}
+.gcx__secMore{font-size:14px;color:var(--blue);white-space:nowrap}
+.gcx__secMore:hover{text-decoration:underline}
+
+/* ── ⑦ 頁碼：取代「看全部 N 篇」那顆按鈕（Mars 2026-08-31）──
+   一顆按鈕藏在整頁最底下沒人點，而且它背後那幾十篇對 Google 與 AI 來說離入口很遠。
+   改成頁碼之後每一頁各自有網址，收錄得到。用主題原生的 paginate，邏輯不用自己寫。 */
+.gcx__pager{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  margin:56px 0 0;padding:0}
+.gcx__pg{min-width:38px;height:38px;padding:0 12px;display:inline-flex;align-items:center;
+  justify-content:center;border-radius:var(--r-ctl);font-size:14.5px;color:var(--ink);
+  font-variant-numeric:tabular-nums;border:1px solid transparent}
+.gcx__pg:hover{background:#F0F0F2}
+.gcx__pg.is-on{background:var(--ink);color:#fff;font-weight:600}
+.gcx__pg.is-off{color:#C0C0C6;pointer-events:none}
+.gcx__pgGap{color:#C0C0C6;padding:0 2px;font-size:14px}
+.gcx__pgN{text-align:center;margin:12px 0 0;font-size:12.5px;color:var(--dim2)}
+
+/* ── ⑧ 作者卡：直接用站上既有那一張（文章頁底部的 ts-author-card）。
+   不自創元件——讀者在兩個地方看到的是同一張臉。 */
+.gcx__team{border-top:1px solid var(--line);margin:72px 0 0;padding:38px 0 64px}
+.gcx__author{display:flex;gap:20px;align-items:flex-start;background:#F0F0F2;
+  border-radius:18px;padding:24px 26px;margin:24px 0 0}
+.gcx__ava{width:64px;height:64px;flex:none;border-radius:50%;overflow:hidden;background:var(--ink);
+  display:grid;place-items:center;font-size:19px;font-weight:700;color:#fff;letter-spacing:.02em}
+.gcx__ava img{width:100%;height:100%;object-fit:cover;display:block}
+.gcx__pName{margin:0 0 3px;font-size:16.5px;font-weight:600;letter-spacing:-.012em}
+.gcx__pRole{margin:0 0 12px;font-size:13px;color:var(--dim2)}
+.gcx__pBio{margin:0;font-size:14px;line-height:1.8;color:#4A4A4F}
+.gcx__pLink{display:inline-flex;align-items:center;gap:6px;margin:12px 0 0;
+  color:var(--blue);font-size:13.5px}
+.gcx__pLink:hover{text-decoration:underline}
+
+/* ══ 手機 ══
+   斷點 900，不是 749——iPad 直放是 768，設 749 會讓兩欄各剩 370 寬，標題塞不下。 */
+@media (max-width:900px){
+  .gcx{--t-page:28px;--t-lead:22px;--t-sec:19px;--t-card:17px;
+       --t-body:15px;--t-meta:12.5px;--t-kick:11.5px}
+  .gcx__in{padding:0 20px}
+  .gcx__head{padding:26px 0 20px}
+  .gcx__h1{letter-spacing:-.02em}
+  .gcx__barIn{height:46px;gap:16px;padding:0 20px}
+  .gcx__barT{font-size:16px}
+  .gcx__barNav{gap:16px;font-size:11.5px}
+  .gcx__barNav a{padding:14px 0}
+  .gcx__lead2{margin-top:24px}
+  /* 頭條出血——沒有圓角，出血很自然 */
+  .gcx__leadPic{margin-inline:-20px}
+  .gcx__leadPic img{aspect-ratio:4/3}
+  .gcx__leadTx{padding:20px 20px 18px}
+  .gcx__leadT{line-height:1.38;max-width:100%}
+  /* 畫面窄，白字壓照片上三行很難讀——摘要收掉只留標題 */
+  .gcx__leadE{display:none}
+  .gcx__grid{grid-template-columns:1fr;gap:40px;margin-top:44px}
+  .gcx__two{grid-template-columns:1fr;gap:44px;margin-top:44px}
+  .gcx__sec{margin-top:48px;padding-top:28px}
+  .gcx__team{margin-top:48px;padding-top:28px;padding-bottom:44px}
+  .gcx__author{flex-direction:column;gap:14px;padding:20px 18px}
+  .gcx__ava{width:52px;height:52px;font-size:16px}
+  .gcx__pager{margin-top:40px}
+  /* 窄畫面不要展開面板——沒有 hover，展開只會擋住內容 */
+  .gcx__panel{display:none}
+}
+
+/* ══ 27 吋加寬版（Mars 2026-08-31 拍板）══
+   量出來的問題：內容寬 1020 擺在 2560 的螢幕上，兩側各留 770px，內容只佔 40%，
+   而且側欄旁那幾張卡片只有 183px 寬——比手機上看到的還小。
+   所以 1600 以上做三件事：內容加寬、清單 4 欄、頭條滿版出血。
+   **筆電與手機完全不受影響。** */
+@media (min-width:1600px){
+  .gcx{--gut:1440px;--t-page:52px;--t-lead:38px;--t-sec:30px;
+       --t-card:20px;--t-body:18px;--t-meta:13.5px}
+  .gcx__head{padding:60px 0 40px}
+  .gcx__lead{max-width:660px;line-height:1.66}
+  .gcx__barIn{height:56px}
+  .gcx__barNav{font-size:13px}
+  /* 頭條滿版出血；16:9 在 2560 寬會變成 1440 高、整個第一屏被一張圖吃光，所以壓高度 */
+  .gcx__lead2 .gcx__in{max-width:none;padding:0}
+  .gcx__leadPic img{aspect-ratio:auto;height:600px}
+  .gcx__leadTx{left:50%;right:auto;transform:translateX(-50%);
+    width:100%;max-width:var(--gut);padding:52px 22px 46px}
+  .gcx__leadT{max-width:64%}
+  .gcx__leadE{max-width:46%}
+  .gcx__grid{grid-template-columns:repeat(4,1fr);gap:58px 36px;margin-top:72px}
+  .gcx__two{grid-template-columns:1fr 340px;gap:76px;margin-top:76px}
+  /* 側欄旁邊放不下 4 欄，維持 3 欄但卡片變大 */
+  .gcx__two .gcx__grid{grid-template-columns:repeat(3,1fr)}
+  .gcx__sec{margin-top:84px;padding-top:44px}
+  .gcx__team{margin-top:84px;padding-top:44px}
+  .gcx__item{grid-template-columns:76px 1fr;gap:16px;padding:18px 0}
+  .gcx__itemP{width:76px;height:76px}
+  .gcx__itemT{font-size:15.5px}
+  .gcx__author{padding:28px 30px;gap:24px}
+  .gcx__ava{width:72px;height:72px;font-size:21px}
+  .gcx__pBio{font-size:15px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .gcx__card:hover .gcx__cardPic img{transform:none}
+  .gcx__panel{transition:none}
+}

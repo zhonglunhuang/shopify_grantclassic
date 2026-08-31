@@ -356,6 +356,27 @@
     var panes = panel.querySelectorAll('[data-gcx-pane]');
     var openT = null, closeT = null;
 
+    /* 面板的圖是 loading="lazy"，而**藏起來的元素沒有版面框，觀察器不會觸發**——
+       所以圖一直等到「被展開的那一刻」才開始下載（實測：換過去瞬間 0/4，700ms 後才 4/4）。
+       使用者看到的是空白框慢慢長出圖，這就是「轉換很慢」的主因。
+       修法：滑鼠一碰到整條 bar 就先預載。手機沒有 hover，不會多花流量；
+       而且使用者從 bar 移到某一條分類上，本來就還有幾百毫秒可以用。 */
+    var warmed = false;
+    function warm() {
+      if (warmed) return;
+      warmed = true;
+      var im = panel.querySelectorAll('img');
+      for (var i = 0; i < im.length; i++) {
+        im[i].loading = 'eager';
+        var pre = new Image();               // 保險：有些瀏覽器不會為 display:none 的圖重跑載入
+        if (im[i].srcset) pre.srcset = im[i].srcset;
+        if (im[i].sizes) pre.sizes = im[i].sizes;
+        pre.src = im[i].src;
+      }
+    }
+    bar.addEventListener('mouseenter', warm);
+    bar.addEventListener('focusin', warm);
+
     function show(i) {
       panel.hidden = false;
       for (var k = 0; k < panes.length; k++) panes[k].hidden = (panes[k].dataset.gcxPane !== i);
@@ -376,9 +397,13 @@
       (function (link) {
         link.addEventListener('mouseenter', function () {
           clearTimeout(closeT); clearTimeout(openT);
-          /* 主選單本來就有下拉，滑鼠往下移動會「經過」這條 bar——
-             等 180ms 再開，路過的人不會誤觸發，真的想看的人會停留。 */
-          openT = setTimeout(function () { show(link.dataset.gcxCat); }, 180);
+          /* **面板已經開著就立刻換，不要再等。**
+             意圖延遲只有在「還沒開」的時候才需要——那是為了擋住
+             從主選單往下滑「經過」這條 bar 的誤觸發。
+             開著之後在 bar 上橫向移動是明確意圖，再等一次就變得很鈍
+             （Mars 2026-08-31 回報「轉換速度有點慢」，實測換一條也等 183ms）。 */
+          if (panel.classList.contains('is-show')) { show(link.dataset.gcxCat); return; }
+          openT = setTimeout(function () { show(link.dataset.gcxCat); }, 120);
         });
         link.addEventListener('mouseleave', scheduleClose);
         link.addEventListener('focus', function () { show(link.dataset.gcxCat); });
