@@ -1,0 +1,117 @@
+{%- comment -%}
+  gc-dock ── 右下角的浮動按鈕座（2026-08-29）
+
+  Mars：「以後我就都整合在右下角」。目前兩顆——LINE@ 加好友、點數。
+
+  ── 兩件事要先知道 ──
+
+  ① 點數按鈕是第三方 App（Loloyal）放的，不是我們的程式。
+     它自己固定在**左下 30px**（`.boom-launcher.loloyal-launcher-wrapper`，
+     60×60，z-index 拉到 2147483647）。這裡是用 CSS 把它搬到右下角。
+
+     **這是止血不是治本。** 治本是去 Loloyal 後台把按鈕位置改成右邊——
+     那樣不論主題怎麼變都不會跑掉。CSS 覆蓋的風險是：App 改版換了 class 名，
+     按鈕會無聲地跳回左下角，沒有任何錯誤訊息。
+     所以請去 Loloyal 後台找「Launcher / 按鈕位置」的設定；
+     設定好之後，把下面 gc-dock.css 裡「搬 Loloyal」那一段拿掉即可。
+
+  ② 這一段要放進**三個 layout**（theme / ts-air / tsp-pro）才會全站都有。
+     商品頁走自己的 layout，不吃 theme.liquid——這在 gc-ld-org 上已經踩過一次。
+
+  要還原：把三個 layout 裡的 {% raw %}{% section 'gc-dock' %}{% endraw %} 拿掉，再刪這兩個檔案。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+
+  # Shopify 的 url 型別設定不能寫 default，第一次裝上來會是空的、按鈕不出現。
+  # 這裡給 fallback：頁尾那個 LINE 圖示連的就是這個網址（2026-08-29 從站上抓的）。
+  # 後台填了就以後台為準，這只是「還沒填之前也能動」。
+  # 註：liquid 區塊裡的註解只能用 #；而且不要在裡面打出左大括號加百分比，
+  #     那會提早把標籤關掉（剛剛就這樣壞了兩次）。
+  assign line_url = s.line_url | default: 'https://lin.ee/oiQ4L3y'
+
+-%}
+
+{%- if s.enabled -%}
+  {{ 'gc-dock.css' | asset_url | stylesheet_tag }}
+  {%- comment -%}
+    點數按鈕畫在 Shadow DOM 裡，文件層的 CSS 碰不到它——
+    這支 JS 唯一的工作就是把樣式注入進那個 shadow root。
+    defer：它只改外觀，不必擋住頁面。
+  {%- endcomment -%}
+  <script src="{{ 'gc-dock.js' | asset_url }}" defer></script>
+
+  {%- comment -%}
+    變數寫在 :root 不寫在 .gc-dock 上：點數按鈕是 App 掛在 <body> 底下的，
+    不在 .gc-dock 裡面——自訂屬性只會往下傳，設在 .gc-dock 上它讀不到，
+    後台把「離右邊多遠」拉一拉只有我們的按鈕會動，兩顆就對不齊了。
+  {%- endcomment -%}
+  <style>
+    :root{
+      --gcd-size:{{ s.size }}px;
+      --gcd-gap:{{ s.gap }}px;
+      --gcd-edge:{{ s.edge }}px;
+      --gcd-bottom:{{ s.bottom }}px;
+    }
+    @media (max-width:749px){
+      /* 手機再往上一點：底下還有 iPhone 的 home indicator，
+         貼太近會被手勢區吃到（Mars 2026-08-30 要求整體往上移）。 */
+      :root{--gcd-edge:16px;--gcd-bottom:28px;}
+    }
+  </style>
+
+  <div class="gc-dock{% if s.move_loyalty %} gc-dock--move-loyalty{% endif %}{% if s.match_size %} gc-dock--match-size{% endif %}">
+
+    {%- if line_url != blank -%}
+      <a class="gc-dock__btn gc-dock__btn--{{ s.line_style }}"
+         href="{{ line_url }}"
+         target="_blank" rel="noopener"
+         aria-label="{{ s.line_label | default: '加入 LINE 官方帳號' | escape }}">
+        {%- comment -%}
+          LINE 的標誌：氣泡框裡挖出「LINE」四個字（Mars 2026-08-30 定案）。
+
+          為什麼不用 SVG 手繪字母：我第一版就是那樣做的，結果只畫出 L、I、N，
+          **漏了 E**，而且縮到這個尺寸字母一定糊（他截圖看到「LIN」）。
+          改用真的文字排在氣泡上——字是瀏覽器排的，不會少一個字母、
+          也不會因為縮放糊掉。氣泡與尾巴用 CSS 畫。
+        {%- endcomment -%}
+        <span class="gc-dock__bubble" aria-hidden="true">LINE</span>
+        {%- if s.show_label -%}<span class="gc-dock__tip">{{ s.line_label | default: '加 LINE' }}</span>{%- endif -%}
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "右下角浮動按鈕",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "顯示", "default": true },
+    { "type": "header", "content": "LINE 官方帳號" },
+    { "type": "url", "id": "line_url", "label": "加入好友的連結",
+      "info": "頁尾那個 LINE 圖示連的網址就是（lin.ee/…）。留空就不顯示這顆。" },
+    { "type": "text", "id": "line_label", "label": "無障礙標籤／提示文字", "default": "加入 LINE 官方帳號" },
+    { "type": "checkbox", "id": "show_label", "label": "滑過去顯示文字提示", "default": true },
+    {
+      "type": "select", "id": "line_style", "label": "樣式", "default": "white",
+      "info": "白底比較乾淨、跟站上的調性一致；品牌綠比較顯眼、認得出是 LINE。",
+      "options": [
+        { "value": "white", "label": "白底（深色圖示）" },
+        { "value": "green", "label": "LINE 品牌綠" },
+        { "value": "dark",  "label": "深色底（白圖示）" }
+      ]
+    },
+    { "type": "header", "content": "點數按鈕（第三方 App）" },
+    { "type": "checkbox", "id": "match_size", "label": "把點數按鈕改成跟這裡一樣的設計", "default": true,
+      "info": "點數按鈕是 App 畫的（紅色圓角方塊、固定 60px），而且畫在瀏覽器的隔離區裡、一般的樣式碰不到。打開之後會把它改成跟上面那顆一樣：同樣大小、同樣的圓形與底色，兩顆看起來是一組的。" },
+    { "type": "checkbox", "id": "move_loyalty", "label": "把點數按鈕搬到右下角", "default": true,
+      "info": "Mars 2026-08-30 決定用這個、不去 Loloyal 後台設（省得兩邊位置要對）。打開之後按鈕與面板都由這裡的「離右邊／離底部」控制，兩顆一定對齊。代價：App 改版換了名稱時這個覆蓋會無聲失效，按鈕會跳回左下角——那時候關掉它、改去 Loloyal 後台設右邊就好。" },
+    { "type": "header", "content": "位置與大小" },
+    { "type": "range", "id": "size", "label": "按鈕直徑", "min": 40, "max": 64, "step": 2, "unit": "px", "default": 48 },
+    { "type": "range", "id": "gap", "label": "按鈕之間的距離", "min": 6, "max": 32, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "edge", "label": "離右邊多遠", "min": 12, "max": 48, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "bottom", "label": "離底部多遠", "min": 12, "max": 80, "step": 2, "unit": "px", "default": 40 }
+  ]
+}
+{% endschema %}

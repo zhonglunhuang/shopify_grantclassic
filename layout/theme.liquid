@@ -123,6 +123,7 @@
     {%- endif -%}
 
     {% render 'social-meta-tags' %}
+    {% render 'gc-ld-org' %}
     {% render 'ts-seo-schema' %}
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
@@ -250,7 +251,7 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}</body>
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}</body>
 </html>
 
 <style>
