@@ -1,0 +1,18 @@
+{%- comment -%}
+  gc-artitem ── 熱門文章側欄的一列（小縮圖＋標題）。
+  縮圖是「小物件」所以有圓角——大圖不加圓角那條規則只管版面上的主圖。
+  刻意不放瀏覽數：流量小的時候那個數字會扣分，而且 Shopify 前台本來就拿不到。
+{%- endcomment -%}
+<a class="gcx__item" href="{{ a.url }}">
+  <span class="gcx__itemP">
+    {%- if a.image -%}
+      {{ a.image | image_url: width: 200 | image_tag:
+         loading: 'lazy', widths: '80,120,160,200', sizes: '76px',
+         alt: a.image.alt | default: a.title | escape }}
+    {%- endif -%}
+  </span>
+  <span>
+    {%- render 'gc-kicker', a: a, line_tags: line_tags, cls: 'gcx__itemK' -%}
+    <p class="gcx__itemT">{{ a.title }}</p>
+  </span>
+</a>

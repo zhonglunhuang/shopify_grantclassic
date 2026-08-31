@@ -1,0 +1,463 @@
+{%- comment -%}
+  gc-blog-index ── 部落格首頁「選購筆記」（2026-08-31）
+
+  一個 section 就是整頁：區域導覽 → 頁首 → 頭條 → 精選＋熱門 → 產品線分節 → 全部文章＋頁碼 → 作者卡。
+
+  **產品線是後台區塊，不是寫死的。** 一條線一個區塊，填「顯示名稱」與「對應標籤」。
+  篇數是**當場數出來的**，所以不會出現「寫 18 篇點進去剩 2 篇」。
+  **少於門檻（預設 3 篇）的線自動不顯示**——不用手動維護清單，
+  之後補標籤補到第 3 篇，那條線自己會冒出來。
+
+  要還原：把 templates/blog.gc-index.json 刪掉。主題原檔一個都沒改，
+  blog.json（原本的部落格版型）也還在，切回去就回到舊樣子。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  # Shopify 在 paginate 之外，blog.articles **最多只給 50 篇**（實測：75 篇的部落格只掃到 50）。
+  # 所以這個數字不是「想掃幾篇」而是「最多就這樣」——寫 300 也只會拿到 50。
+  # 後果：**篇數不可以印在首頁上**。實測 寵物照護 數到 17、真值 28，印上去就是騙人。
+  # 門檻還是用它（「最近 50 篇裡至少 N 篇」），那是顯示用的啟發規則，不是給人看的數字。
+  assign scan = 250
+
+  # 現在是不是第一頁？
+  # **paginate.current_page 只在 paginate 區塊裡面存在**，頭條與精選都在它外面，
+  # 拿不到——實測第 4 頁把頭條、精選、熱門、產品線分節整組又印了一次。
+  # Shopify 在第 2 頁以後會把 ?page=N 寫進 canonical_url，用它判斷。
+  assign is_first = true
+  if canonical_url contains 'page='
+    assign is_first = false
+  endif
+
+  # 「策展區」＝頭條、精選卡、熱門側欄、產品線分節。
+  # 只有部落格首頁的第一頁才出現：分類頁在看單一分類，第 2 頁以後是在翻 archive，
+  # 兩種情況再放一次頭條都只是擋路。
+  assign show_curated = false
+  if is_first and current_tags == blank
+    assign show_curated = true
+  endif
+-%}
+
+{{ 'gc-blog-index.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  ── 先數每條產品線有幾篇 ──
+  Liquid 沒有字典可以存「每個區塊的數字」，所以把數字接成一個字串再 split 回陣列，
+  後面用 forloop.index0 取。這是 Liquid 裡唯一可靠的做法。
+{%- endcomment -%}
+{%- liquid
+  assign counts = ''
+  for b in section.blocks
+    assign want = b.settings.tag | downcase | strip
+    assign n = 0
+    if want != blank
+      for a in blog.articles limit: scan
+        for tg in a.tags
+          assign probe = tg | downcase | strip
+          if probe == want
+            assign n = n | plus: 1
+            break
+          endif
+        endfor
+      endfor
+    endif
+    assign counts = counts | append: n | append: ','
+  endfor
+  assign count_of = counts | split: ','
+
+  # 所有產品線標籤接成一串，卡片上的分類小字要靠它判斷「這個標籤算不算分類」
+  assign line_tags = ''
+  for b in section.blocks
+    assign line_tags = line_tags | append: '|' | append: b.settings.tag | downcase | strip
+  endfor
+  assign line_tags = line_tags | append: '|'
+-%}
+
+<div class="gcx">
+
+  {%- comment -%} ── ① 區域導覽 ── {%- endcomment -%}
+  <nav class="gcx__bar" data-gcx-bar aria-label="{{ s.bar_title | escape }}">
+    <div class="gcx__barIn">
+      <a class="gcx__barT" href="{{ blog.url }}">{{ s.bar_title }}</a>
+      <div class="gcx__barNav">
+        <a href="{{ blog.url }}"{% if current_tags == blank %} class="is-on"{% endif %}>{{ s.all_label }}</a>
+        {%- for b in section.blocks -%}
+          {%- liquid
+            assign n = count_of[forloop.index0] | plus: 0
+            assign tg = b.settings.tag | strip
+          -%}
+          {%- comment -%}
+            少於門檻就不顯示。**文章沒有消失**，從「全部」還是找得到，
+            只是不佔一個看起來很空的分類——按下去畫面沒變化＝壞掉。
+          {%- endcomment -%}
+          {%- if n >= s.min_articles and tg != blank -%}
+            <a href="{{ blog.url }}/tagged/{{ tg | url_encode }}"
+               data-gcx-cat="{{ forloop.index0 }}"
+               {% if current_tags contains tg %}class="is-on"{% endif %}>{{ b.settings.label | default: tg }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- comment -%}
+      滑過展開的面板。手機沒有 hover，所以窄畫面用 CSS 藏、JS 也不掛事件。
+      面板內容在這裡先全部印好（每條線一塊），JS 只負責切換顯示，
+      不用等 fetch，滑過去就出來。
+    {%- endcomment -%}
+    <div class="gcx__panel" data-gcx-panel hidden>
+      {%- for b in section.blocks -%}
+        {%- liquid
+          assign n = count_of[forloop.index0] | plus: 0
+          assign tg = b.settings.tag | strip
+        -%}
+        {%- if n >= s.min_articles and tg != blank -%}
+          <div class="gcx__panelIn" data-gcx-pane="{{ forloop.index0 }}" hidden>
+            <div class="gcx__panelSub">
+              <a href="{{ blog.url }}/tagged/{{ tg | url_encode }}"><strong>看全部這個分類</strong></a>
+              {%- assign k = 0 -%}
+              {%- for a in blog.articles limit: scan -%}
+                {%- if a.tags contains tg and k < 3 -%}
+                  {%- assign k = k | plus: 1 -%}
+                  <a href="{{ a.url }}">{{ a.title | truncate: 16 }}</a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            <div class="gcx__panelG">
+              {%- assign m = 0 -%}
+              {%- for a in blog.articles limit: scan -%}
+                {%- if a.tags contains tg and m < 4 -%}
+                  {%- assign m = m | plus: 1 -%}
+                  <a class="gcx__pCard" href="{{ a.url }}">
+                    <span class="p">
+                      {%- if a.image -%}
+                        {{ a.image | image_url: width: 400 | image_tag:
+                           loading: 'lazy', widths: '200,300,400',
+                           sizes: '200px', alt: a.image.alt | default: a.title | escape }}
+                      {%- endif -%}
+                    </span>
+                    <span class="t">{{ a.title }}</span>
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </nav>
+
+  {%- comment -%} ── ② 頁首 ── {%- endcomment -%}
+  <div class="gcx__head">
+    <div class="gcx__in">
+      <p class="gcx__crumb"><a href="{{ routes.root_url }}">首頁</a><span>›</span>{{ s.bar_title }}</p>
+      <h1 class="gcx__h1">{{ s.heading | default: s.bar_title }}</h1>
+      {%- if s.lead != blank -%}<p class="gcx__lead">{{ s.lead }}</p>{%- endif -%}
+    </div>
+  </div>
+
+  {%- comment -%}
+    ── ③ 頭條＝最新那一篇 ──
+    只有第一頁才出現。第 2 頁以後是「翻archive」的情境，再放一次頭條只會擋路。
+  {%- endcomment -%}
+  {%- assign hero = blog.articles.first -%}
+  {%- if hero and show_curated -%}
+    <div class="gcx__lead2">
+      <div class="gcx__in">
+        <a class="gcx__leadPic" href="{{ hero.url }}">
+          {%- if hero.image -%}
+            {{ hero.image | image_url: width: 2560 | image_tag:
+               loading: 'eager', fetchpriority: 'high',
+               widths: '640,960,1280,1920,2560',
+               sizes: '100vw', alt: hero.image.alt | default: hero.title | escape }}
+          {%- endif -%}
+          <span class="gcx__leadTx">
+            {%- render 'gc-kicker', a: hero, line_tags: line_tags, cls: 'gcx__k' -%}
+            <span class="gcx__leadT">{{ hero.title }}</span>
+            {%- if hero.excerpt_or_content != blank -%}
+              <span class="gcx__leadE">{{ hero.excerpt_or_content | strip_html | truncate: 90 }}</span>
+            {%- endif -%}
+            <span class="gcx__link">{{ s.read_label }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} ── ④ 精選卡片 ＋ 熱門文章側欄 ── {%- endcomment -%}
+  {%- if show_curated -%}
+    <div class="gcx__in">
+      <div class="gcx__two">
+        <div class="gcx__grid">
+          {%- for a in blog.articles offset: 1 limit: 6 -%}
+            {%- render 'gc-artcard', a: a, line_tags: line_tags -%}
+          {%- endfor -%}
+        </div>
+
+        <aside>
+          <p class="gcx__sideH">{{ s.hot_title }}</p>
+          {%- if s.hot_sub != blank -%}<p class="gcx__sideS">{{ s.hot_sub }}</p>{%- endif -%}
+          {%- liquid
+            # 後台可以指定五篇（填網址代號）。沒填就退回「最新的五篇」——
+            # 退路一定要有東西，空的側欄比沒有側欄更糟。
+            assign picks = s.hot_handles | replace: ' ', '' | replace: '，', ',' | split: ','
+          -%}
+          {%- if picks.size > 0 -%}
+            {%- for h in picks -%}
+              {%- assign a = blog.articles | where: 'handle', h | first -%}
+              {%- if a -%}{%- render 'gc-artitem', a: a, line_tags: line_tags -%}{%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for a in blog.articles offset: 7 limit: 5 -%}
+              {%- render 'gc-artitem', a: a, line_tags: line_tags -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </aside>
+      </div>
+    </div>
+
+    {%- comment -%}
+      ── ⑤ 產品線分節：一條線一段，各四篇 ──
+      同樣走門檻：不到 min_articles 的線整段不出現。
+    {%- endcomment -%}
+    {%- for b in section.blocks -%}
+      {%- liquid
+        assign n = count_of[forloop.index0] | plus: 0
+        assign tg = b.settings.tag | strip
+      -%}
+      {%- if n >= s.min_articles and tg != blank -%}
+        <div class="gcx__in">
+          <section class="gcx__sec">
+            <div class="gcx__secHd">
+              <h2 class="gcx__secT">{{ b.settings.label | default: tg }}</h2>
+              <a class="gcx__secMore" href="{{ blog.url }}/tagged/{{ tg | url_encode }}">看全部 ›</a>
+            </div>
+            <div class="gcx__grid" style="margin:0">
+              {%- assign m = 0 -%}
+              {%- for a in blog.articles limit: scan -%}
+                {%- if a.tags contains tg and m < s.per_line -%}
+                  {%- assign m = m | plus: 1 -%}
+                  {%- render 'gc-artcard', a: a, line_tags: line_tags, force_kick: b.settings.label -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </section>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- comment -%}
+    ── ⑥ 全部文章 ＋ 頁碼 ──
+    這一段是完整清單，所以會包含上面當頭條的那一篇——那是對的，它就是最新的第 1 篇。
+    用主題原生的 paginate：每一頁各自有網址（?page=2…），Google 與 AI 都收錄得到。
+    **不要換成無限捲動**——看起來現代，但爬蟲捲不動，等於把文章藏起來。
+  {%- endcomment -%}
+  {%- paginate blog.articles by s.per_page -%}
+    <div class="gcx__in">
+      <section class="gcx__sec">
+        <div class="gcx__secHd">
+          <h2 class="gcx__secT">
+            {%- if current_tags != blank -%}
+              {{ current_tags | join: '、' }}<span class="gcx__secN">{{ blog.articles_count }} 篇</span>
+            {%- else -%}{{ s.all_title }}{%- endif -%}
+          </h2>
+        </div>
+        <div class="gcx__grid" style="margin:0">
+          {%- for a in blog.articles -%}
+            {%- render 'gc-artcard', a: a, line_tags: line_tags -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="gcx__pager" aria-label="分頁">
+            {%- if paginate.previous -%}
+              <a class="gcx__pg" href="{{ paginate.previous.url }}">‹ 上一頁</a>
+            {%- else -%}
+              <span class="gcx__pg is-off">‹ 上一頁</span>
+            {%- endif -%}
+
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a class="gcx__pg" href="{{ part.url }}">{{ part.title }}</a>
+              {%- elsif part.title == paginate.current_page -%}
+                <span class="gcx__pg is-on" aria-current="page">{{ part.title }}</span>
+              {%- else -%}
+                <span class="gcx__pgGap">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if paginate.next -%}
+              <a class="gcx__pg" href="{{ paginate.next.url }}">下一頁 ›</a>
+            {%- else -%}
+              <span class="gcx__pg is-off">下一頁 ›</span>
+            {%- endif -%}
+          </nav>
+          <p class="gcx__pgN">第 {{ paginate.current_page }} 頁，共 {{ paginate.pages }} 頁 · {{ paginate.items }} 篇文章</p>
+        {%- endif -%}
+      </section>
+    </div>
+  {%- endpaginate -%}
+
+  {%- comment -%}
+    ── ⑦ 作者卡 ──
+    用站上既有那一張（文章頁底部的 ts-author-card）的樣子，不自創元件。
+  {%- endcomment -%}
+  {%- if s.show_author -%}
+    <div class="gcx__in">
+      <section class="gcx__team">
+        <h2 class="gcx__secT">{{ s.author_head }}</h2>
+        <div class="gcx__author">
+          <div class="gcx__ava">
+            {%- if s.author_img -%}
+              {{ s.author_img | image_url: width: 160 | image_tag: loading: 'lazy', alt: s.author_name | escape }}
+            {%- else -%}
+              {{ s.author_initials }}
+            {%- endif -%}
+          </div>
+          <div>
+            <p class="gcx__pName">{{ s.author_name }}</p>
+            {%- if s.author_role != blank -%}<p class="gcx__pRole">{{ s.author_role }}</p>{%- endif -%}
+            {%- if s.author_bio != blank -%}<p class="gcx__pBio">{{ s.author_bio }}</p>{%- endif -%}
+            {%- if s.author_link_text != blank and s.author_link != blank -%}
+              <a class="gcx__pLink" href="{{ s.author_link }}">{{ s.author_link_text }}
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </section>
+    </div>
+  {%- endif -%}
+
+</div>
+
+<script>
+/* gc-blog-index ── 只做一件事：滑過分類展開面板。
+   <script src> 每個標籤各執行一次，所以用旗標擋住重複初始化。 */
+(function () {
+  if (window.__gcxInit) return;
+  window.__gcxInit = true;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.querySelector('[data-gcx-bar]');
+    if (!bar) return;
+    var panel = bar.querySelector('[data-gcx-panel]');
+    if (!panel) return;
+
+    /* 手機沒有 hover，整組不掛——掛了只會變成點一下先開面板不跳頁 */
+    if (!window.matchMedia('(hover:hover) and (min-width:901px)').matches) return;
+
+    var links = bar.querySelectorAll('[data-gcx-cat]');
+    var panes = panel.querySelectorAll('[data-gcx-pane]');
+    var openT = null, closeT = null;
+
+    function show(i) {
+      panel.hidden = false;
+      for (var k = 0; k < panes.length; k++) panes[k].hidden = (panes[k].dataset.gcxPane !== i);
+      for (var j = 0; j < links.length; j++) links[j].classList.toggle('is-open', links[j].dataset.gcxCat === i);
+      panel.classList.add('is-show');
+    }
+    function hide() {
+      panel.classList.remove('is-show');
+      for (var j = 0; j < links.length; j++) links[j].classList.remove('is-open');
+    }
+    function scheduleClose() {
+      clearTimeout(openT);
+      /* 從 bar 移到面板中間有一小段空隙，立刻關會關在滑鼠半路上 */
+      closeT = setTimeout(hide, 220);
+    }
+
+    for (var i = 0; i < links.length; i++) {
+      (function (link) {
+        link.addEventListener('mouseenter', function () {
+          clearTimeout(closeT); clearTimeout(openT);
+          /* 主選單本來就有下拉，滑鼠往下移動會「經過」這條 bar——
+             等 180ms 再開，路過的人不會誤觸發，真的想看的人會停留。 */
+          openT = setTimeout(function () { show(link.dataset.gcxCat); }, 180);
+        });
+        link.addEventListener('mouseleave', scheduleClose);
+        link.addEventListener('focus', function () { show(link.dataset.gcxCat); });
+      })(links[i]);
+    }
+    panel.addEventListener('mouseenter', function () { clearTimeout(closeT); });
+    panel.addEventListener('mouseleave', scheduleClose);
+    bar.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "部落格首頁",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "頁面文字" },
+    { "type": "text", "id": "bar_title", "label": "導覽列標題", "default": "選購筆記" },
+    { "type": "text", "id": "heading", "label": "頁面大標（留空＝用導覽列標題）" },
+    { "type": "textarea", "id": "lead", "label": "頁面說明",
+      "default": "充電、支架、寵物家電的選購與使用指南。規格與數據來自實際送測報告與售後服務紀錄。" },
+    { "type": "text", "id": "all_label", "label": "「全部」按鈕文字", "default": "全部" },
+    { "type": "text", "id": "read_label", "label": "頭條的行動文字", "default": "繼續閱讀" },
+
+    { "type": "header", "content": "分類規則" },
+    { "type": "range", "id": "min_articles", "label": "少於幾篇就不顯示這條分類",
+      "min": 1, "max": 10, "step": 1, "default": 3,
+      "info": "文章不會消失，從「全部」還是找得到。補標籤補到這個數字，那條線自己會出現。" },
+    { "type": "range", "id": "per_line", "label": "每條產品線顯示幾篇",
+      "min": 2, "max": 8, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "全部文章" },
+    { "type": "text", "id": "all_title", "label": "區塊標題", "default": "全部文章" },
+    { "type": "range", "id": "per_page", "label": "一頁幾篇",
+      "min": 6, "max": 24, "step": 2, "default": 12 },
+
+    { "type": "header", "content": "熱門文章（側欄）" },
+    { "type": "text", "id": "hot_title", "label": "標題", "default": "熱門文章" },
+    { "type": "text", "id": "hot_sub", "label": "副標", "default": "我們自己最常被問到的五篇。" },
+    { "type": "textarea", "id": "hot_handles", "label": "指定五篇（文章網址代號，用逗號分開）",
+      "info": "例：solid-state-power-bank, gc-tag-faq。留空＝自動用最新的五篇。" },
+
+    { "type": "header", "content": "作者卡" },
+    { "type": "checkbox", "id": "show_author", "label": "顯示作者卡", "default": true },
+    { "type": "text", "id": "author_head", "label": "區塊標題", "default": "誰寫的" },
+    { "type": "image_picker", "id": "author_img", "label": "頭像（留空＝用文字縮寫）" },
+    { "type": "text", "id": "author_initials", "label": "文字縮寫", "default": "GC" },
+    { "type": "text", "id": "author_name", "label": "名稱", "default": "grantclassic 產品團隊" },
+    { "type": "text", "id": "author_role", "label": "身分",
+      "default": "自有品牌選品與檢測 · SGS 送測 · 在地保固服務" },
+    { "type": "textarea", "id": "author_bio", "label": "介紹",
+      "default": "我們是特經典的產品團隊：文章裡的規格與數據來自實際送測報告與售後服務紀錄，內容如有更新會標註日期。" },
+    { "type": "text", "id": "author_link_text", "label": "連結文字", "default": "認識我們的團隊與檢測紀錄" },
+    { "type": "url", "id": "author_link", "label": "連結網址" }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "產品線",
+      "settings": [
+        { "type": "text", "id": "label", "label": "顯示名稱" },
+        { "type": "text", "id": "tag", "label": "對應的文章標籤",
+          "info": "要跟 Shopify 文章上的標籤一字不差。標籤不放斜線（會變成網址的一部分）。" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "部落格首頁",
+      "blocks": [
+        { "type": "line", "settings": { "label": "固態行動電源", "tag": "固態行動電源" } },
+        { "type": "line", "settings": { "label": "充電器與充電線", "tag": "充電器與充電線" } },
+        { "type": "line", "settings": { "label": "手機與機車支架", "tag": "手機與機車支架" } },
+        { "type": "line", "settings": { "label": "寵物追蹤器", "tag": "寵物追蹤器" } },
+        { "type": "line", "settings": { "label": "寵物照護", "tag": "寵物照護" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

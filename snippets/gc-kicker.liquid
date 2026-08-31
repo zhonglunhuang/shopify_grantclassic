@@ -1,0 +1,24 @@
+{%- comment -%}
+  gc-kicker ── 卡片上那一行分類小字。
+
+  **只認產品線標籤。** 文章上還有「開箱心得」「媒體曝光」這種標籤，
+  那些講的是別件事，不是分類——印上去會讓同一排卡片看起來各講各的。
+  對不到就**輸出空的**，不要拿部落格名稱充數
+  （這個部落格叫「有它顧著」，是品牌標語，印在卡片上當分類完全沒有意義）。
+  空的那一行由 CSS 的 min-height 撐住，卡片一樣對得齊。
+
+  參數：a（文章）、line_tags（`|線1|線2|` 這種字串）、cls（class 名）、force（指定文字）
+{%- endcomment -%}
+{%- liquid
+  assign kick = force
+  if kick == blank
+    for tg in a.tags
+      assign probe = '|' | append: tg | downcase | strip | append: '|'
+      if line_tags contains probe
+        assign kick = tg
+        break
+      endif
+    endfor
+  endif
+-%}
+<span class="{{ cls | default: 'gcx__cardK' }}">{{ kick }}</span>

@@ -1,0 +1,17 @@
+{%- comment -%}
+  gc-artcard ── 文章卡（圖沒有圓角、字在下面）。
+  參數：a（文章）、line_tags、force_kick（分類分節裡直接指定那條線的名稱）
+{%- endcomment -%}
+<a class="gcx__card" href="{{ a.url }}">
+  <span class="gcx__cardPic">
+    {%- if a.image -%}
+      {{ a.image | image_url: width: 960 | image_tag:
+         loading: 'lazy', widths: '320,480,640,960',
+         sizes: '(max-width:900px) 90vw, (min-width:1600px) 340px, 300px',
+         alt: a.image.alt | default: a.title | escape }}
+    {%- endif -%}
+  </span>
+  {%- render 'gc-kicker', a: a, line_tags: line_tags, cls: 'gcx__cardK', force: force_kick -%}
+  <p class="gcx__cardT">{{ a.title }}</p>
+  <p class="gcx__cardD">{{ a.published_at | date: '%Y年%-m月%-d日' }}</p>
+</a>
