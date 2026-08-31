@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "blog-post-banner": {
+    "banner": {
       "type": "blog-post-banner",
       "settings": {
         "show_category": true,
@@ -18,36 +18,101 @@
       }
     },
     "main": {
-      "type": "main-article",
+      "type": "gc-post",
       "settings": {
-        "show_on_scroll_navigation": true,
-        "show_author": true,
+        "show_toc": true,
+        "toc_title": "本頁內容",
+        "show_progress": true,
+        "show_crumb": false,
+        "show_cover": false,
+        "show_title": false,
         "show_date": true,
-        "show_share_buttons": false
-      }
-    },
-    "blog-post-prev-next": {
-      "type": "blog-post-prev-next",
-      "settings": {}
-    },
-    "blog-post-comments": {
-      "type": "blog-post-comments",
-      "settings": {
-        "show_gravatar": true
-      }
+        "show_author": true,
+        "show_time": true,
+        "product_after": 2,
+        "product_cta": "看商品",
+        "author_name": "grantclassic 產品團隊"
+      },
+      "blocks": {
+        "power": {
+          "type": "line",
+          "settings": {
+            "tags": "TITANSHIELD 固態行動電源, 固態行動電源, 行動電源, 電池安全, 熱失控, 行動電源膨脹會爆炸嗎, 充電",
+            "collection": "titanshield-solid-state-power-bank",
+            "cta_title": "還在挑行動電源？",
+            "cta_text": "TITANSHIELD 全系列通過 BSMI 認證，官網購買享二年保固。",
+            "cta_label": "看全系列",
+            "product": "titanshield_10000",
+            "product_desc": "固態電池、25W 無線快充，內建溫度顯示"
+          }
+        },
+        "mount": {
+          "type": "line",
+          "settings": {
+            "tags": "手機支架, 機車手機支架, 八力架 octastand 機車手機架, 汽機車周邊",
+            "collection": "機車手機支架",
+            "cta_title": "在找穩固不晃的手機架？",
+            "cta_text": "八力架、四力架全系列，通過實車震動測試，官網購買享保固。",
+            "cta_label": "看全系列",
+            "product": "octastand",
+            "product_desc": "八爪夾持、免工具安裝，穩到過彎也不晃"
+          }
+        },
+        "pet": {
+          "type": "line",
+          "settings": {
+            "tags": "寵物智能家電, 全自動貓砂機, 寵物空氣清淨機, 寵物衛生, 寵物追蹤器, 狗狗照護, 自動餵食器, 飼料桶, 貓",
+            "collection": "2024-特經典嚴選-寵物系列產品",
+            "cta_title": "想讓照顧毛小孩輕鬆一點？",
+            "cta_text": "餵食、飲水、清潔、空氣，一整套智能寵物家電。",
+            "cta_label": "看全系列",
+            "product": "aqualux-03",
+            "product_desc": "飲水機＋餵食器＋烘乾箱，一次到位"
+          }
+        }
+      },
+      "block_order": [
+        "power",
+        "mount",
+        "pet"
+      ]
     },
     "ts-author": {
       "type": "ts-author-card",
       "settings": {
         "author_page": "author"
       }
+    },
+    "comments": {
+      "type": "blog-post-comments",
+      "settings": {
+        "show_gravatar": true
+      }
+    },
+    "related": {
+      "type": "gc-related",
+      "settings": {
+        "heading": "繼續閱讀",
+        "count": 8,
+        "show_arrows": true,
+        "more_label": "看更多",
+        "skip_tags": "有它顧著",
+        "gap": 24,
+        "gap_mobile": 16,
+        "head_size": 32,
+        "head_size_mobile": 22,
+        "pad_top": 24,
+        "pad_bottom": 80,
+        "pad_top_m": 16,
+        "pad_bottom_m": 56
+      }
     }
   },
   "order": [
-    "blog-post-banner",
+    "banner",
     "main",
     "ts-author",
-    "blog-post-prev-next",
-    "blog-post-comments"
+    "related",
+    "comments"
   ]
 }
