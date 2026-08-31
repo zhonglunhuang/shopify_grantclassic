@@ -1,0 +1,34 @@
+{%- comment -%}
+  gc-related-card ── 一張文章卡（2026-08-30）
+
+  抽成 snippet 是因為 gc-related 要跑兩輪（同標籤優先、再用最新的補滿），
+  同一段標記會出現兩次——寫兩份遲早會改一邊忘一邊。
+
+  參數：a＝文章、bl＝部落格、skip＝不要當分類的標籤（逗號分隔）
+{%- endcomment -%}
+{%- liquid
+  # 分類：用文章的標籤，但要濾掉品牌標語那類不是分類的字。
+  # 沒有可用標籤就留空——**不可以拿部落格名稱充數**，
+  # 這個部落格叫「有它顧著」，印在卡片上當分類毫無意義。
+  assign kick = blank
+  assign drop = skip | downcase
+  for tg in a.tags
+    assign probe = tg | downcase
+    unless drop contains probe
+      assign kick = tg
+      break
+    endunless
+  endfor
+-%}
+<a class="gc-feat__card" href="{{ a.url }}">
+  <span class="gc-feat__thumb">
+    {%- if a.image -%}
+      {{ a.image | image_url: width: 640 | image_tag:
+         loading: 'lazy', widths: '320,480,640,960',
+         sizes: '(max-width:749px) 45vw, 23vw',
+         alt: a.image.alt | default: a.title | escape }}
+    {%- endif -%}
+  </span>
+  <p class="gc-feat__k">{{ kick }}</p>
+  <p class="gc-feat__ttl">{{ a.title }}</p>
+</a>

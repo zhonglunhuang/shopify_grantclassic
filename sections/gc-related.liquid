@@ -1,0 +1,259 @@
+{%- comment -%}
+  gc-related ── 文章頁底部「繼續閱讀」（2026-08-30）
+
+  取代主題原本的 `blog-post-prev-next`（只有上一篇／下一篇兩張、置中窄框）。
+  Mars 指定改成首頁那種橫向卡片，而且要出血到畫面最右邊。
+
+  挑文章的順序：
+    ① 先挑「跟這篇有共同標籤」的（同一條產品線，最相關）
+    ② 不夠再用最新的補滿
+  兩輪都跳過自己。標籤是文章本來就有的，不用額外維護對照表。
+
+  要還原：把範本裡這一段換回 blog-post-prev-next 即可。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign n = s.count
+  if blog.articles_count < 2
+    assign n = 0
+  endif
+-%}
+
+{%- if n > 0 -%}
+  {{ 'gc-blog.css' | asset_url | stylesheet_tag }}
+
+  <section class="gc-feat gc-feat--bleed"
+           style="--gcf-gap0:{{ s.gap }}px;--gcf-gap0-m:{{ s.gap_mobile }}px;--gcf-t:{{ s.head_size }}px;--gcf-t-m:{{ s.head_size_mobile }}px;--gcf-pt:{{ s.pad_top }}px;--gcf-pb:{{ s.pad_bottom }}px;--gcf-pt-m:{{ s.pad_top_m }}px;--gcf-pb-m:{{ s.pad_bottom_m }}px;">
+    <div class="gc-feat__in">
+
+      <div class="gc-feat__hd">
+        <h2 class="gc-feat__t">{{ s.heading }}</h2>
+        <span class="gc-feat__act">
+          {%- if s.more_label != blank -%}
+            <a class="gc-feat__more" href="{{ blog.url }}">
+              {{ s.more_label }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if s.show_arrows -%}
+            <span class="gc-feat__arrows" data-gcf-arrows>
+              <button type="button" data-gcf-dir="-1" aria-label="上一批文章">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button type="button" data-gcf-dir="1" aria-label="下一批文章">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </span>
+          {%- endif -%}
+        </span>
+      </div>
+
+      <div class="gc-feat__rail" data-gcf-rail>
+        {%- liquid
+          # 用一個字串記已經放過的 handle，避免第二輪重複放到第一輪的文章。
+          # 前後各加逗號，比對時才不會把 "abc" 誤判成 "abc-def" 的一部分。
+          assign used = ','
+          assign count = 0
+        -%}
+
+        {%- comment -%}① 同標籤優先{%- endcomment -%}
+        {%- for a in blog.articles -%}
+          {%- if count >= n -%}{%- break -%}{%- endif -%}
+          {%- unless a.handle == article.handle -%}
+            {%- assign hit = false -%}
+            {%- for tg in a.tags -%}
+              {%- if article.tags contains tg -%}{%- assign hit = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if hit -%}
+              {%- render 'gc-related-card', a: a, bl: blog, skip: s.skip_tags -%}
+              {%- assign used = used | append: a.handle | append: ',' -%}
+              {%- assign count = count | plus: 1 -%}
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
+
+        {%- comment -%}② 不夠就用最新的補滿{%- endcomment -%}
+        {%- for a in blog.articles -%}
+          {%- if count >= n -%}{%- break -%}{%- endif -%}
+          {%- assign probe = ',' | append: a.handle | append: ',' -%}
+          {%- unless a.handle == article.handle or used contains probe -%}
+            {%- render 'gc-related-card', a: a, bl: blog, skip: s.skip_tags -%}
+            {%- assign count = count | plus: 1 -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+  /* 跟首頁那段共用同一套行為：左右箭頭捲一張卡、到底自動變灰。
+     這裡各自初始化一次——首頁與文章頁不會同時存在，不必共用程式。 */
+  (function () {
+    var root = document.currentScript && document.currentScript.previousElementSibling;
+    if (!root || !root.classList || !root.classList.contains('gc-feat')) return;
+    if (root.dataset.gcfInit) return;
+    root.dataset.gcfInit = '1';
+    var rail = root.querySelector('[data-gcf-rail]');
+    var box  = root.querySelector('[data-gcf-arrows]');
+    if (!rail) return;
+    function step(dir) {
+      var card = rail.querySelector('.gc-feat__card');
+      if (!card) return;
+      var gap = parseFloat(getComputedStyle(rail).gap) || 24;
+      rail.scrollBy({ left: (card.getBoundingClientRect().width + gap) * dir, behavior: 'smooth' });
+    }
+    function sync() {
+      if (!box) return;
+      var max = rail.scrollWidth - rail.clientWidth;
+      box.querySelector('[data-gcf-dir="-1"]').disabled = rail.scrollLeft <= 2;
+      box.querySelector('[data-gcf-dir="1"]').disabled  = rail.scrollLeft >= max - 2;
+    }
+    if (box) box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-gcf-dir]');
+      if (b) step(Number(b.dataset.gcfDir));
+    });
+    rail.addEventListener('scroll', sync, { passive: true });
+    sync();
+    addEventListener('resize', sync);
+  })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "繼續閱讀",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "標題",
+      "default": "繼續閱讀"
+    },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "顯示幾篇",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "info": "同一條產品線（有共同標籤）的優先，不夠再用最新的補滿。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "顯示左右箭頭（電腦版）",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "看更多的文字",
+      "default": "看更多",
+      "info": "連到部落格首頁。留空就不顯示。"
+    },
+    {
+      "type": "text",
+      "id": "skip_tags",
+      "label": "不要當分類的標籤",
+      "default": "有它顧著",
+      "info": "卡片上那行小字用文章的標籤。品牌標語之類不是分類的字寫在這裡就會跳過。多個用逗號隔開。"
+    },
+    {
+      "type": "header",
+      "content": "間距"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "卡片間距（電腦）",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "卡片間距（手機）",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "head_size",
+      "label": "段落標題字級（電腦）",
+      "min": 24,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 32,
+      "info": "首頁其他段落的標題是 40，要跟它們一致就設 40；文章頁裡設 32 比較不會壓過內文。"
+    },
+    {
+      "type": "range",
+      "id": "head_size_mobile",
+      "label": "段落標題字級（手機）",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "pad_top",
+      "label": "上方留白（電腦）",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom",
+      "label": "下方留白（電腦）",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "pad_top_m",
+      "label": "上方留白（手機）",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom_m",
+      "label": "下方留白（手機）",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "繼續閱讀"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,281 @@
+{%- comment -%}
+  gc-featured ── 首頁「編輯精選文章」（2026-08-30）
+
+  Mars 拍板「四欄緊湊」，而且「四欄要能一直往後延伸（6 或 7 個）」。
+  所以是橫向捲軸：看得到四張，往右滑看後面的；第五張露出一角當訊號。
+
+  文章從哪來：後台選一個部落格，這裡自動抓最新的 N 篇。
+  不需要一篇一篇建區塊——寫了新文章首頁自己會換。
+
+  要還原：把首頁的這個區塊刪掉，再刪 sections/gc-featured.liquid 與 assets/gc-blog.css。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign bl = blogs[s.blog]
+  assign n = s.count
+  # 沒指到部落格就整段不出現，不要留一個空殼在首頁上
+  if bl == blank or bl.articles_count == 0
+    assign n = 0
+  endif
+-%}
+
+{%- if n > 0 -%}
+  {{ 'gc-blog.css' | asset_url | stylesheet_tag }}
+
+  <section class="gc-feat" style="--gcf-gap0:{{ s.gap }}px;--gcf-gap0-m:{{ s.gap_mobile }}px;--gcf-t:{{ s.head_size }}px;--gcf-t-m:{{ s.head_size_mobile }}px;--gcf-pt:{{ s.pad_top }}px;--gcf-pb:{{ s.pad_bottom }}px;--gcf-pt-m:{{ s.pad_top_m }}px;--gcf-pb-m:{{ s.pad_bottom_m }}px;">
+    <div class="gc-feat__in">
+
+      <div class="gc-feat__hd">
+        <h2 class="gc-feat__t">{{ s.heading }}</h2>
+        <span class="gc-feat__act">
+          {%- if s.more_label != blank -%}
+            <a class="gc-feat__more" href="{{ s.more_url | default: bl.url }}">
+              {{ s.more_label }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if s.show_arrows -%}
+            <span class="gc-feat__arrows" data-gcf-arrows>
+              <button type="button" data-gcf-dir="-1" aria-label="上一批文章">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button type="button" data-gcf-dir="1" aria-label="下一批文章">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </span>
+          {%- endif -%}
+        </span>
+      </div>
+
+      <div class="gc-feat__rail" data-gcf-rail>
+        {%- for a in bl.articles limit: n -%}
+          {%- liquid
+            # 分類：用文章的標籤。但「第一個標籤」是照字母排的、等於隨機，
+            # 而且標籤裡混著品牌標語（「有它顧著」）——那不是分類。
+            # 所以先濾掉排除名單，濾完沒有才退回部落格名稱。
+            # 不要留空——空的那一行會讓卡片高度跟別人差一截。
+            assign kick = blank
+            assign skip = s.skip_tags | downcase
+            for tg in a.tags
+              assign probe = tg | downcase
+              unless skip contains probe
+                assign kick = tg
+                break
+              endunless
+            endfor
+            # 沒有可用的標籤就**留空**，不要拿部落格名稱充數——
+            # 這個部落格叫「有它顧著」（品牌標語），印在卡片上當分類完全沒有意義。
+            # 空的那一行由 CSS 撐住高度，卡片一樣對得齊。
+          -%}
+          <a class="gc-feat__card" href="{{ a.url }}">
+            <span class="gc-feat__thumb">
+              {%- if a.image -%}
+                {{ a.image | image_url: width: 640 | image_tag:
+                   loading: 'lazy', widths: '320,480,640,960',
+                   sizes: '(max-width:749px) 45vw, 23vw',
+                   alt: a.image.alt | default: a.title | escape }}
+              {%- endif -%}
+            </span>
+            <p class="gc-feat__k">{{ kick }}</p>
+            <p class="gc-feat__ttl">{{ a.title }}</p>
+          </a>
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+  /* 左右箭頭：捲一張卡＋一個間距。
+     用事件委派掛在 section 上——主題編輯器改設定會重畫這一段，
+     直接掛在按鈕上的監聽會跟著沒了。 */
+  (function(){
+    var root = document.currentScript && document.currentScript.previousElementSibling;
+    if (!root || !root.classList || !root.classList.contains('gc-feat')) {
+      root = document.querySelector('.gc-feat');
+    }
+    if (!root || root.dataset.gcfInit) return;
+    root.dataset.gcfInit = '1';
+    var rail = root.querySelector('[data-gcf-rail]');
+    var box  = root.querySelector('[data-gcf-arrows]');
+    if (!rail) return;
+
+    function step(dir){
+      var card = rail.querySelector('.gc-feat__card');
+      if (!card) return;
+      var gap = parseFloat(getComputedStyle(rail).gap) || 24;
+      rail.scrollBy({ left: (card.getBoundingClientRect().width + gap) * dir, behavior:'smooth' });
+    }
+    function sync(){
+      if (!box) return;
+      var max = rail.scrollWidth - rail.clientWidth;
+      box.querySelector('[data-gcf-dir="-1"]').disabled = rail.scrollLeft <= 2;
+      box.querySelector('[data-gcf-dir="1"]').disabled  = rail.scrollLeft >= max - 2;
+    }
+    if (box) box.addEventListener('click', function(e){
+      var b = e.target.closest('[data-gcf-dir]');
+      if (b) step(Number(b.dataset.gcfDir));
+    });
+    rail.addEventListener('scroll', sync, { passive:true });
+    sync();
+    addEventListener('resize', sync);
+  })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "精選文章",
+  "tag": "section",
+  "class": "gc-feat-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "標題",
+      "default": "編輯精選文章"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "從哪個部落格抓文章",
+      "info": "抓最新的幾篇，寫了新文章首頁自己會換，不用回來改。"
+    },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "顯示幾篇",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "info": "一次看得到四篇，其餘往右滑。放 6～8 篇最剛好——太多滑不完，讀者也不會滑到底。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "顯示左右箭頭（電腦版）",
+      "default": true,
+      "info": "手機不顯示，用手指滑就好。"
+    },
+    {
+      "type": "text",
+      "id": "skip_tags",
+      "label": "不要當分類的標籤",
+      "default": "有它顧著",
+      "info": "卡片上那行小字用文章的標籤。標籤裡混著品牌標語之類不是分類的字，寫在這裡就會跳過、改用下一個標籤。多個用逗號隔開。"
+    },
+    {
+      "type": "header",
+      "content": "看更多"
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "按鈕文字",
+      "default": "看更多",
+      "info": "留空就不顯示這顆。"
+    },
+    {
+      "type": "url",
+      "id": "more_url",
+      "label": "連到哪裡",
+      "info": "留空就連到上面選的那個部落格首頁。"
+    },
+    {
+      "type": "header",
+      "content": "間距"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "卡片間距（電腦）",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "卡片間距（手機）",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "head_size",
+      "label": "段落標題字級（電腦）",
+      "min": 24,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 32,
+      "info": "首頁其他段落的標題是 40，要跟它們一致就設 40；文章頁裡設 32 比較不會壓過內文。"
+    },
+    {
+      "type": "range",
+      "id": "head_size_mobile",
+      "label": "段落標題字級（手機）",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "pad_top",
+      "label": "上方留白（電腦）",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom",
+      "label": "下方留白（電腦）",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "pad_top_m",
+      "label": "上方留白（手機）",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pad_bottom_m",
+      "label": "下方留白（手機）",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "精選文章"
+    }
+  ]
+}
+{% endschema %}

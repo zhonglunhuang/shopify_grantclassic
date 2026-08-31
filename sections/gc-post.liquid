@@ -1,0 +1,407 @@
+{%- comment -%}
+  gc-post ── 文章頁（2026-08-30）
+
+  Mars 拍板：右側固定目錄、重點框四種（A 結論／F 注意／G 提示／J 步驟）、十個元件全上。
+
+  ── 寫文章的人要做什麼 ──
+  目錄、麵包屑、進度條、表格樣式、FAQ 手風琴、商品卡、文末 CTA
+  **全部自動**，照平常打字就好：
+    ・目錄自己從你打的「標題 2 / 標題 3」長出來
+    ・想做 FAQ，就開一個叫「常見問題」的標題 2，底下每個問題用標題 3
+    ・表格照插，樣式與窄畫面的橫向捲軸都自動處理
+  只有「重點框」要在編輯器的「＜＞」原始碼模式貼一小段，格式見下方設定說明。
+
+  ── 這一段換掉了誰 ──
+  預設的文章頁是 `main-article`（加 banner、上下篇、留言）。
+  這裡不改主題原檔，是另外做一個範本 `article.gc-post`，
+  Mars 到後台把文章的「範本」切過去才會生效，切回去就完全還原。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign words = article.content | strip_html | size
+  # 中文閱讀速度抓一分鐘 400 字；不足一分鐘就寫 1，不要出現「0 分鐘」
+  assign mins = words | divided_by: 400
+  if mins < 1
+    assign mins = 1
+  endif
+  # ── 依文章的標籤挑對應的產品線（Mars 2026-08-30 拍板做法二）──
+  # 一個範本共用給 75 篇文章，但「還在挑行動電源？」貼到寵物文章上就完全不對。
+  # 所以在後台建幾個區塊，每個區塊寫「這些標籤 → 這個分類／這支商品／這段文案」，
+  # 文章自己會對號入座。標籤是文章本來就有的，不用另外維護。
+  #
+  # 比對用逗號把兩邊都包起來再比，不然「充電」會誤中「無線充電」。
+  # 全形逗號也一起吃掉——後台打字很容易打成全形。
+  assign pick = blank
+  for b in section.blocks
+    assign want = b.settings.tags | downcase | replace: '，', ',' | replace: ', ', ',' | replace: ' ,', ','
+    assign want = ',' | append: want | append: ','
+    assign hit = false
+    for tg in article.tags
+      assign probe = ',' | append: tg | downcase | append: ','
+      if want contains probe
+        assign hit = true
+        break
+      endif
+    endfor
+    if hit
+      assign pick = b
+      break
+    endif
+  endfor
+
+  # 對到就用區塊的，沒對到就退回這個段落自己的設定。
+  # pick 是空字串時 pick.settings.xxx 會是 nil，default 就會接手。
+  assign cta_title = pick.settings.cta_title | default: s.cta_title
+  assign cta_text  = pick.settings.cta_text  | default: s.cta_text
+  assign cta_label = pick.settings.cta_label | default: s.cta_label
+  assign cta_url   = pick.settings.collection.url | default: s.cta_url
+  assign prod_desc = pick.settings.product_desc | default: s.product_desc
+  assign prod_h    = pick.settings.product | default: s.product
+  assign pc = all_products[prod_h]
+-%}
+
+{{ 'gc-post.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'gc-post.js' | asset_url }}" defer></script>
+
+<article class="gc-post">
+  {%- if s.show_progress -%}
+    <div class="gc-post__prog"><i data-gcp-bar></i></div>
+  {%- endif -%}
+
+  <div class="gc-post__in">
+
+    {%- if s.show_crumb -%}
+      <nav class="gc-post__crumb" aria-label="麵包屑">
+        <a href="{{ routes.root_url }}">首頁</a><span>/</span>
+        <a href="{{ blog.url }}">{{ blog.title }}</a><span>/</span>
+        {{ article.title }}
+      </nav>
+    {%- endif -%}
+
+    <div class="gc-post__grid">
+      <div class="gc-post__main">
+
+        <header class="gc-post__hd">
+          {%- comment -%}
+            上面掛原本的大 banner 時要把這個標題關掉——banner 自己有 h1，
+            兩個 h1 不只畫面重複，SEO 上也是錯的。
+          {%- endcomment -%}
+          {%- if s.show_title -%}<h1 class="gc-post__t">{{ article.title }}</h1>{%- endif -%}
+          <p class="gc-post__meta">
+            {%- if s.show_date -%}{{ article.published_at | date: '%Y 年 %-m 月 %-d 日' }}{%- endif -%}
+            {%- comment -%}
+              後台的 article.author 是 Shopify 帳號名（現在是「grantclassic」），
+              跟結構化資料寫的「grantclassic 產品團隊」對不上。
+              兩邊不一致會削弱 E-E-A-T——Google 比對得到。填了就以這裡為準。
+            {%- endcomment -%}
+            {%- assign who = s.author_name | default: article.author -%}
+            {%- if s.show_author and who != blank -%}　·　{{ who }}{%- endif -%}
+            {%- if s.show_time -%}　·　閱讀約 {{ mins }} 分鐘{%- endif -%}
+          </p>
+        </header>
+
+        {%- if s.show_cover and article.image -%}
+          <div class="gc-post__cover">
+            {{ article.image | image_url: width: 1400 | image_tag:
+               widths: '668,1000,1400', sizes: '(max-width:749px) 92vw, 668px',
+               alt: article.image.alt | default: article.title | escape }}
+          </div>
+        {%- endif -%}
+
+        <div class="gc-post__body" data-gcp-body>
+          {{ article.content }}
+        </div>
+
+        {%- comment -%}
+          文中商品卡：★ 現在文章與商品是雙向 0 連結。
+          後台選一支商品，JS 會把它搬到第 N 個章節後面（設定在下面）。
+          沒選商品就整張不出現。
+        {%- endcomment -%}
+        {%- if pc != blank -%}
+          <a class="gc-post__pcard" href="{{ pc.url }}"
+             data-gcp-card data-gcp-after="{{ s.product_after }}">
+            {%- if pc.featured_image -%}
+              {{ pc.featured_image | image_url: width: 192 | image_tag:
+                 loading: 'lazy', alt: pc.title | escape }}
+            {%- endif -%}
+            <span class="gc-post__pcard__x">
+              <span class="gc-post__pcard__n">{{ pc.title }}</span>
+              {%- comment -%}
+                比稿是「名稱＋一句描述」，不是價格——描述講得出「為什麼是這支」，
+                價格講不出。後台沒填就自動取商品說明的第一句。
+              {%- endcomment -%}
+              {%- assign blurb = prod_desc | default: pc.description | strip_html | strip | truncate: 46 -%}
+              {%- if blurb != blank -%}
+                <span class="gc-post__pcard__d">{{ blurb }}</span>
+              {%- endif -%}
+            </span>
+            <span class="gc-post__pcard__go">
+              {{ s.product_cta | default: '看商品' }}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        {%- endif -%}
+
+        {%- if cta_title != blank -%}
+          <aside class="gc-post__cta">
+            <h2>{{ cta_title }}</h2>
+            {%- if cta_text != blank -%}<p>{{ cta_text }}</p>{%- endif -%}
+            {%- if cta_label != blank and cta_url != blank -%}
+              {%- comment -%}
+                **不要用 routes.all_products_collection_url 當退路。**
+                那是「全部商品」，包含寵物用品與手機支架——對任何一篇文章都不會是對的答案，
+                但它看起來像有效連結，所以不會有人發現壞掉。
+                沒填就整顆按鈕不出現，缺就要看得出來缺。
+              {%- endcomment -%}
+              <a href="{{ cta_url }}">
+                {{ cta_label }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+              </a>
+            {%- endif -%}
+          </aside>
+        {%- endif -%}
+
+      </div>
+
+      {%- if s.show_toc -%}
+        <aside class="gc-post__side">
+          {%- comment -%}
+            目錄先藏著，JS 找到兩個以上的章節才顯示——
+            只有一條連結的目錄是噪音，不是導覽。
+          {%- endcomment -%}
+          <nav class="gc-post__toc" data-gcp-toc hidden aria-label="本頁目錄">
+            <h2>{{ s.toc_title | default: '本頁內容' }}</h2>
+          </nav>
+        </aside>
+      {%- endif -%}
+    </div>
+
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "文章內容",
+  "settings": [
+    {
+      "type": "header",
+      "content": "版面"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_toc",
+      "label": "右側顯示目錄",
+      "default": true,
+      "info": "自動從你打的「標題 2 / 標題 3」長出來，不用自己維護。畫面窄於 1100 會自動收起來。"
+    },
+    {
+      "type": "text",
+      "id": "toc_title",
+      "label": "目錄的標題",
+      "default": "本頁內容"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress",
+      "label": "顯示閱讀進度條",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_crumb",
+      "label": "顯示麵包屑",
+      "default": true,
+      "info": "首頁 / 部落格 / 這篇。商品頁本來就有，文章頁補上就一致了。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cover",
+      "label": "顯示封面圖",
+      "default": true,
+      "info": "上面有掛「文章大圖」那個區塊的話要關掉，不然圖會出現兩次。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "顯示文章標題",
+      "default": true,
+      "info": "上面有掛「文章大圖」那個區塊的話要關掉——那個區塊自己有標題，兩個標題不只重複，Google 也會判定錯誤。"
+    },
+    {
+      "type": "header",
+      "content": "文章資訊"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "顯示日期",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "顯示作者",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "作者顯示名稱",
+      "info": "留空就用後台文章的作者欄（現在是帳號名「grantclassic」）。建議填「grantclassic 產品團隊」——跟文章尾的作者卡與結構化資料寫的一致，Google 對得起來。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_time",
+      "label": "顯示閱讀時間",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "文中商品卡"
+    },
+    {
+      "type": "paragraph",
+      "content": "★ 目前文章與商品是雙向 0 連結——部落格單篇 868 點擊是全站第 3 名，卻一個商品連結都沒有。這張卡就是把流量接到商品頁。"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "這篇文章配哪支商品",
+      "info": "沒對到任何產品線時才用這一支。一般情況請用下面的「產品線對照」。"
+    },
+    {
+      "type": "range",
+      "id": "product_after",
+      "label": "插在第幾個章節之後",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 2,
+      "info": "章節不夠多的話會自動放在文章最後面。"
+    },
+    {
+      "type": "text",
+      "id": "product_desc",
+      "label": "卡片上的一句描述",
+      "info": "講「為什麼這篇文章要提這支」，例如「固態電池、25W 無線快充，內建溫度顯示」。留空就自動取商品說明的第一句。"
+    },
+    {
+      "type": "text",
+      "id": "product_cta",
+      "label": "按鈕文字",
+      "default": "看商品"
+    },
+    {
+      "type": "header",
+      "content": "文末 CTA（沒對到產品線時才用）"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "標題",
+      "info": "**留空是刻意的。**文章沒對到任何產品線時就不會出現 CTA——寧可看得出來缺，也不要在寵物文章上掛「還在挑行動電源？」。要補就去幫那篇文章加標籤。"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "說明"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "按鈕文字"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "按鈕連到哪裡",
+      "info": "留空的話整顆按鈕不會出現——刻意的，寧可看得出來沒設定，也不要偷偷連到「全部商品」。"
+    },
+    {
+      "type": "header",
+      "content": "重點框怎麼用"
+    },
+    {
+      "type": "paragraph",
+      "content": "在編輯器按「＜＞」切到原始碼，貼下面其中一種。四種：a 結論（灰底黑線）、f 注意（琥珀）、g 提示（藍）、j 步驟（圓形編號）。"
+    },
+    {
+      "type": "paragraph",
+      "content": "結論框（灰底黑線，放整段重點）：&lt;div class=\"gc-call gc-call--a\"&gt;&lt;h4&gt;先講結論&lt;/h4&gt;&lt;p&gt;你的內容&lt;/p&gt;&lt;/div&gt;"
+    },
+    {
+      "type": "paragraph",
+      "content": "注意框（琥珀，放警告）：&lt;div class=\"gc-call gc-call--f\"&gt;&lt;span class=\"gc-call__lb\"&gt;注意&lt;/span&gt;&lt;h4&gt;標題&lt;/h4&gt;&lt;p&gt;你的內容&lt;/p&gt;&lt;/div&gt;"
+    },
+    {
+      "type": "paragraph",
+      "content": "提示框（藍，解釋名詞）：&lt;div class=\"gc-call gc-call--g\"&gt;&lt;span class=\"gc-call__lb\"&gt;小知識&lt;/span&gt;&lt;h4&gt;標題&lt;/h4&gt;&lt;p&gt;你的內容&lt;/p&gt;&lt;/div&gt;"
+    },
+    {
+      "type": "paragraph",
+      "content": "步驟框（圓形編號）：&lt;div class=\"gc-call gc-call--j\"&gt;&lt;h4&gt;標題&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;第一步&lt;/li&gt;&lt;li&gt;第二步&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;"
+    },
+    {
+      "type": "paragraph",
+      "content": "圖說：&lt;figure&gt;&lt;img src=\"…\"&gt;&lt;figcaption&gt;圖說文字&lt;/figcaption&gt;&lt;/figure&gt;"
+    },
+    {
+      "type": "header",
+      "content": "產品線對照"
+    },
+    {
+      "type": "paragraph",
+      "content": "一個範本共用給所有文章，但「還在挑行動電源？」貼到寵物文章上就不對。這裡建幾個產品線，寫清楚「哪些標籤 → 連到哪個分類、配哪支商品、CTA 寫什麼」，文章會依自己的標籤自動對號入座。由上往下比，第一個對到的就用。"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "產品線",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tags",
+          "label": "這些標籤算這條產品線",
+          "info": "用逗號隔開，要跟文章的標籤一字不差（大小寫沒關係）。例：行動電源, 固態行動電源, 電池安全"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "CTA 連到哪個分類"
+        },
+        {
+          "type": "text",
+          "id": "cta_title",
+          "label": "CTA 標題"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA 說明"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA 按鈕文字",
+          "default": "看全系列"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "文中商品卡配哪支"
+        },
+        {
+          "type": "text",
+          "id": "product_desc",
+          "label": "商品卡上的一句描述"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10
+}
+{% endschema %}
