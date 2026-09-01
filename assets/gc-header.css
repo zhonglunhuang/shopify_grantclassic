@@ -403,3 +403,43 @@
     backdrop-filter: none;
   }
 }
+
+/* --- 19. 手機：首圖上的頁首透明（Mars 2026-09-01）-------------
+   桌機為什麼不開：主題在大選單開關時會反覆加減 header--transparent，
+   實測 hover 一趟翻了 8 次、logo 一直閃（見上面第 8 段）。
+   手機沒有「滑過去展開」的大選單，那個問題不存在，所以只開手機。
+
+   狀態由 gc-slideshow 寫在 <html data-gc-hero="light|dark"> 上：
+     light ＝ 那張 banner 的文字設定是白的（＝底圖深）→ 頁首整組翻白
+     dark  ＝ 文字設定是深的（＝底圖淺）→ 維持紅 logo 與深色圖示，只是背景透明
+   捲過首圖之後 gc-header.js 會掛上 .gc-solid，交還給第 17 段的白色霧面玻璃。
+
+   要還原：刪掉這一段，再把 gc-slideshow 裡那個 <script> 與負邊界拿掉。 */
+@media screen and (max-width: 740px) {
+  html[data-gc-hero] .header:not(.gc-solid) {
+    background-color: transparent !important;
+    border-bottom-color: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 深色底圖：logo、圖示、文字全部翻白。
+     --header-text-color 是主題自己的 RGB 三元組變數，改它比一條一條追元素可靠。 */
+  html[data-gc-hero="light"] .header:not(.gc-solid) {
+    --header-text-color: 255, 255, 255 !important;
+    color: #fff !important;
+  }
+  html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image {
+    filter: brightness(0) invert(1);
+  }
+  html[data-gc-hero="light"] .header:not(.gc-solid) a,
+  html[data-gc-hero="light"] .header:not(.gc-solid) button,
+  html[data-gc-hero="light"] .header:not(.gc-solid) svg {
+    color: #fff !important;
+  }
+  /* 透明時多給一點陰影，白圖示壓在亮處才看得見 */
+  html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image,
+  html[data-gc-hero="light"] .header:not(.gc-solid) svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .28)) brightness(0) invert(1);
+  }
+}

@@ -66,6 +66,12 @@
     .slideshow .content-box .heading--large { font-size: 34px !important; }
     #shopify-section-{{ section.id }} .content-box .heading--small { font-size: 15px !important; letter-spacing: .05em; }
     .slideshow .gc-slideshow__tagline { margin-top: 12px; font-size: 16px; }
+
+    /* 手機：把首圖整段往上塞到頁首底下，頁首才有東西可以透（Mars 2026-09-01）。
+       用負邊界而不是把頁首改成 fixed —— 改 fixed 會影響全站每一頁，
+       負邊界只作用在這一段，拿掉這三行就完全還原。
+       文字的起算點上面已經加過頁首高度，不會被壓到。 */
+    #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 52px)); }
   }
 </style>
 
@@ -190,8 +196,22 @@
 
         {%- comment -%}If only the button 1 link is filled, then we make the whole slide clickable{%- endcomment -%}
 
+        {%- comment -%}
+          這張圖是深底還是淺底，直接沿用它本來就有的「文字顏色」欄位——
+          文字設白＝底圖深、文字設深＝底圖淺。不另外開一個欄位，
+          也不做自動判斷（Mars 拍板：每張 banner 手動標，判斷錯比沒有更糟）。
+          light ＝ 頁首要翻白；dark ＝ 頁首維持原本的紅 logo 與深色圖示。
+        {%- endcomment -%}
+        {%- assign txt_bright = block.settings.text_color | color_brightness -%}
+        {%- if txt_bright > 128 -%}
+          {%- assign gc_ink = 'light' -%}
+        {%- else -%}
+          {%- assign gc_ink = 'dark' -%}
+        {%- endif -%}
+
         {%- capture slide_attributes -%}
           {{ block.shopify_attributes }}
+          data-gc-ink="{{ gc_ink }}"
           id="block-{{ section.id }}-{{ block.id }}"
           class="slideshow__slide {% if split_image != blank %}slideshow__slide--split{% endif %} {% if section.settings.transition_type == 'sweep' %}slideshow__slide--sweep{% endif %}"
           {% unless forloop.first %}hidden{% endunless %}
@@ -225,6 +245,50 @@
     {%- endif -%}
   </slide-show>
 </section>
+
+{%- comment -%}
+  頁首要不要透明、要翻白還是維持深色，由「現在顯示的是哪一張」決定。
+  結果寫在 <html data-gc-hero="light|dark"> 上，實際的樣式在 gc-header.css 第 19 段。
+
+  為什麼掛在 html 而不是直接改頁首：頁首是主題的區塊，主題自己會在很多時候
+  重寫它的 class（大選單開關那次就是這樣一直閃）。把狀態放在 html 上，
+  主題碰不到，我們的 CSS 也只是讀它。
+
+  何時算「頁首壓在首圖上」：首圖的底還在頁首下緣以下。捲過首圖就移除，
+  頁首交還給 gc-header.js 的 .gc-solid（白色霧面玻璃）。
+{%- endcomment -%}
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+    var html = document.documentElement;
+    var raf = 0;
+
+    function activeInk() {
+      var s = root.querySelector('slide-show-item:not([hidden])');
+      return (s && s.getAttribute('data-gc-ink')) || 'light';
+    }
+    function headerH() {
+      var h = document.querySelector('.header');
+      return h ? h.getBoundingClientRect().height : 52;
+    }
+    function sync() {
+      raf = 0;
+      var r = root.getBoundingClientRect();
+      if (r.bottom > headerH() && r.top <= headerH()) html.setAttribute('data-gc-hero', activeInk());
+      else html.removeAttribute('data-gc-hero');
+    }
+    function tick() { if (!raf) raf = requestAnimationFrame(sync); }
+
+    /* 換頁時 Turbo 會把 html 上的屬性留著，離開首頁一定要清掉 */
+    addEventListener('turbo:before-render', function () { html.removeAttribute('data-gc-hero'); });
+    addEventListener('scroll', tick, { passive: true });
+    addEventListener('resize', tick);
+    /* 換到下一張時 Focal 是切 hidden 屬性，用它當訊號 */
+    new MutationObserver(tick).observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden'] });
+    sync();
+  })();
+</script>
 
 {% schema %}
 {
