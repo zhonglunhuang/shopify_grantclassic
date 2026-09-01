@@ -1,0 +1,332 @@
+/* ══════════════════════════════════════════════════════════════════════
+   gc 全站字體與間距系統（第一批 A1 A2 A3 B2 ／ 第二批 C1）
+
+   為什麼要有這支：掃描前整頁有 30 種「字級＋字重＋行高」的組合、兩套字型、
+   同一級 H2 有三種長相。Apple 台灣首頁實測只有 7 種組合、一套字型、
+   同一級一定同一個樣式——差距不在美感，在「有沒有一套刻度用到底」。
+
+   四支 ts-* 模組原本各自帶一套字級（各三個斷點，等於 12 組數字各自漂）。
+   現在它們全部指向這裡的 --gc-t1…t6，改一次全站一起動。
+
+   刻度取自 Apple 實測（56 / 40 / 28 / 21 / 17 / 14），一階約 1.25～1.4 倍。
+   行高是中文調過的：內文 1.65 比英文版的 1.18 寬很多——中文墨水滿、
+   行距不夠會黏成一團。字距相反，大標要收緊、小字不收。
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* 一套字型走到底。原本主題基準是 Helvetica、我們的模組是 SF Pro Display，
+     中文都會落到蘋方看不太出來，但英文與數字（價格、規格、產品名）看得出兩種筆畫。 */
+  --gc-font:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",
+            "Helvetica Neue",Arial,sans-serif;
+
+  --gc-t1:56px; --gc-t1-lh:60px; --gc-t1-ls:-.022em;   /* 主視覺大標 */
+  --gc-t2:40px; --gc-t2-lh:46px; --gc-t2-ls:-.018em;   /* 段落標題 */
+  --gc-t3:28px; --gc-t3-lh:38px; --gc-t3-ls:-.012em;   /* 段落內次標題 */
+  --gc-t4:21px; --gc-t4-lh:30px; --gc-t4-ls:-.006em;   /* 卡片標題 */
+  --gc-t5:17px; --gc-t5-lh:28px; --gc-t5-ls:0;         /* 內文 */
+  --gc-t6:14px; --gc-t6-lh:21px; --gc-t6-ls:0;         /* 小標／註記 */
+
+  /* 字重只留兩種。原本有 400 / 600 / 640 / 700 四種，
+     其中 640 是我自己之前加的，那種「差一點點」的字重只會讓畫面糊掉。 */
+  --gc-w-normal:400;
+  --gc-w-bold:600;
+
+  /* 第七級 12px：徽章、計數這種微型標籤。 */
+  --gc-t7:12px;
+
+  /* 13px：整套刻度裡唯一的例外，只給頁尾用。
+     為什麼破例——中文的 12px 比英文的 12px 吃力：同樣 12 像素高，
+     英文字母多半 2～3 筆，中文常常 10 筆以上，筆畫會糊在一起。
+     Apple 台灣敢用 12 是因為他們的頁尾連結都是 2～4 個字、對比又拉得很高；
+     ASUS 台灣（台灣品牌、全中文、同類產品）選的是 13。
+     多開一級的代價很小，讀不順的代價比較大。 */
+  --gc-t-footer:13px;
+
+  /* ── 間距刻度（C1）──
+     掃描前每一段的上下留白是各自訂的：112 / 24 / 12 / 84 / 0，沒有規律。
+     捲下去會覺得「有的地方擠、有的地方空」但說不出哪裡怪——
+     Apple 的呼吸感多半不是留白多，是留白「一致」。
+     8 的倍數，一階一階往上；段落一律用 --gc-s96，同一組相鄰的用一半。 */
+  --gc-s8:8px;   --gc-s16:16px; --gc-s24:24px; --gc-s32:32px;
+  --gc-s48:48px; --gc-s64:64px; --gc-s96:96px; --gc-s128:128px;
+
+}
+
+/* ── 接管主題自己的字型變數（A2）──
+   權重寫成 html:root 而不是 :root：兩者都是 (0,1,0) 對 (0,1,1)，
+   主題的 :root 在我們之後載入，同權重時後者贏——第一版就是這樣被蓋掉的。
+   提高一級之後才真的接管得到。 */
+html:root{
+--heading-font-family:var(--gc-font);
+  --text-font-family:var(--gc-font);
+  --heading-font-weight:var(--gc-w-bold);
+  --text-font-bold-weight:var(--gc-w-bold);
+
+  --base-font-size:var(--gc-t5);
+  --heading-large-font-size:var(--gc-t1);
+  --heading-h1-font-size:var(--gc-t1);
+  --heading-h2-font-size:var(--gc-t2);
+  --heading-h3-font-size:var(--gc-t3);
+  --heading-h4-font-size:var(--gc-t3);
+  --heading-h5-font-size:var(--gc-t4);
+  --heading-h6-font-size:var(--gc-t5);
+  --heading-small-font-size:var(--gc-t6);
+  --heading-xsmall-font-size:var(--gc-t6);
+  --heading-xxsmall-font-size:var(--gc-t7);
+}
+
+
+/* 平板：整套降一階，不是每個地方各自縮 */
+@media (max-width:1100px){
+  :root{
+    --gc-t1:44px; --gc-t1-lh:48px;
+    --gc-t2:32px; --gc-t2-lh:38px;
+    --gc-t3:24px; --gc-t3-lh:33px;
+    --gc-t4:19px; --gc-t4-lh:27px;
+    --gc-t5:16px; --gc-t5-lh:26px;
+    --gc-t6:13.5px; --gc-t6-lh:20px;
+  }
+}
+/* 手機：內文不再縮（16 是可讀下限，再小 iOS 會自己放大表單），只縮標題 */
+@media (max-width:749px){
+  :root{
+    --gc-t1:34px; --gc-t1-lh:39px;
+    --gc-t2:26px; --gc-t2-lh:32px;
+    --gc-t3:21px; --gc-t3-lh:29px;
+    --gc-t4:17px; --gc-t4-lh:25px;
+    --gc-t5:16px; --gc-t5-lh:26px;
+    --gc-t6:13px; --gc-t6-lh:19.5px;
+  }
+}
+
+/* ── 全站字型 ──
+   不用 !important：靠繼承就夠，而且留給個別元件覆寫的餘地。
+   icon 類的 class 排除掉——有些主題用字型檔畫圖示，換掉字型圖示會變亂碼。 */
+body,
+button, input, select, textarea,
+.heading,
+h1, h2, h3, h4, h5, h6 {
+  font-family:var(--gc-font);
+}
+[class*="icon"], [class*="Icon"]{ font-family:inherit; }
+
+/* ── B2：同一級標題只有一個樣式 ──
+   掃描前：H2 有 46/700、32/600、46/640 三種，H3「編輯精選文章」是 32/700
+   比 H2 還粗——階層是反的。這裡把主題自己的區塊也一起壓成同一套。
+   只改樣式、不改標籤，所以主題原檔一個字都不用動。 */
+.shopify-section h2:not(.ts-series__h):not([class*="ts-"]):not([class*="tsp-"]),
+.ts-showcase__h, .ts-series__title, .ts-feed__h, .ts-reasons__h{
+  font-size:var(--gc-t2);
+  line-height:var(--gc-t2-lh);
+  letter-spacing:var(--gc-t2-ls);
+  font-weight:var(--gc-w-bold);
+}
+.shopify-section h3:not([class*="ts-"]):not([class*="tsp-"]):not([class*="card"]):not([class*="article"]){
+  font-size:var(--gc-t3);
+  line-height:var(--gc-t3-lh);
+  letter-spacing:var(--gc-t3-ls);
+  font-weight:var(--gc-w-bold);
+}
+/* 文章卡片的標題屬於「卡片標題」那一級，不是段落標題 */
+.shopify-section [class*="article"] h3,
+.shopify-section [class*="card"] h3{
+  font-size:var(--gc-t4);
+  line-height:var(--gc-t4-lh);
+  letter-spacing:var(--gc-t4-ls);
+  font-weight:var(--gc-w-bold);
+}
+
+/* 字重 640 是掃描時抓到的第四種字重，來源是我們自己的模組。統一壓回 600。 */
+.ts-showcase__h, .ts-reasons__h, .ts-feed__h{ font-weight:var(--gc-w-bold); }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   殘留清掃：主題與 App 自己寫死字型／字重的地方
+   掃描時逐一抓出來的，不是憑猜。權重都墊到能贏原本那條。
+   ══════════════════════════════════════════════════════════════════════ */
+.shopify-section .heading,
+.shopify-section .button,
+.shopify-section a,
+.shopify-section b,
+.shopify-section p,
+.shopify-section span,
+.shopify-section div,
+cart-count{ font-family:var(--gc-font); }
+
+/* 字重：整站只留 400 與 600 */
+.shopify-section .heading,
+.shopify-section b,
+.shopify-section strong,
+.tmenu_black_title,
+.article-item__category,
+cart-count{ font-weight:var(--gc-w-bold); }
+
+/* 掉到刻度外的字級，各自歸位 */
+.tmenu_black_title{ font-size:var(--gc-t6); }
+.image_label{ font-size:var(--gc-t7); }
+cart-count.header__cart-count{ font-size:var(--gc-t7); }
+.article-item__category{ font-size:var(--gc-t6); }
+.article-item__excerpt,
+.link--faded,
+.footer__item-title,
+.shopify-section .button{ font-size:var(--gc-t6); }
+.ako-copy-rights{ font-size:var(--gc-t7); }
+
+/* 最後兩處 700：巨型選單的分類名（主題）與 ts-reasons 標題裡的 <b>（我們自己的）。
+   <b> 的預設就是 bolder，會從 600 再往上跳一級變 700——
+   所以要明講，不能只設父層。 */
+.tmenu_black_title,
+.tmenu_black_title *,
+.ts-reasons__h b, .ts-showcase__h b, .ts-feed__h b, .ts-series__h b,
+.shopify-section h1 b, .shopify-section h2 b, .shopify-section h3 b{
+  font-weight:var(--gc-w-bold);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   頁尾：全站字最小的地方（2026-08-29 修正）
+
+   第一批我把全站基準從 15 拉到 17（Apple 的內文就是 17），
+   但那個 17 連頁尾一起帶大了——頁尾的連結變成 17px，整塊變得很吵。
+   Mars 說「印象中沒那麼大」，是對的。
+
+   量了兩個高端品牌的頁尾，結論一致：
+     Apple 台灣        欄標題 12/600　連結 12/400　行高 16
+     Bang & Olufsen   欄標題 16/400　連結 12/400
+   兩家的「連結」都是 12。
+
+   頁尾是資訊密度最高、閱讀優先度最低的區塊——它的工作是「需要時找得到」，
+   不是「一眼看到」。字放大反而讓它跟內容搶注意力。
+
+   我們取：欄標題 14（比 Apple 的 12 大一階，中文欄標題太小會不好掃）、
+   連結 12（跟兩家一致）、行高 1.5（比 Apple 的 1.33 鬆，中文需要）。
+   ══════════════════════════════════════════════════════════════════════ */
+#shopify-section-footer,
+#shopify-section-footer p,
+#shopify-section-footer a,
+#shopify-section-footer li,
+#shopify-section-footer span,
+#shopify-section-footer div{
+  font-size:var(--gc-t-footer);
+  line-height:1.55;
+}
+#shopify-section-footer .footer__item-title,
+#shopify-section-footer .heading{
+  font-size:var(--gc-t6);
+  font-weight:var(--gc-w-bold);
+  line-height:1.42;
+}
+/* 頁尾的輸入框不要跟著縮——低於 16px 的輸入框會讓 iOS 自動放大整頁 */
+#shopify-section-footer input,
+#shopify-section-footer button{ font-size:16px; }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   卡片裡的摘要文字（2026-08-29）
+
+   部落格卡片的摘要原本是 17px——那是「內文」的字級，也是整頁最大的一級。
+   摘要是卡片的次要資訊（標題才是主角），用到跟內文一樣大，
+   一整排卡片就變成三大塊文字牆，眼睛不知道該先看哪裡。
+
+   改成 14，跟商品卡的小標同一級——這樣不管是商品卡還是文章卡，
+   「標題 21 ／ 次要資訊 14」是同一個節奏。
+   ══════════════════════════════════════════════════════════════════════ */
+.shopify-section [class*="article"] [class*="excerpt"],
+.shopify-section [class*="article"] p,
+.shopify-section [class*="card"] [class*="excerpt"]{
+  font-size:var(--gc-t6);
+  line-height:1.75;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   文章卡片：沒有分類標籤時，把那一行的空間留著（2026-08-29）
+
+   分類標籤是「文章有沒有設分類」決定的——有設才會渲染那個元素。
+   結果是有標籤的卡片標題往下掉 44px，一排三張卡的標題高低不齊。
+
+   這跟商品卡那次是同一個病：不能假設後台的資料是齊的。
+   治法也一樣——讓版面容忍資料的參差，而不是要求資料整齊。
+   （你當然也可以回後台把每篇文章都設分類，那樣更好，
+     但這條 CSS 保證「就算忘了設也不會亂」。）
+
+   :has() 判斷「這張卡沒有分類標籤」，補上等量的上緣間距。
+   數字不是寫死的：20.5 是標籤自己的行高（14px × 1.4667），12 是它的下緣間距，
+   所以換斷點、換字級都會跟著算。
+   ══════════════════════════════════════════════════════════════════════ */
+.shopify-section .article-item__content:not(:has(.article-item__category)) .article-item__title.heading,
+.shopify-section .article-item__content:not(:has(.article-item__category)) .article-item__title{
+  /* !important 是必要的：gc-type.css 比主題的樣式表早載入，
+     主題有一條把標題 margin 歸零的規則，同權重時後載入的贏。
+     這裡只針對這一個宣告，不是整段開後門。 */
+  margin-top:calc(var(--gc-t6) * 1.4667 + 24px) !important;
+}
+
+
+/* 文章標題鎖兩行——標題長短不一，一行 vs 兩行會讓下面的摘要高低差 30px。
+   跟商品卡同一個治法：給固定的行高盒子，讓版面不隨文案長度晃動。 */
+.shopify-section .article-item__title{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+  min-height:calc(var(--gc-t4-lh) * 2);
+}
+.shopify-section .article-item__excerpt{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+}
+
+
+/* 頁尾底欄：空的就不要出現（2026-08-29）
+   .footer__aside 原本是主題放版權／付款圖示／地區選擇的地方，
+   但這個站把那些都搬到上面的欄位了，只剩一條分隔線與 26px 的空隙。
+   一條什麼都沒有的線讀起來是「這裡沒做完」——比沒有線更糟。
+
+   用 :not(:has(*)) 而不是寫死 display:none：
+   哪天主題真的放東西進去，它會自己回來，不用有人記得改這條。 */
+#shopify-section-footer .footer__aside:not(:has(*)){
+  display:none;
+}
+
+
+/* 頁尾底欄的樣式已移到 assets/gc-footer.css（2026-08-29）
+   ——那條要單獨上正式站，不能跟這支全站字體系統綁在一起。 */
+
+}
+
+/* ─────────────────────────────────────────────────────────────
+   頁尾「聯絡我們」在窄螢幕佔滿整列（2026-08-29）
+
+   症狀：手機上公司名／統編／地址／電話／信箱五行被擠成 16 行，
+   地址還從「復興／北路」中間斷開。
+
+   根因不是斷行設定，是版面：主題的 .footer__item-list 是 grid，
+   在 375 寬變成兩欄各 124.75px，這個區塊就只分到 125px。
+   量過最長那行（辦公地址…9樓）在 13px 下需要 245px，
+   桌機分到 244px 剛好卡在邊緣、平板 203px、手機 125px 全部爆掉。
+
+   所以不是把字改小或改斷行規則，是讓它在欄寬不夠時直接佔滿整列。
+   1200 這個界線是量出來的：桌機五欄時它拿到 244px 剛好夠，
+   再窄一點欄數就會掉到 3 欄（203px）而不夠。
+
+   grid-column:1/-1 會讓它另起一列，前一列剩下的格子空著——
+   那一列本來就是兩個連結欄，不會留下難看的洞。
+
+   要還原：刪掉這一段即可，主題原本的規則沒有被改。
+   ───────────────────────────────────────────────────────────── */
+@media (max-width:1199px){
+  #shopify-section-footer .footer__item--text{ grid-column:1 / -1; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   麵包屑降到 13px（Mars 2026-09-01）
+
+   主題給它的是 `.text--xsmall` ＝ `calc(var(--base-font-size) - 3px)`
+   ＝ 18 − 3 ＝ **15px**。名字叫 xsmall，實際上卻是那一區最大的字：
+   同一頁的文章目錄 14、日期列 13，它反而 15，看起來就會怪
+   （Mars 在文章頁一眼看出來）。跟日期列同級最順。
+
+   **權重要寫兩個 class**：theme.css 排在 gc-type.css 之後載入，
+   單一個 `.breadcrumb`(0,1,0) 跟 `.text--xsmall`(0,1,0) 同權重會輸給後載入的。
+   行高沿用原本的比例（23.08 / 15 ≈ 1.54），只縮字不改節奏。
+
+   要還原：刪掉這一段，主題原本的規則沒有被改。
+   ───────────────────────────────────────────────────────────── */
+.breadcrumb.text--xsmall{ font-size:13px; line-height:1.54; }

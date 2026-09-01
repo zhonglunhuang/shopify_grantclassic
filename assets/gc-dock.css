@@ -105,7 +105,7 @@
    面板 .loloyal-iframe-page 就會拿它當定位基準、高度算成負數（見下面那段的說明）。
    文字用變數，後台改字就會跟著換。 */
 body:has(.gc-dock--move-loyalty) .boom-launcher.loloyal-launcher-wrapper::before{
-  content:var(--gcd-loyalty-tip,"點數商城任你拿");
+  content:var(--gcd-loyalty-tip,"購物金，下一單直接折");
   position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
   background:#141416;color:#fff;font-size:13px;line-height:1;
   padding:9px 12px;border-radius:8px;white-space:nowrap;

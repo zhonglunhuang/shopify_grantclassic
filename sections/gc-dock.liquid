@@ -53,6 +53,11 @@
       --gcd-gap:{{ s.gap }}px;
       --gcd-edge:{{ s.edge }}px;
       --gcd-bottom:{{ s.bottom }}px;
+      {%- comment -%}
+        點數那顆的提示文字。它是第三方 App 畫的、塞不進我們自己的 <span>，
+        所以走「外框的 ::before + content」，文字用變數帶進去，後台改字就會跟著換。
+      {%- endcomment -%}
+      --gcd-loyalty-tip:"{{ s.loyalty_label | default: '購物金，下一單直接折' | escape }}";
     }
     @media (max-width:749px){
       /* 手機再往上一點：底下還有 iPhone 的 home indicator，
@@ -92,6 +97,8 @@
     { "type": "url", "id": "line_url", "label": "加入好友的連結",
       "info": "頁尾那個 LINE 圖示連的網址就是（lin.ee/…）。留空就不顯示這顆。" },
     { "type": "text", "id": "line_label", "label": "無障礙標籤／提示文字", "default": "加入 LINE 官方帳號" },
+    { "type": "text", "id": "loyalty_label", "label": "點數那顆滑過去的提示文字", "default": "購物金，下一單直接折",
+      "info": "那顆按鈕是 Loloyal App 畫的，只有這行字我們控制得到；按鈕本身的圖示文字要去 Loloyal 後台改。" },
     { "type": "checkbox", "id": "show_label", "label": "滑過去顯示文字提示", "default": true },
     {
       "type": "select", "id": "line_style", "label": "樣式", "default": "white",
