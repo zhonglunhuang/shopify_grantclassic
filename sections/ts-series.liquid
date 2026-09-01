@@ -1,0 +1,676 @@
+{{ 'ts-series.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  TS 系列 —— 一張大 banner ＋ 一排商品 ＋ 最後一格「查看全部」。
+
+  設計成「同一支程式放三次」：行動電源、寵物智能、機車支架各加一個，
+  換底色、換圖、換商品就好，不用做三支。
+
+  沒有 JS。整段是純 CSS，所以放三次也不會多載任何檔案。
+  只新增 ts- 開頭的檔案，主題原有檔案一個都不動。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- comment -%}
+  E2：那些「上傳情境圖」「選商品」的虛線提示框，只在後台編輯器裡出現
+  （request.design_mode）。它們是給人看的提示，上到正式站就是一格一格的空白。
+{%- endcomment -%}
+{%- assign pos = s.art_pos -%}
+
+{%- comment -%}
+  影片：優先用 Shopify 自己託管的（編輯器裡直接上傳）。走那條路 Shopify 會把母帶
+  轉成好幾種畫質、依裝置給對的那個——45 MB 的 4K 母帶手壓到 5 MB 一定犧牲畫質，
+  交給它做比較好。下面「主題內的影片檔名」是備援。
+{%- endcomment -%}
+{%- comment -%}
+  圖片同樣給一條主題資產的備援（跟影片對稱）。
+  一般走上面的圖片選擇器就好，這條是給「圖還在主題裡、還沒進檔案庫」的情況。
+{%- endcomment -%}
+{%- assign art_src = '' -%}
+{%- comment -%}
+  用 != blank 不用真假值判斷：Liquid 裡「空字串是真的」，
+  只有 nil 跟 false 才是假——寫 {% if s.banner_image %} 的話，
+  把圖清成空字串之後那個判斷還是會過，畫面上圖片清不掉（2026-08-29 踩到）。
+{%- endcomment -%}
+{%- if s.banner_image != blank -%}
+  {%- assign art_src = s.banner_image | image_url: width: 2400 -%}
+{%- elsif s.banner_image_asset != blank -%}
+  {%- comment -%}
+    只能用 asset_url 給原檔。**asset_img_url 在這裡不管用**——
+    2026-08-31 實測它回傳的是 no-image 佔位圖，橫幅直接破掉，已退回。
+    原檔 3040px、畫面顯示 1432px 是多載了一倍像素（292 KB），
+    要省的話正解是把 assets 裡的檔案換成 1600px 版本，不是換濾鏡。
+  {%- endcomment -%}
+  {%- assign art_src = s.banner_image_asset | asset_url -%}
+{%- endif -%}
+
+{%- assign has_video = false -%}
+{%- if s.banner_video != blank or s.banner_video_asset != blank -%}
+  {%- assign has_video = true -%}
+{%- endif -%}
+
+{%- comment -%}
+  一排幾格：預設跟著實際卡片張數走（商品張數＋最後那格「查看全部」）。
+  格數與張數是兩個獨立的數字，對不上就會出事——張數多於格數會掉到第二排，
+  少於格數則右邊空一塊。讓它自動跟隨，後台加減商品就不會排版壞掉。
+  真的想排成兩排（例如 8 支商品排成 4×2）再把自動關掉、自己指定。
+{%- endcomment -%}
+{%- comment -%} 先數「真的有內容」的卡片，空的不算 {%- endcomment -%}
+{%- assign item_count = 0 -%}
+{%- for b in section.blocks -%}
+  {%- if b.settings.product != blank or b.settings.image != blank -%}
+    {%- assign item_count = item_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign filled_cards = item_count -%}
+{%- if s.show_all and s.all_label != blank -%}
+  {%- assign item_count = item_count | plus: 1 -%}
+{%- endif -%}
+{%- assign use_cols = s.cols | default: 5 -%}
+{%- if s.cols_auto -%}
+  {%- assign use_cols = item_count -%}
+  {%- if use_cols > 6 -%}{%- assign use_cols = 6 -%}{%- endif -%}
+  {%- if use_cols < 2 -%}{%- assign use_cols = 2 -%}{%- endif -%}
+{%- endif -%}
+
+{%- comment -%} 文字深淺：banner 底色可能很淺，也可能是深色照片，所以兩種版面都要能選 {%- endcomment -%}
+{%- comment -%}
+  按鈕的文字色要跟「按鈕自己的底色」對比，不能綁「橫幅底色設定」。
+  原本寫成 color:var(--tsr-banner-bg)——底色欄位只在沒放圖時看得到，
+  一旦改放情境圖、底色留白，按鈕就變成白底白字整顆消失。
+  改成跟著 ink 走：白按鈕配深字、深按鈕配白字，跟有沒有放圖無關。
+{%- endcomment -%}
+{%- if s.ink == 'light' -%}
+  {%- assign b_ink = '#FFFFFF' -%}
+  {%- assign b_btn_ink = '#141416' -%}
+  {%- assign b_scrim = 'rgba(0,0,0,.62)' -%}
+{%- else -%}
+  {%- assign b_ink = '#141416' -%}
+  {%- assign b_btn_ink = '#FFFFFF' -%}
+  {%- comment -%} 深色字＝亮色照片：不上白漸層（Mars 2026-09-01「太慘白」）。
+     字的可讀性改用「照片本身留亮區＋文字排在亮區」處理。 {%- endcomment -%}
+  {%- assign b_scrim = 'rgba(255,255,255,0)' -%}
+{%- endif -%}
+
+<div class="ts-series"
+     style="--tsr-bg:{{ s.sect_bg }};
+            --tsr-ink:{{ s.sect_ink }};
+            --tsr-banner-bg:{{ s.bg }};
+            --tsr-banner-ink:{{ b_ink }};
+            --tsr-btn-ink:{{ b_btn_ink }};
+            --tsr-scrim:{{ b_scrim }};
+            --tsr-minh:{{ s.min_h }}px;
+            --tsr-card-w:{{ s.card_w }}px;
+            --tsr-card-bg:{{ s.card_bg }};
+            --tsr-card-ink:{{ s.card_ink }};
+            --tsr-cols:{{ use_cols }};
+            {%- comment -%}存原始值，實際用的 --tsr-gap 由 CSS 算——
+              inline style 永遠贏過樣式表，直接寫 --tsr-gap 的話手機那條媒體查詢
+              永遠改不動它（2026-08-29 實測：手機明明寫 8px 卻還是 16）。
+              留白 --tsr-pad0 本來就是這樣做的，這裡照抄。{%- endcomment -%}
+            --tsr-gap0:{{ s.gap }}px;
+            --tsr-radius:{{ s.radius }}px;
+            --tsr-hover:{{ s.hover | times: 0.01 }};
+            --tsr-pad0:{{ s.pad }}px;">
+
+  {%- comment -%} ── 上面那張大 banner ── {%- endcomment -%}
+  <div class="ts-series__wrap">
+    {%- if s.section_title != blank -%}
+      <h2 class="ts-series__title">{{ s.section_title }}</h2>
+    {%- endif -%}
+    <div class="ts-series__banner ts-series__banner--{{ pos }}">
+
+      {%- if pos == 'bg' and has_video -%}
+        <span class="ts-series__bg">
+            {%- comment -%}
+              preload="none"：不捲到這一段就一個位元組都不下載。
+              首頁三段都放影片的話，一進站就抓三支＝把頻寬燒光，
+              所以播放交給 ts-series.js 的觀察器，捲到才開始。
+            {%- endcomment -%}
+            <video class="ts-series__vid" muted loop playsinline preload="none"
+                   aria-hidden="true" tabindex="-1"
+                   {%- if s.banner_video != blank %} poster="{{ s.banner_video.preview_image | image_url: width: 1400 }}"
+                   {%- elsif s.banner_image != blank %} poster="{{ s.banner_image | image_url: width: 1400 }}"{% endif %}>
+              {%- if s.banner_video != blank -%}
+                {%- for src in s.banner_video.sources -%}
+                  {%- if src.format == 'mp4' -%}<source src="{{ src.url }}" type="{{ src.mime_type }}">{%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                <source src="{{ s.banner_video_asset | asset_url }}" type="video/mp4">
+              {%- endif -%}
+            </video>
+        </span>
+      {%- elsif pos == 'bg' and art_src != blank -%}
+        <span class="ts-series__bg">
+          <picture>
+            {%- if s.banner_image_m != blank -%}
+              <source media="(max-width: 740px)" srcset="{{ s.banner_image_m | image_url: width: 1100 }}">
+            {%- endif -%}
+            <img src="{{ art_src }}" alt="{{ s.section_title | default: s.eyebrow | escape }}"
+                 loading="lazy" decoding="async">
+          </picture>
+        </span>
+      {%- endif -%}
+
+      <div class="ts-series__bt">
+        {%- if s.eyebrow != blank -%}
+          <p class="ts-series__eb">{{ s.eyebrow }}</p>
+        {%- endif -%}
+        {%- if s.heading != blank -%}
+          <h3 class="ts-series__h">{{ s.heading | escape | newline_to_br }}</h3>
+        {%- endif -%}
+        {%- if s.sub != blank -%}
+          <p class="ts-series__sub">{{ s.sub | escape | newline_to_br }}</p>
+        {%- endif -%}
+        {%- assign hp = s.hero_product -%}
+        {%- if s.price_text != blank -%}
+          <p class="ts-series__price">{{ s.price_text }}</p>
+        {%- elsif hp != blank -%}
+          <p class="ts-series__price">{{ hp.price | money }}{% if hp.price_varies %} 起{% endif %}</p>
+        {%- endif -%}
+        {%- if s.btn_label != blank -%}
+          {%- assign hero_url = s.btn_url | default: hp.url | default: '#' -%}
+          <a class="ts-series__btn" href="{{ hero_url }}">{{ s.btn_label }}</a>
+        {%- endif -%}
+      </div>
+
+      {%- if pos != 'bg' -%}
+        <span class="ts-series__art">
+          {%- if has_video -%}
+            {%- comment -%}
+              preload="none"：不捲到這一段就一個位元組都不下載。
+              首頁三段都放影片的話，一進站就抓三支＝把頻寬燒光，
+              所以播放交給 ts-series.js 的觀察器，捲到才開始。
+            {%- endcomment -%}
+            <video class="ts-series__vid" muted loop playsinline preload="none"
+                   aria-hidden="true" tabindex="-1"
+                   {%- if s.banner_video != blank %} poster="{{ s.banner_video.preview_image | image_url: width: 1400 }}"
+                   {%- elsif s.banner_image != blank %} poster="{{ s.banner_image | image_url: width: 1400 }}"{% endif %}>
+              {%- if s.banner_video != blank -%}
+                {%- for src in s.banner_video.sources -%}
+                  {%- if src.format == 'mp4' -%}<source src="{{ src.url }}" type="{{ src.mime_type }}">{%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                <source src="{{ s.banner_video_asset | asset_url }}" type="video/mp4">
+              {%- endif -%}
+            </video>
+          {%- elsif art_src != blank -%}
+            <img src="{{ art_src }}" alt="{{ s.section_title | default: s.eyebrow | escape }}"
+                 loading="lazy" decoding="async">
+          {%- else -%}
+            {%- if request.design_mode -%}<span class="ts-series__none">上傳這個系列的情境圖</span>{%- endif -%}
+          {%- endif -%}
+        </span>
+      {%- endif -%}
+
+    </div>
+  </div>
+
+  {%- comment -%}
+    ── 下面那排商品 ──
+    刻意讓它滑出右邊緣、不被 1440 的內容框裁掉：被「畫面邊緣」切讀起來是「還有」，
+    被容器切、右邊還留一塊白，讀起來是「壞了」。
+  {%- endcomment -%}
+  {%- if filled_cards > 0 or section.settings.show_all -%}
+  <div class="ts-series__rail">
+    <div class="ts-series__track">
+      {%- comment -%}
+        E2：沒選商品也沒上傳圖片的區塊直接跳過。
+        那個「選商品，或上傳去背圖」的虛線框是後台編輯時給人看的提示，
+        上到正式站就是一格一格的空白——未填的段落絕對不能漏到前台。
+      {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p == blank and block.settings.image == blank -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign name = block.settings.title | default: p.title -%}
+        {%- assign img = block.settings.image -%}
+        {%- unless img -%}{%- assign img = p.featured_image -%}{%- endunless -%}
+
+        <a class="ts-item" href="{{ p.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <span class="ts-item__art">
+            {%- if img -%}
+              <img src="{{ img | image_url: width: 600 }}"
+                   srcset="{{ img | image_url: width: 300 }} 300w,
+                           {{ img | image_url: width: 450 }} 450w,
+                           {{ img | image_url: width: 600 }} 600w,
+                           {{ img | image_url: width: 900 }} 900w"
+                   sizes="(max-width:749px) 250px, (max-width:1100px) 320px, {{ s.card_w }}px"
+                   alt="{{ name | escape }}" loading="lazy" decoding="async"
+                   width="{{ img.width }}" height="{{ img.height }}">
+            {%- else -%}
+              {%- if request.design_mode -%}<span class="ts-series__none">選商品，或上傳去背圖</span>{%- endif -%}
+            {%- endif -%}
+          </span>
+          <span class="ts-item__info">
+            {%- if block.settings.kicker != blank -%}
+              <span class="ts-item__k">{{ block.settings.kicker }}</span>
+            {%- endif -%}
+            <span class="ts-item__n">{{ name }}</span>
+            {%- if s.show_price and p != blank -%}
+              {%- comment -%}
+                金額拿掉千分位逗號（Mars 2026-08-29）：$1,980 → $1980。
+                刻意在這裡 replace，不去改店家的金額格式設定——那個一動，
+                購物車、結帳、通知信、後台報表全部一起變，代價完全不成比例。
+              {%- endcomment -%}
+              <span class="ts-item__p">{{ p.price | money | replace: ',', '' }}{% if p.price_varies %} 起{% endif %}</span>
+            {%- endif -%}
+          </span>
+        </a>
+      {%- endfor -%}
+
+      {%- if section.settings.show_all and section.settings.all_label != blank -%}
+        {%- comment -%}
+          A 情境入口（Mars 2026-08-29 定案，取代原本「上塊圖＋下塊按鈕」兩張白卡）：
+          整格就是一張情境照，由下而上的暗罩把底部壓暗，文字壓在下緣。
+
+          為什麼不是「在中間放一張小圖」：那樣它還是長得像商品，只是圖比較怪。
+          鋪滿當背景之後它才從「一件商品」變成「一道門」，
+          而且原本上塊卡中間空一大片的問題自然消失（Mars 2026-08-29 指出那片空白）。
+
+          兩條連結都填時是兩個 <a>，所以外層必須是 div（<a> 不能巢在 <a> 裡）。
+          只填一條時整格可點——靠 .ts-all--one 那條把連結的點擊範圍撐滿整格，
+          HTML 仍然只有一個 <a>，是合法的。
+        {%- endcomment -%}
+        <div class="ts-item ts-item--all{% if s.all2_label == blank %} ts-all--one{% endif %}{% if s.all_image == blank %} ts-all--noimg{% endif %}">
+          {%- if s.all_image -%}
+            <img class="ts-all__cover"
+                 src="{{ s.all_image | image_url: width: 700 }}"
+                 srcset="{{ s.all_image | image_url: width: 350 }} 350w,
+                         {{ s.all_image | image_url: width: 520 }} 520w,
+                         {{ s.all_image | image_url: width: 700 }} 700w,
+                         {{ s.all_image | image_url: width: 1000 }} 1000w"
+                 sizes="(max-width:749px) 50vw, (max-width:1100px) 33vw, 320px"
+                 alt="" loading="lazy" decoding="async"
+                 width="{{ s.all_image.width }}" height="{{ s.all_image.height }}">
+            {%- comment -%}alt 留空：這是純裝飾的情境照，旁邊的連結文字已經說了要去哪，
+              念兩次反而囉嗦。{%- endcomment -%}
+          {%- else -%}
+            {%- if request.design_mode -%}<span class="ts-series__none ts-all__cover">這一格放系列的情境圖</span>{%- endif -%}
+          {%- endif -%}
+          <span class="ts-all__scrim" aria-hidden="true"></span>
+          <span class="ts-all__head">
+            {%- if s.all_kicker != blank -%}
+              <span class="ts-all__k">{{ s.all_kicker }}</span>
+            {%- endif -%}
+            <a class="ts-all__n" href="{{ s.all_url | default: '#' }}">
+              <span>{{ s.all_label }}</span>
+              <svg class="ts-all__arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            {%- if s.all2_label != blank -%}
+              <a class="ts-all__n" href="{{ s.all2_url | default: s.all_url | default: '#' }}">
+                <span>{{ s.all2_label }}</span>
+                <svg class="ts-all__arw" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            {%- endif -%}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- endif -%}
+</div>
+
+{%- if has_video -%}
+  <script src="{{ 'ts-series.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- comment -%}G1：把這一段的商品輸出成機器讀得懂的清單{%- endcomment -%}
+{% render 'gc-ld-products', sec: section, hero: section.settings.hero_product, list_name: section.settings.section_title %}
+
+{% schema %}
+{
+  "name": "TS 系列",
+  "tag": "section",
+  "class": "ts-series-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "文字"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "段落標題",
+      "default": "行動電源",
+      "info": "照 DJI 的做法放在大圖「外面」最上方，代表這是哪一個類別。"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "系列名（小標）",
+      "default": "行動電源"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "標題",
+      "default": "一顆電，\n可以有很多種樣子。",
+      "info": "按 Enter 換行，畫面上就會跟著換行。"
+    },
+    {
+      "type": "textarea",
+      "id": "sub",
+      "label": "一句話",
+      "default": "同一支穩如鈦山，卡皮巴拉、浮世繪、大理石、聖母峰——挑一個像你的。"
+    },
+    {
+      "type": "product",
+      "id": "hero_product",
+      "label": "大圖主打商品",
+      "info": "選了就自動顯示價格，按鈕沒填網址時也會連到它。"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "價格文字（手動蓋過）",
+      "info": "留空就用上面那支商品的真實售價。"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "按鈕文字",
+      "default": "看這個系列"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "按鈕連到哪"
+    },
+    {
+      "type": "header",
+      "content": "上面那張大圖"
+    },
+    {
+      "type": "video",
+      "id": "banner_video",
+      "label": "系列影片",
+      "info": "選了影片就蓋過下面的圖。直接上原始檔就好，Shopify 會自動轉成多種畫質、依裝置給對的那個。"
+    },
+    {
+      "type": "text",
+      "id": "banner_video_asset",
+      "label": "（備援）主題內的影片檔名",
+      "info": "例如 ts-hero-pro.mp4。上面沒選影片時才會用到。"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "系列情境圖"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_m",
+      "label": "主打背景圖（手機版直式）",
+      "info": "沒上傳就沿用桌機圖硬裁，直式構圖建議 1000×1440 起"
+    },
+    {
+      "type": "text",
+      "id": "banner_image_asset",
+      "label": "（備援）主題內的圖片檔名",
+      "info": "例如 ts-hero-pro-still.webp。上面沒選圖時才會用到。"
+    },
+    {
+      "type": "select",
+      "id": "art_pos",
+      "label": "圖片放哪",
+      "default": "right",
+      "options": [
+        {
+          "value": "right",
+          "label": "右邊（左字右圖）"
+        },
+        {
+          "value": "left",
+          "label": "左邊（左圖右字）"
+        },
+        {
+          "value": "bg",
+          "label": "當背景（滿版，文字壓在上面）"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "底色",
+      "default": "#C8362A",
+      "info": "圖片選「當背景」時看不到底色，但圖還沒載進來的那一瞬間會看到。"
+    },
+    {
+      "type": "select",
+      "id": "ink",
+      "label": "文字顏色",
+      "default": "light",
+      "options": [
+        {
+          "value": "light",
+          "label": "白色（配深色底或深色照片）"
+        },
+        {
+          "value": "dark",
+          "label": "黑色（配淺色底或淺色照片）"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "min_h",
+      "label": "大圖高度",
+      "min": 320,
+      "max": 640,
+      "step": 20,
+      "unit": "px",
+      "default": 440
+    },
+    {
+      "type": "header",
+      "content": "下面那排商品"
+    },
+    {
+      "type": "checkbox",
+      "id": "cols_auto",
+      "label": "一排幾格＝自動跟著卡片張數",
+      "default": true,
+      "info": "打開＝你加幾個商品就排幾格，右邊不會空。要排成兩排再關掉。"
+    },
+    {
+      "type": "range",
+      "id": "cols",
+      "label": "一排幾格（自動關掉時才有用）",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 5,
+      "info": "含最後那格「查看全部」。平板固定 3 格、手機 2 格。"
+    },
+    {
+      "type": "range",
+      "id": "card_w",
+      "label": "卡片寬度",
+      "min": 240,
+      "max": 480,
+      "step": 10,
+      "unit": "px",
+      "default": 390
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "卡片間距",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "卡片圓角",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "hover",
+      "label": "滑過去整張放大",
+      "min": 100,
+      "max": 110,
+      "step": 1,
+      "unit": "%",
+      "default": 102,
+      "info": "設 100% 就是不放大。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "商品卡顯示價格",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "卡片底色",
+      "default": "#F8F9FC"
+    },
+    {
+      "type": "color",
+      "id": "card_ink",
+      "label": "卡片文字色",
+      "default": "#141416"
+    },
+    {
+      "type": "header",
+      "content": "最後一格：查看全部"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all",
+      "label": "顯示「查看全部」那一格",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "all_kicker",
+      "label": "最後一格的小標",
+      "default": "幫您選購"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "按鈕文字",
+      "default": "查看全部行動電源"
+    },
+    {
+      "type": "url",
+      "id": "all_url",
+      "label": "連到哪（通常是分類頁）"
+    },
+    {
+      "type": "text",
+      "id": "all2_label",
+      "label": "最後一格下面那條的文字",
+      "default": "查看所有配件",
+      "info": "留空就不顯示下面那條。"
+    },
+    {
+      "type": "url",
+      "id": "all2_url",
+      "label": "下面那條連到哪",
+      "info": "留空就跟上面同一個連結。"
+    },
+    {
+      "type": "image_picker",
+      "id": "all_image",
+      "label": "這一格的背景圖",
+      "info": "放系列的情境照，不要放單一商品——這格代表的是整個系列。"
+    },
+    {
+      "type": "header",
+      "content": "整段外觀"
+    },
+    {
+      "type": "range",
+      "id": "pad",
+      "label": "段落上下留白",
+      "min": 24,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 56,
+      "info": "上下各留這麼多，所以兩段之間看到的白是它的兩倍。平板與手機會自己按比例縮。三段系列連著放時，中間會自動收成一半——它們是同一組。"
+    },
+    {
+      "type": "color",
+      "id": "sect_bg",
+      "label": "整段底色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "sect_ink",
+      "label": "整段文字色",
+      "default": "#141416"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "商品",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "商品",
+          "info": "選了之後整張卡片會連到那個商品頁。"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "去背圖片",
+          "info": "留空就用商品主圖。建議上傳去背 PNG／WebP。"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "小標",
+          "info": "例：5000mAh、設計款"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "顯示名稱",
+          "info": "留空就用商品原本的名字。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TS 系列",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

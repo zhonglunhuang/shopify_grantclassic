@@ -1,0 +1,200 @@
+{%- comment -%}
+  ts-trust ── 信任保證區（2026-08-29）
+
+  對照的是 UGREEN 的「Shop with Confidence」：六格 bento，中間一格佔兩倍寬、
+  顏色反過來當主角。Mars 從四個版本裡選了這個（A 版）。
+
+  ── 兩個結構上的決定 ──
+
+  ① 桌機是「一個 12 欄格線」不是「上下兩排」。
+     上排 3＋6＋3、下排 4＋4＋4，12 是唯一能同時整除這兩組的欄數。
+     為什麼不做成兩個容器：手機要把六格接成同一條橫向捲軸，
+     分成兩個容器就接不起來。
+
+  ② 手機是橫向捲軸，不是一格一列（Mars 明確指定）。
+     卡片寬 78% 讓下一張露出一角——看得到「還有」，人才知道可以滑。
+
+  ── 文案的來源 ──
+  每一句都是從我們自己的政策頁抓的，沒有一句是編的：
+  免運 490／超商 70／宅配 100（運送政策）、分期 3～6 期零手續費、
+  不儲存卡號（付款方式）、退款與維修 7～14 個工作天（退款政策／保固政策）。
+
+  ⚠️ 「官網買直接兩年保固」是 2026-08-29 拍板的新說法，
+     **保固政策頁目前還寫「一年，完成登錄延長至二年」且沒有分通路**。
+     這一段上線到正式站之前，政策頁必須同批改，否則首頁與政策自相矛盾
+     （Google 與 AI 讀的是政策頁那一份）。
+
+  要還原：把 templates/index.json 裡這一段拿掉即可，主題原檔一行都沒改。
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+-%}
+
+{{ 'ts-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="ts-trust"
+     style="--tst-bg:{{ s.bg }};
+            --tst-ink:{{ s.ink }};
+            --tst-card-bg:{{ s.card_bg }};
+            --tst-card-ink:{{ s.card_ink }};
+            --tst-dark-bg:{{ s.dark_bg }};
+            {%- comment -%}間距與留白存原始值，實際用的由 CSS 算——
+              inline style 永遠贏過樣式表，直接寫最終值的話手機的媒體查詢
+              會完全改不動它（2026-08-29 在 ts-series 上實際踩過）。{%- endcomment -%}
+            --tst-gap0:{{ s.gap }}px;
+            --tst-pad0:{{ s.pad }}px;
+            --tst-radius:{{ s.radius }}px;">
+  <div class="ts-trust__wrap">
+    {%- if s.heading != blank -%}
+      <p class="ts-trust__h">{{ s.heading }}</p>
+    {%- endif -%}
+    {%- if s.sub != blank -%}
+      <p class="ts-trust__sub">{{ s.sub }}</p>
+    {%- endif -%}
+
+    <div class="ts-trust__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign b = block.settings
+          assign cls = 'ts-tcell ts-tcell--w' | append: b.w
+          if b.dark
+            assign cls = cls | append: ' ts-tcell--dark'
+          endif
+          if b.first_mobile
+            assign cls = cls | append: ' ts-tcell--first'
+          endif
+        -%}
+        {%- if b.url != blank -%}
+          <a class="{{ cls }}" href="{{ b.url }}" {{ block.shopify_attributes }}>
+        {%- else -%}
+          <div class="{{ cls }}" {{ block.shopify_attributes }}>
+        {%- endif -%}
+
+          {%- case b.icon -%}
+            {%- when 'ship' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            {%- when 'shield' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            {%- when 'card' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+            {%- when 'lock' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            {%- when 'cert' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg>
+            {%- when 'clock' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            {%- when 'chat' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5H4v11h4v4l5-4h7z"/><path d="M8 10h8"/></svg>
+            {%- when 'coin' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.5 9.3c-.5-.8-1.4-1.3-2.5-1.3-1.7 0-3 .9-3 2s1.3 2 3 2 3 .9 3 2-1.3 2-3 2c-1.1 0-2-.5-2.5-1.3"/><path d="M12 6.5V8M12 16v1.5"/></svg>
+            {%- when 'grid' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+            {%- when 'box' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></svg>
+            {%- when 'wrench' -%}
+              <svg class="ts-tcell__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6l-3 3-2.7-2.7z"/></svg>
+          {%- endcase -%}
+
+          {%- if b.title != blank -%}<p class="ts-tcell__t">{{ b.title }}</p>{%- endif -%}
+          {%- if b.desc != blank -%}<p class="ts-tcell__d">{{ b.desc }}</p>{%- endif -%}
+
+          {%- if b.image -%}
+            <span class="ts-tcell__art">
+              <img src="{{ b.image | image_url: width: 700 }}"
+                   srcset="{{ b.image | image_url: width: 350 }} 350w,
+                           {{ b.image | image_url: width: 520 }} 520w,
+                           {{ b.image | image_url: width: 700 }} 700w"
+                   sizes="(max-width:749px) 78vw, (max-width:1100px) 33vw, 320px"
+                   alt="" loading="lazy" decoding="async"
+                   width="{{ b.image.width }}" height="{{ b.image.height }}">
+            </span>
+          {%- elsif request.design_mode -%}
+            {%- comment -%}
+              版位提示只在主題編輯器裡出現。前台不顯示——沒圖的卡就是純文字卡，
+              不要在正式頁面上放一個空框，那看起來像壞掉。
+            {%- endcomment -%}
+            <span class="ts-tcell__ph">這一格可以放插畫或情境照（選填）</span>
+          {%- endif -%}
+
+          {%- if b.foot != blank -%}<p class="ts-tcell__f">{{ b.foot }}</p>{%- endif -%}
+
+        {%- if b.url != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "信任保證區",
+  "tag": "section",
+  "class": "shopify-section--ts-trust",
+  "settings": [
+    { "type": "header", "content": "文字" },
+    { "type": "text", "id": "heading", "label": "段落標題", "default": "該顧的，都有它顧著" },
+    { "type": "text", "id": "sub", "label": "一句話", "default": "從運費到保固，先幫你想好。" },
+    { "type": "header", "content": "外觀" },
+    { "type": "color", "id": "bg", "label": "整段底色", "default": "#FFFFFF" },
+    { "type": "color", "id": "ink", "label": "整段文字色", "default": "#141416" },
+    { "type": "color", "id": "card_bg", "label": "卡片底色", "default": "#F8F9FC" },
+    { "type": "color", "id": "card_ink", "label": "卡片文字色", "default": "#141416" },
+    { "type": "color", "id": "dark_bg", "label": "深色卡的底色", "default": "#0F1013" },
+    { "type": "range", "id": "radius", "label": "卡片圓角", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 18 },
+    { "type": "range", "id": "gap", "label": "卡片間距", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "pad", "label": "段落上下留白", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "一格",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "圖示", "default": "shield",
+          "info": "線條圖示，不用 emoji。",
+          "options": [
+            { "value": "ship",   "label": "貨車（運送）" },
+            { "value": "shield", "label": "盾牌（保固）" },
+            { "value": "card",   "label": "信用卡（付款）" },
+            { "value": "lock",   "label": "鎖（安全）" },
+            { "value": "cert",   "label": "獎章（認證）" },
+            { "value": "clock",  "label": "時鐘（作業時間）" },
+            { "value": "chat",   "label": "對話（客服）" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "標題" },
+        { "type": "textarea", "id": "desc", "label": "說明" },
+        { "type": "text", "id": "foot", "label": "下面那行小字" },
+        { "type": "url", "id": "url", "label": "點下去連到哪（選填）" },
+        { "type": "image_picker", "id": "image", "label": "插畫或情境照（選填）" },
+        {
+          "type": "select", "id": "w", "label": "桌機寬度", "default": "4",
+          "info": "一排總共 12 欄。UGREEN 那個版型是「3＋6＋3」加「4＋4＋4」。",
+          "options": [
+            { "value": "3", "label": "小（1/4 排）" },
+            { "value": "4", "label": "中（1/3 排）" },
+            { "value": "6", "label": "大（1/2 排）" }
+          ]
+        },
+        { "type": "checkbox", "id": "dark", "label": "深色卡（整段的主角）", "default": false },
+        { "type": "checkbox", "id": "first_mobile", "label": "手機時排到第一張", "default": false,
+          "info": "只改手機的顯示順序，桌機不動。" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "信任保證區",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "ship",   "w": "3", "title": "滿 490 元免運", "desc": "單筆商品金額滿 490 元免運費。", "foot": "未滿 490：超商 70 元・宅配 100 元" } },
+        { "type": "item", "settings": { "icon": "shield", "w": "6", "dark": true, "first_mobile": true, "title": "官網買，直接兩年保固", "desc": "在 grantclassic.com 下單，保固自動兩年，不用另外登錄。", "foot": "其他通路購買：一年，登錄可延長至兩年" } },
+        { "type": "item", "settings": { "icon": "clock",  "w": "3", "title": "7～14 個工作天", "desc": "退款與台灣保固維修的作業時間，寫在政策裡。", "foot": "不含國定假日與例假日" } },
+        { "type": "item", "settings": { "icon": "lock",   "w": "4", "title": "本站不留卡號", "desc": "交易全部在支付平台上完成，我們不儲存你的卡號。", "foot": "VISA・MasterCard・AMEX" } },
+        { "type": "item", "settings": { "icon": "cert",   "w": "4", "title": "四項安全認證", "desc": "商品通過國內外檢驗，證號都查得到。", "foot": "BSMI・SGS・NCC・CCC" } },
+        { "type": "item", "settings": { "icon": "chat",   "w": "4", "title": "真人客服", "desc": "有問題找得到人，不是丟給機器人。", "foot": "support@grantclassic.com・02-7739-7992" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

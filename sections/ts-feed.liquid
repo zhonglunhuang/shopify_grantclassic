@@ -1,0 +1,370 @@
+{{ 'ts-feed.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  TS 影片牆 —— 直式短影音牆，每支影片掛一個商品，點開像短影音那樣播。
+
+  比 KOL 頭像牆強的地方：頭像牆只說「有人推薦」，
+  影片牆是「有人在用，而且你點得下去買」——而且不必認得那個人是誰。
+
+  影片是自己維護的：把影片存下來 →「內容 → 檔案」上傳 → 在這裡選檔案 → 綁商品。
+  沒有裝任何 App，所以也不會被 App 的 JS 拖慢。
+
+  為什麼預設不是全部自動播：六支影片同時載很重、手機吃流量，
+  而且 iOS 只允許「靜音」才自動播。預設是滑過去才播、手機捲到中間才播，一次一支。
+
+  只新增 ts- 開頭的檔案，主題原有檔案一個都不動。
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- liquid
+  assign ig_style = s.ig_style | default: 'inline'
+
+  # ── 追蹤網址與帳號名：**預設讀主題自己的社群設定** ──
+  # 這一段本來是自己一個欄位各寫一份，結果寫錯了都沒人發現
+  # （寫成 @grantclassic，真的帳號是 grantclassic.taiwan）。
+  # 改成沒填就跟著主題設定走，頁尾換網址這裡自動跟著換，不會再漂。
+  assign ig_url = s.follow_url
+  if ig_url == blank
+    assign ig_url = settings.social_instagram
+  endif
+  assign ig_at = s.handle
+  if ig_at == blank and ig_url != blank
+    assign ig_at = ig_url | split: 'instagram.com/' | last | split: '?' | first | remove: '/' | prepend: '@'
+  endif
+  # 後台沒挑頭像就用主題自己的品牌圖示當退路——空的圓圈比沒有圓圈更糟
+  if s.avatar
+    assign av_src = s.avatar | image_url: width: 160
+  else
+    assign av_src = 'gc-favicon-180.png' | asset_url
+  endif
+-%}
+
+<div class="ts-feed ts-feed--{{ s.layout | default: 'mosaic' }}" data-play="{{ s.play }}"
+     style="--tsf-bg:{{ s.sect_bg }};
+            --tsf-h:{{ s.feed_h | default: 563 }}px;
+            --tsf-h0:{{ s.feed_h | default: 563 }}px;
+            --tsf-ink:{{ s.sect_ink }};
+            --tsf-card-w:{{ s.card_w }}px;
+            --tsf-radius:{{ s.radius }}px;
+            --tsf-gap:{{ s.gap }}px;
+            --tsf-hover:{{ s.hover | times: 0.01 }};
+            --tsf-pad0:{{ s.pad }}px;">
+
+  <div class="ts-feed__wrap">
+    <div class="ts-feed__top">
+      <div class="ts-feed__ht">
+        {%- if s.eyebrow != blank -%}
+          <p class="ts-feed__eb">{{ s.eyebrow }}</p>
+        {%- endif -%}
+        {%- if s.heading != blank -%}
+          <h2 class="ts-feed__h">{{ s.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- comment -%}
+          安靜版：沒有漸層環、沒有膠囊按鈕，就是一行字。
+          原本那組浮在標題右邊的頭像＋膠囊，是整頁唯一的彩色與唯一的按鈕框，
+          所以看起來像外掛上去的（Mars 2026-08-31：「有點突兀」）。
+        {%- endcomment -%}
+        {%- if ig_at != blank and ig_url != blank and ig_style == 'quiet' -%}
+          <a class="ts-feed__q" href="{{ ig_url }}" target="_blank" rel="noopener">
+            <span class="ts-feed__qav"><img src="{{ av_src }}" alt="" width="26" height="26"
+                  loading="lazy" decoding="async"></span>
+            <span class="ts-feed__qat">{{ ig_at }}</span>
+            {%- if s.follow_label != blank -%}
+              <span class="ts-feed__qdot" aria-hidden="true">·</span>
+              <span class="ts-feed__qgo">{{ s.follow_label }}</span>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+                   stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%}
+        追蹤入口＝標題那一行的右端。**用站上既有的樣式**（gc-featured 的「看更多 ›」），
+        不自創元件：一行字、一個箭頭、滑過去才浮出淺色底。
+        原本那版有漸層環＋膠囊外框，是整頁唯一的彩色與唯一的按鈕框，所以看起來像外掛的。
+        位置選這裡的理由：**跟標題同高，不用滑就看得到**——
+        放捲軸最後一格的話，不滑到底的人根本遇不到（Mars 2026-08-31 指出）。
+      {%- endcomment -%}
+      {%- if ig_at != blank and ig_url != blank and ig_style == 'inline' -%}
+        <a class="ts-feed__ig" href="{{ ig_url }}"
+           target="_blank" rel="noopener"
+           aria-label="到 Instagram 追蹤 {{ ig_at | escape }}">
+          <span class="ts-feed__av">
+            <img src="{{ av_src }}" alt="" loading="lazy" decoding="async" width="34" height="34">
+          </span>
+          <span class="ts-feed__at">{{ ig_at }}</span>
+          {%- if s.follow_label != blank -%}
+            <span class="ts-feed__dot" aria-hidden="true">·</span>
+            <span class="ts-feed__go">{{ s.follow_label }}</span>
+          {%- endif -%}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="ts-feed__rail">
+    <div class="ts-feed__track">
+      {%- for block in section.blocks -%}
+        {%- assign vid = block.settings.video -%}
+
+        {%- comment -%}
+          同一支影片 Shopify 會存好幾個畫質。
+          牆上那格只有 361px 寬，用最小的就夠；點開的播放器才用最大的。
+          這是這個區塊最省流量的一步。
+        {%- endcomment -%}
+        {%- assign lo_h = 99999 -%}{%- assign hi_h = 0 -%}
+        {%- assign src_lo = '' -%}{%- assign src_hi = '' -%}
+        {%- if vid -%}
+          {%- for v in vid.sources -%}
+            {%- if v.format == 'mp4' -%}
+              {%- if v.height < lo_h -%}
+                {%- assign lo_h = v.height -%}{%- assign src_lo = v.url -%}
+              {%- endif -%}
+              {%- if v.height > hi_h -%}
+                {%- assign hi_h = v.height -%}{%- assign src_hi = v.url -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- assign p = block.settings.product -%}
+
+        {%- comment -%}
+          封面圖：自己上傳的 → 影片自己的第一格 → 商品主圖。
+          最後這層是為了「影片還沒拍好、但版位先擺著」——這一格會顯示商品照而不是空框。
+        {%- endcomment -%}
+        {%- assign poster = block.settings.poster -%}
+        {%- unless poster -%}{%- assign poster = vid.preview_image -%}{%- endunless -%}
+        {%- unless poster -%}{%- assign poster = p.featured_image -%}{%- endunless -%}
+
+        {%- assign pname = block.settings.pname | default: p.title -%}
+        {%- assign pimg = block.settings.pimage -%}
+        {%- unless pimg -%}{%- assign pimg = p.featured_image -%}{%- endunless -%}
+
+        {%- comment -%}
+          形狀決定它在馬賽克裡佔幾格：
+            tall  = 直式，一欄寬、跨兩列（IG Reels 那種 9:16）
+            wide  = 橫式大，兩欄寬、放上排
+            small = 橫式小，一欄寬、放下排
+          全部同寬的版面下這個 class 不生效。
+        {%- endcomment -%}
+        <button type="button" class="ts-reel ts-reel--{{ block.settings.shape | default: 'tall' }}"
+                data-i="{{ forloop.index0 }}"
+                data-src="{{ src_hi | escape }}"
+                data-who="{{ block.settings.who | escape }}"
+                data-pname="{{ pname | escape }}"
+                data-pdesc="{{ block.settings.pdesc | escape }}"
+                data-purl="{{ p.url | default: '' }}"
+                data-link="{{ block.settings.link | escape }}"
+                data-pimg="{% if pimg %}{{ pimg | image_url: width: 160 | escape }}{% endif %}"
+                aria-label="{% if block.settings.who != blank %}播放 {{ block.settings.who | escape }} 的影片{% else %}播放影片{% endif %}"
+                {{ block.shopify_attributes }}>
+
+          {%- if src_lo != blank -%}
+            <video class="ts-reel__v" muted loop playsinline preload="none"
+                   {% if poster %}poster="{{ poster | image_url: width: 720 }}"{% endif %}
+                   src="{{ src_lo }}"></video>
+          {%- elsif poster -%}
+            <img class="ts-reel__v" src="{{ poster | image_url: width: 720 }}"
+                 alt="" loading="lazy" decoding="async">
+          {%- else -%}
+            <span class="ts-feed__none">選一支影片（先上傳到「內容 → 檔案」）</span>
+          {%- endif -%}
+
+          {%- if s.show_ig -%}
+            <span class="ts-reel__ig" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+          {%- endif -%}
+
+          <span class="ts-reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            {{ s.playing_label }}
+          </span>
+
+          {%- if pimg -%}
+            <span class="ts-reel__pin">
+              <img src="{{ pimg | image_url: width: 160 }}" alt="" loading="lazy" decoding="async">
+            </span>
+          {%- endif -%}
+
+          {%- if pname != blank -%}
+            <span class="ts-reel__buy">
+              <i>{% if pimg %}<img src="{{ pimg | image_url: width: 80 }}" alt="" loading="lazy" decoding="async">{% endif %}</i>
+              <span class="ts-reel__bn">{{ pname }}</span>
+            </span>
+          {%- endif -%}
+        </button>
+      {%- endfor -%}
+
+      {%- comment -%}
+        最後一格＝追蹤入口。**刻意不掛 .ts-reel**——那個 class 是播放器在認的，
+        這一格沒有影片，掛上去只會讓 JS 多繞一圈。尺寸另外給。
+      {%- endcomment -%}
+      {%- if ig_at != blank and ig_url != blank and ig_style == 'card' -%}
+        <a class="ts-feed__end" href="{{ ig_url }}"
+           target="_blank" rel="noopener">
+          <span class="ts-feed__endav">
+            <img src="{{ av_src }}" alt="" width="72" height="72" loading="lazy" decoding="async">
+          </span>
+          <span class="ts-feed__endat">{{ ig_at }}</span>
+          {%- if s.end_note != blank -%}
+            <span class="ts-feed__endnote">{{ s.end_note }}</span>
+          {%- endif -%}
+          {%- if s.follow_label != blank -%}
+            <span class="ts-feed__endbtn">{{ s.follow_label }}</span>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if s.note != blank -%}
+    <div class="ts-feed__wrap"><span class="ts-feed__note">{{ s.note }}</span></div>
+  {%- endif -%}
+</div>
+
+{%- comment -%}
+  點開之後的直式播放器。JS 會把它搬到 <body> 底下——
+  主題的容器常有 overflow:hidden 或 transform，留在原地會讓 position:fixed 失效。
+{%- endcomment -%}
+<div class="ts-player" id="ts-player-{{ section.id }}" hidden aria-modal="true" role="dialog"
+     aria-label="影片播放">
+  <button type="button" class="ts-player__x" aria-label="關閉">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button type="button" class="ts-player__nav ts-player__nav--l" aria-label="上一支">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M14.5 5l-7 7 7 7"/></svg>
+  </button>
+  <button type="button" class="ts-player__nav ts-player__nav--r" aria-label="下一支">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M9.5 5l7 7-7 7"/></svg>
+  </button>
+
+  <div class="ts-player__box">
+    <video class="ts-player__v" controls playsinline preload="none"></video>
+    <div class="ts-player__side">
+      <p class="ts-player__at"></p>
+      <a class="ts-player__prod" href="#">
+        <span class="ts-player__thumb"><img alt="" width="56" height="56"></span>
+        <span class="ts-player__ptext">
+          <span class="ts-player__pn"></span>
+          <span class="ts-player__pd"></span>
+        </span>
+      </a>
+      <a class="ts-player__cta" href="#">{{ s.cta_label }}</a>
+      <p class="ts-player__hint">左右方向鍵切換上一支／下一支，Esc 關閉。</p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'ts-feed.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "TS 影片牆",
+  "tag": "section",
+  "class": "ts-feed-section",
+  "settings": [
+    { "type": "header", "content": "文字" },
+    { "type": "text", "id": "eyebrow", "label": "小標", "default": "真的有人在用" },
+    { "type": "textarea", "id": "heading", "label": "標題",
+      "default": "他們拍的，\n你點一下就買得到。",
+      "info": "按 Enter 換行，畫面上就會跟著換行。" },
+    { "type": "text", "id": "note", "label": "底下的小字",
+      "default": "影片皆取得原作者授權後刊登。" },
+
+    { "type": "header", "content": "帳號" },
+    { "type": "text", "id": "handle", "label": "帳號名",
+      "info": "留空＝自動用佈景主題設定裡的 Instagram 網址推出來，不會寫錯" },
+    { "type": "image_picker", "id": "avatar", "label": "頭像" },
+    { "type": "select", "id": "ig_style", "label": "追蹤入口放哪裡", "default": "inline",
+      "options": [
+        { "value": "none",   "label": "不顯示" },
+        { "value": "inline", "label": "標題右邊 · 不用滑就看得到（建議）" },
+        { "value": "quiet",  "label": "標題底下一行小字 · 最安靜" },
+        { "value": "card",   "label": "捲軸最後一格 · 要滑到底才遇得到" }
+      ] },
+    { "type": "text", "id": "end_note", "label": "最後一格的說明",
+      "default": "更多真實使用畫面" },
+    { "type": "text", "id": "follow_label", "label": "按鈕文字", "default": "追蹤" },
+    { "type": "url", "id": "follow_url", "label": "按鈕連到哪" },
+    { "type": "checkbox", "id": "show_ig", "label": "每格右上角顯示 Instagram 標記", "default": true },
+
+    { "type": "header", "content": "播放方式" },
+    { "type": "select", "id": "layout", "label": "版面", "default": "mosaic",
+      "options": [
+        { "value": "mosaic", "label": "馬賽克（有橫有直，像 Insta360）" },
+        { "value": "even", "label": "全部同寬（原本的樣子）" }
+      ],
+      "info": "馬賽克要成立，素材必須有橫有直。全部都是直式 Reels 的話選「全部同寬」比較好看。" },
+    { "type": "range", "id": "feed_h", "label": "馬賽克整條高度",
+      "min": 420, "max": 680, "step": 20, "unit": "px", "default": 560 },
+    { "type": "select", "id": "play", "label": "什麼時候播", "default": "hover",
+      "options": [
+        { "value": "hover", "label": "滑過去才播（手機是捲到中間那支自己播）" },
+        { "value": "auto", "label": "自動播放（看得到就播）" },
+        { "value": "off", "label": "都不播（只顯示封面圖）" }
+      ],
+      "info": "影片一律靜音——iOS 只有靜音才允許自動播放，這是瀏覽器的規定不是設定。" },
+    { "type": "text", "id": "playing_label", "label": "播放中的標記文字", "default": "播放中" },
+    { "type": "text", "id": "cta_label", "label": "播放器裡的按鈕文字", "default": "看這個商品" },
+
+    { "type": "header", "content": "外觀" },
+    { "type": "range", "id": "card_w", "label": "每格寬度", "min": 220, "max": 480, "step": 10, "unit": "px", "default": 360,
+      "info": "高度會自己算（直式 1:1.52）。影片是 9:16 會裁掉上下一點點，重點放中間比較安全。" },
+    { "type": "range", "id": "gap", "label": "間距", "min": 8, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "radius", "label": "圓角", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "hover", "label": "滑過去整格放大", "min": 100, "max": 110, "step": 1, "unit": "%", "default": 102,
+      "info": "設 100% 就是不放大。" },
+    { "type": "range", "id": "pad", "label": "段落上下留白", "min": 24, "max": 140, "step": 4, "unit": "px", "default": 56,
+      "info": "上下各留這麼多，所以兩段之間看到的白是它的兩倍。平板與手機會自己按比例縮。" },
+    { "type": "color", "id": "sect_bg", "label": "整段底色", "default": "#FFFFFF" },
+    { "type": "color", "id": "sect_ink", "label": "整段文字色", "default": "#141416" }
+  ],
+  "blocks": [
+    {
+      "type": "clip",
+      "name": "一支影片",
+      "settings": [
+        { "type": "select", "id": "shape", "label": "這一格的形狀", "default": "tall",
+          "options": [
+            { "value": "tall",  "label": "直式 · 一欄寬、上下佔滿" },
+            { "value": "wide",  "label": "橫式大 · 兩欄寬、放上排" },
+            { "value": "small", "label": "橫式小 · 一欄寬、放下排" }
+          ],
+          "info": "只有「馬賽克」版面才有作用。一個「橫式大」配兩個「橫式小」剛好湊成一整欄。" },
+        { "type": "video", "id": "video", "label": "影片",
+          "info": "先把影片上傳到「內容 → 檔案」，這裡才選得到。建議直式 9:16、30 秒以內。" },
+        { "type": "image_picker", "id": "poster", "label": "封面圖",
+          "info": "留空就用影片自己的第一格；連影片都還沒有的話會先用商品主圖，版位不會空著。" },
+        { "type": "text", "id": "who", "label": "作者帳號", "info": "例：@ridera_tw" },
+        { "type": "url", "id": "link", "label": "點擊連往（原片網址）", "info": "填了就開新分頁到原片（例如 YouTube），不開站內播放器" },
+        { "type": "product", "id": "product", "label": "影片裡的商品",
+          "info": "選了之後左下角會掛商品縮圖，點開播放器也能直接連過去。" },
+        { "type": "text", "id": "pname", "label": "商品顯示名稱", "info": "留空就用商品原本的名字。" },
+        { "type": "text", "id": "pdesc", "label": "商品一句話", "info": "例：5000mAh 磁吸行動電源" },
+        { "type": "image_picker", "id": "pimage", "label": "商品縮圖", "info": "留空就用商品主圖。" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TS 影片牆",
+      "blocks": [
+        { "type": "clip" }, { "type": "clip" }, { "type": "clip" },
+        { "type": "clip" }, { "type": "clip" }, { "type": "clip" }
+      ]
+    }
+  ]
+}
+{% endschema %}

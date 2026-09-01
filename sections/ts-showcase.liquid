@@ -1,0 +1,482 @@
+{{ 'ts-showcase.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  TS 商品橫排 —— 大卡橫向排列、滑出右邊緣，上面可以切「新品／熱銷」。
+
+  跟「TS 商品陣列」（ts-lineup）的差別：那個是固定格線、有分類膠囊；
+  這個是橫向軌道、卡片大得多（照 DJI 量的：卡片佔內容寬約 30%），
+  而且用分頁切換而不是分類篩選。兩個都留著，看哪個好用。
+
+  刻意不放價格——品牌站的價格進到商品頁才看得到。
+
+  只新增 ts- 開頭的檔案，主題原有檔案一個都不動。
+{%- endcomment -%}
+
+{%- comment -%}
+  分頁清單：從各商品的「歸在哪一頁」長出來，順序照後台第一次出現的順序，
+  所以 Mars 把哪個 block 拖到前面，哪個分頁就排前面。
+{%- endcomment -%}
+{%- assign tlist = '|' -%}
+{%- for block in section.blocks -%}
+  {%- assign t = block.settings.tab | strip -%}
+  {%- if t != blank and t != 'both' -%}
+    {%- assign probe = '|' | append: t | append: '|' -%}
+    {%- unless tlist contains probe -%}
+      {%- assign tlist = tlist | append: t | append: '|' -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign tabs = tlist | remove_first: '|' | split: '|' -%}
+{%- assign show_tabs = false -%}
+{%- if section.settings.show_tabs and tabs.size > 1 -%}{%- assign show_tabs = true -%}{%- endif -%}
+
+<div class="ts-showcase"
+     style="--tss-bg:{{ section.settings.bg }};
+            --tss-ink:{{ section.settings.ink }};
+            --tss-card-w:{{ section.settings.card_w }}px;
+            --tss-radius:{{ section.settings.radius }}px;
+            --tss-gap:{{ section.settings.gap }}px;
+    --tss-art:{{ section.settings.art_ratio | default: "4 / 3" }};
+    --tss-card-ratio:{{ section.settings.card_ratio | default: "3 / 4" }};
+            --tss-hover:{{ section.settings.hover | times: 0.01 }};
+            --tss-pad0:{{ section.settings.pad }}px;">
+
+  <div class="ts-showcase__head">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ts-showcase__eb">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        {%- comment -%}
+        B1：首頁需要一個真的 H1。原本 H1 被主題拿去包 logo（等於只跟 Google 說
+        「這是我們公司」），已改成 span；這裡讓首頁第一段的標題接手。
+        其他頁面維持 h2，不會出現兩個 h1。
+      {%- endcomment -%}
+      {%- if section.settings.is_page_h1 -%}
+        <h1 class="ts-showcase__h">{{ section.settings.heading }}</h1>
+      {%- else -%}
+        <h2 class="ts-showcase__h">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- endif -%}
+
+      {%- if show_tabs -%}
+        <div class="ts-showcase__tabs" role="group" aria-label="{{ section.settings.heading | escape }}">
+          {%- for t in tabs -%}
+            <button type="button" data-tab="{{ t | escape }}"
+                    aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">{{ t }}</button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.more_label != blank -%}
+      <a class="ts-showcase__more" href="{{ section.settings.more_url | default: '#' }}">
+        {{ section.settings.more_label }}
+      </a>
+    {%- endif -%}
+  </div>
+
+  <div class="ts-showcase__rail">
+    <div class="ts-showcase__track">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- assign name = block.settings.title | default: p.title -%}
+        {%- assign url = p.url | default: '#' -%}
+        {%- assign t = block.settings.tab | strip -%}
+
+        {%- comment -%}
+          DJI 式色塊模式的文字顏色：底色深就用白字、淺就用深字，自動算。
+          做成自動的原因是底色是「跟著照片走」的——換一張照片就要換底色，
+          再叫人回來改一次文字顏色一定會忘記，忘記的那次就是白字配白底。
+        {%- endcomment -%}
+        {%- assign cbg = block.settings.card_bg | default: '#f8f9fc' -%}
+        {%- assign cbright = cbg | color_brightness -%}
+        {%- if cbright > 150 -%}
+          {%- assign cink = '#1d1d1f' -%}
+        {%- else -%}
+          {%- assign cink = '#ffffff' -%}
+        {%- endif -%}
+
+        <a class="ts-card{% if section.settings.full_bleed %} ts-card--full{% if section.settings.overlay == 'glass' %} ts-card--glass{% elsif section.settings.overlay == 'panel' %} ts-card--panel{% endif %}{% elsif block.settings.fit == 'cover' %} ts-card--cover{% endif %}" href="{{ url }}"
+           data-tab="{% if t == 'both' or t == blank %}*{% else %}{{ t | escape }}{% endif %}"
+           style="--tss-card-bg:{{ block.settings.card_bg }};--tss-card-ink:{{ cink }};--tss-fade:{{ block.settings.fade | default: 42 }}%;"
+           {{ block.shopify_attributes }}>
+
+          {%- comment -%}
+            圖片是這個區塊唯一真的會影響載入速度的東西（CSS＋JS 加起來只有 3KB，
+            但一張原始商品照可以到 280KB）。所以：
+            ① srcset：手機的卡片只有 264px 寬，沒必要送 900px 過去，讓瀏覽器自己挑
+            ② sizes 的數字就是 CSS 裡三個斷點的實際卡片寬度，不是猜的
+            ③ loading="lazy"：第一屏看不到的不先載
+            ④ width/height：先佔好位子，圖載進來時版面不會跳
+          {%- endcomment -%}
+          {%- assign img = block.settings.image -%}
+          {%- unless img -%}{%- assign img = p.featured_image -%}{%- endunless -%}
+          <span class="ts-card__art">
+            {%- if img -%}
+              <img src="{{ img | image_url: width: 600 }}"
+                   srcset="{{ img | image_url: width: 300 }} 300w,
+                           {{ img | image_url: width: 450 }} 450w,
+                           {{ img | image_url: width: 600 }} 600w,
+                           {{ img | image_url: width: 900 }} 900w"
+                   sizes="(max-width:749px) 264px, (max-width:1100px) 340px, {{ section.settings.card_w }}px"
+                   alt="{{ name | escape }}" loading="lazy" decoding="async"
+                   width="{{ img.width }}" height="{{ img.height }}">
+            {%- else -%}
+              <span class="ts-card__none">選一個商品，或上傳去背圖片</span>
+            {%- endif -%}
+          </span>
+
+          <span class="ts-card__b">
+            <span class="ts-card__n">{{ name }}</span>
+            {%- if block.settings.slogan != blank -%}
+              <span class="ts-card__s">{{ block.settings.slogan }}</span>
+            {%- endif -%}
+            <span class="ts-card__f">
+              {%- if section.settings.more_text != blank -%}
+                <span class="ts-card__more">{{ section.settings.more_text }}</span>
+              {%- endif -%}
+              <span class="ts-card__buy">{{ section.settings.buy_text }}</span>
+            </span>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'ts-showcase.js' | asset_url }}" defer></script>
+
+{%- comment -%}G1：把這一段的商品輸出成機器讀得懂的清單{%- endcomment -%}
+{% render 'gc-ld-products', sec: section, list_name: section.settings.heading %}
+
+{% schema %}
+{
+  "name": "TS 商品橫排",
+  "tag": "section",
+  "class": "ts-showcase-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "文字"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "小標",
+      "default": "最新上架"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "標題",
+      "default": "剛做好的，先給你看。"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_page_h1",
+      "label": "這是本頁的主標題（H1）",
+      "default": false,
+      "info": "整個網站每一頁只能開一個。首頁開這個，Google 才知道這頁在講什麼。"
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "右邊的連結文字",
+      "default": "看全部"
+    },
+    {
+      "type": "url",
+      "id": "more_url",
+      "label": "右邊的連結指到哪"
+    },
+    {
+      "type": "header",
+      "content": "分頁切換"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tabs",
+      "label": "顯示分頁切換",
+      "default": true,
+      "info": "分頁是從下面每個商品的「歸在哪一頁」長出來的。兩個以上不同的名稱才會顯示。"
+    },
+    {
+      "type": "header",
+      "content": "卡片上的按鈕"
+    },
+    {
+      "type": "text",
+      "id": "more_text",
+      "label": "左邊的文字連結",
+      "default": "瞭解更多"
+    },
+    {
+      "type": "text",
+      "id": "buy_text",
+      "label": "右邊的按鈕",
+      "default": "立即購買"
+    },
+    {
+      "type": "header",
+      "content": "外觀"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "照片鋪滿整張卡片",
+      "default": false,
+      "info": "打開＝照片鋪滿整張卡、文字壓在照片上（DJI 那種）；關閉＝照片在上、文字在下面的色塊。"
+    },
+    {
+      "type": "select",
+      "id": "overlay",
+      "label": "文字要怎麼跟照片相處（鋪滿模式才有用）",
+      "default": "panel",
+      "info": "色塊＝照片在上、下面一塊實心色，文字坐在純色上（DJI 官網就是這個，字永遠清楚）。另外兩種都是把字壓在照片上，換照片就要重新賭一次看不看得清。",
+      "options": [
+        {
+          "value": "panel",
+          "label": "照片在上＋實心色塊在下（DJI 式）"
+        },
+        {
+          "value": "glass",
+          "label": "白色霧面玻璃壓字"
+        },
+        {
+          "value": "dark",
+          "label": "黑色漸層壓字"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_ratio",
+      "label": "卡片比例（鋪滿模式才有用）",
+      "default": "3 / 4",
+      "options": [
+        {
+          "value": "1 / 1",
+          "label": "正方 1:1"
+        },
+        {
+          "value": "8 / 9",
+          "label": "近方形 8:9"
+        },
+        {
+          "value": "4 / 5",
+          "label": "直式 4:5"
+        },
+        {
+          "value": "3 / 4",
+          "label": "直式 3:4（較長）"
+        },
+        {
+          "value": "2 / 3",
+          "label": "直式 2:3（最長）"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "art_ratio",
+      "label": "滿版圖片的比例",
+      "default": "4 / 3",
+      "options": [
+        {
+          "value": "1 / 1",
+          "label": "正方 1:1"
+        },
+        {
+          "value": "4 / 3",
+          "label": "橫式 4:3"
+        },
+        {
+          "value": "3 / 2",
+          "label": "橫式 3:2"
+        },
+        {
+          "value": "16 / 9",
+          "label": "寬幅 16:9"
+        },
+        {
+          "value": "3 / 4",
+          "label": "直式 3:4"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_w",
+      "label": "卡片寬度",
+      "min": 260,
+      "max": 620,
+      "step": 10,
+      "unit": "px",
+      "default": 420,
+      "info": "DJI 的卡片約佔內容寬的 30%。太窄會變成小圖示，太寬一次看不到兩張。"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "卡片間距",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "卡片圓角",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "hover",
+      "label": "滑過去整張放大",
+      "min": 100,
+      "max": 110,
+      "step": 1,
+      "unit": "%",
+      "default": 102,
+      "info": "設 100% 就是不放大。"
+    },
+    {
+      "type": "range",
+      "id": "pad",
+      "label": "段落上下留白",
+      "min": 24,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 56,
+      "info": "上下各留這麼多，所以兩段之間看到的白是它的兩倍。平板與手機會自己按比例縮。"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "整段底色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "ink",
+      "label": "文字與按鈕顏色",
+      "default": "#141416"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "商品",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "商品",
+          "info": "選了之後整張卡片會連到那個商品頁。"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "去背圖片",
+          "info": "留空就用商品主圖。建議上傳去背 PNG／WebP，卡片才不會出現白方塊。"
+        },
+        {
+          "type": "select",
+          "id": "fit",
+          "label": "圖片顯示方式",
+          "default": "cover",
+          "info": "情境照選「滿版填滿」；去背圖選「完整置中」（四周留白、不裁切）。",
+          "options": [
+            {
+              "value": "cover",
+              "label": "滿版填滿（照片）"
+            },
+            {
+              "value": "contain",
+              "label": "完整置中（去背圖）"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "顯示名稱",
+          "info": "留空就用商品原本的名字。"
+        },
+        {
+          "type": "text",
+          "id": "slogan",
+          "label": "一句口號",
+          "info": "例：只發電，不發火"
+        },
+        {
+          "type": "select",
+          "id": "tab",
+          "label": "歸在哪一頁",
+          "default": "新品",
+          "options": [
+            {
+              "value": "新品",
+              "label": "新品"
+            },
+            {
+              "value": "熱銷",
+              "label": "熱銷"
+            },
+            {
+              "value": "both",
+              "label": "兩頁都出現"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "這張卡的底色",
+          "default": "#F8F9FC"
+        },
+        {
+          "type": "range",
+          "id": "fade",
+          "label": "照片往下淡出的高度",
+          "min": 16,
+          "max": 50,
+          "step": 2,
+          "unit": "%",
+          "default": 42,
+          "info": "產品站得比較低的照片（例如放在地板上的東西）要調小，否則產品下緣會被洗掉。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TS 商品橫排",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
