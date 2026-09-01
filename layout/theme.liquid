@@ -236,8 +236,12 @@
       {{ content_for_layout }}
 
       {%- unless request.page_type == 'password' or request.page_type == 'gift_card' -%}
-        {%- section 'static-text-with-icons' -%}
-        {%- section 'static-newsletter' -%}
+        {%- comment -%}
+          gc 2026-09-01：Mars 指定把「四個紅圖示的特色列」與「訂閱電子報」兩段全站拿掉。
+          這兩行加回來即完全還原（區塊設定都還在後台，沒有刪掉）。
+          {%- section 'static-text-with-icons' -%}
+          {%- section 'static-newsletter' -%}
+        {%- endcomment -%}
       {%- endunless -%}
     </div>
 

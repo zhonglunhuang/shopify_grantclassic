@@ -75,6 +75,13 @@
     {%- comment -%}AkoCommerce Assets{%- endcomment -%}
     {{ 'ako-basic.css' | asset_url | stylesheet_tag }}
     {{ 'ako-custom.css' | asset_url | stylesheet_tag }}
+
+    {%- comment -%}
+      gc：字級梯子與頁尾底欄的樣式。這兩行拿掉即完全還原。
+      這個 layout 之前沒載，所以 Air／Pro／二勢力 三頁的頁尾比別頁少一截（Mars 2026-09-01 回報）。
+    {%- endcomment -%}
+    {{ 'gc-type.css' | asset_url | stylesheet_tag }}
+    {{ 'gc-footer.css' | asset_url | stylesheet_tag }}
     {% render 'ako-style-conditional' %}
 
     {%- comment -%}
@@ -203,6 +210,8 @@
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
       {%- render 'facebook-messanger' -%}
       {%- section 'footer' -%}
+      {%- comment -%}gc：頁尾底欄（法律連結＋版權＋地區）。這一行拿掉即完全還原{%- endcomment -%}
+      {%- render 'gc-footer-legal' -%}
     {%- endif -%}
   <!-- subify Snippet Start -->
 {% if content_for_header contains 'https:\/\/app-subify.shopgram.app\/subify-script-tag-for-snippet.js' %} 
@@ -214,7 +223,7 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}</body>
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}</body>
 </html>
 
 <style>
