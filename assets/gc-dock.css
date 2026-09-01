@@ -126,6 +126,16 @@ body:has(.gc-dock--match-size) #loloyal-launcher-box{
   width:var(--gcd-size,48px) !important;
   height:var(--gcd-size,48px) !important;
 }
+/* ★ 手機上 App 會對 #loloyal-launcher-box 加 transform:scale(0.74)。
+   我們把寬高設成 48 沒錯（computed 也是 48），但畫出來只有 48×0.74＝36
+   ——比 LINE 那顆小一圈。**Chromium 模擬不會觸發那段、只有真 Safari 才看得到**，
+   所以在電腦上怎麼量都是一樣大（Mars 2026-09-01 用 iPhone 16 才發現）。
+   這裡蓋掉它。**這個框可以動 transform、外層 wrapper 不行**——
+   面板 .loloyal-iframe-page 是 wrapper 的另一個子元素，不在這個框裡面，
+   所以不會踩到「transform 毀掉面板定位」那個雷（已實測 panelInsideBox = false）。 */
+body:has(.gc-dock--match-size) #loloyal-launcher-box{
+  transform:none !important;
+}
 
 /* ═══ 把點數按鈕搬到右下角 ═══
    Loloyal 後台本身也能設左右，但 Mars 2026-08-30 決定用這裡搬——

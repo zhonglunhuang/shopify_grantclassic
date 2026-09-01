@@ -419,6 +419,10 @@
   html[data-gc-hero] .header:not(.gc-solid) {
     background-color: transparent !important;
     border-bottom-color: transparent !important;
+    /* ★ 那條分隔線是 box-shadow 畫的（rgb(224,224,224) 0 1px 0），不是 border。
+       只關 border-bottom 的話，透明頁首底下會留一條灰白直線
+       （Mars 2026-09-01 在 iPhone 上看到）。兩個都要關。 */
+    box-shadow: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
