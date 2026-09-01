@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════════════════
+   gc-dock ── 右下角的浮動按鈕座（2026-08-29，2026-08-30 依 UGREEN 實測重做）
+
+   Mars：「以後我就都整合在右下角」。目前兩顆：上面 LINE@、下面點數。
+
+   ── 尺寸的來源 ──
+   全部是量 us.ugreen.com 的 `.floating-buttons-group` 得到的（1440 寬）：
+     按鈕 48×48、圓角 50%、間距 24、離右 20
+     底色 rgba(255,255,255,.8)（半透明白，不是純白）
+     陰影 0 2px 8px rgba(0,0,0,.15)（很輕）
+     圖示佔按鈕的 48～67%
+   第一版我做 60px、間距 12、純白、重陰影——太大太擠太沉（Mars 2026-08-30 指出）。
+
+   要還原：把三個 layout 裡的 section 那行拿掉，再刪這兩個檔案。
+   ═══════════════════════════════════════════════════════════ */
+
+.gc-dock{
+  position:fixed;
+  right:var(--gcd-edge,20px);
+  /* LINE 是最下面那顆（Mars 2026-08-30 拍板對調）：
+     點數的氣泡面板要往上長，讓它待在上面，面板才不會壓到別的東西。 */
+  bottom:var(--gcd-bottom,24px);
+  z-index:2147483646;          /* 比 Loloyal 的 2147483647 低一階，不要蓋住它 */
+  display:flex;flex-direction:column;gap:var(--gcd-gap,24px);
+  align-items:flex-end;
+  margin-bottom:env(safe-area-inset-bottom,0px);
+}
+
+.gc-dock__btn{
+  width:var(--gcd-size,48px);height:var(--gcd-size,48px);
+  border-radius:50%;
+  display:grid;place-items:center;
+  text-decoration:none;position:relative;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s;
+  -webkit-tap-highlight-color:transparent;
+}
+.gc-dock__btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.20)}
+.gc-dock__btn:focus-visible{outline:2px solid #4A8BFF;outline-offset:3px}
+.gc-dock__ic{width:52%;height:52%;display:block}
+/* ── LINE 標誌：氣泡框 ＋ 挖空的「LINE」 ──
+   兩個顏色是分開的變數，不是 currentColor：
+   氣泡裡的字要用「按鈕底色」把氣泡挖穿，而 currentColor 在氣泡內部
+   已經被改成字的顏色了，再拿它畫尾巴會拿到錯的色。
+   所以 --gcd-mark（氣泡）與 --gcd-cut（字）各自明寫，見下面三種樣式。 */
+.gc-dock__bubble{
+  position:relative;display:grid;place-items:center;
+  /* 照 Mars 2026-08-30 給的參考圖：氣泡幾乎是圓的，不是圓角方塊。
+     圓角開到 48%/46% 就會變成橢圓，字才會被「包」起來而不是塞在盒子裡。 */
+  /* 氣泡縮小、圓圈邊留白變多（Mars 2026-08-30：原本 70% 幾乎頂到邊）。
+     字級要一起縮，不然「LINE」四個字會塞爆氣泡。 */
+  width:60%;height:54%;
+  border-radius:48% / 46%;
+  background:var(--gcd-mark,#141416);
+  color:var(--gcd-cut,#fff);
+  font-size:9px;font-weight:800;letter-spacing:-.02em;line-height:1;
+  user-select:none;
+}
+/* 尾巴在右下角。**尖端往內勾回來，不是往外甩**——
+   對照 LINE 原廠標誌（Mars 2026-08-30 並排比對）：
+   我原本把尖端放在 84%（偏右）＝往外甩；原廠是往中間勾回去。
+   所以尖端改到 26%（偏左），寬邊在上、尖端斜回氣泡下方。
+   少了尾巴就只是一個黑橢圓，那個尾巴才是「這是對話框」的訊號。 */
+.gc-dock__bubble::after{
+  content:"";position:absolute;right:14%;bottom:-14%;left:auto;
+  width:26%;height:26%;
+  background:var(--gcd-mark,#141416);
+  clip-path:polygon(0 0, 100% 0, 26% 100%);
+}
+
+/* ── 三種樣式 ──
+   半透明白配毛玻璃：按鈕會壓在各種顏色的內容上，純白在深色段落上會像一塊補丁。
+   毛玻璃只掛在這兩顆小按鈕上，合成層壓力可以忽略。 */
+.gc-dock__btn--white{background:var(--gcd-btn-bg);color:#141416;
+  -webkit-backdrop-filter:var(--gcd-btn-blur);backdrop-filter:var(--gcd-btn-blur);}
+.gc-dock__btn--green{background:var(--gcd-btn-bg);color:#fff}
+.gc-dock__btn--dark {background:var(--gcd-btn-bg);color:#fff;
+  -webkit-backdrop-filter:var(--gcd-btn-blur);backdrop-filter:var(--gcd-btn-blur);}
+
+/* 三種樣式的實際值放在 :root——因為點數按鈕畫在 Shadow DOM 裡，
+   一般的 CSS 規則穿不進去，但**自訂屬性會**。
+   gc-dock.js 注入的 shadow 樣式只寫 var()，值由這裡決定，
+   所以後台換樣式時兩顆會一起換。 */
+:root:has(.gc-dock__btn--white){--gcd-btn-bg:rgba(255,255,255,.8);--gcd-btn-blur:blur(10px);
+  --gcd-icon-filter:brightness(0);--gcd-mark:#141416;--gcd-cut:#fff}
+:root:has(.gc-dock__btn--green){--gcd-btn-bg:#06C755;--gcd-btn-blur:none;
+  --gcd-icon-filter:brightness(0) invert(1);--gcd-mark:#fff;--gcd-cut:#06C755}
+:root:has(.gc-dock__btn--dark){--gcd-btn-bg:rgba(20,20,22,.82);--gcd-btn-blur:blur(10px);
+  --gcd-icon-filter:brightness(0) invert(1);--gcd-mark:#fff;--gcd-cut:#141416}
+
+/* 滑過去才出現的文字提示。手機不顯示——手機沒有 hover，
+   而且畫面窄，一塊標籤壓在旁邊只會擋到內容。 */
+.gc-dock__tip{
+  position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  background:#141416;color:#fff;font-size:13px;line-height:1;
+  padding:9px 12px;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .18s ease;
+}
+.gc-dock__btn:hover .gc-dock__tip,
+.gc-dock__btn:focus-visible .gc-dock__tip{opacity:1}
+
+/* 點數那顆也要有提示（Mars 2026-09-01）。
+   它是 App 畫的、我們塞不進自己的 <span>，所以用「外框的 ::before」當標籤。
+   ⚠️ 偽元素可以有 transform，**外框本身不行**——外框一有 transform，
+   面板 .loloyal-iframe-page 就會拿它當定位基準、高度算成負數（見下面那段的說明）。
+   文字用變數，後台改字就會跟著換。 */
+body:has(.gc-dock--move-loyalty) .boom-launcher.loloyal-launcher-wrapper::before{
+  content:var(--gcd-loyalty-tip,"點數商城任你拿");
+  position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  background:#141416;color:#fff;font-size:13px;line-height:1;
+  padding:9px 12px;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .18s ease;
+}
+body:has(.gc-dock--move-loyalty) .boom-launcher.loloyal-launcher-wrapper:hover::before{opacity:1}
+
+/* ═══ 讓點數按鈕跟我們一樣大 ═══
+   ⚠️ **絕對不要用 transform 縮放這個外框。**
+   transform 會讓它變成內部 position:fixed 子孫的定位基準，而面板
+   `.loloyal-iframe-page` 正好是它的子元素——面板高度寫的是
+   `calc(100% - 112px)`，那個 100% 就從「整個畫面」變成「這顆按鈕」，
+   算出負數被 min-height 卡在 52px，使用者看到的是一小條
+   （2026-08-30 實測：有 transform 面板高 42px、拿掉後 640px）。
+   改成直接設寬高。 */
+body:has(.gc-dock--match-size) .boom-launcher.loloyal-launcher-wrapper,
+body:has(.gc-dock--match-size) #loloyal-launcher-box{
+  width:var(--gcd-size,48px) !important;
+  height:var(--gcd-size,48px) !important;
+}
+
+/* ═══ 把點數按鈕搬到右下角 ═══
+   Loloyal 後台本身也能設左右，但 Mars 2026-08-30 決定用這裡搬——
+   兩邊各設一次的話位置還要互相對，不如全部由這裡的變數統一控制。
+
+   代價講清楚：App 改版換了 class 名，這個覆蓋會**無聲失效**、按鈕跳回左下角，
+   不會有任何錯誤訊息。真的發生時，把後台那個開關關掉、改去 Loloyal 設右邊即可。
+
+   為什麼「只搬按鈕」不夠：面板 `.loloyal-iframe-page` 是**另一個獨立的
+   position:fixed 元素、寫死 left:30px**。它雖然是按鈕的子元素，但 fixed 讓它
+   直接錨在視窗上、不跟父層跑——所以會出現「按鈕在右邊、面板往左開」
+   （2026-08-30 Mars 實際遇到）。所以這裡兩個都要搬。
+
+   風險照舊：App 改版換了 class 名，按鈕會無聲跳回左下角，沒有任何錯誤訊息。 */
+body:has(.gc-dock--move-loyalty) .boom-launcher.loloyal-launcher-wrapper{
+  left:auto !important;
+  right:var(--gcd-edge,20px) !important;
+  /* 點數在上面、LINE 在下面：底距 ＋ 一顆按鈕 ＋ 一個間距 */
+  bottom:calc(var(--gcd-bottom,24px) + var(--gcd-size,48px) + var(--gcd-gap,24px)) !important;
+}
+/* 面板的位置只在桌機接手。
+   手機上 App 自己會把面板做成全螢幕（實測 390×844、貼滿四邊），
+   這時候再硬塞 right 會把整片往右推、左邊被切掉 16px
+   （2026-08-30 實測）。全螢幕的東西不需要我們對齊。 */
+@media (min-width:750px){
+body:has(.gc-dock--move-loyalty) .loloyal-iframe-page{
+    left:auto !important;
+    right:var(--gcd-edge,20px) !important;
+    /* 面板要開在「整座按鈕」的上面，不是只在點數那顆上面。
+       App 算的 bottom:100px ＝ 它自己的按鈕 60 ＋ 底距 30 ＋ 間隙 10；
+       我們把按鈕縮到 48、上面又疊了 LINE 那顆，那個數字就不對了，
+       面板會直接蓋住 LINE（2026-08-30 實測到）。
+       這裡重算：底距 ＋ 兩顆按鈕 ＋ 兩個間距（點數在上面，面板再往上一層）。 */
+    bottom:calc(var(--gcd-bottom,24px)
+                + var(--gcd-size,48px) * 2
+                + var(--gcd-gap,24px) * 2) !important;
+  }
+}
+
+@media (max-width:749px){
+  /* 邊距在 section 的 :root 那段一起處理，這裡只管手機專屬的行為 */
+  .gc-dock__tip{display:none}
+  /* 手機沒有 hover，標籤只會擋到內容——點數那顆的提示一樣關掉 */
+  body:has(.gc-dock--move-loyalty) .boom-launcher.loloyal-launcher-wrapper::before{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .gc-dock__btn{transition:none}
+  .gc-dock__btn:hover{transform:none}
+}
