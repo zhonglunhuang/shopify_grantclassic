@@ -9,26 +9,27 @@
  */
 {
   "sections": {
-    "slideshow_p99r8h": {
-      "type": "slideshow",
+    "slideshow_CFcHr8": {
+      "type": "gc-slideshow",
       "blocks": {
         "image_Ly7GDi": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/BN_2160x1080_51d0d255-87da-4493-ba84-5d3a91af1348.jpg",
-            "mobile_image": "shopify://shop_images/BN_1000x1400_TITANSHIELD_PRO_optimized.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "https://grantclassic.com/collections/titanshield-solid-state-power-bank",
+            "image": "shopify://shop_images/gc-bn-tsp-glow-5k.webp",
+            "mobile_image": "shopify://shop_images/gc-bn-tsp-glow-1080x1728.webp",
+            "text_position": "middle_left",
+            "subheading": "穩如鈦山 Pro・防爆固態行動電源",
+            "title": "TITANSHIELD Pro",
+            "button_1_text": "立即購買",
+            "button_1_link": "shopify://products/titanshield_10000",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 0,
+            "text": "只發電，不發火。安全，聽得見。"
           }
         },
         "image_CbX6Bt": {
@@ -41,25 +42,6 @@
             "title": "",
             "button_1_text": "",
             "button_1_link": "shopify://collections/aqualux",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_fQxd4L": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/04.webp",
-            "mobile_image": "shopify://shop_images/05_optimized.webp",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://products/餵不停-luxnourish-貓狗自動餵食器-單碗組",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
@@ -87,637 +69,683 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
-        }
-      },
-      "block_order": [
-        "image_Ly7GDi",
-        "image_CbX6Bt",
-        "image_fQxd4L",
-        "image_P999HC"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 10,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "featured_collections_WTNaTb": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_pYEHDn": {
-          "type": "collection",
-          "settings": {
-            "collection": "連假快閃優惠🔥-滿千元即享-85-折優惠",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_pYEHDn"
-      ],
-      "settings": {
-        "subheading": "",
-        "title": "最新商品",
-        "content": "",
-        "products_count": 34,
-        "products_per_row": 6,
-        "stack_products": false,
-        "show_cta": false,
-        "background": "#ffffff",
-        "text_color": "#2d2d2d",
-        "button_background": "#eb3b3b",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "slideshow_AR6y7t": {
-      "type": "slideshow",
-      "blocks": {
-        "image_pkmDxn": {
+        },
+        "image_gcAir01": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/lQDPItmTGH5wwSfNA-jNCHCwZQBx1FoFPBsHqCzoc9xmAQ_2160_1000.jpg",
-            "text_position": "middle_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "https://lin.ee/QDHN7JB",
+            "image": "shopify://shop_images/gc-bn-tsa-hand-5k.webp",
+            "mobile_image": "shopify://shop_images/gc-bn-tsa-hand-1080x1728.webp",
+            "text_position": "middle_left",
+            "subheading": "穩如鈦山 Air・磁吸固態行動電源",
+            "title": "TITANSHIELD",
+            "text": "只發電，不發火。安全，輕如空氣。",
+            "button_1_text": "立即購買",
+            "button_1_link": "shopify://products/titanshield-air",
             "button_2_text": "",
             "button_2_link": "",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "overlay_opacity": 0,
+            "title_accent": "Air"
           }
         }
       },
       "block_order": [
-        "image_pkmDxn"
+        "image_Ly7GDi",
+        "image_gcAir01",
+        "image_CbX6Bt",
+        "image_P999HC"
       ],
-      "disabled": true,
+      "name": "Slideshow",
       "settings": {
-        "section_height": "auto",
+        "section_height": "large",
         "transition_type": "sweep",
         "autoplay": true,
-        "cycle_speed": 4,
+        "cycle_speed": 10,
         "background": "rgba(0,0,0,0)"
       }
     },
-    "featured_collections_FFVeDA": {
-      "type": "featured-collections",
+    "ts_showcase_FpP33T": {
+      "type": "ts-showcase",
       "blocks": {
-        "collection_4ermYB": {
-          "type": "collection",
+        "product_qCJPW8": {
+          "type": "product",
           "settings": {
-            "collection": "新年出遊-電力⚡️⚡️滿滿推薦",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
+            "product": "titanshield-air",
+            "title": "TITANSHIELD Air",
+            "slogan": "穩如鈦山 Air・6 mm、113 g",
+            "tab": "新品",
+            "card_bg": "#cbc4c0",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-tsa-fingertip2.webp",
+            "fade": 42
           }
         },
-        "collection_CcCDbr": {
-          "type": "collection",
+        "product_gcStd01": {
+          "type": "product",
           "settings": {
-            "collection": "新年出遊-養寵神隊友🐶",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
+            "product": "solid-state-power-bank-titanshield-10000mah",
+            "title": "TITANSHIELD",
+            "slogan": "穩如鈦山 標準版・首創固態行動電源",
+            "tab": "新品",
+            "card_bg": "#b6ada8",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-tsstd-call.webp",
+            "fade": 42
           }
         },
-        "collection_R7xDmH": {
-          "type": "collection",
+        "product_TyYipT": {
+          "type": "product",
           "settings": {
-            "collection": "新年出遊-安心旅行必備-✈️",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
+            "product": "titanshield_10000",
+            "title": "TITANSHIELD Pro",
+            "slogan": "穩如鈦山 Pro・只發電，不發火",
+            "tab": "新品",
+            "card_bg": "#494d50",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-tsp-airport2.webp",
+            "fade": 42
           }
         },
-        "collection_VMd9Q4": {
-          "type": "collection",
+        "product_9CQpf6": {
+          "type": "product",
           "settings": {
-            "collection": "新年出遊-機車旅行夥伴-🏍️",
-            "label": "",
-            "button_text": "",
-            "button_url": ""
+            "product": "luxnourish-ai",
+            "title": "LuxNourish AI",
+            "slogan": "餵不停・出門在外，也餵得到",
+            "tab": "新品",
+            "card_bg": "#c2ab91",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-luxai-real.webp",
+            "fade": 24
+          }
+        },
+        "product_gcC600": {
+          "type": "product",
+          "settings": {
+            "product": "我聽你講-ridetune-c600-安全帽藍牙耳機",
+            "title": "RideTune C600",
+            "slogan": "我聽你講・戴著安全帽，也聊得下去",
+            "tab": "新品",
+            "card_bg": "#ad9a8b",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-c600-model.webp",
+            "fade": 42
+          }
+        },
+        "product_yTT7MP": {
+          "type": "product",
+          "settings": {
+            "product": "dualfindpro",
+            "title": "Dualfind Pro",
+            "slogan": "二勢力・騎車路上，手機穩得住",
+            "tab": "新品",
+            "card_bg": "#272e33",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-moto-bike.webp",
+            "fade": 42
+          }
+        },
+        "product_KafU7p": {
+          "type": "product",
+          "settings": {
+            "product": "aqualux-mag",
+            "title": "AquaLux Mag",
+            "slogan": "喝不停・你不用天天換水",
+            "tab": "新品",
+            "card_bg": "#b28c6b",
+            "fit": "cover",
+            "image": "shopify://shop_images/gc-card-aqualux-cats2.webp",
+            "fade": 42
           }
         }
       },
       "block_order": [
-        "collection_4ermYB",
-        "collection_CcCDbr",
-        "collection_R7xDmH",
-        "collection_VMd9Q4"
+        "product_qCJPW8",
+        "product_gcStd01",
+        "product_TyYipT",
+        "product_9CQpf6",
+        "product_gcC600",
+        "product_yTT7MP",
+        "product_KafU7p"
       ],
-      "disabled": true,
+      "name": "TS 商品橫排",
       "settings": {
-        "subheading": "🧧 新年超值組 🧧",
-        "title": "最高 57 折❗️現省 $6,000",
-        "content": "<h2><strong>🔥 好評延長 無上限 🔥<br/>指定商品 滿$2,000 折 $200</strong></h2><h4><strong>期間限定 ▶︎ 1/20 ~ 2/2</strong></h4><h5><strong>*1/20 以後訂單將於 2/2 統一出貨</strong></h5>",
-        "products_count": 50,
-        "products_per_row": 3,
-        "stack_products": false,
-        "show_cta": false,
-        "background": "#ffffff",
-        "text_color": "#2d2d2d",
-        "button_background": "#2d2d2d",
-        "button_text_color": "rgba(0,0,0,0)"
+        "eyebrow": "",
+        "heading": "剛做好的，先給你看。",
+        "more_label": "",
+        "more_url": "",
+        "show_tabs": false,
+        "more_text": "",
+        "buy_text": "立即購買",
+        "card_w": 520,
+        "gap": 16,
+        "radius": 24,
+        "hover": 102,
+        "pad": 96,
+        "bg": "#ffffff",
+        "ink": "#141416",
+        "art_ratio": "4 / 3",
+        "full_bleed": true,
+        "card_ratio": "8 / 9",
+        "is_page_h1": false,
+        "overlay": "panel"
       }
     },
-    "874de104-fc55-4f57-b89f-70e94f68f14b": {
-      "type": "collection-list",
+    "ts_series_iXnGrR": {
+      "type": "ts-series",
       "blocks": {
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-0": {
-          "type": "collection",
+        "p1": {
+          "type": "product",
           "settings": {
-            "collection": "車輛用品",
-            "image": "shopify://shop_images/content_car.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "shopify://collections/gc-car-moto",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "product": "titanshield-air",
+            "kicker": "穩如鈦山 Air・5000 mAh・6 mm 超薄",
+            "title": "TITANSHIELD Air",
+            "image": "shopify://shop_images/gc-card-tsa-grey.jpg"
           }
         },
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1": {
-          "type": "collection",
+        "p3": {
+          "type": "product",
           "settings": {
-            "collection": "手機周邊",
-            "image": "shopify://shop_images/content_photo.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "shopify://collections/designer-phone-cases",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "product": "titanshield_10000",
+            "kicker": "穩如鈦山 Pro・10000 mAh・防爆固態",
+            "title": "TITANSHIELD Pro"
           }
         },
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2": {
-          "type": "collection",
+        "p4": {
+          "type": "product",
           "settings": {
-            "collection": "gclife",
-            "image": "shopify://shop_images/content_life.png",
-            "subheading": "",
-            "title": "",
-            "link_text": "",
-            "link_url": "shopify://collections/生活周邊",
-            "text_color": "rgba(0,0,0,0)",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "product": "velvet-strap-pro-black",
+            "kicker": "充電掛繩・160cm",
+            "title": "繩來運轉 Velvet Strap Pro"
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": "gc-tag-1",
+            "kicker": "全球定位・防丟",
+            "title": "GC-Tag 找得到"
           }
         }
       },
       "block_order": [
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-0",
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-1",
-        "template--16689333797107__874de104-fc55-4f57-b89f-70e94f68f14b-16690991376181bfe3-2"
+        "p1",
+        "p3",
+        "p4",
+        "p5"
       ],
+      "name": "TS 系列",
       "settings": {
-        "reveal_on_scroll": false,
-        "layout": "carousel",
-        "subheading": "",
-        "title": "",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "eyebrow": "",
+        "heading": "穩如鈦山 Pro",
+        "sub": "10000 mAh 防爆固態，只發電，不發火。",
+        "btn_label": "立即購買",
+        "btn_url": "",
+        "art_pos": "bg",
+        "bg": "#0f0f0f",
+        "ink": "light",
+        "min_h": 600,
+        "card_w": 390,
+        "gap": 16,
+        "radius": 18,
+        "hover": 102,
+        "card_bg": "#f8f9fc",
+        "card_ink": "#141416",
+        "show_all": true,
+        "all_label": "查看所有配件",
+        "all_url": "/collections/chargers",
+        "pad": 96,
+        "sect_bg": "#ffffff",
+        "sect_ink": "#141416",
+        "section_title": "手機周邊",
+        "show_price": true,
+        "hero_product": "titanshield_10000",
+        "all_kicker": "幫您選購",
+        "all2_label": "",
+        "cols": 6,
+        "banner_video_asset": "ts-hero-pro.mp4",
+        "all_image": "shopify://shop_images/gc-pickcard-phone-orange.webp"
       }
     },
-    "13f4458f-160f-4c33-b18b-fc3a7c3651c9": {
-      "type": "logo-list",
+    "ts_series_H7bnRD": {
+      "type": "ts-series",
       "blocks": {
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-0": {
-          "type": "logo",
+        "p1": {
+          "type": "product",
           "settings": {
-            "logo": "shopify://shop_images/Rectangle_140.png",
-            "link": ""
+            "product": "dualfindpro",
+            "kicker": "機車手機架・定位版",
+            "title": "二勢力 Dualfind Pro"
           }
         },
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-1": {
-          "type": "logo",
+        "p2": {
+          "type": "product",
           "settings": {
-            "logo": "shopify://shop_images/Rectangle_142.png",
-            "link": ""
+            "product": "roadvolt-92w",
+            "kicker": "92W・車上四孔",
+            "title": "充滿快樂 RoadVolt"
           }
         },
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-2": {
-          "type": "logo",
-          "disabled": true,
+        "p3": {
+          "type": "product",
           "settings": {
-            "logo": "shopify://shop_images/Rectangle_143.png",
-            "link": ""
+            "product": "我聽你講-ridetune-c600-安全帽藍牙耳機",
+            "kicker": "安全帽藍牙耳機",
+            "title": "我聽你講 RideTune C600"
           }
         },
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-3": {
-          "type": "logo",
+        "p4": {
+          "type": "product",
           "settings": {
-            "logo": "shopify://shop_images/Rectangle_144.png",
-            "link": ""
-          }
-        },
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-4": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_141.png",
-            "link": ""
-          }
-        },
-        "535d4cfd-62a1-4f23-b8f7-81ead9d5b6bf": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_140.png",
-            "link": ""
-          }
-        },
-        "10771017-b123-4d93-ae37-2fec5924b9b7": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_142.png",
-            "link": ""
-          }
-        },
-        "28719faa-f3a6-4d83-987e-7dbc5fc4c402": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_143.png",
-            "link": ""
-          }
-        },
-        "6b72279c-d255-4b32-9797-1b88ed626b45": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_141.png",
-            "link": ""
-          }
-        },
-        "42e23cf2-1925-486f-9efb-eed545746937": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Rectangle_144.png",
-            "link": ""
+            "product": "ridetune-c300",
+            "kicker": "安全帽藍牙耳機",
+            "title": "我聽你講 RideTune C300"
           }
         }
       },
       "block_order": [
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-0",
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-1",
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-2",
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-3",
-        "template--16689333797107__13f4458f-160f-4c33-b18b-fc3a7c3651c9-16690993978b816cb3-4",
-        "535d4cfd-62a1-4f23-b8f7-81ead9d5b6bf",
-        "10771017-b123-4d93-ae37-2fec5924b9b7",
-        "28719faa-f3a6-4d83-987e-7dbc5fc4c402",
-        "6b72279c-d255-4b32-9797-1b88ed626b45",
-        "42e23cf2-1925-486f-9efb-eed545746937"
+        "p1",
+        "p2",
+        "p3",
+        "p4"
       ],
-      "disabled": true,
+      "name": "TS 系列",
       "settings": {
-        "reveal_on_scroll": true,
-        "subheading": "",
-        "title": "",
-        "button_text": "",
-        "button_link": "",
-        "stack_logos": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)",
-        "logo_background": "rgba(0,0,0,0)"
+        "eyebrow": "",
+        "heading": "二勢力 Dualfind Pro",
+        "sub": "騎車路上，手機穩得住。",
+        "btn_label": "立即購買",
+        "btn_url": "",
+        "art_pos": "bg",
+        "bg": "#0f0f0f",
+        "ink": "light",
+        "min_h": 600,
+        "card_w": 390,
+        "gap": 16,
+        "radius": 18,
+        "hover": 102,
+        "card_bg": "#f8f9fc",
+        "card_ink": "#141416",
+        "show_all": true,
+        "all_label": "查看所有配件",
+        "all_url": "/collections/二勢力-dualfind-機車手機支架",
+        "pad": 96,
+        "sect_bg": "#ffffff",
+        "sect_ink": "#141416",
+        "section_title": "汽機車周邊",
+        "show_price": true,
+        "all_kicker": "幫您選購",
+        "all2_label": "",
+        "cols": 5,
+        "hero_product": "dualfindpro",
+        "banner_image_asset": "",
+        "banner_video_asset": "gc-hero-dualfind.mp4",
+        "banner_image": "shopify://shop_images/gc-hero-dualfind-poster.jpg",
+        "all_image": "shopify://shop_images/gc-pickcard-moto-wave.jpg"
       }
     },
-    "b59dcfbe-4bae-45a6-b105-4273ae088bcc": {
-      "type": "multi-column",
+    "ts_series_A8CG97": {
+      "type": "ts-series",
       "blocks": {
-        "8b6dedb2-74d1-4107-9210-d1a1d822e87b": {
-          "type": "item",
+        "pet1": {
+          "type": "product",
           "settings": {
-            "image": "shopify://shop_images/2f1beecd732f7a401642cf62a08a414b.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>醜白兔</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-醜白兔聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "product": "aqualux-mag",
+            "kicker": "磁力無線・免插電",
+            "title": "喝不停 AquaLux Mag"
           }
         },
-        "item_rp846x": {
-          "type": "item",
+        "pet2": {
+          "type": "product",
           "settings": {
-            "image": "shopify://shop_images/b5af73b4963a5b72632550b32074a6e5.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>MousyStory小鼠手札</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/gc-mousystory",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "product": "luxair",
+            "kicker": "H13 濾網・抗敏",
+            "title": "吸不停 LuxAir"
           }
         },
-        "3032f7dd-666e-4e5a-937c-975cdfb44f4d": {
-          "type": "item",
+        "pet3": {
+          "type": "product",
           "settings": {
-            "image": "shopify://shop_images/LINE_ALBUM__LOGO_231129_2.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>小室插畫</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-小室插畫聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "product": "petblow-pro",
+            "kicker": "吹吸二合一",
+            "title": "暖烘烘 PetBlow Pro"
           }
         },
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0": {
-          "type": "item",
+        "pet4": {
+          "type": "product",
           "settings": {
-            "image": "shopify://shop_images/bcf4c263-176b-49de-826d-df6cf3091066.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>緩緩</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-緩緩聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
-          }
-        },
-        "582777f2-8b97-41a0-af7a-00b36278b329": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/18bf816e-cc08-4939-9938-c7c848f0b658.png",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "",
-            "content": "<p>無謂君</p>",
-            "link_text": "",
-            "link_url": "shopify://collections/inficase-無謂君聯名款手機殼",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "product": "luxvault",
+            "kicker": "真空保鮮・防潮",
+            "title": "鮮不停 LuxVault"
           }
         }
       },
       "block_order": [
-        "8b6dedb2-74d1-4107-9210-d1a1d822e87b",
-        "item_rp846x",
-        "3032f7dd-666e-4e5a-937c-975cdfb44f4d",
-        "template--16672969064691__b59dcfbe-4bae-45a6-b105-4273ae088bcc-1685078612f5c6e6e5-0",
-        "582777f2-8b97-41a0-af7a-00b36278b329"
+        "pet1",
+        "pet2",
+        "pet3",
+        "pet4"
       ],
+      "name": "TS 系列",
       "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "聯名系列",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "medium",
-        "desktop_item_size": "small",
-        "spacing": "tight",
-        "background": "#f5f5f5",
-        "text_color": "rgba(0,0,0,0)"
+        "eyebrow": "",
+        "heading": "餵不停 LuxNourish",
+        "sub": "出門在外，也餵得到。",
+        "btn_label": "立即購買",
+        "btn_url": "",
+        "art_pos": "bg",
+        "bg": "#0f0f0f",
+        "ink": "dark",
+        "min_h": 600,
+        "card_w": 390,
+        "gap": 16,
+        "radius": 18,
+        "hover": 102,
+        "card_bg": "#f8f9fc",
+        "card_ink": "#141416",
+        "show_all": true,
+        "all_label": "查看所有配件",
+        "all_url": "/collections/2024-特經典嚴選-寵物系列產品",
+        "pad": 96,
+        "sect_bg": "#ffffff",
+        "sect_ink": "#141416",
+        "section_title": "寵物生活",
+        "show_price": true,
+        "all_kicker": "幫您選購",
+        "all2_label": "",
+        "hero_product": "luxnourish",
+        "cols_auto": true,
+        "banner_image": "shopify://shop_images/gc-hero-pet-feeder-v3.jpg",
+        "all_image": "shopify://shop_images/gc-pickcard-pet-cats.jpg",
+        "banner_image_m": "shopify://shop_images/gc-hero-pet-feeder-m.jpg"
       }
     },
-    "6fedb7c0-954d-45a4-b1e0-cca7bdd60907": {
-      "type": "multi-column",
+    "ts_feed_nhi773": {
+      "type": "ts-feed",
       "blocks": {
-        "c7520525-c55c-4bc8-88ac-73058e2b452f": {
-          "type": "item",
+        "clip_hpwMgN": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/jin-2.webp",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Jin",
-            "content": "<p>全明星女戰神</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-ugc-lux.mp4",
+            "poster": "shopify://shop_images/gc-feed-ugc-lux-poster.jpg"
           }
         },
-        "209ae051-d206-483f-b412-ecdd5f2814c0": {
-          "type": "item",
+        "clip_aUNeVh": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/344405459_964161451381461_6888048044111003860_n.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "呂捷",
-            "content": "<p>補教名師</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@goodskang",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "wide",
+            "video": "shopify://files/videos/gc-feed-kang-tsp-v3.mp4",
+            "poster": "shopify://shop_images/gc-feed-kang-tsp-poster-v3.jpg",
+            "link": "https://www.youtube.com/watch?v=i-Q1wLyAko8"
           }
         },
-        "2ec40456-d17b-4665-bbe3-959022f4fb03": {
-          "type": "item",
+        "clip_Fm9FF4": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/325766729_1657849591315159_7067246353563675149_n.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "薔薔",
-            "content": "<p>冶豔派女神</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@EXShopEason",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "small",
+            "video": "shopify://files/videos/gc-feed-poke-tsp.mp4",
+            "poster": "shopify://shop_images/gc-feed-poke-tsp-poster.jpg",
+            "link": "https://www.youtube.com/watch?v=EHXvkiIA8Po"
           }
         },
-        "a8a307ba-3e41-4c3a-97ac-9c5404d4066e": {
-          "type": "item",
+        "clip_YgW3fQ": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/151266280_273029390856965_1393062254274771099_n_1.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "艾爾文",
-            "content": "<p>質感生活</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "small",
+            "video": "shopify://files/videos/gc-feed-apple-style-v2.mp4",
+            "poster": "shopify://shop_images/gc-feed-apple-style-poster.jpg"
           }
         },
-        "143d2dbe-e077-40d2-b6a5-5e186a65c945": {
-          "type": "item",
+        "clip_wjhTFA": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/12_5_-2.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "亞亞",
-            "content": "<p>檔車女神</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-flex-tow.mp4",
+            "poster": "shopify://shop_images/gc-feed-flex-tow-poster.jpg",
+            "link": "https://www.instagram.com/reel/C50eWajtUOd/"
           }
         },
-        "ac9dfb1f-c6cc-4295-961a-941e4f0bc021": {
-          "type": "item",
+        "clip_eQHxkU": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/DSC07989.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "七七",
-            "content": "<p>新星檔車女孩</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "product": "",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-gctag-reel.mp4",
+            "poster": "shopify://shop_images/gc-feed-gctag-reel-poster.jpg",
+            "link": "https://www.instagram.com/reel/DI3YGa8MoyE/"
           }
         },
-        "6cfc1d91-f8c7-46ba-bf70-08912f5c6089": {
-          "type": "item",
+        "clip_x07": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/IMG_4318_PNG.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "宇恩",
-            "content": "<p>科技女神</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-mag-shake.mp4",
+            "poster": "shopify://shop_images/gc-feed-mag-shake-poster.jpg",
+            "link": "https://www.instagram.com/reel/DUW7mHhiE6F/"
           }
         },
-        "41492a9c-19f7-4496-bcab-91424b645813": {
-          "type": "item",
+        "clip_x08": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/177236284_313058670187001_7408612130173619750_n_1.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "廖阿輝",
-            "content": "<p>3c達人</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-forget.mp4",
+            "poster": "shopify://shop_images/gc-feed-forget-poster.jpg",
+            "link": "https://www.instagram.com/reel/Db4eCOmjKoa/"
           }
         },
-        "d3c35cf4-4fed-458b-8382-634668debe38": {
-          "type": "item",
+        "clip_x11": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/db54957ece2571eb1b989e747a7f1161.webp",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "科技狗 3C Dog",
-            "content": "<p>超主觀測評主</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-octastand.mp4",
+            "poster": "shopify://shop_images/gc-feed-octastand-poster.jpg",
+            "link": "https://www.instagram.com/reel/C99sSWjMvHg/"
           }
         },
-        "bb1bbd15-3829-4866-a728-a07ebb2a6c63": {
-          "type": "item",
+        "clip_x12": {
+          "type": "clip",
           "settings": {
-            "image": "shopify://shop_images/02.webp",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "騎士A",
-            "content": "<p>小市民日常</p>",
-            "link_text": "",
-            "link_url": "",
-            "link_style": "link",
-            "text_alignment": "center",
-            "vertical_alignment": "start"
+            "who": "@grantclassic.taiwan",
+            "pname": "",
+            "pdesc": "",
+            "shape": "tall",
+            "video": "shopify://files/videos/gc-feed-luxai.mp4",
+            "poster": "shopify://shop_images/gc-feed-luxai-poster.jpg",
+            "link": "https://www.instagram.com/reel/DIc_m3kM1Aq/"
           }
         }
       },
       "block_order": [
-        "c7520525-c55c-4bc8-88ac-73058e2b452f",
-        "209ae051-d206-483f-b412-ecdd5f2814c0",
-        "2ec40456-d17b-4665-bbe3-959022f4fb03",
-        "a8a307ba-3e41-4c3a-97ac-9c5404d4066e",
-        "143d2dbe-e077-40d2-b6a5-5e186a65c945",
-        "ac9dfb1f-c6cc-4295-961a-941e4f0bc021",
-        "6cfc1d91-f8c7-46ba-bf70-08912f5c6089",
-        "41492a9c-19f7-4496-bcab-91424b645813",
-        "d3c35cf4-4fed-458b-8382-634668debe38",
-        "bb1bbd15-3829-4866-a728-a07ebb2a6c63"
+        "clip_hpwMgN",
+        "clip_aUNeVh",
+        "clip_Fm9FF4",
+        "clip_YgW3fQ",
+        "clip_wjhTFA",
+        "clip_eQHxkU",
+        "clip_x07",
+        "clip_x08",
+        "clip_x11",
+        "clip_x12"
+      ],
+      "name": "TS 影片牆",
+      "settings": {
+        "eyebrow": "",
+        "heading": "他們拍的，\n你點一下就買得到。",
+        "note": "影片皆取得原作者授權後刊登。",
+        "handle": "",
+        "follow_label": "追蹤",
+        "follow_url": "",
+        "show_ig": true,
+        "play": "hover",
+        "playing_label": "播放中",
+        "cta_label": "看這個商品",
+        "card_w": 360,
+        "gap": 20,
+        "radius": 17,
+        "hover": 102,
+        "pad": 96,
+        "sect_bg": "#f8f9fc",
+        "sect_ink": "#141416",
+        "layout": "mosaic",
+        "feed_h": 560,
+        "ig_style": "none",
+        "end_note": "更多真實使用畫面"
+      }
+    },
+    "ts_trust": {
+      "type": "ts-trust",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "card",
+            "w": "3",
+            "title": "快速、安全的付款",
+            "desc": "交易全程在支付平台完成，本站不留你的卡號。",
+            "foot": "VISA・MasterCard・LINE Pay・zingala・街口支付"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "coin",
+            "w": "6",
+            "title": "下單就賺購物金",
+            "desc": "官網下單自動累積點數，下一單直接折抵——買越多省越多。",
+            "foot": "加入會員自動生效",
+            "dark": true,
+            "first_mobile": true
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "w": "3",
+            "title": "保固登錄，延長到兩年",
+            "desc": "自購買日起一年保固；完成 GC Care+ 登錄，延長到兩年。",
+            "foot": "約一分鐘完成，會員保固登記"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "grid",
+            "w": "4",
+            "title": "多種產品，獨家優惠",
+            "desc": "聯名與設計款式最齊，官網限定優惠不定期上線。",
+            "foot": "聯名系列・設計款圖案"
+          }
+        },
+        "b5": {
+          "type": "item",
+          "settings": {
+            "icon": "box",
+            "w": "4",
+            "title": "新品優先供貨",
+            "desc": "新品與獨家款式，官網最先出貨、最先補貨。",
+            "foot": "獨家商品只在 grantclassic.com"
+          }
+        },
+        "b6": {
+          "type": "item",
+          "settings": {
+            "icon": "wrench",
+            "w": "4",
+            "title": "台灣在地保固維修",
+            "desc": "售後與維修都在台灣處理，不用寄出國等件。",
+            "foot": "有問題找得到人：support@grantclassic.com"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "名人推薦",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "small",
-        "desktop_item_size": "medium",
-        "spacing": "normal",
-        "background": "#f5f5f5",
-        "text_color": "rgba(0,0,0,0)"
+        "heading": "該顧的，都有它顧著",
+        "sub": "從運費到保固，先幫你想好。",
+        "bg": "#FFFFFF",
+        "ink": "#141416",
+        "card_bg": "#F8F9FC",
+        "card_ink": "#141416",
+        "dark_bg": "#0F1013",
+        "radius": 18,
+        "gap": 16,
+        "pad": 96
       }
     },
-    "8550440c-db8a-41c3-808a-e9ef4d695f17": {
-      "type": "image-with-text-block",
+    "gc_featured": {
+      "type": "gc-featured",
       "settings": {
-        "reveal_on_scroll": true,
-        "image": "shopify://shop_images/230512_all_29f7b6ec-b100-400c-a1ef-d58da2bcd130.webp",
-        "mobile_image": "shopify://shop_images/230512_all___phone_d022d177-9bb0-47c8-9134-ed698c47b461.webp",
-        "subheading": "grantclassic",
-        "title": "打造經典體驗",
-        "content": "<p>全系列商品熱買中</p>",
-        "button_text": "Learn more",
-        "button_link": "shopify://collections/grantclassic",
-        "background_type": "boxed",
-        "text_position": "left",
-        "text_alignment": "left",
-        "text_background": "rgba(0,0,0,0)",
-        "text_background_mobile": "#e3e3e3",
-        "text_color": "#ffffff",
-        "text_color_mobile": "#2d2d2d",
-        "button_background": "#eb3b3b",
-        "button_text_color": "#ffffff"
-      }
-    },
-    "c273c071-0a39-4516-9587-6b49b8a635a6": {
-      "type": "blog-posts",
-      "settings": {
+        "heading": "選購筆記",
         "blog": "gc-blog",
-        "subheading": "",
-        "title": "編輯精選文章",
-        "button_text": "查看更多",
-        "articles_count": 3,
-        "stack_mobile": false,
-        "show_category": true,
-        "show_excerpt": true,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "count": 16,
+        "show_arrows": true,
+        "more_label": "看更多",
+        "gap": 24,
+        "gap_mobile": 16,
+        "skip_tags": "有它顧著",
+        "head_size": 40,
+        "head_size_mobile": 22,
+        "pad_top": 96,
+        "pad_bottom": 96,
+        "pad_top_m": 48,
+        "pad_bottom_m": 0,
+        "ratio": "4/3",
+        "cols": 3,
+        "bleed": true
       }
     }
   },
   "order": [
-    "slideshow_p99r8h",
-    "featured_collections_WTNaTb",
-    "slideshow_AR6y7t",
-    "featured_collections_FFVeDA",
-    "874de104-fc55-4f57-b89f-70e94f68f14b",
-    "13f4458f-160f-4c33-b18b-fc3a7c3651c9",
-    "b59dcfbe-4bae-45a6-b105-4273ae088bcc",
-    "6fedb7c0-954d-45a4-b1e0-cca7bdd60907",
-    "8550440c-db8a-41c3-808a-e9ef4d695f17",
-    "c273c071-0a39-4516-9587-6b49b8a635a6"
+    "slideshow_CFcHr8",
+    "ts_showcase_FpP33T",
+    "ts_series_iXnGrR",
+    "ts_series_A8CG97",
+    "ts_series_H7bnRD",
+    "ts_feed_nhi773",
+    "gc_featured",
+    "ts_trust"
   ]
 }
