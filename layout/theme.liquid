@@ -104,6 +104,12 @@
     <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
 
     {%- comment -%}
+      gc：全站字級梯子（t1~t7）。新首頁的段落標題／內文都靠它，
+      頁尾的層次也是它給的。這一行拿掉＋刪 assets/gc-type.css 即完全還原。
+    {%- endcomment -%}
+    {{ 'gc-type.css' | asset_url | stylesheet_tag }}
+
+    {%- comment -%}
       IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
       product or collection pages). In order to keep a main JS file size minimal, the theme also lazyloads non-essential
       libraries (such as PhotoSwipe or Flickity) and only loads them on demand.
