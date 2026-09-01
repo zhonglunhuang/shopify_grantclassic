@@ -110,23 +110,35 @@
        ② scroll-snap 會跟拖曳打架（一放手就彈回去）→ 拖的時候關掉
        ③ 拖到容器外面就斷掉 → 用 setPointerCapture 把事件綁住 */
     (function(){
-      var down = false, x0 = 0, l0 = 0, moved = 0;
+      /* ④ 2026-09-01 修：setPointerCapture 不能在 pointerdown 就抓。
+         指標一被容器抓走，瀏覽器就把 click 派給「容器」而不是那張卡的 <a>，
+         結果是每一張文章卡點下去都沒反應（正式站實際發生，Mars 回報「部落格都點不了」）。
+         改成「真的移動超過門檻才抓」：純點擊全程沒有 capture，連結正常跳轉；
+         一旦開始拖才接管，拖出容器也不會斷。 */
+      var down = false, x0 = 0, l0 = 0, moved = 0, dragging = false;
       rail.addEventListener('pointerdown', function(e){
         if (e.pointerType !== 'mouse' || e.button !== 0) return;
-        down = true; x0 = e.clientX; l0 = rail.scrollLeft; moved = 0;
-        rail.classList.add('is-drag');
-        try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+        down = true; dragging = false; x0 = e.clientX; l0 = rail.scrollLeft; moved = 0;
       });
       rail.addEventListener('pointermove', function(e){
         if (!down) return;
         var dx = e.clientX - x0;
         if (Math.abs(dx) > moved) moved = Math.abs(dx);
-        rail.scrollLeft = l0 - dx;
+        if (!dragging && moved > 5) {
+          dragging = true;
+          rail.classList.add('is-drag');
+          try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        if (dragging) rail.scrollLeft = l0 - dx;
       });
       function end(e){
         if (!down) return;
-        down = false; rail.classList.remove('is-drag');
-        try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+        down = false;
+        if (dragging) {
+          rail.classList.remove('is-drag');
+          try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+        dragging = false;
       }
       rail.addEventListener('pointerup', end);
       rail.addEventListener('pointercancel', end);
