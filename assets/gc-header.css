@@ -373,3 +373,33 @@
    文字改 14px/1.35 之後連結自己只需要 41px，所以指示條也要一起收，
    不然列高會停在 50 不動。44px 是留一點餘裕，Apple 的清單列大約 36～44。 */
 .header .tmenu .tmenu_submenu_link_icon { height: 44px; }
+
+/* --- 17. 頁首霧面玻璃（Mars 2026-09-01 指定：像選購筆記那條 bar） ----
+   做法：頁首常駐半透明白＋backdrop 模糊。頁首是 sticky，畫面頂端時
+   底下沒有內容、看起來就是白色；往下捲、內容從它底下經過，霧面才現形
+   ——「滑下來後變玻璃」的感覺不用任何 JS。
+   舊瀏覽器不支援 backdrop-filter 就整段跳過，維持原本純白，不會壞。 */
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .header.gc-solid,
+  .header.header--transparent.gc-solid,
+  .header.header--transparent:hover,
+  .header.header--transparent:focus-within {
+    background-color: rgba(255, 255, 255, .78) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+/* --- 18. 大選單打開時，頁首回到實心白 --------------------------
+   玻璃頁首遇上全白大面板：上緣一條霧的、下面實心白，接縫很突兀
+   （Mars 2026-09-01）。Apple 同款解法：游標在頁首／選單上（＝面板開著）
+   就轉實心白跟面板連成一片，離開才回玻璃。捲動狀態的玻璃不受影響。
+   放在 17 後面靠「同權重、後寫的贏」蓋過玻璃那條。 */
+@media (hover: hover) {
+  .header.gc-solid:hover,
+  .header.gc-solid:focus-within {
+    background-color: #fff !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

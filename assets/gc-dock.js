@@ -29,6 +29,14 @@
   var STYLE_ID = 'gc-dock-shadow-style';
   var CSS = [
     '.loloyal-launcher{',
+    /* 尺寸也要在這裡鎖死。外框我們用 CSS 壓成 48×48，但**裡面這顆圓是 App 畫的**，
+       它的手機設定與桌機設定是兩組（Loloyal 後台 launcher.desktop / launcher.mobile），
+       手機那組如果比較大，就會撐出 48 的框——電腦模擬看不出來、真手機才會發現
+       （Mars 2026-09-01 用 iPhone 16 回報「大小不一樣」）。 */
+    '  width: 100% !important;',
+    '  height: 100% !important;',
+    '  min-width: 0 !important;',
+    '  min-height: 0 !important;',
     '  background: var(--gcd-btn-bg, rgba(255,255,255,.8)) !important;',
     '  border-radius: 50% !important;',
     '  box-shadow: 0 2px 8px rgba(0,0,0,.15) !important;',
