@@ -16,7 +16,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/gc-bn-tsp-glow-5k.webp",
-            "mobile_image": "shopify://shop_images/gc-bn-tsp-glow-1080x1728.webp",
+            "mobile_image": "shopify://shop_images/gc-bn-tsp-glow-1440x2304.webp",
             "text_position": "middle_left",
             "subheading": "穩如鈦山 Pro・防爆固態行動電源",
             "title": "TITANSHIELD Pro",
@@ -74,7 +74,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/gc-bn-tsa-hand-5k.webp",
-            "mobile_image": "shopify://shop_images/gc-bn-tsa-hand-1080x1728.webp",
+            "mobile_image": "shopify://shop_images/gc-bn-tsa-hand-1440x2304.webp",
             "text_position": "middle_left",
             "subheading": "穩如鈦山 Air・磁吸固態行動電源",
             "title": "TITANSHIELD",
@@ -607,7 +607,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "他們拍的，\n你點一下就買得到。",
-        "note": "影片皆取得原作者授權後刊登。",
+        "note": "",
         "handle": "",
         "follow_label": "追蹤",
         "follow_url": "",
