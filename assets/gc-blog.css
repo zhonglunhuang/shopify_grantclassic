@@ -1,0 +1,184 @@
+/* ═══════════════════════════════════════════════════════════
+   gc-blog ── 首頁「編輯精選文章」段落（2026-08-30）
+
+   Mars 拍板：四欄緊湊，而且「四欄要能一直往後延伸（6 或 7 個）」。
+   做法是橫向捲軸——看得到四張，往右滑看後面的。
+
+   ── 兩個關鍵數字 ──
+   ① 第五張要**露出一角**（44px）。切齊邊緣的話會看起來像「就這四篇」，
+      沒有人會去滑。露一角才是「後面還有」的訊號。
+   ② 分類與標題是**一組**：兩者靠近（5px），這一組再離圖遠一點（14px）。
+      比稿時原本是反的（圖到分類 0、分類到標題 12），Mars 一眼看出不對。
+
+   要還原：把首頁 index.json 裡的 gc_featured 那段刪掉，再刪這兩個檔案。
+   ═══════════════════════════════════════════════════════════ */
+
+.gc-feat{
+  /* 後台可調的值一律存成 --x0，實際用的 --x 由 CSS 算——
+     行內樣式永遠贏過樣式表，媒體查詢改不動行內寫死的變數
+     （ts-series 的手機間距就是這樣壞掉的）。 */
+  --gcf-gap:var(--gcf-gap0,24px);
+  --gcf-peek:44px;
+  --gcf-ink:#141416;
+  --gcf-mute:rgba(20,20,22,.58);
+  --gcf-line:rgba(20,20,22,.12);
+}
+
+/* 上下留白：這一段自己負責，不要靠鄰居施捨。
+   原本 padding 是 0，首頁的上緣貼著上一段、文章頁的下緣直接撞上頁尾，
+   卡片標題離區塊底只有 2px（2026-08-30 Mars：「太擠，間距跟行距都沒抓」）。
+   做成後台可調——首頁與文章頁上下鄰居不同，需要的值也不一樣。 */
+.gc-feat__in{
+  /* 寬度與左右內距做成變數：首頁要跟其他段對齊（1600/40），
+     文章頁的「繼續閱讀」維持 1400——那裡窄一點才配得上內文欄寬。
+     **直接改死 1600 會連文章頁一起動**，那是正式站上的 75 篇。 */
+  max-width:var(--gcf-max,1400px);margin:0 auto;
+  padding:var(--gcf-pt,72px) var(--gcf-gut,40px) var(--gcf-pb,72px);
+}
+
+.gc-feat__hd{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:20px;margin:0 0 26px;
+}
+/* 段落標題：**不可以讓 gc-type.css 決定**。
+   它用 `.shopify-section h2:not(...)` ＝權重 (0,4,1) 把全站 h2 綁成 40px／行高 1.15，
+   我原本寫的 32px 權重是 (0,1,0)，整個被蓋掉——而且 1.15 的行距對 40px 的中文太緊。
+   這裡用真實的 DOM 路徑把權重墊到 (0,3,2) 搶回來，字級改成後台可調。
+   （跟文章頁標題是同一個坑，那邊修了、這邊當時漏掉。） */
+section.gc-feat .gc-feat__in .gc-feat__hd .gc-feat__t{
+  margin:0;
+  font-size:var(--gcf-t,32px);
+  line-height:1.15;
+  font-weight:600;letter-spacing:var(--gc-t2-ls,-.018em) !important;color:var(--gcf-ink);
+}
+/* 動作區（看更多＋箭頭）改成置中對齊：標題列是 align-items:baseline，
+   而只有圖示的按鈕「基線」就是它的底邊，會被往下推 7px（實測）。 */
+.gc-feat__act{display:inline-flex;align-items:center;align-self:center;flex:none;gap:14px}
+
+.gc-feat__more:where(a){
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:14px;font-weight:600;color:var(--gcf-ink);text-decoration:none;
+  padding:10px 14px;border-radius:999px;transition:background .16s;
+}
+.gc-feat__more:where(a):hover{background:#F3F4F7;text-decoration:none}
+.gc-feat__more svg{width:15px;height:15px;flex:none}
+
+.gc-feat__arrows{display:inline-flex;gap:8px}
+.gc-feat__arrows button{
+  appearance:none;-webkit-appearance:none;
+  width:36px;height:36px;border-radius:50%;cursor:pointer;padding:0;
+  border:1px solid var(--gcf-line);background:#fff;color:var(--gcf-ink);
+  display:grid;place-items:center;transition:background .16s,opacity .16s;
+}
+.gc-feat__arrows button:hover{background:#F3F4F7}
+.gc-feat__arrows button:disabled{opacity:.3;cursor:default}
+.gc-feat__arrows svg{width:15px;height:15px}
+.gc-feat__arrows button:focus-visible{outline:2px solid #4A8BFF;outline-offset:2px}
+
+/* ── 捲軸本體 ── */
+.gc-feat__rail{
+  display:flex;gap:var(--gcf-gap);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding-bottom:4px;   /* 留一點，卡片的陰影／外框不會被裁掉 */
+}
+.gc-feat__rail::-webkit-scrollbar{display:none}
+
+/* ── 滑鼠拖曳捲動 ──
+   橫向捲軸在桌機沒有好操作的方式：滾輪是上下的、方向鍵要先聚焦，
+   只剩兩顆箭頭。加上「按著拖」之後才真的能一路往後看。
+   **手指不掛**——觸控本來就能滑，掛上去只會跟原生捲動打架。 */
+.gc-feat__rail{cursor:grab}
+.gc-feat__rail.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.gc-feat__rail.is-drag img{pointer-events:none}
+@media (hover:none){ .gc-feat__rail{cursor:auto} }
+
+.gc-feat__card:where(a){
+  /* 一排看幾張做成變數：首頁 3 張（卡片 ~430px，跟櫥窗的 420 同量級），
+     文章頁的「繼續閱讀」維持 4 張——那裡是配角，小一點才不會壓過內文。 */
+  flex:0 0 var(--gcf-basis, calc((100% - 3 * var(--gcf-gap) - var(--gcf-peek)) / 4));
+  scroll-snap-align:start;
+  text-decoration:none;color:var(--gcf-ink);
+  display:block;
+}
+.gc-feat__card:where(a):hover{text-decoration:none}
+
+.gc-feat__thumb{
+  /* 比例做成變數：首頁要 4/3（Mars 2026-08-31：圖太小、不符合整頁比例），
+     文章頁的「繼續閱讀」維持 16/9——那裡是配角，扁一點才不會壓過內文。
+     **改死會連正式站 75 篇文章頁一起動。** */
+  aspect-ratio:var(--gcf-ratio,16/9);width:100%;border-radius:10px;overflow:hidden;
+  background:#F1F2F5;display:block;
+}
+.gc-feat__thumb img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.gc-feat__card:hover .gc-feat__thumb img{transform:scale(1.03)}
+
+/* 分類與標題是一組 —— 間距的理由寫在檔頭 */
+.gc-feat__k{
+  margin:14px 0 5px;
+  font-size:var(--gc-t7,12px);letter-spacing:.04em;color:var(--gcf-mute);
+  /* 沒有標籤的文章這一行是空的。**高度要撐住**，
+     不然那張卡的標題會往上跳一行、整排看起來沒對齊。 */
+  min-height:calc(var(--gc-t7,12px) * 1.4);line-height:1.4;
+}
+.gc-feat__ttl{
+  /* 字級做成變數：首頁卡片 447px 寬，標題要 21（t4）才配得上；
+     文章頁的「繼續閱讀」卡片小，維持 16。
+     **min-height 一定要用同一個變數**——字變大而夾的高度沒跟著，第二行會被切掉。 */
+  margin:0;font-size:var(--gcf-ttl,16px);font-weight:600;line-height:1.55;letter-spacing:-.01em;
+  /* 兩行切齊：不夾高度的話，短標題的卡片會比長標題矮一截，
+     一整排看起來像沒對齊。 */
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;min-height:calc(var(--gcf-ttl,16px) * 1.55 * 2);
+}
+/* 滑過去不要畫底線（Mars 2026-08-31）——回饋交給圖片放大 1.03 就夠了。
+   底線在 21px 的中文標題上特別重，兩行的話等於畫兩條。 */
+
+/* ══ 出血版：卡片一路延伸到畫面右邊緣 ══
+   文章頁底部的「繼續閱讀」用這個（Mars 2026-08-30 指定要「延伸到最邊邊」）。
+
+   `margin-right: calc(50% - 50vw)` 為什麼剛好：
+   margin 的百分比是對「父層內容寬」算的。父層是 max-width:1400 置中、左右內距 40，
+   所以 50% ＝ 內容寬的一半、50vw ＝ 視窗的一半，兩者相減正好等於右邊那塊留白。
+   不論視窗多寬都成立——1440 時是 −60、1920 時是 −300，實測都貼齊邊緣。
+
+   左邊不動：標題與第一張卡要跟內文對齊，只有右邊往外長。 */
+.gc-feat--bleed .gc-feat__rail{
+  margin-right:calc(50% - 50vw);
+  padding-right:40px;          /* 捲到底時最後一張不要貼死邊緣 */
+  scroll-padding-right:40px;
+}
+@media (max-width:749px){
+  .gc-feat--bleed .gc-feat__rail{padding-right:20px;scroll-padding-right:20px}
+}
+
+/* ── 手機：看兩張、可以滑，並且出血到畫面邊緣 ──
+   出血是 DJI 那種做法（Mars 給的參考圖）：卡片切到畫面外，
+   比「兩邊都留白」更明顯在說「這排可以滑」。 */
+@media (max-width:749px){
+  .gc-feat{--gcf-gap:var(--gcf-gap0-m,16px);--gcf-peek:40px}
+  .gc-feat__in{padding:var(--gcf-pt-m,48px) 20px var(--gcf-pb-m,48px)}
+  .gc-feat__hd{margin-bottom:18px}
+  section.gc-feat .gc-feat__in .gc-feat__hd .gc-feat__t{font-size:var(--gcf-t-m,22px)}
+  .gc-feat__more:where(a){padding:8px 10px;font-size:13px}
+  .gc-feat__arrows{display:none}   /* 手機沒有滑鼠，直接用手指滑就好 */
+  .gc-feat__rail{
+    margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;
+  }
+  /* 手機每排張數做成變數：預設維持「兩張＋露一角」（文章頁的繼續閱讀吃這個）；
+     首頁卡片放大後兩張太擠（Mars 2026-08-31），首頁那支帶「一張大卡」進來。 */
+  .gc-feat__card:where(a){flex:0 0 var(--gcf-basis-m, calc((100% - var(--gcf-gap) - var(--gcf-peek)) / 2))}
+  .gc-feat__ttl{--gcf-ttl:var(--gcf-ttl-m,14px)}   /* 字級與夾高度都吃這個值；首頁大卡帶 17 進來 */
+}
+
+/* iPad 直放：四欄各剩 170 寬，中文標題會塞不下——改成三欄。
+   斷點取 900 不是 749（768 的 iPad 直放會落在 749 那邊，塞爆）。 */
+@media (min-width:750px) and (max-width:899px){
+  .gc-feat__card:where(a){flex:0 0 calc((100% - 2 * var(--gcf-gap) - var(--gcf-peek)) / 3)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .gc-feat__thumb img,.gc-feat__card:hover .gc-feat__thumb img{transition:none;transform:none}
+}

@@ -23,7 +23,7 @@
 {%- if n > 0 -%}
   {{ 'gc-blog.css' | asset_url | stylesheet_tag }}
 
-  <section class="gc-feat" style="--gcf-gap0:{{ s.gap }}px;--gcf-gap0-m:{{ s.gap_mobile }}px;--gcf-t:{{ s.head_size }}px;--gcf-t-m:{{ s.head_size_mobile }}px;--gcf-pt:{{ s.pad_top }}px;--gcf-pb:{{ s.pad_bottom }}px;--gcf-pt-m:{{ s.pad_top_m }}px;--gcf-pb-m:{{ s.pad_bottom_m }}px;">
+  <section class="gc-feat{% if s.bleed %} gc-feat--bleed{% endif %}" style="--gcf-max:var(--container-max-width,1600px);--gcf-gut:var(--container-gutter,40px);--gcf-ratio:{{ s.ratio | default: '4/3' }};--gcf-ttl:var(--gc-t4,21px);--gcf-basis-m:calc(100% - 48px);--gcf-ttl-m:17px;--gcf-basis:calc((100% - {{ s.cols | minus: 1 | default: 2 }} * var(--gcf-gap) - var(--gcf-peek)) / {{ s.cols | default: 3 }});--gcf-gap0:{{ s.gap }}px;--gcf-gap0-m:{{ s.gap_mobile }}px;--gcf-t:{{ s.head_size }}px;--gcf-t-m:{{ s.head_size_mobile }}px;--gcf-pt:{{ s.pad_top }}px;--gcf-pb:{{ s.pad_bottom }}px;--gcf-pt-m:{{ s.pad_top_m }}px;--gcf-pb-m:{{ s.pad_bottom_m }}px;">
     <div class="gc-feat__in">
 
       <div class="gc-feat__hd">
@@ -104,6 +104,37 @@
     var box  = root.querySelector('[data-gcf-arrows]');
     if (!rail) return;
 
+    /* ── 按著拖捲動（只給滑鼠）──
+       三個實際會出事的地方：
+       ① 拖完放開會「順便點開」那張卡 → 位移超過 5px 就在捕捉階段擋掉 click
+       ② scroll-snap 會跟拖曳打架（一放手就彈回去）→ 拖的時候關掉
+       ③ 拖到容器外面就斷掉 → 用 setPointerCapture 把事件綁住 */
+    (function(){
+      var down = false, x0 = 0, l0 = 0, moved = 0;
+      rail.addEventListener('pointerdown', function(e){
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        down = true; x0 = e.clientX; l0 = rail.scrollLeft; moved = 0;
+        rail.classList.add('is-drag');
+        try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+      rail.addEventListener('pointermove', function(e){
+        if (!down) return;
+        var dx = e.clientX - x0;
+        if (Math.abs(dx) > moved) moved = Math.abs(dx);
+        rail.scrollLeft = l0 - dx;
+      });
+      function end(e){
+        if (!down) return;
+        down = false; rail.classList.remove('is-drag');
+        try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+      }
+      rail.addEventListener('pointerup', end);
+      rail.addEventListener('pointercancel', end);
+      rail.addEventListener('click', function(e){
+        if (moved > 5) { e.preventDefault(); e.stopPropagation(); moved = 0; }
+      }, true);
+    })();
+
     function step(dir){
       var card = rail.querySelector('.gc-feat__card');
       if (!card) return;
@@ -150,10 +181,10 @@
       "id": "count",
       "label": "顯示幾篇",
       "min": 4,
-      "max": 12,
-      "step": 1,
-      "default": 8,
-      "info": "一次看得到四篇，其餘往右滑。放 6～8 篇最剛好——太多滑不完，讀者也不會滑到底。"
+      "max": 24,
+      "step": 2,
+      "default": 12,
+      "info": "其餘往右滑（滑鼠可以按著拖）。上限放到 24——Mars 2026-08-31：要一直往後延伸，不要看起來像被截斷。"
     },
     {
       "type": "checkbox",
@@ -209,6 +240,31 @@
       "step": 2,
       "unit": "px",
       "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "bleed",
+      "label": "捲軸延伸到螢幕邊緣",
+      "default": true,
+      "info": "關掉的話卡片會停在版面的右邊界，右側留一塊空白——看起來像「只有這幾張」。"
+    },
+    {
+      "type": "range",
+      "id": "cols",
+      "label": "一排看得到幾張（電腦）",
+      "min": 3, "max": 5, "step": 1, "default": 3,
+      "info": "3 張＝卡片約 430px，跟隔壁櫥窗的卡片同大小；4 張＝約 330px。"
+    },
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "文章圖片比例",
+      "default": "4/3",
+      "options": [
+        { "value": "16/9", "label": "16:9 · 最扁（文章頁用這個）" },
+        { "value": "3/2",  "label": "3:2 · 中間" },
+        { "value": "4/3",  "label": "4:3 · 最有份量（首頁建議）" }
+      ]
     },
     {
       "type": "range",
