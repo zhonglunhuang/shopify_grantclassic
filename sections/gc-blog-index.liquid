@@ -156,34 +156,56 @@
   </div>
 
   {%- comment -%}
-    ── ③ 頭條＝最新那一篇 ──
-    只有第一頁才出現。第 2 頁以後是「翻archive」的情境，再放一次頭條只會擋路。
+    ── ③ 頭條輪播（2026-09-01 改版，Mars 指定照 Insta360 的部落格）──
+    原本是「單張最新文章」的滿版頭條。改成可以左右滑的輪播：
+    中間一張是主角，左右各露一角當作「還有更多」的訊號。
+
+    為什麼用 scroll-snap 而不是自己算位移：
+    ① 手機的手指滑動、觸控板的慣性滑動全部免費拿到，行為跟原生一致
+    ② 沒有 JS 也還是能滑（JS 只負責箭頭、圓點、以及把中間那張點亮）
+    只有第一頁才出現——第 2 頁以後是翻 archive 的情境，再放一次頭條只會擋路。
   {%- endcomment -%}
-  {%- assign hero = blog.articles.first -%}
-  {%- if hero and show_curated -%}
-    <div class="gcx__lead2">
-      <div class="gcx__in">
-        <a class="gcx__leadPic" href="{{ hero.url }}">
-          {%- if hero.image -%}
-            {{ hero.image | image_url: width: 2560 | image_tag:
-               loading: 'eager', fetchpriority: 'high',
-               widths: '640,960,1280,1920,2560',
-               sizes: '100vw', alt: hero.image.alt | default: hero.title | escape }}
-          {%- endif -%}
-          <span class="gcx__leadTx">
-            {%- render 'gc-kicker', a: hero, line_tags: line_tags, cls: 'gcx__k' -%}
-            <span class="gcx__leadT">{{ hero.title }}</span>
-            {%- if hero.excerpt_or_content != blank -%}
-              <span class="gcx__leadE">{{ hero.excerpt_or_content | strip_html | truncate: 90 }}</span>
-            {%- endif -%}
-            <span class="gcx__link">{{ s.read_label }}
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </span>
-        </a>
+  {%- if show_curated -%}
+    {%- assign hero_n = s.hero_count | default: 5 -%}
+    {%- assign heroes = blog.articles | slice: 0, hero_n -%}
+    {%- if heroes.size > 0 -%}
+      <div class="gcx__hero" data-gcx-hero>
+        <div class="gcx__heroRail" data-rail>
+          {%- for a in heroes -%}
+            {%- if forloop.first -%}{%- assign ld = 'eager' -%}{%- else -%}{%- assign ld = 'lazy' -%}{%- endif -%}
+            <a class="gcx__slide{% if forloop.first %} is-on{% endif %}" href="{{ a.url }}">
+              <span class="gcx__slidePic">
+                {%- if a.image -%}
+                  {{ a.image | image_url: width: 2000 | image_tag:
+                     loading: ld,
+                     widths: '640,960,1280,1600,2000',
+                     sizes: '(max-width:900px) 86vw, min(1114px, 62vw)',
+                     alt: a.image.alt | default: a.title | escape }}
+                {%- endif -%}
+              </span>
+              <span class="gcx__slideTx">
+                {%- render 'gc-kicker', a: a, line_tags: line_tags, cls: 'gcx__slideK' -%}
+                <span class="gcx__slideT">{{ a.title }}</span>
+              </span>
+            </a>
+          {%- endfor -%}
+        </div>
+
+        {%- if heroes.size > 1 -%}
+          <button class="gcx__heroBtn gcx__heroBtn--prev" type="button" data-prev
+                  aria-label="上一篇精選">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="gcx__heroBtn gcx__heroBtn--next" type="button" data-next
+                  aria-label="下一篇精選">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+          <div class="gcx__heroDots" data-dots role="tablist" aria-label="精選文章"></div>
+        {%- endif -%}
       </div>
-    </div>
+    {%- endif -%}
   {%- endif -%}
 
   {%- comment -%} ── ④ 精選卡片 ＋ 熱門文章側欄 ── {%- endcomment -%}
@@ -414,6 +436,119 @@
     bar.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
   });
 })();
+
+/* ── 頭條輪播（2026-09-01）──
+   scroll-snap 負責滑動本身，這裡做四件事：
+   ① 前後各複製一整組卡片 → 左右**永遠**都有東西露出來，也永遠滑得下去
+   ② 把「最靠近軌道中心」的那張點亮 ③ 圓點同步 ④ 箭頭捲一張。
+   刻意不自己算位移動畫——瀏覽器的慣性與吸附比手寫的順，
+   而且沒有 JS 的時候（或這段掛掉）輪播仍然可以用手滑，不會變成一堆疊在一起的圖。 */
+(function(){
+  document.querySelectorAll('[data-gcx-hero]').forEach(function(root){
+    if (root.__gcxHero) return; root.__gcxHero = true;
+    var rail = root.querySelector('[data-rail]');
+    var real = [].slice.call(root.querySelectorAll('.gcx__slide'));
+    if (!rail) return;
+    var dotsBox = root.querySelector('[data-dots]');
+    var prev = root.querySelector('[data-prev]');
+    var next = root.querySelector('[data-next]');
+    var n = real.length;
+
+    /* 只有一篇就沒有輪播可言，把箭頭與圓點收掉，不要留一排點不動的東西 */
+    if (n < 2) {
+      [prev, next, dotsBox].forEach(function(el){ if (el) el.style.display = 'none'; });
+      if (n === 1) real[0].classList.add('is-on');
+      return;
+    }
+
+    /* ① 前後各補一整組（Mars 2026-09-02：「一開始上面左右都有」）——
+       原本第一張停在軌道最左邊，它左邊就是一片空白。
+       前面補一組、後面補一組，起點停在中間那組，兩邊自然都有卡片。
+       複製品對輔助科技與鍵盤隱藏，不然同一篇文章會被念三次、Tab 三次。 */
+    var head = document.createDocumentFragment();
+    var tail = document.createDocumentFragment();
+    real.forEach(function(s){
+      [head, tail].forEach(function(frag){
+        var c = s.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('tabindex', '-1');
+        c.dataset.clone = '1';
+        [].forEach.call(c.querySelectorAll('img'), function(im){ im.loading = 'lazy'; });
+        frag.appendChild(c);
+      });
+    });
+    rail.insertBefore(head, real[0]);
+    rail.appendChild(tail);
+    var slides = [].slice.call(rail.querySelectorAll('.gcx__slide'));
+
+    var raf = 0, settle = 0, cur = n;   // 起點＝中間那組的第一張
+
+    if (dotsBox) {
+      dotsBox.innerHTML = real.map(function(_, i){
+        return '<button type="button" role="tab" aria-label="第 ' + (i+1) + ' 篇"' +
+               (i === 0 ? ' aria-current="true"' : '') + '></button>';
+      }).join('');
+      dotsBox.addEventListener('click', function(e){
+        var b = e.target.closest('button'); if (!b) return;
+        /* 從「現在這一組」出發，不要每次都跳回中間那組，不然按第 2 點會整條飛過去 */
+        var base = Math.floor(cur / n) * n;
+        go(base + [].indexOf.call(dotsBox.children, b));
+      });
+    }
+
+    function centerOf(el){ return el.offsetLeft + el.offsetWidth / 2; }
+    function posOf(i){ return centerOf(slides[i]) - rail.clientWidth / 2; }
+    function jump(i){ rail.scrollLeft = posOf(i); }
+    function go(i){
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      rail.scrollTo({ left: posOf(i), behavior: 'smooth' });
+    }
+    function sync(){
+      raf = 0;
+      var mid = rail.scrollLeft + rail.clientWidth / 2, best = 0, bd = Infinity;
+      slides.forEach(function(s, i){
+        var d = Math.abs(centerOf(s) - mid);
+        if (d < bd) { bd = d; best = i; }
+      });
+      if (best === cur) return;
+      cur = best;
+      /* 三份複製品一起點亮同一篇——等一下無聲換位時 class 不會從甲跳到乙，
+         也就不會看到淡出再淡入的閃爍（它們長得一模一樣，位置也一樣）。 */
+      var k = cur % n;
+      slides.forEach(function(s, i){ s.classList.toggle('is-on', i % n === k); });
+      if (dotsBox) [].forEach.call(dotsBox.children, function(b, i){
+        /* 用 setAttribute 不用 toggleAttribute：後者設出來的值是空字串，
+           CSS 寫的是 [aria-current="true"]，永遠比不到，圓點就不會反白（踩過）。 */
+        if (i === k) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
+    }
+    function tick(){ if (!raf) raf = requestAnimationFrame(sync); }
+
+    /* 滑到外圈那兩組時，等手指與慣性都停了，再無聲搬回中間那組。
+       一定要等停：滑動當中改 scrollLeft 會跟慣性打架，畫面會抖。 */
+    function recenter(){
+      if (cur >= n && cur < n * 2) return;
+      jump(n + (cur % n));
+    }
+
+    rail.addEventListener('scroll', function(){
+      tick();
+      clearTimeout(settle);
+      settle = setTimeout(recenter, 140);
+    }, { passive: true });
+    window.addEventListener('resize', function(){
+      jump(cur);              // 卡片寬度是 vw 算的，視窗一變位置就要重算
+      tick();
+    }, { passive: true });
+    if (prev) prev.addEventListener('click', function(){ go(cur - 1); });
+    if (next) next.addEventListener('click', function(){ go(cur + 1); });
+
+    jump(cur);                // 開場就停在中間那組，左右都有卡片
+    sync();
+    slides.forEach(function(s, i){ s.classList.toggle('is-on', i % n === 0); });
+  });
+})();
 </script>
 
 {% schema %}
@@ -427,6 +562,8 @@
     { "type": "textarea", "id": "lead", "label": "頁面說明",
       "default": "充電、支架、寵物家電的選購與使用指南。規格與數據來自實際送測報告與售後服務紀錄。" },
     { "type": "text", "id": "all_label", "label": "「全部」按鈕文字", "default": "全部" },
+    { "type": "range", "id": "hero_count", "label": "頭條輪播幾篇", "min": 1, "max": 8, "step": 1, "default": 5,
+      "info": "最上面那組可以左右滑的精選。設 1 就等於回到單張頭條。" },
     { "type": "text", "id": "read_label", "label": "頭條的行動文字", "default": "繼續閱讀" },
 
     { "type": "header", "content": "分類規則" },

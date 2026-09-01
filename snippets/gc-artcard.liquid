@@ -1,7 +1,24 @@
 {%- comment -%}
-  gc-artcard ── 文章卡（圖沒有圓角、字在下面）。
+  gc-artcard ── 文章卡（圖片圓角、字在下面）。
   參數：a（文章）、line_tags、force_kick（分類分節裡直接指定那條線的名稱）
+
+  排版契約（Mars 2026-09-02）：**日期一定釘在卡片最底下**，同一排永遠齊。
+  做法是卡片本身 flex 直排、文字區 flex:1、日期 margin-top:auto，
+  所以標題長短不會把日期推上推下。標題與摘要各夾兩行，高度也先佔好。
+
+  摘要來源三層退路：文章自己的摘要 → SEO 描述 → 內文開頭。
+  三個都沒有就只留空位（高度照佔），不然那一張的日期會自己往上跑。
 {%- endcomment -%}
+{%- liquid
+  assign ex = a.excerpt
+  if ex == blank
+    assign ex = a.metafields.global.description_tag
+  endif
+  if ex == blank
+    assign ex = a.content
+  endif
+  assign ex = ex | strip_html | strip_newlines | strip | truncate: 92
+-%}
 <a class="gcx__card" href="{{ a.url }}">
   <span class="gcx__cardPic">
     {%- if a.image -%}
@@ -11,7 +28,10 @@
          alt: a.image.alt | default: a.title | escape }}
     {%- endif -%}
   </span>
-  {%- render 'gc-kicker', a: a, line_tags: line_tags, cls: 'gcx__cardK', force: force_kick -%}
-  <p class="gcx__cardT">{{ a.title }}</p>
-  <p class="gcx__cardD">{{ a.published_at | date: '%Y年%-m月%-d日' }}</p>
+  <span class="gcx__cardTx">
+    {%- render 'gc-kicker', a: a, line_tags: line_tags, cls: 'gcx__cardK', force: force_kick -%}
+    <span class="gcx__cardT">{{ a.title }}</span>
+    <span class="gcx__cardE">{{ ex }}</span>
+    <span class="gcx__cardD">{{ a.published_at | date: '%Y年%-m月%-d日' }}</span>
+  </span>
 </a>

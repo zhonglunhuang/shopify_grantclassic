@@ -267,3 +267,172 @@
   .gcx__card:hover .gcx__cardPic img{transform:none}
   .gcx__panel{transition:none}
 }
+
+/* ══════════════════════════════════════════════════════════════
+   2026-09-01 改版（Mars 指定，參照 insta360.com/blog）
+
+   ⚠️ 檔案最上面那條「大圖不加圓角」的規則**已經作廢**。
+   當初是量 apple.com 得到的；Mars 改採 Insta360 的做法——那邊每一張圖都是圓角。
+   現在的規則：**所有圖片一律圓角**，大圖 16px、小物件維持 12px。
+   （留著這段說明，是因為原本那條規則寫得很肯定，不講清楚會有人再把圓角拿掉。）
+   ══════════════════════════════════════════════════════════════ */
+
+.gcx{ --r-pic:16px; }
+
+/* 所有大圖圓角 */
+.gcx__leadPic,
+.gcx__cardPic{ border-radius:var(--r-pic); }
+.gcx__leadPic img,
+.gcx__cardPic img{ border-radius:inherit; }
+
+/* ── 頭條輪播 ─────────────────────────────────────────────
+   露邊做法：軌道本身滿版，左右各留「(視窗 − 卡片) / 2」的內距，
+   第一張與最後一張才能真的置中；中間那張以外全部壓淡，視線自然被帶回中央。 */
+.gcx__hero{ position:relative; margin:34px 0 0; }
+.gcx__heroRail{
+  --slideW:min(1114px, 62vw);
+  display:flex; gap:22px;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  padding-inline:calc((100vw - var(--slideW)) / 2);
+  scrollbar-width:none; -webkit-overflow-scrolling:touch;
+}
+.gcx__heroRail::-webkit-scrollbar{ display:none }
+
+.gcx__slide{
+  flex:0 0 var(--slideW); scroll-snap-align:center;
+  position:relative; display:block; border-radius:var(--r-pic); overflow:hidden;
+  background:#F5F5F7; opacity:.34; transition:opacity .45s ease;
+}
+.gcx__slide.is-on{ opacity:1 }
+.gcx__slidePic{ display:block }
+.gcx__slidePic img{
+  width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block;
+}
+/* 壓字用的漸層：只蓋下緣，照片主體不要被洗掉。
+   深度不是憑感覺調的——量過小標那一列的底色亮度：
+   原本 .72/.46/.16 在淺色照片上只有 2.44:1，小字要 4.5:1 才讀得清楚，
+   所以整條往下壓一階，並把小標從 78% 白改成純白。 */
+.gcx__slide::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:64%; pointer-events:none;
+  background:linear-gradient(to top, rgba(0,0,0,.86) 0%, rgba(0,0,0,.70) 26%,
+    rgba(0,0,0,.44) 52%, rgba(0,0,0,.16) 78%, rgba(0,0,0,0) 100%);
+}
+.gcx__slideTx{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:0 clamp(24px,4vw,56px) clamp(24px,3.4vw,44px);
+  text-align:center; color:#fff;
+}
+.gcx__slideK{
+  display:block; margin:0 0 10px; font-size:var(--t-kick); font-weight:600;
+  letter-spacing:.06em; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.5);
+}
+.gcx__slideT{
+  display:block; font-size:clamp(20px,2.1vw,31px); font-weight:600; line-height:1.34;
+  letter-spacing:-.014em; text-shadow:0 1px 14px rgba(0,0,0,.45);
+  max-width:22em; margin-inline:auto;
+}
+
+/* 左右箭頭：壓在露出來的側邊卡片上 */
+.gcx__heroBtn{
+  position:absolute; top:50%; translate:0 -50%; z-index:3;
+  width:52px; height:52px; border:0; border-radius:50%; cursor:pointer;
+  background:rgba(255,255,255,.86); color:var(--ink);
+  display:grid; place-items:center; padding:0;
+  box-shadow:0 2px 10px rgba(0,0,0,.12);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  transition:background .2s, transform .2s;
+}
+.gcx__heroBtn svg{ width:22px; height:22px }
+.gcx__heroBtn:hover{ background:#fff; transform:translateY(-50%) scale(1.06) }
+.gcx__heroBtn[disabled]{ opacity:.3; pointer-events:none }
+.gcx__heroBtn--prev{ left:calc((100vw - min(1114px,62vw)) / 2 - 26px) }
+.gcx__heroBtn--next{ right:calc((100vw - min(1114px,62vw)) / 2 - 26px) }
+
+/* 圓點 */
+.gcx__heroDots{ display:flex; gap:9px; justify-content:center; margin-top:20px }
+.gcx__heroDots button{
+  width:7px; height:7px; padding:0; border:0; border-radius:50%; cursor:pointer;
+  background:#D2D2D7; transition:background .25s, width .25s;
+}
+.gcx__heroDots button[aria-current="true"]{ background:var(--ink); width:20px; border-radius:4px }
+
+@media (max-width:900px){
+  .gcx__hero{ margin-top:24px }
+  .gcx__heroRail{ --slideW:86vw; gap:14px }
+  .gcx__slidePic img{ aspect-ratio:4/3 }
+  .gcx__heroBtn{ display:none }   /* 手機用手滑，箭頭只會擋到圖 */
+}
+@media (prefers-reduced-motion:reduce){
+  .gcx__heroRail{ scroll-behavior:auto }
+  .gcx__slide{ transition:none }
+}
+
+
+/* ============================================================
+   文章卡：日期釘底 ＋ 標題下加摘要（Mars 2026-09-02）
+   ------------------------------------------------------------
+   原本卡片是 display:block，日期就接在標題後面 ——
+   標題兩行的那張日期高、三行的那張日期低，同一排參差不齊。
+   改成卡片 flex 直排、文字區 flex:1、日期 margin-top:auto：
+   格線項目本來就會撐到整排最高的高度，日期自然全部對到同一條線。
+
+   標題與摘要各自「夾兩行 ＋ 先佔好兩行的高度」——
+   只夾不佔位的話，短標題那張還是會整塊往上縮。
+   標題也順勢縮一號（19 → 17.5px），不然加了摘要會太擠（Mars 說可以調）。
+   ============================================================ */
+.gcx__card{ display:flex; flex-direction:column; }
+.gcx__cardTx{ display:flex; flex-direction:column; flex:1 1 auto; }
+
+.gcx{ --t-card:17.5px; --t-ex:14.5px; --ln-card:1.44; --ln-ex:1.6; }
+
+/* 標題最多三行、但先佔兩行的高度：
+   夾兩行的話，側欄旁邊那個窄欄有 4 篇標題會被砍掉尾巴（實測過）——
+   日期已經由 margin-top:auto 釘在底部，標題長一行不會害它跑掉，
+   所以寧可讓標題完整，也不要為了齊而砍字。 */
+.gcx__cardT{
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3;
+  overflow:hidden; line-height:var(--ln-card);
+  min-height:calc(var(--t-card) * var(--ln-card) * 2);
+}
+.gcx__cardE{
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;
+  overflow:hidden; margin:8px 0 0;
+  font-size:var(--t-ex); font-weight:400; line-height:var(--ln-ex); color:var(--dim);
+  min-height:calc(var(--t-ex) * var(--ln-ex) * 2);
+}
+.gcx__cardD{ margin:0; padding-top:14px; margin-top:auto; }
+
+@media (max-width:900px){
+  .gcx{ --t-card:16.5px; --t-ex:14px; }
+  /* 手機一排只有一張，沒有對齊問題；高度就不用先佔，版面比較緊湊 */
+  .gcx__cardT, .gcx__cardE{ min-height:0 }
+}
+@media (min-width:1600px){
+  .gcx{ --t-card:18.5px; --t-ex:15px; }
+}
+
+
+/* ============================================================
+   頁面大標與導言：畫面上收起來，程式碼裡留著（Mars 2026-09-02）
+   ------------------------------------------------------------
+   為什麼不是直接刪掉：<h1> 是 Google 與 AI 判斷「這頁在講什麼」的主標題，
+   整頁只有這一個（上面那條吸頂列的「選購筆記」是 <a>，不是標題）。
+   刪掉＝這頁變成沒有 H1，等於把題目藏起來。
+
+   用的是無障礙標準的隱藏法（縮成 1px 再裁掉），
+   **不可以改成 display:none 或 visibility:hidden** ——
+   那兩個會連讀螢幕軟體也讀不到，而且「看不見卻塞著關鍵字」在 Google 眼中
+   是藏字；只有這種寫法是被明確認可的。
+   麵包屑（首頁 › 選購筆記）留著，Mars 圈的範圍不含它。
+   ============================================================ */
+.gcx__h1,
+.gcx__lead{
+  position:absolute; width:1px; height:1px;
+  margin:-1px; padding:0; border:0; overflow:hidden;
+  clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+}
+/* 大標沒了就不需要那麼厚的上下留白，不然麵包屑會孤零零地飄在中間 */
+.gcx__head{ padding:34px 0 4px }
+.gcx__crumb{ margin-bottom:0 }
+@media (max-width:900px){ .gcx__head{ padding:18px 0 2px } }
+@media (min-width:1600px){ .gcx__head{ padding:40px 0 6px } }
