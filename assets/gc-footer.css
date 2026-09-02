@@ -209,3 +209,7 @@ a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
 /* 頁尾的輸入框不能跟著縮——低於 16px 的輸入框會讓 iOS 自動放大整頁 */
 #shopify-section-footer input,
 #shopify-section-footer button{ font-size:16px; }
+
+/* available-but-not-current region is an <a>; the footer's white link color made its name invisible on the white panel */
+.gc-region__panel a.gc-region__opt, .gc-region__panel a.gc-region__opt:visited, .gc-region__panel a.gc-region__opt .gc-region__name { color:#1d1d1f; }
+.gc-region__panel a.gc-region__opt .gc-region__lang { color:#86868b; }
