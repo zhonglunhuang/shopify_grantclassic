@@ -66,13 +66,18 @@
     .slideshow .content-box .heading--large { font-size: 34px !important; }
     #shopify-section-{{ section.id }} .content-box .heading--small { font-size: 15px !important; letter-spacing: .05em; }
     .slideshow .gc-slideshow__tagline { margin-top: 12px; font-size: 16px; }
-
-    /* 手機：把首圖整段往上塞到頁首底下，頁首才有東西可以透（Mars 2026-09-01）。
-       用負邊界而不是把頁首改成 fixed —— 改 fixed 會影響全站每一頁，
-       負邊界只作用在這一段，拿掉這三行就完全還原。
-       文字的起算點上面已經加過頁首高度，不會被壓到。 */
-    #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 52px)); }
   }
+
+  /* 把首圖整段往上塞到頁首底下，頁首才有東西可以透
+     （手機 2026-09-01、桌機 2026-09-02 一起）。
+     用負邊界而不是把頁首改成 fixed —— 改 fixed 會影響全站每一頁，
+     負邊界只作用在這一段，拿掉這一行就完全還原。
+
+     桌機不用補回文字的位置：圖跟字是**一起**往上移的，
+     字本來就置中在圖上，兩者的相對關係沒變（量過：字距畫面頂端 213px，
+     頁首只有 65px 高，不會壓到）。手機是另一回事，
+     手機的字靠上對齊，所以上面那段有加 padding-top 補頁首高度。 */
+  #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 52px)); }
 </style>
 
 <section class="section section--flush">

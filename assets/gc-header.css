@@ -404,10 +404,14 @@
   }
 }
 
-/* --- 19. 手機：首圖上的頁首透明（Mars 2026-09-01）-------------
-   桌機為什麼不開：主題在大選單開關時會反覆加減 header--transparent，
-   實測 hover 一趟翻了 8 次、logo 一直閃（見上面第 8 段）。
-   手機沒有「滑過去展開」的大選單，那個問題不存在，所以只開手機。
+/* --- 19. 首圖上的頁首透明（手機 2026-09-01、桌機 2026-09-02）----
+   **2026-09-02 桌機補開（Mars：「桌機版上面那個 bar 怎麼沒有透明？」）**
+   當初只開手機的理由是「主題在大選單開關時反覆加減 header--transparent、
+   logo 一直閃」。那個理由現在不成立：這一段**完全不看那個 class**
+   （只看 <html data-gc-hero> 與 .gc-solid），主題怎麼翻都不影響。
+   桌機真正要處理的是另一件事——大選單面板是整片白的，
+   透明頁首配白面板會讓白 logo 直接消失。解法在下面 19b：
+   游標一碰到頁首就交還實心白，跟第 18 段同一套做法。
 
    狀態由 gc-slideshow 寫在 <html data-gc-hero="light|dark"> 上：
      light ＝ 那張 banner 的文字設定是白的（＝底圖深）→ 頁首整組翻白
@@ -415,35 +419,83 @@
    捲過首圖之後 gc-header.js 會掛上 .gc-solid，交還給第 17 段的白色霧面玻璃。
 
    要還原：刪掉這一段，再把 gc-slideshow 裡那個 <script> 與負邊界拿掉。 */
-@media screen and (max-width: 740px) {
-  html[data-gc-hero] .header:not(.gc-solid) {
-    background-color: transparent !important;
-    border-bottom-color: transparent !important;
-    /* ★ 那條分隔線是 box-shadow 畫的（rgb(224,224,224) 0 1px 0），不是 border。
-       只關 border-bottom 的話，透明頁首底下會留一條灰白直線
-       （Mars 2026-09-01 在 iPhone 上看到）。兩個都要關。 */
-    box-shadow: none !important;
+html[data-gc-hero] .header:not(.gc-solid) {
+  background-color: transparent !important;
+  border-bottom-color: transparent !important;
+  /* ★ 那條分隔線是 box-shadow 畫的（rgb(224,224,224) 0 1px 0），不是 border。
+     只關 border-bottom 的話，透明頁首底下會留一條灰白直線
+     （Mars 2026-09-01 在 iPhone 上看到）。兩個都要關。 */
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 深色底圖：logo、圖示、文字全部翻白。
+   --header-text-color 是主題自己的 RGB 三元組變數，改它比一條一條追元素可靠。 */
+html[data-gc-hero="light"] .header:not(.gc-solid) {
+  --header-text-color: 255, 255, 255 !important;
+  color: #fff !important;
+}
+html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image {
+  filter: brightness(0) invert(1);
+}
+html[data-gc-hero="light"] .header:not(.gc-solid) a,
+html[data-gc-hero="light"] .header:not(.gc-solid) button,
+html[data-gc-hero="light"] .header:not(.gc-solid) svg {
+  color: #fff !important;
+}
+/* 透明時多給一點陰影，白圖示壓在亮處才看得見 */
+html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image,
+html[data-gc-hero="light"] .header:not(.gc-solid) svg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .28)) brightness(0) invert(1);
+}
+
+/* --- 19b. 桌機：游標在頁首或大選單上時，交還實心白 -------------
+   大選單面板是整片白的滿版面板。頁首若維持透明＋白 logo，
+   面板一展開，白 logo 就壓在白面板上直接消失。
+   所以游標一進頁首（面板也在頁首裡面，所以逛選單時一直算數）就轉實心白，
+   離開才回到透明——跟第 18 段對「玻璃頁首」的處理是同一套。
+
+   手機不套：手機沒有滑過去展開的大選單，而且觸控的 :hover 會黏住，
+   點一下頁首就會卡在白色。所以這一段鎖 min-width:741px ＋ hover:hover。
+
+   45,45,45 是主題原本的 --header-text-color（在非首頁量出來的），
+   這裡要把 19 段翻白的那組還原回去，所以得寫死原值。 */
+@media screen and (min-width: 741px) and (hover: hover) {
+  html[data-gc-hero] .header:not(.gc-solid):hover,
+  html[data-gc-hero] .header:not(.gc-solid):focus-within {
+    background-color: #fff !important;
+    box-shadow: rgb(224, 224, 224) 0 1px 0 !important;
+    --header-text-color: 45, 45, 45 !important;
+    color: rgb(45, 45, 45) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
+  html[data-gc-hero="light"] .header:not(.gc-solid):hover .header__logo-image,
+  html[data-gc-hero="light"] .header:not(.gc-solid):hover svg,
+  html[data-gc-hero="light"] .header:not(.gc-solid):focus-within .header__logo-image,
+  html[data-gc-hero="light"] .header:not(.gc-solid):focus-within svg {
+    filter: none !important;
+  }
+  html[data-gc-hero="light"] .header:not(.gc-solid):hover a,
+  html[data-gc-hero="light"] .header:not(.gc-solid):hover button,
+  html[data-gc-hero="light"] .header:not(.gc-solid):hover svg,
+  html[data-gc-hero="light"] .header:not(.gc-solid):focus-within a,
+  html[data-gc-hero="light"] .header:not(.gc-solid):focus-within button,
+  html[data-gc-hero="light"] .header:not(.gc-solid):focus-within svg {
+    color: rgb(45, 45, 45) !important;
+  }
+}
 
-  /* 深色底圖：logo、圖示、文字全部翻白。
-     --header-text-color 是主題自己的 RGB 三元組變數，改它比一條一條追元素可靠。 */
-  html[data-gc-hero="light"] .header:not(.gc-solid) {
-    --header-text-color: 255, 255, 255 !important;
-    color: #fff !important;
-  }
-  html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image {
-    filter: brightness(0) invert(1);
-  }
-  html[data-gc-hero="light"] .header:not(.gc-solid) a,
-  html[data-gc-hero="light"] .header:not(.gc-solid) button,
-  html[data-gc-hero="light"] .header:not(.gc-solid) svg {
-    color: #fff !important;
-  }
-  /* 透明時多給一點陰影，白圖示壓在亮處才看得見 */
-  html[data-gc-hero="light"] .header:not(.gc-solid) .header__logo-image,
-  html[data-gc-hero="light"] .header:not(.gc-solid) svg {
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .28)) brightness(0) invert(1);
+/* --- 19c. 透明↔白之間淡一下 ----------------------------------
+   不加的話，游標只是路過頁首，整條列就「啪」一聲翻白翻紅，很像壞掉。
+   200ms 剛好讀得出是刻意的。捲動時的玻璃切換也一起受惠。
+   會暈動症的使用者照系統設定關掉。 */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-gc-hero] .header,
+  html[data-gc-hero] .header .header__logo-image,
+  html[data-gc-hero] .header svg {
+    transition: background-color .2s ease, box-shadow .2s ease,
+                color .2s ease, filter .2s ease;
   }
 }
