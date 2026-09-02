@@ -62,7 +62,7 @@
             "who": "極致輕薄",
             "cap": "TITANSHIELD Air",
             "desc": "6 mm。113 公克。放進口袋，你會忘記它在那裡。",
-            "price": "$1,980",
+            "price": "1,980",
             "cta": "進一步了解 Air",
             "link": "/products/titanshield-air",
             "soon": false,
@@ -77,7 +77,7 @@
             "who": "日常均衡",
             "cap": "TITANSHIELD",
             "desc": "5000 或 10000 mAh，兩種容量。九款外觀，同一顆電芯。",
-            "price": "$1,980 起",
+            "price": "1,980 起",
             "cta": "看全部款式",
             "link": "/products/solid-state-power-bank-titanshield-5000"
           }
@@ -89,7 +89,7 @@
             "who": "旗艦效能",
             "cap": "TITANSHIELD Pro",
             "desc": "25W 無線、30W 有線。立起來邊充，電池好不好它自己會說。",
-            "price": "$2,980",
+            "price": "2,980",
             "cta": "進一步了解 Pro",
             "link": ""
           }
@@ -128,7 +128,7 @@
             "stand": "",
             "alarm": "",
             "thermal": "NTC 感測降載",
-            "price": "NT$1,980",
+            "price": "1,980",
             "highlights": "thickness,weight",
             "image_asset": "ts-pick-air.png"
           }
@@ -152,7 +152,7 @@
             "stand": "",
             "alarm": "",
             "thermal": "NTC 感測降載",
-            "price": "NT$1,980 起",
+            "price": "1,980 起",
             "highlights": "capacity,watch,price"
           }
         },
@@ -175,7 +175,7 @@
             "stand": "隱藏式支架|邊充邊看，不用手扶",
             "alarm": "✓",
             "thermal": "NTC 感測降載",
-            "price": "NT$2,980",
+            "price": "2,980",
             "highlights": "wireless,wired,display,stand,alarm"
           }
         }
