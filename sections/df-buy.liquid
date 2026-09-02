@@ -14,7 +14,7 @@
 {%- assign s = section.settings -%}
 {%- assign key = s.no_locator_key | default: 'Air' -%}
 {%- comment -%}
-  店家的金額格式吐出來是「$1,980」（沒有 NT），所以前綴只補 NT 不補錢字號，
+  店家的金額格式吐出來是「1,980」（沒有 NT），所以前綴只補 NT 不補錢字號，
   否則會變成 NT$$1,980。整頁的售價都走這個變數，不要有的加有的不加。
 {%- endcomment -%}
 {%- assign cur = s.cur -%}
@@ -107,7 +107,7 @@
     { "type": "text", "id": "add_label", "label": "按鈕文字", "default": "加入購物車" },
     { "type": "text", "id": "cur", "label": "售價前綴", "default": "NT",
       "info": "金額本身已經帶一個 $ 符號，這裡只要填 NT——填 NT$ 會變成 NT$$1,980。" },
-    { "type": "text", "id": "ship", "label": "註腳", "default": "滿 NT$499 免運．支援宅配與超商取貨" },
+    { "type": "text", "id": "ship", "label": "註腳", "default": "滿 499 免運．支援宅配與超商取貨" },
 
     { "type": "header", "content": "規格說明" },
     { "type": "text", "id": "no_locator_key", "label": "沒有定位倉的規格關鍵字", "default": "Air",

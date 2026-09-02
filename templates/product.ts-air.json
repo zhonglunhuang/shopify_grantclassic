@@ -89,10 +89,6 @@
         "caption": "石墨黑　極地銀"
       }
     },
-    "ts_colors": {
-      "type": "ts-colors",
-      "settings": {}
-    },
     "ts_views": {
       "type": "ts-views",
       "settings": {}
@@ -210,7 +206,7 @@
           "type": "row",
           "settings": {
             "label": "建議售價",
-            "value": "NT$ 1,980"
+            "value": "1,980"
           }
         },
         "row17": {
@@ -368,10 +364,10 @@
           "type": "row",
           "settings": {
             "label": "建議售價",
-            "a": "NT$1,980",
-            "b": "NT$2,980",
+            "a": "1,980",
+            "b": "2,980",
             "win": "none",
-            "m": "NT$1,980 起"
+            "m": "1,980 起"
           }
         },
         "row11": {
@@ -393,62 +389,6 @@
             "b": "—",
             "win": "m"
           }
-        },
-        "q1": {
-          "type": "qa",
-          "settings": {
-            "q": "保固怎麼算？",
-            "a": "購買即享一年基本保固；到官網完成保固登錄，再延長一年——共 1+1 年。保固涵蓋正常使用下的瑕疵或損壞，不含耗材與外力損傷。"
-          }
-        },
-        "q2": {
-          "type": "qa",
-          "settings": {
-            "q": "可以帶上飛機嗎？",
-            "a": "可以隨身登機。Air 的 5000mAh 額定能量約 19.25Wh，遠低於民航規定的 100Wh 上限。提醒：行動電源一律隨身攜帶，不可放託運行李。"
-          }
-        },
-        "q3": {
-          "type": "qa",
-          "settings": {
-            "q": "我的手機沒有 MagSafe，也能用嗎？",
-            "a": "支援無線充電的手機都能充。沒有磁吸的手機，可以加磁吸環貼片，或直接用 Type-C 線充。"
-          }
-        },
-        "q4": {
-          "type": "qa",
-          "settings": {
-            "q": "Air 有防爆警鈴嗎？",
-            "a": "沒有。防爆警鈴與 TFT 螢幕是 Pro 的功能；Air 主打極致輕薄，把安全做在看不見的地方——準固態電芯、SGS 實測與六大防護。想要會出聲提醒的，請看 Pro。"
-          }
-        },
-        "q5": {
-          "type": "qa",
-          "settings": {
-            "q": "Air 跟TITANSHIELD、Pro 差在哪？",
-            "a": "Air 是極致輕薄款：6 mm、113 g 的 5000mAh 磁吸行動電源。TITANSHIELD是日常均衡款，多了 Apple Watch 充電；Pro 是旗艦效能款，多了防爆警鈴、TFT 螢幕與 25W 快充。詳細差異見上方比較表。"
-          }
-        },
-        "q6": {
-          "type": "qa",
-          "settings": {
-            "q": "退換貨怎麼辦理？",
-            "a": "全站購物享商品到貨七天鑑賞期，若商品有任何問題可於七天內申請退貨。鑑賞期非試用期，退回商品須為全新狀態且包裝完整。詳見官網退換貨說明。"
-          }
-        },
-        "q7": {
-          "type": "qa",
-          "settings": {
-            "q": "固態電池行動電源跟一般的差在哪？",
-            "a": "差在隔開正負極的電解質是固態的。一般行動電源用液態電解質，隔離膜破損時液體流出、正負極接觸就可能熱失控起火；固態電解質被刺穿仍維持結構。TITANSHIELD Air 的電芯經 SGS 鋼針穿刺試驗，最高溫 44.0°C，無起火、無爆炸。"
-          }
-        },
-        "q8": {
-          "type": "qa",
-          "settings": {
-            "q": "行動電源為什麼會爆炸？怎麼避免？",
-            "a": "絕大多數起火來自液態電解質的「熱失控」——電芯被擠壓、刺穿或過充後隔離膜破損、正負極短路，溫度連鎖上升。建議選有安全認證與過充保護的產品、不要壓在棉被枕頭下充電、外殼鼓起就停用。Air 從電芯端降低這個風險：準固態電解質不流動，加上六大防護與 NTC 控溫。"
-          }
         }
       },
       "block_order": [
@@ -463,15 +403,7 @@
         "row7",
         "row8",
         "row9",
-        "row10",
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q7",
-        "q8",
-        "q5",
-        "q6"
+        "row10"
       ]
     },
     "ts_buybar": {
@@ -542,6 +474,120 @@
         "k4",
         "k5"
       ]
+    },
+    "ts_afterbuy": {
+      "type": "ts-afterbuy",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "q": "保固怎麼算？",
+            "a": "購買即享一年基本保固；到官網完成保固登錄，再延長一年——共 1+1 年。保固涵蓋正常使用下的瑕疵或損壞，不含耗材與外力損傷。"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "q": "可以帶上飛機嗎？",
+            "a": "可以隨身登機。Air 的 5000mAh 額定能量約 19.25Wh，遠低於民航規定的 100Wh 上限。提醒：行動電源一律隨身攜帶，不可放託運行李。"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "q": "我的手機沒有 MagSafe，也能用嗎？",
+            "a": "支援無線充電的手機都能充。沒有磁吸的手機，可以加磁吸環貼片，或直接用 Type-C 線充。"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "q": "Air 有防爆警鈴嗎？",
+            "a": "沒有。防爆警鈴與 TFT 螢幕是 Pro 的功能；Air 主打極致輕薄，把安全做在看不見的地方——準固態電芯、SGS 實測與六大防護。想要會出聲提醒的，請看 Pro。"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "q": "Air 跟TITANSHIELD、Pro 差在哪？",
+            "a": "Air 是極致輕薄款：6 mm、113 g 的 5000mAh 磁吸行動電源。TITANSHIELD是日常均衡款，多了 Apple Watch 充電；Pro 是旗艦效能款，多了防爆警鈴、TFT 螢幕與 25W 快充。詳細差異見上方比較表。"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "q": "退換貨怎麼辦理？",
+            "a": "全站購物享商品到貨七天鑑賞期，若商品有任何問題可於七天內申請退貨。鑑賞期非試用期，退回商品須為全新狀態且包裝完整。詳見官網退換貨說明。"
+          }
+        },
+        "q7": {
+          "type": "qa",
+          "settings": {
+            "q": "固態電池行動電源跟一般的差在哪？",
+            "a": "差在隔開正負極的電解質是固態的。一般行動電源用液態電解質，隔離膜破損時液體流出、正負極接觸就可能熱失控起火；固態電解質被刺穿仍維持結構。TITANSHIELD Air 的電芯經 SGS 鋼針穿刺試驗，最高溫 44.0°C，無起火、無爆炸。"
+          }
+        },
+        "q8": {
+          "type": "qa",
+          "settings": {
+            "q": "行動電源為什麼會爆炸？怎麼避免？",
+            "a": "絕大多數起火來自液態電解質的「熱失控」——電芯被擠壓、刺穿或過充後隔離膜破損、正負極短路，溫度連鎖上升。建議選有安全認證與過充保護的產品、不要壓在棉被枕頭下充電、外殼鼓起就停用。Air 從電芯端降低這個風險：準固態電解質不流動，加上六大防護與 NTC 控溫。"
+          }
+        },
+        "a1": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/solid-state-power-bank-safety"
+          }
+        },
+        "a2": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/2025-solid-state-power-bank"
+          }
+        },
+        "a3": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/is-swollen-power-bank-dangerous"
+          }
+        },
+        "a4": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-safety-certification-guide"
+          }
+        },
+        "a5": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-thermal-runaway-explained"
+          }
+        },
+        "a6": {
+          "type": "article",
+          "settings": {
+            "article": "gc-blog/power-bank-recall-guide-self-check"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -563,11 +609,11 @@
     "ts_guard",
     "ts_details",
     "ts_scene_duo",
-    "ts_colors",
     "ts_views",
-    "ts_spec",
     "ts_story",
     "ts_compare",
+    "ts_spec",
+    "ts_afterbuy",
     "ts_buybar"
   ]
 }

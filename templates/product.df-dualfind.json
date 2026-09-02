@@ -56,7 +56,7 @@
         "caps": true,
         "heading": "騎車顧路，停車顧車。",
         "show_price": true,
-        "price_prefix": "NT",
+        "price_prefix": "",
         "glow": 55,
         "scrim": 55,
         "b1": "購買",
@@ -197,7 +197,7 @@
         "head_a": "",
         "head_b": "",
         "intro": "Dualfind，車頭乾淨，車也顧著。體積收到一般機車架的一半，把導航、行照架、行車紀錄器的位置還給你。側邊按鈕讓你戴著手套也能單手三秒上架，夾臂加卡榫兩道獨立固定，四軸減震吸掉顛簸。定位版 Pro 還多一個定位倉——打開 iPhone 內建的「尋找」，車就在上面。",
-        "outro": "在 grantclassic 官網購買 Dualfind，序號自動綁保固、面板與配件長期備貨，出貨與客服都在台灣。滿 NT$499 免運，支援宅配與超商取貨。",
+        "outro": "在 grantclassic 官網購買 Dualfind，序號自動綁保固、面板與配件長期備貨，出貨與客服都在台灣。滿 499 免運，支援宅配與超商取貨。",
         "outro_cta": "立即購買",
         "outro_url": "",
         "light": false,
@@ -231,16 +231,16 @@
     "panels": {
       "type": "df-panels",
       "blocks": {
-        "b0": { "type": "panel", "settings": { "name": "碳纖維黑", "price": "NT$590", "swatch": "#17181B" } },
-        "b1": { "type": "panel", "settings": { "name": "曜黑", "price": "NT$590", "swatch": "#2B2D31" } },
-        "b2": { "type": "panel", "settings": { "name": "銀", "price": "NT$590", "swatch": "#C9CDD2" } },
-        "b3": { "type": "panel", "settings": { "name": "鈦灰", "price": "NT$590", "swatch": "#7C7F85" } },
-        "b4": { "type": "panel", "settings": { "name": "正紅", "price": "NT$590", "swatch": "#B8322A" } },
-        "b5": { "type": "panel", "settings": { "name": "拉絲銀", "price": "NT$590", "swatch": "#AEB2B7" } },
-        "b6": { "type": "panel", "settings": { "name": "浮世繪", "price": "NT$290", "swatch": "#2E6FA8" } },
-        "b7": { "type": "panel", "settings": { "name": "大理石", "price": "NT$290", "swatch": "#E6E4E0" } },
-        "b8": { "type": "panel", "settings": { "name": "卡皮巴拉", "price": "NT$290", "swatch": "#B98A55" } },
-        "b9": { "type": "panel", "settings": { "name": "聖母峰", "price": "NT$290", "swatch": "#5C6B78" } }
+        "b0": { "type": "panel", "settings": { "name": "碳纖維黑", "price": "590", "swatch": "#17181B" } },
+        "b1": { "type": "panel", "settings": { "name": "曜黑", "price": "590", "swatch": "#2B2D31" } },
+        "b2": { "type": "panel", "settings": { "name": "銀", "price": "590", "swatch": "#C9CDD2" } },
+        "b3": { "type": "panel", "settings": { "name": "鈦灰", "price": "590", "swatch": "#7C7F85" } },
+        "b4": { "type": "panel", "settings": { "name": "正紅", "price": "590", "swatch": "#B8322A" } },
+        "b5": { "type": "panel", "settings": { "name": "拉絲銀", "price": "590", "swatch": "#AEB2B7" } },
+        "b6": { "type": "panel", "settings": { "name": "浮世繪", "price": "290", "swatch": "#2E6FA8" } },
+        "b7": { "type": "panel", "settings": { "name": "大理石", "price": "290", "swatch": "#E6E4E0" } },
+        "b8": { "type": "panel", "settings": { "name": "卡皮巴拉", "price": "290", "swatch": "#B98A55" } },
+        "b9": { "type": "panel", "settings": { "name": "聖母峰", "price": "290", "swatch": "#5C6B78" } }
       },
       "block_order": ["b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"],
       "settings": {
@@ -293,13 +293,13 @@
           "name": "後照鏡底座", "fits": "Ø 8–10 mm", "tag": "標配" } },
         "m2": { "type": "base", "settings": {
           "name": "圓桿底座", "fits": "Ø 10–16 mm", "tag": "選配",
-          "price": "NT$780", "url": "/products/h0237101020" } },
+          "price": "780", "url": "/products/h0237101020" } },
         "m3": { "type": "base", "settings": {
           "name": "防盜萬用底座", "fits": "Ø 12 mm 以上", "tag": "選配",
-          "price": "NT$980", "url": "/products/h0237100920" } },
+          "price": "980", "url": "/products/h0237100920" } },
         "m4": { "type": "base", "settings": {
           "name": "三角台底座", "fits": "Ø 17 / 25 mm", "tag": "選配",
-          "price": "NT$980", "url": "/products/h0237101120" } }
+          "price": "980", "url": "/products/h0237101120" } }
       },
       "block_order": ["m1", "m2", "m3", "m4"],
       "settings": {
@@ -323,19 +323,19 @@
         "a1": { "type": "item", "settings": {
           "name": "盔甲罩 VentShield 遮陽罩",
           "text": "夏天太陽直曬會讓手機過熱關機，罩上去擋掉直射。",
-          "price": "NT$200 起", "url": "/products/ventshield" } },
+          "price": "200 起", "url": "/products/ventshield" } },
         "a2": { "type": "item", "settings": {
           "name": "GC-Tag 找得到",
           "text": "已經有標準版 Air 的話，補一顆就有定位。iOS 與 Android 都能用。",
-          "price": "NT$590 起", "url": "/products/gc-tag-1" } },
+          "price": "590 起", "url": "/products/gc-tag-1" } },
         "a3": { "type": "item", "settings": {
           "name": "磁母手中線 FLEXMAG",
           "text": "磁吸收納，不會在車頭甩來甩去。",
-          "price": "NT$490", "url": "/products/flexmag" } },
+          "price": "490", "url": "/products/flexmag" } },
         "a4": { "type": "item", "settings": {
           "name": "一英吋球頭連桿",
           "text": "位置不順手就加一節，角度自己喬。",
-          "price": "NT$149", "url": "/products/gc-c105-3-1" } }
+          "price": "149", "url": "/products/gc-c105-3-1" } }
       },
       "block_order": ["a1", "a2", "a3", "a4"],
       "settings": {
@@ -400,11 +400,11 @@
         "lead": "都是我們自己做的。差別不在好不好，在你要的是哪一種——最小的體積、最多的爪子，還是最省的預算。",
         "cta": "看這一支",
         "hero_tag": "旗艦",
-        "a_name": "二勢力 Dualfind", "a_tier": "旗艦款", "a_price": "NT$1,780 起",
+        "a_name": "二勢力 Dualfind", "a_tier": "旗艦款", "a_price": "1,780 起",
         "a_url": "/products/dualfind", "a_hero": true,
-        "b_name": "八力架 OctaStand", "b_tier": "八爪進階款", "b_price": "NT$990 起",
+        "b_name": "八力架 OctaStand", "b_tier": "八爪進階款", "b_price": "990 起",
         "b_url": "/products/octastand", "b_hero": false,
-        "c_name": "四力架 4Power", "c_tier": "專業與基礎款", "c_price": "NT$480 起",
+        "c_name": "四力架 4Power", "c_tier": "專業與基礎款", "c_price": "480 起",
         "c_url": "/products/gc-c103", "c_hero": false,
         "wrap": 1240,
         "dark": false,
@@ -516,8 +516,8 @@
         "head_a": "挑一個版本",
         "head_b": "剩下的都一樣",
         "add_label": "加入購物車",
-        "cur": "NT",
-        "ship": "滿 NT$499 免運．支援宅配與超商取貨",
+        "cur": "",
+        "ship": "滿 499 免運．支援宅配與超商取貨",
         "no_locator_key": "Air",
         "label_yes": "含定位倉，打開「尋找」看得到車",
         "label_no": "不含定位倉",
