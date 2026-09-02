@@ -56,6 +56,10 @@
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x96' }}" type="image/png">
     {%- endif -%}
+    {%- comment -%}Same favicon set as layout/theme.liquid (black logo). Remove these three lines to fall back to the theme setting.{%- endcomment -%}
+    <link rel="icon" type="image/svg+xml" href="{{ 'gc-favicon.svg' | asset_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'gc-favicon-32.png' | asset_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'gc-favicon-180.png' | asset_url }}">
 
     {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com">
