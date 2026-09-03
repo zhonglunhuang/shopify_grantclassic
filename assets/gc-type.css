@@ -330,3 +330,7 @@ cart-count.header__cart-count{ font-size:var(--gc-t7); }
    要還原：刪掉這一段，主題原本的規則沒有被改。
    ───────────────────────────────────────────────────────────── */
 .breadcrumb.text--xsmall{ font-size:13px; line-height:1.54; }
+
+/* 2026-09-03: AKO 發票外掛在購物車塞進來的 <h2 class="ako-invoice-title">，被全站 h2 字級放大成 26px；
+   壓回區塊小標大小（Mars 截圖指出）。外掛升級不會動這條，因為它在我們的主題檔裡。 */
+.ako-invoice .ako-invoice-title, h2.ako-invoice-title { font-size: 15px !important; line-height: 22px !important; font-weight: 600 !important; letter-spacing: 0 !important; margin: 0 0 8px !important; }
