@@ -149,7 +149,7 @@
           "type": "official",
           "settings": {
             "name": "momo 購物網",
-            "url": "https://www.momoshop.com.tw/TP/TP0007779",
+            "url": "https://www.momoshop.com.tw/search/grantclassic?searchType=1&brand=grantclassic&brandNo=20230707183759547&isBrandPage=1&serviceCode=MT04&_isFuzzy=0",
             "fallback": "sl-logo-momo-h.png",
             "caption": "官方直營",
             "logo_height": 30
@@ -169,7 +169,7 @@
           "type": "official",
           "settings": {
             "name": "蝦皮購物",
-            "url": "https://shopee.tw/opaanlp",
+            "url": "https://shopee.tw/goshop_classic",
             "fallback": "sl-logo-shopee.svg",
             "caption": "官方直營",
             "logo_height": 36
