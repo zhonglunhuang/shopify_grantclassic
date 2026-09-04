@@ -1,0 +1,322 @@
+/* grantclassic 門市據點頁 —— sl- 前綴，全部收在 .sl 作用域內
+   不改主題任何原有檔案；移除這頁的 template 就完全還原。 */
+/* 版面照 Apple 規範：SF Pro 字級表、白／#F5F5F7 交替、卡片無框靠底色分層、
+   動作色只給可以點的東西。結構照 Mars 給的參考圖。 */
+.sl{
+  --paper:#ffffff; --wash:#f5f5f7; --fill:#f5f5f7; --fill-on-wash:#ffffff;
+  --ink:#1d1d1f; --ink-2:#6e6e73; --ink-3:#86868b; --rule:#d2d2d7;
+  --accent:#ff3b30; --accent-text:#d70015; --accent-ink:#ffffff;
+  --btn-bg:#d70015;   /* 紅底按鈕：白字要到 4.5:1 只能用深階 */
+  --track:#e8e8ed; --bar-bg:#1d1d1f; --bar-ink:#f5f5f7;
+  --ok:#1d7a3f; --ok-bg:#e7f5ec;
+  --t56:56px;--t56ls:-.009em; --t48:48px;--t48ls:-.003em; --t40:40px;--t40ls:0em;
+  --t32:32px;--t32ls:.004em; --t28:28px;--t28ls:.007em; --t24:24px;--t24ls:.009em;
+  --t21:21px;--t21ls:.011em; --t17:17px;--t17ls:-.022em; --t14:14px;--t14ls:-.016em;
+  --t12:12px;--t12ls:-.01em;
+  --r-lg:18px; --r-md:12px; --w:1120px;
+}
+
+
+.sl *{box-sizing:border-box}
+.sl{
+  background:var(--paper); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",
+              "PingFang TC","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:var(--t17); line-height:1.47059; letter-spacing:var(--t17ls);
+  -webkit-font-smoothing:antialiased;
+}
+.sl :where(h1,h2,h3,p){margin:0}
+.sl :where(ul,ol){margin:0;padding:0;list-style:none}
+.sl :where(a){color:inherit;text-decoration:none}
+.sl :where(button){font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.sl :where(a,button,input,select):focus-visible{outline:3px solid #0071e3;outline-offset:2px;border-radius:4px}
+.sl-wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+.sl-tnum{font-variant-numeric:tabular-nums}
+.sl-dim{color:var(--ink-2)}
+
+.sl-t-hero{font-size:var(--t48);letter-spacing:var(--t48ls);line-height:1.08349;font-weight:600}
+.sl-t-sec {font-size:var(--t32);letter-spacing:var(--t32ls);line-height:1.125;font-weight:600}
+.sl-t-sub {font-size:var(--t28);letter-spacing:var(--t28ls);line-height:1.14286;font-weight:600}
+.sl-t-h3  {font-size:var(--t21);letter-spacing:var(--t21ls);line-height:1.19048;font-weight:600}
+.sl-t-intro{font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.47059}
+.sl-t-body{font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.47059}
+.sl-t-cap {font-size:var(--t14);letter-spacing:var(--t14ls);line-height:1.42859}
+.sl-t-note{font-size:var(--t12);letter-spacing:var(--t12ls);line-height:1.33337}
+@media (max-width:734px){
+  .sl-t-hero{font-size:var(--t32);letter-spacing:var(--t32ls);line-height:1.125}
+  .sl-t-sec {font-size:var(--t28);letter-spacing:var(--t28ls);line-height:1.14286}
+  .sl-t-sub {font-size:var(--t24);letter-spacing:var(--t24ls)}
+  .sl-t-intro{font-size:var(--t17);letter-spacing:var(--t17ls)}
+}
+
+.sl-lnk{color:var(--accent-text)}
+.sl-lnk::after{content:"\00a0→"}
+.sl-lnk:hover{text-decoration:underline}
+
+
+
+/* ---------- 標題 ---------- */
+.sl-hero{padding:76px 24px 44px}  /* 左右 24 跟 .sl-wrap 對齊——原本寫 0，標題比全頁凸出一截 */
+.sl-hero h1{text-wrap:balance;max-width:14em}
+.sl-hero__lead{margin-top:20px;max-width:34em}
+/* 大圖模式：全出血、標題壓在左下、漸層壓暗保字 */
+.sl-hero--img{position:relative;min-height:var(--sl-hero-h,560px);display:flex;align-items:flex-end;padding:0;color:#fff;overflow:hidden;background:#1d1d1f}
+.sl-hero--img .sl-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.sl-hero--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,calc(var(--sl-hero-dim,.35)*.4)) 0%,rgba(0,0,0,var(--sl-hero-dim,.35)) 100%)}
+.sl-hero--img .sl-hero__in{position:relative;z-index:1;width:100%;padding-top:96px;padding-bottom:56px}
+.sl-hero--img h1{color:#fff}
+.sl-hero--img .sl-hero__lead{color:rgba(255,255,255,.82)}
+@media (max-width:734px){.sl-hero--img{min-height:62vh}.sl-hero--img .sl-hero__in{padding-top:64px;padding-bottom:36px}}
+@media (max-width:734px){.sl-hero{padding:44px 24px 32px}}
+
+/* ---------- 四格地區帶 ---------- */
+.sl-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--rule)}
+@media (max-width:900px){.sl-strip{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.sl-strip{grid-template-columns:1fr}}
+.sl-plot{
+  position:relative;min-height:420px;padding:26px;display:flex;flex-direction:column;gap:6px;
+  color:#fff;overflow:hidden;isolation:isolate;
+}
+@media (max-width:560px){.sl-plot{min-height:320px}}
+/* 由後往前疊：底色 -3、照片 -2、壓暗 -1、文字在最上面。
+   照片是 absolute，沒給負的 z-index 會蓋掉文字。 */
+.sl-plot__ph{position:absolute;inset:0;z-index:-3}
+.sl-plot__img{
+  position:absolute;inset:0;z-index:-2;width:100%;height:100%;
+  object-fit:cover;object-position:center 42%;
+  transition:transform .6s cubic-bezier(.2,.6,.2,1);
+}
+.sl-plot::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.18) 42%,rgba(0,0,0,.5) 100%)}
+.sl-plot:hover .sl-plot__img{transform:scale(1.04)}
+/* 沒有照片時的後備底色 */
+.sl-plot--ca .sl-plot__ph{background:linear-gradient(160deg,#e8a765 0%,#c96f4a 45%,#2f4858 100%)}
+.sl-plot--tw .sl-plot__ph{background:linear-gradient(160deg,#5b7fa6 0%,#2c4a6b 50%,#101c2b 100%)}
+.sl-plot--jp .sl-plot__ph{background:linear-gradient(160deg,#6b7280 0%,#3a3f47 50%,#15181c 100%)}
+.sl-plot--my .sl-plot__ph{background:linear-gradient(160deg,#8a9a7b 0%,#4a5b4e 50%,#161d19 100%)}
+/* 照片亮暗不一，疊一層很淡的字影，文字在哪一張上都讀得住 */
+.sl-plot__no,.sl-plot__t,.sl-plot__a{text-shadow:0 1px 14px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.35)}
+.sl-plot__no{font-size:var(--t12);letter-spacing:.08em;font-weight:600;opacity:.9}
+.sl-plot__t{font-size:var(--t21);letter-spacing:var(--t21ls);font-weight:600}
+.sl-plot__a{margin-top:2px;color:#ff9f97;font-weight:600}
+.sl-plot__a::after{content:"\00a0→"}
+.sl-plot__a:hover{text-decoration:underline}
+.sl-plot__todo{
+  position:absolute;left:26px;bottom:24px;z-index:1;
+  font-size:var(--t12);letter-spacing:var(--t12ls);font-weight:600;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  border-radius:980px;padding:4px 11px;backdrop-filter:blur(6px);
+}
+
+/* ---------- 通路 logo 牆 ----------
+   純白底、細線格、每格只有一個招牌，沒有說明也沒有家數。
+   logo 牆的力量來自「一整面認得的招牌」，加字反而稀釋掉。 */
+.sl-wall-sec{padding:100px 0}
+@media (max-width:734px){.sl-wall-sec{padding:60px 0}}
+.sl-wall-sec__h{margin-bottom:14px;max-width:32em}
+.sl-wall-sec__h p{margin-top:12px}
+.sl-wall-sec__n{margin-bottom:36px;color:var(--ink-2)}
+/* 一次看 6 格，超過就往左滑。用捲動而不是補白格——補白會在右邊留一塊空的。 */
+.sl-wallwrap{position:relative}
+.sl-wall{
+  display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.sl-wall::-webkit-scrollbar{display:none}
+.sl-cell{
+  flex:0 0 calc(100% / 6);scroll-snap-align:start;
+  height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  padding:20px 18px;border-right:1px solid var(--rule);
+  background:var(--paper);transition:background .2s;
+}
+.sl-cell:last-child{border-right:0}
+@media (max-width:900px){.sl-cell{flex-basis:calc(100% / 3)}}
+@media (max-width:560px){.sl-cell{flex-basis:calc(100% / 2)}}
+.sl-cell:hover{background:var(--fill)}
+.sl-cell__box{height:52px;display:flex;align-items:center;justify-content:center;width:100%}
+/* 每個 logo 形狀不一樣（Costco 兩行、燦坤接近方形、senao 很長），
+   統一框會忽大忽小——高度逐個調成「看起來一樣重」。 */
+.sl-cell__logo{max-width:100%;object-fit:contain;display:block}
+.sl-cell__cap{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2);text-align:center}
+.sl-cell__mark{
+  font-size:var(--t17);letter-spacing:-.01em;font-weight:600;color:var(--ink-2);
+  text-align:center;line-height:1.15;
+}
+/* 左右箭頭：只有真的滑得動才出現 */
+.sl-wallnav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+  width:36px;height:36px;border-radius:50%;background:var(--paper);
+  box-shadow:0 1px 4px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
+  color:var(--ink);font-size:var(--t17);transition:opacity .2s;
+}
+.sl-wallnav:hover{background:var(--fill)}
+.sl-wallnav--l{left:-14px}
+.sl-wallnav--r{right:-14px}
+.sl-wallnav[hidden]{display:none}
+@media (max-width:560px){.sl-wallnav{display:none}}
+.sl-walllink{text-align:center;margin-top:28px}
+.sl-walllink a{color:var(--accent-text);font-weight:600}
+.sl-walllink a::after{content:"\00a0→"}
+.sl-walllink a:hover{text-decoration:underline}
+
+/* ---------- 找店區 ---------- */
+.sl-finder{padding:100px 0 0;text-align:center}
+.sl-finder__h{margin-bottom:12px}
+.sl-finder__sub{max-width:34em;margin:0 auto}
+@media (max-width:734px){.sl-finder{padding:60px 0 0}}
+.sl-panel{padding:40px 0 0;text-align:left}
+
+.sl-searchrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:20px 0 16px}
+.sl-search{
+  flex:1;min-width:240px;max-width:440px;display:flex;align-items:center;gap:10px;
+  background:var(--fill);border:0;border-radius:var(--r-md);padding:12px 16px;
+}
+.sl-search{font-size:var(--t14);letter-spacing:var(--t14ls);padding:10px 14px;min-width:180px;max-width:none;flex:1}
+.sl-search input{border:0;background:none;font:inherit;color:inherit;width:100%;outline:none}
+.sl-search input::placeholder{color:var(--ink-2)}
+.sl-search svg{flex:none;color:var(--ink-3)}
+.sl-btn{
+  background:var(--btn-bg);color:var(--accent-ink);border-radius:var(--r-md);
+  padding:10px 22px;font-size:var(--t14);letter-spacing:var(--t14ls);font-weight:500;
+}
+.sl-btn:hover{filter:brightness(1.06)}
+.sl-btn--ghost{background:none;color:var(--ink);padding:10px 2px;display:flex;align-items:center;gap:6px;
+  font-size:var(--t14);letter-spacing:var(--t14ls)}
+.sl-btn--ghost svg{color:var(--ink-2)}
+.sl-btn--ghost:hover{color:var(--accent-text)}
+.sl-btn--ghost:hover svg{color:var(--accent-text)}
+
+.sl-filters{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.sl-filters__row{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.sl-filters__label{flex:none;width:60px;padding-top:7px;
+  font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2)}
+@media (max-width:734px){.sl-filters__label{width:auto;padding-top:0}}
+.sl-pills{display:flex;gap:8px;flex-wrap:wrap}
+.sl-pill{
+  font-size:var(--t12);letter-spacing:var(--t12ls);font-weight:500;
+  padding:7px 13px;border-radius:var(--r-md);background:var(--fill);color:var(--ink);
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.sl-pill:hover{background:var(--track)}
+.sl-pill[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sl-pill b{font-weight:500;opacity:.55;margin-left:6px;font-variant-numeric:tabular-nums}
+.sl-pill--empty{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink-2);cursor:not-allowed}
+.sl-pill--empty:hover{background:transparent}
+
+/* ---------- 左清單右地圖 ---------- */
+.sl-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);background:var(--wash)}
+@media (max-width:900px){.sl-split{grid-template-columns:1fr}}
+.sl-results{padding:32px 28px 40px;background:var(--paper);min-width:0}
+.sl-results__n{color:var(--ink-2);font-size:var(--t14);letter-spacing:var(--t14ls);font-weight:400;margin-left:10px}
+.sl-results__h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sl-sortsel{display:flex;align-items:center;gap:6px;font-size:var(--t14);letter-spacing:var(--t14ls);color:var(--ink-2)}
+.sl-sortsel select{
+  font:inherit;color:var(--ink);background:none;border:0;padding:4px 2px;cursor:pointer;
+  font-size:var(--t14);letter-spacing:var(--t14ls);
+}
+.sl-store{display:grid;grid-template-columns:22px 1fr auto;gap:12px;
+  padding:14px 12px;border-radius:var(--r-md);align-items:start;min-width:0;
+  transition:background .15s}
+.sl-store:hover{background:var(--fill)}
+#sl-list{margin:0 -12px}
+.sl-store__i{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2);padding-top:4px;font-variant-numeric:tabular-nums}
+.sl-store__b{min-width:0}
+.sl-store__ch{font-size:11.5px;color:#6e6e73;letter-spacing:.01em;margin-bottom:1px;
+  line-height:1.3}
+.sl-store__n{font-size:var(--t17);letter-spacing:var(--t17ls);font-weight:600}
+.sl-store__a{font-size:var(--t14);letter-spacing:var(--t14ls);color:var(--ink-2);margin-top:2px}
+.sl-store__tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.sl-tag{font-size:var(--t12);letter-spacing:var(--t12ls);background:var(--fill);
+  color:var(--ink-2);border-radius:6px;padding:3px 8px}
+.sl-tag--todo{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink-2)}
+.sl-tag--open{background:var(--ok-bg);color:var(--ok);font-weight:600}
+.sl-tag--shut{background:var(--fill);color:var(--ink-2)}
+.sl-tag--svc{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink-2)}
+/* 假資料一定要在畫面上講出來，不然過兩天沒人記得哪些是編的 */
+.sl-fakebar{
+  background:#fff6e5;color:#7a4b00;border-radius:var(--r-md);
+  padding:10px 14px;margin-bottom:18px;
+}
+.sl-fakebar b{font-weight:600;margin-right:8px}
+
+.sl-store__r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.sl-store__km{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sl-acts{display:flex;gap:8px}
+.sl-icb{
+  width:40px;height:34px;border-radius:9px;background:var(--fill);
+  display:flex;align-items:center;justify-content:center;color:var(--ink);
+}
+.sl-icb:hover{background:var(--track)}
+.sl-nav-btn{
+  background:var(--btn-bg);color:var(--accent-ink);border-radius:9px;
+  padding:0 16px;height:34px;display:flex;align-items:center;
+  font-size:var(--t14);letter-spacing:var(--t14ls);font-weight:500;
+}
+.sl-nav-btn:hover{filter:brightness(1.06)}
+.sl-empty{padding:70px 24px;text-align:center;color:var(--ink-2)}
+/* 分頁 */
+.sl-pager{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap}
+.sl-pager button{
+  font-size:var(--t14);letter-spacing:var(--t14ls);font-weight:500;
+  padding:8px 16px;border-radius:var(--r-md);background:var(--fill);color:var(--ink);
+  transition:background .2s;
+}
+.sl-pager button:hover:not(:disabled){background:var(--track)}
+.sl-pager button:disabled{color:var(--ink-2);opacity:.55;cursor:default}
+.sl-pager__n{font-size:var(--t14);letter-spacing:var(--t14ls);color:var(--ink-2);
+  padding:0 8px;font-variant-numeric:tabular-nums}
+.sl-empty h3{margin-bottom:8px}
+
+/* ---------- 地圖 ---------- */
+/* 海的顏色鋪滿整格，不然圖是置中的、兩側會露出灰底看起來像沒對齊 */
+.sl-mapwrap{position:sticky;top:48px;height:calc(100vh - 48px);min-height:560px;background:#eaf0f4;overflow:hidden}
+
+@media (max-width:900px){.sl-mapwrap{position:static;height:auto;min-height:0;padding:24px}}
+.sl-mapwrap svg{display:block;width:100%;height:100%}
+@media (max-width:900px){.sl-mapwrap svg{max-width:320px;margin:0 auto;height:auto}}
+/* 底圖：淺水藍的海、近白的陸地、細到幾乎看不見的縣市界 */
+.sl-tw-sea{fill:#eaf0f4}
+.sl-tw-land{fill:#fcfcfd;stroke:#cfd6dc;stroke-width:.7;stroke-linejoin:round}
+.sl-tw-county{fill:none;stroke:#dfe4e9;stroke-width:.55;stroke-linejoin:round}
+.sl-dot{fill:#f0564a;opacity:.5}
+.sl-dot[data-dim="1"]{opacity:.12}
+.sl-dot[data-hit="1"]{opacity:.95}
+/* 群集：外面兩層很淡的光暈，中間才是實心——這是「精緻」跟「一坨紅」的差別 */
+.sl-clus{cursor:pointer}
+.sl-clus .sl-h2{fill:#f0564a;opacity:.13;transition:opacity .2s}
+.sl-clus .sl-h1{fill:#f0564a;opacity:.22;transition:opacity .2s}
+.sl-clus .sl-core{fill:#d13a2b;transition:fill .2s}  /* 實心圓要壓深一階：白數字在 #f0564a 上只有 3.4:1，光暈維持淺色 */
+.sl-clus:hover .sl-h2{opacity:.2}
+.sl-clus:hover .sl-h1{opacity:.32}
+.sl-clus[data-on="1"] .sl-core{fill:#d70015}
+.sl-clus[data-on="1"] .sl-h1{opacity:.38}
+.sl-clus text{fill:#fff;font-size:11px;font-weight:600;text-anchor:middle;dominant-baseline:central;
+  pointer-events:none;font-family:inherit;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sl-leader{stroke:#f0564a;stroke-width:.8;opacity:.3}
+/* 縮放鈕：只是版位示意，正式站由 Google 地圖自己提供 */
+.sl-mapctl{position:absolute;right:20px;bottom:20px;display:flex;flex-direction:column;gap:8px}
+.sl-mapctl span{
+  width:36px;height:36px;border-radius:9px;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-2);
+  box-shadow:0 1px 3px rgba(0,0,0,.14);font-size:var(--t17);
+}
+@media (max-width:900px){.sl-mapctl{display:none}}
+.sl-maphint{position:absolute;left:24px;bottom:20px;font-size:var(--t12);letter-spacing:var(--t12ls);
+  color:var(--ink-2);background:var(--paper);border-radius:980px;padding:7px 14px;
+  box-shadow:0 1px 3px rgba(0,0,0,.12)}
+@media (max-width:900px){.sl-maphint{position:static;display:block;margin:14px auto 0;width:max-content;max-width:100%}}
+
+.sl-disclaim{padding:26px 0 60px;text-align:center;color:var(--ink-2);background:var(--paper)}
+
+/* ---------- 精簡模式 ---------- */
+.sl-briefgrp{margin-bottom:30px}
+.sl-briefgrp__h{font-size:var(--t12);letter-spacing:.05em;font-weight:600;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:13px}
+.sl-brief{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sl-bcell{background:var(--fill);border-radius:var(--r-md);padding:16px 18px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.sl-bcell__n{font-size:var(--t24);letter-spacing:var(--t24ls);font-weight:600}
+
+.sl [hidden]{display:none !important}
+@media (prefers-reduced-motion:reduce){.sl *{transition:none !important;animation:none !important}}
