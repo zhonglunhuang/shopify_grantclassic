@@ -1,0 +1,244 @@
+{% comment %}
+  門市據點頁 —— 「線上購物｜線下專賣店」分頁 ＋ 線上購物的三段
+  （官方直營／授權線上經銷／認明授權）。線下那半＝既有的 markets／wall／finder 區塊，
+  由本區塊的 JS 依分頁顯示或隱藏（標題段永遠顯示）。
+  只新增檔案、不改主題原檔；移除 template 就完全還原。
+  資料原則：沒有的就標「待補」，不用編的資料填——網址、名單、證書圖都等 Mars 給。
+  可分享的網址：?tab=offline 或 #offline 直接落在線下專賣店。
+{% endcomment %}
+{{ 'sl-locator.css' | asset_url | stylesheet_tag }}
+{{ 'sl-channels.css' | asset_url | stylesheet_tag }}
+
+{%- capture tiers_html -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'tier' -%}
+      <figure class="sl-tiercard sl-tiercard--{{ block.settings.color }}" {{ block.shopify_attributes }}>
+        <div class="sl-tiercard__cert">
+          {%- if block.settings.cert != blank -%}
+            <img src="{{ block.settings.cert | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}授權標章" loading="lazy">
+          {%- elsif block.settings.cert_fallback != blank -%}
+            <img src="{{ block.settings.cert_fallback | asset_url }}" alt="{{ block.settings.title | escape }}授權標章" loading="lazy">
+          {%- else -%}
+            <div class="sl-tiercard__ph"><span class="sl-todo">證書圖待補</span></div>
+          {%- endif -%}
+        </div>
+        {%- comment -%} 頁面版不放字：標章自己印著等級，再放一排是重複（Mars 2026-09-04）{%- endcomment -%}
+      </figure>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- capture tiers_dlg_html -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'tier' -%}
+      <figure class="sl-tiercard sl-tiercard--{{ block.settings.color }}">
+        <div class="sl-tiercard__cert">
+          {%- if block.settings.cert != blank -%}
+            <img src="{{ block.settings.cert | image_url: width: 1000 }}" alt="{{ block.settings.title | escape }}授權標章" loading="lazy">
+          {%- elsif block.settings.cert_fallback != blank -%}
+            <img src="{{ block.settings.cert_fallback | asset_url }}" alt="{{ block.settings.title | escape }}授權標章" loading="lazy">
+          {%- else -%}
+            <div class="sl-tiercard__ph"><span class="sl-todo">證書圖待補</span></div>
+          {%- endif -%}
+        </div>
+        <figcaption class="sl-tiercard__cap"><i class="sl-tiercard__dot"></i>{{ block.settings.title }}</figcaption>
+        <p class="sl-t-cap sl-dim">{{ block.settings.desc }}</p>
+      </figure>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<div class="sl sl-ch-top">
+  <div class="sl-wrap">
+    <div class="sl-ch-tabs" role="tablist" aria-label="購買方式">
+      <button type="button" class="sl-ch-tab" role="tab" id="sl-tab-online"
+              data-tab="online" aria-selected="true" aria-controls="sl-online">{{ section.settings.tab_online }}</button>
+      <button type="button" class="sl-ch-tab" role="tab" id="sl-tab-offline"
+              data-tab="offline" aria-selected="false">{{ section.settings.tab_offline }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="sl sl-ch" id="sl-online" role="tabpanel" aria-labelledby="sl-tab-online">
+
+  {%- comment -%} 一面牆：官方直營與授權平台放在一起，用小字說明區分——Mars 2026-09-04：
+  線上大多是自營、不需要另立「授權線上經銷」段；樣式照線下的「合作通路陣容」（無框、大 logo）。{%- endcomment -%}
+  <section class="sl-ch-sec">
+    <div class="sl-wrap">
+      <h2 class="sl-t-sec">{{ section.settings.official_title }}</h2>
+      {%- assign n_retail = 0 -%}
+      {%- for block in section.blocks -%}{%- if block.type == 'retailer' -%}{%- assign n_retail = n_retail | plus: 1 -%}{%- endif -%}{%- endfor -%}
+      <div class="sl-ch-wall">
+        <div class="sl-ch-group sl-ch-group--official">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'official' -%}{% render 'sl-channel-card', block: block %}{%- endif -%}
+          {%- endfor -%}
+        </div>
+        {%- if n_retail > 0 -%}
+        {%- comment -%} 授權平台自成一組：手機上前面一條細線＋小標，落單的那格才不像「排不滿」（Mars 2026-09-05）{%- endcomment -%}
+        <div class="sl-ch-group sl-ch-group--retail">
+          <div class="sl-ch-group__label sl-t-note sl-dim">{{ section.settings.retail_title }}</div>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'retailer' -%}{% render 'sl-channel-card', block: block %}{%- endif -%}
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="sl-ch-sec sl-ch-sec--wash sl-ch-sec--cert">
+    <div class="sl-wrap">
+      <div class="sl-ch-certhead">
+        <div>
+          <h2 class="sl-t-sec">{{ section.settings.cert_title }}</h2>
+          <p class="sl-ch-lead sl-t-body sl-dim">{{ section.settings.cert_intro }}</p>
+        </div>
+        <button type="button" class="sl-btn sl-btn--ghost sl-ch-open" id="sl-certOpen">
+          {{ section.settings.cert_btn }}
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="sl-ch-tiers">{{ tiers_html }}</div>
+      {%- comment -%} 重要但不是主角：字縮回 14px，用「白色小卡＋盾牌圖示」表達重要性，不用字級（Mars 2026-09-04）{%- endcomment -%}
+      <div class="sl-ch-note">
+        <svg class="sl-ch-note__ic" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2.5 4 4.8v4.7c0 3.6 2.5 6.6 6 7.5 3.5-.9 6-3.9 6-7.5V4.8L10 2.5Z"/><path d="m7.6 10 1.7 1.7 3.2-3.4"/>
+        </svg>
+        <p class="sl-t-cap">
+          {{ section.settings.warranty_line }}
+          {%- if section.settings.policy_url != blank %} <a class="sl-ch-note__a" href="{{ section.settings.policy_url }}">{{ section.settings.policy_text }} &rsaquo;</a>{% endif -%}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {%- capture chan_json -%}
+    {%- assign i = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'official' or block.type == 'retailer' -%}{%- if block.settings.url != blank -%}
+        {%- assign i = i | plus: 1 -%}{%- unless i == 1 -%},{%- endunless -%}
+        {"@type":"ListItem","position":{{ i }},"name":{{ block.settings.name | json }},"url":{{ block.settings.url | json }}}
+      {%- endif -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"grantclassic 特經典 官方直營與授權線上通路","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":{{ i }},"itemListElement":[{{ chan_json }}]}</script>
+  <dialog class="sl sl-ch-dlg" id="sl-certDlg" aria-label="授權經銷商證書">
+    <div class="sl-ch-dlg__h">
+      <h2 class="sl-t-sub">{{ section.settings.cert_title }}</h2>
+      <button type="button" class="sl-ch-dlg__x" data-close aria-label="關閉">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="sl-ch-tiers sl-ch-tiers--dlg">{{ tiers_dlg_html }}</div>
+  </dialog>
+</div>
+
+<script>
+(function(){
+  var root = document.currentScript && document.currentScript.closest('.shopify-section');
+  var online = document.getElementById('sl-online');
+  var tabs = document.querySelectorAll('.sl-ch-tab');
+  if (!online || !tabs.length) return;
+
+  /* 線下＝除了本區塊與標題段之外、所有 sl- 家族的區塊（markets／wall／finder） */
+  function offlineSections(){
+    return Array.prototype.filter.call(document.querySelectorAll('.shopify-section'), function(s){
+      return s !== root && s.querySelector('.sl') && !s.querySelector('.sl-hero') && !s.querySelector('[data-sl-always]');
+    });
+  }
+  function show(tab){
+    var isOn = tab !== 'offline';
+    online.classList.toggle('sl-ch-hide', !isOn);
+    offlineSections().forEach(function(s){ s.classList.toggle('sl-ch-hide', isOn); });
+    tabs.forEach(function(b){
+      b.setAttribute('aria-selected', b.dataset.tab === (isOn ? 'online' : 'offline') ? 'true' : 'false');
+    });
+    try { history.replaceState(null, '', location.pathname + location.search + (isOn ? '' : '#offline')); } catch(e){}
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.tab); }); });
+  /* 這段 script 排在線下三個區塊**前面**，行內執行時它們還沒被解析到——
+     一開始找「線下區塊」會找到 0 個、什麼都藏不掉（2026-09-02 實測）。
+     初始化一定要等 DOM 解析完。 */
+  function init(){
+    var q = new URLSearchParams(location.search);
+    show((location.hash === '#offline' || q.get('tab') === 'offline') ? 'offline' : 'online');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  var dlg = document.getElementById('sl-certDlg'), open = document.getElementById('sl-certOpen');
+  if (dlg && open && dlg.showModal){
+    open.addEventListener('click', function(){ dlg.showModal(); });
+    dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+    var x = dlg.querySelector('[data-close]'); if (x) x.addEventListener('click', function(){ dlg.close(); });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "門市｜線上購物分頁",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "分頁" },
+    { "type": "text", "id": "tab_online", "label": "線上分頁名稱", "default": "線上購物" },
+    { "type": "text", "id": "tab_offline", "label": "線下分頁名稱", "default": "線下專賣店" },
+    { "type": "header", "content": "官方直營" },
+    { "type": "text", "id": "official_title", "label": "標題", "default": "官方直營" },
+    { "type": "header", "content": "授權線上經銷" },
+    { "type": "text", "id": "retail_title", "label": "手機版「授權平台」那組的小標", "default": "授權平台" },
+    { "type": "header", "content": "認明授權" },
+    { "type": "text", "id": "cert_title", "label": "標題", "default": "認明授權經銷商" },
+    { "type": "text", "id": "cert_intro", "label": "一句說明", "default": "授權經銷商都持有我們核發的證書，分三種等級。線上只有本頁列出的才是授權通路。" },
+    { "type": "text", "id": "cert_btn", "label": "看證書按鈕文字", "default": "看授權證書" },
+    { "type": "text", "id": "warranty_line", "label": "保固一句話", "default": "非授權通路（含海外水貨）購買的商品，無法提供保固服務；未列於本頁的賣場皆非授權通路。" },
+    { "type": "url", "id": "policy_url", "label": "保固政策連結（url 型設定不能帶預設值，值在範本裡）" },
+    { "type": "text", "id": "policy_text", "label": "連結文字", "default": "保固政策" }
+  ],
+  "blocks": [
+    {
+      "type": "official", "name": "官方直營賣場",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "官方賣場" },
+        { "type": "url", "id": "url", "label": "賣場網址（留空會顯示「網址待補」）" },
+        { "type": "image_picker", "id": "logo", "label": "logo（沒有就顯示名稱）" },
+        { "type": "text", "id": "fallback", "label": "內建 logo 檔名（assets/，有上傳 logo 就不用）" },
+        { "type": "text", "id": "caption", "label": "logo 下面的小字", "default": "官方直營" },
+        { "type": "range", "id": "logo_height", "label": "logo 顯示高度", "min": 20, "max": 60, "step": 2, "default": 34, "unit": "px" }
+      ]
+    },
+    {
+      "type": "retailer", "name": "授權平台",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "授權賣場" },
+        { "type": "url", "id": "url", "label": "賣場網址（要連到該平台的官方賣場頁，不是平台首頁）" },
+        { "type": "image_picker", "id": "logo", "label": "logo（沒有就顯示名稱）" },
+        { "type": "text", "id": "fallback", "label": "內建 logo 檔名（assets/，有上傳 logo 就不用）" },
+        { "type": "text", "id": "caption", "label": "logo 下面的小字", "default": "授權平台" },
+        { "type": "range", "id": "logo_height", "label": "logo 顯示高度", "min": 20, "max": 60, "step": 2, "default": 34, "unit": "px" },
+        { "type": "select", "id": "tier", "label": "授權等級",
+          "options": [
+            { "value": "black", "label": "黑・品牌直營與旗艦通路" },
+            { "value": "gold", "label": "金・主力專賣夥伴" },
+            { "value": "red", "label": "紅・授權經銷商" }
+          ], "default": "red" }
+      ]
+    },
+    {
+      "type": "tier", "name": "授權等級（證書）",
+      "settings": [
+        { "type": "select", "id": "color", "label": "顏色",
+          "options": [
+            { "value": "black", "label": "黑" }, { "value": "gold", "label": "金" }, { "value": "red", "label": "紅" }
+          ], "default": "red" },
+        { "type": "text", "id": "badge", "label": "標籤文字", "default": "紅・授權經銷商" },
+        { "type": "text", "id": "title", "label": "標題", "default": "授權經銷商" },
+        { "type": "text", "id": "desc", "label": "一句說明", "default": "完成授權簽約的門市，販售正品、可協助保固登錄。" },
+        { "type": "image_picker", "id": "cert", "label": "證書圖（沒有就用內建的標章）" },
+        { "type": "text", "id": "cert_fallback", "label": "內建標章檔名（assets/）" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "門市｜線上購物分頁" }]
+}
+{% endschema %}

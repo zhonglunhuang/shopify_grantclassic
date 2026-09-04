@@ -1,0 +1,70 @@
+{% comment %}
+  門市據點頁 —— 常見問題（GEO 的主菜）。
+  問答用原生 <details>（可及性與無 JS 都能用），同一份內容用 Liquid 輸出 FAQPage 結構化資料——
+  伺服器端產生、不靠 JS，AI 爬蟲不執行 JS 也讀得到（部落格那份是 JS 產的，差在這裡）。
+  兩個分頁都顯示：外層帶 data-sl-always，sl-channels 的分頁切換會略過它。
+{% endcomment %}
+{{ 'sl-locator.css' | asset_url | stylesheet_tag }}
+{{ 'sl-channels.css' | asset_url | stylesheet_tag }}
+<div class="sl sl-faq" data-sl-always>
+  <section class="sl-ch-sec sl-faq__sec">
+    <div class="sl-wrap">
+      <h2 class="sl-t-sec">{{ section.settings.title }}</h2>
+      {%- if section.settings.lead != blank -%}<p class="sl-ch-lead sl-t-body sl-dim">{{ section.settings.lead }}</p>{%- endif -%}
+      <div class="sl-faq__list">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.q != blank and block.settings.a != blank -%}
+          {%- assign open = false -%}{%- if forloop.first and section.settings.open_first -%}{%- assign open = true -%}{%- endif -%}
+          <div class="sl-faq__item{% if open %} is-open{% endif %}" {{ block.shopify_attributes }}>
+            <button type="button" class="sl-faq__q" aria-expanded="{{ open }}" aria-controls="sl-faq-a-{{ block.id }}">
+              <span>{{ block.settings.q }}</span>
+              <svg class="sl-faq__chev" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="sl-faq__a" id="sl-faq-a-{{ block.id }}"{% unless open %} hidden{% endunless %}>{{ block.settings.a }}</div>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+  </section>
+</div>
+{%- capture faq_json -%}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.q != blank and block.settings.a != blank -%}
+      {%- unless forloop.first -%},{%- endunless -%}
+      {"@type":"Question","name":{{ block.settings.q | strip_html | json }},"acceptedAnswer":{"@type":"Answer","text":{{ block.settings.a | strip_html | strip_newlines | json }}}}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{ faq_json }}]}</script>
+<script>
+(function(){
+  /* 不用原生 <details>：主題會把它們全部撐開（實測六題全開）。自己收合、一次只掛一個委派監聽。 */
+  if (window.__sfFaq) return; window.__sfFaq = true;
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.sl-faq__q'); if (!btn) return;
+    var item = btn.closest('.sl-faq__item'), ans = document.getElementById(btn.getAttribute('aria-controls'));
+    var open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (ans) ans.hidden = !open;
+    if (item) item.classList.toggle('is-open', open);
+  });
+})();
+</script>
+{% schema %}
+{
+  "name": "門市｜常見問題",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "常見問題" },
+    { "type": "text", "id": "lead", "label": "一句說明", "default": "關於哪裡買、怎麼辨識授權、保固怎麼算。" },
+    { "type": "checkbox", "id": "open_first", "label": "第一題預設展開", "default": true }
+  ],
+  "blocks": [
+    { "type": "qa", "name": "問答", "settings": [
+      { "type": "text", "id": "q", "label": "問題" },
+      { "type": "richtext", "id": "a", "label": "回答" }
+    ] }
+  ],
+  "presets": [{ "name": "門市｜常見問題" }]
+}
+{% endschema %}
