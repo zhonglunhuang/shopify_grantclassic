@@ -1,0 +1,86 @@
+/* 門市據點頁 —— 線上購物分頁（sl-ch- 前綴；token 沿用 sl-locator.css）
+   2026-09-02 Mars：字太多、有點亂 → 改成純 logo 磚、同尺寸、有框，文字砍到最少 */
+.sl-ch-hide{display:none !important}
+
+.sl-ch-top{padding:48px 0 0}   /* 大圖→膠囊 48；膠囊→第一段靠段落自己的 100 */
+/* 選擇器墊高到 (0,3,0)：Focal 主題對 button 有自己的重設，(0,1,0) 會被壓扁（實測內距吃不到） */
+.sl .sl-ch-tabs{display:inline-flex;background:var(--track);border-radius:999px;padding:4px;gap:2px}
+.sl .sl-ch-tabs .sl-ch-tab{display:inline-flex;align-items:center;min-height:40px;padding:0 24px;margin:0;border:0;
+  border-radius:999px;font-size:15px;line-height:1;letter-spacing:-.01em;font-weight:500;color:var(--ink-2);background:transparent;
+  transition:background .15s,color .15s}
+.sl .sl-ch-tabs .sl-ch-tab:hover{color:var(--ink)}
+.sl .sl-ch-tabs .sl-ch-tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+
+.sl-ch-sec{padding:100px 0}   /* 這頁的規格：區塊間 100px（跟線下各段一致） */
+.sl-ch-sec--wash{background:var(--wash)}
+.sl .sl-ch-lead{margin-top:16px;max-width:52em;text-wrap:balance}   /* 標題→說明 16；選擇器墊高到 (0,2,0)，主題對 p 的重設才壓不過 */
+
+/* 陣容牆式格子：無框、logo 置中、底下小字；滑過去整格浮起＋淡淡底色 */
+.sl-ch-wall{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;margin:48px 0 0 -14px}   /* 桌機：不管幾格都排成一列、等寬 */
+.sl-ch-group{display:contents}                 /* 桌機：兩組的格子直接進同一個 grid，看起來還是一列 */
+.sl-ch-group__label{display:none}              /* 小標只在手機顯示（桌機每格下面已有小字） */
+.sl-chw{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:22px 14px 18px;border-radius:var(--r-lg);
+  transition:transform .18s ease,background .18s ease}
+a.sl-chw:hover{transform:translateY(-4px);background:var(--wash)}
+.sl-chw--static{cursor:default}
+.sl-chw__box{height:60px;display:flex;align-items:center;justify-content:flex-start}
+.sl-chw__logo{max-width:150px;width:auto;height:auto;object-fit:contain;display:block}
+.sl-chw__mark{font-size:var(--t21);letter-spacing:var(--t21ls);font-weight:600;text-align:left}
+.sl-chw__cap{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-3);text-align:left;line-height:1.3}
+
+.sl-todo{display:inline-flex;align-items:center;font-size:var(--t12);letter-spacing:var(--t12ls);padding:4px 10px;
+  border-radius:999px;box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink-2);white-space:nowrap}
+
+/* 認明授權：三張標章縮圖並排＋一個詞（說明句只在燈箱） */
+.sl-ch-certhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap}
+.sl-ch-certhead>div{flex:1 1 640px}
+.sl-ch-open{white-space:nowrap}
+.sl-ch-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,280px));justify-content:start;gap:40px;margin-top:48px}   /* 說明→標章 48 */
+.sl-tiercard{margin:0;display:grid;gap:12px;justify-items:start;align-content:start}
+.sl-tiercard__cert{width:100%;max-width:280px;aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;background:var(--paper);
+  box-shadow:0 1px 2px rgba(0,0,0,.06),0 10px 30px rgba(0,0,0,.08);display:grid;place-items:center}
+.sl-tiercard__cert img{width:100%;height:100%;object-fit:contain;display:block}
+.sl-tiercard__ph{display:grid;place-items:center;width:100%;height:100%}
+.sl-tiercard__cap{display:inline-flex;align-items:center;gap:7px;font-size:var(--t14);letter-spacing:var(--t14ls);font-weight:600}
+.sl-tiercard__dot{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+.sl-tiercard--black .sl-tiercard__dot{background:var(--ink)}
+.sl-tiercard--gold  .sl-tiercard__dot{background:#c9a227}
+.sl-tiercard--red   .sl-tiercard__dot{background:var(--accent-text)}
+.sl-ch-note{margin-top:64px;max-width:62em;display:flex;gap:12px;align-items:flex-start;background:var(--paper);
+  border-radius:var(--r-md);padding:16px 18px;color:var(--ink-2);box-shadow:0 1px 2px rgba(0,0,0,.04)}   /* 白色小卡＋圖示：重要性用形表達，字回 14px */
+.sl-ch-note__ic{flex:none;margin-top:1px;color:var(--ink)}
+.sl-ch-note p{margin:0;text-wrap:pretty}
+.sl-ch-note__a{color:var(--accent-text);white-space:nowrap}
+.sl-ch-note__a:hover{text-decoration:underline}
+
+/* 證書燈箱 */
+.sl-ch-dlg{border:0;border-radius:var(--r-lg);padding:28px;max-width:1040px;width:calc(100% - 32px);background:var(--paper);color:var(--ink)}
+.sl-ch-dlg::backdrop{background:rgba(0,0,0,.5)}
+.sl-ch-dlg__h{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.sl-ch-dlg__x{width:36px;height:36px;border-radius:50%;background:var(--fill);display:grid;place-items:center}
+.sl-ch-tiers--dlg{margin-top:20px;grid-template-columns:repeat(3,minmax(0,1fr));justify-content:stretch}
+.sl-ch-tiers--dlg .sl-tiercard{justify-items:center}
+.sl-ch-tiers--dlg .sl-tiercard p{text-align:center;max-width:24em;text-wrap:balance;margin-top:2px}   /* 平衡斷行：兩行等長，不出「錄。」孤兒 */
+
+@media (max-width:1068px){ .sl-ch-wall{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr))} .sl-ch-tiers{grid-template-columns:repeat(3,minmax(0,1fr));justify-content:stretch} }
+@media (max-width:734px){
+  .sl-ch-sec{padding:64px 0}
+  .sl-ch-top{padding:32px 0 0}
+  /* 手機：一格只剩半個螢幕寬，靠左會貼邊。改成 flex 換行＋置中：每列兩格、格內置中、
+     最後落單的那格自動置中在自己那一列（桌機維持靠左對齊標題） */
+  .sl-ch-wall{display:block;margin-left:0}
+  .sl-ch-group{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0}
+  .sl-ch-group--retail{margin-top:20px;padding-top:24px;border-top:1px solid var(--rule);position:relative}
+  .sl-ch-group__label{display:block;width:100%;text-align:center;margin-bottom:4px;letter-spacing:.06em}
+  /* min-width:0 ＋ logo 寬度上限＝格寬：momo 的橫式字標 202px 寬會撐破半個螢幕、害整排換行亂掉。
+     inline 的 height 保留（viewBox-only 的 SVG 靠它才有高度），寬度超過就由 object-fit:contain 等比縮小 */
+  .sl-chw{flex:0 0 50%;min-width:0;align-items:center;text-align:center;padding:20px 8px 16px}
+  .sl-chw__box{justify-content:center;width:100%}
+  .sl-chw__logo{max-width:100%}
+  .sl-chw__cap{text-align:center}
+  .sl-ch-tiers{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;justify-content:stretch}
+  .sl-tiercard__cap{font-size:var(--t12)}
+  .sl-ch-dlg{padding:20px 16px}
+  .sl-ch-dlg .sl-ch-tiers{grid-template-columns:1fr}
+  .sl-ch-tab{padding:10px 18px;font-size:14px}
+}
