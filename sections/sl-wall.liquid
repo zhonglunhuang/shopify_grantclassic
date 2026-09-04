@@ -1,0 +1,98 @@
+{% comment %}
+  門市據點頁 —— 通路 logo 牆
+  一次看 6 格，超過就往左滑。每一格是一個 block，後台換 logo、改分類、拖曳排序。
+  logo 高度逐個設定：形狀差很多，統一高度會看起來忽大忽小（光學對齊）。
+{% endcomment %}
+
+{{ 'sl-locator.css' | asset_url | stylesheet_tag }}
+
+<div class="sl">
+  <section class="sl-wall-sec">
+    <div class="sl-wrap">
+      <div class="sl-wall-sec__h">
+        <h2 class="sl-t-sec">{{ section.settings.title }}</h2>
+      </div>
+      {% if section.settings.lead != blank %}
+        <p class="sl-wall-sec__n sl-t-cap">{{ section.settings.lead }}</p>
+      {% endif %}
+
+      <div class="sl-wallwrap">
+        <button type="button" class="sl-wallnav sl-wallnav--l" id="sl-wallPrev" aria-label="上一組" hidden>&lsaquo;</button>
+        <div class="sl-wall" id="sl-wall">
+          {% for block in section.blocks %}
+            <div class="sl-cell" {{ block.shopify_attributes }}>
+              <span class="sl-cell__box">
+                {% if block.settings.logo != blank %}
+                  <img class="sl-cell__logo"
+                       src="{{ block.settings.logo | image_url: width: 400 }}"
+                       alt="{{ block.settings.name | escape }}"
+                       style="max-height:{{ block.settings.logo_height }}px"
+                       loading="lazy">
+                {% elsif block.settings.fallback != blank %}
+                  <img class="sl-cell__logo" src="{{ block.settings.fallback | asset_url }}"
+                       alt="{{ block.settings.name | escape }}"
+                       style="max-height:{{ block.settings.logo_height }}px" loading="lazy">
+                {% else %}
+                  <span class="sl-cell__mark">{{ block.settings.name }}</span>
+                {% endif %}
+              </span>
+              {% if block.settings.caption != blank %}
+                <span class="sl-cell__cap">{{ block.settings.caption }}</span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <button type="button" class="sl-wallnav sl-wallnav--r" id="sl-wallNext" aria-label="下一組" hidden>&rsaquo;</button>
+      </div>
+
+      {% comment %}
+        資產網址只有 Liquid 給得出來（asset_url 會展開成完整的 CDN 路徑，JS 拼不出來）。
+        **這裡只設變數、不畫牆**：這段 script 跟著區塊渲染就執行，而 sl-data.js 是
+        下面的 sl-finder 區塊才載入的——在這裡讀 SL_DATA 永遠是 undefined，
+        牆會靜靜地維持後台手建的版本（實測就是這樣，10 格沒被 6 格取代）。
+        真正畫牆的程式在 sl-locator.js，那支在資料之後才跑。
+      {% endcomment %}
+      <script>
+        window.SL_ASSET_BASE = {{ 'sl-locator.css' | asset_url | json }}.replace(/sl-locator\.css.*$/, '');
+      </script>
+
+      {% if section.settings.link_text != blank %}
+        <p class="sl-walllink sl-t-cap">
+          <a href="{{ section.settings.link | default: '#sl-splitView' }}">{{ section.settings.link_text }}</a>
+        </p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "門市｜通路 logo 牆",
+  "tag": "section",
+  "max_blocks": 24,
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "合作的通路陣容" },
+    { "type": "text", "id": "lead", "label": "副標", "default": "從大型量販、Apple 專業通路，到遍佈全台的 3C 與電信連鎖。" },
+    { "type": "text", "id": "link_text", "label": "下方連結文字（留空不顯示）" },
+    { "type": "url", "id": "link", "label": "下方連結網址" }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "通路",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "logo（去背 PNG 或 SVG）" },
+        { "type": "text", "id": "fallback", "label": "後備 logo（主題 assets 的檔名）", "info": "上面沒選圖時用這個。" },
+        { "type": "text", "id": "name", "label": "通路名稱（沒有 logo 時顯示文字）", "default": "通路名稱" },
+        { "type": "text", "id": "caption", "label": "分類小字", "default": "3C 連鎖" },
+        {
+          "type": "range", "id": "logo_height", "label": "logo 顯示高度",
+          "min": 20, "max": 60, "step": 2, "unit": "px", "default": 32,
+          "info": "形狀不同的 logo 要各自微調，看起來一樣重才對。橫長的調低、接近方形的調高。"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "門市｜通路 logo 牆" }]
+}
+{% endschema %}

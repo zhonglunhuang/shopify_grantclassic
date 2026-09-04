@@ -1,0 +1,22 @@
+{% comment %}
+  線上賣場的「陣容牆」格子：無框、大 logo、底下一行小字（官方直營／授權平台），
+  滑過去整格浮起——照線下「合作通路陣容」那面牆的語言（Mars 2026-09-04 挑的樣式）。
+  沒有 logo 才顯示名稱字樣；url 留空＝不可點、不另外標字。
+{% endcomment %}
+{%- assign h = block.settings.logo_height | default: 34 -%}
+{%- if block.settings.url != blank -%}
+<a class="sl-chw" href="{{ block.settings.url }}" target="_blank" rel="noopener" aria-label="{{ block.settings.name | escape }}" {{ block.shopify_attributes }}>
+{%- else -%}
+<div class="sl-chw sl-chw--static" aria-label="{{ block.settings.name | escape }}" {{ block.shopify_attributes }}>
+{%- endif -%}
+  <span class="sl-chw__box">
+    {%- if block.settings.logo != blank -%}
+      <img class="sl-chw__logo" src="{{ block.settings.logo | image_url: width: 480 }}" alt="{{ block.settings.name | escape }}" style="height:{{ h }}px" loading="lazy">
+    {%- elsif block.settings.fallback != blank -%}
+      <img class="sl-chw__logo" src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.name | escape }}" style="height:{{ h }}px" loading="lazy">
+    {%- else -%}
+      <span class="sl-chw__mark">{{ block.settings.name }}</span>
+    {%- endif -%}
+  </span>
+  {%- if block.settings.caption != blank -%}<span class="sl-chw__cap">{{ block.settings.caption }}</span>{%- endif -%}
+{%- if block.settings.url != blank -%}</a>{%- else -%}</div>{%- endif -%}

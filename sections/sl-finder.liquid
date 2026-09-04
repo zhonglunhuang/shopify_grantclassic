@@ -1,0 +1,116 @@
+{% comment %}
+  門市據點頁 —— 找店（搜尋、篩選、清單、地圖）
+  這四件事共用同一份狀態，所以是同一個 section，不能拆開。
+
+  資料來源：assets/sl-data.js（241 家，2026-08-15 自 Stockist 匯出並清理）。
+  「營業時間」與「服務標籤」目前是示意資料，上方的提示列由設定控制，
+  真資料進來後把「顯示示意資料提示」關掉。
+{% endcomment %}
+
+{{ 'sl-locator.css' | asset_url | stylesheet_tag }}
+
+<div class="sl">
+  <div class="sl-split" id="sl-splitView">
+    <div class="sl-results" id="sl-panelTW">
+      <div class="sl-results__h">
+        <h2 class="sl-t-sub">{{ section.settings.title }}<span class="sl-results__n sl-tnum" id="sl-count"></span></h2>
+        <label class="sl-sortsel">
+          <select id="sl-sort" aria-label="排序方式">
+            <option value="dist">依距離排序</option>
+            <option value="county">依縣市排序</option>
+            <option value="name">依店名排序</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="sl-searchrow">
+        <label class="sl-search">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="search" id="sl-q" placeholder="{{ section.settings.placeholder }}" aria-label="搜尋門市">
+        </label>
+        <button type="button" class="sl-btn" id="sl-doSearch">搜尋</button>
+        <button type="button" class="sl-btn--ghost" id="sl-useLoc">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 3.2 4.5 8.5 4.5 8.5s4.5-5.3 4.5-8.5c0-2.5-2-4.5-4.5-4.5Z" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>
+          使用目前位置
+        </button>
+      </div>
+
+      <div class="sl-filters">
+        <div class="sl-filters__row">
+          <span class="sl-filters__label">通路類型</span>
+          <div class="sl-pills" id="sl-kindPills" role="group" aria-label="通路類型"></div>
+        </div>
+      </div>
+
+      {% if section.settings.show_mock_notice %}
+        <p class="sl-fakebar sl-t-note">
+          <b>示意資料</b>{{ section.settings.mock_notice }}
+        </p>
+      {% endif %}
+
+      <div id="sl-list"></div>
+      <div class="sl-pager" id="sl-pager"></div>
+    </div>
+
+    <div class="sl-mapwrap">
+      <svg id="sl-tw" viewBox="0 0 340 600" role="img" aria-label="全台據點的分布"></svg>
+      <span class="sl-maphint" id="sl-mapHint">點圓圈看該縣市</span>
+      <span class="sl-mapctl" aria-hidden="true"><span>＋</span><span>−</span><span>◎</span></span>
+    </div>
+  </div>
+
+  <div id="sl-viewBrief" hidden><div class="sl-wrap"><div id="sl-briefBox"></div></div></div>
+
+  {% if section.settings.disclaimer != blank %}
+    <p class="sl-disclaim sl-t-cap">{{ section.settings.disclaimer }}</p>
+  {% endif %}
+</div>
+
+<script>
+  window.SL_PER_PAGE = {{ section.settings.per_page }};
+  window.SL_ORIGIN = {
+    name: {{ section.settings.origin_name | json }},
+    lat: {{ section.settings.origin_lat }},
+    lng: {{ section.settings.origin_lng }}
+  };
+</script>
+{{ 'sl-data.js' | asset_url | script_tag }}
+{{ 'sl-locator.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "門市｜找店",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "台灣授權據點" },
+    { "type": "text", "id": "placeholder", "label": "搜尋框提示文字", "default": "輸入城市、地區、門市名稱或地址" },
+    {
+      "type": "range", "id": "per_page", "label": "一頁顯示幾家",
+      "min": 10, "max": 60, "step": 10, "default": 30
+    },
+    { "type": "header", "content": "距離計算的基準點" },
+    {
+      "type": "paragraph",
+      "content": "訪客沒有開定位權限時，用這個點計算距離。開了定位就以訪客位置為準。"
+    },
+    { "type": "text", "id": "origin_name", "label": "基準點名稱", "default": "台北車站" },
+    { "type": "text", "id": "origin_lat", "label": "緯度", "default": "25.04784" },
+    { "type": "text", "id": "origin_lng", "label": "經度", "default": "121.51704" },
+    { "type": "header", "content": "示意資料提示" },
+    {
+      "type": "checkbox", "id": "show_mock_notice", "label": "顯示示意資料提示", "default": true,
+      "info": "營業時間與服務標籤目前是示意資料。真資料匯入後把這個關掉。"
+    },
+    {
+      "type": "text", "id": "mock_notice", "label": "提示內容",
+      "default": "營業時間與服務標籤為版面示意，實際請以各門市公告為準。"
+    },
+    { "type": "header", "content": "頁尾" },
+    {
+      "type": "text", "id": "disclaimer", "label": "免責說明",
+      "default": "各據點展示、庫存與服務項目可能不同，建議到店前先致電確認。"
+    }
+  ],
+  "presets": [{ "name": "門市｜找店" }]
+}
+{% endschema %}

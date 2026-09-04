@@ -1,0 +1,62 @@
+{% comment %}
+  門市據點頁 —— 標題段
+  只新增檔案，不改主題任何原有檔案。移除 template 就完全還原。
+{% endcomment %}
+
+{{ 'sl-locator.css' | asset_url | stylesheet_tag }}
+
+{%- assign has_img = false -%}
+{%- if section.settings.image != blank or section.settings.image_fallback != blank -%}{%- assign has_img = true -%}{%- endif -%}
+<div class="sl">
+  {%- if has_img -%}
+  {%- comment -%} 一張大圖當兩個分頁共用的主視覺（Mars 2026-09-04：比四張小圖更有張力）。
+  圖全出血、標題壓在圖上；圖的高度與暗度後台可調。{%- endcomment -%}
+  <header class="sl-hero sl-hero--img" style="--sl-hero-h:{{ section.settings.image_height }}px;--sl-hero-dim:{{ section.settings.overlay | divided_by: 100.0 }}">
+    {%- if section.settings.image != blank -%}
+      <img class="sl-hero__img" src="{{ section.settings.image | image_url: width: 2880 }}" alt="" loading="eager" fetchpriority="high">
+    {%- else -%}
+      <img class="sl-hero__img" src="{{ section.settings.image_fallback | asset_url }}" alt="" loading="eager" fetchpriority="high">
+    {%- endif -%}
+    <div class="sl-wrap sl-hero__in">
+      <h1 class="sl-t-hero">{{ section.settings.title }}</h1>
+      {% if section.settings.lead != blank %}
+        <p class="sl-hero__lead sl-t-intro">{{ section.settings.lead }}</p>
+      {% endif %}
+    </div>
+  </header>
+  {%- else -%}
+  <header class="sl-wrap sl-hero">
+    <h1 class="sl-t-hero">{{ section.settings.title }}</h1>
+    {% if section.settings.lead != blank %}
+      <p class="sl-hero__lead sl-t-intro sl-dim">{{ section.settings.lead }}</p>
+    {% endif %}
+  </header>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "門市｜標題",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "大標",
+      "default": "<p>Born in California.<br/>Made for life in Asia.</p>"
+    },
+    {
+      "type": "text",
+      "id": "lead",
+      "label": "副標",
+      "default": "源自加州的設計精神，今天走進台灣、日本與馬來西亞的日常。"
+    },
+    { "type": "header", "content": "主視覺大圖（兩個分頁共用；留空就只有文字）" },
+    { "type": "image_picker", "id": "image", "label": "大圖（建議 2400×1000 以上）" },
+    { "type": "text", "id": "image_fallback", "label": "內建示意圖檔名（assets/，有上傳大圖就不用）" },
+    { "type": "range", "id": "image_height", "label": "桌機高度", "min": 420, "max": 760, "step": 20, "default": 560, "unit": "px" },
+    { "type": "range", "id": "overlay", "label": "壓暗程度", "min": 0, "max": 70, "step": 5, "default": 35, "unit": "%" }
+  ],
+  "presets": [{ "name": "門市｜標題" }]
+}
+{% endschema %}

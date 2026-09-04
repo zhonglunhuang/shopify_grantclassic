@@ -1,0 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "sl-hero",
+      "settings": {
+        "title": "<p>Born in California.<br/>Made for life in Asia.</p>",
+        "lead": "源自加州的設計精神，今天走進台灣、日本與馬來西亞的日常。",
+        "image_fallback": "sl-hero.jpg",
+        "image_height": 560,
+        "overlay": 30
+      }
+    },
+    "wall": {
+      "type": "sl-wall",
+      "blocks": {
+        "costco": {
+          "type": "brand",
+          "settings": {
+            "fallback": "sl-logo-costco.svg",
+            "name": "Costco",
+            "caption": "大型量販",
+            "logo_height": 46
+          }
+        },
+        "studioa": {
+          "type": "brand",
+          "settings": {
+            "fallback": "sl-logo-studioa.svg",
+            "name": "STUDIO A",
+            "caption": "Apple Premium Reseller",
+            "logo_height": 26
+          }
+        },
+        "dwave": {
+          "type": "brand",
+          "settings": {
+            "name": "德誼數位",
+            "caption": "Apple Premium Reseller",
+            "logo_height": 30
+          }
+        },
+        "senao": {
+          "type": "brand",
+          "settings": {
+            "fallback": "sl-logo-senao.jpg",
+            "name": "神腦國際",
+            "caption": "電信連鎖",
+            "logo_height": 30
+          }
+        },
+        "chuankuo": {
+          "type": "brand",
+          "settings": {
+            "fallback": "sl-logo-chuankuo.svg",
+            "name": "全國電子",
+            "caption": "3C 連鎖",
+            "logo_height": 34
+          }
+        },
+        "tkec": {
+          "type": "brand",
+          "settings": {
+            "fallback": "sl-logo-tkec.png",
+            "name": "燦坤",
+            "caption": "3C 連鎖",
+            "logo_height": 48
+          }
+        },
+        "laking": {
+          "type": "brand",
+          "settings": {
+            "name": "LAKING",
+            "caption": "配件連鎖",
+            "logo_height": 30
+          }
+        },
+        "weiku": {
+          "type": "brand",
+          "settings": {
+            "name": "唯酷 3C",
+            "caption": "配件連鎖",
+            "logo_height": 30
+          }
+        },
+        "qge": {
+          "type": "brand",
+          "settings": {
+            "name": "Q 哥手機快修",
+            "caption": "手機快修連鎖",
+            "logo_height": 30
+          }
+        },
+        "kelaodie": {
+          "type": "brand",
+          "settings": {
+            "name": "殼老爹",
+            "caption": "配件連鎖",
+            "logo_height": 30
+          }
+        }
+      },
+      "block_order": [
+        "costco",
+        "studioa",
+        "dwave",
+        "senao",
+        "chuankuo",
+        "tkec",
+        "laking",
+        "weiku",
+        "qge",
+        "kelaodie"
+      ],
+      "settings": {
+        "link_text": ""
+      }
+    },
+    "finder": {
+      "type": "sl-finder",
+      "settings": {
+        "title": "台灣授權據點",
+        "per_page": 10,
+        "show_mock_notice": true
+      }
+    },
+    "channels": {
+      "type": "sl-channels",
+      "blocks": {
+        "site": {
+          "type": "official",
+          "settings": {
+            "name": "grantclassic 官網",
+            "url": "https://grantclassic.com/",
+            "fallback": "sl-logo-gc.svg",
+            "caption": "官方直營",
+            "logo_height": 30
+          }
+        },
+        "momo": {
+          "type": "official",
+          "settings": {
+            "name": "momo 購物網",
+            "url": "https://www.momoshop.com.tw/TP/TP0007779",
+            "fallback": "sl-logo-momo-h.png",
+            "caption": "官方直營",
+            "logo_height": 30
+          }
+        },
+        "pchome": {
+          "type": "official",
+          "settings": {
+            "name": "PChome 24h 購物",
+            "url": "https://24h.pchome.com.tw/search/?brands=1_3155",
+            "fallback": "sl-logo-pchome.svg",
+            "caption": "官方直營",
+            "logo_height": 36
+          }
+        },
+        "shopee": {
+          "type": "official",
+          "settings": {
+            "name": "蝦皮購物",
+            "url": "https://shopee.tw/opaanlp",
+            "fallback": "sl-logo-shopee.svg",
+            "caption": "官方直營",
+            "logo_height": 36
+          }
+        },
+        "books": {
+          "type": "retailer",
+          "settings": {
+            "name": "博客來",
+            "url": "https://www.books.com.tw/web/sys_brand/0/0000024636",
+            "fallback": "sl-logo-books.svg",
+            "caption": "授權平台",
+            "tier": "red",
+            "logo_height": 44
+          }
+        },
+        "t_black": {
+          "type": "tier",
+          "settings": {
+            "color": "black",
+            "badge": "黑・原廠直營",
+            "title": "原廠直營",
+            "desc": "grantclassic 直營、品牌旗艦店，以及好市多這類全國型通路。",
+            "cert_fallback": "sl-cert-black.png"
+          }
+        },
+        "t_gold": {
+          "type": "tier",
+          "settings": {
+            "color": "gold",
+            "badge": "金・白金經銷商",
+            "title": "白金經銷商",
+            "desc": "長期深度合作的主力經銷商，貨源與服務由我們直接支援。",
+            "cert_fallback": "sl-cert-gold.png"
+          }
+        },
+        "t_red": {
+          "type": "tier",
+          "settings": {
+            "color": "red",
+            "badge": "紅・授權經銷商",
+            "title": "授權經銷商",
+            "desc": "完成授權簽約的門市，販售正品、可協助保固登錄。",
+            "cert_fallback": "sl-cert-red.png"
+          }
+        },
+        "yahoo": {
+          "type": "retailer",
+          "settings": {
+            "name": "Yahoo 購物中心",
+            "url": "https://tw.buy.yahoo.com/brands/41168559",
+            "fallback": "sl-logo-yahoo.svg",
+            "caption": "授權平台",
+            "tier": "red",
+            "logo_height": 28
+          }
+        }
+      },
+      "block_order": [
+        "site",
+        "momo",
+        "pchome",
+        "shopee",
+        "books",
+        "yahoo",
+        "t_black",
+        "t_gold",
+        "t_red"
+      ],
+      "settings": {
+        "policy_url": "/pages/warranty-policy",
+        "official_title": "線上購物",
+        "cert_intro": "授權經銷商持有我們核發的授權標章，分三種等級；線上只有本頁列出的才是授權通路。",
+        "retail_title": "授權平台"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "channels",
+    "wall",
+    "finder"
+  ]
+}
