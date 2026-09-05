@@ -1,0 +1,50 @@
+{% comment %}
+  關於我們｜我們在意的事 —— 置中大卡片輪播（自動播、圓點），一個 block 一張。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-val" data-autoplay="{{ s.autoplay | times: 1000 }}">
+  <div class="ab-val__head">
+    <h2 class="ab-h2 ab-fade">{{ s.title }}</h2>
+  </div>
+  <div class="ab-val__vp">
+    {%- for b in section.blocks -%}
+      {%- assign bs = b.settings -%}
+      <article class="ab-val__card" {{ b.shopify_attributes }}>
+        {%- if bs.url != blank -%}<a href="{{ bs.url }}" aria-label="{{ bs.title | escape }}">{%- endif -%}
+        {%- if bs.image != blank -%}
+          <img src="{{ bs.image | image_url: width: 1600 }}" alt="{{ bs.title | escape }}" loading="lazy" draggable="false">
+        {%- endif -%}
+        <div class="ab-val__ov"><div><strong>{{ bs.title }}</strong>{{ bs.text }}</div></div>
+        {%- if bs.url != blank -%}</a>{%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+  <div class="ab-val__dots" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜我們在意的事",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "我們在意的事" },
+    { "type": "range", "id": "autoplay", "label": "幾秒自動換一張（0 = 不自動）", "min": 0, "max": 10, "step": 1, "default": 4, "unit": "s" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "一張卡",
+      "settings": [
+        { "type": "text", "id": "title", "label": "粗體標題", "default": "設計獎項" },
+        { "type": "text", "id": "text", "label": "一句話", "default": "紅點、德國、澳洲設計獎——好看之外，也經得起評審拆解。" },
+        { "type": "image_picker", "id": "image", "label": "圖（建議 1600×800）" },
+        { "type": "url", "id": "url", "label": "點了去哪（選填）" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [{ "name": "關於我們｜我們在意的事", "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }] }]
+}
+{% endschema %}

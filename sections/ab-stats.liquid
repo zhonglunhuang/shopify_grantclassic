@@ -1,0 +1,50 @@
+{% comment %}
+  關於我們｜數字 —— 黑底影像、一句話、四個會跑的數字。數字全部後台可改。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-stats" style="{% if s.image != blank %}--bg-d:url('{{ s.image | image_url: width: 2400 }}');{% endif %}{% if s.image_m != blank %}--bg-m:url('{{ s.image_m | image_url: width: 1400 }}');{% endif %}--ab-stats-op:{{ s.image_opacity | divided_by: 100.0 }}">
+  <div class="ab-stats__in">
+    <h2 class="ab-stats__title ab-fade" style="--d:.05s">{{ s.title }}</h2>
+    {%- if s.desc != blank -%}<div class="ab-stats__desc ab-fade" style="--d:.15s">{{ s.desc }}</div>{%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+    <div class="ab-stats__grid">
+      {%- for b in section.blocks -%}
+        <div class="ab-stats__item ab-fade" style="--d:{{ forloop.index | times: 0.1 | plus: 0.2 }}s" {{ b.shopify_attributes }}>
+          <div class="ab-stats__num" data-target="{{ b.settings.number }}" data-prefix="{{ b.settings.prefix | escape }}" data-suffix="{{ b.settings.suffix | escape }}" data-duration="3200">{{ b.settings.prefix }}{{ b.settings.number }}{{ b.settings.suffix }}</div>
+          <div class="ab-stats__label">{{ b.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜數字",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "把日常裡的小麻煩，一件一件收掉" },
+    { "type": "richtext", "id": "desc", "label": "說明", "default": "<p>grantclassic 於 2016 年成立於美國加州。我們相信好的設計不是多做什麼，而是讓人少顧一件事——每件產品都由我們親自開發、反覆測試，做出經得起時間的經典。</p>" },
+    { "type": "image_picker", "id": "image", "label": "背景圖（桌機）" },
+    { "type": "image_picker", "id": "image_m", "label": "背景圖（手機；留空用桌機圖）" },
+    { "type": "range", "id": "image_opacity", "label": "背景圖亮度", "min": 20, "max": 100, "step": 5, "default": 55, "unit": "%" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "數字",
+      "settings": [
+        { "type": "number", "id": "number", "label": "數字（只填數字）", "default": 18 },
+        { "type": "text", "id": "prefix", "label": "前綴（例如 NT$）" },
+        { "type": "text", "id": "suffix", "label": "後綴（例如 + 或 萬）" },
+        { "type": "text", "id": "label", "label": "說明", "default": "條產品線" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "關於我們｜數字", "blocks": [{ "type": "stat" }, { "type": "stat" }, { "type": "stat" }, { "type": "stat" }] }]
+}
+{% endschema %}

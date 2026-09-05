@@ -1,0 +1,32 @@
+{% comment %}
+  關於我們｜白底一句話＋按鈕 —— TORRAS 放的是實驗室，我們放台灣在地的售後與保固。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-cta">
+  <div class="ab-cta__in">
+    <h2 class="ab-cta__title ab-fade">{{ s.title }}</h2>
+    {%- if s.sub != blank -%}<div class="ab-cta__sub ab-fade" style="--d:.1s">{{ s.sub }}</div>{%- endif -%}
+    <div class="ab-cta__btns ab-fade" style="--d:.2s">
+      {%- if s.btn_text != blank and s.btn_url != blank -%}<a class="ab-cta__btn" href="{{ s.btn_url }}">{{ s.btn_text }}</a>{%- endif -%}
+      {%- if s.btn2_text != blank and s.btn2_url != blank -%}<a class="ab-cta__btn ab-cta__btn--ghost" href="{{ s.btn2_url }}">{{ s.btn2_text }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜一句話＋按鈕",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "買了之後，我們才真正開始" },
+    { "type": "richtext", "id": "sub", "label": "說明", "default": "<p>台灣總代理曜瑩國際在地服務：一年保固，登錄會員延長為兩年；全台經銷門市與線上客服，售後不用寄回國外。</p>" },
+    { "type": "text", "id": "btn_text", "label": "主按鈕文字", "default": "登錄保固" },
+    { "type": "url", "id": "btn_url", "label": "主按鈕連結" },
+    { "type": "text", "id": "btn2_text", "label": "次按鈕文字", "default": "查看門市" },
+    { "type": "url", "id": "btn2_url", "label": "次按鈕連結" }
+  ],
+  "presets": [{ "name": "關於我們｜一句話＋按鈕" }]
+}
+{% endschema %}

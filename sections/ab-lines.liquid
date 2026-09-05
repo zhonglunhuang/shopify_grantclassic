@@ -1,0 +1,59 @@
+{% comment %}
+  關於我們｜產品線 —— 桌機一次兩張、手機一張，圓點＋下一張。一個 block 一條線。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-lines">
+  <div class="ab-wrap">
+    <h2 class="ab-h2 ab-lines__title ab-fade">{{ s.title }}</h2>
+    <div class="ab-lines__vp">
+      <div class="ab-lines__track">
+        {%- for b in section.blocks -%}
+          {%- assign bs = b.settings -%}
+          <article class="ab-lines__card" {{ b.shopify_attributes }}>
+            <header>
+              <h3>{{ bs.title }}</h3>
+              <p>{{ bs.text }}</p>
+            </header>
+            <figure class="ab-lines__media">
+              {%- if bs.url != blank -%}<a href="{{ bs.url }}" aria-label="{{ bs.title | escape }}">{%- endif -%}
+              {%- if bs.image != blank -%}<img src="{{ bs.image | image_url: width: 1600 }}" alt="{{ bs.title | escape }}" loading="lazy" width="1600" height="1000">{%- endif -%}
+              {%- if bs.url != blank -%}</a>{%- endif -%}
+            </figure>
+          </article>
+        {%- endfor -%}
+      </div>
+      <div class="ab-lines__ctl">
+        <div class="ab-lines__dots" aria-hidden="true"></div>
+        <button class="ab-lines__next" type="button" aria-label="下一張">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜產品線",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "我們擅長的三件事" }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "一條產品線",
+      "settings": [
+        { "type": "text", "id": "title", "label": "標題", "default": "寵物生活" },
+        { "type": "textarea", "id": "text", "label": "說明", "default": "飲水、餵食、貓砂、毛髮護理——把照顧毛孩的例行公事交給機器，你只要陪牠。" },
+        { "type": "image_picker", "id": "image", "label": "圖（建議 1600×1000）" },
+        { "type": "url", "id": "url", "label": "點了去哪" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "關於我們｜產品線", "blocks": [{ "type": "line" }, { "type": "line" }, { "type": "line" }] }]
+}
+{% endschema %}

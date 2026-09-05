@@ -1,0 +1,56 @@
+{% comment %}
+  關於我們｜獲獎與肯定 —— 灰底圓角格，一個 block 一個獎（TORRAS 是媒體 logo 牆）。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-awd">
+  <div class="ab-wrap">
+    <h2 class="ab-h2 ab-fade">{{ s.title }}</h2>
+    {%- if s.sub != blank -%}<div class="ab-awd__sub ab-fade" style="--d:.1s">{{ s.sub }}</div>{%- endif -%}
+    <div class="ab-awd__grid">
+      {%- for b in section.blocks -%}
+        {%- assign bs = b.settings -%}
+        <div class="ab-awd__item ab-fade" style="--d:{{ forloop.index | times: 0.06 }}s" {{ b.shopify_attributes }}>
+          {%- if bs.image != blank -%}<img src="{{ bs.image | image_url: width: 400 }}" alt="{{ bs.name | escape }}" loading="lazy">{%- endif -%}
+          {%- if bs.name != blank -%}<div class="ab-awd__name">{{ bs.name }}</div>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- if section.blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "{{ shop.url }}/#organization",
+  "name": {{ shop.name | json }},
+  "award": [{% for b in section.blocks %}{{ b.settings.name | json }}{% unless forloop.last %},{% endunless %}{% endfor %}]
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "關於我們｜獲獎與肯定",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "標題", "default": "獲獎與肯定" },
+    { "type": "richtext", "id": "sub", "label": "說明（選填）", "default": "<p>從設計獎到公益合作，這些是外界替我們留下的註記。</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "award",
+      "name": "一個獎",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "獎章圖" },
+        { "type": "text", "id": "name", "label": "名稱", "default": "紅點設計獎" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "關於我們｜獲獎與肯定", "blocks": [{ "type": "award" }, { "type": "award" }, { "type": "award" }] }]
+}
+{% endschema %}

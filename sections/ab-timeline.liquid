@@ -1,0 +1,73 @@
+{% comment %}
+  關於我們｜時間軸 —— 桌機：往下捲、畫面往右走，一年一張滿版；手機：左右滑，年份膠囊釘在底下。
+  一個 block = 一年。文字放左還是放右、字用白還是黑，每張各自可設。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+<section class="ab ab-tl" style="--ab-tl-dim:{{ s.dim | divided_by: 100.0 }}" aria-label="{{ s.heading | default: '品牌歷程' | escape }}">
+  <h2 class="ab-sr">{{ s.heading | default: '品牌歷程' }}</h2>
+  <div class="ab-tl__wrap">
+    <div class="ab-tl__sticky">
+      <div class="ab-tl__track">
+        {%- for b in section.blocks -%}
+          {%- assign bs = b.settings -%}
+          <article class="ab-tl__slide{% if bs.layout == 'split' %} ab-tl__slide--split{% endif %}{% if bs.align == 'right' %} ab-tl__slide--right{% endif %}{% if bs.tone == 'dark' %} ab-tl__slide--dark{% endif %}{% if forloop.first %} is-active{% endif %}"
+            data-year="{{ bs.year | escape }}"
+            {%- assign bg_d = blank -%}{%- assign bg_m = blank -%}
+            {%- if bs.image != blank -%}{%- assign bg_d = bs.image | image_url: width: 2400 -%}{%- elsif bs.image_fallback != blank -%}{%- assign bg_d = bs.image_fallback | asset_url -%}{%- endif -%}
+            {%- if bs.image_m != blank -%}{%- assign bg_m = bs.image_m | image_url: width: 1400 -%}{%- elsif bs.image_m_fallback != blank -%}{%- assign bg_m = bs.image_m_fallback | asset_url -%}{%- endif -%}
+            {% if bg_d != blank %}data-bg="{{ bg_d }}"{% endif %}
+            {% if bg_m != blank %}data-bg-m="{{ bg_m }}"{% endif %}
+            {{ b.shopify_attributes }}>
+            <div class="ab-tl__bg" role="img" aria-label="{{ bs.year | escape }} {{ bs.title | escape }}" {% if bg_d != blank and forloop.index <= 2 %}style="background-image:url('{{ bg_d }}')"{% endif %}></div>
+            <div class="ab-tl__copy">
+              <div class="ab-tl__year">{{ bs.year }}</div>
+              <h3 class="ab-tl__title">{{ bs.title }}</h3>
+              <div class="ab-tl__desc">{{ bs.desc }}</div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+      <div class="ab-tl__progress">
+        <div class="ab-tl__line"><div class="ab-tl__bar"></div><div class="ab-tl__knob"></div></div>
+        <ul class="ab-tl__years">
+          {%- for b in section.blocks -%}
+            <li data-i="{{ forloop.index0 }}"{% if forloop.first %} class="is-active"{% endif %}>{{ b.settings.year }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜時間軸",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "這一段的隱藏標題（給搜尋引擎與輔助工具，畫面不顯示）", "default": "品牌歷程" },
+    { "type": "range", "id": "dim", "label": "照片壓暗程度", "min": 0, "max": 70, "step": 5, "default": 10, "unit": "%" }
+  ],
+  "blocks": [
+    {
+      "type": "year",
+      "name": "一年",
+      "settings": [
+        { "type": "text", "id": "year", "label": "年份", "default": "2016" },
+        { "type": "text", "id": "title", "label": "標題", "default": "品牌成立" },
+        { "type": "richtext", "id": "desc", "label": "說明", "default": "<p>grantclassic 於美國加州成立。</p>" },
+        { "type": "image_picker", "id": "image", "label": "桌機大圖（建議 2400×1350）" },
+        { "type": "image_picker", "id": "image_m", "label": "手機直圖（建議 1400×2000；留空用桌機圖）" },
+        { "type": "text", "id": "image_fallback", "label": "內建圖檔名（assets/；有選上面的圖就不用）" },
+        { "type": "text", "id": "image_m_fallback", "label": "內建手機圖檔名（assets/）" },
+        { "type": "select", "id": "layout", "label": "版型", "options": [ { "value": "full", "label": "滿版照片＋漸層" }, { "value": "split", "label": "左右分割（字在素色面板）" } ], "default": "full" },
+        { "type": "select", "id": "align", "label": "文字位置（桌機）", "options": [ { "value": "left", "label": "左" }, { "value": "right", "label": "右" } ], "default": "left" },
+        { "type": "select", "id": "tone", "label": "配色", "options": [ { "value": "light", "label": "白字（深色面板／黑漸層）" }, { "value": "dark", "label": "黑字（淺色面板／白漸層）" } ], "default": "light" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "關於我們｜時間軸", "blocks": [{ "type": "year" }, { "type": "year" }, { "type": "year" }] }]
+}
+{% endschema %}

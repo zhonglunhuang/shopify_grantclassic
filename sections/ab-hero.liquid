@@ -1,0 +1,95 @@
+{% comment %}
+  關於我們｜首屏 —— 白幕上的大字隨捲動放大、露出底下的影像（仿 TORRAS「BE HERE NOW」）。
+  只新增檔案，不改主題任何原有檔案。拿掉 templates/page.ab-about.json 就完全還原。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+<script>document.documentElement.setAttribute('data-gc-hero','dark');</script>
+
+{%- assign s = section.settings -%}
+{%- assign cut_class = 'ab-hero__cut' -%}
+{%- assign latin_probe = s.cut_text | downcase | remove: ' ' | remove: '.' | remove: "'" | remove: ',' | remove: '!' | size -%}
+{%- assign cjk_probe = s.cut_text | strip | size -%}
+{%- comment -%} 全部拉丁字母（含標點）時字寬與行為都不同，走 --latin 這套；中文字每個字佔 3 bytes，size 會明顯大於字數 {%- endcomment -%}
+{%- if s.cut_text contains 'a' or s.cut_text contains 'e' or s.cut_text contains 'o' or s.cut_text contains 'u' or s.cut_text contains 'i' or s.cut_text contains 'A' or s.cut_text contains 'E' or s.cut_text contains 'O' or s.cut_text contains 'I' or s.cut_text contains 'U' -%}
+  {%- assign cut_class = 'ab-hero__cut ab-hero__cut--latin' -%}
+{%- endif -%}
+
+<section class="ab ab-hero" style="--ab-hero-len:{{ s.scroll_len }}vh;--ab-max-scale:{{ s.max_scale }};--ab-hero-up:{{ s.lift | default: 6 }}vh">
+  <div class="ab-hero__wrap">
+    <div class="ab-hero__sticky">
+      {%- if s.video_url != blank -%}
+        <video class="ab-hero__media" playsinline autoplay loop muted preload="auto"
+          {% if s.image != blank %}poster="{{ s.image | image_url: width: 1800 }}"{% endif %}>
+          <source src="{{ s.video_url }}" type="video/mp4">
+        </video>
+      {%- else -%}
+        {%- if s.image != blank -%}
+          <img class="ab-hero__media ab-hero__media--d" src="{{ s.image | image_url: width: 2400 }}" alt="" loading="eager" fetchpriority="high">
+        {%- endif -%}
+        {%- if s.image_m != blank -%}
+          <img class="ab-hero__media ab-hero__media--m" src="{{ s.image_m | image_url: width: 1400 }}" alt="" loading="eager">
+        {%- elsif s.image != blank -%}
+          <img class="ab-hero__media ab-hero__media--m" src="{{ s.image | image_url: width: 1400 }}" alt="" loading="eager">
+        {%- endif -%}
+      {%- endif -%}
+
+      <div class="ab-hero__mask" style="opacity:1">
+        <h1 class="{{ cut_class }}">{{ s.cut_text }}<span class="ab-sr">｜{{ shop.name }} 關於我們</span></h1>
+      </div>
+
+      <div class="ab-hero__abs">
+        <div class="ab-hero__brand">
+          {%- if s.logo != blank -%}
+            <img class="ab-hero__logo{% if s.logo_mono %} ab-hero__logo--mono{% endif %}" src="{{ s.logo | image_url: width: 600 }}" alt="{{ shop.name | escape }}">
+          {%- else -%}
+            <span class="ab-hero__brandtxt">grantclassic</span>
+          {%- endif -%}
+          {%- if s.tagline != blank -%}<div class="ab-hero__tag">{{ s.tagline }}</div>{%- endif -%}
+        </div>
+        <div class="ab-hero__lead">{{ s.kicker }}</div>
+        <button class="ab-hero__ind" type="button" aria-label="往下看">
+          <span class="ab-mouse" aria-hidden="true"><span></span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ canonical_url }}#aboutpage",
+  "url": "{{ canonical_url }}",
+  "name": {{ page.title | default: '關於我們' | json }},
+  "inLanguage": "{{ request.locale.iso_code }}",
+  "description": {{ s.kicker | strip_html | strip | json }},
+  "about": { "@id": "{{ shop.url }}/#organization" },
+  "mainEntity": { "@id": "{{ shop.url }}/#organization" },
+  "isPartOf": { "@type": "WebSite", "@id": "{{ shop.url }}/#website", "url": "{{ shop.url }}", "name": {{ shop.name | json }} }
+}
+</script>
+
+{% schema %}
+{
+  "name": "關於我們｜首屏",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "cut_text", "label": "挖字大標（會放大到滿版）", "default": "It's got you covered." },
+    { "type": "richtext", "id": "kicker", "label": "大字下方的一段話", "default": "<p>該顧的，都有它顧著。來自加州的設計，經得起你天天用。</p>" },
+    { "type": "image_picker", "id": "logo", "label": "品牌 logo（留空顯示文字 grantclassic）" },
+    { "type": "checkbox", "id": "logo_mono", "label": "logo 轉成黑色單色", "default": true },
+    { "type": "richtext", "id": "tagline", "label": "logo 右側說明（選填）" },
+    { "type": "header", "content": "底下的影像" },
+    { "type": "image_picker", "id": "image", "label": "桌機大圖（建議 2400×1350 以上）" },
+    { "type": "image_picker", "id": "image_m", "label": "手機直圖（建議 1400×2000；留空用桌機圖）" },
+    { "type": "text", "id": "video_url", "label": "影片網址（mp4；填了就用影片，圖當封面）" },
+    { "type": "range", "id": "lift", "label": "整組往上移（畫面高度的 %）", "min": 0, "max": 16, "step": 1, "default": 6, "unit": "%" },
+    { "type": "header", "content": "捲動手感" },
+    { "type": "range", "id": "scroll_len", "label": "這一段要捲多長", "min": 200, "max": 500, "step": 20, "default": 340, "unit": "vh" },
+    { "type": "range", "id": "max_scale", "label": "大字最多放大幾倍", "min": 20, "max": 140, "step": 10, "default": 110, "unit": "x" }
+  ],
+  "presets": [{ "name": "關於我們｜首屏" }]
+}
+{% endschema %}

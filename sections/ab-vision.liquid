@@ -1,0 +1,55 @@
+{% comment %}
+  關於我們｜願景與使命 —— 一張影像釘住，往下捲時從右邊擦出第二張、文字換成使命。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+{%- assign url_a = blank -%}{%- assign url_b = blank -%}
+{%- if s.image != blank -%}{%- assign url_a = s.image | image_url: width: 2400 -%}{%- elsif s.image_fallback != blank -%}{%- assign url_a = s.image_fallback | asset_url -%}{%- endif -%}
+{%- if s.image_b != blank -%}{%- assign url_b = s.image_b | image_url: width: 2400 -%}{%- elsif s.image_b_fallback != blank -%}{%- assign url_b = s.image_b_fallback | asset_url -%}{%- else -%}{%- assign url_b = url_a -%}{%- endif -%}
+<section class="ab ab-vis" style="--ab-vis-len:{{ s.scroll_len }}vh;--ab-vis-dim:{{ s.dim | divided_by: 100.0 }}">
+  <div class="ab-vis__wrap">
+    <div class="ab-vis__sticky">
+      <div class="ab-vis__bg">
+        <div class="ab-vis__img ab-vis__img--a" style="{% if url_a != blank %}--bg-d:url('{{ url_a }}');{% endif %}{% if s.image_m != blank %}--bg-m:url('{{ s.image_m | image_url: width: 1400 }}');{% endif %}"></div>
+        <div class="ab-vis__img ab-vis__img--b" style="{% if url_b != blank %}--bg-d:url('{{ url_b }}');{% endif %}{% if s.image_b_m != blank %}--bg-m:url('{{ s.image_b_m | image_url: width: 1400 }}');{% elsif s.image_m != blank %}--bg-m:url('{{ s.image_m | image_url: width: 1400 }}');{% endif %}"></div>
+      </div>
+      <div class="ab-vis__center">
+        <div class="ab-vis__copy ab-vis__copy--a">
+          <h2 class="ab-vis__title">{{ s.title_a }}</h2>
+          <div class="ab-vis__desc">{{ s.desc_a }}</div>
+        </div>
+        <div class="ab-vis__copy ab-vis__copy--b">
+          <h2 class="ab-vis__title">{{ s.title_b }}</h2>
+          <div class="ab-vis__desc">{{ s.desc_b }}</div>
+        </div>
+      </div>
+      <button class="ab-vis__ind" type="button" aria-label="往下">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜願景使命",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title_a", "label": "第一頁標題", "default": "品牌願景" },
+    { "type": "richtext", "id": "desc_a", "label": "第一頁內文", "default": "<p>讓每個人的日常都能少顧一件事，把注意力留給真正重要的人與事。</p>" },
+    { "type": "text", "id": "title_b", "label": "第二頁標題", "default": "品牌使命" },
+    { "type": "richtext", "id": "desc_b", "label": "第二頁內文", "default": "<p>用設計把複雜收起來：每件產品都親自開發、反覆測試，做出經得起時間的經典。</p>" },
+    { "type": "header", "content": "影像" },
+    { "type": "image_picker", "id": "image", "label": "第一頁桌機圖" },
+    { "type": "image_picker", "id": "image_m", "label": "第一頁手機圖（留空用桌機圖）" },
+    { "type": "image_picker", "id": "image_b", "label": "第二頁桌機圖（留空用第一頁的，會轉成灰階）" },
+    { "type": "image_picker", "id": "image_b_m", "label": "第二頁手機圖" },
+    { "type": "text", "id": "image_fallback", "label": "第一頁內建圖檔名（assets/；有選圖就不用）" },
+    { "type": "text", "id": "image_b_fallback", "label": "第二頁內建圖檔名（assets/）" },
+    { "type": "range", "id": "dim", "label": "壓暗程度", "min": 0, "max": 80, "step": 5, "default": 45, "unit": "%" },
+    { "type": "range", "id": "scroll_len", "label": "這一段要捲多長", "min": 150, "max": 300, "step": 10, "default": 200, "unit": "vh" }
+  ],
+  "presets": [{ "name": "關於我們｜願景使命" }]
+}
+{% endschema %}

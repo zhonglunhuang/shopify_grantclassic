@@ -1,0 +1,52 @@
+{% comment %}
+  關於我們｜影片畫框 —— 影片釘在畫面中間，往下捲時畫框從八成寬長到滿版滿高、圓角收成直角（Apple 式）。
+  影片自動靜音循環播放；點一下切換聲音。可指定主題 assets 裡的檔名（例如穩如鈦山 Pro 的 tsp-film-720.mp4）或外部 mp4 網址。
+{% endcomment %}
+{{ 'ab-about.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ab-about.js' | asset_url }}" defer></script>
+{%- assign s = section.settings -%}
+{%- assign src = blank -%}
+{%- if s.video_url != blank -%}{%- assign src = s.video_url -%}{%- elsif s.video_file != blank -%}{%- assign src = s.video_file | asset_url -%}{%- endif -%}
+{%- assign poster = blank -%}
+{%- if s.image != blank -%}{%- assign poster = s.image | image_url: width: 2400 -%}{%- elsif s.poster_file != blank -%}{%- assign poster = s.poster_file | asset_url -%}{%- endif -%}
+<section class="ab ab-vid{% if src != blank %} ab-vid--video{% endif %}" style="--ab-vid-w0:{{ s.start_width | divided_by: 100.0 }};--ab-vid-h0:{{ s.start_height | divided_by: 100.0 }}">
+  <div class="ab-vid__pin">
+    <div class="ab-vid__sticky">
+      <div class="ab-vid__frame">
+        {%- if poster != blank -%}
+          <img class="ab-vid__poster" src="{{ poster }}" alt="{{ s.alt | default: s.caption | strip_html | escape }}" loading="lazy">
+        {%- endif -%}
+        {%- if src != blank -%}
+          <video class="ab-vid__el" playsinline muted loop preload="metadata" {% if s.autoplay %}autoplay{% endif %} {% if poster != blank %}poster="{{ poster }}"{% endif %}>
+            <source src="{{ src }}" {% if s.video_file_m != blank %}data-src-m="{{ s.video_file_m | asset_url }}"{% endif %} type="video/mp4">
+          </video>
+          <button class="ab-vid__sound" type="button" aria-label="開關聲音" aria-pressed="false">
+            <svg class="ab-vid__ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+            <svg class="ab-vid__ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          </button>
+        {%- endif -%}
+        {%- if s.caption != blank -%}<div class="ab-vid__cap">{{ s.caption }}</div>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "關於我們｜影片畫框",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "video_file", "label": "影片檔名（主題 assets/，例如 tsp-film-720.mp4）" },
+    { "type": "text", "id": "video_url", "label": "或外部 mp4 網址（填了優先）" },
+    { "type": "text", "id": "video_file_m", "label": "手機用的輕量影片檔名（選填，例如 tsp-film-loop.mp4）" },
+    { "type": "checkbox", "id": "autoplay", "label": "自動靜音播放", "default": true },
+    { "type": "text", "id": "alt", "label": "影片／封面的文字說明（給搜尋引擎）", "default": "穩如鈦山 TITANSHIELD Pro 固態行動電源形象影片" },
+    { "type": "image_picker", "id": "image", "label": "封面圖（影片載入前顯示）" },
+    { "type": "text", "id": "poster_file", "label": "或封面檔名（主題 assets/）" },
+    { "type": "richtext", "id": "caption", "label": "影片上的一句話（選填）" },
+    { "type": "range", "id": "start_width", "label": "一開始的寬度", "min": 60, "max": 100, "step": 2, "default": 84, "unit": "%" },
+    { "type": "range", "id": "start_height", "label": "一開始的高度（畫面高度的 %）", "min": 40, "max": 100, "step": 2, "default": 68, "unit": "%" }
+  ],
+  "presets": [{ "name": "關於我們｜影片畫框" }]
+}
+{% endschema %}
