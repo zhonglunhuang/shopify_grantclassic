@@ -101,6 +101,8 @@
 
     {%- comment -%}gc 覆寫：頁首瘦身。整行拿掉＋刪 assets/gc-header.{css,js} 即完全還原{%- endcomment -%}
     {{ 'gc-header.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}gc-mega.js 要在 gc-header.js 之前：頂欄底線在載入時量位置並綁定，選購指南是 JS 插的，要先插好{%- endcomment -%}
+    <script src="{{ 'gc-mega.js' | asset_url }}" defer></script>
     <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
 
     {%- comment -%}
@@ -108,6 +110,8 @@
       頁尾的層次也是它給的。這一行拿掉＋刪 assets/gc-type.css 即完全還原。
     {%- endcomment -%}
     {{ 'gc-type.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}gc-mega（GOS-0248）：Insta360 式大選單。還原＝刪這兩行＋刪 </body> 前的 render。後台導覽選單不動，Focal 照樣輸出原本的連結。{%- endcomment -%}
+    {{ 'gc-mega.css' | asset_url | stylesheet_tag }}
 
     {%- comment -%}
       IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
@@ -261,7 +265,7 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}    {% section 'gc-dock' %}</body>
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}{% render 'gc-mega' %}</body>
 </html>
 
 <style>

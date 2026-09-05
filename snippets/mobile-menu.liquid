@@ -259,6 +259,8 @@
           </a>
         {%- endif -%}
 
+        {%- comment -%}gc（GOS-0248，Mars 2026-09-05）：抽屜底部放地區選擇器，沿用頁尾的 gc-region。拿掉這一行即還原。{%- endcomment -%}
+        <div class="gc-mmenu__region">{%- render 'gc-region' -%}</div>
         {%- if locale_selector or country_selector -%}
           {%- form 'localization', id: 'header-sidebar-localization-form', class: 'header__cross-border' -%}
             {%- if country_selector -%}

@@ -122,7 +122,17 @@
         // 這個剛被打開 → 其他還開著的全部關掉
         for (var j = 0; j < panels.length; j++) {
           if (panels[j] !== p && !panels[j].hasAttribute('hidden')) {
-            panels[j].setAttribute('hidden', '');
+            // 圖卡面板（gc-mega-host，GOS-0248）：讓 Focal 自己的 250ms 重疊先跑完再收，
+            // 立刻收會讓兩片之間露出底圖閃一下；260ms 後還開著才當保險關掉。
+            if (p.classList.contains('gc-mega-host') || panels[j].classList.contains('gc-mega-host')) {
+              (function (other, opened) {
+                setTimeout(function () {
+                  if (!opened.hasAttribute('hidden') && !other.hasAttribute('hidden')) other.setAttribute('hidden', '');
+                }, 260);
+              })(panels[j], p);
+            } else {
+              panels[j].setAttribute('hidden', '');
+            }
           }
         }
       }
