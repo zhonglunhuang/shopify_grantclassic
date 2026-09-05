@@ -100,7 +100,6 @@ a.sl-chw:hover{transform:translateY(-4px);background:var(--wash)}
 .sl-faq__item{border-bottom:1px solid var(--rule)}
 .sl-faq__q{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;text-align:left;
   font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.47;font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer}
-.sl-faq__q:hover{color:var(--accent-text)}
 .sl-faq__chev{flex:none;color:var(--ink-3);transition:transform .2s ease}
 .sl-faq__item.is-open .sl-faq__chev{transform:rotate(180deg)}
 .sl-faq__a{padding:0 40px 24px 0;font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.47;color:var(--ink-2);max-width:40em}
