@@ -12,7 +12,7 @@
     "hero": {
       "type": "sl-hero",
       "settings": {
-        "title": "<p>Born in California.<br\/>Made for life in Asia.<\/p>",
+        "title": "<p>Born in California.<br/>Made for life in Asia.</p>",
         "lead": "源自加州的設計精神，今天走進台灣、日本與馬來西亞的日常。",
         "image_fallback": "sl-hero.jpg",
         "image_height": 560,
@@ -140,7 +140,7 @@
           "type": "official",
           "settings": {
             "name": "grantclassic 官網",
-            "url": "https:\/\/grantclassic.com\/",
+            "url": "https://grantclassic.com/",
             "fallback": "sl-logo-gc.svg",
             "caption": "官方直營",
             "logo_height": 30
@@ -150,7 +150,7 @@
           "type": "official",
           "settings": {
             "name": "momo 購物網",
-            "url": "https:\/\/www.momoshop.com.tw\/search\/grantclassic?searchType=1&brand=grantclassic&brandNo=20230707183759547&isBrandPage=1&serviceCode=MT04&_isFuzzy=0",
+            "url": "https://www.momoshop.com.tw/search/grantclassic?searchType=1&brand=grantclassic&brandNo=20230707183759547&isBrandPage=1&serviceCode=MT04&_isFuzzy=0",
             "fallback": "sl-logo-momo-h.png",
             "caption": "官方直營",
             "logo_height": 30
@@ -160,7 +160,7 @@
           "type": "official",
           "settings": {
             "name": "PChome 24h 購物",
-            "url": "https:\/\/24h.pchome.com.tw\/search\/?brands=1_3155",
+            "url": "https://24h.pchome.com.tw/search/?brands=1_3155",
             "fallback": "sl-logo-pchome.svg",
             "caption": "官方直營",
             "logo_height": 36
@@ -170,7 +170,7 @@
           "type": "official",
           "settings": {
             "name": "蝦皮購物",
-            "url": "https:\/\/shopee.tw\/goshop_classic",
+            "url": "https://shopee.tw/goshop_classic",
             "fallback": "sl-logo-shopee.svg",
             "caption": "官方直營",
             "logo_height": 36
@@ -180,7 +180,7 @@
           "type": "retailer",
           "settings": {
             "name": "博客來",
-            "url": "https:\/\/www.books.com.tw\/web\/sys_brand\/0\/0000024636",
+            "url": "https://www.books.com.tw/web/sys_brand/0/0000024636",
             "fallback": "sl-logo-books.svg",
             "caption": "授權平台",
             "tier": "red",
@@ -221,7 +221,7 @@
           "type": "retailer",
           "settings": {
             "name": "Yahoo 購物中心",
-            "url": "https:\/\/tw.buy.yahoo.com\/brands\/41168559",
+            "url": "https://tw.buy.yahoo.com/brands/41168559",
             "fallback": "sl-logo-yahoo.svg",
             "caption": "授權平台",
             "tier": "red",
@@ -241,7 +241,7 @@
         "t_red"
       ],
       "settings": {
-        "policy_url": "\/pages\/warranty-policy",
+        "policy_url": "/pages/warranty-policy",
         "official_title": "線上購物",
         "cert_intro": "授權經銷商持有我們核發的授權標章，分三種等級；線上只有本頁列出的才是授權通路。",
         "retail_title": "授權平台"
@@ -254,42 +254,42 @@
           "type": "qa",
           "settings": {
             "q": "哪裡可以買到 grantclassic 特經典的正品？",
-            "a": "<p>線上請認明官方直營賣場：grantclassic 官網、momo 購物網、PChome 24h、蝦皮購物（goshop_classic）；授權平台為博客來與 Yahoo 購物中心。實體門市請用本頁「線下專賣店」查詢，全台 200 多家授權門市都在名單上。<\/p>"
+            "a": "<p>線上請認明官方直營賣場：grantclassic 官網、momo 購物網、PChome 24h、蝦皮購物（goshop_classic）；授權平台為博客來與 Yahoo 購物中心。實體門市請用本頁「線下專賣店」查詢，全台 200 多家授權門市都在名單上。</p>"
           }
         },
         "q2": {
           "type": "qa",
           "settings": {
             "q": "怎麼辨識授權經銷商？",
-            "a": "<p>授權經銷商都持有 grantclassic 核發的授權標章，分為原廠直營、白金經銷商、授權經銷商三種等級；標章上有授權編號與 QR Code，掃描即可驗證有效期限。實體門市會在店內展示標章；線上只有本頁列出的才是授權通路。<\/p>"
+            "a": "<p>授權經銷商都持有 grantclassic 核發的授權標章，分為原廠直營、白金經銷商、授權經銷商三種等級；標章上有授權編號與 QR Code，掃描即可驗證有效期限。實體門市會在店內展示標章；線上只有本頁列出的才是授權通路。</p>"
           }
         },
         "q3": {
           "type": "qa",
           "settings": {
             "q": "在非授權通路購買的商品有保固嗎？",
-            "a": "<p>沒有。透過非授權賣場購得的商品，grantclassic 無法提供保固登錄與售後服務；商品瑕疵的相關權利，依法由原購買的賣家負責。購買前請先對照本頁的授權通路名單。<\/p>"
+            "a": "<p>沒有。透過非授權賣場購得的商品，grantclassic 無法提供保固登錄與售後服務；商品瑕疵的相關權利，依法由原購買的賣家負責。購買前請先對照本頁的授權通路名單。</p>"
           }
         },
         "q4": {
           "type": "qa",
           "settings": {
             "q": "海外購買或平行輸入（水貨）的商品可以登錄保固嗎？",
-            "a": "<p>不行。台灣的保固登錄、延長保固與維修服務，僅適用於透過台灣授權通路售出的商品；海外購買或平行輸入的商品不在服務範圍內，仿冒品亦不在保固範圍。<\/p>"
+            "a": "<p>不行。台灣的保固登錄、延長保固與維修服務，僅適用於透過台灣授權通路售出的商品；海外購買或平行輸入的商品不在服務範圍內，仿冒品亦不在保固範圍。</p>"
           }
         },
         "q5": {
           "type": "qa",
           "settings": {
             "q": "門市有現貨嗎？價格跟官網一樣嗎？",
-            "a": "<p>各門市展示與庫存的品項不同，建議到店前先致電確認（門市清單上有電話與導航）。各通路的售價由通路自行訂定；官網為官方直營價格。<\/p>"
+            "a": "<p>各門市展示與庫存的品項不同，建議到店前先致電確認（門市清單上有電話與導航）。各通路的售價由通路自行訂定；官網為官方直營價格。</p>"
           }
         },
         "q6": {
           "type": "qa",
           "settings": {
             "q": "我是店家，想成為 grantclassic 的授權經銷商？",
-            "a": "<p>歡迎。請透過<a href=\"https:\/\/rvcfbrbrl1.jiandaoyun.com\/f\/6379de98d23601000af4cf30\">申請經銷商<\/a>留下資料，我們的業務會與您聯繫；通過審核後即核發授權標章與證書，並列入本頁的授權據點。<\/p>"
+            "a": "<p>歡迎。請透過<a href=\"https://rvcfbrbrl1.jiandaoyun.com/f/6379de98d23601000af4cf30\">申請經銷商</a>留下資料，我們的業務會與您聯繫；通過審核後即核發授權標章與證書，並列入本頁的授權據點。</p>"
           }
         }
       },

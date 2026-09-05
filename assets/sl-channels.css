@@ -88,21 +88,23 @@ a.sl-chw:hover{transform:translateY(-4px);background:var(--wash)}
 /* 視覺隱藏（給搜尋引擎與螢幕閱讀器） */
 .sl-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* 大字改成 p 之後主題的段落樣式會壓進來：用 (0,3,1) 把字級鎖回原本的規格 */
-.sl-hero p.sl-hero__title{font-size:var(--t48);letter-spacing:var(--t48ls);line-height:1.08349;font-weight:600;margin:0;text-wrap:balance;max-width:14em;color:inherit}
-.sl-hero--img p.sl-hero__title{color:#fff}
-@media (max-width:734px){ .sl-hero p.sl-hero__title{font-size:var(--t32);letter-spacing:var(--t32ls);line-height:1.125} }
+/* 大標設定是富文字、Shopify 會自帶一層 <p>：外層與內層 p 都要吃到 hero 規格，(0,2,1) 壓過主題的段落樣式 */
+.sl-hero .sl-hero__title{font-size:var(--t48);letter-spacing:var(--t48ls);line-height:1.08349;font-weight:600;margin:0;text-wrap:balance;max-width:14em;color:inherit}
+.sl-hero .sl-hero__title p,.sl-hero .sl-t-hero p{font-size:inherit;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;max-width:none}
+.sl-hero--img .sl-hero__title{color:#fff}
+@media (max-width:734px){ .sl-hero .sl-hero__title{font-size:var(--t32);letter-spacing:var(--t32ls);line-height:1.125} }
 
 /* 常見問題：Apple 支援頁式——問題中等字重 17、答案 15 灰、細分隔線、收斂留白 */
 .sl-faq__sec{background:var(--paper);padding-top:64px}
 .sl-faq__list{margin-top:28px;max-width:760px;border-top:1px solid var(--rule)}
 .sl-faq__item{border-bottom:1px solid var(--rule)}
-.sl-faq__q{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;text-align:left;
-  font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.35;font-weight:500;color:var(--ink);background:none;border:0;cursor:pointer}
+.sl-faq__q{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;text-align:left;
+  font-size:var(--t21);letter-spacing:var(--t21ls);line-height:1.19;font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer}
 .sl-faq__q:hover{color:var(--accent-text)}
 .sl-faq__chev{flex:none;color:var(--ink-3);transition:transform .2s ease}
 .sl-faq__item.is-open .sl-faq__chev{transform:rotate(180deg)}
-.sl-faq__a{padding:0 32px 20px 0;font-size:15px;line-height:1.6;color:var(--ink-2);max-width:44em}
+.sl-faq__a{padding:0 40px 24px 0;font-size:var(--t17);letter-spacing:var(--t17ls);line-height:1.47;color:var(--ink-2);max-width:40em}
 .sl-faq__a[hidden]{display:none!important}   /* hidden 擋不住主題給的 display，明寫 */
 .sl-faq__a p{margin:0 0 8px} .sl-faq__a p:last-child{margin-bottom:0}
 .sl-faq__a a{color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:734px){ .sl-faq__sec{padding-top:48px} .sl-faq__q{padding:14px 0;font-size:16px} .sl-faq__a{padding-right:16px} }
+@media (max-width:734px){ .sl-faq__sec{padding-top:48px} .sl-faq__q{padding:16px 0;font-size:19px;letter-spacing:.012em} .sl-faq__a{padding-right:16px;font-size:16px} }

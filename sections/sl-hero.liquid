@@ -18,7 +18,9 @@
       <img class="sl-hero__img" src="{{ section.settings.image_fallback | asset_url }}" alt="" loading="eager" fetchpriority="high">
     {%- endif -%}
     <div class="sl-wrap sl-hero__in">
-      <h1 class="sl-t-hero">{{ section.settings.title }}</h1>
+      {%- comment -%} 關鍵字 H1 視覺隱藏（sl-sr）：搜尋引擎讀得到、畫面維持原本的大字（Mars 2026-09-05）{%- endcomment -%}
+      {%- if section.settings.eyebrow != blank -%}<h1 class="sl-sr">{{ section.settings.eyebrow }}</h1>{%- endif -%}
+      {%- comment -%} title 是富文字、會自帶 <p>：外層用 div 不用 p（p 包 p 會被瀏覽器拆開，字掉進沒樣式的內層）{%- endcomment -%}<{% if section.settings.eyebrow != blank %}div{% else %}h1{% endif %} class="sl-t-hero sl-hero__title">{{ section.settings.title }}</{% if section.settings.eyebrow != blank %}div{% else %}h1{% endif %}>
       {% if section.settings.lead != blank %}
         <p class="sl-hero__lead sl-t-intro">{{ section.settings.lead }}</p>
       {% endif %}
@@ -26,7 +28,9 @@
   </header>
   {%- else -%}
   <header class="sl-wrap sl-hero">
-    <h1 class="sl-t-hero">{{ section.settings.title }}</h1>
+    {%- comment -%} 關鍵字 H1 視覺隱藏（sl-sr）：搜尋引擎讀得到、畫面維持原本的大字（Mars 2026-09-05）{%- endcomment -%}
+    {%- if section.settings.eyebrow != blank -%}<h1 class="sl-sr">{{ section.settings.eyebrow }}</h1>{%- endif -%}
+    {%- comment -%} title 是富文字、會自帶 <p>：外層用 div 不用 p（p 包 p 會被瀏覽器拆開，字掉進沒樣式的內層）{%- endcomment -%}<{% if section.settings.eyebrow != blank %}div{% else %}h1{% endif %} class="sl-t-hero sl-hero__title">{{ section.settings.title }}</{% if section.settings.eyebrow != blank %}div{% else %}h1{% endif %}>
     {% if section.settings.lead != blank %}
       <p class="sl-hero__lead sl-t-intro sl-dim">{{ section.settings.lead }}</p>
     {% endif %}
@@ -51,6 +55,7 @@
       "label": "副標",
       "default": "源自加州的設計精神，今天走進台灣、日本與馬來西亞的日常。"
     },
+    { "type": "text", "id": "eyebrow", "label": "隱藏的 H1（放關鍵字，畫面不顯示；留空則大標為 H1）", "default": "grantclassic 特經典購買指南 · 官方直營與授權據點" },
     { "type": "header", "content": "主視覺大圖（兩個分頁共用；留空就只有文字）" },
     { "type": "image_picker", "id": "image", "label": "大圖（建議 2400×1000 以上）" },
     { "type": "text", "id": "image_fallback", "label": "內建示意圖檔名（assets/，有上傳大圖就不用）" },
