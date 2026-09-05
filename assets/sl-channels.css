@@ -99,7 +99,7 @@ a.sl-chw:hover{transform:translateY(-4px);background:var(--wash)}
 .sl-faq__list{margin-top:28px;max-width:760px;border-top:1px solid var(--rule)}
 .sl-faq__item{border-bottom:1px solid var(--rule)}
 .sl-faq__q{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;text-align:left;
-  font-size:var(--t21);letter-spacing:var(--t21ls);line-height:1.19;font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer}
+  font-size:19px;letter-spacing:.012em;line-height:1.21;font-weight:600;color:var(--ink);background:none;border:0;cursor:pointer}
 .sl-faq__q:hover{color:var(--accent-text)}
 .sl-faq__chev{flex:none;color:var(--ink-3);transition:transform .2s ease}
 .sl-faq__item.is-open .sl-faq__chev{transform:rotate(180deg)}
@@ -107,4 +107,4 @@ a.sl-chw:hover{transform:translateY(-4px);background:var(--wash)}
 .sl-faq__a[hidden]{display:none!important}   /* hidden 擋不住主題給的 display，明寫 */
 .sl-faq__a p{margin:0 0 8px} .sl-faq__a p:last-child{margin-bottom:0}
 .sl-faq__a a{color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:734px){ .sl-faq__sec{padding-top:48px} .sl-faq__q{padding:16px 0;font-size:19px;letter-spacing:.012em} .sl-faq__a{padding-right:16px;font-size:16px} }
+@media (max-width:734px){ .sl-faq__sec{padding-top:48px} .sl-faq__q{padding:16px 0;font-size:17px;letter-spacing:-.022em} .sl-faq__a{padding-right:16px;font-size:16px} }
