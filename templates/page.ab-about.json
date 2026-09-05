@@ -1,0 +1,399 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ab-hero",
+      "settings": {
+        "cut_text": "It's got you covered.",
+        "kicker": "<p>該顧的，都有它顧著。來自加州的設計，經得起你天天用。</p>",
+        "logo": "shopify://shop_images/2024-12-logo-_-190.svg",
+        "tagline": "",
+        "image": "shopify://shop_images/DSC04573.webp",
+        "image_m": "",
+        "video_url": "",
+        "scroll_len": 340,
+        "max_scale": 110,
+        "logo_mono": true,
+        "lift": 6
+      }
+    },
+    "stats": {
+      "type": "ab-stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "number": 2016,
+            "prefix": "",
+            "suffix": "",
+            "label": "成立於美國加州"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "number": 18,
+            "prefix": "",
+            "suffix": "",
+            "label": "條產品線"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "number": 241,
+            "prefix": "",
+            "suffix": "+",
+            "label": "家經銷門市"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "number": 5,
+            "prefix": "",
+            "suffix": "",
+            "label": "座國際設計獎"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "title": "把日常裡的小麻煩，一件一件收掉",
+        "desc": "<p>grantclassic 於 2016 年成立於美國加州。我們相信好的設計不是多做什麼，而是讓人少顧一件事——每件產品都由我們親自開發、反覆測試，憑藉專利創新，做出經得起時間的經典。</p>",
+        "image": "shopify://shop_images/230511__S.webp",
+        "image_opacity": 45
+      }
+    },
+    "timeline": {
+      "type": "ab-timeline",
+      "blocks": {
+        "y2016": {
+          "type": "year",
+          "settings": {
+            "year": "2016",
+            "title": "品牌成立",
+            "desc": "<p>grantclassic 於美國加州成立，從一群想把日常做得更順手的人開始。</p>",
+            "image": "",
+            "align": "left",
+            "tone": "light",
+            "image_fallback": "sl-hero.jpg",
+            "layout": "full"
+          }
+        },
+        "y2018": {
+          "type": "year",
+          "settings": {
+            "year": "2018",
+            "title": "第一支機車手機支架",
+            "desc": "<p>看見「安全、穩固、好操作」的需求，2 月研發、6 月定版、11 月量產上市。</p>",
+            "image": "shopify://shop_images/9223832f0fd8f861117c98446dfbe763_abc8988e-2582-46cd-a250-62bccd91db3a.png",
+            "align": "right",
+            "tone": "light",
+            "layout": "split"
+          }
+        },
+        "y2019": {
+          "type": "year",
+          "settings": {
+            "year": "2019",
+            "title": "第二代，與行動電源",
+            "desc": "<p>第二代支架首月賣出 5 萬件；9 月延伸到行動電源。</p>",
+            "image": "shopify://shop_images/7de0cd9a74d430c157708242fc1fe67f_95d5881d-5f7e-4055-8877-af1a1027c300.png",
+            "align": "left",
+            "tone": "light",
+            "layout": "full"
+          }
+        },
+        "y2020": {
+          "type": "year",
+          "settings": {
+            "year": "2020",
+            "title": "線上商店開幕",
+            "desc": "<p>7 月線上商店上線，首月銷售 1,000 萬。</p>",
+            "image": "shopify://shop_images/LSA0962.jpg",
+            "align": "left",
+            "tone": "dark",
+            "layout": "split"
+          }
+        },
+        "y2022": {
+          "type": "year",
+          "settings": {
+            "year": "2022",
+            "title": "四力架 2 Pro",
+            "desc": "<p>上市首月賣出 10 萬件。10 月開始研發使用再生能源的產品。</p>",
+            "image": "shopify://shop_images/GC-06.jpg",
+            "align": "left",
+            "tone": "light",
+            "layout": "full"
+          }
+        },
+        "y2023": {
+          "type": "year",
+          "settings": {
+            "year": "2023",
+            "title": "走進寵物生活",
+            "desc": "<p>飲水機、餵食器、貓砂盆陸續上市，照顧毛孩的例行公事交給機器。</p>",
+            "image": "shopify://shop_images/18.png",
+            "align": "right",
+            "tone": "dark",
+            "layout": "split"
+          }
+        },
+        "y2025": {
+          "type": "year",
+          "settings": {
+            "year": "2025",
+            "title": "穩如鈦山 TITANSHIELD",
+            "desc": "<p>首創防爆固態行動電源，通過 BSMI 與 SGS 測試。</p>",
+            "image": "",
+            "align": "left",
+            "tone": "light",
+            "image_fallback": "tsp-bg-hero-2.jpg",
+            "image_m": "shopify://shop_images/04_ccb925bf-9a3e-4702-b32c-cf1cf31742e3.png",
+            "layout": "full"
+          }
+        },
+        "y2026": {
+          "type": "year",
+          "settings": {
+            "year": "2026",
+            "title": "更薄、更遠",
+            "desc": "<p>TITANSHIELD Air 史上最輕薄固態行動電源、二勢力 Dualfind 機車支架上市；美國站上線。</p>",
+            "image": "",
+            "align": "left",
+            "tone": "light",
+            "image_fallback": "ts-scene-float.webp",
+            "image_m_fallback": "ts-scene-hang.webp",
+            "layout": "split"
+          }
+        }
+      },
+      "block_order": [
+        "y2016",
+        "y2018",
+        "y2019",
+        "y2020",
+        "y2022",
+        "y2023",
+        "y2025",
+        "y2026"
+      ],
+      "settings": {
+        "dim": 10,
+        "heading": "品牌歷程"
+      }
+    },
+    "vision": {
+      "type": "ab-vision",
+      "settings": {
+        "title_a": "品牌願景",
+        "desc_a": "<p>讓每個人的日常都能少顧一件事，把注意力留給真正重要的人與事。</p>",
+        "title_b": "品牌使命",
+        "desc_b": "<p>用設計把複雜收起來：每件產品都親自開發、反覆測試，做出經得起時間的經典。</p>",
+        "image": "",
+        "image_b": "shopify://shop_images/DSC04573.webp",
+        "dim": 45,
+        "scroll_len": 200,
+        "image_fallback": "tsp-bg-night-3.jpg"
+      }
+    },
+    "cta": {
+      "type": "ab-cta",
+      "settings": {
+        "title": "買了之後，我們才真正開始",
+        "sub": "<p>一年保固，登錄延長為兩年。台灣在地客服與維修，不用寄回國外。</p>",
+        "btn_text": "登錄保固",
+        "btn_url": "https://s.grantclassic.com/care/",
+        "btn2_text": "查看門市",
+        "btn2_url": "/pages/store-locator"
+      }
+    },
+    "video": {
+      "type": "ab-video",
+      "settings": {
+        "video_file": "tsp-film-720.mp4",
+        "video_url": "",
+        "autoplay": true,
+        "image": "",
+        "poster_file": "tsp-film-thumb.jpg",
+        "caption": "",
+        "start_width": 84,
+        "start_height": 68,
+        "video_file_m": "tsp-film-loop.mp4",
+        "alt": "穩如鈦山 TITANSHIELD Pro 固態行動電源形象影片"
+      }
+    },
+    "values": {
+      "type": "ab-values",
+      "blocks": {
+        "v1": {
+          "type": "card",
+          "settings": {
+            "title": "設計獎項",
+            "text": "紅點、德國、澳洲設計獎——好看之外，也經得起評審拆解。",
+            "image": "shopify://shop_images/01_d32ca21b-23a7-4731-9117-ad4de4b46b9c.png"
+          }
+        },
+        "v2": {
+          "type": "card",
+          "settings": {
+            "title": "公益大使",
+            "text": "把品牌的能見度，借給需要被看見的人。",
+            "image": "shopify://shop_images/LSA1007.jpg"
+          }
+        },
+        "v3": {
+          "type": "card",
+          "settings": {
+            "title": "台灣在地聯名",
+            "text": "大甲媽祖聯名款：把台灣的日常，做進每天用的東西裡。",
+            "image": "shopify://shop_images/2-pro-x-740920_750x_71f4ef66-08a5-4416-9b9a-2c247136c2f7.webp"
+          }
+        },
+        "v4": {
+          "type": "card",
+          "settings": {
+            "title": "再生能源與環境",
+            "text": "2022 年起研發使用再生能源的產品，減少碳排是我們的責任之一。",
+            "image": "shopify://shop_images/10.png"
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "settings": {
+        "title": "我們在意的事",
+        "autoplay": 4
+      }
+    },
+    "lines": {
+      "type": "ab-lines",
+      "blocks": {
+        "l1": {
+          "type": "line",
+          "settings": {
+            "title": "寵物生活",
+            "text": "飲水、餵食、貓砂、毛髮護理，照顧毛孩的例行公事交給機器。",
+            "image": "shopify://shop_images/12_d747888b-55a3-43a7-8607-6e99ab27ac2e.png",
+            "url": "/collections/aqualux"
+          }
+        },
+        "l2": {
+          "type": "line",
+          "settings": {
+            "title": "手機周邊",
+            "text": "固態行動電源、掛繩充電線、磁吸支架，出門只帶該帶的。",
+            "image": "shopify://shop_images/05_7b9c26a7-0876-4375-9bd3-6125ed4c1afe.png",
+            "url": "/collections/titanshield-solid-state-power-bank"
+          }
+        },
+        "l3": {
+          "type": "line",
+          "settings": {
+            "title": "汽機車周邊",
+            "text": "從第一支機車支架到二勢力 Dualfind，讓手機在路上穩穩的。",
+            "image": "shopify://shop_images/GC-05.jpg",
+            "url": "/collections/%E4%BA%8C%E5%8B%A2%E5%8A%9B-dualfind-%E6%A9%9F%E8%BB%8A%E6%89%8B%E6%A9%9F%E6%94%AF%E6%9E%B6"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "title": "我們擅長的三件事"
+      }
+    },
+    "awards": {
+      "type": "ab-awards",
+      "blocks": {
+        "a1": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_3.png",
+            "name": "紅點設計獎"
+          }
+        },
+        "a2": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_4.png",
+            "name": "台灣經典設計"
+          }
+        },
+        "a3": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_5.png",
+            "name": "德國設計獎"
+          }
+        },
+        "a4": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_7.png",
+            "name": "澳洲設計獎"
+          }
+        },
+        "a5": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_6.png",
+            "name": "紅點設計"
+          }
+        },
+        "a6": {
+          "type": "award",
+          "settings": {
+            "image": "shopify://shop_images/042fc70a-266c-4f06-a51a-846e23c30071_8.png",
+            "name": "公益大使"
+          }
+        }
+      },
+      "block_order": [
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6"
+      ],
+      "settings": {
+        "title": "獲獎與肯定",
+        "sub": "<p>從設計獎到公益合作，這些是外界替我們留下的註記。</p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "timeline",
+    "vision",
+    "cta",
+    "video",
+    "values",
+    "lines",
+    "awards"
+  ]
+}
