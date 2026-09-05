@@ -67,10 +67,11 @@
           <button type="submit" name="add" class="btn">加入購物車</button>
           <button type="button" class="btn btn--ghost" onclick="document.getElementById('spec').scrollIntoView()">看完整規格</button>
         </div>
-        {%- comment -%} 預購提示（Mars 2026-08-19）：採預購制、約 9/15 到貨——
-            下單前就要讓人知道要等，改期只改這一行 {%- endcomment -%}
-        <p class="small rise" data-d="3" style="margin-top:18px;color:#6E6E73">
-          目前為預購商品，預計 9 月 15 日前後依訂單順序陸續出貨。</p>
+        {%- comment -%} 預購提示（Mars 2026-08-19 起；2026-09-05 改讀自訂欄位）：文字在後台商品的
+            custom.preorder_note，改日期去後台改欄位就好；欄位空白就不顯示 {%- endcomment -%}
+        {%- if product.metafields.custom.preorder_note != blank -%}
+        <p class="small rise" data-d="3" style="margin-top:18px;color:#6E6E73">{{ product.metafields.custom.preorder_note }}</p>
+        {%- endif -%}
       {%- endform -%}
     {%- else -%}
       <div class="cta rise" data-d="2">
