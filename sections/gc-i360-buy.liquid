@@ -354,7 +354,7 @@
         {%- if shown > 0 -%}
         {%- assign t0 = tiers[0] | plus: 0 -%}{%- assign tl = tiers | last | plus: 0 -%}
         <div class="gi__cust" data-bundle="custom">
-          <div class="gi__custh">
+          <div class="gi__custh{% if t0 == 0 and tl == 0 %} gi__custh--nobar{% endif %}">
             <span class="gi__bnm">{{ s.custom_name | default: '超值加購' }}</span>
             <span class="gi__custsub" data-gi-ptxt>{%- if t0 > 0 or tl > 0 -%}再加購 1 件，省 {{ tiers[0] }}%{%- else -%}勾選配件，一起加入購物車{%- endif -%}</span>
           </div>
