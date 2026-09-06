@@ -334,3 +334,11 @@ cart-count.header__cart-count{ font-size:var(--gc-t7); }
 /* 2026-09-03: AKO 發票外掛在購物車塞進來的 <h2 class="ako-invoice-title">，被全站 h2 字級放大成 26px；
    壓回區塊小標大小（Mars 截圖指出）。外掛升級不會動這條，因為它在我們的主題檔裡。 */
 .ako-invoice .ako-invoice-title, h2.ako-invoice-title { font-size: 15px !important; line-height: 22px !important; font-weight: 600 !important; letter-spacing: 0 !important; margin: 0 0 8px !important; }
+
+/* 2026-09-06: 商品頁的廠商名 <h2 class="product-meta__vendor heading heading--small">（全店都是
+   「grantclassic 特經典」）被上面「全站 h2 同一級」的規則放大成 40px，壓在商品名上面像大標題。
+   跟美國站同一個處理：整行藏掉（logo 已經在頁首，這行只是重複）。
+   要還原成原本的小字而不是藏掉：把 display:none 換成
+   font-size:var(--gc-t6)!important; line-height:var(--gc-t6-lh)!important; letter-spacing:.08em!important;
+   要完全回到動這條之前：刪掉這一段就好，主題原檔沒動。 */
+.shopify-section h2.product-meta__vendor, .product-meta__vendor { display:none !important; }
