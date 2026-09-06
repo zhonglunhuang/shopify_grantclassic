@@ -160,20 +160,19 @@
           "03ba5bd2-28b0-402f-92b6-484ebc31a5ed": {
             "type": "links",
             "settings": {
-              "menu": "about-us"
+              "menu": "grantclassic"
             }
           },
           "d5ce4fc0-e59e-49b6-9b74-5eb8503d786a": {
             "type": "links",
             "settings": {
-              "menu": "terms-services"
+              "menu": "link-list"
             }
           },
           "0da750f7-8525-40af-9455-8a2691d70d54": {
-            "type": "text",
+            "type": "links",
             "settings": {
-              "title": "聯絡我們",
-              "content": "<p>公司名稱：曜瑩國際有限公司<br/>統一編號：95471965<br/>辦公地址：臺北市中山區復興北路70號9樓<br/>客服電話：02-7739-7992<br/>客服信箱：support@grantclassic.com</p>"
+              "menu": "link-list-1"
             }
           },
           "social_media": {
