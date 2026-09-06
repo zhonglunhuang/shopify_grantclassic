@@ -111,7 +111,7 @@
       var img = $('[data-gi-img]', root), vid = $('[data-gi-video]', root);
       if (state.view === 'items' && items) { img.hidden = true; if (vid) { vid.hidden = true; var v0 = vid.querySelector('video'); if (v0) v0.pause(); } }
       else if (state.view === 'video' && vid) { img.hidden = true; vid.hidden = false; var v = vid.querySelector('video'); if (v && v.paused) v.play().catch(function () {}); }
-      else { if (vid) { vid.hidden = true; var v2 = vid.querySelector('video'); if (v2) v2.pause(); } img.hidden = false; var src = state.view === 'variant' ? cur.img : state.view; if (src && img.getAttribute('src') !== src) img.src = src; }
+      else { if (vid) { vid.hidden = true; var v2 = vid.querySelector('video'); if (v2) v2.pause(); } img.hidden = false; var src = state.view === 'variant' ? cur.img : state.view; if (src && img.getAttribute('src') !== src) { img.style.transform = 'none'; img.classList.remove('is-fit'); img.src = src; } else if (root.__autoFit) root.__autoFit(); }
       $$('.gi__tab', root).forEach(function (t) { t.classList.toggle('is-on', t.getAttribute('data-src') === state.view); });
       // 借圖的變體：在「目前變體圖」分頁上標示示意
       var gtag = $('[data-gi-gtag]', root);
@@ -172,6 +172,30 @@
     }
     $$('[data-gi-add]', root).forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); add(); }); });
     if (form) form.addEventListener('submit', function (e) { e.preventDefault(); add(); });
+    // 大圖自動置中：商品照的留白每張不一樣（有的產品偏下），用 canvas 找出「非底色」的範圍，
+    // 再用 transform 把產品本體放到灰底矩形正中央、放大到約 72% 高。Shopify CDN 有開 CORS，抓不到就放棄不動。
+    var galEl = $('[data-gi-gal]', root), mainImg = $('[data-gi-img]', root), fitT;
+    function autoFit() {
+      if (!mainImg || !galEl || mainImg.hidden || !mainImg.complete || !mainImg.naturalWidth) return;
+      try {
+        var W = 160, H = 160, c = document.createElement('canvas'); c.width = W; c.height = H;
+        var x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(mainImg, 0, 0, W, H);
+        var d = x.getImageData(0, 0, W, H).data, bg = [d[0], d[1], d[2]], minx = W, miny = H, maxx = -1, maxy = -1;
+        for (var yy = 0; yy < H; yy++) for (var xx = 0; xx < W; xx++) { var i = (yy * W + xx) * 4; if (d[i + 3] < 20) continue; if (Math.abs(d[i] - bg[0]) + Math.abs(d[i + 1] - bg[1]) + Math.abs(d[i + 2] - bg[2]) > 36) { if (xx < minx) minx = xx; if (xx > maxx) maxx = xx; if (yy < miny) miny = yy; if (yy > maxy) maxy = yy; } }
+        if (maxx < 0 || (maxx - minx) < 8 || (maxy - miny) < 8) return;
+        var fx = (minx + maxx + 1) / 2 / W, fy = (miny + maxy + 1) / 2 / H, fw = (maxx - minx + 1) / W, fh = (maxy - miny + 1) / H;
+        mainImg.style.transform = 'none';
+        var r = mainImg.getBoundingClientRect(), g = galEl.getBoundingClientRect();
+        var padB = parseFloat(getComputedStyle(galEl).paddingBottom) || 0, contentH = g.height - padB;
+        var s = Math.min((contentH * 0.72) / (fh * r.height), (g.width * 0.8) / (fw * r.width)); s = Math.max(0.6, Math.min(2.4, s));
+        var cx = g.left + g.width / 2, cy = g.top + contentH / 2, px = r.left + fx * r.width, py = r.top + fy * r.height;
+        mainImg.style.transformOrigin = (fx * 100) + '% ' + (fy * 100) + '%';
+        mainImg.style.transform = 'translate(' + (cx - px).toFixed(1) + 'px,' + (cy - py).toFixed(1) + 'px) scale(' + s.toFixed(3) + ')';
+        mainImg.classList.add('is-fit');
+      } catch (e) { /* 跨網域讀不到像素就維持原樣 */ }
+    }
+    if (mainImg) { mainImg.addEventListener('load', autoFit); window.addEventListener('resize', function () { clearTimeout(fitT); fitT = setTimeout(autoFit, 120); }); }
+    root.__autoFit = autoFit;
     document.body.classList.add('gi-has-bar');
     // 底欄實際高度給 CSS（手機 68、桌機 88），浮動小工具照這個往上推
     var barEl = $('[data-gi-bar]', root);

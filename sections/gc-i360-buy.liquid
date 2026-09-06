@@ -149,7 +149,7 @@
   <div class="gi__wrap">
     <div class="gi__left">
       <div class="gi__gal" data-gi-gal>
-        <img class="gi__img" data-gi-img src="{{ cur.featured_image | default: product.featured_image | image_url: width: 1400 }}" alt="{{ product.title | escape }}" width="1400" height="1400">
+        <img class="gi__img" data-gi-img crossorigin="anonymous" src="{{ cur.featured_image | default: product.featured_image | image_url: width: 1400 }}" alt="{{ product.title | escape }}" width="1400" height="1400">
         <div class="gi__items" data-gi-items hidden aria-label="套餐內容"></div>
         <span class="gi__gtag" data-gi-gtag hidden></span>
         {%- if video_media != blank -%}<div class="gi__video" data-gi-video hidden>{{ video_media | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '1200x' }}</div>{%- endif -%}

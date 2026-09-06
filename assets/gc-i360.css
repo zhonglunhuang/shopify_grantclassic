@@ -14,6 +14,8 @@
 /* 灰底矩形高度跟著視窗走：扣掉頁首、底欄、分頁列；太矮或太高都卡住 */
 .gi__gal { background: var(--gal); height: clamp(520px, calc(100vh - var(--header-height, 67px) - 88px - 48px - 24px), 960px); padding-bottom: 64px; display: grid; place-items: center; position: relative; overflow: hidden; border-radius: 16px; }
 .gi__img { height: min(680px, 72%); width: auto; max-width: 90%; object-fit: contain; display: block; }
+.gi__img.is-fit { transition: transform .25s ease; }
+@media (prefers-reduced-motion: reduce) { .gi__img.is-fit { transition: none; } }
 /* 白色款是白底 PNG：用 multiply 讓白底融進灰底 */
 .gi__img[src*=".png"] { mix-blend-mode: multiply; }
 .gi__video { width: min(90%, 900px); }
