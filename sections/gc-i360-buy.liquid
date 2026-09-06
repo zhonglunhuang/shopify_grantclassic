@@ -58,6 +58,10 @@
 {%- assign pcut = product.metafields.custom.cutout.value -%}
 {%- if pcut == blank -%}{%- case product.handle -%}{%- when 'solid-state-power-bank-titanshield-10000mah' -%}{%- assign pcut = 'gc-mega-titanshield-10000mah.png' -%}{%- when 'solid-state-power-bank-titanshield-5000' -%}{%- assign pcut = 'gc-mega-titanshield-5000mah.png' -%}{%- when 'titanshield_10000' -%}{%- assign pcut = 'gc-mega-titanshield-pro.png' -%}{%- when 'titanshield-air' -%}{%- assign pcut = 'gc-mega-titanshield-air.png' -%}{%- endcase -%}{%- endif -%}
 {%- capture pthumb -%}{%- if pcut != blank -%}{{ pcut | file_url }}{%- elsif product.featured_image -%}{{ product.featured_image | image_url: width: 120 }}{%- endif -%}{%- endcapture -%}
+{%- comment -%} 白色款去背圖（物品分頁選白色時用）：「顏色值=檔名」，用 | 分隔 {%- endcomment -%}
+{%- assign pcut_alt = '' -%}
+{%- case product.handle -%}{%- when 'solid-state-power-bank-titanshield-10000mah' -%}{%- assign pcut_alt = '白=gc-mega-titanshield-10000mah-white.png' -%}{%- endcase -%}
+{%- capture pthumb_alt -%}{%- if pcut_alt != blank -%}{%- assign pa = pcut_alt | split: '=' -%}{{ pa[0] }}={{ pa[1] | file_url }}{%- endif -%}{%- endcapture -%}
 
 {%- comment -%} 加購配件列（自組套裝用）＋每個配件的價格表（預設組合的價格用） {%- endcomment -%}
 {%- capture addon_rows -%}
@@ -101,7 +105,7 @@
 {%- assign video_media = blank -%}
 {%- for m in product.media -%}{%- if video_media == blank and m.media_type == 'video' -%}{%- assign video_media = m -%}{%- endif -%}{%- endfor -%}
 
-<section class="gi" id="gi-{{ section.id }}" data-gi data-cart-type="{{ settings.cart_type }}" data-gi-pimg="{{ pthumb }}" data-gi-pname="{{ title | escape }}" data-gi-tag="{{ s.tag_text | default: '示意圖，實品為 %s' | escape }}" data-tiers="{{ tiers | join: ',' }}" style="--rw:{{ s.right_pct | default: 40 }}%">
+<section class="gi" id="gi-{{ section.id }}" data-gi data-cart-type="{{ settings.cart_type }}" data-gi-pimg="{{ pthumb }}" data-gi-pimg-alt="{{ pthumb_alt }}" data-gi-pname="{{ title | escape }}" data-gi-tag="{{ s.tag_text | default: '示意圖，實品為 %s' | escape }}" data-tiers="{{ tiers | join: ',' }}" style="--rw:{{ s.right_pct | default: 40 }}%">
   <script type="application/json" data-gi-variants>{{ vjson | strip_newlines }}</script>
   <div class="gi__wrap">
     <div class="gi__left">
