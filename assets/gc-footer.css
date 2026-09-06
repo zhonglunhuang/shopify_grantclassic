@@ -236,7 +236,7 @@ a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
 /* 字級加 !important：頁尾字級那組規則（下面「頁尾字級」段）會把 p 壓成 13px */
 .footer .gc-footer__tagline{ margin:0 !important; font-size:22px !important; line-height:1.3 !important; font-weight:600 !important; letter-spacing:-.01em; color:#fff !important; white-space:nowrap; }
 /* 沒有 logo 的版本（2026-09-06 Mars 拍板照 TORRAS）：宗旨當主角，英文 34px 特粗、中文副句 15px 灰 */
-.footer .gc-footer__brand--nologo{ gap:10px; padding-top:2px; }
+.footer .gc-footer__brand--nologo{ gap:10px; padding-top:10px; } /* 36px 英文粗體的字頂比 14px 中文小標高約 8px，往下推讓字頂視覺對齊（Mars 2026-09-06） */
 /* 2026-09-06 Mars 比過 Noto Sans TC 後決定用原本的字型（G 的字形不一樣），只留大顆紅句點 */
 .footer .gc-footer__brand--nologo .gc-footer__tagline{ font-size:36px !important; line-height:1.15 !important; font-weight:700 !important; letter-spacing:-.02em; }
 /* 加 !important：頁尾字級那組規則會把 span 壓成 13px */
