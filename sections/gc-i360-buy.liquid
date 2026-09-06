@@ -1,0 +1,385 @@
+{%- comment -%}
+  gc-i360-buy.liquid（台灣站，2026-09-06）：商品頁上半部照 Insta360 台灣商城的版型重做——
+  左邊灰底大圖固定、下面一排膠囊分頁；右邊依序是標題／規格摘要／評分／服務卡／權益清單／
+  每個選項的方塊／套餐卡片（標準＋預設組合＋自組套裝）／免費贈送；底部固定價格列＋加入購物車。
+  這一段自己處理變體切換與加入購物車（gc-i360.js，一次 /cart/add.js 把主商品＋配件一起丟進去）。
+  套餐與加購顯示的折扣（1 件 5%、2 件 10%、3 件以上 15%）只是畫面；真正要折要在後台建自動折扣。
+  白色變體沒有商品圖：找 alt 含該顏色字的媒體當替代圖（找不到就用第一張）。
+{%- endcomment -%}
+{{ 'gc-i360.css' | asset_url | stylesheet_tag }}
+{{ 'gc-buy-page.css' | asset_url | stylesheet_tag }}
+{%- comment -%} 評論區蘋果樣式：舊範本靠 main 區段裡的 ts_jdgm_css 區塊載，換成這個區段後要自己載 {%- endcomment -%}
+{{ 'ts-jdgm.css' | asset_url | stylesheet_tag }}
+<div id="bundle-volume-discounts"></div>
+<script src="{{ 'gc-i360.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign s = section.settings
+  assign cur = product.selected_or_first_available_variant
+  assign title = s.title_override | default: product.title
+  assign tiers = s.tiers | default: '5,10,15' | replace: ' ', '' | split: ','
+  assign rc = product.metafields.reviews.rating_count | plus: 0
+  assign rv = product.metafields.reviews.rating.value.rating | default: product.metafields.reviews.rating.value
+  assign rpct = rv | times: 20.0 | round: 1
+  assign rv1 = rv | times: 1.0 | round: 1
+  assign last_opt = product.options.size | minus: 1
+  assign addon_list = s.addons | default: product.metafields.custom.addons.value | default: ''
+  assign addons = addon_list | replace: ' ', '' | split: ','
+-%}
+
+{%- comment -%} 變體資料給 JS：價格、原價、選項值、圖（沒有變體圖就找 alt 含顏色字的媒體） {%- endcomment -%}
+{%- capture vjson -%}[
+{%- for v in product.variants -%}
+  {%- assign vimg = '' -%}{%- assign own = true -%}
+  {%- if v.featured_image -%}
+    {%- assign vimg = v.featured_image | image_url: width: 1400 -%}
+  {%- else -%}
+    {%- assign own = false -%}
+    {%- comment -%} 沒有自己的變體圖：先借「其他選項都一樣、只差顏色」的變體圖（同一個姿勢），再退回 alt 含顏色字的媒體 {%- endcomment -%}
+    {%- if s.variant_img_fallback == 'alt' -%}
+      {%- assign cval = v.options[last_opt] -%}
+      {%- for m in product.media -%}{%- if vimg == '' and m.media_type == 'image' and m.alt contains cval -%}{%- assign vimg = m | image_url: width: 1400 -%}{%- endif -%}{%- endfor -%}
+    {%- else -%}
+      {%- for sib in product.variants -%}
+        {%- if vimg == '' and sib.featured_image and sib.id != v.id -%}
+          {%- assign same = true -%}
+          {%- for o in v.options -%}{%- if forloop.index0 != last_opt and sib.options[forloop.index0] != o -%}{%- assign same = false -%}{%- endif -%}{%- endfor -%}
+          {%- if same -%}{%- assign vimg = sib.featured_image | image_url: width: 1400 -%}{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if vimg == '' -%}{%- assign vimg = product.featured_image | image_url: width: 1400 -%}{%- endif -%}
+  {%- endif -%}
+  {"id":{{ v.id }},"price":{{ v.price }},"cmp":{{ v.compare_at_price | default: 0 }},"avail":{{ v.available }},"opts":{{ v.options | json }},"img":{{ vimg | json }},"own":{{ own }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]{%- endcapture -%}
+
+{%- comment -%} 主商品去背縮圖（套餐卡片用） {%- endcomment -%}
+{%- assign pcut = product.metafields.custom.cutout.value -%}
+{%- if pcut == blank -%}{%- case product.handle -%}{%- when 'solid-state-power-bank-titanshield-10000mah' -%}{%- assign pcut = 'gc-mega-titanshield-10000mah.png' -%}{%- when 'solid-state-power-bank-titanshield-5000' -%}{%- assign pcut = 'gc-mega-titanshield-5000mah.png' -%}{%- when 'titanshield_10000' -%}{%- assign pcut = 'gc-mega-titanshield-pro.png' -%}{%- when 'titanshield-air' -%}{%- assign pcut = 'gc-mega-titanshield-air.png' -%}{%- endcase -%}{%- endif -%}
+{%- capture pthumb -%}{%- if pcut != blank -%}{{ pcut | file_url }}{%- elsif product.featured_image -%}{{ product.featured_image | image_url: width: 120 }}{%- endif -%}{%- endcapture -%}
+
+{%- comment -%} 加購配件列（自組套裝用）＋每個配件的價格表（預設組合的價格用） {%- endcomment -%}
+{%- capture addon_rows -%}
+{%- assign shown = 0 -%}
+{%- for h in addons limit: 6 -%}
+  {%- assign a = all_products[h] -%}
+  {%- if a != blank and a.handle == h -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- assign av = a.selected_or_first_available_variant -%}
+    {%- assign short = a.metafields.custom.short_name.value -%}
+    {%- assign sub = a.metafields.custom.tagline.value -%}
+    {%- case h -%}
+      {%- when 'flex-charging-cable-usb-c-to-usb-c-240w-100cm' -%}{%- assign short = short | default: 'Flex 240W 充電線 100cm' -%}{%- assign sub = sub | default: '液態矽膠，USB-C to USB-C' -%}
+      {%- when 'grantclassic-apexvolt-pd30w-ganultra' -%}{%- assign short = short | default: 'ApexVolt 30W 充電器' -%}{%- assign sub = sub | default: 'GaN 氮化鎵，同時充手機和電源' -%}
+      {%- when 'gc-magaura' -%}{%- assign short = short | default: 'MagAura 磁吸保溫杯 710ml' -%}{%- assign sub = sub | default: '杯蓋磁吸手機，邊喝邊看' -%}
+      {%- when 'velvet-strap-pro-black' -%}{%- assign short = short | default: 'Velvet Strap Pro 充電掛繩' -%}{%- assign sub = sub | default: '160cm，掛著也能充' -%}
+    {%- endcase -%}
+    {%- assign short = short | default: a.title | replace: 'grantclassic ', '' -%}
+    {%- comment -%} 去背圖：檔案庫裡大選單用的 gc-mega-*.png（對照表 ~/grantclassic-ops/tw-cutout-map.json） {%- endcomment -%}
+    {%- assign cut = a.metafields.custom.cutout.value -%}
+    {%- if cut == blank -%}{%- case h -%}
+      {%- when 'grantclassic-apexvolt-pd30w-ganultra' -%}{%- assign cut = 'gc-mega-apexvolt-30w-charger.png' -%}
+      {%- when 'flex-charging-cable-usb-c-to-usb-c-240w-100cm' -%}{%- assign cut = 'gc-mega-flex-usb-c-to-usb-c-240w-100cm.png' -%}
+      {%- when 'gc-magaura' -%}{%- assign cut = 'gc-mega-magaura-tumbler-710ml.png' -%}
+      {%- when 'velvet-strap-pro-black' -%}{%- assign cut = 'gc-mega-velvet-strap-pro.png' -%}
+    {%- endcase -%}{%- endif -%}
+    {%- capture avjson -%}[{%- for v in a.variants limit: 12 -%}{%- if v.available -%}{"id":{{ v.id }},"title":{{ v.title | json }},"price":{{ v.price }},"img":{{ v.featured_image | default: a.featured_image | image_url: width: 160 | json }}},{%- endif -%}{%- endfor -%}]{%- endcapture -%}
+    {%- assign avjson = avjson | replace: ',]', ']' -%}
+    <button type="button" class="gi__ad" data-gi-addon="{{ h }}" data-vid="{{ av.id }}" data-price="{{ av.price }}" data-variants='{{ avjson | strip_newlines }}' aria-pressed="false">
+      <span class="gi__adimg{% if cut != blank %} gi__adimg--cut{% endif %}">{%- if cut != blank -%}<img loading="lazy" width="128" height="128" src="{{ cut | file_url }}" alt="" data-gi-cut>{%- elsif a.featured_image -%}<img loading="lazy" width="128" height="128" src="{{ av.featured_image | default: a.featured_image | image_url: width: 256 }}" alt="">{%- endif -%}</span>
+      <span class="gi__adn"><span class="gi__adname">{{ short }}</span>{%- if sub != blank -%}<small>{{ sub }}</small>{%- endif -%}<span class="gi__adsel" data-gi-adsel></span></span>
+      <span class="gi__adp"><b data-gi-adnow>{{ av.price | money }}</b><s data-gi-adwas hidden></s></span>
+      <span class="gi__cb" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>
+    </button>
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+
+{%- comment -%} 分頁：「標籤:來源」逗號分隔，來源＝variant（目前變體圖）／媒體序號／video {%- endcomment -%}
+{%- assign tab_defs = s.tabs | default: '產品:variant,細節:1,情境:3,影片:video' | split: ',' -%}
+{%- assign video_media = blank -%}
+{%- for m in product.media -%}{%- if video_media == blank and m.media_type == 'video' -%}{%- assign video_media = m -%}{%- endif -%}{%- endfor -%}
+
+<section class="gi" id="gi-{{ section.id }}" data-gi data-cart-type="{{ settings.cart_type }}" data-gi-pimg="{{ pthumb }}" data-gi-pname="{{ title | escape }}" data-gi-tag="{{ s.tag_text | default: '示意圖，實品為 %s' | escape }}" data-tiers="{{ tiers | join: ',' }}" style="--rw:{{ s.right_pct | default: 40 }}%">
+  <script type="application/json" data-gi-variants>{{ vjson | strip_newlines }}</script>
+  <div class="gi__wrap">
+    <div class="gi__left">
+      <div class="gi__gal" data-gi-gal>
+        <img class="gi__img" data-gi-img src="{{ cur.featured_image | default: product.featured_image | image_url: width: 1400 }}" alt="{{ product.title | escape }}" width="1400" height="1400">
+        <div class="gi__items" data-gi-items hidden aria-label="套餐內容"></div>
+        <span class="gi__gtag" data-gi-gtag hidden></span>
+        {%- if video_media != blank -%}<div class="gi__video" data-gi-video hidden>{{ video_media | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '1200x' }}</div>{%- endif -%}
+      </div>
+      <div class="gi__tabs" data-gi-tabs>
+        {%- assign ti = 0 -%}
+        {%- for def in tab_defs -%}
+          {%- assign parts = def | split: ':' -%}
+          {%- assign lab = parts[0] | strip -%}
+          {%- assign ref = parts[1] | strip | downcase -%}
+          {%- assign src = '' -%}
+          {%- if ref == 'variant' -%}{%- assign src = 'variant' -%}
+          {%- elsif ref == 'items' -%}{%- if shown > 0 -%}{%- assign src = 'items' -%}{%- endif -%}
+          {%- elsif ref == 'video' -%}{%- if video_media != blank -%}{%- assign src = 'video' -%}{%- endif -%}
+          {%- else -%}
+            {%- assign n = ref | plus: 0 | minus: 1 -%}
+            {%- assign m = product.media[n] -%}
+            {%- if m != blank and m.media_type == 'image' -%}{%- assign src = m | image_url: width: 1400 -%}{%- endif -%}
+          {%- endif -%}
+          {%- if src != '' -%}
+            {%- assign ti = ti | plus: 1 -%}
+            <button type="button" class="gi__tab{% if ti == 1 %} is-on{% endif %}" data-src="{{ src }}">
+              {%- case src -%}
+                {%- when 'variant' -%}<svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v5"/></svg>
+                {%- when 'items' -%}<svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+                {%- when 'video' -%}<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+                {%- else -%}<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-7 8"/></svg>
+              {%- endcase -%}
+              {{ lab }}
+            </button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="gi__right">
+      <h1 class="gi__title">{{ title }}</h1>
+      <p class="gi__meta" data-gi-meta></p>
+      <a class="gi__rating" href="#judgeme_product_reviews">
+        <span class="gi__stars" style="--r:{% if rc > 0 %}{{ rpct }}%{% else %}0%{% endif %}" aria-hidden="true"></span>
+        {%- if rc > 0 -%}<b>{{ rv1 }}</b><span>（{{ rc }} 篇評論）</span>{%- else -%}<span>還沒有評論</span>{%- endif -%}
+      </a>
+
+
+      {%- if s.promo_pos == 'top' -%}
+      {%- if s.promo_title != blank and s.promo_style == 'dark' -%}
+      {%- comment -%} 深色會員卡（TORRAS 式）：左方塊 logo、白標題、灰副句用細直線分隔、右邊圓形箭頭；有網址整張可點 {%- endcomment -%}
+      {%- if s.promo_url != blank -%}<a class="gi__club" href="{{ s.promo_url }}">{%- else -%}<div class="gi__club">{%- endif -%}
+        <span class="gi__clubi" aria-hidden="true"><svg viewBox="0 0 33 33"><path fill="#fff" d="M32.89,14.91h-16.62v3.8h12.69c-1.06,5.93-6.24,10.45-12.47,10.45-6.99,0-12.68-5.69-12.68-12.68S9.49,3.8,16.48,3.8V0C7.39,0,0,7.39,0,16.48s7.39,16.48,16.48,16.48,16.48-7.39,16.48-16.48c0-.35-.01-.7-.03-1.05l-.03-.52Z"/><path fill="#fff" d="M16.48,9.18c2.69,0,5.15,1.48,6.43,3.85l.16.29h4.08l-.28-.75c-1.62-4.3-5.8-7.19-10.39-7.19-6.12,0-11.1,4.98-11.1,11.1s4.98,11.1,11.1,11.1c4.33,0,8.29-2.55,10.1-6.5l.36-.78h-4.23l-.16.25c-1.36,2.03-3.63,3.24-6.07,3.24-4.03,0-7.3-3.27-7.3-7.3s3.27-7.3,7.3-7.3Z"/></svg></span>
+        <span class="gi__clubt"><b>{{ s.promo_title }}</b>{%- if s.promo_text != blank -%}<span class="gi__clubs">{{ s.promo_text | escape | replace: ' | ', '<i></i>' }}</span>{%- endif -%}</span>
+        <span class="gi__clubc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      {%- if s.promo_url != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- elsif s.promo_title != blank -%}
+      <div class="gi__promo">
+        <span class="gi__promoi" aria-hidden="true">
+          {%- if s.promo_icon == 'club' -%}
+          <svg viewBox="0 0 76 64" fill="none"><rect x="6" y="14" width="52" height="34" rx="6" fill="#1d1d1f"/><rect x="12" y="22" width="14" height="10" rx="2" fill="#fff" opacity=".9"/><text x="12" y="43" font-size="6.5" fill="#fff" font-family="-apple-system,Arial" font-weight="700" letter-spacing=".5">GC CLUB</text><circle cx="60" cy="20" r="11" fill="#e84448"/><text x="60" y="23.5" font-size="9" fill="#fff" text-anchor="middle" font-family="-apple-system,Arial" font-weight="700">P</text></svg>
+          {%- else -%}
+          <svg viewBox="0 0 76 64" fill="none"><rect x="10" y="10" width="40" height="46" rx="6" fill="#1d1d1f"/><rect x="18" y="18" width="24" height="10" rx="2" fill="#fff"/><text x="30" y="26" font-size="6" fill="#1d1d1f" text-anchor="middle" font-family="-apple-system,Arial" font-weight="700">LOGO</text><circle cx="58" cy="18" r="10" fill="#e84448"/><path d="M53.5 18l3 3 6-6" stroke="#fff" stroke-width="2"/></svg>
+          {%- endif -%}
+        </span>
+        <div>
+          <p class="gi__promot">{{ s.promo_title }}</p>
+          {%- if s.promo_text != blank -%}<p class="gi__promop">{{ s.promo_text }}</p>{%- endif -%}
+          {%- if s.promo_url != blank -%}<a href="{{ s.promo_url }}">{{ s.promo_link | default: '了解詳情' }}</a>{%- endif -%}
+        </div>
+      </div>
+      {%- endif -%}
+      {%- endif -%}
+
+      {%- assign perks = section.blocks | where: 'type', 'perk' -%}
+      {%- if perks.size > 0 -%}
+      <div class="gi__perks">
+        {%- for block in perks -%}
+          {%- assign b = block.settings -%}
+          {%- assign txt = b.text | escape | newline_to_br | replace: ' | ', '<i class="gi__sep"></i>' -%}
+          {%- if b.link_text != blank and b.url != blank -%}
+            {%- assign lt = b.link_text | escape -%}
+            {%- capture anchor -%}<a href="{{ b.url }}">{{ lt }}</a>{%- endcapture -%}
+            {%- if txt contains lt -%}{%- assign txt = txt | replace_first: lt, anchor -%}{%- else -%}{%- assign txt = txt | append: ' ' | append: anchor -%}{%- endif -%}
+            {%- assign row_link = false -%}
+          {%- elsif b.url != blank -%}{%- assign row_link = true -%}{%- else -%}{%- assign row_link = false -%}{%- endif -%}
+          {%- if row_link -%}<a class="gi__perk" href="{{ b.url }}" {{ block.shopify_attributes }}>{%- else -%}<div class="gi__perk" {{ block.shopify_attributes }}>{%- endif -%}
+            {%- case b.icon -%}
+              {%- when 'points' -%}<svg class="gi__pi" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+              {%- when 'box' -%}<svg class="gi__pi" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5"/></svg>
+              {%- when 'sparkle' -%}<svg class="gi__pi" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>
+              {%- when 'tag' -%}<svg class="gi__pi" viewBox="0 0 24 24"><path d="M4 4h7l9 9-7 7-9-9z"/><circle cx="8" cy="8" r="1.4"/></svg>
+              {%- when 'shield' -%}<svg class="gi__pi" viewBox="0 0 24 24"><path d="M12 3l7 2.5V11c0 4.5-3 8-7 10-4-2-7-5.5-7-10V5.5z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- else -%}<svg class="gi__pi" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            {%- endcase -%}
+            <span class="gi__pt">{{ txt }}</span>
+            {%- if row_link -%}<svg class="gi__chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>{%- else -%}<span></span>{%- endif -%}
+          {%- if row_link -%}</a>{%- else -%}</div>{%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
+      {%- unless product.has_only_default_variant -%}
+      {%- for opt in product.options_with_values -%}
+        {%- assign on = opt.name | downcase -%}
+        {%- assign is_color = false -%}
+        {%- if on == 'color' or on == 'colour' or on == '顏色' or on == '材質' -%}{%- assign is_color = true -%}{%- endif -%}
+        <p class="gi__lab">{{ opt.name }}</p>
+        <div class="gi__tiles" data-gi-opt="{{ forloop.index0 }}" role="radiogroup" aria-label="{{ opt.name | escape }}">
+          {%- for val in opt.values -%}
+            <button type="button" class="gi__tile{% if val == opt.selected_value %} is-on{% endif %}" data-val="{{ val | escape }}" role="radio" aria-checked="{% if val == opt.selected_value %}true{% else %}false{% endif %}">
+              {%- if is_color -%}<span class="gi__dot" data-gi-dot="{{ val | escape }}"></span>{%- endif -%}{{ val }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+      {%- endunless -%}
+
+      <p class="gi__lab">{{ s.bundle_label | default: '套餐' }}{%- if s.contents_url != blank -%}<a href="{{ s.contents_url }}">{{ s.contents_label | default: '包裝內含' }}</a>{%- endif -%}</p>
+      <div class="gi__bundles" data-gi-bundles>
+        <div>
+          <button type="button" class="gi__bc is-on" data-bundle="std" data-addons="" aria-pressed="true">
+            <span class="gi__bch">
+              <span class="gi__bth">{%- if pthumb != blank -%}<img loading="lazy" width="46" height="46" src="{{ pthumb }}" alt="">{%- endif -%}</span>
+              <span><span class="gi__bnm">{{ s.std_name | default: '標準組合' }}</span><span class="gi__bpr" data-gi-bprice="std">{{ cur.price | money }}{%- if cur.compare_at_price > cur.price -%}<s>{{ cur.compare_at_price | money }}</s>{%- endif -%}</span></span>
+            </span>
+            {%- if s.std_desc != blank -%}<div class="gi__bdet" aria-hidden="false"><div><ul class="gi__bul">{%- assign lines = s.std_desc | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
+          </button>
+        </div>
+
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'bundle' -%}{%- continue -%}{%- endif -%}
+          {%- assign b = block.settings -%}
+          {%- assign bh = b.addons | replace: ' ', '' | split: ',' -%}
+          {%- assign bsum = 0 -%}{%- assign bcount = 0 -%}
+          {%- capture bthumbs -%}
+            {%- if pthumb != blank -%}<img loading="lazy" width="22" height="22" src="{{ pthumb }}" alt="">{%- endif -%}
+            {%- for h in bh -%}{%- assign a = all_products[h] -%}{%- if a != blank and a.handle == h -%}{%- assign bcount = bcount | plus: 1 -%}{%- assign bsum = bsum | plus: a.selected_or_first_available_variant.price -%}
+              {%- assign bcut = a.metafields.custom.cutout.value -%}
+              {%- if bcut == blank -%}{%- case h -%}{%- when 'grantclassic-apexvolt-pd30w-ganultra' -%}{%- assign bcut = 'gc-mega-apexvolt-30w-charger.png' -%}{%- when 'flex-charging-cable-usb-c-to-usb-c-240w-100cm' -%}{%- assign bcut = 'gc-mega-flex-usb-c-to-usb-c-240w-100cm.png' -%}{%- when 'gc-magaura' -%}{%- assign bcut = 'gc-mega-magaura-tumbler-710ml.png' -%}{%- when 'velvet-strap-pro-black' -%}{%- assign bcut = 'gc-mega-velvet-strap-pro.png' -%}{%- endcase -%}{%- endif -%}
+              {%- if bcut != blank -%}<img loading="lazy" width="44" height="44" src="{{ bcut | file_url }}" alt="">{%- elsif a.featured_image -%}<img loading="lazy" width="44" height="44" src="{{ a.featured_image | image_url: width: 120 }}" alt="">{%- endif -%}
+            {%- endif -%}{%- endfor -%}
+          {%- endcapture -%}
+          {%- if bcount == 0 -%}{%- continue -%}{%- endif -%}
+          {%- assign ti = bcount | at_most: tiers.size | minus: 1 -%}
+          {%- assign pct = tiers[ti] | plus: 0 -%}
+          {%- assign off = 100 | minus: pct -%}
+          {%- assign bnow = bsum | times: off | divided_by: 100 | divided_by: 100 | times: 100 | plus: cur.price -%}
+          {%- assign bwas = bsum | plus: cur.price -%}
+          <button type="button" class="gi__bc" data-bundle="{{ block.id }}" data-addons="{{ b.addons | replace: ' ', '' | escape }}" aria-pressed="false" {{ block.shopify_attributes }}>
+            {%- if b.badge != blank -%}<span class="gi__badge">{{ b.badge }}</span>{%- endif -%}
+            <span class="gi__bch">
+              <span class="gi__bth gi__bth--multi">{{ bthumbs }}</span>
+              <span><span class="gi__bnm">{{ b.name }}</span><span class="gi__bpr" data-gi-bprice="{{ block.id }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
+            </span>
+            {%- if b.desc != blank -%}<div class="gi__bdet" aria-hidden="false"><div><ul class="gi__bul">{%- assign lines = b.desc | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
+          </button>
+        {%- endfor -%}
+
+        {%- if s.gift_title != blank -%}
+        <div class="gi__gift">
+          <svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 4l14 5v10c0 9-6 15-14 19C14 34 8 28 8 19V9z" fill="#dfe8f7"/><path d="M22 8l10 3.6V19c0 7-4.4 11.6-10 14.6C16.4 30.6 12 26 12 19v-7.4z" fill="#1a73e8"/><path d="M17 20l3.5 3.5L27 17" stroke="#fff" stroke-width="2.4"/></svg>
+          <div><p class="gi__giftt">{{ s.gift_title }}</p>{%- if s.gift_text != blank -%}<p class="gi__giftp">{{ s.gift_text }}{%- if s.gift_url != blank -%} <a href="{{ s.gift_url }}">了解詳情。</a>{%- endif -%}</p>{%- endif -%}</div>
+          <span class="gi__cb is-on" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>
+        </div>
+        {%- endif -%}
+
+        {%- if shown > 0 -%}
+        {%- assign t0 = tiers[0] | plus: 0 -%}{%- assign tl = tiers | last | plus: 0 -%}
+        <div class="gi__cust" data-bundle="custom">
+          <div class="gi__custh">
+            <span class="gi__bnm">{{ s.custom_name | default: '超值加購' }}</span>
+            <span class="gi__custsub" data-gi-ptxt>{%- if t0 > 0 or tl > 0 -%}再加購 1 件，省 {{ tiers[0] }}%{%- else -%}勾選配件，一起加入購物車{%- endif -%}</span>
+          </div>
+          {%- if t0 > 0 or tl > 0 -%}
+          <div class="gi__prog"><span class="gi__pbar" aria-hidden="true"><i data-gi-pbar></i></span><span class="gi__psteps"><span>1 件 {{ tiers[0] }}%</span><span>2 件 {{ tiers[1] | default: tiers[0] }}%</span><span>3 件以上 {{ tiers | last }}%</span></span></div>
+          {%- endif -%}
+          {{ addon_rows }}
+        </div>
+        {%- endif -%}
+      </div>
+
+      {%- if s.promo_pos != 'top' -%}
+      {%- if s.promo_title != blank and s.promo_style == 'dark' -%}
+      {%- comment -%} 深色會員卡（TORRAS 式）：左方塊 logo、白標題、灰副句用細直線分隔、右邊圓形箭頭；有網址整張可點 {%- endcomment -%}
+      {%- if s.promo_url != blank -%}<a class="gi__club" href="{{ s.promo_url }}">{%- else -%}<div class="gi__club">{%- endif -%}
+        <span class="gi__clubi" aria-hidden="true"><svg viewBox="0 0 33 33"><path fill="#fff" d="M32.89,14.91h-16.62v3.8h12.69c-1.06,5.93-6.24,10.45-12.47,10.45-6.99,0-12.68-5.69-12.68-12.68S9.49,3.8,16.48,3.8V0C7.39,0,0,7.39,0,16.48s7.39,16.48,16.48,16.48,16.48-7.39,16.48-16.48c0-.35-.01-.7-.03-1.05l-.03-.52Z"/><path fill="#fff" d="M16.48,9.18c2.69,0,5.15,1.48,6.43,3.85l.16.29h4.08l-.28-.75c-1.62-4.3-5.8-7.19-10.39-7.19-6.12,0-11.1,4.98-11.1,11.1s4.98,11.1,11.1,11.1c4.33,0,8.29-2.55,10.1-6.5l.36-.78h-4.23l-.16.25c-1.36,2.03-3.63,3.24-6.07,3.24-4.03,0-7.3-3.27-7.3-7.3s3.27-7.3,7.3-7.3Z"/></svg></span>
+        <span class="gi__clubt"><b>{{ s.promo_title }}</b>{%- if s.promo_text != blank -%}<span class="gi__clubs">{{ s.promo_text | escape | replace: ' | ', '<i></i>' }}</span>{%- endif -%}</span>
+        <span class="gi__clubc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      {%- if s.promo_url != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- elsif s.promo_title != blank -%}
+      <div class="gi__promo">
+        <span class="gi__promoi" aria-hidden="true">
+          {%- if s.promo_icon == 'club' -%}
+          <svg viewBox="0 0 76 64" fill="none"><rect x="6" y="14" width="52" height="34" rx="6" fill="#1d1d1f"/><rect x="12" y="22" width="14" height="10" rx="2" fill="#fff" opacity=".9"/><text x="12" y="43" font-size="6.5" fill="#fff" font-family="-apple-system,Arial" font-weight="700" letter-spacing=".5">GC CLUB</text><circle cx="60" cy="20" r="11" fill="#e84448"/><text x="60" y="23.5" font-size="9" fill="#fff" text-anchor="middle" font-family="-apple-system,Arial" font-weight="700">P</text></svg>
+          {%- else -%}
+          <svg viewBox="0 0 76 64" fill="none"><rect x="10" y="10" width="40" height="46" rx="6" fill="#1d1d1f"/><rect x="18" y="18" width="24" height="10" rx="2" fill="#fff"/><text x="30" y="26" font-size="6" fill="#1d1d1f" text-anchor="middle" font-family="-apple-system,Arial" font-weight="700">LOGO</text><circle cx="58" cy="18" r="10" fill="#e84448"/><path d="M53.5 18l3 3 6-6" stroke="#fff" stroke-width="2"/></svg>
+          {%- endif -%}
+        </span>
+        <div>
+          <p class="gi__promot">{{ s.promo_title }}</p>
+          {%- if s.promo_text != blank -%}<p class="gi__promop">{{ s.promo_text }}</p>{%- endif -%}
+          {%- if s.promo_url != blank -%}<a href="{{ s.promo_url }}">{{ s.promo_link | default: '了解詳情' }}</a>{%- endif -%}
+        </div>
+      </div>
+      {%- endif -%}
+      {%- endif -%}
+
+      {%- form 'product', product, id: 'gi-form', class: 'gi__form', novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ cur.id }}" data-gi-id>
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="gi__cta gi__cta--inline" data-gi-add>{{ s.cta_label | default: '加入購物車' }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+
+  <div class="gi__bar gi__bar--{{ s.cta_style | default: 'black' }}" data-gi-bar>
+    <div class="gi__barl"><p class="gi__bart">{{ title }}</p><p class="gi__barm" data-gi-meta></p></div>
+    <p class="gi__barp"><b data-gi-price>{{ cur.price | money }}</b><s data-gi-cmp hidden></s></p>
+    <button type="button" class="gi__cta" data-gi-add>{{ s.cta_label | default: '加入購物車' }}</button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "購買區（Insta360 版型）",
+  "class": "shopify-section--gc-i360",
+  "settings": [
+    { "type": "text", "id": "title_override", "label": "顯示用短標題", "info": "空白就用商品全名" },
+    { "type": "range", "id": "right_pct", "label": "右欄佔螢幕寬度", "min": 32, "max": 52, "step": 2, "unit": "%", "default": 40 },
+    { "type": "select", "id": "variant_img_fallback", "label": "變體沒有自己的圖時", "options": [ { "value": "sibling", "label": "借同姿勢的其他顏色照片＋標示示意" }, { "value": "alt", "label": "找 alt 含顏色字的媒體" } ], "default": "sibling" },
+    { "type": "text", "id": "tag_text", "label": "示意標籤文字", "default": "示意圖，實品為 %s", "info": "%s 會換成顏色名" },
+    { "type": "text", "id": "tabs", "label": "圖片分頁", "default": "產品:variant,細節:1,物品:items,影片:video", "info": "「標籤:來源」逗號分隔；來源 variant＝目前變體圖、數字＝第幾張媒體、items＝目前套餐與加購的物品、video＝第一支影片（沒有就不顯示）" },
+    { "type": "header", "content": "服務卡" },
+    { "type": "select", "id": "promo_pos", "label": "位置", "options": [ { "value": "bottom", "label": "套餐之後（底部）" }, { "value": "top", "label": "評分之後（頂部）" } ], "default": "bottom" },
+    { "type": "select", "id": "promo_style", "label": "樣式", "options": [ { "value": "dark", "label": "深色會員卡（TORRAS 式）" }, { "value": "light", "label": "淺灰卡" } ], "default": "dark" },
+    { "type": "select", "id": "promo_icon", "label": "圖示", "options": [ { "value": "club", "label": "會員卡＋點數" }, { "value": "logo", "label": "企業客製 logo" } ], "default": "club" },
+    { "type": "text", "id": "promo_title", "label": "標題", "default": "加入 GC Club，消費累點折現" },
+    { "type": "text", "id": "promo_text", "label": "說明", "default": "每筆訂單自動累點，下次結帳直接折抵，還有會員專屬優惠。" },
+    { "type": "text", "id": "promo_link", "label": "連結文字", "default": "了解詳情" },
+    { "type": "url", "id": "promo_url", "label": "連結" },
+    { "type": "header", "content": "套餐" },
+    { "type": "text", "id": "bundle_label", "label": "區塊標題", "default": "套餐" },
+    { "type": "text", "id": "contents_label", "label": "右側連結文字", "default": "包裝內含" },
+    { "type": "text", "id": "contents_url", "label": "右側連結網址", "default": "#shopify-section-product-content" },
+    { "type": "text", "id": "std_name", "label": "標準組合名稱", "default": "標準組合" },
+    { "type": "textarea", "id": "std_desc", "label": "標準組合說明（一行一點）" },
+    { "type": "text", "id": "custom_name", "label": "加購區名稱", "default": "超值加購" },
+    { "type": "text", "id": "addons", "label": "加購配件 handle（逗號分隔）", "info": "空白就讀商品 metafield custom.addons" },
+    { "type": "text", "id": "tiers", "label": "加購折扣 %（1 件,2 件,3 件以上）", "default": "0,0,0", "info": "填 0,0,0 就不顯示折扣；填數字前要先在後台建對應的自動折扣，不然畫面說省、結帳沒省" },
+    { "type": "header", "content": "免費贈送" },
+    { "type": "text", "id": "gift_title", "label": "標題", "default": "免費贈送 一年延長保固" },
+    { "type": "text", "id": "gift_text", "label": "說明", "default": "登錄序號即享，保固從一年延長為兩年。" },
+    { "type": "url", "id": "gift_url", "label": "連結" },
+    { "type": "header", "content": "加入購物車" },
+    { "type": "text", "id": "cta_label", "label": "按鈕文字", "default": "加入購物車" },
+    { "type": "select", "id": "cta_style", "label": "按鈕顏色", "options": [ { "value": "black", "label": "黑" }, { "value": "yellow", "label": "Insta 黃" }, { "value": "red", "label": "品牌紅" } ], "default": "red" }
+  ],
+  "blocks": [
+    {
+      "type": "perk", "name": "權益一列",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "圖示", "options": [ { "value": "points", "label": "點數" }, { "value": "box", "label": "出貨" }, { "value": "sparkle", "label": "亮點" }, { "value": "tag", "label": "標籤" }, { "value": "shield", "label": "保固" }, { "value": "device", "label": "新品" } ], "default": "box" },
+        { "type": "textarea", "id": "text", "label": "文字", "info": "換行照排；「 | 」會變成細直線分隔" },
+        { "type": "text", "id": "link_text", "label": "文字裡要變連結的字", "info": "空白＋有連結＝整列可點、右邊出現箭頭" },
+        { "type": "url", "id": "url", "label": "連結" }
+      ]
+    },
+    {
+      "type": "bundle", "name": "預設組合",
+      "settings": [
+        { "type": "text", "id": "name", "label": "名稱", "default": "快充組合" },
+        { "type": "text", "id": "addons", "label": "配件 handle（逗號分隔）" },
+        { "type": "textarea", "id": "desc", "label": "說明（一行一點）" },
+        { "type": "text", "id": "badge", "label": "角標", "info": "例：最受歡迎" }
+      ]
+    }
+  ]
+}
+{% endschema %}
