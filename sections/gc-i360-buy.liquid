@@ -10,7 +10,6 @@
 {{ 'gc-buy-page.css' | asset_url | stylesheet_tag }}
 {%- comment -%} 評論區蘋果樣式：舊範本靠 main 區段裡的 ts_jdgm_css 區塊載，換成這個區段後要自己載 {%- endcomment -%}
 {{ 'ts-jdgm.css' | asset_url | stylesheet_tag }}
-<div id="bundle-volume-discounts"></div>
 <script src="{{ 'gc-i360.js' | asset_url }}" defer></script>
 
 {%- liquid
@@ -365,6 +364,9 @@
         </div>
         {%- endif -%}
       </div>
+
+      {%- comment -%} Vitals 數量折扣小工具會自己塞進這個容器（舊範本就有這個 id）；放在套餐之後、會員卡之前 {%- endcomment -%}
+      <div id="bundle-volume-discounts" class="gi__vitals"></div>
 
       {%- if s.promo_pos != 'top' -%}
       {%- if s.promo_title != blank and s.promo_style == 'dark' -%}

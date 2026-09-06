@@ -162,6 +162,7 @@
 /* 數字跳動時閃一下品牌紅 */
 [data-gi-price], [data-gi-adnow] { transition: color .25s; font-variant-numeric: tabular-nums; }
 [data-gi-price].is-tick, [data-gi-adnow].is-tick { color: var(--red); }
+.gi__vitals:not(:empty) { margin: 24px 0 0; }
 .gi__form { margin: 0; }
 .gi__cta--inline { display: none; }
 
