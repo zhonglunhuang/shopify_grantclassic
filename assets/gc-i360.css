@@ -128,6 +128,9 @@
 .gi__bc.is-on .gi__bdet { grid-template-rows: 1fr; }
 .gi__bc.is-on .gi__bul { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .gi__bdet, .gi .gi__bul { transition: none; } }
+.gi__bc--var[data-soldout] { color: #a1a1a6; }
+.gi__soldout { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 500; color: #8e8e93; border: 1px solid #d2d2d7; border-radius: 6px; padding: 0 6px; line-height: 1.6; vertical-align: 2px; }
+.gi__bc--var .gi__bth img { mix-blend-mode: multiply; }
 .gi__badge { position: absolute; right: 8px; top: 8px; background: #fff1e6; color: #d9541e; font-size: 11px; line-height: 1.6; padding: 1px 8px; border-radius: 6px; }
 .gi__gift { background: var(--card); border-radius: 12px; padding: 18px 20px; display: grid; grid-template-columns: 44px 1fr 18px; gap: 18px; align-items: center; }
 .gi__gift > svg { width: 44px; height: 44px; }

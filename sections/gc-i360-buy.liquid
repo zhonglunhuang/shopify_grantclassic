@@ -131,6 +131,14 @@
 {%- endfor -%}
 {%- endcapture -%}
 
+{%- comment -%} 變體當套餐：只有一個選項、而且那個選項不是顏色也不是容量（例如 餵不停 的「材質」其實是版本），就不畫方塊、改成套餐卡片一張一個變體 {%- endcomment -%}
+{%- assign vcards = false -%}
+{%- if product.options.size == 1 and product.has_only_default_variant == false -%}
+  {%- assign on1 = product.options[0] | downcase -%}
+  {%- unless on1 == 'color' or on1 == 'colour' or on1 == '顏色' or on1 == '容量' or on1 == 'size' or on1 == '尺寸' -%}{%- assign vcards = true -%}{%- endunless -%}
+{%- endif -%}
+{%- if s.variant_cards == 'never' -%}{%- assign vcards = false -%}{%- elsif s.variant_cards == 'always' and product.has_only_default_variant == false -%}{%- assign vcards = true -%}{%- endif -%}
+
 {%- comment -%} 分頁：「標籤:來源」逗號分隔，來源＝variant（目前變體圖）／媒體序號／video {%- endcomment -%}
 {%- assign tab_defs = s.tabs | default: '產品:variant,細節:1,情境:3,影片:video' | split: ',' -%}
 {%- assign video_media = blank -%}
@@ -251,7 +259,7 @@
       </div>
       {%- endif -%}
 
-      {%- unless product.has_only_default_variant -%}
+      {%- unless product.has_only_default_variant or vcards -%}
       {%- for opt in product.options_with_values -%}
         {%- assign on = opt.name | downcase -%}
         {%- assign is_color = false -%}
@@ -269,6 +277,16 @@
 
       <p class="gi__lab">{{ s.bundle_label | default: '套餐' }}{%- if s.contents_url != blank -%}<a href="{{ s.contents_url }}">{{ s.contents_label | default: '包裝內含' }}</a>{%- endif -%}</p>
       <div class="gi__bundles" data-gi-bundles>
+        {%- if vcards -%}
+        {%- for v in product.variants -%}
+          <button type="button" class="gi__bc gi__bc--var{% if v.id == cur.id %} is-on{% endif %}" data-gi-vcard="{{ v.id }}" aria-pressed="{% if v.id == cur.id %}true{% else %}false{% endif %}"{% unless v.available %} data-soldout{% endunless %}>
+            <span class="gi__bch">
+              <span class="gi__bth">{%- if v.featured_image -%}<img loading="lazy" width="56" height="56" src="{{ v.featured_image | image_url: width: 160 }}" alt="">{%- elsif pthumb != blank -%}<img loading="lazy" width="56" height="56" src="{{ pthumb }}" alt="">{%- endif -%}</span>
+              <span><span class="gi__bnm">{{ v.title }}{% unless v.available %}<span class="gi__soldout">售完</span>{% endunless %}</span><span class="gi__bpr">{{ v.price | money }}{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}</span></span>
+            </span>
+          </button>
+        {%- endfor -%}
+        {%- else -%}
         <div>
           <button type="button" class="gi__bc is-on" data-bundle="std" data-addons="" aria-pressed="true">
             <span class="gi__bch">
@@ -278,6 +296,7 @@
             {%- if s.std_desc != blank -%}<div class="gi__bdet" aria-hidden="false"><div><ul class="gi__bul">{%- assign lines = s.std_desc | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
           </button>
         </div>
+        {%- endif -%}
 
         {%- for block in section.blocks -%}
           {%- if block.type != 'bundle' -%}{%- continue -%}{%- endif -%}
@@ -418,6 +437,7 @@
     { "type": "range", "id": "right_pct", "label": "右欄佔螢幕寬度", "min": 32, "max": 52, "step": 2, "unit": "%", "default": 40 },
     { "type": "select", "id": "variant_img_fallback", "label": "變體沒有自己的圖時", "options": [ { "value": "sibling", "label": "借同姿勢的其他顏色照片＋標示示意" }, { "value": "alt", "label": "找 alt 含顏色字的媒體" } ], "default": "sibling" },
     { "type": "text", "id": "tag_text", "label": "示意標籤文字", "default": "示意圖，實品為 %s", "info": "%s 會換成顏色名" },
+    { "type": "select", "id": "variant_cards", "label": "變體當套餐卡片", "options": [ { "value": "auto", "label": "自動（單一選項且不是顏色／容量）" }, { "value": "always", "label": "一律" }, { "value": "never", "label": "不要" } ], "default": "auto" },
     { "type": "text", "id": "tabs", "label": "圖片分頁", "default": "產品:variant,細節:1,物品:items,影片:video", "info": "「標籤:來源」逗號分隔；來源 variant＝目前變體圖、數字＝第幾張媒體、items＝目前套餐與加購的物品、video＝第一支影片（沒有就不顯示）" },
     { "type": "header", "content": "服務卡" },
     { "type": "select", "id": "promo_pos", "label": "位置", "options": [ { "value": "bottom", "label": "套餐之後（底部）" }, { "value": "top", "label": "評分之後（頂部）" } ], "default": "bottom" },

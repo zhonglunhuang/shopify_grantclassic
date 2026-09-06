@@ -80,6 +80,7 @@
           t.classList.toggle('is-off', !v || !v.avail);
         });
       });
+      $$('[data-gi-vcard]', root).forEach(function (c) { var on = c.getAttribute('data-gi-vcard') === String(cur.id); c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
       bundleEls.forEach(function (b) { var k = b.getAttribute('data-bundle'); if (k === 'custom') return; var on = k === state.bundle; b.classList.toggle('is-on', on); if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', on); var p = $('[data-gi-bprice]', b); if (p) { var bp = bundlePrice(k); p.innerHTML = money(bp.now) + (bp.was > bp.now ? '<s>' + money(bp.was) + '</s>' : ''); } });
       var total = bundlePrice(state.bundle, true), n = onList().length, addPct = pctFor(total.n);
       addonRows.forEach(function (r) { var a = addons[r.getAttribute('data-gi-addon')]; r.setAttribute('aria-pressed', a.on); var now = $('[data-gi-adnow]', r), was = $('[data-gi-adwas]', r); var pct = a.on ? addPct : 0; if (now) tween(now, discounted(a.price, pct)); if (was) { was.hidden = !pct; was.textContent = money(a.price); } });
@@ -133,6 +134,8 @@
       });
     });
     function hasItemsTab() { return !!$('.gi__tab[data-src="items"]', root); }
+    // 變體當套餐卡：點了就是換變體
+    $$('[data-gi-vcard]', root).forEach(function (c) { c.addEventListener('click', function () { var v = variants.filter(function (x) { return String(x.id) === c.getAttribute('data-gi-vcard'); })[0]; if (!v) return; cur = v; sel = v.opts.slice(); render(); try { var u = new URL(location.href); u.searchParams.set('variant', v.id); history.replaceState({}, '', u); } catch (err) {} }); });
     bundleEls.forEach(function (b) { if (b.tagName === 'BUTTON') b.addEventListener('click', function () { state.bundle = b.getAttribute('data-bundle'); Object.keys(addons).forEach(function (h) { addons[h].on = (bundleAddons[state.bundle] || []).indexOf(h) >= 0; }); if (hasItemsTab()) state.view = 'items'; render(); }); });
     var tabs = $('[data-gi-tabs]', root); if (tabs) tabs.addEventListener('click', function (e) { var t = e.target.closest('.gi__tab'); if (!t) return; state.view = t.getAttribute('data-src'); render(); });
     var gift = $('.gi__gift .gi__cb', root); if (gift) gift.closest('.gi__gift').addEventListener('click', function (e) { if (e.target.closest('a')) return; gift.classList.toggle('is-on'); });
