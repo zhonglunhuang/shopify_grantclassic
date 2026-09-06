@@ -16,7 +16,7 @@
 {%- liquid
   assign s = section.settings
   assign cur = product.selected_or_first_available_variant
-  assign title = s.title_override | default: product.title
+  assign title = s.title_override | default: product.metafields.custom.short_title.value | default: product.title
   assign tiers = s.tiers | default: '5,10,15' | replace: ' ', '' | split: ','
   assign rc = product.metafields.reviews.rating_count | plus: 0
   assign rv = product.metafields.reviews.rating.value.rating | default: product.metafields.reviews.rating.value
@@ -24,7 +24,35 @@
   assign rv1 = rv | times: 1.0 | round: 1
   assign last_opt = product.options.size | minus: 1
   assign addon_list = s.addons | default: product.metafields.custom.addons.value | default: ''
-  assign addons = addon_list | replace: ' ', '' | split: ','
+  comment
+    套餐裡的配件一定要出現在加購清單裡（JS 靠那一列拿變體 id 與價格），所以把 blocks 與 custom.bundles 的 handle 併進來
+  endcomment
+  for block in section.blocks
+    if block.type == 'bundle' and block.settings.addons != blank
+      assign addon_list = addon_list | append: ',' | append: block.settings.addons
+    endif
+  endfor
+  assign mf_lines = product.metafields.custom.bundles.value | default: '' | newline_to_br | split: '<br />'
+  for line in mf_lines
+    assign parts = line | split: '|'
+    if parts.size > 1
+      assign addon_list = addon_list | append: ',' | append: parts[1]
+    endif
+  endfor
+  assign addon_raw = addon_list | replace: ' ', '' | split: ','
+  assign seen = '|'
+  assign addon_str = ''
+  for h in addon_raw
+    if h == blank
+      continue
+    endif
+    assign key = '|' | append: h | append: '|'
+    unless seen contains key
+      assign seen = seen | append: h | append: '|'
+      assign addon_str = addon_str | append: h | append: ','
+    endunless
+  endfor
+  assign addons = addon_str | split: ','
 -%}
 
 {%- comment -%} 變體資料給 JS：價格、原價、選項值、圖（沒有變體圖就找 alt 含顏色字的媒體） {%- endcomment -%}
@@ -33,6 +61,8 @@
   {%- assign vimg = '' -%}{%- assign own = true -%}
   {%- if v.featured_image -%}
     {%- assign vimg = v.featured_image | image_url: width: 1400 -%}
+  {%- elsif product.has_only_default_variant -%}
+    {%- assign vimg = product.featured_image | image_url: width: 1400 -%}
   {%- else -%}
     {%- assign own = false -%}
     {%- comment -%} 沒有自己的變體圖：先借「其他選項都一樣、只差顏色」的變體圖（同一個姿勢），再退回 alt 含顏色字的媒體 {%- endcomment -%}
@@ -56,6 +86,7 @@
 
 {%- comment -%} 主商品去背縮圖（套餐卡片用） {%- endcomment -%}
 {%- assign pcut = product.metafields.custom.cutout.value -%}
+{%- if pcut == blank -%}{%- capture pcut -%}{%- render 'gc-cutout-map', handle: product.handle -%}{%- endcapture -%}{%- assign pcut = pcut | strip -%}{%- endif -%}
 {%- if pcut == blank -%}{%- case product.handle -%}{%- when 'solid-state-power-bank-titanshield-10000mah' -%}{%- assign pcut = 'gc-mega-titanshield-10000mah.png' -%}{%- when 'solid-state-power-bank-titanshield-5000' -%}{%- assign pcut = 'gc-mega-titanshield-5000mah.png' -%}{%- when 'titanshield_10000' -%}{%- assign pcut = 'gc-mega-titanshield-pro.png' -%}{%- when 'titanshield-air' -%}{%- assign pcut = 'gc-mega-titanshield-air.png' -%}{%- endcase -%}{%- endif -%}
 {%- capture pthumb -%}{%- if pcut != blank -%}{{ pcut | file_url }}{%- elsif product.featured_image -%}{{ product.featured_image | image_url: width: 120 }}{%- endif -%}{%- endcapture -%}
 {%- comment -%} 白色款去背圖（物品分頁選白色時用）：「顏色值=檔名」，用 | 分隔 {%- endcomment -%}
@@ -66,7 +97,7 @@
 {%- comment -%} 加購配件列（自組套裝用）＋每個配件的價格表（預設組合的價格用） {%- endcomment -%}
 {%- capture addon_rows -%}
 {%- assign shown = 0 -%}
-{%- for h in addons limit: 6 -%}
+{%- for h in addons limit: 8 -%}
   {%- assign a = all_products[h] -%}
   {%- if a != blank and a.handle == h -%}
     {%- assign shown = shown | plus: 1 -%}
@@ -82,6 +113,7 @@
     {%- assign short = short | default: a.title | replace: 'grantclassic ', '' -%}
     {%- comment -%} 去背圖：檔案庫裡大選單用的 gc-mega-*.png（對照表 ~/grantclassic-ops/tw-cutout-map.json） {%- endcomment -%}
     {%- assign cut = a.metafields.custom.cutout.value -%}
+    {%- if cut == blank -%}{%- capture cut -%}{%- render 'gc-cutout-map', handle: h -%}{%- endcapture -%}{%- assign cut = cut | strip -%}{%- endif -%}
     {%- if cut == blank -%}{%- case h -%}
       {%- when 'grantclassic-apexvolt-pd30w-ganultra' -%}{%- assign cut = 'gc-mega-apexvolt-30w-charger.png' -%}
       {%- when 'flex-charging-cable-usb-c-to-usb-c-240w-100cm' -%}{%- assign cut = 'gc-mega-flex-usb-c-to-usb-c-240w-100cm.png' -%}
@@ -186,7 +218,18 @@
       <div class="gi__perks">
         {%- for block in perks -%}
           {%- assign b = block.settings -%}
-          {%- assign txt = b.text | escape | newline_to_br | replace: ' | ', '<i class="gi__sep"></i>' -%}
+          {%- assign src_text = b.text -%}
+          {%- if b.source == 'highlights' -%}
+            {%- comment -%} 商品賣點：先讀 metafield custom.highlights（一行一點），沒有就抓商品說明的 <li>，最多 4 條，跳過保固那種 {%- endcomment -%}
+            {%- assign src_text = product.metafields.custom.highlights.value -%}
+            {%- if src_text == blank -%}
+              {%- assign lis = product.description | split: '<li' -%}{%- assign picked = 0 -%}{%- capture src_text -%}
+              {%- for li in lis offset: 1 -%}{%- assign txt1 = li | split: '</li>' | first | replace_first: '>', '|||' | split: '|||' | last | strip_html | strip -%}{%- if txt1 == blank or txt1 contains '保固' or txt1 contains 'BSMI' or txt1 contains 'NCC' -%}{%- continue -%}{%- endif -%}{%- if picked >= 4 -%}{%- break -%}{%- endif -%}{%- assign picked = picked | plus: 1 -%}{%- if picked > 1 -%}||{%- endif -%}{{ txt1 }}{%- endfor -%}
+              {%- endcapture -%}{%- assign src_text = src_text | strip -%}
+            {%- endif -%}
+            {%- if src_text == blank -%}{%- continue -%}{%- endif -%}
+          {%- endif -%}
+          {%- assign txt = src_text | escape | newline_to_br | replace: '||', '<br />' | replace: ' | ', '<i class="gi__sep"></i>' -%}
           {%- if b.link_text != blank and b.url != blank -%}
             {%- assign lt = b.link_text | escape -%}
             {%- capture anchor -%}<a href="{{ b.url }}">{{ lt }}</a>{%- endcapture -%}
@@ -246,6 +289,7 @@
             {%- if pthumb != blank -%}<img loading="lazy" width="22" height="22" src="{{ pthumb }}" alt="">{%- endif -%}
             {%- for h in bh -%}{%- assign a = all_products[h] -%}{%- if a != blank and a.handle == h -%}{%- assign bcount = bcount | plus: 1 -%}{%- assign bsum = bsum | plus: a.selected_or_first_available_variant.price -%}
               {%- assign bcut = a.metafields.custom.cutout.value -%}
+              {%- if bcut == blank -%}{%- capture bcut -%}{%- render 'gc-cutout-map', handle: h -%}{%- endcapture -%}{%- assign bcut = bcut | strip -%}{%- endif -%}
               {%- if bcut == blank -%}{%- case h -%}{%- when 'grantclassic-apexvolt-pd30w-ganultra' -%}{%- assign bcut = 'gc-mega-apexvolt-30w-charger.png' -%}{%- when 'flex-charging-cable-usb-c-to-usb-c-240w-100cm' -%}{%- assign bcut = 'gc-mega-flex-usb-c-to-usb-c-240w-100cm.png' -%}{%- when 'gc-magaura' -%}{%- assign bcut = 'gc-mega-magaura-tumbler-710ml.png' -%}{%- when 'velvet-strap-pro-black' -%}{%- assign bcut = 'gc-mega-velvet-strap-pro.png' -%}{%- endcase -%}{%- endif -%}
               {%- if bcut != blank -%}<img loading="lazy" width="44" height="44" src="{{ bcut | file_url }}" alt="">{%- elsif a.featured_image -%}<img loading="lazy" width="44" height="44" src="{{ a.featured_image | image_url: width: 120 }}" alt="">{%- endif -%}
             {%- endif -%}{%- endfor -%}
@@ -263,6 +307,39 @@
               <span><span class="gi__bnm">{{ b.name }}</span><span class="gi__bpr" data-gi-bprice="{{ block.id }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
             </span>
             {%- if b.desc != blank -%}<div class="gi__bdet" aria-hidden="false"><div><ul class="gi__bul">{%- assign lines = b.desc | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
+          </button>
+        {%- endfor -%}
+
+        {%- comment -%} 商品自己的套餐：metafield custom.bundles，一行一組「名稱|配件handle,handle|說明句;說明句|角標」 {%- endcomment -%}
+        {%- assign mf_bundles = product.metafields.custom.bundles.value | default: '' | newline_to_br | split: '<br />' -%}
+        {%- for line in mf_bundles -%}
+          {%- assign parts = line | strip | split: '|' -%}
+          {%- if parts.size < 2 or parts[0] == blank -%}{%- continue -%}{%- endif -%}
+          {%- assign bname = parts[0] | strip -%}
+          {%- assign bh = parts[1] | replace: ' ', '' | split: ',' -%}
+          {%- assign bdesc = parts[2] | default: '' -%}
+          {%- assign bbadge = parts[3] | default: '' | strip -%}
+          {%- assign bsum = 0 -%}{%- assign bcount = 0 -%}
+          {%- capture bthumbs -%}
+            {%- if pthumb != blank -%}<img loading="lazy" width="22" height="22" src="{{ pthumb }}" alt="">{%- endif -%}
+            {%- for h in bh -%}{%- assign a = all_products[h] -%}{%- if a != blank and a.handle == h -%}{%- assign bcount = bcount | plus: 1 -%}{%- assign bsum = bsum | plus: a.selected_or_first_available_variant.price -%}
+              {%- capture bcut -%}{%- render 'gc-cutout-map', handle: h -%}{%- endcapture -%}{%- assign bcut = bcut | strip -%}
+              {%- if bcut != blank -%}<img loading="lazy" width="44" height="44" src="{{ bcut | file_url }}" alt="">{%- elsif a.featured_image -%}<img loading="lazy" width="44" height="44" src="{{ a.featured_image | image_url: width: 120 }}" alt="">{%- endif -%}
+            {%- endif -%}{%- endfor -%}
+          {%- endcapture -%}
+          {%- if bcount == 0 -%}{%- continue -%}{%- endif -%}
+          {%- assign ti = bcount | at_most: tiers.size | minus: 1 -%}
+          {%- assign pct = tiers[ti] | plus: 0 -%}
+          {%- assign off = 100 | minus: pct -%}
+          {%- assign bnow = bsum | times: off | divided_by: 100 | divided_by: 100 | times: 100 | plus: cur.price -%}
+          {%- assign bwas = bsum | plus: cur.price -%}
+          <button type="button" class="gi__bc" data-bundle="mf{{ forloop.index }}" data-addons="{{ parts[1] | replace: ' ', '' | escape }}" aria-pressed="false">
+            {%- if bbadge != blank -%}<span class="gi__badge">{{ bbadge }}</span>{%- endif -%}
+            <span class="gi__bch">
+              <span class="gi__bth gi__bth--multi">{{ bthumbs }}</span>
+              <span><span class="gi__bnm">{{ bname }}</span><span class="gi__bpr" data-gi-bprice="mf{{ forloop.index }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
+            </span>
+            {%- if bdesc != blank -%}<div class="gi__bdet"><div><ul class="gi__bul">{%- assign lines = bdesc | split: ';' -%}{%- for l in lines -%}{%- assign tt = l | strip -%}{%- if tt != blank -%}<li>{{ tt }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
           </button>
         {%- endfor -%}
 
@@ -355,7 +432,7 @@
     { "type": "text", "id": "std_name", "label": "標準組合名稱", "default": "標準組合" },
     { "type": "textarea", "id": "std_desc", "label": "標準組合說明（一行一點）" },
     { "type": "text", "id": "custom_name", "label": "加購區名稱", "default": "超值加購" },
-    { "type": "text", "id": "addons", "label": "加購配件 handle（逗號分隔）", "info": "空白就讀商品 metafield custom.addons" },
+    { "type": "text", "id": "addons", "label": "加購配件 handle（逗號分隔）", "info": "空白就讀商品後台的 custom.addons；套餐同理讀 custom.bundles（一行一組：名稱|配件handle,handle|說明;說明|角標）" },
     { "type": "text", "id": "tiers", "label": "加購折扣 %（1 件,2 件,3 件以上）", "default": "0,0,0", "info": "填 0,0,0 就不顯示折扣；填數字前要先在後台建對應的自動折扣，不然畫面說省、結帳沒省" },
     { "type": "header", "content": "免費贈送" },
     { "type": "text", "id": "gift_title", "label": "標題", "default": "免費贈送 一年延長保固" },
@@ -370,6 +447,7 @@
       "type": "perk", "name": "權益一列",
       "settings": [
         { "type": "select", "id": "icon", "label": "圖示", "options": [ { "value": "points", "label": "點數" }, { "value": "box", "label": "出貨" }, { "value": "sparkle", "label": "亮點" }, { "value": "tag", "label": "標籤" }, { "value": "shield", "label": "保固" }, { "value": "device", "label": "新品" } ], "default": "box" },
+        { "type": "select", "id": "source", "label": "文字來源", "options": [ { "value": "manual", "label": "自己填" }, { "value": "highlights", "label": "商品賣點（metafield custom.highlights，沒有就抓說明的條列）" } ], "default": "manual" },
         { "type": "textarea", "id": "text", "label": "文字", "info": "換行照排；「 | 」會變成細直線分隔" },
         { "type": "text", "id": "link_text", "label": "文字裡要變連結的字", "info": "空白＋有連結＝整列可點、右邊出現箭頭" },
         { "type": "url", "id": "url", "label": "連結" }
