@@ -9,118 +9,69 @@
  */
 {
   "sections": {
-    "1721752751939b7d14": {
-      "type": "apps",
-      "settings": {
-        "include_horizontal_margins": false,
-        "include_vertical_margins": false
-      }
-    },
     "main": {
-      "type": "main-product",
+      "type": "gc-i360-buy",
       "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "disabled": true,
+        "perk_ship": {
+          "type": "perk",
           "settings": {
-            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
-            "image_alignment": "left",
-            "image_width": 370
+            "icon": "box",
+            "source": "manual",
+            "text": "今天下單，下一個工作天出貨。\n滿 490 元免運 | 7 天鑑賞期\n一年保固 | 登錄延長為兩年",
+            "link_text": "",
+            "url": "/policies/shipping-policy"
           }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
+        "perk_hl": {
+          "type": "perk",
           "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+            "icon": "sparkle",
+            "source": "highlights",
+            "text": "",
+            "link_text": "",
+            "url": ""
           }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
+        "perk_corp": {
+          "type": "perk",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
+            "icon": "tag",
+            "source": "manual",
+            "text": "限時企業客製，熱門商品 60 件起就能印上你的 logo。",
+            "link_text": "企業客製",
+            "url": "/pages/corporate"
           }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "liquid_hpmDVh": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
-        },
-        "vitals_ub_product_bundles_6q9X7a": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        },
-        "judgeme_badge": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
         }
       },
       "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "judgeme_badge",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_hpmDVh",
-        "vitals_ub_product_bundles_6q9X7a"
-      ],
-      "custom_css": [],
-      "settings": {
-        "show_vendor": true,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": true,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
-      }
-    },
-    "17339957580d14b91e": {
-      "type": "apps",
-      "blocks": {
-        "vitals_ub_product_bundles_xKNKpV": {
-          "type": "shopify://apps/vitals/blocks/ub-product-bundles/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vitals_ub_product_bundles_xKNKpV"
+        "perk_ship",
+        "perk_hl",
+        "perk_corp"
       ],
       "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
+        "title_override": "",
+        "right_pct": 40,
+        "tabs": "產品:variant,細節:2,物品:items,影片:video",
+        "promo_title": "加入 GC Club，下單就累點",
+        "promo_text": "消費累點 | 點數折現 | 會員專屬優惠",
+        "promo_link": "",
+        "promo_url": "/pages/gc-member-points",
+        "bundle_label": "套餐",
+        "contents_label": "",
+        "contents_url": "",
+        "std_name": "標準組合",
+        "std_desc": "",
+        "custom_name": "超值加購",
+        "addons": "",
+        "tiers": "0,0,0",
+        "gift_title": "免費贈送 一年延長保固",
+        "gift_text": "登錄序號即享，保固從一年延長為兩年。",
+        "gift_url": "/pages/warranty-policy",
+        "cta_label": "加入購物車",
+        "cta_style": "red",
+        "promo_icon": "club",
+        "promo_style": "dark",
+        "promo_pos": "bottom"
       }
     },
     "17217886296359dc4e": {
@@ -843,9 +794,7 @@
     }
   },
   "order": [
-    "1721752751939b7d14",
     "main",
-    "17339957580d14b91e",
     "17217886296359dc4e",
     "product-content",
     "slideshow_NaTUfJ",

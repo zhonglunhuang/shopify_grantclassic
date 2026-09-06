@@ -10,100 +10,68 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "gc-i360-buy",
       "blocks": {
-        "10eed426-c481-4651-8503-74a9f6dc6018": {
-          "type": "image",
-          "disabled": true,
+        "perk_ship": {
+          "type": "perk",
           "settings": {
-            "image": "shopify://shop_images/01_4cf53696-cda3-4fab-b984-c22e673f0dee.png",
-            "image_alignment": "left",
-            "image_width": 370
+            "icon": "box",
+            "source": "manual",
+            "text": "今天下單，下一個工作天出貨。\n滿 490 元免運 | 7 天鑑賞期\n一年保固 | 登錄延長為兩年",
+            "link_text": "",
+            "url": "/policies/shipping-policy"
           }
         },
-        "df999a05-d00f-4f60-87d3-401d4a092ce9": {
-          "type": "text",
+        "perk_hl": {
+          "type": "perk",
           "settings": {
-            "text": "{{ product.metafields.custom._000test | metafield_tag }}"
+            "icon": "sparkle",
+            "source": "highlights",
+            "text": "",
+            "link_text": "",
+            "url": ""
           }
         },
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f": {
-          "type": "text",
+        "perk_corp": {
+          "type": "perk",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.productcontent | metafield_tag }}</p>"
-          }
-        },
-        "photo_variant_picker_WwtNct": {
-          "type": "photo_variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_mode": "block",
-            "color_mode": "color",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "atc_button_background": "rgba(0,0,0,0)",
-            "atc_button_text_color": "rgba(0,0,0,0)",
-            "buy_now_button_background": "rgba(0,0,0,0)",
-            "buy_now_button_text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "liquid_MT6Knp": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<div id=\"bundle-volume-discounts\"></div>"
-          }
-        },
-        "ts_jdgm_css": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "{{ 'ts-jdgm.css' | asset_url | stylesheet_tag }}"
+            "icon": "tag",
+            "source": "manual",
+            "text": "限時企業客製，熱門商品 60 件起就能印上你的 logo。",
+            "link_text": "企業客製",
+            "url": "/pages/corporate"
           }
         }
       },
       "block_order": [
-        "10eed426-c481-4651-8503-74a9f6dc6018",
-        "df999a05-d00f-4f60-87d3-401d4a092ce9",
-        "ba19c616-9095-4235-9a36-d7b6ce8fa22f",
-        "photo_variant_picker_WwtNct",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "liquid_MT6Knp",
-        "ts_jdgm_css"
+        "perk_ship",
+        "perk_hl",
+        "perk_corp"
       ],
       "settings": {
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": false,
-        "show_product_rating": false,
-        "show_sticky_add_to_cart": true,
-        "show_share_buttons": false,
-        "related_collections": "{{ product.metafields.custom.attributes.value }}",
-        "help_page": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "show_thumbnails_on_mobile": false,
-        "desktop_thumbnails_position": "left",
-        "transition_effect": "slide"
+        "title_override": "",
+        "right_pct": 40,
+        "tabs": "產品:variant,細節:2,物品:items,影片:video",
+        "promo_title": "加入 GC Club，下單就累點",
+        "promo_text": "消費累點 | 點數折現 | 會員專屬優惠",
+        "promo_link": "",
+        "promo_url": "/pages/gc-member-points",
+        "bundle_label": "套餐",
+        "contents_label": "",
+        "contents_url": "",
+        "std_name": "標準組合",
+        "std_desc": "",
+        "custom_name": "超值加購",
+        "addons": "",
+        "tiers": "0,0,0",
+        "gift_title": "免費贈送 一年延長保固",
+        "gift_text": "登錄序號即享，保固從一年延長為兩年。",
+        "gift_url": "/pages/warranty-policy",
+        "cta_label": "加入購物車",
+        "cta_style": "red",
+        "promo_icon": "club",
+        "promo_style": "dark",
+        "promo_pos": "bottom"
       }
     },
     "slideshow_FB97hy": {
