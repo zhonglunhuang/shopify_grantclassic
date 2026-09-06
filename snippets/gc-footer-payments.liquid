@@ -1,0 +1,15 @@
+{%- comment -%}
+  頁尾「支付付款方式」（2026-09-06 Mars 拍板照犀牛盾）：放在社群欄下面，標題＋一排圖示。
+  圖示是犀牛盾官網用的同一套 SVG（38×24，自帶白底圓角），存在 assets/gc-pay-*.svg。
+  支援項目＝犀牛盾那排扣掉一卡通（iPass）：Visa、Mastercard、JCB、LINE Pay、街口支付、Apple Pay、Google Pay。
+{%- endcomment -%}
+{%- assign pays = 'visa:Visa,master_card:Mastercard,jcb:JCB,line_pay:LINE Pay,jko_pay:街口支付,apple_pay:Apple Pay,google_pay:Google Pay' | split: ',' -%}
+<div class="gc-footer__pay">
+  {%- if title != blank -%}<p class="footer__item-title heading heading--small gc-footer__pay-title">{{ title | escape }}</p>{%- endif -%}
+  <ul class="gc-footer__pay-list" role="list">
+    {%- for p in pays -%}
+      {%- assign parts = p | split: ':' -%}
+      <li><img src="{{ parts[0] | prepend: 'gc-pay-' | append: '.svg' | asset_url }}" alt="{{ parts[1] }}" width="38" height="24" loading="lazy" decoding="async"></li>
+    {%- endfor -%}
+  </ul>
+</div>

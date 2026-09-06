@@ -161,7 +161,16 @@
 <section class="sect light sect--tight ts-end">
   <div class="wrap rise">
     {%- render 'ts-logo' -%}
-    <h2>{{ section.settings.end_heading }}</h2>
+    {%- comment -%}句尾的「.」用品牌紅、放大 1.3 倍（Mars 2026-09-06，跟頁尾宗旨一致）{%- endcomment -%}
+    {%- assign gc_h = section.settings.end_heading | strip -%}
+    {%- assign gc_last = gc_h | slice: -1 -%}
+    {%- if gc_last == '.' -%}
+      {%- assign gc_len = gc_h.size | minus: 1 -%}
+      <h2>{{ gc_h | slice: 0, gc_len }}<span class="gc-dot">.</span></h2>
+    {%- else -%}
+      <h2>{{ gc_h }}</h2>
+    {%- endif -%}
+    <style>.gc-dot{ color:#e84448 !important; font-size:1.3em !important; line-height:0 !important; }</style>
     <p class="lede">{{ section.settings.end_text }}</p>
   </div>
 </section>

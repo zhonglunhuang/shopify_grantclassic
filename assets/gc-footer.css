@@ -30,14 +30,14 @@
   /* 寬度完全交給主題的 .container（snippet 裡包了一層），這裡只管邊線與排列。
      自己用 calc 算過一版：桌機對得上、手機差 19px——因為主題的 .container
      在手機是 width:90% ＋ margin:auto，不是單純的 gutter（2026-08-29 實測）。 */
-  padding:26px 0 34px;
+  padding:28px 0;
   border-top:1px solid rgba(var(--gc-lb-ink,255,255,255),.16);
   display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:18px 32px;
-  flex-wrap:wrap;
+  flex-direction:column;
+  gap:14px;
 }
+/* 兩列：每列左右各一組，基線對齊 */
+.gc-legalbar__row{ display:flex; align-items:center; justify-content:space-between; gap:12px 32px; flex-wrap:wrap; }
 
 .gc-legalbar__links{ display:flex; gap:22px; flex-wrap:wrap; }
 
@@ -87,8 +87,7 @@
      顏色是連續的，不會看起來像下面多了一塊莫名的空白
      （2026-08-29 Mars 在實機上看到）。沒有安全區的裝置就是 18px。 */
   .gc-legalbar__inner{
-    flex-direction:column;
-    gap:12px;
+    gap:14px;
     padding:20px 0 max(18px, env(safe-area-inset-bottom, 0px));
   }
   /* 連結列原本佔 3 行，收緊間距讓它收成 2 行 */
@@ -173,9 +172,23 @@ a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
 }
 
 /* 版權行與地區選擇器放同一組，靠右。手機上疊成上下。 */
+/* 右邊：版權句＋地區選擇器同一列，手機疊成上下 */
 .gc-legalbar__right{ display:flex; align-items:center; gap:34px; }
+@media (max-width:749px){ .gc-legalbar__right{ flex-direction:column; align-items:flex-start; gap:10px; } }
+/* 主題社群欄自帶的一行 Copyright 跟底欄重複（2026-09-06 只留底欄那一份） */
+.footer .ako-copy-rights{ display:none !important; }
+/* 公司資訊行（2026-09-06 從頁尾「聯絡我們」欄位併過來）：跟版權行同字級，亮一階；每段不斷行 */
+.gc-legalbar__company{ margin:0; font-size:var(--gc-t-footer,13px); line-height:1.55; color:rgba(var(--gc-lb-ink,255,255,255),.55); }
+.gc-legalbar__company > span{ white-space:nowrap; }
+/* 欄標題不要被主題轉成大寫（「關於 grantclassic」品牌名是小寫） */
+.footer .footer__item-title{ text-transform:none !important; }
+.gc-legalbar__company a{ color:inherit; text-decoration:none; }
+.gc-legalbar__company a:hover{ color:rgba(var(--gc-lb-ink,255,255,255),.95); }
 @media (max-width:749px){
-  .gc-legalbar__right{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .gc-legalbar__row{ flex-direction:column; align-items:flex-start; gap:10px; }
+  /* 手機：五段用間距排開、不畫「｜」，換行時就不會有分隔線掛在行尾 */
+  .gc-legalbar__company{ line-height:1.7; display:flex; flex-wrap:wrap; column-gap:14px; row-gap:0; }
+  .gc-legalbar__company .gc-legalbar__sep{ display:none; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -213,3 +226,32 @@ a.gc-region__opt:hover{ background:#f4f5f7; text-decoration:none; }
 /* available-but-not-current region is an <a>; the footer's white link color made its name invisible on the white panel */
 .gc-region__panel a.gc-region__opt, .gc-region__panel a.gc-region__opt:visited, .gc-region__panel a.gc-region__opt .gc-region__name { color:#1d1d1f; }
 .gc-region__panel a.gc-region__opt .gc-region__lang { color:#86868b; }
+
+/* ═══════════════════════════════════════════════════════════════
+   左下角品牌區＋付款方式（2026-09-06，Mars 拍板照犀牛盾）
+   ═══════════════════════════════════════════════════════════════ */
+.gc-footer__brand{ display:flex; flex-direction:column; align-items:flex-start; gap:14px; color:#fff; }
+.gc-footer__logo{ display:block; color:#fff !important; text-decoration:none !important; line-height:0; }
+.gc-footer__logo svg{ width:min(var(--w,300px),100%); height:auto; display:block; }
+/* 字級加 !important：頁尾字級那組規則（下面「頁尾字級」段）會把 p 壓成 13px */
+.footer .gc-footer__tagline{ margin:0 !important; font-size:22px !important; line-height:1.3 !important; font-weight:600 !important; letter-spacing:-.01em; color:#fff !important; white-space:nowrap; }
+/* 沒有 logo 的版本（2026-09-06 Mars 拍板照 TORRAS）：宗旨當主角，英文 34px 特粗、中文副句 15px 灰 */
+.footer .gc-footer__brand--nologo{ gap:10px; padding-top:2px; }
+/* 2026-09-06 Mars 比過 Noto Sans TC 後決定用原本的字型（G 的字形不一樣），只留大顆紅句點 */
+.footer .gc-footer__brand--nologo .gc-footer__tagline{ font-size:36px !important; line-height:1.15 !important; font-weight:700 !important; letter-spacing:-.02em; }
+/* 加 !important：頁尾字級那組規則會把 span 壓成 13px */
+.footer .gc-footer__tagline .gc-footer__dot{ color:#e84448 !important; font-size:1.3em !important; line-height:0 !important; }
+.footer .gc-footer__tagline-zh{ margin:0 !important; font-size:15px !important; line-height:1.6 !important; font-weight:400 !important; color:rgba(255,255,255,.62) !important; white-space:nowrap; }
+.gc-footer__pay{ margin-top:28px; }
+.gc-footer__pay-title{ margin:0 0 12px !important; }
+.gc-footer__pay-list{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+.gc-footer__pay-list li{ display:block; line-height:0; }
+.gc-footer__pay-list img{ width:38px; height:24px; display:block; border-radius:3px; }
+@media (max-width:749px){
+  .gc-footer__brand{ gap:10px; }
+  .gc-footer__logo svg{ width:min(var(--w,300px),72vw); }
+  .footer .gc-footer__tagline{ font-size:19px !important; }
+  .footer .gc-footer__brand--nologo .gc-footer__tagline{ font-size:28px !important; }
+  .footer .gc-footer__tagline-zh{ font-size:14px !important; }
+  .gc-footer__pay{ margin-top:22px; }
+}

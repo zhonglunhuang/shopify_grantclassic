@@ -24,7 +24,32 @@
           {%- capture block_content -%}
             {%- case block.type -%}
               {%- when 'image' -%}
-                {%- if block.settings.image != blank -%}
+                {%- comment -%}
+                  gc 2026-09-06：左下角改成「白色 logo（內嵌 SVG，跟頂欄同一份）＋品牌宗旨」一上一下（Mars 拍板）。
+                  原本的圖片是 logo 跟付款圖示合成的一整張；付款圖示搬到社群欄下面另外畫。
+                  關掉 section 設定「用內嵌 logo」就回到原本的圖片。
+                {%- endcomment -%}
+                {%- if section.settings.gc_svg_logo -%}
+                  {%- comment -%}
+                    2026-09-06 Mars 拍板照 TORRAS：頁尾不放 logo（頂欄已經有），直接放宗旨「It's got you covered.」
+                    ＋一行中文「該顧的，都有它顧著。」（台灣站）。想把 logo 加回來就把「頁尾顯示 logo」打開。
+                  {%- endcomment -%}
+                  <div class="gc-footer__brand{% unless section.settings.gc_footer_logo %} gc-footer__brand--nologo{% endunless %}" style="--w: {{ block.settings.image_width }}px">
+                    {%- if section.settings.gc_footer_logo -%}<a class="gc-footer__logo" href="{{ routes.root_url }}" aria-label="grantclassic">{% render 'ts-logo' %}</a>{%- endif -%}
+                    {%- if section.settings.gc_tagline != blank -%}
+                      {%- comment -%}句尾的「.」用品牌紅（Mars 2026-09-06）：整個頁尾唯一的一點顏色{%- endcomment -%}
+                      {%- assign gc_tl = section.settings.gc_tagline | strip -%}
+                      {%- assign gc_last = gc_tl | slice: -1 -%}
+                      {%- if gc_last == '.' -%}
+                        {%- assign gc_len = gc_tl.size | minus: 1 -%}
+                        <p class="gc-footer__tagline">{{ gc_tl | slice: 0, gc_len | escape }}<span class="gc-footer__dot">.</span></p>
+                      {%- else -%}
+                        <p class="gc-footer__tagline">{{ gc_tl | escape }}</p>
+                      {%- endif -%}
+                    {%- endif -%}
+                    {%- if section.settings.gc_tagline_zh != blank -%}<p class="gc-footer__tagline-zh">{{ section.settings.gc_tagline_zh | escape }}</p>{%- endif -%}
+                  </div>
+                {%- elsif block.settings.image != blank -%}
                   <img style="width: {{ block.settings.image_width }}px" loading="lazy" sizes="{{ block.settings.image_width }}px" class="footer__image" {% render 'image-attributes', image: block.settings.image, sizes: '100, 200, 300, 400, 500, 600' %}>
                 {%- endif -%}
 
@@ -68,6 +93,7 @@
 
                   {%- render 'social-media' -%}
                   <p class="ako-copy-rights">Copyright © grantclassic All Rights Reserved.</p>
+                  {%- if section.settings.gc_payments_title != blank -%}{%- render 'gc-footer-payments', title: section.settings.gc_payments_title -%}{%- endif -%}
                 </div>
 
               {%- when 'newsletter' -%}
@@ -248,6 +274,40 @@
     "class": "shopify-section--footer",
     "max_blocks": 5,
     "settings": [
+      {
+        "type": "header",
+        "content": "gc 左下角品牌與付款方式（2026-09-06）"
+      },
+      {
+        "type": "checkbox",
+        "id": "gc_svg_logo",
+        "label": "左下角用內嵌白色 logo（取代圖片）",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "gc_footer_logo",
+        "label": "頁尾顯示 logo（關掉就只有宗旨，照 TORRAS）",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "gc_tagline",
+        "label": "品牌宗旨（英文）",
+        "default": "It's got you covered."
+      },
+      {
+        "type": "text",
+        "id": "gc_tagline_zh",
+        "label": "品牌宗旨（中文副句）",
+        "default": "該顧的，都有它顧著。"
+      },
+      {
+        "type": "text",
+        "id": "gc_payments_title",
+        "label": "付款方式標題（留空就不顯示）",
+        "default": "支付付款方式"
+      },
       {
         "type": "checkbox",
         "id": "show_payment_icons",

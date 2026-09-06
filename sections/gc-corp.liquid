@@ -1,0 +1,202 @@
+{%- comment -%}
+  gc-corp.liquid — 企業客製／禮贈品頁 v3（2026-09-06，Mars：v2 太擠；參考 TORRAS Club 的節奏——白底、置中、一段一件事、三步圓圈、淺灰商品卡、只留一段深色）
+  用在 templates/page.gc-corp.json。文字與數字都在 schema，主題編輯器可改。
+  圖片先用主題既有情境照與大選單去背圖；雷雕／UV 實拍照之後補。
+{%- endcomment -%}
+{{ 'gc-corp.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+{%- assign line = s.line_url | default: 'https://lin.ee/oiQ4L3y' -%}
+{%- capture line_icon -%}<svg class="cp-line__ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C6.5 2.5 2 6.1 2 10.6c0 4 3.6 7.4 8.4 8 .3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8.1-6 1.5-1.6 2.2-3.3 2.2-5C22 6.1 17.5 2.5 12 2.5zM8.2 13.2H6.1c-.3 0-.5-.2-.5-.5V8.9c0-.3.2-.5.5-.5s.5.2.5.5v3.3h1.6c.3 0 .5.2.5.5s-.2.5-.5.5zm1.9-.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.9c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm4.6 0c0 .2-.1.4-.3.5h-.2c-.2 0-.3-.1-.4-.2l-2-2.7v2.4c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.9c0-.2.1-.4.3-.5h.2c.2 0 .3.1.4.2l2 2.7V8.9c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm3.2-2.4c.3 0 .5.2.5.5s-.2.5-.5.5h-1.6v1h1.6c.3 0 .5.2.5.5s-.2.5-.5.5h-2.1c-.3 0-.5-.2-.5-.5V8.9c0-.3.2-.5.5-.5h2.1c.3 0 .5.2.5.5s-.2.5-.5.5h-1.6v1h1.6z"/></svg>{%- endcapture -%}
+
+<div class="cp" id="corp">
+
+  {%- comment -%} 01 橫幅 v4（Mars 2026-09-06）：灰底＋一個背背包的人、產品掛在背包上帶客戶 logo；文字壓在圖上左側，一句有敘述感的話 {%- endcomment -%}
+  <section class="cp-hero" id="cp-top" style="--img:url('{{ s.hero_image | asset_url }}');--img-m:url('{{ s.hero_image_m | asset_url }}')">
+    <div class="cp-hero__in">
+      <div class="cp-hero__text">
+        <p class="cp-eyebrow">企業客製 · 禮贈品</p>
+        <h1 class="cp-h1">{{ s.hero_title }}</h1>
+        <p class="cp-hero__lead">{{ s.hero_lead }}</p>
+        <div class="cp-btns">
+          <a class="cp-line" href="{{ line }}" target="_blank" rel="noopener">{{ line_icon }}<span>LINE 詢問客製</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 分頁列：黏在頁首下面，右邊帶按鈕（TORRAS 的做法） {%- endcomment -%}
+  <nav class="cp-tabs" aria-label="頁內導覽">
+    <div class="cp-tabs__in">
+      <a href="#cp-how">怎麼進行</a>
+      <a href="#cp-products">可客製商品</a>
+      <a href="#cp-methods">印法</a>
+      <a href="#cp-faq">常見問題</a>
+      <a class="cp-line cp-line--sm" href="{{ line }}" target="_blank" rel="noopener">{{ line_icon }}<span>LINE 詢問</span></a>
+    </div>
+  </nav>
+
+  {%- comment -%} 02 怎麼進行：三個圓圈 {%- endcomment -%}
+  {%- comment -%} 01b 品牌 logo 列（Filo 的做法：一排灰色單色商標） {%- endcomment -%}
+  <section class="cp-logos" aria-label="合作品牌">
+    <div class="cp-wrap">
+      {%- render 'gc-corp-logos' -%}
+    </div>
+  </section>
+
+  <section class="cp-how" id="cp-how">
+    <div class="cp-wrap">
+      <h2 class="cp-h2">三步，logo 就印好了。</h2>
+    </div>
+    <ol class="cp-circles" role="list">
+      <li><em>1</em><strong>用 LINE 傳需求</strong><span>想印的商品、數量、希望收到的日期、logo 檔。</span></li>
+      <li><em>2</em><strong>看示意圖，確認報價</strong><span>{{ s.reply_days }} 個工作天內回你 logo 放上去的樣子和價格，確認後付訂金五成。</span></li>
+      <li><em>3</em><strong>生產、品檢、出貨</strong><span>確認後約 {{ s.lead_days }} 天出貨。量產前先拍樣品給你確認，再印其餘。</span></li>
+    </ol>
+    <ul class="cp-facts" role="list">
+      <li><b>{{ s.moq_laser }}<small>件起</small></b><span><i>熱門商品</i><i>起訂量</i></span></li>
+      <li><b>{{ s.reply_days }}<small>個工作天</small></b><span><i>回覆報價</i><i>與示意圖</i></span></li>
+      <li><b>{{ s.lead_days }}<small>天</small></b><span>確認後出貨</span></li>
+      <li><b>5<small>成</small></b><span><i>訂金，</i><i>出貨前付清尾款</i></span></li>
+    </ul>
+  </section>
+
+  {%- comment -%} 03 可客製商品：淺灰卡 {%- endcomment -%}
+  <section class="cp-products" id="cp-products">
+    <div class="cp-wrap">
+      <h2 class="cp-h2">全官網的商品，都能印上你的 logo。</h2>
+      <p class="cp-lead">每一支的起訂量不一樣。先看最常被選的六支，其他商品直接 LINE 問，我們告訴你能印哪裡、幾件起。</p>
+    </div>
+    <ul class="cp-grid" role="list">
+      {%- assign items = "titanshield-pro|穩如鈦山 Pro|鋁殼雷雕 · 背面正中|" | append: s.moq_laser | append: ",titanshield-air|穩如鈦山 Air|鋁殼雷雕 · 背面正中|" | append: s.moq_laser | append: ",magaura-tumbler-710ml|磁杯為懷 MagAura|杯身雷雕 · 正面|" | append: s.moq_laser | append: ",gc-tag|找得到 GC-Tag|正面 UV 全彩印刷|" | append: s.moq_uv | append: ",velvet-strap-pro|繩來運轉 Velvet Strap|織標織字|100,apexvolt-30w-charger|充滿快樂 ApexVolt 30W|側面 UV 單色印刷|" | append: s.moq_uv -%}
+      {%- assign rows = items | split: ',' -%}
+      {%- for row in rows -%}
+        {%- assign f = row | split: '|' -%}
+        {%- assign fn = 'gc-mega-' | append: f[0] | append: '.png' -%}
+        <li class="cp-prod">
+          <span class="cp-prod__img"><img src="{{ fn | file_url }}" alt="{{ f[1] }}" loading="lazy" width="320" height="320"></span>
+          <span class="cp-prod__t">{{ f[1] }}</span>
+          <span class="cp-prod__d">{{ f[2] }}</span>
+          <span class="cp-prod__m">{{ f[3] }} 件起</span>
+          <a class="cp-prod__go" href="{{ line }}" target="_blank" rel="noopener">LINE 詢問這支 <span aria-hidden="true">›</span></a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+
+  {%- comment -%} 04 三種用途：三張情境照 {%- endcomment -%}
+  <section class="cp-uses">
+    <div class="cp-wrap">
+      <h2 class="cp-h2">送給誰，我們都有對的那一支。</h2>
+      <p class="cp-lead">下面都是我們幫品牌做過的樣子。logo 放上去，東西就變成他們的了。</p>
+    </div>
+    <div class="cp-uses__row">
+      <a class="cp-use" href="{{ line }}" target="_blank" rel="noopener" style="--img:url('{{ s.use1_image | asset_url }}')">
+        <span class="cp-use__t">員工禮</span><span class="cp-use__d">到職、年終、生日。掛在背包上，天天跟著走。</span>
+      </a>
+      <a class="cp-use" href="{{ line }}" target="_blank" rel="noopener" style="--img:url('{{ s.use2_image | asset_url }}')">
+        <span class="cp-use__t">客戶贈禮</span><span class="cp-use__d">年節、簽約、VIP。放在客戶桌上一整年的品牌露出。</span>
+      </a>
+      <a class="cp-use" href="{{ line }}" target="_blank" rel="noopener" style="--img:url('{{ s.use3_image | asset_url }}')">
+        <span class="cp-use__t">活動與車隊</span><span class="cp-use__d">展會贈品、外送車隊。鑰匙圈上的 logo，每天都被看到。</span>
+      </a>
+      <a class="cp-use cp-use--wide" href="{{ line }}" target="_blank" rel="noopener" style="--img:url('{{ s.use4_image | asset_url }}')">
+        <span class="cp-use__t">差旅與出國</span><span class="cp-use__d">行李吊牌一掛，機場裡最好認的就是你們家的行李。</span>
+      </a>
+      <a class="cp-use cp-use--wide" href="{{ line }}" target="_blank" rel="noopener" style="--img:url('{{ s.use5_image | asset_url }}')">
+        <span class="cp-use__t">隨身日常</span><span class="cp-use__d">鑰匙、手機、錢包。小小一顆，露出的次數比任何廣告都多。</span>
+      </a>
+    </div>
+  </section>
+
+  {%- comment -%} 05 印法：兩張淺灰卡 {%- endcomment -%}
+  <section class="cp-methods" id="cp-methods">
+    <div class="cp-wrap">
+      <h2 class="cp-h2">兩種印法，看商品材質選。</h2>
+    </div>
+    <div class="cp-methods__row">
+      <div class="cp-method">
+        <p class="cp-eyebrow">雷雕</p>
+        <h3 class="cp-h3">刻進金屬裡，不會掉。</h3>
+        <p class="cp-method__d">鋁殼與不鏽鋼杯身用雷射刻上 logo。單色、細線條也清楚，用一年還是一樣。</p>
+        <img class="cp-method__img" src="{{ 'gc-mega-titanshield-air.png' | file_url }}" alt="穩如鈦山 Air" loading="lazy" width="480" height="480">
+      </div>
+      <div class="cp-method">
+        <p class="cp-eyebrow">UV 印刷</p>
+        <h3 class="cp-h3">全彩，連漸層都印得出來。</h3>
+        <p class="cp-method__d">追蹤器與充電器用 UV 印刷，可以印你完整的品牌色。先給示意圖，確認再印。</p>
+        <img class="cp-method__img" src="{{ 'gc-mega-gc-tag.png' | file_url }}" alt="GC-Tag" loading="lazy" width="480" height="480">
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} 06 為什麼放心：文字格（TORRAS「Why join」的做法） {%- endcomment -%}
+  <section class="cp-why">
+    <div class="cp-wrap">
+      <h2 class="cp-h2">送出去的東西，要經得起檢查。</h2>
+    </div>
+    <ul class="cp-why__grid" role="list">
+      <li><b>台灣認證</b><span><i class="cp-nw">行動電源 BSMI、</i><i class="cp-nw">追蹤器 NCC，</i>證號都在商品頁。</span></li>
+      <li><b>全台 200 多家授權門市</b><span>收禮的人在門市就能看到同一支商品。</span></li>
+      <li><b>保固一樣</b><span>客製品同享一年保固，登錄延長到兩年。</span></li>
+      <li><b>報價一次講清楚</b><span>含印製、含運費、含稅開統編發票。報價多少就是多少，不會事後追加。</span></li>
+      <li><b>先小量，補單不重做</b><span>60 件就能開始。logo 檔我們留著，之後補單同樣的價、不用重跑一次。</span></li>
+      <li><b>瑕疵換新</b><span>印壞的算我們的，換新不囉嗦。</span></li>
+    </ul>
+  </section>
+
+  {%- comment -%} 07 深色帶：傳需求要準備的三樣（TORRAS「Refer a friend」的排法） {%- endcomment -%}
+  <section class="cp-cta">
+    <div class="cp-wrap">
+      <h2 class="cp-h2 cp-h2--light">把需求傳到 LINE，{{ s.reply_days }} 個工作天內回你報價。</h2>
+      <p class="cp-lead cp-lead--light">準備這三樣就夠。</p>
+    </div>
+    <ul class="cp-cta__cards" role="list">
+      <li><b>想印的商品與數量</b><span>官網任何一支都行，數量依你的預算，我們幫你配。</span></li>
+      <li><b>希望收到的日期</b><span>我們回你做不做得到，急件先說。</span></li>
+      <li><b>logo 檔</b><span><i class="cp-nw">AI、EPS 或 PDF</i> 最好，<i class="cp-nw">只有 PNG</i> 也能先做示意圖。</span></li>
+    </ul>
+    <div class="cp-btns"><a class="cp-line cp-line--big" href="{{ line }}" target="_blank" rel="noopener">{{ line_icon }}<span>加 LINE 好友，開始詢問</span></a></div>
+  </section>
+
+  {%- comment -%} 08 常見問題 {%- endcomment -%}
+  <section class="cp-faq" id="cp-faq">
+    <div class="cp-faq__in">
+      <h2 class="cp-faq__h">常見問題</h2>
+      <p class="cp-faq__lead">關於起訂量、交期、logo 格式、付款與保固。</p>
+      <div class="cp-faq__list">
+      <details><summary>最少要訂幾個？低於起訂量怎麼辦？</summary><p>熱門商品雷雕與 UV 印刷都是 {{ s.moq_laser }} 件起，其他商品起訂量各不同，LINE 問一下就知道。量不到的話，我們有單件客製的商品可以選。</p></details>
+      <details><summary>從確認到拿到貨要幾天？可以趕嗎？</summary><p>確認示意圖並付訂金後，約 {{ s.lead_days }} 天出貨。急件請在 LINE 直接說日期，我們看產線再回你能不能做到。</p></details>
+      <details><summary>logo 要給什麼格式？</summary><p><i class="cp-nw">AI、EPS 或 PDF</i> 的向量檔最好。<i class="cp-nw">只有 PNG</i> 也可以先做示意圖，正式印製前再補向量檔。</p></details>
+      <details><summary>可以先看到印出來的樣子嗎？</summary><p>示意圖免費。想看實物可以先付樣品費，下單時從貨款扣掉。</p></details>
+      <details><summary>付款方式與發票？</summary><p>訂金五成，出貨前付清尾款，開統編發票。</p></details>
+      <details><summary>可以分批寄到不同地址嗎？</summary><p>可以，每個地址另計運費，LINE 上把地址清單給我們就好。</p></details>
+      <details><summary>客製品可以退換嗎？保固一樣嗎？</summary><p>印了 logo 的商品不能因為改變心意退貨，瑕疵品換新。保固跟一般商品一樣：一年，登錄延長到兩年。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cp-sticky"><a class="cp-line" href="{{ line }}" target="_blank" rel="noopener">{{ line_icon }}<span>LINE 詢問客製</span></a></div>
+</div>
+
+{% schema %}
+{
+  "name": "gc 企業客製頁",
+  "settings": [
+    { "type": "text", "id": "hero_title", "label": "主標（可用 <br> 指定斷行）", "default": "送禮，<br>送到心坎裡。" },
+    { "type": "text", "id": "hero_lead", "label": "副標", "default": "印上你的 logo，讓心意跟著他們的每一天。" },
+    { "type": "text", "id": "line_url", "label": "LINE 加好友網址", "default": "https://lin.ee/oiQ4L3y" },
+    { "type": "text", "id": "moq_laser", "label": "起訂量：雷雕（件）", "default": "60" },
+    { "type": "text", "id": "moq_uv", "label": "起訂量：UV 印刷（件）", "default": "60" },
+    { "type": "text", "id": "reply_days", "label": "報價回覆（工作天）", "default": "1" },
+    { "type": "text", "id": "lead_days", "label": "確認到出貨（天）", "default": "30" },
+    { "type": "text", "id": "hero_image", "label": "橫幅圖 桌機（assets 檔名，人物在右、左邊留白）", "default": "cp-hero-person.jpg" },
+    { "type": "text", "id": "hero_image_m", "label": "橫幅圖 手機（直式裁切）", "default": "cp-hero-person-m.jpg" },
+    { "type": "text", "id": "use1_image", "label": "員工禮 圖", "default": "cp-scene-staff.jpg" },
+    { "type": "text", "id": "use2_image", "label": "客戶贈禮 圖", "default": "cp-scene-client.jpg" },
+    { "type": "text", "id": "use3_image", "label": "活動與車隊 圖", "default": "cp-scene-fleet.jpg" },
+    { "type": "text", "id": "use4_image", "label": "差旅與出國 圖", "default": "cp-scene-travel.jpg" },
+    { "type": "text", "id": "use5_image", "label": "隨身日常 圖", "default": "cp-scene-daily.jpg" }
+  ],
+  "presets": [{ "name": "gc 企業客製頁" }]
+}
+{% endschema %}
