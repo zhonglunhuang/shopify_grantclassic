@@ -52,7 +52,8 @@
     var bundleAddons = {}; bundleEls.forEach(function (b) { var k = b.getAttribute('data-bundle'); if (k !== 'custom') bundleAddons[k] = (b.getAttribute('data-addons') || '').split(',').filter(Boolean); });
 
     // 色塊上色
-    $$('[data-gi-dot]', root).forEach(function (d) { d.style.setProperty('--c', swatch(d.getAttribute('data-gi-dot'))); });
+    // 色塊：認得出顏色才畫，認不出（例如「材質」其實是款式名）就不畫灰點
+    $$('[data-gi-dot]', root).forEach(function (d) { var c = swatch(d.getAttribute('data-gi-dot')); if (c === '#c7c7cc') d.remove(); else d.style.setProperty('--c', c); });
 
     function findVariant(opts) {
       var exact = variants.filter(function (v) { return v.opts.join('|') === opts.join('|'); })[0];
@@ -92,7 +93,7 @@
       if (cmpEl) { cmpEl.hidden = !(bp.was > bp.now); cmpEl.textContent = money(bp.was); }
       var extra = onList().filter(function (h) { return (bundleAddons[state.bundle] || []).indexOf(h) < 0; }).length; // 套餐內含的不算加購
       var bname = (bundleNames[state.bundle] || '') + (extra ? '＋' + extra + ' 件加購' : '');
-      $$('[data-gi-meta]', root).forEach(function (m) { m.innerHTML = sel.map(function (v) { return '<span>' + v + '</span>'; }).concat(bname ? ['<span>' + bname + '</span>'] : []).join('<i></i>'); });
+      $$('[data-gi-meta]', root).forEach(function (m) { m.innerHTML = sel.filter(function (v) { return v !== 'Default Title'; }).map(function (v) { return '<span>' + v + '</span>'; }).concat(bname ? ['<span>' + bname + '</span>'] : []).join('<i></i>'); });
       // 物品面板：主商品＋目前套餐與加購的配件
       var items = $('[data-gi-items]', root);
       if (items) {
@@ -113,7 +114,7 @@
       $$('.gi__tab', root).forEach(function (t) { t.classList.toggle('is-on', t.getAttribute('data-src') === state.view); });
       // 借圖的變體：在「目前變體圖」分頁上標示示意
       var gtag = $('[data-gi-gtag]', root);
-      if (gtag) { var showTag = state.view === 'variant' && cur.own === false; gtag.hidden = !showTag; if (showTag) gtag.textContent = (root.getAttribute('data-gi-tag') || '示意圖，實品為 %s').replace('%s', cur.opts[cur.opts.length - 1]); }
+      if (gtag) { var showTag = state.view === 'variant' && cur.own === false && cur.opts[cur.opts.length - 1] !== 'Default Title'; gtag.hidden = !showTag; if (showTag) gtag.textContent = (root.getAttribute('data-gi-tag') || '示意圖，實品為 %s').replace('%s', cur.opts[cur.opts.length - 1]); }
       if (idInput) idInput.value = cur.id;
       $$('[data-gi-add]', root).forEach(function (b) { b.disabled = !cur.avail; b.textContent = cur.avail ? (b.getAttribute('data-label') || b.textContent) : '售完'; });
     }

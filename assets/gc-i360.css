@@ -109,7 +109,7 @@
 
 .gi__bundles { display: flex; flex-direction: column; gap: 12px; margin: 0; }
 /* 會員卡放底部時：跟套餐區隔 24px、底部不留（跟灰底矩形齊平） */
-.gi__bundles + .gi__club, .gi__bundles + .gi__promo { margin: 24px 0 0; }
+.gi__bundles + .gi__club, .gi__bundles + .gi__promo, .gi__vitals + .gi__club, .gi__vitals + .gi__promo { margin: 24px 0 0; }
 .gi .gi__bc { display: block; width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; position: relative; transition: border-color .15s; }
 .gi__bc.is-on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .gi__bch { display: grid; grid-template-columns: 56px 1fr; gap: 36px; align-items: center; }
@@ -162,7 +162,8 @@
 /* 數字跳動時閃一下品牌紅 */
 [data-gi-price], [data-gi-adnow] { transition: color .25s; font-variant-numeric: tabular-nums; }
 [data-gi-price].is-tick, [data-gi-adnow].is-tick { color: var(--red); }
-.gi__vitals:not(:empty) { margin: 24px 0 0; padding-bottom: 20px; } /* Vitals 的 Save 標籤會吊在列外面，留空間別壓到會員卡 */
+/* Vitals 數量折扣小工具：Mars 2026-09-06 拍板先拿掉（容器留著讓它有地方塞，但不顯示） */
+.gi .gi__vitals { display: none !important; }
 .gi__form { margin: 0; }
 .gi__cta--inline { display: none; }
 
