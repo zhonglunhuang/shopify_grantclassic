@@ -18,7 +18,8 @@
 @media (prefers-reduced-motion: reduce) { .gi__img.is-fit { transition: none; } }
 /* 白色款是白底 PNG：用 multiply 讓白底融進灰底 */
 .gi__img[src*=".png"] { mix-blend-mode: multiply; }
-.gi__video { width: min(90%, 900px); }
+.gi .gi__video { width: min(90%, 720px); display: flex; justify-content: center; align-items: center; }
+.gi .gi__video video { width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 14px; background: #000; }
 .gi__gtag { position: absolute; left: 20px; top: 20px; font-size: 12px; color: var(--mute); background: #fff; padding: 5px 12px; border-radius: 999px; }
 .gi__gtag[hidden] { display: none; }
 /* 物品面板：主商品在左、配件在右排成格子，中間一個＋ */
@@ -207,6 +208,7 @@ body.gi-has-bar.gi-scrolling .gc-dock, body.gi-has-bar.gi-scrolling .loloyal-lau
   .gi__gal { height: 440px; border-radius: 0; padding-bottom: 56px; }
   .gi__items { inset: 0 0 56px; }
   .gi__img { height: 300px; max-width: 86%; }
+  .gi .gi__video { width: 92%; }
   .gi__tabs { gap: 6px; padding: 0 12px; bottom: 16px; }
   .gi .gi__tab { height: 36px; padding: 0 16px; font-size: 15px; }
   .gi__right { padding: 32px 20px 0; }
