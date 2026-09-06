@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gc_points": {
+      "type": "apps",
+      "blocks": {
+        "banner": {
+          "type": "shopify://apps/cwill-loyalty/blocks/app-banner/930ac91f-2bf2-4655-9ba0-574771f782d6",
+          "settings": {
+            "img_opacity": 0,
+            "bg_color": "#F6F6F6",
+            "banner_height": "400",
+            "content_position": "ll-middle-left",
+            "content_alignment": "left",
+            "title_font_size": 40,
+            "subtitle_font_size": 13,
+            "title_color": "#000000",
+            "subtitle_color": "#000000",
+            "btn_radius": 30,
+            "primary_button_color": "#000000",
+            "primary_button_text_color": "#FFFFFF",
+            "secondary_button_color": "#FFFFFF",
+            "secondary_button_text_color": "#000000",
+            "hover_btn": "#000000",
+            "hover_text_color": "#FFFFFF",
+            "custom_css": "/* Add your custom styles here */"
+          }
+        },
+        "earn": {
+          "type": "shopify://apps/cwill-loyalty/blocks/app-ways-to-earn/930ac91f-2bf2-4655-9ba0-574771f782d6",
+          "settings": {
+            "title_font_size": 30,
+            "subtitle_font_size": 13,
+            "name_font_size": 20,
+            "details_font_size": 14,
+            "corner_radius": 8,
+            "btn_radius": 8,
+            "top_padding": 32,
+            "bottom_padding": 32,
+            "icon_color": "",
+            "icon_border_color": "",
+            "title_color": "#000000",
+            "subtitle_color": "#000000",
+            "name_color": "#000000",
+            "details_color": "#000000",
+            "card_bg_color": "#FFFFFF",
+            "background_color": "#ffffff",
+            "border_color": "#ececec",
+            "primary_button_color": "#000000",
+            "primary_button_text_color": "#FFFFFF",
+            "secondary_button_color": "#FFFFFF",
+            "secondary_button_text_color": "#000000",
+            "hover_btn": "#000000",
+            "hover_text_color": "#FFFFFF",
+            "custom_css": "/* Add your custom styles here */"
+          }
+        },
+        "redeem": {
+          "type": "shopify://apps/cwill-loyalty/blocks/app-ways-to-redeem/930ac91f-2bf2-4655-9ba0-574771f782d6",
+          "settings": {
+            "title_font_size": 30,
+            "subtitle_font_size": 13,
+            "name_font_size": 20,
+            "details_font_size": 14,
+            "corner_radius": 8,
+            "btn_radius": 8,
+            "top_padding": 32,
+            "bottom_padding": 32,
+            "icon_color": "",
+            "icon_border_color": "",
+            "title_color": "#000000",
+            "subtitle_color": "#000000",
+            "name_color": "#000000",
+            "details_color": "#000000",
+            "card_bg_color": "#FFFFFF",
+            "background_color": "#ffffff",
+            "border_color": "#ececec",
+            "primary_button_color": "#000000",
+            "primary_button_text_color": "#FFFFFF",
+            "secondary_button_color": "#FFFFFF",
+            "secondary_button_text_color": "#000000",
+            "hover_btn": "#000000",
+            "hover_text_color": "#FFFFFF",
+            "custom_css": "/* Add your custom styles here */"
+          }
+        },
+        "referral": {
+          "type": "shopify://apps/cwill-loyalty/blocks/app-referral-program/930ac91f-2bf2-4655-9ba0-574771f782d6",
+          "settings": {
+            "custom_css": "/* Add your custom styles here */"
+          }
+        }
+      },
+      "block_order": [
+        "banner",
+        "earn",
+        "redeem",
+        "referral"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "gc_points"
+  ]
+}
