@@ -1,0 +1,113 @@
+{%- comment -%}
+gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.gc-team.json 指到這裡）。
+內容全部從頁面 metafield gc_team.data（JSON，GrantOS 寫入）讀，後台不用手動編輯。
+- 原價劃掉、團購價照 GrantOS 算好的數字標
+- 加入購物車走原生 /cart/add.js，之後 gc-team.js 用 /cart/update.js 套碼＋寫 _gc_team 記號
+- 有 all_products[handle] 就讀即時的售完狀態；沒有就照 metafield
+- 檔期結束（status=ended）整頁改成「本檔已結束」
+只新增這一個檔＋ assets/gc-team.js；主題原檔一個都不改（全站載入那一行例外，見 theme.liquid diff）。
+{%- endcomment -%}
+{%- assign d = page.metafields.gc_team.data.value -%}
+{%- assign ended = false -%}
+{%- if d == blank or d.status == 'ended' -%}{%- assign ended = true -%}{%- endif -%}
+<section class="gct" data-gc-team
+  data-code="{{ d.code | escape }}"
+  data-discount="{{ d.discount_code | escape }}"
+  data-days="{{ d.days | default: 30 }}"
+  data-status="{{ d.status | default: 'ended' }}"
+  data-attr="{{ d.attr_key | default: '_gc_team' }}">
+<style>
+  .gct{max-width:1120px;margin:0 auto;padding:40px 20px 72px;color:#1d1d1f;font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif}
+  .gct :where(*){box-sizing:border-box}
+  .gct :where(a){color:inherit;text-decoration:none}
+  .gct .gct__eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6e6e73;font-weight:500}
+  .gct .gct__h1{font-size:clamp(28px,4.2vw,44px);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin:8px 0 0;text-wrap:balance}
+  .gct .gct__intro{font-size:17px;color:#4b4f57;margin:10px 0 0;max-width:36em;text-wrap:pretty}
+  .gct .gct__meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:#6e6e73}
+  .gct .gct__pill{display:inline-block;padding:3px 11px;border-radius:999px;background:#e8f1fd;color:#0b6be0;font-weight:600;font-size:12.5px}
+  .gct .gct__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:18px;margin-top:32px}
+  .gct .gct__card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+  .gct .gct__img{aspect-ratio:1/1;width:100%;border-radius:12px;background:#f5f5f7;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .gct .gct__img img{width:100%;height:100%;object-fit:contain;display:block}
+  .gct .gct__title{font-size:16px!important;font-weight:600!important;line-height:1.35!important;margin:0;text-wrap:balance}
+  .gct h1.gct__h1{font-size:clamp(28px,4.2vw,44px)!important;line-height:1.2!important}
+  .gct .gct__more{font-size:13.5px;color:#0b6be0;font-weight:500}
+  .gct .gct__price{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+  .gct .gct__was{color:#86868b;text-decoration:line-through;font-size:14px}
+  .gct .gct__now{font-size:24px;font-weight:700;letter-spacing:-.02em}
+  .gct .gct__save{font-size:12.5px;color:#1d7a36;background:#e6f4ec;border-radius:999px;padding:2px 9px;font-weight:600}
+  .gct .gct .gct__btn,.gct .gct__card .gct__btn{margin-top:auto;border:0;border-radius:999px;background:#0b6be0;color:#fff;font-size:15px;font-weight:600;padding:12px 18px;cursor:pointer;font-family:inherit;line-height:1.2;width:100%}
+  .gct .gct__card .gct__btn[disabled]{background:#d2d2d7;color:#6e6e73;cursor:default}
+  .gct .gct__card .gct__btn.is-done{background:#1d7a36}
+  .gct .gct__note{margin-top:26px;font-size:13px;color:#6e6e73;text-wrap:pretty;max-width:40em}
+  .gct .gct__ended{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:36px 28px;text-align:center;margin-top:24px}
+  .gct .gct__ended p{color:#4b4f57;margin:8px 0 18px}
+  .gct .gct__ended a{display:inline-block;border-radius:999px;background:#0b6be0;color:#fff;padding:11px 22px;font-weight:600}
+  .gct .gct__toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1d1d1f;color:#fff;border-radius:999px;padding:11px 18px;font-size:14px;opacity:0;transition:.2s;pointer-events:none;z-index:50}
+  .gct .gct__toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:640px){.gct{padding:28px 16px 56px}.gct .gct__grid{gap:12px;margin-top:22px}}
+</style>
+
+  <div class="gct__eyebrow">{{ 'grantclassic 特經典' }}</div>
+  {%- if ended -%}
+    <h1 class="gct__h1">{{ d.kol_name | default: page.title | escape }} 的團購</h1>
+    <div class="gct__ended">
+      <strong>本檔團購已結束</strong>
+      <p>謝謝支持。想看目前販售中的商品，請到官網選購。</p>
+      <a href="{{ routes.all_products_collection_url }}">前往官網選購</a>
+    </div>
+  {%- else -%}
+    <h1 class="gct__h1">{{ d.intro | default: d.name | escape }}</h1>
+    <p class="gct__intro">{{ d.kol_name | escape }} 專屬團購價。結帳時自動套用，不用輸入任何折扣碼。</p>
+    <div class="gct__meta">
+      <span class="gct__pill">團購專屬價</span>
+      {%- if d.ends_on != blank -%}<span>檔期至 {{ d.ends_on | escape }}</span>{%- endif -%}
+      <span>正品公司貨・原廠保固</span>
+    </div>
+
+    <div class="gct__grid">
+      {%- for it in d.items -%}
+        {%- assign live = all_products[it.handle] -%}
+        {%- assign available = true -%}
+        {%- assign img = it.image -%}
+        {%- if live and live.handle != blank -%}
+          {%- for v in live.variants -%}
+            {%- if v.id == it.variant_id -%}
+              {%- assign available = v.available -%}
+              {%- if v.image -%}{%- assign img = v.image | image_url: width: 900 -%}{%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if img == blank and live.featured_image -%}{%- assign img = live.featured_image | image_url: width: 900 -%}{%- endif -%}
+        {%- endif -%}
+        {%- assign saving = it.orig_price | minus: it.team_price -%}
+        <div class="gct__card" data-variant="{{ it.variant_id }}">
+          <a class="gct__img" href="{% if it.handle != blank %}/products/{{ it.handle }}?gct={{ d.code | escape }}{% else %}#{% endif %}">
+            {%- if img != blank -%}<img src="{{ img }}" alt="{{ it.title | escape }}" loading="lazy">{%- endif -%}
+          </a>
+          <h2 class="gct__title">{{ it.title | escape }}</h2>
+          {%- if it.handle != blank -%}<a class="gct__more" href="/products/{{ it.handle }}?gct={{ d.code | escape }}">看完整介紹 →</a>{%- endif -%}
+          <div class="gct__price">
+            <span class="gct__now">NT${{ it.team_price }}</span>
+            {%- if saving > 0 -%}<span class="gct__was">NT${{ it.orig_price }}</span><span class="gct__save">省 {{ saving }}</span>{%- endif -%}
+          </div>
+          {%- if available -%}
+            <button class="gct__btn" type="button" data-gc-add="{{ it.variant_id }}">加入購物車</button>
+          {%- else -%}
+            <button class="gct__btn" type="button" disabled>目前缺貨</button>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    <p class="gct__note">團購價於結帳時自動套用（購物車可能先顯示原價，到結帳頁會看到折扣）。優惠限本頁商品、不與其他折扣併用。</p>
+  {%- endif -%}
+  <div class="gct__toast" data-gc-toast aria-live="polite"></div>
+</section>
+<script src="{{ 'gc-team.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "gc 團購專屬頁",
+  "settings": [],
+  "presets": [{ "name": "gc 團購專屬頁" }]
+}
+{% endschema %}
