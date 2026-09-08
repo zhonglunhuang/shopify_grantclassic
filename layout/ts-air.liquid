@@ -1,16 +1,13 @@
 {%- comment -%}
-  Dualfind／TITANSHIELD Air 專用版面（正式站版本）。
+  TITANSHIELD Air 專用版面。
 
-  這是**正式站自己的 theme.liquid** 的複製品，只做兩件事：
-    1. 不出公告列、促銷彈窗、主題原本的白底導覽列 —— 換成頁面自己的黑色產品列
+  這是 theme.liquid 的複製品，只做兩件事：
+    1. 不出公告列、促銷彈窗、主題原本的白底導覽列 —— 換成頁面自己的 ts-topbar
     2. 不出頁尾上面那兩段（圖示列、電子報），它們會打斷 Apple 那種節奏
   頁尾、購物車、追蹤碼、App 的 script 全部原封不動照舊。
 
-  ！這一份**不能**直接從測試主題複製過來——測試主題的 theme.liquid 多一行
-    `ts-perf.css`（那是只加在測試站的大選單效能修補），搬過來會指到不存在的檔案。
-    所以這裡是從正式站的 theme.liquid 重新產生的。
-
-  主題原本的檔案一個都沒改；要還原只要把商品的範本切回預設就好。
+  主題原本的檔案一個都沒改；要還原只要把 templates/product.ts-air.json
+  裡的 "layout": "ts-air" 拿掉就好。
 {%- endcomment -%}
 {%- comment -%}
   ------------------------------------------------------------------------------------------------------------------------
@@ -56,10 +53,6 @@
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x96' }}" type="image/png">
     {%- endif -%}
-    {%- comment -%}Same favicon set as layout/theme.liquid (black logo). Remove these three lines to fall back to the theme setting.{%- endcomment -%}
-    <link rel="icon" type="image/svg+xml" href="{{ 'gc-favicon.svg' | asset_url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'gc-favicon-32.png' | asset_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'gc-favicon-180.png' | asset_url }}">
 
     {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com">
@@ -79,13 +72,6 @@
     {%- comment -%}AkoCommerce Assets{%- endcomment -%}
     {{ 'ako-basic.css' | asset_url | stylesheet_tag }}
     {{ 'ako-custom.css' | asset_url | stylesheet_tag }}
-
-    {%- comment -%}
-      gc：字級梯子與頁尾底欄的樣式。這兩行拿掉即完全還原。
-      這個 layout 之前沒載，所以 Air／Pro／二勢力 三頁的頁尾比別頁少一截（Mars 2026-09-01 回報）。
-    {%- endcomment -%}
-    {{ 'gc-type.css' | asset_url | stylesheet_tag }}
-    {{ 'gc-footer.css' | asset_url | stylesheet_tag }}
     {% render 'ako-style-conditional' %}
 
     {%- comment -%}
@@ -108,15 +94,6 @@
     {%- endif -%}
 
     {% render 'social-meta-tags' %}
-    {% render 'gc-ld-org' %}
-    {%- comment -%}
-      2026-08-29：原本這裡是主題原廠的 microdata-schema，它產出的 Product 少了
-      退貨政策與運送資訊（hasMerchantReturnPolicy / shippingDetails / sku）——
-      那正是 Google 購物結果商品卡下面「免運・可退貨」那行的來源。
-      Pro 的 layout 早就換成 ts-seo-schema 了，這裡補上同一套，兩頁口徑一致。
-      是「換」不是「加」：兩支都留會變成兩份 Product，Google 會判重複。
-      要還原：把下面那行換回 {% raw %}{% render 'microdata-schema' %}{% endraw %}。
-    {%- endcomment -%}
     {% render 'ts-seo-schema' %}
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
@@ -136,6 +113,8 @@
 {%- if kg_org_global -%}
 <script type="application/ld+json">{{ kg_org_global }}</script>
 {%- endif -%}
+    {%- comment -%}gc：團購歸因與自動套碼＋商品頁專屬價條（GrantOS GOS-0253／0256）。整行拿掉＋刪 assets/gc-team.js 即完全還原{%- endcomment -%}
+    <script src="{{ 'gc-team.js' | asset_url }}" defer></script>
 </head>
 
   {%- assign feature_classes = '' -%}
@@ -214,8 +193,6 @@
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
       {%- render 'facebook-messanger' -%}
       {%- section 'footer' -%}
-      {%- comment -%}gc：頁尾底欄（法律連結＋版權＋地區）。這一行拿掉即完全還原{%- endcomment -%}
-      {%- render 'gc-footer-legal' -%}
     {%- endif -%}
   <!-- subify Snippet Start -->
 {% if content_for_header contains 'https:\/\/app-subify.shopgram.app\/subify-script-tag-for-snippet.js' %} 
@@ -227,7 +204,8 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}    {% section 'gc-dock' %}</body>
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}
+</body>
 </html>
 
 <style>
