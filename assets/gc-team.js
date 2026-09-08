@@ -152,17 +152,17 @@
     if (!items.length) return;
     var it = items[0];
     var multi = (d.items || []).length > 1;
+    // 置中、沒有關閉鈕、字級照 Mars 2026-09-08 調整：名字與說明 15px、價格 20px 粗、原價 14px、提示 14px
     var css = '.gct-bar{position:fixed;left:0;right:0;z-index:60;background:#1d1d1f;color:#fff;' +
-      'padding:9px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;' +
-      'font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;font-size:14px;line-height:1.35;transition:top .15s}' +
-      '.gct-bar__in{flex:1;min-width:0;display:flex;align-items:baseline;gap:8px 12px;flex-wrap:wrap;max-width:1120px;margin:0 auto}' +
-      '.gct-bar__who{font-size:13px;color:#e5e5ea;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}' +
-      '.gct-bar__price{font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}' +
-      '.gct-bar__was{font-size:12.5px;color:#a1a1a6;text-decoration:line-through;margin-left:6px}' +
-      '.gct-bar__cta{font-size:12.5px;color:#9ec5ff;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
-      '.gct-bar__more{color:#fff;font-size:12.5px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
-      '.gct-bar__x{border:0;background:rgba(255,255,255,.14);color:#fff;border-radius:999px;width:28px;height:28px;cursor:pointer;flex:none;font-size:16px;line-height:1}' +
-      '@media(max-width:640px){.gct-bar{padding:8px 12px}.gct-bar__price{font-size:16px}}';
+      'padding:10px 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;' +
+      'font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;font-size:15px;line-height:1.35;transition:top .15s;text-align:center}' +
+      '.gct-bar__in{display:flex;align-items:baseline;justify-content:center;gap:6px 14px;flex-wrap:wrap;max-width:1120px}' +
+      '.gct-bar__who{font-size:15px;color:#f2f2f7;white-space:nowrap;letter-spacing:.01em}' +
+      '.gct-bar__price{font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em}' +
+      '.gct-bar__was{font-size:14px;color:#a1a1a6;text-decoration:line-through;margin-left:8px;font-variant-numeric:tabular-nums}' +
+      '.gct-bar__cta{font-size:14px;color:#9ec5ff;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
+      '.gct-bar__more{color:#fff;font-size:14px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
+      '@media(max-width:640px){.gct-bar{padding:9px 12px}.gct-bar__who{font-size:13.5px}.gct-bar__price{font-size:18px}.gct-bar__was,.gct-bar__cta,.gct-bar__more{font-size:13px}}';
     var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
     var bar = document.createElement('div'); bar.className = 'gct-bar'; bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0');
     bar.setAttribute('aria-label', '前往購買區');
@@ -172,12 +172,9 @@
       '<span><span class="gct-bar__price">' + fmt(it.team_price) + '</span>' +
       (it.orig_price > it.team_price ? '<span class="gct-bar__was">' + fmt(it.orig_price) + '</span>' : '') + '</span>' +
       '<span class="gct-bar__cta">（詳情請點我）</span>' +
-      (multi && d.hub ? '<a class="gct-bar__more" href="' + esc(d.hub) + '">看全部團購商品</a>' : '') + '</div>' +
-      '<button class="gct-bar__x" type="button" aria-label="收起">×</button>';
-    try { if (sessionStorage.getItem('gc_team_bar_hide') === '1') return; } catch (e) {}
-    bar.querySelector('.gct-bar__x').addEventListener('click', function (e) { e.stopPropagation(); bar.remove(); try { sessionStorage.setItem('gc_team_bar_hide', '1'); } catch (er) {} });
+      (multi && d.hub ? '<a class="gct-bar__more" href="' + esc(d.hub) + '">看全部團購商品</a>' : '') + '</div>';
     function go(e) {
-      if (e.target.closest('.gct-bar__more') || e.target.closest('.gct-bar__x')) return;
+      if (e.target.closest('.gct-bar__more')) return;
       var t = buyTarget();
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     }
@@ -191,10 +188,6 @@
     var raf = null;
     window.addEventListener('resize', function () { if (raf) return; raf = requestAnimationFrame(function () { raf = null; _stickyEls = null; placeBar(bar); }); });
     setTimeout(function () { _stickyEls = null; placeBar(bar); }, 900);
-    bar.querySelector('.gct-bar__x').addEventListener('click', function () {
-      document.body.style.paddingTop = document.body.getAttribute('data-gct-base') || '';
-      stickyHeaders().forEach(function (el) { el.style.top = ''; });
-    });
   }
 
   var ref = readCookie();
