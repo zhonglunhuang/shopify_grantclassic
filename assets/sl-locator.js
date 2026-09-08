@@ -34,7 +34,8 @@
     var host = document.getElementById('sl-wall');
     if (!host) return;
     var base = window.SL_ASSET_BASE || '';
-    host.innerHTML = D.wall.map(function(b){
+    var PER = 6;
+    function cell(b){
       /* 沒有 logo 就顯示品牌名字——**不可以是破圖** */
       var mark = b.logo
         ? '<img class="sl-cell__logo" src="'+base+esc(b.logo)+'" alt="'+esc(b.n)+'"'
@@ -42,6 +43,16 @@
         : '<span class="sl-cell__mark">'+esc(b.n)+'</span>';
       return '<div class="sl-cell"><span class="sl-cell__box">'+mark+'</span>'
         + (b.cap ? '<span class="sl-cell__cap">'+esc(b.cap)+'</span>' : '')+'</div>';
+    }
+    /* 一排 6 格；最後一排不滿就整組置中（12 軌、每格 2 軌，剩 k 格從第 7-k 軌開始） */
+    var rows = [];
+    for (var i = 0; i < D.wall.length; i += PER) rows.push(D.wall.slice(i, i + PER));
+    host.innerHTML = rows.map(function(row, ri){
+      var tail = ri === rows.length - 1 && row.length < PER;
+      var open = tail
+        ? '<div class="sl-wall-row sl-wall-row--tail" style="--sl-tail-start:'+(PER - row.length + 1)+'">'
+        : '<div class="sl-wall-row">';
+      return open + row.map(cell).join('') + '</div>';
     }).join('');
   })();
 
@@ -314,20 +325,7 @@
       '模擬稿沒有定位權限，距離一律以' + ORIGIN.name + '計算';
   });
 
-  function buildWall(){
-    /* 格子由 liquid 產生，這裡只負責箭頭要不要出現 */
-    syncWallNav();
-  }
-
-  /* 滑到頭就把該邊的箭頭收起來 */
-  function syncWallNav(){
-    var box = document.getElementById('sl-wall');
-    var more = box.scrollWidth - box.clientWidth;
-    document.getElementById('sl-wallPrev').hidden = more < 4 || box.scrollLeft < 4;
-    document.getElementById('sl-wallNext').hidden = more < 4 || box.scrollLeft >= more - 4;
-  }
-
-  buildWall(); buildPills(); buildMap(); render();
+  buildPills(); buildMap(); render();
 
   /* 欄數會隨寬度變，補白的格子數也要跟著重算 */
   document.getElementById('sl-pager').addEventListener('click', function(e){
@@ -337,14 +335,5 @@
     document.querySelector('.sl-results').scrollIntoView({block:'start', behavior:'smooth'});
   });
 
-  (function(){
-    var box = document.getElementById('sl-wall');
-    function page(dir){ box.scrollBy({ left: dir * box.clientWidth, behavior:'smooth' }); }
-    document.getElementById('sl-wallPrev').addEventListener('click', function(){ page(-1); });
-    document.getElementById('sl-wallNext').addEventListener('click', function(){ page(1); });
-    box.addEventListener('scroll', syncWallNav, { passive:true });
-    var wt;
-    addEventListener('resize', function(){ clearTimeout(wt); wt = setTimeout(syncWallNav, 180); });
-  })();
 })();
 })();

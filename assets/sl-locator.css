@@ -116,45 +116,52 @@
 .sl-wall-sec__h{margin-bottom:14px;max-width:32em}
 .sl-wall-sec__h p{margin-top:12px}
 .sl-wall-sec__n{margin-bottom:36px;color:var(--ink-2)}
-/* 一次看 6 格，超過就往左滑。用捲動而不是補白格——補白會在右邊留一塊空的。 */
-.sl-wallwrap{position:relative}
-.sl-wall{
-  display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
-  border:1px solid var(--rule);border-radius:var(--r-lg);
-  scrollbar-width:none;-ms-overflow-style:none;
-}
-.sl-wall::-webkit-scrollbar{display:none}
+/* 通路牆：一排 6 格，超過的放下一排置中（Mars 2026-09-08 拍板「B 延伸」）。
+   兩排用同一組 12 軌、每格佔 2 軌，寬度絕對一樣；高度寫死，不靠內容撐。
+   框線畫在格子上（每格只畫右框，一排的第一格補左框）——每格的盒子寬度＝軌道寬，量出來一模一樣；
+   第二排是獨立一組，容器畫框會把空位一起框進去，所以框不能畫在容器上。 */
+.sl-wall{display:flex;flex-direction:column;gap:16px}
+.sl-wall-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr))}
 .sl-cell{
-  flex:0 0 calc(100% / 6);scroll-snap-align:start;
-  height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-  padding:20px 18px;border-right:1px solid var(--rule);
+  grid-column:span 2;height:150px;box-sizing:border-box;min-width:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  padding:20px 14px;border:1px solid var(--rule);border-left:0;
   background:var(--paper);transition:background .2s;
 }
-.sl-cell:last-child{border-right:0}
-@media (max-width:900px){.sl-cell{flex-basis:calc(100% / 3)}}
-@media (max-width:560px){.sl-cell{flex-basis:calc(100% / 2)}}
+.sl-cell:first-child{border-left:1px solid var(--rule);border-radius:var(--r-lg) 0 0 var(--r-lg)}
+.sl-cell:last-child{border-radius:0 var(--r-lg) var(--r-lg) 0}
+.sl-cell:only-child{border-radius:var(--r-lg)}
+/* 最後一排不滿 6 格：第一格從第幾軌開始由 JS／Liquid 算好塞進變數（剩 3 格＝第 4 軌） */
+.sl-wall-row--tail .sl-cell:first-child{grid-column:var(--sl-tail-start,1) / span 2}
 .sl-cell:hover{background:var(--fill)}
 .sl-cell__box{height:52px;display:flex;align-items:center;justify-content:center;width:100%}
-/* 每個 logo 形狀不一樣（Costco 兩行、燦坤接近方形、senao 很長），
+/* 每個 logo 形狀不一樣（Costco 兩行、燦坤接近方形、iStore 很長），
    統一框會忽大忽小——高度逐個調成「看起來一樣重」。 */
 .sl-cell__logo{max-width:100%;object-fit:contain;display:block}
-.sl-cell__cap{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2);text-align:center}
+.sl-cell__cap{font-size:var(--t12);letter-spacing:var(--t12ls);color:var(--ink-2);text-align:center;line-height:1.3}
 .sl-cell__mark{
   font-size:var(--t17);letter-spacing:-.01em;font-weight:600;color:var(--ink-2);
   text-align:center;line-height:1.15;
 }
-/* 左右箭頭：只有真的滑得動才出現 */
-.sl-wallnav{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
-  width:36px;height:36px;border-radius:50%;background:var(--paper);
-  box-shadow:0 1px 4px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
-  color:var(--ink);font-size:var(--t17);transition:opacity .2s;
+@media (max-width:900px){
+  /* 3 欄：9 家剛好 3×3，兩排接回一整塊 */
+  .sl-wall{gap:0}
+  .sl-wall-row{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .sl-wall-row--tail .sl-cell:first-child{grid-column:span 2}
+  .sl-cell{height:120px;padding:14px 10px;gap:10px}
+  .sl-cell:first-child,.sl-cell:last-child,.sl-cell:only-child{border-radius:0}
+  .sl-cell:nth-child(3n+1){border-left:1px solid var(--rule)}
+  .sl-cell:nth-child(n+4),.sl-wall-row + .sl-wall-row .sl-cell{border-top:0}
+  .sl-wall-row:first-child .sl-cell:first-child{border-top-left-radius:var(--r-lg)}
+  .sl-wall-row:first-child .sl-cell:nth-child(3),.sl-wall-row:first-child .sl-cell:last-child:nth-child(-n+3){border-top-right-radius:var(--r-lg)}
+  .sl-wall-row:last-child .sl-cell:nth-child(3n+1):nth-last-child(-n+3){border-bottom-left-radius:var(--r-lg)}
+  .sl-wall-row:last-child .sl-cell:last-child{border-bottom-right-radius:var(--r-lg)}
+  .sl-cell__box{zoom:.85}
 }
-.sl-wallnav:hover{background:var(--fill)}
-.sl-wallnav--l{left:-14px}
-.sl-wallnav--r{right:-14px}
-.sl-wallnav[hidden]{display:none}
-@media (max-width:560px){.sl-wallnav{display:none}}
+@media (max-width:560px){
+  .sl-cell{height:104px;padding:12px 6px;gap:8px}
+  .sl-cell__box{zoom:.7}
+}
 .sl-walllink{text-align:center;margin-top:28px}
 .sl-walllink a{color:var(--accent-text);font-weight:600}
 .sl-walllink a::after{content:"\00a0→"}
