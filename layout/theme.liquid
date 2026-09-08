@@ -104,6 +104,8 @@
     {%- comment -%}gc-mega.js 要在 gc-header.js 之前：頂欄底線在載入時量位置並綁定，選購指南是 JS 插的，要先插好{%- endcomment -%}
     <script src="{{ 'gc-mega.js' | asset_url }}" defer></script>
     <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
+    {%- comment -%}gc：團購歸因與自動套碼＋商品頁專屬價條（GrantOS GOS-0253／0256）。整行拿掉＋刪 assets/gc-team.js 即完全還原{%- endcomment -%}
+    <script src="{{ 'gc-team.js' | asset_url }}" defer></script>
 
     {%- comment -%}
       gc：全站字級梯子（t1~t7）。新首頁的段落標題／內文都靠它，
