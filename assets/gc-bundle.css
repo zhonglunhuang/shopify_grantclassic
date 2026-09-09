@@ -1,0 +1,39 @@
+/* gc-bundle.css：Vitals「買 X 送 Y」組合小工具的外觀覆寫（Mars 2026-09-09 核可的模擬稿）。
+   只改樣式，贈品計算與加入購物車仍由 Vitals 負責；整檔刪掉＋拿掉 layout 裡那一行即完全還原。 */
+
+/* gc：Vitals 組合區覆寫（tsp-pro／ts-air 商品頁）——Apple 乾淨風，功能仍由 Vitals 負責 */
+body .Vtl-BogoWidget__ContainerWrapper{max-width:760px;margin:0 auto;padding:0;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.04);font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;color:#1d1d1f;overflow:hidden}
+body .Vtl-BogoWidget__Container{padding:22px 24px 6px}
+body .Vtl-BogoWidget__Header{font-size:22px!important;font-weight:700!important;letter-spacing:-.02em;line-height:1.25;margin:0 0 4px;text-align:left!important;color:#1d1d1f}
+body .Vtl-BogoWidget__Header::after{content:"買主商品，贈品免費一起帶走";display:block;font-size:14px;font-weight:400;color:#6e6e73;margin-top:4px;letter-spacing:0}
+body .Vtl-BogoWidget__Products{display:flex;flex-direction:column;gap:0;margin-top:14px}
+body .Vtl-BogoProductCard__Container{display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(0,0,0,.06);margin:0;background:none;border-left:0;border-right:0;border-bottom:0;box-shadow:none}
+body .Vtl-BogoProductCard__Container:first-child{border-top:0}
+body .Vtl-BogoProductCard__ImageContainer{position:relative;flex:none;width:72px;height:72px;border-radius:12px;background:#f5f5f7;overflow:hidden;display:flex;align-items:center;justify-content:center;margin:0}
+body .Vtl-BogoProductCard__Image{width:100%!important;height:100%!important;object-fit:contain!important;display:block;border-radius:0!important}
+body .Vtl-BogoProductCard__ProductDetails{flex:1;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title price" "meta price" "drop price";column-gap:16px;row-gap:6px;align-items:center}
+body .Vtl-BogoProductCard__BadgeWrapper--horizontal,body .Vtl-BogoProductCard__Plus,body .Vtl-BogoWidget__Plus{display:none!important}
+body .Vtl-BogoProductCard__BadgeWrapper--vertical{grid-area:meta;margin:0;display:inline-flex;align-items:center;justify-self:start}
+body .Vtl-BogoProductCard__Badge{font-size:12.5px!important;color:#6e6e73!important;background:none!important;border:0!important;padding:0!important;margin:0!important;border-radius:0!important;font-weight:500;letter-spacing:.01em;white-space:nowrap}
+body .Vtl-BogoProductCard__Badge::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#0071e3;margin-right:6px;vertical-align:1px}
+body .Vtl-BogoProductCard__Title{grid-area:title;font-size:15px!important;font-weight:600!important;line-height:1.35;color:#1d1d1f!important;text-decoration:none;margin:0;text-wrap:balance}
+body .Vtl-BogoProductCard__Price{grid-area:price;display:flex;align-items:baseline;gap:8px;justify-content:flex-end;font-variant-numeric:tabular-nums;white-space:nowrap;margin:0}
+body .Vtl-BogoProductCard__NewPrice,body .Vtl-BogoProductCard__FinalPrice{font-size:15px!important;font-weight:600!important;color:#1d1d1f!important;background:none!important;padding:0!important}
+body .Vtl-BogoProductCard__FinalPrice{color:#1d7a36!important}
+body .Vtl-BogoProductCard__OriginalPrice{font-size:13px!important;color:#86868b!important;text-decoration:line-through}
+body .Vtl-BogoProductCard__VariantDropdownWrapper{grid-area:drop;justify-self:start;margin:2px 0 0;display:inline-block}
+body .Vtl-Dropdown__Header{border:1px solid rgba(0,0,0,.12)!important;border-radius:999px!important;padding:3px 10px 3px 12px!important;font-size:12.5px!important;background:#fff!important;color:#1d1d1f!important;min-height:0!important;display:inline-flex;align-items:center;gap:4px;box-shadow:none!important;white-space:nowrap}
+body .Vtl-Dropdown__Header-ArrowContainer svg{width:14px;height:14px}
+body .Vtl-BogoWidget__ClaimButtonWrapper{padding:16px 24px 22px;background:#fafafa;border-top:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+body .Vtl-BogoWidget__ClaimButtonWrapper::before{content:"贈品會隨主商品一起加入購物車";font-size:14px;color:#1d1d1f;font-weight:600;font-variant-numeric:tabular-nums}
+body .Vtl-BogoWidget__ClaimButton{background:#0071e3!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:12px 26px!important;font-size:15px!important;font-weight:600!important;line-height:1.2!important;width:auto!important;min-width:0!important;margin:0!important;box-shadow:none!important;cursor:pointer}
+@media(max-width:640px){
+  body .Vtl-BogoWidget__Container{padding:18px 16px 4px}
+  body .Vtl-BogoWidget__Header{font-size:20px!important}
+  body .Vtl-BogoProductCard__Container{gap:12px;align-items:flex-start}
+  body .Vtl-BogoProductCard__ImageContainer{width:60px;height:60px}
+  body .Vtl-BogoProductCard__ProductDetails{grid-template-columns:1fr;grid-template-areas:"title" "price" "meta" "drop";row-gap:4px}
+  body .Vtl-BogoProductCard__Price{justify-content:flex-start}
+  body .Vtl-BogoWidget__ClaimButtonWrapper{padding:14px 16px 18px}
+  body .Vtl-BogoWidget__ClaimButton{width:100%!important}
+}
