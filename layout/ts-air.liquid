@@ -115,6 +115,7 @@
 {%- endif -%}
     {%- comment -%}gc：團購歸因與自動套碼＋商品頁專屬價條（GrantOS GOS-0253／0256）。整行拿掉＋刪 assets/gc-team.js 即完全還原{%- endcomment -%}
     <script src="{{ 'gc-team.js' | asset_url }}" defer></script>
+    <link rel="stylesheet" href="{{ 'gc-bundle.css' | asset_url }}">
 </head>
 
   {%- assign feature_classes = '' -%}
