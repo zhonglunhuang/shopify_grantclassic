@@ -143,6 +143,8 @@
 {%- if kg_org_global -%}
 <script type="application/ld+json">{{ kg_org_global }}</script>
 {%- endif -%}
+    {%- comment -%}gc：團購歸因與自動套碼＋商品頁專屬價條（GrantOS GOS-0253／0256）。整行拿掉＋刪 assets/gc-team.js 即完全還原{%- endcomment -%}
+    <script src="{{ 'gc-team.js' | asset_url }}" defer></script>
 </head>
 
   {%- assign feature_classes = '' -%}
