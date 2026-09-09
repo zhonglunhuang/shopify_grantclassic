@@ -1,0 +1,157 @@
+/* gc-cart.css：購物車頁的字級／間距統一（Mars 2026-09-09：有些字太大、要跟官網一套）。
+   基準：內文 15、標題 15/600、輔助 13、表頭 12.5 灰、金額等寬數字、列與列 22px；只改外觀不動功能。 */
+body .cart{font-size:15px;line-height:1.55;color:#1d1d1f}
+body .cart .heading.h2,body .cart h1.heading{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em;line-height:1.25}
+body .shipping-bar__text{font-size:14px!important;color:#6e6e73!important}
+body .line-item-table__header-group th,body .line-item-table th{font-size:12.5px!important;font-weight:500!important;color:#6e6e73!important;letter-spacing:.03em;padding-bottom:12px!important}
+body .line-item{padding:22px 0!important}
+body .line-item__image-wrapper{width:88px!important;border-radius:12px;overflow:hidden;background:#f5f5f7}
+body .product-item-meta__title{font-size:15px!important;font-weight:600!important;line-height:1.4!important;color:#1d1d1f!important;text-decoration:none}
+body .product-item-meta__property{font-size:13px!important;line-height:1.5!important;color:#6e6e73!important}
+body .product-item-meta__property-list{margin-top:2px}
+body .price{font-size:15px!important;line-height:1.5!important;font-variant-numeric:tabular-nums;font-weight:500}
+body .price--highlight{color:#1d1d1f!important}
+body .price--compare{font-size:13px!important;color:#86868b!important;font-weight:400}
+body .line-item__price-list-container .price-list{gap:6px}
+body .line-item__quantity,body .line-item__remove-button{font-size:13px!important}
+body .quantity-selector{font-size:14px!important}
+body .quantity-selector--small{border-radius:999px!important}
+body .line-item__remove-button{color:#6e6e73!important;text-decoration:none!important}
+/* 折扣標籤（主題的黑色小標）改灰底灰字 */
+body .line-item [class*="discount"],body .line-item .discount-badge{background:rgba(120,120,128,.12)!important;color:#4b4f57!important;border-radius:6px!important;font-size:11.5px!important;font-weight:500!important;padding:2px 8px!important;letter-spacing:0}
+/* 右欄結帳摘要 */
+body .cart__recap{font-size:15px!important;line-height:1.55}
+body .cart__recap-block{padding:22px 22px!important;border-radius:16px!important}
+body .cart__total-container{font-size:15px!important;font-weight:600}
+body .cart__total-container .price,body .cart__total-container span:last-child{font-size:20px!important;font-weight:600!important;letter-spacing:-.01em}
+body .cart__tax-note,body .cart__recap-note{font-size:13px!important;color:#6e6e73!important}
+body .cart__order-note{font-size:13.5px!important}
+body .cart__checkout-button{font-size:15px!important;font-weight:600!important;border-radius:999px!important;line-height:1.2!important;padding:15px 20px!important;height:auto!important}
+/* Vitals 的「熱銷商品倒數」框：字級與圓角跟著頁面走 */
+body .cart-reserved-text-box{font-size:13px!important;line-height:1.5;border-radius:12px!important}
+@media(max-width:768px){
+  body .cart .heading.h2,body .cart h1.heading{font-size:22px!important}
+  body .line-item{padding:18px 0!important}
+  body .line-item__image-wrapper{width:72px!important}
+}
+/* 第二輪（2026-09-09）：標題、表頭不斷行、結帳鈕、Vitals 在列裡塞的加購提示 */
+body:has(.cart) h1.heading{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em;line-height:1.25!important}
+body .line-item-table th{white-space:nowrap}
+body .checkout-button.button,body .cart__checkout-button.button{font-size:15px!important;font-weight:600!important;border-radius:999px!important;line-height:1.2!important;padding:15px 20px!important;height:auto!important;min-height:0!important}
+body .line-item [class*="vtlSM"]{font-size:12.5px!important;color:#6e6e73!important;line-height:1.5}
+body .line-item [class*="vtlSM"] button,body .line-item [class*="vtlSM"] .btn{background:rgba(120,120,128,.12)!important;color:#1d1d1f!important;border:0!important;border-radius:999px!important;font-size:12.5px!important;font-weight:500!important;padding:4px 12px!important;box-shadow:none!important}
+body .line-item [class*="vtlSM"] b,body .line-item [class*="vtlSM"] strong{color:#1d1d1f;font-weight:600}
+/* ===== 第三輪（2026-09-09，Mars 拍板 A 版「Apple 購物袋式」）=====
+   單欄、全部靠左、細線分隔、沒有卡片；標題帶總金額（gc-cart.js 補）；訂單備註直接展開白底；
+   AKO 電子發票區重畫成 Apple 表單；Vitals 熱銷倒數改灰。只改外觀，加車／結帳／發票寫入都還是原本的。 */
+:root{--gcc-hair:#d2d2d7;--gcc-ink:#1d1d1f;--gcc-ink2:#6e6e73;--gcc-ink3:#86868b;--gcc-panel:#f5f5f7;--gcc-blue:#0071e3;--gcc-good:#1d8f4b}
+/* 頁首：靠左、標題帶總計、右邊一顆結帳 */
+body:has(.cart) .page-header{text-align:left}
+body:has(.cart) .page-header__text-wrapper{max-width:1040px!important;margin:56px auto 0!important;padding-bottom:24px;border-bottom:1px solid var(--gcc-hair);text-align:left;display:block}
+body:has(.cart) .page-header h1.heading{font-size:32px!important;font-weight:600!important;letter-spacing:-.02em;line-height:1.2!important;margin:0!important;text-wrap:balance}
+body:has(.cart) .page-header h1 .gc-cart-total{font-weight:600;margin-left:.35em;font-variant-numeric:tabular-nums;white-space:nowrap}
+body:has(.cart) .page-header .shipping-bar{display:block;margin:8px 0 0!important;max-width:none;text-align:left}
+body:has(.cart) .shipping-bar__text{font-size:14px!important;color:var(--gcc-good)!important;font-weight:500}
+body:has(.cart) .shipping-bar__progress{display:none!important}
+/* 主體：單欄，商品在上、備註／發票／總計在下 */
+body .cart{display:block!important;max-width:1040px;margin:0 auto}
+body .cart__content,body .cart__aside{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;grid-column:auto!important}
+body .cart__aside-inner{position:static!important;top:auto!important;transform:none!important}
+/* 商品列：拿掉表頭，細線分隔，大圖 */
+body .line-item-table__header-group{display:none!important}
+body .line-item-table{border-top:0;border-collapse:collapse!important}
+body .line-item{padding:0!important;border-bottom:1px solid var(--gcc-hair)!important}
+body .line-item td{padding:28px 0!important;border:0!important;vertical-align:top!important}
+body .line-item__image-wrapper{width:120px!important;border-radius:12px;background:var(--gcc-panel)}
+body .line-item__content-wrapper{gap:0;padding:0!important}
+body .line-item__info{margin-left:28px!important}
+body .product-item-meta__title{font-size:17px!important;font-weight:600!important;line-height:1.35!important;letter-spacing:-.01em;text-wrap:balance}
+body .product-item-meta__property{font-size:14px!important;margin-top:4px}
+body .line-item__quantity--block{width:150px!important;padding-top:28px!important}
+body .quantity-selector--small{height:34px!important;border:1px solid var(--gcc-hair)!important;background:#fff}
+body .quantity-selector--small .quantity-selector__button{width:32px!important;height:32px!important}
+body .line-item__remove-button{display:inline-block;margin-top:10px!important;font-size:14px!important}
+body .line-item__price-list-container{width:120px!important}
+body .line-item__price-list-container .price{font-size:17px!important;font-weight:500!important}
+body .line-item__price-list-container .price--compare{font-size:13px!important;font-weight:400!important;color:var(--gcc-ink3)!important}
+@media(min-width:750px){body .line-item__info .product-item-meta__price-list-container{display:none!important}}
+/* Vitals 熱銷倒數：紅底改灰底、拿掉火焰 */
+body #cart_reserved_box{background:var(--gcc-panel)!important;color:var(--gcc-ink2)!important;border-radius:12px;padding:12px 16px!important;margin:24px 0 0!important}
+body #cart_reserved_box .fireEmoji{display:none!important}
+body #cart_reserved_box .cart-reserved-text-box{color:var(--gcc-ink2)!important;font-size:13px!important}
+body #cart_reserved_box .cart-reserved-text-box *{color:inherit!important}
+/* 結帳區：灰卡拆掉，改成左「備註＋發票」右「總計＋結帳」 */
+body .cart__recap{background:transparent!important;padding:20px 0 0!important;border-radius:0!important;display:grid!important;grid-template-columns:minmax(0,1fr) 360px;column-gap:80px;row-gap:0;align-items:start}
+body .cart__recap-note{grid-column:1;grid-row:1;margin:0!important}
+body .cart__recap-block{grid-column:2;grid-row:1;padding:0!important;margin:0!important;background:transparent!important;display:block!important}
+body .cart__recap>div:not(.cart__recap-block):not(.cart__recap-note){display:contents}
+body .cart__recap>div:not(.cart__recap-block):not(.cart__recap-note)>div{grid-column:1;grid-row:2;margin-top:40px}
+body .cart__recap .cart__checkout-button{grid-column:2;grid-row:2;justify-self:end;align-self:start;width:auto!important;min-width:200px;margin-top:32px!important}
+body .cart__total-container{display:flex!important;justify-content:space-between;align-items:baseline;gap:16px;padding:0 0 12px!important;border-bottom:1px solid var(--gcc-hair)}
+body .cart__total-container .heading:first-child{font-size:17px!important;font-weight:600!important}
+body .cart__total-container .heading:last-child{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em}
+body .cart__tax-note{margin-top:10px!important;font-size:13px!important;color:var(--gcc-ink2)!important}
+/* 訂單備註：直接展開、白底 */
+body #order-note-toggle{display:none!important}
+body #cart-note,body collapsible-content#cart-note{height:auto!important;overflow:visible!important;visibility:visible!important;display:block!important}
+body .cart__order-note{padding:0!important;margin:0!important}
+body .cart__order-note::before{content:"訂單備註（選填）";display:block;font-size:14px;font-weight:600;color:var(--gcc-ink);margin-bottom:8px}
+body .cart__order-note textarea{background:#fff!important;border:1px solid var(--gcc-hair)!important;border-radius:12px!important;min-height:96px;padding:12px 14px!important;font-size:14px!important;line-height:1.5!important;color:var(--gcc-ink)!important;box-shadow:none!important;width:100%}
+body .cart__order-note textarea:focus{border-color:var(--gcc-blue)!important;box-shadow:0 0 0 3px rgba(0,113,227,.18)!important;outline:none!important}
+/* AKO 電子發票：Apple 表單樣式（功能與寫入訂單屬性不動） */
+body .akoCvsScNS .ako-invoice{text-align:left}
+body .akoCvsScNS .ako-invoice-title{font-size:14px!important;font-weight:600!important;color:var(--gcc-ink)!important;margin:0 0 4px!important}
+body .akoCvsScNS .ako-info-box{background:none!important;border:0!important;padding:0!important;margin:0 0 12px!important;border-radius:0!important;font-size:13px!important;line-height:1.5;color:var(--gcc-ink2)!important}
+body .akoCvsScNS .ako-info-box strong{font-weight:500!important;color:var(--gcc-ink)!important}
+body .akoCvsScNS .ako-invoice-subtitle{font-size:13px!important;color:var(--gcc-ink2)!important}
+body .akoCvsScNS .ako-menu-button{height:44px!important;border:1px solid var(--gcc-hair)!important;border-radius:12px!important;padding:0 40px 0 14px!important;font-size:14px!important;color:var(--gcc-ink)!important;background:#fff!important;box-shadow:none!important}
+body .akoCvsScNS .ako-menu-button:focus-visible{outline:none!important;border-color:var(--gcc-blue)!important;box-shadow:0 0 0 3px rgba(0,113,227,.18)!important}
+body .akoCvsScNS .ako-item__left-icon{display:none!important}
+body .akoCvsScNS .ako-menu-button .ako-menu__item{padding:0!important;font-size:14px!important;color:var(--gcc-ink)!important}
+body .akoCvsScNS .ako-menu-button__arrow{right:14px!important;color:var(--gcc-ink2)!important}
+body .akoCvsScNS .ako-menu-list{border:1px solid var(--gcc-hair)!important;border-radius:12px!important;box-shadow:0 10px 30px rgba(0,0,0,.12)!important;margin-top:6px!important;z-index:6}
+body .akoCvsScNS .ako-menu-list .ako-menu__item{padding:10px 12px!important;margin:0 6px;border-radius:8px!important;font-size:14px!important}
+body .akoCvsScNS .ako-menu-list .ako-menu__item:first-child{margin-top:6px}
+body .akoCvsScNS .ako-menu-list .ako-menu__item:last-child{margin-bottom:6px}
+body .akoCvsScNS .ako-menu-list .ako-menu__item:hover{background:var(--gcc-panel)!important}
+body .akoCvsScNS .ako-selected-icon{color:var(--gcc-blue)!important}
+body .akoCvsScNS .ako-label{font-size:13px!important;color:var(--gcc-ink2)!important}
+body .akoCvsScNS .ako-input,body .akoCvsScNS .ako-input--start{height:44px!important;border:1px solid var(--gcc-hair)!important;border-radius:12px!important;padding:0 14px!important;font-size:14px!important;color:var(--gcc-ink)!important;box-shadow:none!important;margin-top:6px!important;background:#fff!important}
+body .akoCvsScNS .ako-input:focus,body .akoCvsScNS .ako-input:focus-visible{outline:none!important;border-color:var(--gcc-blue)!important;box-shadow:0 0 0 3px rgba(0,113,227,.18)!important}
+body .akoCvsScNS .ako-input[aria-invalid="true"]{border-color:#e84448!important}
+body .akoCvsScNS .ako-helper-text--start{display:none!important}
+body .akoCvsScNS .ako-checkbox{font-size:13px!important;color:var(--gcc-ink2)!important;line-height:1.5;align-items:flex-start!important;column-gap:10px!important;margin-top:4px;cursor:pointer}
+body .akoCvsScNS .ako-checkmark{width:18px!important;height:18px!important;flex:none;border-radius:5px!important;border:1px solid var(--gcc-hair)!important;margin-top:1px;background:#fff!important}
+body .akoCvsScNS .ako-checkbox input:checked+.ako-checkmark{background:var(--gcc-blue)!important;border-color:var(--gcc-blue)!important}
+/* 手機／平板：疊成單欄 */
+@media(max-width:999px){
+  body .cart__recap{grid-template-columns:1fr!important;column-gap:0;row-gap:0}
+  body .cart__recap-note{grid-column:1!important;grid-row:1!important}
+  body .cart__recap>div:not(.cart__recap-block):not(.cart__recap-note)>div{grid-column:1!important;grid-row:2!important;margin-top:36px!important}
+  body .cart__recap-block{grid-column:1!important;grid-row:3!important;margin-top:36px!important}
+  body .cart__recap .cart__checkout-button{grid-column:1!important;grid-row:4!important;width:100%!important;justify-self:stretch;margin-top:24px!important}
+}
+@media(max-width:749px){
+  body:has(.cart) .page-header__text-wrapper{margin-top:28px!important;padding-bottom:18px}
+  body:has(.cart) .page-header h1.heading{font-size:24px!important}
+  body .line-item td{padding:22px 0!important}
+  body .line-item__image-wrapper{width:84px!important}
+  body .line-item__info{margin-left:16px!important}
+  body .product-item-meta__title{font-size:15px!important}
+  body .line-item__info .line-item__quantity{margin-top:12px}
+  body #cart_reserved_box{margin-top:20px!important}
+  body .cart__recap{padding-top:28px!important}
+}
+/* 第三輪補修（Mars 實測三點）：AKO 下拉收起時那條橫線、折扣標籤改成一行灰字、數量更新中的淡出 */
+body .akoCvsScNS .ako-menu-list[style*="max-height: 0"]{border-color:transparent!important;box-shadow:none!important;visibility:hidden}
+body .line-item [class*="discount"]{background:none!important;padding:0!important;border-radius:0!important}
+body .line-item__discount-list{margin:6px 0 0!important;display:flex;flex-wrap:wrap;gap:4px 12px}
+body .line-item .discount-badge,body .line-item__discount{display:inline-flex;align-items:center;gap:5px;font-size:13px!important;line-height:1.5!important;color:var(--gcc-ink2)!important;font-weight:400!important;letter-spacing:0}
+body .line-item .discount-badge svg,body .line-item__discount svg{width:12px;height:12px;opacity:.7}
+body .cart.gc-cart--busy .line-item-table{opacity:.55;pointer-events:none;transition:opacity .15s}
+/* 整單折扣（折扣碼、點數折抵）：總金額下面一行一筆，灰字、金額靠右 */
+body .cart__recap-block .cart__discount-list{margin:12px 0 0!important;padding:0!important;display:grid;row-gap:8px}
+body .cart__recap-block .cart__discount{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px!important}
+body .cart__recap-block .cart__discount-badge{display:inline-flex;align-items:center;gap:6px;background:none!important;padding:0!important;color:var(--gcc-ink2)!important;font-size:14px!important;font-weight:400!important}
+body .cart__recap-block .cart__discount-badge svg{width:13px;height:13px;opacity:.7}
+body .cart__recap-block .cart__discount-price{font-variant-numeric:tabular-nums;font-weight:500;color:var(--gcc-ink)}
