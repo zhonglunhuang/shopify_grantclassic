@@ -116,6 +116,8 @@
     {%- comment -%}gc：團購歸因與自動套碼＋商品頁專屬價條（GrantOS GOS-0253／0256）。整行拿掉＋刪 assets/gc-team.js 即完全還原{%- endcomment -%}
     <script src="{{ 'gc-team.js' | asset_url }}" defer></script>
     <link rel="stylesheet" href="{{ 'gc-bundle.css' | asset_url }}">
+    {%- comment -%}gc：頁尾底欄的樣式（與 theme.liquid／tsp-pro.liquid 一致）。這一行拿掉即完全還原{%- endcomment -%}
+    {{ 'gc-footer.css' | asset_url | stylesheet_tag }}
 </head>
 
   {%- assign feature_classes = '' -%}
@@ -194,6 +196,8 @@
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
       {%- render 'facebook-messanger' -%}
       {%- section 'footer' -%}
+      {%- comment -%}gc：頁尾底欄（法律連結＋版權＋地區）。這一行拿掉即完全還原{%- endcomment -%}
+      {%- render 'gc-footer-legal' -%}
     {%- endif -%}
   <!-- subify Snippet Start -->
 {% if content_for_header contains 'https:\/\/app-subify.shopgram.app\/subify-script-tag-for-snippet.js' %} 
