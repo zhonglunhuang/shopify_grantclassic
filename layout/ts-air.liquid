@@ -94,6 +94,11 @@
     {%- endif -%}
 
     {% render 'social-meta-tags' %}
+    {%- comment -%}gc：品牌結構化資料的「聯絡與身分」那半（地址／客服電話／成立年份／認證）。
+      與 theme.liquid、tsp-pro.liquid 同位置同寫法。它跟本檔下方 metafield 版的 kg_org_global
+      共用同一個 @id，Google 會合併成同一個品牌，不是重複——2026-09-10 逐欄比對過：
+      15 欄裡 7 欄相同、8 欄互補、0 欄衝突。這一行拿掉即完全還原。{%- endcomment -%}
+    {% render 'gc-ld-org' %}
     {% render 'ts-seo-schema' %}
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
