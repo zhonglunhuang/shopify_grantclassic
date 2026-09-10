@@ -100,6 +100,12 @@
 
     {%- comment -%}gc：全站字級梯子（t1~t7）與全站字型。與 theme.liquid／tsp-pro.liquid 一致，必須在 theme.css 之前載入。這一行拿掉即完全還原{%- endcomment -%}
     {{ 'gc-type.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}
+      gc：theme.liquid 與 tsp-pro.liquid 有的 ts-perf.css，這裡「刻意不載」——
+      它只管 .tmenu（大選單）與 mobile-navigation（手機抽屜），這份版型把那兩個都拿掉了，
+      2026-09-10 實測本頁各 0 個元素，載了是零效果的多一個請求。
+      比對三份版型時看到這裡少一支，不是漏掉。
+    {%- endcomment -%}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 

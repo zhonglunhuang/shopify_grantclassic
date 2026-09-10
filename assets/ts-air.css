@@ -740,3 +740,15 @@
 .ts-air .test__how{text-wrap:pretty;}
 .ts-air .lede{text-wrap:pretty;}
 .ts-air .cmp__name{white-space:nowrap;}
+
+/* 購買表單被往右推 48px（2026-09-10）。
+   症狀：.close 區塊裡，購買表單（選色＋加入購物車）的左緣比同一欄其他元素多 48px；
+         768 寬時右緣衝出容器，整頁多 9px 橫向捲動。1440 也歪，只是視窗夠寬看不出來。
+   查證：同層兄弟都是 translate(0,26px)，只有表單是 translate(48px,20px)；
+         掃過所有讀得到的樣式表與 16 支 JS，都沒有設定這個水平位移，來源未明。
+         8 個捲動位置量到的值完全一樣 → 是靜態值，不是動畫，覆寫不會卡住任何效果。
+   做法：只把水平歸零，垂直的 20px 原封不動（最小改動）。
+         必須 !important —— 不加壓不過去（原本那條優先權更高）。
+   量過：1440 左緣 242→194、768 左緣 86→38 且橫向捲動消失、375 本來就對（此規則無作用）。
+   要還原：刪掉這一段即可。 */
+.ts-air .close .shopify-product-form{transform:translateY(20px)!important;}
