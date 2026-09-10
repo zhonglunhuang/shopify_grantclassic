@@ -98,6 +98,9 @@
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
 
+    {%- comment -%}gc：全站字級梯子（t1~t7）與全站字型。與 theme.liquid／tsp-pro.liquid 一致，必須在 theme.css 之前載入。這一行拿掉即完全還原{%- endcomment -%}
+    {{ 'gc-type.css' | asset_url | stylesheet_tag }}
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
     <script src="{{ 'vendor.js' | asset_url }}" defer></script>
