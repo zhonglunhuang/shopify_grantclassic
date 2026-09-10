@@ -724,3 +724,14 @@
     font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .ts-topbar__in{gap:8px;}
 }
+
+/* 孤字斷行修正（2026-09-10）。Mars 鐵律：任何頁面不准孤字斷行。
+   這三處在桌機寬度會出現「最後一行只剩 1～2 個字」：
+     .ts-reads__title  文章卡標題 —— 用 balance：行數少，把每行拉齊最好看
+     .faq__a           常見問題答案 —— 用 pretty：只管最後一行，不動前面的節奏
+     .small            小字說明 —— 同上
+   為什麼不改文案：文案長度會變，改字不治本；這兩個屬性是讓瀏覽器自己挑斷點。
+   要還原：刪掉這一段即可，原本的規則一個字都沒動。 */
+.ts-air .ts-reads__title{text-wrap:balance;}
+.ts-air .faq__a{text-wrap:pretty;}
+.ts-air .small{text-wrap:pretty;}
