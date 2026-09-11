@@ -10,9 +10,15 @@ gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.g
 {%- assign d = page.metafields.gc_team.data.value -%}
 {%- assign ended = false -%}
 {%- if d == blank or d.status == 'ended' -%}{%- assign ended = true -%}{%- endif -%}
+{%- comment -%}
+一檔多優惠（GOS-0261）：data-discount 帶「全部的碼」用逗號串起來，腳本一次寫進購物車。
+舊的檔期資料沒有 discount_codes，退回去用單一的 discount_code。
+{%- endcomment -%}
+{%- assign dcodes = d.discount_codes | join: ',' -%}
+{%- if dcodes == blank -%}{%- assign dcodes = d.discount_code -%}{%- endif -%}
 <section class="gct" data-gc-team
   data-code="{{ d.code | escape }}"
-  data-discount="{{ d.discount_code | escape }}"
+  data-discount="{{ dcodes | escape }}"
   data-days="{{ d.days | default: 30 }}"
   data-status="{{ d.status | default: 'ended' }}"
   data-attr="{{ d.attr_key | default: '_gc_team' }}">
@@ -39,13 +45,20 @@ gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.g
   .gct .gct .gct__btn,.gct .gct__card .gct__btn{margin-top:auto;border:0;border-radius:999px;background:#0b6be0;color:#fff;font-size:15px;font-weight:600;padding:12px 18px;cursor:pointer;font-family:inherit;line-height:1.2;width:100%}
   .gct .gct__card .gct__btn[disabled]{background:#d2d2d7;color:#6e6e73;cursor:default}
   .gct .gct__card .gct__btn.is-done{background:#1d7a36}
+  .gct .gct__img{position:relative}
+  .gct .gct__badge{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;background:#1d1d1f;color:#fff;letter-spacing:.01em}
+  .gct .gct__code{display:flex;align-items:center;gap:9px 12px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#4b4f57;background:#f5f5f7;border-radius:14px;padding:11px 14px;width:fit-content;max-width:100%}
+  .gct .gct__code b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;font-weight:700;color:#1d1d1f;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:7px;padding:3px 10px;letter-spacing:.04em}
+  .gct .gct__code button{font:inherit;font-size:13px;color:#0b6be0;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .gct .gct__code button[data-gct-done]{color:#1d7a36;text-decoration:none}
+  .gct .gct__code [data-gct-hint]{font-size:12.5px;color:#86868b}
   .gct .gct__note{margin-top:26px;font-size:13px;color:#6e6e73;text-wrap:pretty;max-width:40em}
   .gct .gct__ended{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:36px 28px;text-align:center;margin-top:24px}
   .gct .gct__ended p{color:#4b4f57;margin:8px 0 18px}
   .gct .gct__ended a{display:inline-block;border-radius:999px;background:#0b6be0;color:#fff;padding:11px 22px;font-weight:600}
   .gct .gct__toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1d1d1f;color:#fff;border-radius:999px;padding:11px 18px;font-size:14px;opacity:0;transition:.2s;pointer-events:none;z-index:50}
   .gct .gct__toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-  @media (max-width:640px){.gct{padding:28px 16px 56px}.gct .gct__grid{gap:12px;margin-top:22px}}
+  @media (max-width:640px){.gct .gct__badge{font-size:11.5px;padding:3px 9px}.gct{padding:28px 16px 56px}.gct .gct__grid{gap:12px;margin-top:22px}}
 </style>
 
   <div class="gct__eyebrow">{{ 'grantclassic 特經典' }}</div>
@@ -65,6 +78,9 @@ gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.g
       <span>正品公司貨・原廠保固</span>
     </div>
 
+    {%- comment -%}看得到的專屬碼（GOS-0263）：內容由 gc-team.js 填，跟商品頁同一份實作{%- endcomment -%}
+    <div data-gct-codehost></div>
+
     <div class="gct__grid">
       {%- for it in d.items -%}
         {%- assign live = all_products[it.handle] -%}
@@ -83,12 +99,14 @@ gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.g
         <div class="gct__card" data-variant="{{ it.variant_id }}">
           <a class="gct__img" href="{% if it.handle != blank %}/products/{{ it.handle }}?gct={{ d.code | escape }}{% else %}#{% endif %}">
             {%- if img != blank -%}<img src="{{ img }}" alt="{{ it.title | escape }}" loading="lazy">{%- endif -%}
+            {%- if it.offer != blank -%}<span class="gct__badge">{{ it.offer | escape }}</span>{%- endif -%}
           </a>
           <h2 class="gct__title">{{ it.title | escape }}</h2>
           {%- if it.handle != blank -%}<a class="gct__more" href="/products/{{ it.handle }}?gct={{ d.code | escape }}">看完整介紹 →</a>{%- endif -%}
           <div class="gct__price">
-            <span class="gct__now">NT${{ it.team_price }}</span>
-            {%- if saving > 0 -%}<span class="gct__was">NT${{ it.orig_price }}</span><span class="gct__save">省 {{ saving }}</span>{%- endif -%}
+            {%- comment -%}千分位走 money 濾鏡（店家格式是 {{amount_no_decimals}}），跟 gc-team.js 那張卡一致{%- endcomment -%}
+            <span class="gct__now">NT${{ it.team_price | times: 100 | money }}</span>
+            {%- if saving > 0 -%}<span class="gct__was">NT${{ it.orig_price | times: 100 | money }}</span><span class="gct__save">省 {{ saving | times: 100 | money }}</span>{%- endif -%}
           </div>
           {%- if available -%}
             <button class="gct__btn" type="button" data-gc-add="{{ it.variant_id }}">加入購物車</button>
@@ -98,7 +116,7 @@ gc-team：團購主專屬頁（GrantOS GOS-0253 建的頁面用 templates/page.g
         </div>
       {%- endfor -%}
     </div>
-    <p class="gct__note">團購價於結帳時自動套用（購物車可能先顯示原價，到結帳頁會看到折扣）。優惠限本頁商品、不與其他折扣併用。</p>
+    <p class="gct__note">團購價於結帳時自動套用（購物車可能先顯示原價，到結帳頁會看到折扣）。優惠限本頁商品。</p>
   {%- endif -%}
   <div class="gct__toast" data-gc-toast aria-live="polite"></div>
 </section>
