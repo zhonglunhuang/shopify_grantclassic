@@ -292,43 +292,85 @@
     if (!items.length) return;
     var it = pickItem(items);
     var multi = (d.items || []).length > 1;
-    // 置中、沒有關閉鈕、字級照 Mars 2026-09-08 調整：名字與說明 15px、價格 20px 粗、原價 14px、提示 14px
-    var css = '.gct-bar{position:fixed;left:0;right:0;z-index:60;background:#1d1d1f;color:#fff;' +
-      'padding:10px 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;' +
-      'font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;font-size:15px;line-height:1.35;transition:top .15s;text-align:center}' +
-      '.gct-bar__in{display:flex;align-items:baseline;justify-content:center;gap:6px 14px;flex-wrap:wrap;max-width:1120px}' +
-      '.gct-bar__who{font-size:15px;color:#f2f2f7;white-space:nowrap;letter-spacing:.01em}' +
-      '.gct-bar__price{font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.01em}' +
-      '.gct-bar__was{font-size:14px;color:#a1a1a6;text-decoration:line-through;margin-left:8px;font-variant-numeric:tabular-nums}' +
-      '.gct-bar__cta{font-size:14px;color:#9ec5ff;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
-      '.gct-bar__more{color:#fff;font-size:14px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}' +
-      '@media(max-width:640px){.gct-bar{padding:9px 12px}.gct-bar__who{font-size:13.5px}.gct-bar__price{font-size:18px}.gct-bar__was,.gct-bar__cta,.gct-bar__more{font-size:13px}}';
-    css += '.gct-bar__code{display:flex;align-items:center;justify-content:center;gap:9px 12px;flex-wrap:wrap;' +
-      'font-size:13px;color:#c7c7cc;padding-top:7px;margin-top:7px;border-top:1px solid rgba(255,255,255,.14);width:100%;max-width:1120px}' +
-      '.gct-bar__code b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;font-weight:700;color:#fff;' +
-      'background:rgba(255,255,255,.12);border-radius:7px;padding:3px 10px;letter-spacing:.04em}' +
-      '.gct-bar__code button{font:inherit;font-size:13px;color:#9ec5ff;background:none;border:0;padding:0;cursor:pointer;' +
-      'text-decoration:underline;text-underline-offset:3px}' +
+    /* 一行搞定（GOS-0274，Apple 風精修）。三件事在做工：
+     *   ① **三階字級**：說明 13 / 價格 17 / 碼 12。價格在深底上本來就是最亮最重的，
+     *      不需要再大——舊版 20px 跟 15px 的說明只差一階，看起來像三個一樣重的東西在吵。
+     *      而且 SF 在這個尺寸下 700 會糊，600 才乾淨。
+     *   ② **兩層間距**：組內 8px、組間 20px。舊版全部 16px，所以「價格與原價」跟
+     *      「價格與碼」看起來一樣近，但那根本不是同一種關係。
+     *   ③ **細線取代「·」**，連結去掉底線改系統藍——把噪點從最不重要的地方移走。
+     * 手機把「｜KOL 後綴」與「看全部」讓位：頁尾活動區本來就有完整的商品列表，
+     * 375 寬的地方放第二套導覽不划算（價條是黏在最上面的，多一行就少一行商品）。 */
+    var css = '.gct-bar{position:fixed;left:0;right:0;z-index:60;background:#1d1d1f;color:#f5f5f7;' +
+      'padding:13px 22px;display:flex;align-items:center;justify-content:center;gap:0 20px;flex-wrap:wrap;' +
+      'box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;text-align:center;' +
+      'font-family:-apple-system,"SF Pro Text","PingFang TC","Noto Sans TC",sans-serif;' +
+      'font-size:13px;line-height:1.45;letter-spacing:.006em;transition:top .15s}' +
+      '.gct-bar__grp{display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap}' +
+      '.gct-bar__who em{font-style:normal;color:#a1a1a6}' +
+      '.gct-bar__price{font-size:17px;font-weight:600;color:#fff;' +
+      'font-variant-numeric:tabular-nums;letter-spacing:-.012em;white-space:nowrap}' +
+      '.gct-bar__was{font-size:12.5px;color:#86868b;text-decoration:line-through;' +
+      'font-variant-numeric:tabular-nums}' +
+      '.gct-bar__rule{width:1px;height:15px;background:rgba(255,255,255,.16);flex:none;align-self:center}' +
+      '.gct-bar__more{color:#fff;font-size:13px;text-decoration:none;white-space:nowrap}' +
+      '.gct-bar__more:hover{text-decoration:underline;text-underline-offset:3px}' +
+      '.gct-bar__tip{flex:1 1 100%;margin-top:9px;font-size:12.5px;color:#a1a1a6;' +
+      'line-height:1.55;letter-spacing:0}' +
+      '@media(max-width:640px){.gct-bar{padding:11px 14px;gap:0 12px;font-size:12.5px}' +
+      '.gct-bar__price{font-size:16px}.gct-bar__was{font-size:12px}' +
+      '.gct-bar__who em{display:none}.gct-bar__rule{height:13px}' +
+      '.gct-bar__more,.gct-bar__rule[data-more]{display:none}}';
+    // 碼那一段：改成跟其他元素同一行的膠囊，不再自己佔一行
+    css += '.gct-bar__code{display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap}' +
+      '.gct-bar__code b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;' +
+      'font-weight:600;color:#fff;background:rgba(255,255,255,.10);border-radius:6px;' +
+      'padding:3px 8px;letter-spacing:.05em}' +
+      '.gct-bar__code button{font:inherit;font-size:13px;color:#2997ff;background:none;border:0;' +
+      'padding:0;cursor:pointer;text-decoration:none}' +
+      '.gct-bar__code button:hover{text-decoration:underline;text-underline-offset:3px}' +
       '.gct-bar__code button[data-gct-done]{color:#7ee2a8;text-decoration:none}' +
-      '.gct-bar__code [data-gct-hint]{font-size:12.5px;color:#8e8e93}' +
-      '.gct-bar__code [data-gct-codeitem]{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}' +
-      // 手機：價條是黏在最上面的，多一行就少一行內容。碼那行壓成一行、長提示整句拿掉——
-      // 「你的專屬碼」＋「點一下複製」本身就講完了（實測 375 寬：不壓的話價條會從 90px 變成 166px）
-      '@media(max-width:640px){.gct-bar__code{font-size:12.5px;gap:0 10px;flex-wrap:nowrap;padding-top:6px;margin-top:6px;' +
-      'white-space:nowrap;overflow:hidden}.gct-bar__code b{font-size:12.5px;padding:2px 8px}' +
-      '.gct-bar__code button{font-size:12.5px}.gct-bar__code [data-gct-hint]{display:none}}';
+      '.gct-bar__info{color:rgba(255,255,255,.5);font:inherit;font-size:14px;background:none;border:0;' +
+      'padding:0;cursor:pointer;line-height:1;align-self:center}' +
+      '.gct-bar__info:hover{color:rgba(255,255,255,.85)}' +
+      '@media(max-width:640px){.gct-bar__code b{font-size:11.5px;padding:2px 7px}' +
+      '.gct-bar__code button{font-size:12.5px}}';
     var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
     var bar = document.createElement('div'); bar.className = 'gct-bar'; bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0');
     bar.setAttribute('aria-label', '前往購買區');
-    bar.style.flexDirection = 'column';
+    var code = it.code || (codeList(allCodes(d))[0] || '');
     bar.innerHTML =
-      '<div class="gct-bar__in"><span class="gct-bar__who">' + esc(d.kol_name) + ' 粉絲專屬價・結帳自動折</span>' +
-      '<span><span class="gct-bar__price">' + fmt(it.team_price) + '</span>' +
-      (it.orig_price > it.team_price ? '<span class="gct-bar__was">' + fmt(it.orig_price) + '</span>' : '') + '</span>' +
-      '<span class="gct-bar__cta">（詳情請點我）</span>' +
-      (multi && d.hub ? '<a class="gct-bar__more" href="' + esc(d.hub) + '">看全部團購商品</a>' : '') + '</div>' +
-      // 只列這個商品用的那一個碼——一次列三個碼客人不知道該貼哪個，手機上也會把價條撐成一大塊
-      codeRow([it.code || (codeList(allCodes(d))[0] || '')], 'gct-bar__code');
+      '<span class="gct-bar__grp"><span class="gct-bar__who">' + esc(d.kol_name).replace(
+        /｜(.+)$/, '<em>｜$1</em>') + ' 專屬價</span></span>' +
+      '<span class="gct-bar__grp"><span class="gct-bar__price">' + fmt(it.team_price) + '</span>' +
+      (it.orig_price > it.team_price ? '<span class="gct-bar__was">' + fmt(it.orig_price) + '</span>' : '') +
+      '</span>' +
+      (code ? '<span class="gct-bar__rule"></span>' +
+        '<span class="gct-bar__grp gct-bar__code" data-gct-coderow>' +
+        '<b data-gct-codetext>' + esc(code) + '</b>' +
+        '<button type="button" data-gct-copy="' + esc(code) + '">複製</button>' +
+        '<button type="button" class="gct-bar__info" data-gct-info ' +
+        'aria-label="這組碼怎麼用">ⓘ</button></span>' : '') +
+      (multi && d.hub ? '<span class="gct-bar__rule" data-more></span>' +
+        '<span class="gct-bar__grp"><a class="gct-bar__more" href="' + esc(d.hub) +
+        '">看全部團購商品</a></span>' : '');
+
+    // ⓘ：長說明收在這裡。平常不佔位置，點了才展開——那句話是給「換手機的少數人」看的保險，
+    // 不該在第一層跟價格搶空間。
+    bar.addEventListener('click', function (e) {
+      var i = e.target.closest ? e.target.closest('[data-gct-info]') : null;
+      if (!i) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var tip = bar.querySelector('.gct-bar__tip');
+      if (tip) { tip.parentNode.removeChild(tip); placeBar(bar); return; }
+      var el = document.createElement('span');
+      el.className = 'gct-bar__tip';
+      el.textContent = '結帳會自動折，不用輸入。換手機或換瀏覽器時，把這組碼貼在結帳頁就有。';
+      bar.appendChild(el);
+      placeBar(bar);
+    }, true);
+
     function go(e) {
       if (e.target.closest('.gct-bar__more') || e.target.closest('.gct-bar__code')) return;
       var t = buyTarget();
@@ -361,12 +403,14 @@
         wasEl.textContent = fmt(next.orig_price);
         wasEl.style.display = next.orig_price > next.team_price ? '' : 'none';
       }
-      var slot = bar.querySelector('.gct-bar__code');
-      if (slot) {
-        slot.outerHTML = codeRow([next.code || (codeList(allCodes(d))[0] || '')], 'gct-bar__code');
-        bindCopy(bar);
-        placeBar(bar);
-      }
+      // 碼就地換文字就好。舊版是整段 outerHTML 重畫（兩行結構留下來的做法），
+      // 那會把 ⓘ 展開的說明一起洗掉，還得重綁一次複製鈕。
+      var nextCode = next.code || (codeList(allCodes(d))[0] || '');
+      var codeEl = bar.querySelector('[data-gct-codetext]');
+      var copyBtn = bar.querySelector('[data-gct-copy]');
+      if (codeEl && nextCode) codeEl.textContent = nextCode;
+      if (copyBtn && nextCode) copyBtn.setAttribute('data-gct-copy', nextCode);
+      placeBar(bar);
     }
     document.addEventListener('change', function (e) {
       if (e.target && e.target.name === 'id') resync();
@@ -389,7 +433,29 @@
     } catch (e) {}
     return '';   // 讀不到就交給變體比對（isHere 兩條都看），不要在這裡猜
   }
+  /* 這一區要落在哪（GOS-0274 修正）。
+   *
+   * 原本是 append 到 `main`——在 Focal 一般頁沒問題，但 Pro／Air 那種特製版型的
+   * `main` 只包住上半部（#main.anchor 到 21,390px 就結束，購買區在 36,797px、
+   * 在 main 外面），所以整區掉到頁面中間去了（Mars 2026-09-12 實際看到）。
+   *
+   * 正確的落點是**「加入購物車」的正下方**：客人看完商品、看到購買鈕之後，
+   * 才輪到「這一檔還有別的」。Pro 那一頁的表單與「完整規格」剛好是相鄰的兄弟，
+   * 插在表單後面就正好在兩者之間。
+   *
+   * **但表單不一定寬**：一般商品頁的表單在右邊那個窄欄裡，直接插會被夾在窄欄中。
+   * 所以量一下——夠寬就貼著表單放，太窄就退到整個購買區塊的後面。
+   */
   function campaignMount() {
+    var form = document.querySelector('form[action*="/cart/add"]');
+    if (form && form.parentNode) {
+      var host = form.parentElement;
+      var wide = host.getBoundingClientRect().width >=
+                 Math.min(document.documentElement.clientWidth, 1400) * 0.62;
+      if (wide) return { el: form, how: 'after' };
+      var sec = form.closest ? form.closest('.shopify-section, section, [id*="section"]') : null;
+      if (sec && sec.parentNode) return { el: sec, how: 'after' };
+    }
     var main = document.querySelector('main, #MainContent, [role="main"]');
     if (main) return { el: main, how: 'append' };
     var ftr = document.querySelector('footer, .ts-foot, [class*="footer"]');
@@ -404,7 +470,7 @@
   }
   function renderCampaign(d) {
     if (!d || d.status !== 'active' || !/^\/products\//.test(location.pathname)) return;
-    if (document.querySelector('.gct-camp')) return;
+    if (document.querySelector('[data-gct-camp-host]')) return;
     var items = (d.items || []).filter(function (it) { return it.handle; });
     if (items.length < 2) return;
     var pid = currentProductId();
@@ -453,13 +519,30 @@
       '@media(max-width:900px){.gct-camp{padding:40px 16px 56px}.gct-camp h2{font-size:24px!important}' +
       '.gct-camp__grid{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}.gct-camp__hd{align-items:flex-start}}' +
       '@media(max-width:520px){.gct-camp__grid{grid-template-columns:1fr}}';
-    var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
-
     var left = daysLeft(d.ends_on);
     var cd = left >= 0
       ? '<div class="gct-camp__cd"><span>還有 <b>' + left + ' 天</b>・' +
         esc(d.ends_on.slice(5).replace('-', ' 月 ')) + ' 日截止</span></div>'
       : '';
+    /* **整區放進 Shadow DOM**（GOS-0274）。
+     *
+     * 搬到「加入購物車」下面之後，這一區會落在各版型自己的容器裡，然後被那一頁的 CSS 蓋掉
+     * ——Pro 那一頁把標題放大到 57px、內距清成 0、還繼承了置中（Mars 2026-09-12 看到）。
+     * 贏我的那條規則在第三方／行內樣式裡，跨網域讀不到，而且**五份版型各有各的**。
+     *
+     * 一條一條去比特異性是打不完的仗。Shadow DOM 直接把外面的樣式擋在門外，
+     * 不管落在誰的容器裡都長一樣。繼承性的屬性（字體、顏色、text-align）在 :host 重設掉。
+     */
+    var host = document.createElement('div');
+    host.setAttribute('data-gct-camp-host', '1');
+    /* **那條分隔線不要貼著上面的「加入購物車」**（Mars 2026-09-12）。
+     * 內距在 border 裡面撐不開外面，要靠 margin；而 margin 不能寫在 `:host`——
+     * host 元素活在外層 DOM，`:host` 特異性只有 0,1,0，頁面一條 `.wrap > *{margin:0}`
+     * 就壓過去了（實測上邊距被壓成 0）。行內＋important 才釘得住。
+     * `clamp` 一個值同時服務兩個斷點：手機 38、桌機 56，中間自己過渡。 */
+    host.style.setProperty('display', 'block', 'important');
+    host.style.setProperty('margin', 'clamp(38px, 5vw, 56px) 0 0', 'important');
+    var root = host.attachShadow ? host.attachShadow({ mode: 'open' }) : null;
     var sec = document.createElement('section');
     sec.className = 'gct-camp';
     sec.innerHTML =
@@ -484,9 +567,27 @@
         '</a>';
       }).join('') + '</div>' +
       '<p class="gct-camp__foot">一般訪客不會看到這一區，也不會看到最上面那條價格——這一頁還是原本的商品介紹頁。</p>';
+    var node = sec;
+    if (root) {
+      // :host 要把「會繼承進來的東西」重設掉——text-align、字體、顏色、行高。
+      // Shadow DOM 擋得住選擇器，擋不住繼承。
+      var st = document.createElement('style');
+      st.textContent = ':host{all:initial;display:block;text-align:left;' +
+        'font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang TC",' +
+        '"Noto Sans TC",sans-serif;color:#1d1d1f;line-height:1.6;font-size:15px}' + css;
+      root.appendChild(st);
+      root.appendChild(sec);
+      node = host;
+    } else {
+      // 老瀏覽器沒有 Shadow DOM：退回舊做法（樣式掛 head，可能被頁面蓋掉，但至少畫得出來）
+      var style = document.createElement('style');
+      style.textContent = css;
+      document.head.appendChild(style);
+    }
     var mount = campaignMount();
-    if (mount.how === 'before') mount.el.parentNode.insertBefore(sec, mount.el);
-    else mount.el.appendChild(sec);
+    if (mount.how === 'before') mount.el.parentNode.insertBefore(node, mount.el);
+    else if (mount.how === 'after') mount.el.parentNode.insertBefore(node, mount.el.nextSibling);
+    else mount.el.appendChild(node);
   }
 
   var ref = readCookie();
