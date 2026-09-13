@@ -299,11 +299,13 @@
                 **不能用 `asset_img_url` 這個濾鏡**——它不吃 webp，會吐回 Shopify 的「無圖」佔位 gif
                 （實測踩到）。所以自己把 `_<寬>x` 插進副檔名前面組網址。
 
-                **上限刻意停在 2400w，不給 3000w**：Retina 螢幕一律抓最高那階，
-                給到 3000w 是 213KB、停在 2400w 是 142KB，而 1440×2 只需要 2880px，
-                差 1.2 倍的放大在白底產品照上看不出來。
+                **上限要給到 3000w。**曾經停在 2400w 想省 71KB，結果 1440×2＝2880px 的螢幕
+                拿 2400 去放大 1.2 倍，機身上「33/100/25W」那排小字明顯糊掉
+                （量過：邊緣銳利度 57.2 vs 60.6，Mars 一眼看出來）。
+                對照組：3000w 跟「完全不壓縮的原檔」只差 2%（60.6 vs 61.9）——
+                **糊是放大造成的，不是 webp 壓縮造成的。省流量不要從最高那階省。**
               {%- endcomment -%}
-              {%- assign gc_ws = '600,800,1000,1200,1400,1600,1800,2000,2400' | split: ',' -%}
+              {%- assign gc_ws = '600,800,1000,1200,1400,1600,1800,2000,2400,3000' | split: ',' -%}
               {%- assign gc_base = block.settings.asset_image | asset_url -%}
               {%- assign gc_ext = block.settings.asset_image | split: '.' | last -%}
               {%- capture gc_dot -%}.{{ gc_ext }}{%- endcapture -%}
@@ -339,8 +341,8 @@
 
           {%- if block.settings.asset_mobile_image != blank -%}
             <div class="slideshow__image-wrapper hidden-lap-and-up" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
-              {%- comment -%}手機同理，上限 1200w：390×3 ＝ 1170，剛好夠、而且比 1440w 省 50KB{%- endcomment -%}
-              {%- assign gc_mws = '400,500,600,700,800,900,1000,1200' | split: ',' -%}
+              {%- comment -%}手機同理給到原生 1440w：430 的 iPhone ×3 ＝ 1290，1200 就得放大{%- endcomment -%}
+              {%- assign gc_mws = '400,500,600,700,800,900,1000,1200,1440' | split: ',' -%}
               {%- assign gc_mbase = block.settings.asset_mobile_image | asset_url -%}
               {%- assign gc_mext = block.settings.asset_mobile_image | split: '.' | last -%}
               {%- capture gc_mdot -%}.{{ gc_mext }}{%- endcapture -%}
