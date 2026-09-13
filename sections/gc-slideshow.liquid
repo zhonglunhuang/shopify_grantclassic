@@ -77,7 +77,182 @@
      字本來就置中在圖上，兩者的相對關係沒變（量過：字距畫面頂端 213px，
      頁首只有 65px 高，不會壓到）。手機是另一回事，
      手機的字靠上對齊，所以上面那段有加 padding-top 補頁首高度。 */
-  #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 52px)); }
+  {%- if section.settings.tuck_under_header != false -%}
+  #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 65px)); }
+  @media screen and (max-width: 740px) {
+    #shopify-section-{{ section.id }} { margin-top: calc(-1 * var(--header-height, 52px)); }
+  }
+  {%- endif -%}
+
+  {%- comment -%}
+    ── 白底首圖版型（2026-09-13）───────────────────────────────────────────────
+    深底橫幅的字是「疊在圖上」，白底不能這樣做：白字會不見，而圖上方的純白又太窄
+    （桌機只有整段的 14%，扣掉透明頁首剩 31px）。所以白底那張改成「字在上、產品貼底」，
+    白色靠整段的底色跟圖自己的白接起來，看不出接縫。
+
+    高度為什麼是「整段」的設定而不是「單張」的：輪播的作用中那張是 position:relative，
+    其餘是 absolute 疊在它上面——**整段的高度等於作用中那張的高度**。只調一張的話，
+    輪播每換一次頁面就會上下跳一次。所以高度一改就是四張一起改，
+    代價是另外三張（cover 裁切）左右會被多裁一些。這是取捨，不是 bug。
+
+    文字區用「佔整段高度的百分比」定位，不用 px：整段高度是 vw（跟著螢幕寬變），
+    白區的位置也就跟著等比移動，一個數字在所有寬度都成立。
+  {%- endcomment -%}
+
+  {%- comment -%}
+    高度的算法（2026-09-13 第二版，實測改的）
+
+    第一版把整段高度寫死成「圖片的比例」，在 1440 剛好，但**換個寬度就爆**：
+    白區是跟著寬度等比縮的，文字卻不是（按鈕固定 52px、頁首固定 65px、
+    行高有下限），所以螢幕一窄，白區縮得比文字快，文字就頂穿白區壓到頁首。
+    741～1100 這段（27 吋縮一半、平板橫放）整個壞掉就是這樣來的。
+
+    治法兩件事：
+    1. 整段高度取「圖片自然高」與「文字真正需要的高」兩者的大者，
+       所以窄螢幕會自己長高一點，文字永遠塞得下。
+    2. 白底那張的圖改成 contain 貼底——整段比圖高的時候，上面自動多出白，
+       因為底色跟圖的上緣都是白的，接縫看不見；整段比圖矮的時候圖等比縮、
+       左右露出的也是白。**兩個方向都不會裁到產品。**
+
+    文字區的高度＝整段高 −「圖裡產品那一段」的高。產品那段用 min() 同時
+    表示成 vw 與 %，是為了涵蓋上面兩種情形（以寬度為準 / 以高度為準）。
+  {%- endcomment -%}
+
+  {%- assign d_img_vw = section.settings.custom_height_desktop_vw -%}
+  {%- assign m_img_vw = section.settings.custom_height_mobile_vw -%}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.light_layout -%}
+      {%- assign d_pct = block.settings.light_white_pct | default: 43.7 -%}
+      {%- assign m_pct = block.settings.light_white_pct_mobile | default: 43.07 -%}
+      {%- assign d_coef = 100.0 | minus: d_pct | divided_by: 100.0 -%}
+      {%- assign m_coef = 100.0 | minus: m_pct | divided_by: 100.0 -%}
+      {%- assign d_prod_vw = d_img_vw | times: d_coef -%}
+      {%- assign m_prod_vw = m_img_vw | times: m_coef -%}
+      {%- assign d_prod_pct = d_coef | times: 100 -%}
+      {%- assign m_prod_pct = m_coef | times: 100 -%}
+      {%- comment -%}文字要用掉的高度：頁首＋三行字＋按鈕＋離產品的間距，抓一個涵蓋所有寬度的上限{%- endcomment -%}
+      {%- assign d_budget = 'clamp(460px, 24vw, 535px)' -%}
+      {%- assign m_budget = 350 -%}
+      {%- comment -%}
+        圖片一律「滿寬貼底」，不用 object-fit。
+        contain 會在寬螢幕把圖縮小、左右露出兩條白帶——底色跟圖片下緣的陰影
+        差幾個色階，那條邊在大螢幕上看得出來（2026-09-13 在 2000px 寬抓到）。
+        cover 則反過來，在窄螢幕會裁掉產品左右。
+        直接 width:100% + bottom:0 兩種都不會發生：整段比圖高就在上面多出白，
+        比圖矮就從上面裁掉純白那段（裁掉也看不出來）。
+        所以產品在畫面上的高度恆等於 prod_vw，白區＝整段高 − prod_vw。
+        也因此不能給整段封高度上限——封頂會連放字的白一起吃掉。
+      {%- endcomment -%}
+      #block-{{ section.id }}-{{ block.id }} .slideshow__image {
+        position: absolute !important;
+        inset: auto 0 0 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
+      }
+      {%- if d_img_vw > 0 -%}
+        #shopify-section-{{ section.id }} .slideshow__slide,
+        #shopify-section-{{ section.id }} .slideshow__slide-inner {
+          min-height: calc({{ d_prod_vw }}vw + {{ d_budget }}) !important;
+        }
+      {%- endif -%}
+      {%- if m_img_vw > 0 -%}
+        @media screen and (max-width: 740px) {
+          #shopify-section-{{ section.id }} .slideshow__slide,
+          #shopify-section-{{ section.id }} .slideshow__slide-inner {
+            min-height: calc({{ m_prod_vw }}vw + {{ m_budget }}px) !important;
+          }
+        }
+      {%- endif -%}
+      #block-{{ section.id }}-{{ block.id }} .slideshow__text-wrapper {
+        height: calc(100% - {{ d_prod_vw }}vw) !important;
+      }
+      @media screen and (max-width: 740px) {
+        #block-{{ section.id }}-{{ block.id }} .slideshow__text-wrapper {
+          height: calc(100% - {{ m_prod_vw }}vw) !important;
+        }
+      }
+    {%- endif -%}
+  {%- endfor -%}
+
+  .slideshow .gc-slideshow__tagline--sub {
+    margin-top: 8px;
+    font-size: clamp(15px, 1.25vw, 19px);
+    color: rgba(var(--text-color), .68);
+  }
+  @keyframes gc-gold-sweep { 0%, 100% { background-position: 6% 0; } 50% { background-position: 94% 0; } }
+
+  {%- for block in section.blocks -%}
+    {%- if block.settings.light_layout -%}
+      {%- assign light_bg = block.settings.light_bg | default: '#fefefe' -%}
+      {%- comment -%}
+        底色要跟圖片最上緣那一片白「同一個色」——量過原圖，最常見的就是 (254,254,254)。
+        差幾個色階，交界處就會看得出一條邊。
+      {%- endcomment -%}
+      #block-{{ section.id }}-{{ block.id }},
+      #block-{{ section.id }}-{{ block.id }} .slideshow__image-wrapper { background: {{ light_bg }}; }
+      /* contain 貼底：整段比圖高就往上多出白，比圖矮就等比縮、左右露白——兩邊都不裁產品 */
+      #block-{{ section.id }}-{{ block.id }} .slideshow__image {
+        object-fit: contain !important;
+        object-position: bottom center !important;
+      }
+      #block-{{ section.id }}-{{ block.id }} .container {
+        position: absolute; inset: 0; max-width: none; padding: 0; z-index: 2;
+      }
+      /* 文字在白區裡上下置中，padding 當下限：按鈕離產品至少 48px（手機 36px），
+         寬螢幕多出來的白上下均分，不會整團偏下。 */
+      #block-{{ section.id }}-{{ block.id }} .slideshow__text-wrapper {
+        position: absolute; left: 0; right: 0; top: 0;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+        padding: var(--header-height, 65px) 24px 48px !important;
+      }
+      #block-{{ section.id }}-{{ block.id }} .heading--large {
+        font-size: clamp(34px, 3.9vw, 70px) !important;
+      }
+      /* 主題把 .heading--large 明寫成 text-align:left（content-box 明明是 center）。
+         窄螢幕文字盒剛好被字撐滿看不出來，寬螢幕文字盒一變寬，大標就整條貼左邊。 */
+      #block-{{ section.id }}-{{ block.id }} .content-box > * { text-align: center !important; }
+      /* 選擇器要壓過上面那條 `#shopify-section-… .content-box--medium{max-width:min(680px,46%)}`，
+         兩條都有 !important，只能靠特異性贏——46% 在窄桌機會把大標擠成兩行，版面就垮了 */
+      #shopify-section-{{ section.id }} #block-{{ section.id }}-{{ block.id }} .content-box.content-box--medium {
+        max-width: min(900px, 92%) !important;
+        width: 100% !important;
+        text-align: center !important;
+        align-items: center !important;
+      }
+      @media screen and (max-width: 740px) {
+        #block-{{ section.id }}-{{ block.id }} .slideshow__text-wrapper {
+          padding: var(--header-height, 52px) 16px 36px !important;
+        }
+        #block-{{ section.id }}-{{ block.id }} .heading--large {
+          font-size: clamp(30px, 9.5vw, 50px) !important;
+        }
+        #shopify-section-{{ section.id }} #block-{{ section.id }}-{{ block.id }} .content-box.content-box--medium { max-width: 100% !important; }
+      }
+    {%- endif -%}
+
+    {%- if block.settings.accent_gold -%}
+      /* 燙金：照包裝上 Pro 的燙金。白底壓不住淺金，所以主體落在偏深的 #a8822a，
+         只留一道窄高光；不是圖片是文字，放大不糊、搜尋引擎也讀得到字。 */
+      #block-{{ section.id }}-{{ block.id }} .gc-slideshow__accent--gold {
+        font-weight: 600;
+        background: linear-gradient(100deg,
+          #7d5e22 0%, #b8912f 11%, #e3c973 24%, #fff4d0 33%, #dcc26e 41%,
+          #a8822a 55%, #8a6a24 68%, #d9b75e 84%, #9c7a2c 100%);
+        background-size: 260% 100%;
+        background-position: 22% 0;
+        -webkit-background-clip: text; background-clip: text;
+        color: transparent; -webkit-text-fill-color: transparent;
+        animation: gc-gold-sweep 6.5s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #block-{{ section.id }}-{{ block.id }} .gc-slideshow__accent--gold { animation: none; }
+      }
+    {%- endif -%}
+  {%- endfor -%}
 </style>
 
 <section class="section section--flush">
@@ -112,8 +287,17 @@
         {%- endif -%}
 
         {%- capture slide_content -%}
-          <div class="slideshow__image-wrapper {% if mobile_image != blank %}hidden-pocket{% endif %}" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
-            {%- if image != blank -%}
+          <div class="slideshow__image-wrapper {% if mobile_image != blank or block.settings.asset_mobile_image != blank %}hidden-pocket{% endif %}" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
+            {%- if block.settings.asset_image != blank -%}
+              {%- comment -%}
+                圖放在主題資產（assets/）而不是 Files 的情況。Files 需要 write_files 權限，
+                主題資產只需要 write_themes——白底首圖是這樣上去的。
+                代價：沒有 srcset（asset_url 不吃 image_url 的縮圖參數），所以檔案本身要先壓好。
+              {%- endcomment -%}
+              <img src="{{ block.settings.asset_image | asset_url }}"
+                   alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                   loading="{{ loading_attribute_value }}" draggable="false" class="slideshow__image">
+            {%- elsif image != blank -%}
               {%- capture sizes_attributes -%}{% if split_image != blank %}(min-width: 1000px) 50vw{% else %}100vw{% endif %}{%- endcapture -%}
               {{- image | image_url: width: 3000 | image_tag: loading: loading_attribute_value, draggable: false, class: 'slideshow__image', sizes: sizes_attributes, widths: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' -}}
             {%- else -%}
@@ -129,7 +313,13 @@
             </div>
           {%- endif -%}
 
-          {%- if mobile_image != blank -%}
+          {%- if block.settings.asset_mobile_image != blank -%}
+            <div class="slideshow__image-wrapper hidden-lap-and-up" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
+              <img src="{{ block.settings.asset_mobile_image | asset_url }}"
+                   alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                   loading="{{ loading_attribute_value }}" draggable="false" class="slideshow__image">
+            </div>
+          {%- elsif mobile_image != blank -%}
             <div class="slideshow__image-wrapper hidden-lap-and-up" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
               {{- mobile_image | image_url: width: 3000 | image_tag: loading: loading_attribute_value, draggable: false, class: 'slideshow__image', sizes: '100vw', widths: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' -}}
             </div>
@@ -151,7 +341,7 @@
             {%- if block.settings.title != blank -%}
               <h3 class="heading heading--large">
                 {%- if block.settings.title_accent != blank -%}
-                  {{ block.settings.title | escape }} <em class="gc-slideshow__accent">{{ block.settings.title_accent | escape }}</em>
+                  {{ block.settings.title | escape }} <em class="gc-slideshow__accent{% if block.settings.accent_gold %} gc-slideshow__accent--gold{% endif %}">{{ block.settings.title_accent | escape }}</em>
                 {%- else -%}
                   <split-lines {% if section.settings.transition_type != 'fade' %}reveal{% endif %}>{{ block.settings.title | escape }}</split-lines>
                 {%- endif -%}
@@ -160,6 +350,10 @@
 
             {%- if block.settings.text != blank -%}
               <p class="gc-slideshow__tagline">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.text_2 != blank -%}
+              <p class="gc-slideshow__tagline gc-slideshow__tagline--sub">{{ block.settings.text_2 | escape }}</p>
             {%- endif -%}
 
             {%- capture buttons -%}
@@ -268,6 +462,15 @@
     if (!root) return;
     var html = document.documentElement;
     var raf = 0;
+    var SECTION_ID = '{{ section.id }}';
+
+    /* 只清掉自己設的。首頁上白底首圖是另外一段，它也會設這個屬性。 */
+    function release() {
+      if (html.getAttribute('data-gc-hero-by') === SECTION_ID) {
+        html.removeAttribute('data-gc-hero');
+        html.removeAttribute('data-gc-hero-by');
+      }
+    }
 
     function activeInk() {
       var s = root.querySelector('slide-show-item:not([hidden])');
@@ -280,13 +483,15 @@
     function sync() {
       raf = 0;
       var r = root.getBoundingClientRect();
-      if (r.bottom > headerH() && r.top <= headerH()) html.setAttribute('data-gc-hero', activeInk());
-      else html.removeAttribute('data-gc-hero');
+      if (r.bottom > headerH() && r.top <= headerH()) {
+        html.setAttribute('data-gc-hero', activeInk());
+        html.setAttribute('data-gc-hero-by', SECTION_ID);
+      } else { release(); }
     }
     function tick() { if (!raf) raf = requestAnimationFrame(sync); }
 
     /* 換頁時 Turbo 會把 html 上的屬性留著，離開首頁一定要清掉 */
-    addEventListener('turbo:before-render', function () { html.removeAttribute('data-gc-hero'); });
+    addEventListener('turbo:before-render', release);
     addEventListener('scroll', tick, { passive: true });
     addEventListener('resize', tick);
     /* 換到下一張時 Focal 是切 hidden 屬性，用它當訊號 */
@@ -301,6 +506,34 @@
   "class": "shopify-section--slideshow",
   "max_blocks": 5,
   "settings": [
+    {
+      "type": "header",
+      "content": "白底首圖（gc 自訂）"
+    },
+    {
+      "type": "checkbox",
+      "id": "tuck_under_header",
+      "label": "塞到頁首底下（只有它是頁面第一段時才開）",
+      "default": true,
+      "info": "上面還有別的區段時要關掉，不然這一段會往上蓋掉前一段的下緣。"
+    },
+    {
+      "type": "number",
+      "id": "custom_height_desktop_vw",
+      "label": "桌機圖片自然高度（vw＝圖高÷圖寬×100）",
+      "info": "輪播的高度是整段共用的，改這個會同時改變裡面每一張的高度（其餘幾張是裁切填滿，會被多裁一些）。"
+    },
+    {
+      "type": "number",
+      "id": "custom_height_mobile_vw",
+      "label": "手機圖片自然高度（vw＝圖高÷圖寬×100）"
+    },
+    {
+      "type": "number",
+      "id": "max_height_px",
+      "label": "整段高度上限（px，0 = 不限制）",
+      "info": "超寬螢幕用。到頂之後圖片改以高度為準等比縮，左右露出的是底色。"
+    },
     {
       "type": "select",
       "id": "section_height",
@@ -461,6 +694,65 @@
           "type": "text",
           "id": "text",
           "label": "說明文字（大標下方）"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "說明文字第二行（更小、更淡）"
+        },
+        {
+          "type": "checkbox",
+          "id": "accent_gold",
+          "label": "大標尾字改燙金（取代藍漸層）",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "白底版型（gc 自訂）"
+        },
+        {
+          "type": "checkbox",
+          "id": "light_layout",
+          "label": "白底版型：字在上、產品貼底",
+          "default": false,
+          "info": "給白底圖用。字不疊在圖上，改放在圖上方的白區裡。"
+        },
+        {
+          "type": "color",
+          "id": "light_bg",
+          "label": "白底版型的底色",
+          "default": "#fefefe",
+          "info": "要跟圖片最上緣的白同色，差幾個色階交界就會看得出一條邊。"
+        },
+        {
+          "type": "number",
+          "id": "light_white_pct",
+          "label": "桌機：文字區佔整段高度的 %"
+        },
+        {
+          "type": "number",
+          "id": "light_white_pct_mobile",
+          "label": "手機：文字區佔整段高度的 %"
+        },
+        {
+          "type": "header",
+          "content": "圖片改用主題資產（gc 自訂）"
+        },
+        {
+          "type": "text",
+          "id": "asset_image",
+          "label": "桌機圖檔名（assets/ 底下）",
+          "info": "填了就蓋過上面的圖片選擇器。給「圖片放在主題資產、不在 Files」的情況用。"
+        },
+        {
+          "type": "text",
+          "id": "asset_mobile_image",
+          "label": "手機圖檔名（assets/ 底下）"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "圖片替代文字（主題資產圖才需要）"
         },
         {
           "type": "text",

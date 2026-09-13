@@ -499,3 +499,36 @@ html[data-gc-hero="light"] .header:not(.gc-solid) svg {
                 color .2s ease, filter .2s ease;
   }
 }
+
+/* --- 19d. 淺底首圖：頁首翻回深色（2026-09-13）-------------------
+   原本這一段只寫了「深底配白字」那一半（19a/19b 的 data-gc-hero="light"）。
+   首圖是白底的時候，19 段開頭那條會把頁首背景變透明，
+   但 logo 仍然吃著 `.header--transparent .header__logo-image{filter:brightness(0) invert(1)}`
+   ——白 logo 疊在白底上，logo 跟整排選單會一起消失。實測過，不是推測。
+
+   所以淺底要明講一次：logo 還原成品牌紅、字與圖示回到 #2d2d2d。
+   之所以要 !important，是因為要壓過上面那條 `.header--transparent` 的濾鏡。
+   滑過去變實心白那段（19b）本來就與 ink 無關，不用另外寫。 */
+html[data-gc-hero="dark"] .header:not(.gc-solid) {
+  --header-text-color: 45, 45, 45 !important;
+  color: rgb(45, 45, 45) !important;
+}
+html[data-gc-hero="dark"] .header:not(.gc-solid) .header__logo-image,
+html[data-gc-hero="dark"] .header:not(.gc-solid) svg {
+  filter: none !important;
+}
+html[data-gc-hero="dark"] .header:not(.gc-solid) a,
+html[data-gc-hero="dark"] .header:not(.gc-solid) button,
+html[data-gc-hero="dark"] .header:not(.gc-solid) svg {
+  color: rgb(45, 45, 45) !important;
+}
+
+/* 購物車數字的泡泡要獨立處理。上面那條把 --header-text-color 換成深灰，
+   而泡泡的「底色」在主題裡就是吃 --header-text-color、「數字」吃 --header-background
+   ——兩個一起被帶著走，結果底色跟數字變成同一個深灰，數字整個隱形
+   （2026-09-13 Mars 在手機上圈出來的那顆黑點）。
+   這裡直接還原成頁面捲下去之後那顆的樣子：紅底白字（量到的就是 255,59,48）。 */
+html[data-gc-hero="dark"] .header:not(.gc-solid) .bubble-count {
+  background-color: rgb(255, 59, 48) !important;
+  color: #fff !important;
+}

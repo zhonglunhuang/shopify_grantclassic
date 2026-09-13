@@ -29,7 +29,10 @@
             "button_text_color": "#000000",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
-            "text": "只發電，不發火。安全，聽得見。"
+            "text": "只發電，不發火。安全，聽得見。",
+            "asset_image": "",
+            "asset_mobile_image": "",
+            "image_alt": "穩如鈦山 TITANSHIELD Pro 形象橫幅：雙色懸浮於光束背景"
           }
         },
         "image_CbX6Bt": {
@@ -90,10 +93,38 @@
             "overlay_opacity": 0,
             "title_accent": "Air"
           }
+        },
+        "image_duo01": {
+          "type": "image",
+          "settings": {
+            "asset_image": "gc-bn-tsp-duo-5k.webp",
+            "asset_mobile_image": "gc-bn-tsp-duo-1440x2304.webp",
+            "image_alt": "穩如鈦山 TITANSHIELD Pro 黑銀雙色，雙手各握一台",
+            "light_layout": true,
+            "light_bg": "#fefefe",
+            "light_white_pct": 13.89,
+            "light_white_pct_mobile": 27.92,
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "TITANSHIELD",
+            "title_accent": "Pro",
+            "accent_gold": true,
+            "text": "黑的、銀的，我 Duo 要。",
+            "text_2": "黑銀雙色，兩手都是心頭好。",
+            "button_1_text": "立即購買",
+            "button_1_link": "shopify://products/titanshield_10000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#1d1d1f",
+            "button_background": "#1d1d1f",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
         }
       },
       "block_order": [
-        "image_Ly7GDi",
+        "image_duo01",
         "image_gcAir01",
         "image_CbX6Bt",
         "image_P999HC"
@@ -104,7 +135,11 @@
         "transition_type": "sweep",
         "autoplay": true,
         "cycle_speed": 10,
-        "background": "rgba(0,0,0,0)"
+        "background": "rgba(0,0,0,0)",
+        "custom_height_desktop_vw": 48.0,
+        "custom_height_mobile_vw": 160.0,
+        "max_height_px": 0,
+        "tuck_under_header": true
       }
     },
     "ts_showcase_FpP33T": {
