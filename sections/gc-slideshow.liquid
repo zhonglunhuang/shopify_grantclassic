@@ -292,11 +292,35 @@
               {%- comment -%}
                 圖放在主題資產（assets/）而不是 Files 的情況。Files 需要 write_files 權限，
                 主題資產只需要 write_themes——白底首圖是這樣上去的。
-                代價：沒有 srcset（asset_url 不吃 image_url 的縮圖參數），所以檔案本身要先壓好。
+
+                **主題資產也吃 Shopify 的縮圖**（`name_1600x.webp` 那種網址），所以 srcset 照給。
+                沒給的話所有人都下載同一份 3000px 原檔：一台 1440 的筆電會吃 229KB（2026-09-13 實測）。
+
+                **不能用 `asset_img_url` 這個濾鏡**——它不吃 webp，會吐回 Shopify 的「無圖」佔位 gif
+                （實測踩到）。所以自己把 `_<寬>x` 插進副檔名前面組網址。
+
+                **上限刻意停在 2400w，不給 3000w**：Retina 螢幕一律抓最高那階，
+                給到 3000w 是 213KB、停在 2400w 是 142KB，而 1440×2 只需要 2880px，
+                差 1.2 倍的放大在白底產品照上看不出來。
               {%- endcomment -%}
-              <img src="{{ block.settings.asset_image | asset_url }}"
+              {%- assign gc_ws = '600,800,1000,1200,1400,1600,1800,2000,2400' | split: ',' -%}
+              {%- assign gc_base = block.settings.asset_image | asset_url -%}
+              {%- assign gc_ext = block.settings.asset_image | split: '.' | last -%}
+              {%- capture gc_dot -%}.{{ gc_ext }}{%- endcapture -%}
+              {%- capture gc_srcset -%}
+                {%- for w in gc_ws -%}
+                  {%- capture gc_rep -%}_{{ w }}x.{{ gc_ext }}{%- endcapture -%}
+                  {{- gc_base | replace: gc_dot, gc_rep }} {{ w }}w
+                  {%- unless forloop.last %}, {% endunless -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- capture gc_fallback -%}_1600x.{{ gc_ext }}{%- endcapture -%}
+              <img src="{{ gc_base | replace: gc_dot, gc_fallback }}"
+                   srcset="{{ gc_srcset }}" sizes="100vw"
                    alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
-                   loading="{{ loading_attribute_value }}" draggable="false" class="slideshow__image">
+                   loading="{{ loading_attribute_value }}"
+                   {% if forloop.first %}fetchpriority="high"{% endif %}
+                   draggable="false" class="slideshow__image">
             {%- elsif image != blank -%}
               {%- capture sizes_attributes -%}{% if split_image != blank %}(min-width: 1000px) 50vw{% else %}100vw{% endif %}{%- endcapture -%}
               {{- image | image_url: width: 3000 | image_tag: loading: loading_attribute_value, draggable: false, class: 'slideshow__image', sizes: sizes_attributes, widths: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' -}}
@@ -315,9 +339,25 @@
 
           {%- if block.settings.asset_mobile_image != blank -%}
             <div class="slideshow__image-wrapper hidden-lap-and-up" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
-              <img src="{{ block.settings.asset_mobile_image | asset_url }}"
+              {%- comment -%}手機同理，上限 1200w：390×3 ＝ 1170，剛好夠、而且比 1440w 省 50KB{%- endcomment -%}
+              {%- assign gc_mws = '400,500,600,700,800,900,1000,1200' | split: ',' -%}
+              {%- assign gc_mbase = block.settings.asset_mobile_image | asset_url -%}
+              {%- assign gc_mext = block.settings.asset_mobile_image | split: '.' | last -%}
+              {%- capture gc_mdot -%}.{{ gc_mext }}{%- endcapture -%}
+              {%- capture gc_msrcset -%}
+                {%- for w in gc_mws -%}
+                  {%- capture gc_mrep -%}_{{ w }}x.{{ gc_mext }}{%- endcapture -%}
+                  {{- gc_mbase | replace: gc_mdot, gc_mrep }} {{ w }}w
+                  {%- unless forloop.last %}, {% endunless -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- capture gc_mfallback -%}_800x.{{ gc_mext }}{%- endcapture -%}
+              <img src="{{ gc_mbase | replace: gc_mdot, gc_mfallback }}"
+                   srcset="{{ gc_msrcset }}" sizes="100vw"
                    alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
-                   loading="{{ loading_attribute_value }}" draggable="false" class="slideshow__image">
+                   loading="{{ loading_attribute_value }}"
+                   {% if forloop.first %}fetchpriority="high"{% endif %}
+                   draggable="false" class="slideshow__image">
             </div>
           {%- elsif mobile_image != blank -%}
             <div class="slideshow__image-wrapper hidden-lap-and-up" {% if section.settings.transition_type == 'reveal' %}reveal-visibility{% endif %}>
