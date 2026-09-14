@@ -1,0 +1,230 @@
+/* gc-mega.css — Insta360 式大選單（GOS-0248 從美國站搬回台灣站）。只作用在 .gc-mega。
+   Numbers measured on insta360.com/hk at 1440px (2026-09-03): panel 1312 wide,
+   left item 13px/600 pad 12x16 r8, card 426x164 r12 pad 0 24, title 15/600, desc 13/20 grey,
+   grid gap 12, right item 48 tall, view-all pill 40 tall r100. */
+
+.mega-menu.gc-mega-host > .container { max-width: none; padding: 0; }
+.gc-mega {
+  --gc-ink: #1d1d1f; --gc-ink2: #6e6e73; --gc-ink3: #86868b;
+  --gc-card: #f5f5f7; --gc-line: #e8e8ed; --gc-accent: #0071e3;
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr) 232px;
+  gap: 28px 40px;
+  max-width: 1312px; margin: 0 auto;
+  padding: 28px 24px 24px;
+  color: var(--gc-ink);
+  font-family: inherit; /* TW: follow the theme font (gc-type.css) */
+  text-align: left;
+}
+.gc-mega :where(a) { color: inherit; text-decoration: none; }
+.gc-mega :where(a):visited { color: inherit; }
+.gc-mega :where(a):hover, .gc-mega :where(a):focus { text-decoration: none; }
+
+.gc-mega__label { margin: 0 0 12px; font-size: 12px; line-height: 16px; color: var(--gc-ink3); letter-spacing: .02em; }
+
+/* left: categories */
+.gc-mega__cats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.gc-mega__cat {
+  display: block; width: 100%; padding: 12px 16px; border: 0; border-radius: 8px; background: transparent;
+  font: 600 13px/24px inherit; font-family: inherit; color: var(--gc-ink); text-align: left; cursor: pointer;
+}
+.gc-mega__cat:hover, .gc-mega__cat:focus-visible { background: var(--gc-card); outline: none; }
+.gc-mega__cat[aria-selected="true"] { background: var(--gc-card); }
+.gc-mega__side-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--gc-line); }
+.gc-mega__side-foot a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.gc-mega__side-foot svg { width: 16px; height: 16px; }
+
+/* center: product cards */
+.gc-mega__panes { position: relative; }
+.gc-mega__pane { display: none; }
+.gc-mega__pane[data-active="true"] { display: block; }
+.gc-mega__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.gc-mega__card {
+  display: flex; align-items: center; gap: 20px; min-height: 148px; padding: 16px 24px 16px 16px;
+  background: var(--gc-card); border-radius: 12px; transition: background .15s ease;
+}
+.gc-mega__card:hover { background: #ededf0; }
+.gc-mega__thumb { flex: 0 0 116px; width: 116px; height: 116px; display: flex; align-items: center; justify-content: center; }
+.gc-mega__thumb img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+.gc-mega__body { min-width: 0; }
+.gc-mega__title { margin: 0; font-size: 15px; line-height: 24px; font-weight: 600; color: var(--gc-ink); }
+.gc-mega__desc { margin: 6px 0 0; font-size: 13px; line-height: 20px; color: var(--gc-ink2);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.gc-mega__foot { display: flex; justify-content: center; margin-top: 20px; }
+.gc-mega__all {
+  display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px 0 24px;
+  border: 1px solid var(--gc-line); border-radius: 100px; font-size: 14px; line-height: 40px; color: var(--gc-ink);
+}
+.gc-mega__all:hover { border-color: var(--gc-ink); }
+.gc-mega__all svg { width: 14px; height: 14px; }
+
+/* right: scenarios */
+.gc-mega__scen { list-style: none; margin: 0; padding: 0; }
+.gc-mega__scen a { display: flex; align-items: center; gap: 12px; height: 48px; font-size: 15px; border-radius: 8px; padding: 0 6px; }
+.gc-mega__scen a:hover { background: var(--gc-card); }
+.gc-mega__scen svg { width: 22px; height: 22px; flex: 0 0 22px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.gc-mega__scen .gc-mega__chev { margin-left: auto; width: 14px; height: 14px; color: var(--gc-ink3); }
+
+/* laptop */
+@media (max-width: 1280px) {
+  .gc-mega { grid-template-columns: 200px minmax(0, 1fr) 200px; gap: 24px 28px; }
+  .gc-mega__card { gap: 14px; padding: 14px 16px; min-height: 128px; }
+  .gc-mega__thumb { flex-basis: 96px; width: 96px; height: 96px; }
+}
+@media (max-width: 1060px) {
+  .gc-mega { grid-template-columns: 180px minmax(0, 1fr); }
+  .gc-mega__right { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .gc-mega__card { transition: none; } }
+
+/* Full-bleed: Focal positions .mega-menu inside the centered header container; span the viewport instead */
+.header .mega-menu.gc-mega-host { left: 50%; width: 100vw; max-width: 100vw; transform: translateX(-50%); box-shadow: 0 24px 40px -24px rgba(0,0,0,.18); }
+.mega-menu.gc-mega-host > .container { max-width: none; padding: 0; overflow: visible; }
+.gc-mega { padding-left: max(24px, calc((100vw - 1312px) / 2)); padding-right: max(24px, calc((100vw - 1312px) / 2)); max-width: none; }
+/* Product photos are white-background JPGs: multiply them onto the grey card so they read as cutouts */
+.gc-mega__thumb img { background: transparent !important; mix-blend-mode: multiply !important; filter: none !important; opacity: 1 !important; transform: none !important; border-radius: 0; box-shadow: none; }
+.gc-mega__card, .gc-mega__thumb, .gc-mega__pane, .gc-mega__panes, .gc-mega { isolation: auto; }
+
+/* while a full-bleed panel is open, never let the 100vw width create a horizontal scrollbar */
+body:has(.mega-menu.gc-mega-host:not([hidden])) { overflow-x: hidden; }
+
+/* Cutout thumbnails (transparent PNGs in Files, gc-mega-<handle>.png): no blending needed, hover zoom like Insta360 */
+.gc-mega__thumb--cut img { mix-blend-mode: normal !important; }
+.gc-mega__thumb img { transition: transform .35s cubic-bezier(.2,.7,.2,1); will-change: auto; }
+.gc-mega__card:hover .gc-mega__thumb img, .gc-mega__card:focus-visible .gc-mega__thumb img { transform: scale(1.1) !important; }
+@media (prefers-reduced-motion: reduce) { .gc-mega__thumb img { transition: none; } .gc-mega__card:hover .gc-mega__thumb img { transform: none !important; } }
+
+/* A closed panel must not add to page height (absolute box + ::after overlay were extending the scroll area) */
+.mega-menu.gc-mega-host[hidden] { display: none !important; }
+.mega-menu.gc-mega-host[hidden]::after { display: none !important; }
+
+/* ---------- Mobile drawer ---------- */
+@media (max-width: 999px) {
+  /* Product entries: image-first tiles, two per row (Mars 2026-09-03: bigger picture, less text) */
+  #mobile-menu-drawer .mobile-nav .mobile-nav .mobile-nav:has(> li > .gc-mmenu__prod) {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px;
+    border-left: 0 !important; padding-left: 0 !important; margin-top: 12px !important; margin-bottom: 18px !important;
+  }
+  #mobile-menu-drawer .mobile-nav .mobile-nav .mobile-nav:has(> li > .gc-mmenu__prod) > .mobile-nav__item { margin: 0 !important; }
+  #mobile-menu-drawer .mobile-nav .mobile-nav .mobile-nav:has(> li > .gc-mmenu__prod) > .mobile-nav__item:not(:has(> .gc-mmenu__prod)) { grid-column: 1 / -1; }
+  #mobile-menu-drawer .gc-mmenu__prod { display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start !important; gap: 8px; padding: 0 !important; text-decoration: none; }
+  #mobile-menu-drawer .gc-mmenu__thumb { width: 100%; aspect-ratio: 1 / 1; height: auto; border-radius: 14px; background: #f5f5f7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  #mobile-menu-drawer .gc-mmenu__thumb img { width: 74%; height: 74%; object-fit: contain; }
+  #mobile-menu-drawer .gc-mmenu__body { display: block; min-width: 0; padding: 0 2px; }
+  #mobile-menu-drawer .gc-mmenu__name { display: block; font-size: 14px; font-weight: 600; line-height: 1.3; color: #1d1d1f; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #mobile-menu-drawer .gc-mmenu__tag { display: none; }
+  /* the desktop mega-menu image cards do not belong in the drawer */
+  #mobile-menu-drawer .mobile-nav__images-wrapper, #mobile-menu-drawer .mobile-nav__images-scroller { display: none !important; }
+  #mobile-menu-drawer .drawer__content > .mobile-nav > .mobile-nav__item > .mobile-nav__link { font-size: 19px; padding-top: 16px; padding-bottom: 16px; }
+  #mobile-menu-drawer .mobile-nav .mobile-nav .mobile-nav__link { font-size: 16px; }
+}
+
+/* v3: longer lists scroll inside the panel; design-edition chip on base products */
+.gc-mega__panes { max-height: calc(100vh - var(--header-height, 80px) - 180px); overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; scrollbar-width: thin; }
+.gc-mega__designs { display: inline-flex; align-items: center; margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--gc-accent); }
+.gc-mega__designs:hover { text-decoration: underline; }
+/* v4: left column foot holds two links (compare / bundles) */
+.gc-mega__side-foot { display: flex; flex-direction: column; gap: 10px; }
+.gc-mega__side-foot a + a { margin: 0; }
+
+/* v5: mobile drawer built from the mega-menu data (same categories / products / Made For as desktop) */
+@media (max-width: 999px) {
+  #mobile-menu-drawer .gc-mmenu__head { margin-top: 18px !important; padding: 0 0 6px !important; font-size: 12px; letter-spacing: .02em; color: #86868b; }
+  #mobile-menu-drawer .gc-mmenu__scen, #mobile-menu-drawer .gc-mmenu__link { display: flex !important; align-items: center; gap: 12px; justify-content: flex-start !important; }
+  #mobile-menu-drawer .gc-mmenu__scen svg, #mobile-menu-drawer .gc-mmenu__link svg { width: 20px; height: 20px; flex: 0 0 20px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  #mobile-menu-drawer .gc-mmenu__foot { margin-top: 12px !important; padding-top: 14px !important; border-top: 1px solid #e8e8ed; }
+  #mobile-menu-drawer .gc-mmenu__foot .mobile-nav__link { font-weight: 600; }
+  #mobile-menu-drawer .gc-mmenu__more { font-size: 14px !important; color: #0071e3; padding-top: 4px !important; }
+  #mobile-menu-drawer .mobile-nav .mobile-nav .mobile-nav:has(> li > .gc-mmenu__prod) > .mobile-nav__item:has(> .gc-mmenu__more) { grid-column: 1 / -1; }
+}
+/* category panels glide open (grid-rows 0fr -> 1fr; no fixed heights, so image loading never breaks the animation) */
+#mobile-menu-drawer .gc-mmenu__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .38s cubic-bezier(.2,.7,.2,1); }
+#mobile-menu-drawer .gc-mmenu__panel.is-open { grid-template-rows: 1fr; }
+#mobile-menu-drawer .gc-mmenu__panelIn { min-height: 0; overflow: hidden; opacity: 0; transform: translateY(-6px); transition: opacity .3s ease .08s, transform .38s cubic-bezier(.2,.7,.2,1); }
+#mobile-menu-drawer .gc-mmenu__panel.is-open .gc-mmenu__panelIn { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { #mobile-menu-drawer .gc-mmenu__panel, #mobile-menu-drawer .gc-mmenu__panelIn { transition: none; } }
+#mobile-menu-drawer .gc-mmenu__cat[aria-expanded="true"] .animated-plus::after { transform: rotate(90deg); }
+/* v6: cards in the same row share the row height (a card with the Design Editions chip was leaving a gap beside it) */
+.gc-mega__grid > li { display: flex; }
+.gc-mega__grid > li > .gc-mega__card { width: 100%; }
+
+/* ---------- TW（GOS-0248）：台灣站的下拉容器是 .tmenu（不是美國站的 .mega-menu），補這裡 ---------- */
+.header .tmenu.gc-mega-host { padding: 0 !important; justify-content: center; }
+.header .tmenu.gc-mega-host > .gc-mega { width: 100%; }
+.gc-mega__orig, .gc-mmenu__orig { display: none !important; }
+/* 面板文字永遠深色：透明頁首會把 .header 裡的 a/button 全翻白，面板在 .header 裡面會被波及 */
+html[data-gc-hero] .header .gc-mega, html[data-gc-hero] .header .gc-mega a, html[data-gc-hero] .header .gc-mega button, html .header .gc-mega, html .header .gc-mega a, html .header .gc-mega button, html .header .gc-mega .gc-mega__title { color: #1d1d1f !important; }
+html .header .gc-mega .gc-mega__desc { color: #6e6e73 !important; }
+.header .gc-mega .gc-mega__label, .header .gc-mega .gc-mega__chev { color: #86868b !important; }
+.header .gc-mega .gc-mega__designs { color: #0071e3 !important; }
+.header .gc-mega svg { filter: none !important; }
+/* 字級：gc-type 會把 button 放大到 17px，這裡收回 */
+.header .gc-mega .gc-mega__cat { font-size: 15px !important; line-height: 24px !important; font-weight: 600 !important; }
+.header .gc-mega .gc-mega__title { font-size: 15px !important; }
+.header .gc-mega .gc-mega__desc { font-size: 13px !important; line-height: 20px !important; }
+.header .gc-mega .gc-mega__scen a { font-size: 15px !important; }
+.header .gc-mega .gc-mega__all { font-size: 14px !important; }
+/* 滿版留白跟著 gc-header 的 --gc-vw（100vw 含捲軸會多幾 px） */
+.gc-mega { padding-left: max(24px, calc((var(--gc-vw, 100vw) - 1312px) / 2)); padding-right: max(24px, calc((var(--gc-vw, 100vw) - 1312px) / 2)); }
+/* 面板容器同時帶 .tmenu 與 .mega-menu（JS 加的）：寬度／位置由 gc-header 的 .tmenu 規則管，美國版的 translateX(-50%) 要關掉；遮罩用 Focal 原生 .mega-menu::after（跟美國站同一條，0.3 黑＋淡入淡出） */
+.header .tmenu.gc-mega-host { transform: none !important; }
+/* Mars 2026-09-05：左欄「商品分類」小標拿掉（清單本身就是分類），右欄「適合你」留；左欄未選中改中等粗細，選中才粗體 */
+.header .gc-mega .gc-mega__left > .gc-mega__label { display: none; }
+.header .gc-mega .gc-mega__right > .gc-mega__label { display: block; }
+.header .gc-mega .gc-mega__cat { font-weight: 500 !important; }
+.header .gc-mega .gc-mega__cat[aria-selected="true"] { font-weight: 600 !important; }
+/* 左欄清單頂端跟中間卡片齊（Mars 2026-09-05：左邊選單要跟大家齊高） */
+.header .gc-mega .gc-mega__cats { margin-top: 0; }
+/* 手機圖塊名稱：中文名比英文長，改最多兩行不截斷（體檢 2026-09-05） */
+@media (max-width: 999px) {
+  #mobile-menu-drawer .gc-mmenu__name { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: clip; line-height: 1.3; min-height: calc(1.3em * 2); }
+}
+/* Mars 2026-09-05：頂欄「聯名系列」「型號地圖」拿掉（先藏，後台導覽不動；正式上線前再決定要不要真的刪——型號地圖底下 41 條連結還在接舊手機殼系列頁的 Google 流量） */
+.header__linklist-item[data-item-title="聯名系列"], .header__linklist-item[data-item-title="型號地圖"] { display: none !important; }
+#mobile-menu-drawer .drawer__content > .mobile-nav > .mobile-nav__item:has(> .mobile-nav__link[aria-controls]:is([data-gc-hide])) { display: none !important; }
+/* 手機抽屜底部的地區選擇器（沿用頁尾 gc-region，這裡是白底所以字色改深、面板往上開、靠右） */
+#mobile-menu-drawer .mobile-nav__footer { align-items: center; }
+#mobile-menu-drawer .gc-mmenu__region { margin-left: auto; }
+#mobile-menu-drawer .gc-region { font-size: 15px; }
+#mobile-menu-drawer .gc-region__toggle { color: #1d1d1f; margin: 0; padding: 0 4px; min-height: 44px; }
+#mobile-menu-drawer .gc-region__toggle:hover { color: #1d1d1f; background: #f5f5f7; }
+#mobile-menu-drawer .gc-region__globe { width: 18px; height: 18px; }
+#mobile-menu-drawer .gc-region__panel { left: auto; right: 0; bottom: calc(100% + 10px); width: 240px; }
+
+/* ---------- GOS-0279：系列總覽圖卡（分頁最上方；桌機橫幅、手機橫跨兩欄） ----------
+   放最上方的原因：MacBook 14 高度不夠時 .gc-mega__panes 會出現內捲軸，放最下方會被推到看不見。
+   顏色一律 !important：上面有「面板文字永遠深色」那組規則會把 a 翻成 #1d1d1f，這張卡是深色底要白字。 */
+.gc-mega__hub { position: relative; display: flex; align-items: center; gap: 24px; min-height: 132px; margin: 0 0 12px; padding: 22px 28px;
+  border-radius: 12px; overflow: hidden; background: #0b0b0d; isolation: isolate; }
+.gc-mega__hub::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--gc-hub-img) center 42% / cover no-repeat;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.gc-mega__hub::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.28) 55%, rgba(0,0,0,.05) 100%); }
+.gc-mega__hub:hover::before, .gc-mega__hub:focus-visible::before { transform: scale(1.04); }
+.gc-mega__hub-body { min-width: 0; display: flex; flex-direction: column; }
+.gc-mega__hub-eyebrow { font-size: 11px; line-height: 16px; letter-spacing: .16em; font-weight: 600; }
+.gc-mega__hub-title { margin-top: 4px; font-size: 20px; line-height: 28px; font-weight: 600; white-space: nowrap; }
+.gc-mega__hub-sub { margin-top: 6px; font-size: 13px; line-height: 20px; text-wrap: balance; }
+.gc-mega__hub-cta { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px 0 18px; border-radius: 100px;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); font-size: 13px; font-weight: 600; white-space: nowrap; backdrop-filter: blur(6px); }
+.gc-mega__hub-cta svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+html .header .gc-mega .gc-mega__hub, html .header .gc-mega .gc-mega__hub:visited, html .header .gc-mega .gc-mega__hub span { color: #fff !important; }
+html .header .gc-mega .gc-mega__hub-eyebrow, html .header .gc-mega .gc-mega__hub-sub { color: rgba(255,255,255,.78) !important; }
+.header .gc-mega .gc-mega__hub-title { font-size: 20px !important; line-height: 28px !important; }
+.header .gc-mega .gc-mega__hub-sub { font-size: 13px !important; line-height: 20px !important; }
+.header .gc-mega .gc-mega__hub-cta { font-size: 13px !important; }
+@media (max-width: 1280px) { .gc-mega__hub { min-height: 116px; padding: 18px 22px; gap: 18px; } }
+@media (prefers-reduced-motion: reduce) { .gc-mega__hub::before { transition: none; } .gc-mega__hub:hover::before { transform: none; } }
+
+@media (max-width: 999px) {
+  /* 手機：格子清單裡沒有 .gc-mmenu__prod 的項目本來就會 grid-column: 1 / -1（上面 v5 那條），圖卡自然橫跨兩欄 */
+  #mobile-menu-drawer .gc-mmenu__hub { position: relative; display: flex !important; align-items: flex-end; justify-content: flex-start !important; min-height: 118px;
+    padding: 14px 16px !important; border-radius: 14px; overflow: hidden; background: #0b0b0d; isolation: isolate; color: #fff !important; text-decoration: none; }
+  #mobile-menu-drawer .gc-mmenu__hub::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--gc-hub-img) 58% 45% / cover no-repeat; }
+  #mobile-menu-drawer .gc-mmenu__hub::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 100%); }
+  #mobile-menu-drawer .gc-mmenu__hub-body { display: flex; flex-direction: column; min-width: 0; }
+  #mobile-menu-drawer .gc-mmenu__hub-eyebrow { font-size: 10px; line-height: 14px; letter-spacing: .16em; font-weight: 600; color: rgba(255,255,255,.75) !important; }
+  #mobile-menu-drawer .gc-mmenu__hub-title { display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; font-size: 16px; line-height: 22px; font-weight: 600; white-space: nowrap; color: #fff !important; }
+  #mobile-menu-drawer .gc-mmenu__hub-title svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  #mobile-menu-drawer .gc-mmenu__hubItem { margin: 0 !important; }
+}

@@ -16,6 +16,18 @@
  },
  "hide": ["聯名系列", "型號地圖"],
  "extra": [{ "title": "選購指南", "url": "/blogs/gc-blog", "before": "會員保固登記" }],
+ {%- comment -%}GOS-0279：系列總覽圖卡。分類帶 "hub": "<鍵>" 就在那個分頁最上方放一張橫幅圖卡（桌機＋手機）；
+   分類的 url 跟圖卡的 url 相同時，那個分頁底下的「查看全部」自動拿掉（兩個連同一頁只會讓人猶豫）。圖用分類頁的黑色主視覺（檔案庫）。{%- endcomment -%}
+ "hubs": {
+  "ts": {
+   "eyebrow": "TITANSHIELD",
+   "title": "穩如鈦山 三個系列總覽",
+   "sub": "Air、標準、Pro 都是準固態電芯，差別在多薄、多久、多能幹。",
+   "cta": "看總覽",
+   "url": "/collections/titanshield-solid-state-power-bank",
+   "img": {{ 'titanshield-monolith-desktop-2880x1200.webp' | file_url | json }}
+  }
+ },
  "labels": {
   "list": "商品分類",
   "made_for": "適合你",
@@ -57,9 +69,9 @@
   "phone": {
    "compare": { "label": "全部手機周邊", "url": "/collections/%E6%89%8B%E6%A9%9F%E5%91%A8%E9%82%8A" },
    "categories": [
-    { "id": "ph-hot", "title": "熱門", "url": "/collections/%E6%89%8B%E6%A9%9F%E5%91%A8%E9%82%8A",
+    { "id": "ph-hot", "title": "熱門", "hub": "ts", "url": "/collections/%E6%89%8B%E6%A9%9F%E5%91%A8%E9%82%8A",
       "items": ["titanshield_10000", "titanshield-air", "velvet-strap-pro-black", "gc-tag-1", "grantclassic-apexvolt-pd65w-ganultra", "gc-magaura", "flexmag", "airgrip-stand"] },
-    { "id": "ph-power", "title": "固態行動電源", "url": "/collections/titanshield-solid-state-power-bank",
+    { "id": "ph-power", "title": "固態行動電源", "hub": "ts", "url": "/collections/titanshield-solid-state-power-bank",
       "items": ["titanshield_10000", "titanshield-air", "solid-state-power-bank-titanshield-10000mah", "solid-state-power-bank-titanshield-5000", "pro-titanshield-pro-10000mah-design", "pro-titanshield-pro-10000mah-mirror", "titanshield-mirror"] },
     { "id": "ph-strap", "title": "手機掛繩", "url": "/collections/velvet-strap-pro",
       "items": ["velvet-strap-pro-black", "velvet-strap-pro-firenze", "velvet-strap-pro-ribbon-cable-dark-green", "velvet-strap", "stapcircle"] },
