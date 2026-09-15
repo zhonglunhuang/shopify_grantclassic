@@ -506,3 +506,9 @@
 
 .tsp-pro .tsp-designs .sec-head{max-width:900px}
 .tsp-pro .tsp-designs h2{text-wrap:balance}
+
+/* 燙金 Pro（2026-09-15，Mars：跟首頁輪播那個 Pro 一樣）——配方照 gc-slideshow.liquid 的 accent_gold；
+   h1 的白色 text-shadow 會從透明字裡透出來，這個字要關掉 */
+.tsp-pro .hero h1 .hero-pro{background:linear-gradient(100deg,#7d5e22 0%,#b8912f 11%,#e3c973 24%,#fff4d0 33%,#dcc26e 41%,#a8822a 55%,#8a6a24 68%,#d9b75e 84%,#9c7a2c 100%);background-size:260% 100%;background-position:22% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;margin-left:0;animation:tsp-gold-sweep 6.5s ease-in-out infinite}
+@keyframes tsp-gold-sweep{0%,100%{background-position:6% 0}50%{background-position:94% 0}}
+@media (prefers-reduced-motion:reduce){.tsp-pro .hero h1 .hero-pro{animation:none}}
