@@ -135,6 +135,12 @@
 .gi__soldout { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 500; color: #8e8e93; border: 1px solid #d2d2d7; border-radius: 6px; padding: 0 6px; line-height: 1.6; vertical-align: 2px; }
 .gi__bc--var .gi__bth img { mix-blend-mode: multiply; }
 .gi__badge { position: absolute; right: 8px; top: 8px; background: #fff1e6; color: #d9541e; font-size: 11px; line-height: 1.6; padding: 1px 8px; border-radius: 6px; }
+/* 入組卡（GOS-0283）：主商品圖＋「×N」、每件多少、整組價劃線原價 */
+.gi .gi__bth--q { position: relative; }
+.gi .gi__bth--q i { position: absolute; right: -6px; bottom: -4px; font-style: normal; font-size: 11px; font-weight: 600; line-height: 1; padding: 3px 5px; border-radius: 999px; background: var(--ink); color: #fff; }
+.gi .gi__qeach { display: block; font-size: 12px; font-weight: 400; color: #8e8e93; margin-top: 2px; }
+.gi .gi__qeach b { font-weight: 500; color: var(--ink); }
+.gi .gi__qcards { margin-bottom: 4px; }
 .gi__gift { background: var(--card); border-radius: 12px; padding: 18px 20px; display: grid; grid-template-columns: 44px 1fr 18px; gap: 18px; align-items: center; }
 .gi__gift > svg { width: 44px; height: 44px; }
 .gi .gi__giftt { margin: 0 0 2px; font-size: 14px; font-weight: 600; line-height: 1.4; }
@@ -178,7 +184,14 @@
 .gi__barl { min-width: 0; }
 .gi .gi__bart { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gi .gi__barm { margin: 4px 0 0; font-size: 12px; color: #8e8e93; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.gi .gi__barp { margin: 0 0 0 auto; font-size: 26px; font-weight: 600; letter-spacing: -.3px; white-space: nowrap; }
+.gi .gi__barp { margin: 0 0 0 20px; font-size: 26px; font-weight: 600; letter-spacing: -.3px; white-space: nowrap; }
+/* 數量鈕（GOS-0283）：圓角膠囊、− 1 +，靠在價格左邊 */
+.gi .gi__qty { display: inline-flex; align-items: center; margin-left: auto; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: #fff; flex: none; }
+/* text-align 一定要寫 center：.gi button 的重設是 left，「−」「+」會貼在各自框框的左邊、看起來歪一邊（Mars 2026-09-15 抓到） */
+.gi .gi__qty .gi__qb { width: 40px; height: 42px; border: 0; margin: 0; padding: 0; background: none; color: var(--ink); font-size: 20px; line-height: 1; text-align: center; cursor: pointer; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; }
+.gi .gi__qty .gi__qb[disabled] { color: #c7c7cc; cursor: default; }
+.gi .gi__qty .gi__qn { min-width: 24px; text-align: center; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.gi .gi__barp .gi__qhint { display: block; font-size: 12px; font-weight: 500; color: var(--red); letter-spacing: 0; line-height: 1.3; margin-top: 2px; text-align: right; }
 .gi .gi__cta { margin-left: 40px; height: 56px; padding: 0 44px; border-radius: 999px; font-size: 16px; font-weight: 600; background: var(--ink); color: #fff; white-space: nowrap; transition: opacity .15s; }
 .gi .gi__cta[disabled] { opacity: .55; cursor: default; }
 .gi .gi__bar--yellow .gi__cta { background: #ffe100; color: var(--ink); }
@@ -238,6 +251,17 @@ body.gi-has-bar.gi-scrolling .gc-dock, body.gi-has-bar.gi-scrolling .loloyal-lau
   .gi .gi__bart { font-size: 16px; }
   .gi .gi__barp { font-size: 18px; margin-left: 10px; }
   .gi__barp s { display: none; }
+  /* 團購價（GOS-0285）：手機平常不畫劃線省空間，但客人是為了「省多少」點連結進來的，這時把原價劃線留著 */
+  .gi__barp--team s { display: inline; }
+  .gi .gi__qty { height: 36px; margin-left: 8px; }
+  .gi .gi__qty .gi__qb { width: 32px; height: 34px; font-size: 17px; }
+  .gi .gi__barp .gi__qhint { font-size: 11px; }
   .gi .gi__cta { margin-left: 10px; height: 44px; padding: 0 16px; font-size: 14px; }
   body.gi-has-bar { padding-bottom: 72px; }
+}
+/* 手機：底欄放不下「標題＋數量鈕＋價格＋按鈕」四樣（標題會被擠成一個字），標題藏掉——商品名頁首就有 */
+@media (max-width: 599px) {
+  .gi .gi__barl { display: none; }
+  .gi .gi__qty { margin-left: 0; }
+  .gi .gi__barp { margin-left: auto; }
 }

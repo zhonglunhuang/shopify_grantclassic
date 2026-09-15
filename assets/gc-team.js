@@ -284,6 +284,22 @@
     }
     return items[0];
   }
+  /* 把這一檔各變體的團購價交給購買欄（GOS-0285）。
+   * 商品頁底部那條黏著的價格列是 gc-i360.js 算的（主商品＋套餐／加購配件），它不認識檔期，
+   * 所以價條寫 2,235、底欄還是 2,980。這裡只負責「講出去」：一張表 variant_id → { now, was }，
+   * 單位＝分（跟 Shopify 變體價一致；檔期資料是元）。只有 active 的檔才有內容；不在檔期裡的變體
+   * 不在表裡、底欄自然回原價。沒帶連結也沒 cookie 的人根本不會走到這裡。 */
+  function publishPrices(d) {
+    var map = {};
+    if (d && d.status === 'active') {
+      (d.items || []).forEach(function (it) {
+        var now = parseInt(it.team_price, 10), was = parseInt(it.orig_price, 10);
+        if (it.variant_id && now > 0 && was > now) map[String(it.variant_id)] = { now: now * 100, was: was * 100 };
+      });
+    }
+    window.__gcTeamPrices = map;
+    try { document.dispatchEvent(new CustomEvent('gc-team:prices', { detail: map })); } catch (e) {}
+  }
   function renderBar(d, ref) {
     if (!d || d.status !== 'active' || !/^\/products\//.test(location.pathname)) return;
     if (document.querySelector('.gct-bar')) return;
@@ -622,6 +638,7 @@
       ref = { code: d.code, discount: allCodes(d), attr: d.attr_key || '_gc_team' };
       apply(ref, false);
       hookCartAdd(ref);
+      publishPrices(d);
       renderBar(d, ref);
       renderCampaign(d);
     });
@@ -638,7 +655,8 @@
           ref.discount = codes;
           apply(ref, true);
         }
-        renderBar(d, ref);
+        publishPrices(d);
+      renderBar(d, ref);
         renderCampaign(d);
       });
     }

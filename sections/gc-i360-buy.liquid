@@ -16,7 +16,12 @@
   assign s = section.settings
   assign cur = product.selected_or_first_available_variant
   assign title = s.title_override | default: product.metafields.custom.short_title.value | default: product.title
-  assign tiers = s.tiers | default: '5,10,15' | replace: ' ', '' | split: ','
+  comment
+    加購階梯：GrantOS 加購階梯活動（GOS-0282）寫在主商品的 custom.addon_tiers（"5,10,15"）優先；
+    沒有就用區段設定 tiers。同件買多件（GOS-0283）寫 custom.qty_tiers（"2:10,3:15"），只給 JS 用。
+  endcomment
+  assign tiers = product.metafields.custom.addon_tiers.value | default: s.tiers | default: '5,10,15' | replace: ' ', '' | split: ','
+  assign qty_tiers = product.metafields.custom.qty_tiers.value | default: '' | replace: ' ', ''
   assign rc = product.metafields.reviews.rating_count | plus: 0
   assign rv = product.metafields.reviews.rating.value.rating | default: product.metafields.reviews.rating.value
   assign rpct = rv | times: 20.0 | round: 1
@@ -144,7 +149,7 @@
 {%- assign video_media = blank -%}
 {%- for m in product.media -%}{%- if video_media == blank and m.media_type == 'video' -%}{%- assign video_media = m -%}{%- endif -%}{%- endfor -%}
 
-<section class="gi" id="gi-{{ section.id }}" data-gi data-cart-type="{{ settings.cart_type }}" data-gi-pimg="{{ pthumb }}" data-gi-pimg-alt="{{ pthumb_alt }}" data-gi-pname="{{ title | escape }}" data-gi-tag="{{ s.tag_text | default: '示意圖，實品為 %s' | escape }}" data-tiers="{{ tiers | join: ',' }}" style="--rw:{{ s.right_pct | default: 40 }}%">
+<section class="gi" id="gi-{{ section.id }}" data-gi data-cart-type="{{ settings.cart_type }}" data-gi-pimg="{{ pthumb }}" data-gi-pimg-alt="{{ pthumb_alt }}" data-gi-pname="{{ title | escape }}" data-gi-tag="{{ s.tag_text | default: '示意圖，實品為 %s' | escape }}" data-tiers="{{ tiers | join: ',' }}" data-qtiers="{{ qty_tiers | escape }}" style="--rw:{{ s.right_pct | default: 40 }}%">
   <script type="application/json" data-gi-variants>{{ vjson | strip_newlines }}</script>
   <div class="gi__wrap">
     <div class="gi__left">
@@ -275,6 +280,30 @@
       {%- endfor -%}
       {%- endunless -%}
 
+      {%- comment -%} 入組卡（GOS-0283）：同件買多件活動的每一階一張卡，點卡片＝數量設成 N。價格先用 Liquid 算，JS 載入後照同一套規則重算 {%- endcomment -%}
+      {%- if qty_tiers != blank -%}
+      <p class="gi__lab">{{ s.qcards_label | default: '買多件優惠' }}</p>
+      <div class="gi__bundles gi__qcards" data-gi-qcards>
+        {%- assign qt_list = qty_tiers | split: ',' -%}
+        {%- for qt in qt_list -%}
+          {%- assign qp = qt | split: ':' -%}
+          {%- assign qn = qp[0] | plus: 0 -%}{%- assign qpct = qp[1] | plus: 0 -%}
+          {%- if qn < 2 or qpct < 1 -%}{%- continue -%}{%- endif -%}
+          {%- assign qoff = 100 | minus: qpct -%}
+          {%- assign qeach = cur.price | times: qoff | divided_by: 100 | divided_by: 100 | times: 100 -%}
+          {%- assign qnow = qeach | times: qn -%}{%- assign qwas = cur.price | times: qn -%}{%- assign qsave = qwas | minus: qnow -%}
+          {%- case qn -%}{%- when 2 -%}{%- assign qname = '兩入組' -%}{%- when 3 -%}{%- assign qname = '三入組' -%}{%- when 4 -%}{%- assign qname = '四入組' -%}{%- when 5 -%}{%- assign qname = '五入組' -%}{%- when 6 -%}{%- assign qname = '六入組' -%}{%- when 8 -%}{%- assign qname = '八入組' -%}{%- when 10 -%}{%- assign qname = '十入組' -%}{%- else -%}{%- assign qname = qn | append: ' 入組' -%}{%- endcase -%}
+          <button type="button" class="gi__bc gi__bc--q" data-gi-qcard="{{ qn }}" data-pct="{{ qpct }}" aria-pressed="false">
+            <span class="gi__badge">省 {{ qsave | money }}</span>
+            <span class="gi__bch">
+              <span class="gi__bth gi__bth--q">{%- if pthumb != blank -%}<img loading="lazy" width="46" height="46" src="{{ pthumb }}" alt="">{%- endif -%}<i>×{{ qn }}</i></span>
+              <span><span class="gi__bnm">{{ qname }}<small class="gi__qeach">每件 <b data-gi-qeach="{{ qn }}">{{ qeach | money }}</b>，折 {{ qpct }}%</small></span><span class="gi__bpr" data-gi-qprice="{{ qn }}">{{ qnow | money }}<s>{{ qwas | money }}</s></span></span>
+            </span>
+          </button>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
       <p class="gi__lab">{{ s.bundle_label | default: '套餐' }}{%- if s.contents_url != blank -%}<a href="{{ s.contents_url }}">{{ s.contents_label | default: '包裝內含' }}</a>{%- endif -%}</p>
       <div class="gi__bundles" data-gi-bundles>
         {%- if vcards -%}
@@ -319,16 +348,17 @@
           {%- assign bnow = bsum | times: off | divided_by: 100 | divided_by: 100 | times: 100 | plus: cur.price -%}
           {%- assign bwas = bsum | plus: cur.price -%}
           <button type="button" class="gi__bc" data-bundle="{{ block.id }}" data-addons="{{ b.addons | replace: ' ', '' | escape }}" aria-pressed="false" {{ block.shopify_attributes }}>
-            {%- if b.badge != blank -%}<span class="gi__badge">{{ b.badge }}</span>{%- endif -%}
+            {%- if b.badge != blank -%}<span class="gi__badge">{{ b.badge | escape }}</span>{%- endif -%}
             <span class="gi__bch">
               <span class="gi__bth gi__bth--multi">{{ bthumbs }}</span>
-              <span><span class="gi__bnm">{{ b.name }}</span><span class="gi__bpr" data-gi-bprice="{{ block.id }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
+              <span><span class="gi__bnm">{{ b.name | escape }}</span><span class="gi__bpr" data-gi-bprice="{{ block.id }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
             </span>
             {%- if b.desc != blank -%}<div class="gi__bdet" aria-hidden="false"><div><ul class="gi__bul">{%- assign lines = b.desc | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
           </button>
         {%- endfor -%}
 
-        {%- comment -%} 商品自己的套餐：metafield custom.bundles，一行一組「名稱|配件handle,handle|說明句;說明句|角標」 {%- endcomment -%}
+        {%- comment -%} 商品自己的套餐：metafield custom.bundles，一行一組「名稱|配件handle,handle|說明句;說明句|角標|折數」
+             第五段折數是 GrantOS 套餐組（GOS-0281）寫的：有就照它算套餐價（配件整組折 X%），沒有就退回加購階梯 {%- endcomment -%}
         {%- assign mf_bundles = product.metafields.custom.bundles.value | default: '' | newline_to_br | split: '<br />' -%}
         {%- for line in mf_bundles -%}
           {%- assign parts = line | strip | split: '|' -%}
@@ -337,6 +367,8 @@
           {%- assign bh = parts[1] | replace: ' ', '' | split: ',' -%}
           {%- assign bdesc = parts[2] | default: '' -%}
           {%- assign bbadge = parts[3] | default: '' | strip -%}
+          {%- assign bpct_raw = parts[4] | default: '' | strip -%}
+          {%- assign bpct = bpct_raw | plus: 0 -%}
           {%- assign bsum = 0 -%}{%- assign bcount = 0 -%}
           {%- capture bthumbs -%}
             {%- if pthumb != blank -%}<img loading="lazy" width="22" height="22" src="{{ pthumb }}" alt="">{%- endif -%}
@@ -346,18 +378,22 @@
             {%- endif -%}{%- endfor -%}
           {%- endcapture -%}
           {%- if bcount == 0 -%}{%- continue -%}{%- endif -%}
-          {%- assign ti = bcount | at_most: tiers.size | minus: 1 -%}
-          {%- assign pct = tiers[ti] | plus: 0 -%}
+          {%- if bpct_raw != blank and bpct > 0 -%}
+            {%- assign pct = bpct -%}
+          {%- else -%}
+            {%- assign ti = bcount | at_most: tiers.size | minus: 1 -%}
+            {%- assign pct = tiers[ti] | plus: 0 -%}
+          {%- endif -%}
           {%- assign off = 100 | minus: pct -%}
           {%- assign bnow = bsum | times: off | divided_by: 100 | divided_by: 100 | times: 100 | plus: cur.price -%}
           {%- assign bwas = bsum | plus: cur.price -%}
-          <button type="button" class="gi__bc" data-bundle="mf{{ forloop.index }}" data-addons="{{ parts[1] | replace: ' ', '' | escape }}" aria-pressed="false">
-            {%- if bbadge != blank -%}<span class="gi__badge">{{ bbadge }}</span>{%- endif -%}
+          <button type="button" class="gi__bc" data-bundle="mf{{ forloop.index }}" data-addons="{{ parts[1] | replace: ' ', '' | escape }}"{% if bpct_raw != blank and bpct > 0 %} data-pct="{{ bpct }}"{% endif %} aria-pressed="false">
+            {%- if bbadge != blank -%}<span class="gi__badge">{{ bbadge | escape }}</span>{%- endif -%}
             <span class="gi__bch">
               <span class="gi__bth gi__bth--multi">{{ bthumbs }}</span>
-              <span><span class="gi__bnm">{{ bname }}</span><span class="gi__bpr" data-gi-bprice="mf{{ forloop.index }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
+              <span><span class="gi__bnm">{{ bname | escape }}</span><span class="gi__bpr" data-gi-bprice="mf{{ forloop.index }}">{{ bnow | money }}{%- if bwas > bnow -%}<s>{{ bwas | money }}</s>{%- endif -%}</span></span>
             </span>
-            {%- if bdesc != blank -%}<div class="gi__bdet"><div><ul class="gi__bul">{%- assign lines = bdesc | split: ';' -%}{%- for l in lines -%}{%- assign tt = l | strip -%}{%- if tt != blank -%}<li>{{ tt }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
+            {%- if bdesc != blank -%}<div class="gi__bdet"><div><ul class="gi__bul">{%- assign lines = bdesc | split: ';' -%}{%- for l in lines -%}{%- assign tt = l | strip -%}{%- if tt != blank -%}<li>{{ tt | escape }}</li>{%- endif -%}{%- endfor -%}</ul></div></div>{%- endif -%}
           </button>
         {%- endfor -%}
 
@@ -415,7 +451,7 @@
 
       {%- form 'product', product, id: 'gi-form', class: 'gi__form', novalidate: 'novalidate' -%}
         <input type="hidden" name="id" value="{{ cur.id }}" data-gi-id>
-        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="quantity" value="1" data-gi-qinput>
         <button type="submit" class="gi__cta gi__cta--inline" data-gi-add>{{ s.cta_label | default: '加入購物車' }}</button>
       {%- endform -%}
     </div>
@@ -423,7 +459,13 @@
 
   <div class="gi__bar gi__bar--{{ s.cta_style | default: 'black' }}" data-gi-bar>
     <div class="gi__barl"><p class="gi__bart">{{ title }}</p><p class="gi__barm" data-gi-meta></p></div>
-    <p class="gi__barp"><b data-gi-price>{{ cur.price | money }}</b><s data-gi-cmp hidden></s></p>
+    {%- comment -%} 數量鈕（GOS-0283）：每頁都有；有同件買多件活動時價格旁多一行「再買 N 件省 P%」 {%- endcomment -%}
+    <div class="gi__qty" data-gi-qty role="group" aria-label="數量">
+      <button type="button" class="gi__qb" data-gi-qm aria-label="減少數量">−</button>
+      <span class="gi__qn" data-gi-qn aria-live="polite">1</span>
+      <button type="button" class="gi__qb" data-gi-qp aria-label="增加數量">+</button>
+    </div>
+    <p class="gi__barp"><b data-gi-price>{{ cur.price | money }}</b><s data-gi-cmp hidden></s><small class="gi__qhint" data-gi-qhint hidden></small></p>
     <button type="button" class="gi__cta" data-gi-add>{{ s.cta_label | default: '加入購物車' }}</button>
   </div>
 </section>
@@ -448,6 +490,7 @@
     { "type": "text", "id": "promo_link", "label": "連結文字", "default": "了解詳情" },
     { "type": "url", "id": "promo_url", "label": "連結" },
     { "type": "header", "content": "套餐" },
+    { "type": "text", "id": "qcards_label", "label": "入組卡區塊標題（有同件買多件活動時才出現）", "default": "買多件優惠" },
     { "type": "text", "id": "bundle_label", "label": "區塊標題", "default": "套餐" },
     { "type": "text", "id": "contents_label", "label": "右側連結文字", "default": "包裝內含" },
     { "type": "text", "id": "contents_url", "label": "右側連結網址", "default": "#shopify-section-product-content" },
