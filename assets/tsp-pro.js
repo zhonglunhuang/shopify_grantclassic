@@ -616,20 +616,21 @@ document.body.classList.add('tsp-page');
     updateProtectionScroll();
   }
 
-  /* 顏色切換 */
+  /* 顏色切換（舊購買區用；2026-09-15 購買區換成 gc-shop 後這些元素不在了，
+     沒有守門的話這裡會 TypeError，整支腳本後面的效果——首屏破壞器、介紹影片放大——全部掛不上，正式站真的壞過一次） */
   var swB = document.getElementById('sw-black'), swS = document.getElementById('sw-silver');
   var imB = document.getElementById('img-black'), imS = document.getElementById('img-silver');
   var cname = document.getElementById('colorname');
   function color(which){
     var black = which === 'b';
-    imB.classList.toggle('hide', !black);
-    imS.classList.toggle('hide', black);
-    swB.classList.toggle('on', black);
-    swS.classList.toggle('on', !black);
-    cname.textContent = black ? '石墨黑' : '極地銀';
+    if (imB && imS){ imB.classList.toggle('hide', !black); imS.classList.toggle('hide', black); }
+    if (swB && swS){ swB.classList.toggle('on', black); swS.classList.toggle('on', !black); }
+    if (cname) cname.textContent = black ? '石墨黑' : '極地銀';
   }
-  swB.addEventListener('click', function(){ color('b'); });
-  swS.addEventListener('click', function(){ color('s'); });
+  if (swB && swS){
+    swB.addEventListener('click', function(){ color('b'); });
+    swS.addEventListener('click', function(){ color('s'); });
+  }
 
   /* 購買區選色與假按鈕 */
   var opts = [].slice.call(document.querySelectorAll('.opt'));
@@ -971,7 +972,7 @@ document.body.classList.add('tsp-page');
       c.innerHTML = '<button class="cx" type="button" aria-label="關閉">✕</button>'
         + '<b>打穿了。今天的你，火力全開。</b>'
         + '<div class="code">TITANPRO100</div>'
-        + '<small>結帳輸入現折 NT$100（示意碼——正式碼上線前由 Shopify 折扣設定）</small>';
+        + '<small>結帳輸入現折 100（示意碼——正式碼上線前由 Shopify 折扣設定）</small>';
       hero.appendChild(c);
       c.querySelector('.cx').addEventListener('click', function(e){ e.stopPropagation(); c.remove(); });
     }
