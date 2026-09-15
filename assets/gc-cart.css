@@ -123,6 +123,8 @@ body .akoCvsScNS .ako-helper-text--start{display:none!important}
 body .akoCvsScNS .ako-checkbox{font-size:13px!important;color:var(--gcc-ink2)!important;line-height:1.5;align-items:flex-start!important;column-gap:10px!important;margin-top:4px;cursor:pointer}
 body .akoCvsScNS .ako-checkmark{width:18px!important;height:18px!important;flex:none;border-radius:5px!important;border:1px solid var(--gcc-hair)!important;margin-top:1px;background:#fff!important}
 body .akoCvsScNS .ako-checkbox input:checked+.ako-checkmark{background:var(--gcc-blue)!important;border-color:var(--gcc-blue)!important}
+/* 勾勾那個 svg 沒寫寬高，WebKit（iPhone Safari）在 flex 裡量成 0×0 → 手機只看到整片藍沒有勾（2026-09-15 Mars 抓到）；明寫尺寸 */
+body .akoCvsScNS .ako-checkbox input:checked+.ako-checkmark svg{display:block!important;width:12px!important;height:12px!important;flex:none;color:#fff;fill:#fff}
 /* 手機／平板：疊成單欄 */
 @media(max-width:999px){
   body .cart__recap{grid-template-columns:1fr!important;column-gap:0;row-gap:0}
