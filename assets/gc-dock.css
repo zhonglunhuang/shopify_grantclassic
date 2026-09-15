@@ -186,3 +186,10 @@ body:has(.gc-dock--move-loyalty) .loloyal-iframe-page{
   .gc-dock__btn{transition:none}
   .gc-dock__btn:hover{transform:none}
 }
+
+/* ── 捲動時淡出（GOS-0287）：gc-dock.js 往下捲掛 body.gcd-scrolling、往上捲或停 450ms 拿掉。
+   皇冠外框（.loloyal-launcher-wrapper）不能 transform，只做 opacity；LINE 那顆可以微微下沉。 */
+.gc-dock, .loloyal-launcher-wrapper{transition:opacity .2s ease, transform .2s ease}
+body.gcd-scrolling .gc-dock{opacity:0 !important;pointer-events:none;transform:translateY(6px)}
+body.gcd-scrolling .loloyal-launcher-wrapper{opacity:0 !important;pointer-events:none}
+@media (prefers-reduced-motion: reduce){.gc-dock, .loloyal-launcher-wrapper{transition:none}}

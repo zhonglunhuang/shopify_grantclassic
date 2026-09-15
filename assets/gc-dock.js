@@ -87,4 +87,16 @@
     var mo = new MutationObserver(function () { paint(); });
     mo.observe(document.body, { childList: true, subtree: false });
   }
+
+  /* ── 往下捲淡出、往上捲或停 450ms 回來（GOS-0287，2026-09-15 改成全站）──
+     原本只在購買區版型的商品頁有（gc-i360.js 掛 body.gi-scrolling），Mars 在 Pro 頁發現沒有。
+     這裡掛 body.gcd-scrolling，樣式在 gc-dock.css；兩套同時成立沒衝突。
+     皇冠那顆的外框不能加 transform（見檔頭），淡出只用 opacity。 */
+  var lastY = window.scrollY || 0, idleT = null, scrolling = false;
+  function setScrolling(on) { if (on === scrolling) return; scrolling = on; document.body.classList.toggle('gcd-scrolling', on); }
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || 0, down = y > lastY + 2, up = y < lastY - 2; lastY = y;
+    if (down) setScrolling(true); else if (up) setScrolling(false);
+    clearTimeout(idleT); idleT = setTimeout(function () { setScrolling(false); }, 450);
+  }, { passive: true });
 })();
