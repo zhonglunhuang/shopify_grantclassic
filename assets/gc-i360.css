@@ -147,7 +147,7 @@
 .gi .gi__giftp { margin: 0 0 6px; font-size: 12px; color: var(--mute); line-height: 1.6; }
 .gi__giftp a { color: var(--blue); text-decoration: underline; }
 .gi .gi__giftv { margin: 0; font-size: 12px; }
-.gi__cb { width: 18px; height: 18px; border: 1px solid #c7c7cc; border-radius: 4px; background: #fff; display: grid; place-items: center; flex: none; }
+.gi__cb { width: 20px; height: 20px; border: 1px solid #c7c7cc; border-radius: 50%; /* 2026-09-16 Mars：勾選框要更圓 */ background: #fff; display: grid; place-items: center; flex: none; }
 .gi__cb svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.4; }
 .gi__cb.is-on, .gi__ad[aria-pressed="true"] .gi__cb { background: var(--ink); border-color: var(--ink); }
 

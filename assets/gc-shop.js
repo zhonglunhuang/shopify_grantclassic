@@ -26,6 +26,20 @@
   function parseTiers(s, withQty) { return String(s || '').split(',').map(function (x) { var a = x.split(':'); return withQty ? { q: parseInt(a[0], 10) || 0, p: parseInt(a[1], 10) || 0 } : parseInt(a[0], 10) || 0; }).filter(function (t) { return withQty ? (t.q > 0 && t.p > 0) : true; }); }
   var NAMES = { 2: '兩入組', 3: '三入組', 4: '四入組', 5: '五入組', 6: '六入組', 8: '八入組', 10: '十入組' };
 
+  // 款式名去掉各款共同的段落（跟 gc-i360.js 同一套）：「扁線手機充電掛繩 USB-C to USB-C / 黑色」→「黑色」
+  function shortTitles(vs) {
+    // 以「空格」切成字，去掉每一款都一樣的開頭與結尾（「扁線手機充電掛繩 USB-C to USB-C / 黑色」→「USB-C / 黑色」）
+    var parts = vs.map(function (v) { return String(v.title || '').split(' '); });
+    if (parts.length < 2) return vs.map(function (v) { return v.title; });
+    var lead = 0; while (parts.every(function (p) { return p.length > lead + 1 && p[lead] === parts[0][lead]; })) lead++;
+    var tail = 0; while (parts.every(function (p) { var i = p.length - 1 - tail; return i > lead && p[i] === parts[0][parts[0].length - 1 - tail]; })) tail++;
+    return parts.map(function (p) { var out = p.slice(lead, p.length - tail).join(' ').replace(/^\/\s*|\s*\/$/g, ''); return out || p.join(' '); });
+  }
+  function vsel(a) {
+    var vs = a.variants || []; if (vs.length < 2) return '';
+    var labels = shortTitles(vs);
+    return '<span class="gc-shop__vsel" data-vsel="' + esc(a.handle) + '"><select aria-label="款式">' + vs.map(function (v, i) { return '<option value="' + esc(v.id) + '"' + (String(v.id) === String(a.vid) ? ' selected' : '') + '>' + esc(labels[i]) + '</option>'; }).join('') + '</select></span>';
+  }
   function setup(root) {
     if (root.hasAttribute('data-gc-ready')) return; root.setAttribute('data-gc-ready', '');
     var variants, addonsArr, bundles;
@@ -61,6 +75,20 @@
     function qtyName() { return S.qty === 1 ? '單件' : (NAMES[S.qty] || S.qty + ' 件'); }
     function card(attr, on, inner, badge, extraCls) { return '<button type="button" class="gc-shop__card' + (on ? ' on' : '') + (extraCls ? ' ' + extraCls : '') + '" ' + attr + '>' + (badge ? '<span class="gc-shop__badge">' + esc(badge) + '</span>' : '') + inner + '</button>'; }
     function isOpen(k) { return order[S.open] === k; }
+    function addSub(n, pct) { return n === 0 ? '再加購 1 件，省 ' + at[0] + '%' : n < at.length ? '已省 ' + pct + '%，再加 1 件省 ' + at[n] + '%' : '已達最高 ' + at[at.length - 1] + '% 折扣'; }
+    function patchAddons(body, n, pct) {
+      var bar = $('.gc-shop__bar i', body); if (bar) bar.style.width = Math.min(n, 3) / 3 * 100 + '%';
+      var sub = $('.gc-shop__sub2', body); if (sub && at.length) sub.textContent = (bundles.length ? '或自己挑：' : '') + addSub(n, pct);
+      $$('[data-b]', body).forEach(function (c) { c.classList.toggle('on', S.bundle === parseInt(c.getAttribute('data-b'), 10)); });
+      $$('[data-a]', body).forEach(function (c) {
+        var h = c.getAttribute('data-a'), a = addons[h]; if (!a) return;
+        var inB = inBundle(h), on = inB || !!S.adds[h], p = on ? pctFor(a, n) : 0;
+        c.classList.toggle('on', on); c.disabled = inB;
+        var sm = $('.gc-shop__n small', c); if (sm) sm.textContent = (a.sub || '') + (inB ? (a.sub ? '・' : '') + '已在套餐裡' : '');
+        var pr = $('.gc-shop__pr', c), b = $('[data-tw]', pr); if (b) b.setAttribute('data-tw', disc(a.price, p));
+        var st = $('s', pr); if (p && !st) { st = document.createElement('s'); st.textContent = money(a.price); pr.appendChild(st); } else if (!p && st) st.remove();
+      });
+    }
 
     function render() {
       var v = cur();
@@ -89,12 +117,15 @@
       // 配件
       var n = selAdds().length, pct = addPct(n), h2 = '';
       if (bundles.length) { h2 += '<div class="gc-shop__list">'; bundles.forEach(function (b, i) { var bsum = 0, bnow = 0; b.items.forEach(function (h) { var a = addons[h]; bsum += a.price; bnow += disc(a.price, b.pct || addPct(b.items.length)); }); h2 += card('data-b="' + i + '"', S.bundle === i, '<img src="' + esc(addons[b.items[0]].img) + '" alt=""><span class="gc-shop__n"><b>' + esc(b.name) + '</b><small>' + esc(b.desc ? b.desc.split(';')[0] : b.items.map(function (h) { return addons[h].title; }).join('＋')) + '</small></span><span class="gc-shop__pr"><b>+' + money(bnow) + '</b>' + (bnow < bsum ? '<s>' + money(bsum) + '</s><em>省 ' + money(bsum - bnow) + '</em>' : '') + '</span>', b.badge || (i === 0 ? '最划算' : '')); }); h2 += '</div>'; }
-      if (at.length) h2 += '<p class="gc-shop__sub2">' + (bundles.length ? '或自己挑：' : '') + (n === 0 ? '再加購 1 件，省 ' + at[0] + '%' : n < at.length ? '已省 ' + pct + '%，再加 1 件省 ' + at[n] + '%' : '已達最高 ' + at[at.length - 1] + '% 折扣') + '</p><div class="gc-shop__bar"><i style="width:' + Math.min(n, 3) / 3 * 100 + '%"></i></div>';
+      if (at.length) h2 += '<p class="gc-shop__sub2">' + (bundles.length ? '或自己挑：' : '') + addSub(n, pct) + '</p><div class="gc-shop__bar"><i style="width:' + Math.min(n, 3) / 3 * 100 + '%"></i></div>';
       else if (bundles.length) h2 += '<p class="gc-shop__sub2">或自己挑：</p>';
       h2 += '<div class="gc-shop__list">';
-      addonsArr.forEach(function (a) { var inB = inBundle(a.handle), on = inB || !!S.adds[a.handle], p = on ? pctFor(a, n) : 0; h2 += card('data-a="' + esc(a.handle) + '"' + (inB ? ' disabled' : ''), on, '<img src="' + esc(a.img) + '" alt=""><span class="gc-shop__n"><b>' + esc(a.title) + '</b><small>' + esc(a.sub || '') + (inB ? (a.sub ? '・' : '') + '已在套餐裡' : '') + '</small></span><span class="gc-shop__pr"><b data-tw="' + disc(a.price, p) + '">' + money(disc(a.price, p)) + '</b>' + (p ? '<s>' + money(a.price) + '</s>' : '') + '</span>'); });
+      addonsArr.forEach(function (a) { var inB = inBundle(a.handle), on = inB || !!S.adds[a.handle], p = on ? pctFor(a, n) : 0; h2 += card('data-a="' + esc(a.handle) + '"' + (inB ? ' disabled' : ''), on, '<img src="' + esc(a.img) + '" alt=""><span class="gc-shop__n"><b>' + esc(a.title) + '</b><small>' + esc(a.sub || '') + (inB ? (a.sub ? '・' : '') + '已在套餐裡' : '') + '</small>' + vsel(a) + '</span><span class="gc-shop__pr"><b data-tw="' + disc(a.price, p) + '">' + money(disc(a.price, p)) + '</b>' + (p ? '<s>' + money(a.price) + '</s>' : '') + '</span>'); });
       h2 += '</div>';
-      [['color', h0], ['qty', h1], ['addons', h2]].forEach(function (pair) { var body = $('[data-body]', stepEls[pair[0]]); if (body.innerHTML !== pair[1]) body.innerHTML = pair[1]; });
+      [['color', h0], ['qty', h1]].forEach(function (pair) { var body = $('[data-body]', stepEls[pair[0]]); if (body.innerHTML !== pair[1]) body.innerHTML = pair[1]; });
+      // 配件那步：卡片還是同一批就只改狀態（進度條滑過去、價格滾動），整塊重畫會「啪」一聲（Mars 2026-09-16）
+      var abody = $('[data-body]', stepEls.addons), akey = addonsArr.map(function (a) { return a.handle; }).join(',') + '|' + bundles.length + '|' + at.length;
+      if (abody.getAttribute('data-key') !== akey) { abody.innerHTML = h2; abody.setAttribute('data-key', akey); } else patchAddons(abody, n, pct);
       $$('[data-tw]', stepEls.addons).forEach(function (el) { tween(el, parseInt(el.getAttribute('data-tw'), 10)); });
       $$('img[data-vi]', stage).forEach(function (im) { im.hidden = parseInt(im.getAttribute('data-vi'), 10) !== S.vi; });
       // 摘要列
@@ -107,6 +138,7 @@
     function nextAfter(i) { for (var j = i + 1; j < order.length; j++) if (!stepEls[order[j]].hidden) return j; return i; }
 
     root.addEventListener('click', function (e) {
+      if (e.target.closest('select')) return;   // 款式下拉在卡片裡：點它不算點卡片
       var b = e.target.closest('button'); if (!b || !root.contains(b)) return;
       var stepEl = b.closest('.gc-shop__step'), si = stepEl ? order.indexOf(stepEl.getAttribute('data-step')) : -1;
       if (b.hasAttribute('data-chg')) { goto(si); return; }
@@ -116,6 +148,12 @@
       if (b.hasAttribute('data-next')) { S.done[1] = true; goto(nextAfter(1)); return; }
       if (b.hasAttribute('data-b')) { var i = parseInt(b.getAttribute('data-b'), 10); S.bundle = (S.bundle === i) ? null : i; S.done[2] = true; render(); return; }
       if (b.hasAttribute('data-a')) { var h = b.getAttribute('data-a'); S.adds[h] = !S.adds[h]; S.done[2] = true; render(); return; }
+    });
+    root.addEventListener('change', function (e) {
+      var box = e.target.closest('[data-vsel]'); if (!box) return;
+      var a = addons[box.getAttribute('data-vsel')]; if (!a) return;
+      var v = (a.variants || []).filter(function (x) { return String(x.id) === String(e.target.value); })[0]; if (!v) return;
+      a.vid = v.id; a.price = v.price; render();
     });
     root.addEventListener('click', function (e) { var r = e.target.closest('[data-qrow]'); if (r && !e.target.closest('button') && S.qmode !== 'step') { S.qmode = 'step'; S.qty = otherQ(); S.done[1] = true; render(); } });
 

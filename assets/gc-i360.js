@@ -22,6 +22,15 @@
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
+  // 款式名去掉各款共同的段落（「扁線手機充電掛繩 USB-C to USB-C / 黑色」→「黑色」）：下拉才會窄、一眼看到差在哪
+  function shortTitles(vs) {
+    // 以「空格」切成字，去掉每一款都一樣的開頭與結尾（「扁線手機充電掛繩 USB-C to USB-C / 黑色」→「USB-C / 黑色」）
+    var parts = vs.map(function (v) { return String(v.title || '').split(' '); });
+    if (parts.length < 2) return vs.map(function (v) { return v.title; });
+    var lead = 0; while (parts.every(function (p) { return p.length > lead + 1 && p[lead] === parts[0][lead]; })) lead++;
+    var tail = 0; while (parts.every(function (p) { var i = p.length - 1 - tail; return i > lead && p[i] === parts[0][parts[0].length - 1 - tail]; })) tail++;
+    return parts.map(function (p) { var out = p.slice(lead, p.length - tail).join(' ').replace(/^\/\s*|\s*\/$/g, ''); return out || p.join(' '); });
+  }
   function setup(root) {
     if (root.hasAttribute('data-gi-ready')) return; root.setAttribute('data-gi-ready', '');
     var variants; try { variants = JSON.parse($('[data-gi-variants]', root).textContent); } catch (e) { variants = []; }
@@ -53,7 +62,8 @@
       if (vs.length > 1) {
         var box = $('[data-gi-adsel]', r);
         var selEl = document.createElement('select'); selEl.setAttribute('aria-label', '款式');
-        vs.forEach(function (v) { var op = document.createElement('option'); op.value = v.id; op.textContent = v.title; op.selected = String(v.id) === String(a.vid); selEl.appendChild(op); });
+        var labels = shortTitles(vs);
+        vs.forEach(function (v, vi) { var op = document.createElement('option'); op.value = v.id; op.textContent = labels[vi]; op.selected = String(v.id) === String(a.vid); selEl.appendChild(op); });
         box.textContent = ''; box.appendChild(selEl);
         box.addEventListener('click', function (e) { e.stopPropagation(); });
         box.querySelector('select').addEventListener('change', function (e) {
