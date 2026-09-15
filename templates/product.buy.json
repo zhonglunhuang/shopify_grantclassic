@@ -38,32 +38,12 @@
             "link_text": "企業客製",
             "url": "/pages/corporate"
           }
-        },
-        "bundle_fast": {
-          "type": "bundle",
-          "settings": {
-            "name": "快充組合",
-            "addons": "grantclassic-apexvolt-pd30w-ganultra,flex-charging-cable-usb-c-to-usb-c-240w-100cm",
-            "desc": "加 ApexVolt 30W 充電器與 Flex 240W 液態矽膠線，插電就是滿速。\n包含 1× 行動電源、1× 充電器、1× 100cm 充電線。",
-            "badge": "最受歡迎"
-          }
-        },
-        "bundle_carry": {
-          "type": "bundle",
-          "settings": {
-            "name": "隨身組合",
-            "addons": "velvet-strap-pro-black",
-            "desc": "加 Velvet Strap Pro 充電掛繩，手機掛著也能充。\n包含 1× 行動電源、1× 160cm 充電掛繩。",
-            "badge": ""
-          }
         }
       },
       "block_order": [
         "perk_ship",
         "perk_hl",
-        "perk_corp",
-        "bundle_fast",
-        "bundle_carry"
+        "perk_corp"
       ],
       "settings": {
         "title_override": "穩如鈦山 TITANSHIELD",
@@ -79,7 +59,7 @@
         "std_name": "標準組合",
         "std_desc": "固態鋰電芯行動電源，BSMI 與 NCC 雙認證。\n包含 1× 穩如鈦山 TITANSHIELD 行動電源。",
         "custom_name": "超值加購",
-        "addons": "grantclassic-apexvolt-pd30w-ganultra,flex-charging-cable-usb-c-to-usb-c-240w-100cm,gc-magaura,velvet-strap-pro-black",
+        "addons": "",
         "tiers": "0,0,0",
         "gift_title": "免費贈送 一年延長保固",
         "gift_text": "登錄序號即享，保固從一年延長為兩年。",
