@@ -251,8 +251,6 @@ body.gi-has-bar.gi-scrolling .gc-dock, body.gi-has-bar.gi-scrolling .loloyal-lau
   .gi .gi__bart { font-size: 16px; }
   .gi .gi__barp { font-size: 18px; margin-left: 10px; }
   .gi__barp s { display: none; }
-  /* 團購價（GOS-0285）：手機平常不畫劃線省空間，但客人是為了「省多少」點連結進來的，這時把原價劃線留著 */
-  .gi__barp--team s { display: inline; }
   .gi .gi__qty { height: 36px; margin-left: 8px; }
   .gi .gi__qty .gi__qb { width: 32px; height: 34px; font-size: 17px; }
   .gi .gi__barp .gi__qhint { font-size: 11px; }

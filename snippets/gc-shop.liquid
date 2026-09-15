@@ -1,0 +1,98 @@
+{%- comment -%}
+  gc-shop.liquid（GOS-0286，2026-09-15）：Air／Pro 這種故事頁的頁尾「選購」段——Apple 選購頁的摺疊流程。
+  一步一組卡片：顏色 → 買幾件 → 配件；選完的收成一行、下一步從下面滑出、畫面不動；底部固定摘要列。
+  資料跟全店購買區（gc-i360-buy）同一組商品欄位，都是 GrantOS 開活動時寫的：
+    custom.qty_tiers  "2:10,3:15"   同件買多件（入組卡＋數量鈕折數）
+    custom.bundles    一行一張卡「名稱|配件handle,handle|說明;說明|角標|折數」  套餐卡
+    custom.addons     "handle,handle"  加購配件
+    custom.addon_tiers "5,10,15"     加購件數階梯
+  沒有活動時降級：買幾件只剩單件＋數量、沒配件整步不出現。標記只放骨架，卡片由 gc-shop.js 畫。
+  用法：{% render 'gc-shop', product: product, title: 'TITANSHIELD Pro', stage_map: '黑=xxx.webp|銀=yyy.webp' %}
+{%- endcomment -%}
+{{ 'gc-shop.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'gc-shop.js' | asset_url }}" defer></script>
+{%- liquid
+  assign cur = product.selected_or_first_available_variant
+  assign shop_title = title | default: product.title
+  assign last_opt = product.options.size | minus: 1
+  assign qty_tiers = product.metafields.custom.qty_tiers.value | default: '' | replace: ' ', ''
+  assign addon_tiers = product.metafields.custom.addon_tiers.value | default: '' | replace: ' ', ''
+  assign addon_list = product.metafields.custom.addons.value | default: ''
+  assign mf_lines = product.metafields.custom.bundles.value | default: '' | newline_to_br | split: '<br />'
+  for line in mf_lines
+    assign parts = line | split: '|'
+    if parts.size > 1
+      assign addon_list = addon_list | append: ',' | append: parts[1]
+    endif
+  endfor
+  assign addon_raw = addon_list | replace: ' ', '' | split: ','
+  assign seen = '|'
+  assign addon_str = ''
+  for h in addon_raw
+    if h == blank
+      continue
+    endif
+    assign key = '|' | append: h | append: '|'
+    unless seen contains key
+      assign seen = seen | append: h | append: '|'
+      assign addon_str = addon_str | append: h | append: ','
+    endunless
+  endfor
+  assign addons = addon_str | split: ','
+-%}
+{%- comment -%} 變體：顏色＝最後一個選項；大圖優先用頁面指定的去背資產（stage_map），其次變體圖 {%- endcomment -%}
+{%- capture vjson -%}[
+{%- for v in product.variants -%}
+  {%- assign cval = v.options[last_opt] -%}
+  {%- assign vimg = '' -%}
+  {%- if stage_map != blank -%}
+    {%- assign pairs = stage_map | split: '|' -%}
+    {%- for pr in pairs -%}{%- assign kv = pr | split: '=' -%}{%- if vimg == '' and cval contains kv[0] -%}{%- assign vimg = kv[1] | asset_url -%}{%- endif -%}{%- endfor -%}
+  {%- endif -%}
+  {%- if vimg == '' -%}{%- assign vimg = v.featured_image | default: product.featured_image | image_url: width: 1000 -%}{%- endif -%}
+  {"id":{{ v.id }},"price":{{ v.price }},"cmp":{{ v.compare_at_price | default: 0 }},"avail":{{ v.available }},"color":{{ cval | json }},"img":{{ vimg | json }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]{%- endcapture -%}
+{%- capture ajson -%}[
+{%- assign shown = 0 -%}
+{%- for h in addons limit: 8 -%}
+  {%- assign a = all_products[h] -%}
+  {%- if a != blank and a.handle == h -%}
+    {%- if shown > 0 -%},{%- endif -%}{%- assign shown = shown | plus: 1 -%}
+    {%- assign av = a.selected_or_first_available_variant -%}
+    {%- assign short = a.metafields.custom.short_name.value | default: a.title | replace: 'grantclassic ', '' -%}
+    {%- assign sub = a.metafields.custom.tagline.value | default: '' -%}
+    {%- assign cut = a.metafields.custom.cutout.value -%}
+    {%- if cut == blank -%}{%- capture cut -%}{%- render 'gc-cutout-map', handle: h -%}{%- endcapture -%}{%- assign cut = cut | strip -%}{%- endif -%}
+    {%- if cut != blank -%}{%- assign aimg = cut | file_url -%}{%- else -%}{%- assign aimg = av.featured_image | default: a.featured_image | image_url: width: 256 -%}{%- endif -%}
+    {"handle":{{ h | json }},"vid":{{ av.id }},"price":{{ av.price }},"title":{{ short | json }},"sub":{{ sub | json }},"img":{{ aimg | json }},"variants":[{%- for v in a.variants limit: 12 -%}{%- if v.available -%}{"id":{{ v.id }},"title":{{ v.title | json }},"price":{{ v.price }}},{%- endif -%}{%- endfor -%}]}
+  {%- endif -%}
+{%- endfor -%}
+]{%- endcapture -%}
+{%- assign ajson = ajson | replace: ',]', ']' -%}
+{%- capture bjson -%}[
+{%- assign bn = 0 -%}
+{%- for line in mf_lines -%}
+  {%- assign parts = line | strip | split: '|' -%}
+  {%- if parts.size < 2 or parts[0] == blank -%}{%- continue -%}{%- endif -%}
+  {%- if bn > 0 -%},{%- endif -%}{%- assign bn = bn | plus: 1 -%}
+  {"key":"mf{{ forloop.index }}","name":{{ parts[0] | strip | json }},"handles":{{ parts[1] | replace: ' ', '' | json }},"desc":{{ parts[2] | default: '' | json }},"badge":{{ parts[3] | default: '' | strip | json }},"pct":{{ parts[4] | default: '0' | strip | plus: 0 }}}
+{%- endfor -%}
+]{%- endcapture -%}
+<section class="gc-shop" id="buy" data-gc-shop data-title="{{ shop_title | escape }}" data-qtiers="{{ qty_tiers | escape }}" data-atiers="{{ addon_tiers | escape }}" data-cur="{{ cur.id }}" data-avail="{{ product.available }}">
+  <script type="application/json" data-gc-variants>{{ vjson | strip_newlines }}</script>
+  <script type="application/json" data-gc-addons>{{ ajson | strip_newlines }}</script>
+  <script type="application/json" data-gc-bundles>{{ bjson | strip_newlines }}</script>
+  <div class="gc-shop__wrap">
+    <p class="gc-shop__eye">選購</p>
+    <h2 class="gc-shop__t">{{ shop_title }}</h2>
+    <p class="gc-shop__from" data-gc-from>NT${{ cur.price | money | remove: 'NT$' | remove: '$' }}</p>
+    <div class="gc-shop__stage" data-gc-stage></div>
+    <div class="gc-shop__step" data-step="color"><div class="gc-shop__h"><h3>顏色。</h3><small>兩色同價</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
+    <div class="gc-shop__step" data-step="qty"><div class="gc-shop__h"><h3>買幾件。</h3><small data-qhint>多買多省，同色或混色都算</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
+    <div class="gc-shop__step" data-step="addons"><div class="gc-shop__h"><h3>配件。</h3><small>套餐一次買齊，或自己挑；越多折越多</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
+    <p class="gc-shop__note">結帳時由 Shopify 自動套用折扣，不用輸入折扣碼。</p>
+    <noscript><form method="post" action="/cart/add"><input type="hidden" name="id" value="{{ cur.id }}"><button class="gc-shop__cta" type="submit">加入購物車</button></form></noscript>
+  </div>
+  <div class="gc-shop__sum" data-gc-sum><div class="gc-shop__sumin"><div class="gc-shop__sumt"><b data-sn>{{ shop_title }}</b><small data-ss></small></div><div class="gc-shop__sump"><b data-st>NT${{ cur.price | money | remove: 'NT$' | remove: '$' }}</b><small data-sw></small></div><button type="button" class="gc-shop__cta" data-add{% unless product.available %} disabled{% endunless %}>{% if product.available %}加入購物車{% else %}暫時缺貨{% endif %}</button></div></div>
+</section>

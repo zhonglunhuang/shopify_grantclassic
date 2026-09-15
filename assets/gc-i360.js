@@ -30,17 +30,6 @@
     var idInput = $('[data-gi-id]', root);
     var cur = variants.filter(function (v) { return String(v.id) === String(idInput && idInput.value); })[0] || variants[0];
     var sel = cur.opts.slice();
-    // 團購價（GrantOS GOS-0285）：gc-team.js 抓到檔期後會廣播「這幾個變體的團購價」（variant_id → {now, was}，單位＝分），
-    // 底欄與入組卡的主商品改用它、原價劃線；配件照原本規則。沒帶團購連結的訪客這張表永遠是空的，底下每一條都走原本的路。
-    var teamPrices = (window.__gcTeamPrices && typeof window.__gcTeamPrices === 'object') ? window.__gcTeamPrices : {};
-    // 有團購價時劃掉的是「原本的售價」（跟頁頂價條同一個數字），不是 compare_at 那個定價——
-    // 兩個地方一個劃 2,280、一個劃 3,980，客人會以為是兩檔不同的優惠。
-    function mainPrice() {
-      var t = teamPrices[String(cur.id)];
-      if (t && t.now > 0 && t.was > t.now) return { now: t.now, was: t.was };
-      return { now: cur.price, was: cur.cmp > cur.price ? cur.cmp : cur.price };
-    }
-    document.addEventListener('gc-team:prices', function (e) { teamPrices = (e.detail && typeof e.detail === 'object') ? e.detail : {}; render(); });
     var optGroups = $$('[data-gi-opt]', root);
     var bundleEls = $$('[data-bundle]', root);
     var bundleNames = {}; bundleEls.forEach(function (b) { var n = $('.gi__bnm', b); bundleNames[b.getAttribute('data-bundle')] = n ? n.textContent.trim() : ''; });
@@ -99,7 +88,7 @@
       var list = (bundleAddons[key] || []).slice();
       if (withAdds) onList().forEach(function (h) { if (list.indexOf(h) < 0) list.push(h); });
       var pct = pctFor(list.length), n = withAdds ? qty : 1, vp = withAdds ? volPct(qty) : 0;
-      var mp = mainPrice(), now = discounted(mp.now, vp) * n, was = mp.was * n;
+      var now = discounted(cur.price, vp) * n, was = (cur.cmp > cur.price ? cur.cmp : cur.price) * n;
       list.forEach(function (h) { var a = addons[h]; if (!a) return; now += discounted(a.price, addonPct(h, key, list.length)); was += a.price; });
       return { now: now, was: was, n: list.length, pct: pct };
     }
@@ -125,8 +114,6 @@
       var priceEl = $('[data-gi-price]', root), cmpEl = $('[data-gi-cmp]', root);
       if (priceEl) tween(priceEl, bp.now);
       if (cmpEl) { cmpEl.hidden = !(bp.was > bp.now); cmpEl.textContent = money(bp.was); }
-      // 團購價生效時底欄掛記號：手機版平常藏起來的劃線原價，這時要露出來（gc-i360.css）
-      if (priceEl && priceEl.parentNode) priceEl.parentNode.classList.toggle('gi__barp--team', mainPrice().now !== cur.price);
       var qn = $('[data-gi-qn]', root), qm = $('[data-gi-qm]', root), qi = $('[data-gi-qinput]', root), qh = $('[data-gi-qhint]', root);
       if (qn) qn.textContent = qty; if (qm) qm.disabled = qty <= 1; if (qi) qi.value = qty;
       if (qh) { var h = volHint(qty); qh.hidden = !h; qh.textContent = h; }
@@ -134,7 +121,7 @@
       $$('[data-gi-qcard]', root).forEach(function (c) {
         var n = parseInt(c.getAttribute('data-qcard') || c.getAttribute('data-gi-qcard'), 10), on = n === qty;
         c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on);
-        var each = discounted(mainPrice().now, volPct(n)), pe = $('[data-gi-qeach]', c), pp = $('[data-gi-qprice]', c), bg = $('.gi__badge', c);
+        var each = discounted(cur.price, volPct(n)), pe = $('[data-gi-qeach]', c), pp = $('[data-gi-qprice]', c), bg = $('.gi__badge', c);
         if (pe) pe.textContent = money(each);
         if (pp) pp.innerHTML = money(each * n) + '<s>' + money(cur.price * n) + '</s>';
         if (bg) bg.textContent = '省 ' + money(cur.price * n - each * n);
