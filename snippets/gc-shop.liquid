@@ -91,7 +91,7 @@
     <div class="gc-shop__step" data-step="color"><div class="gc-shop__h"><h3>顏色。</h3><small>兩色同價</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
     <div class="gc-shop__step" data-step="qty"><div class="gc-shop__h"><h3>買幾件。</h3><small data-qhint>多買多省，同色或混色都算</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
     <div class="gc-shop__step" data-step="addons"><div class="gc-shop__h"><h3>配件。</h3><small>套餐一次買齊，或自己挑；越多折越多</small></div><div class="gc-shop__done"><div><span class="gc-shop__dsum" data-dsum></span><button type="button" class="gc-shop__chg" data-chg>更改</button></div></div><div class="gc-shop__body"><div data-body></div></div></div>
-    <p class="gc-shop__note">結帳時由 Shopify 自動套用折扣，不用輸入折扣碼。</p>
+    <p class="gc-shop__note">結帳時自動套用折扣，不用輸入折扣碼。</p>
     <noscript><form method="post" action="/cart/add"><input type="hidden" name="id" value="{{ cur.id }}"><button class="gc-shop__cta" type="submit">加入購物車</button></form></noscript>
   </div>
   <div class="gc-shop__sum" data-gc-sum><div class="gc-shop__sumin"><div class="gc-shop__sumt"><b data-sn>{{ shop_title }}</b><small data-ss></small></div><div class="gc-shop__sump"><b data-st>NT${{ cur.price | money | remove: 'NT$' | remove: '$' }}</b><small data-sw></small></div><button type="button" class="gc-shop__cta" data-add{% unless product.available %} disabled{% endunless %}>{% if product.available %}加入購物車{% else %}暫時缺貨{% endif %}</button></div></div>
