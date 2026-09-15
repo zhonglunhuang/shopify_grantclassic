@@ -1,24 +1,9 @@
 <div class="tsp-pro"><div class="act-light">
-<section class="buy" id="buy">
+{%- comment -%} 2026-09-15（GOS-0286）：購買區換成 Apple 式選購流程段 gc-shop（顏色 → 買幾件 → 配件，摺疊步驟＋底部摘要列）；
+    套餐／入組／加購都讀 GrantOS 寫的商品欄位。完整規格表留在下面。舊版購買區在 git 歷史（tsp-buy.liquid 2026-09-15 之前）。 {%- endcomment -%}
+{%- render 'gc-shop', product: product, title: 'TITANSHIELD Pro', stage_map: '黑=tsp-titanshield-pro-color-black-defringed.webp|銀=tsp-titanshield-pro-color-silver-defringed.webp' -%}
+<section class="buy buy--spec">
     <div class="wrap">
-      <h2>TITANSHIELD Pro</h2>
-      {% assign tsp_price = product.price | money_without_trailing_zeros | remove: 'NT' | remove: '$' | strip %}
-      <p class="p">NT$ <b>{{ tsp_price }}</b></p>
-      <div class="color-stage buy-stage">
-        <img id="img-black" src="{{ 'tsp-titanshield-pro-color-black-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 石墨黑" loading="lazy">
-        <img id="img-silver" class="hide" src="{{ 'tsp-titanshield-pro-color-silver-defringed.webp' | asset_url }}" alt="TITANSHIELD Pro 極地銀" loading="lazy">
-      </div>
-      <p id="colorname" hidden>石墨黑</p>
-      {% assign v_black = product.variants | where: 'title', '石墨黑' | first | default: product.variants.first %}
-      {% assign v_silver = product.variants | where: 'title', '極地銀' | first | default: product.variants.last %}
-      <div class="opts">
-        <button class="opt on" type="button" id="sw-black" data-c="石墨黑" data-vid="{{ v_black.id }}">石墨黑</button>
-        <button class="opt" type="button" id="sw-silver" data-c="極地銀" data-vid="{{ v_silver.id }}">極地銀</button>
-      </div>
-      <form method="post" action="/cart/add" id="tsp-buyform">
-        <input type="hidden" name="id" id="tsp-vid" value="{{ v_black.id }}">
-        <button class="btn btn-main" type="submit" id="buybtn"{% unless v_black.available %} disabled{% endunless %}>加入購物車</button>
-      </form>
       <div class="spec-full">
         <h3>完整規格</h3>
         <dl>
