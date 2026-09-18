@@ -68,6 +68,20 @@
   }
   @media (max-width: 740px) {
     .gc-air-navigation { --gc-air-header-height: 55px; }
+    .gc-air-navigation .header .header__wrapper {
+      position: relative;
+      min-height: 52px;
+    }
+    .gc-air-navigation .header .header__wrapper > .header__logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 !important;
+    }
+    .gc-air-navigation .header [aria-controls="mobile-menu-drawer"] {
+      margin-right: auto;
+    }
   }
   @media (max-width: 560px) {
     .gc-air-navigation { --gc-air-product-height: 45px; }
@@ -93,12 +107,15 @@
         var offerHeight = offer ? offer.getBoundingClientRect().height : 0;
         var visible = Math.max(0, Math.min(rect.height, rect.bottom - offerHeight));
         var logo = header.querySelector('.header__logo');
+        var leftAnchor = window.matchMedia('(max-width: 740px)').matches
+          ? header.querySelector('[aria-controls="mobile-menu-drawer"]') || logo
+          : logo;
         var wrapper = header.querySelector('.header__wrapper');
         set('--gc-air-header-height', rect.height);
         set('--gc-air-header-visible', visible);
         set('--gc-air-product-height', product.getBoundingClientRect().height);
         set('--gc-air-offer-height', offerHeight);
-        if (logo) set('--gc-air-content-left', logo.getBoundingClientRect().left);
+        if (leftAnchor) set('--gc-air-content-left', leftAnchor.getBoundingClientRect().left);
         if (wrapper) set('--gc-air-content-right', Math.max(0, document.documentElement.clientWidth - wrapper.getBoundingClientRect().right));
         header.classList.toggle('gc-air-header-away', visible === 0);
       }
