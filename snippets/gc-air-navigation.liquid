@@ -1,6 +1,9 @@
 {% doc %}
   Coordinates the Air global header, product navigation and optional campaign bar.
 {% enddoc %}
+{% if product.handle == 'titanshield-air' %}
+  {% render 'gc-dark-navigation' %}
+{% endif %}
 <style>
   .gc-air-navigation {
     --gc-air-header-height: 64px;

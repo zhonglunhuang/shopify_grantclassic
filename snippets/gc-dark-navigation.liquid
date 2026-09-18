@@ -1,0 +1,86 @@
+{% doc %}
+  Dark product-page navigation, desktop mega menus and mobile navigation drawer.
+{% enddoc %}
+<style>
+  .gc-air-navigation #shopify-section-header .header {
+    --header-background: 17, 17, 19;
+    --header-text-color: 245, 245, 247;
+    background: #111113 !important;
+    color: #f5f5f7 !important;
+    border-bottom-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    color-scheme: dark;
+  }
+  .gc-air-navigation #shopify-section-header .header__logo-image {
+    filter: brightness(0) invert(1) !important;
+  }
+  .gc-air-navigation #shopify-section-header .header__linklist-link,
+  .gc-air-navigation #shopify-section-header .header__icon-wrapper {
+    color: #f5f5f7 !important;
+  }
+  .gc-air-navigation #shopify-section-header .gc-nav-ind { background: #f5f5f7; }
+  .gc-air-navigation #shopify-section-header .gc-mega-host {
+    background: #111113 !important;
+    border-color: #303034;
+    box-shadow: none;
+  }
+  .gc-air-navigation #shopify-section-header .gc-mega {
+    --gc-ink: #f5f5f7;
+    --gc-ink2: #b1b1b8;
+    --gc-ink3: #a1a1aa;
+    --gc-card: #202023;
+    --gc-line: #38383d;
+    --gc-accent: #69b5ff;
+    color-scheme: dark;
+  }
+  .gc-air-navigation #shopify-section-header .gc-mega,
+  .gc-air-navigation #shopify-section-header .gc-mega a,
+  .gc-air-navigation #shopify-section-header .gc-mega button,
+  .gc-air-navigation #shopify-section-header .gc-mega__title {
+    color: #f5f5f7 !important;
+  }
+  .gc-air-navigation #shopify-section-header .gc-mega__desc { color: #b1b1b8 !important; }
+  .gc-air-navigation #shopify-section-header .gc-mega__label,
+  .gc-air-navigation #shopify-section-header .gc-mega__chev { color: #a1a1aa !important; }
+  .gc-air-navigation #shopify-section-header .gc-mega__designs { color: #69b5ff !important; }
+  .gc-air-navigation #shopify-section-header .gc-mega__card:hover,
+  .gc-air-navigation #shopify-section-header .gc-mega__card:focus-visible { background: #2b2b30; }
+  .gc-air-navigation #shopify-section-header .gc-mega__thumb:not(.gc-mega__thumb--cut) {
+    background: #f5f5f7;
+    border-radius: 8px;
+  }
+  .gc-air-navigation #mobile-menu-drawer {
+    --background: 17, 17, 19;
+    --root-background: 17, 17, 19;
+    --text-color: 245, 245, 247;
+    --heading-color: 245, 245, 247;
+    --border-color: 56, 56, 61;
+    background: #111113;
+    color: #f5f5f7;
+    color-scheme: dark;
+  }
+  .gc-air-navigation #mobile-menu-drawer .drawer__header,
+  .gc-air-navigation #mobile-menu-drawer .drawer__content,
+  .gc-air-navigation #mobile-menu-drawer .drawer__footer,
+  .gc-air-navigation #mobile-menu-drawer .mobile-nav__footer {
+    background: #111113;
+    color: #f5f5f7;
+    border-color: #38383d;
+    box-shadow: none;
+  }
+  .gc-air-navigation #mobile-menu-drawer .mobile-nav__link,
+  .gc-air-navigation #mobile-menu-drawer .gc-mmenu__name,
+  .gc-air-navigation #mobile-menu-drawer .gc-region__toggle { color: #f5f5f7; }
+  .gc-air-navigation #mobile-menu-drawer .gc-mmenu__head { color: #a1a1aa; }
+  .gc-air-navigation #mobile-menu-drawer .gc-mmenu__more { color: #69b5ff; }
+  .gc-air-navigation #mobile-menu-drawer .gc-mmenu__thumb,
+  .gc-air-navigation #mobile-menu-drawer .gc-region__toggle:hover { background: #202023; }
+  .gc-air-navigation #mobile-menu-drawer .gc-mmenu__foot { border-color: #38383d; }
+  .gc-air-navigation #shopify-section-header .gc-mega :is(a, button):focus-visible,
+  .gc-air-navigation #mobile-menu-drawer :is(a, button):focus-visible {
+    outline: 2px solid #69b5ff;
+    outline-offset: 3px;
+  }
+</style>
