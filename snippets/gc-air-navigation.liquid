@@ -4,7 +4,7 @@
 <style>
   .gc-air-navigation {
     --gc-air-header-height: 64px;
-    --gc-air-product-height: 49px;
+    --gc-air-product-height: 48px;
     --gc-air-offer-height: 0px;
   }
   .gc-air-navigation #shopify-section-header.shopify-section--header {
@@ -27,7 +27,9 @@
   .gc-air-navigation .ts-topbar {
     top: calc(var(--gc-air-offer-height) + var(--gc-air-header-visible, var(--gc-air-header-height))) !important;
     z-index: 40;
-    background: rgba(29, 29, 31, .94);
+    background: #1d1d1f;
+    border-bottom: 0;
+    box-shadow: none;
   }
   .gc-air-navigation #shopify-section-header.shopify-section--header:has(.drawer[open]),
   .gc-air-navigation .drawer {
@@ -52,6 +54,27 @@
   .gc-air-navigation .ts-topbar__name:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
+  }
+  .gc-air-navigation .ts-topbar__buy {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    min-width: 48px;
+    padding: 0 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .gc-air-navigation .ts-topbar__buy::after {
+    content: '';
+    position: absolute;
+    inset: -8px 0;
+  }
+  .gc-air-navigation .ts-topbar__buy:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
   }
   .gc-air-navigation #main [id] {
     scroll-margin-top: calc(var(--gc-air-offer-height) + var(--gc-air-product-height) + 16px);
@@ -84,7 +107,7 @@
     }
   }
   @media (max-width: 560px) {
-    .gc-air-navigation { --gc-air-product-height: 45px; }
+    .gc-air-navigation { --gc-air-product-height: 44px; }
   }
 </style>
 <script>
@@ -104,19 +127,23 @@
       function measure() {
         frame = 0;
         var rect = header.getBoundingClientRect();
-        var offerHeight = offer ? offer.getBoundingClientRect().height : 0;
+        // Match the whole-pixel body offset applied by gc-team.js.
+        var offerHeight = offer ? Math.round(offer.getBoundingClientRect().height) : 0;
         var visible = Math.max(0, Math.min(rect.height, rect.bottom - offerHeight));
         var logo = header.querySelector('.header__logo');
         var leftAnchor = window.matchMedia('(max-width: 740px)').matches
           ? header.querySelector('[aria-controls="mobile-menu-drawer"]') || logo
           : logo;
         var wrapper = header.querySelector('.header__wrapper');
+        var cartCount = header.querySelector('.header__cart-count');
+        var cartIcon = cartCount && cartCount.parentElement.querySelector('svg');
+        var rightAnchor = cartIcon || wrapper;
         set('--gc-air-header-height', rect.height);
         set('--gc-air-header-visible', visible);
         set('--gc-air-product-height', product.getBoundingClientRect().height);
         set('--gc-air-offer-height', offerHeight);
         if (leftAnchor) set('--gc-air-content-left', leftAnchor.getBoundingClientRect().left);
-        if (wrapper) set('--gc-air-content-right', Math.max(0, document.documentElement.clientWidth - wrapper.getBoundingClientRect().right));
+        if (rightAnchor) set('--gc-air-content-right', Math.max(0, document.documentElement.clientWidth - rightAnchor.getBoundingClientRect().right));
         header.classList.toggle('gc-air-header-away', visible === 0);
       }
       function schedule() {
