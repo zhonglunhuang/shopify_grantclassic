@@ -1,14 +1,4 @@
-{%- comment -%}
-  TITANSHIELD Air 專用版面。
 
-  這是 theme.liquid 的複製品，只做兩件事：
-    1. 不出公告列、促銷彈窗、主題原本的白底導覽列 —— 換成頁面自己的 ts-topbar
-    2. 不出頁尾上面那兩段（圖示列、電子報），它們會打斷 Apple 那種節奏
-  頁尾、購物車、追蹤碼、App 的 script 全部原封不動照舊。
-
-  主題原本的檔案一個都沒改；要還原只要把 templates/product.ts-air.json
-  裡的 "layout": "ts-air" 拿掉就好。
-{%- endcomment -%}
 {%- comment -%}
   ------------------------------------------------------------------------------------------------------------------------
   NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing this theme as much as we did for
@@ -105,12 +95,12 @@
 
     {%- comment -%}gc：全站字級梯子（t1~t7）與全站字型。與 theme.liquid／tsp-pro.liquid 一致，必須在 theme.css 之前載入。這一行拿掉即完全還原{%- endcomment -%}
     {{ 'gc-type.css' | asset_url | stylesheet_tag }}
-    {%- comment -%}
-      gc：theme.liquid 與 tsp-pro.liquid 有的 ts-perf.css，這裡「刻意不載」——
-      它只管 .tmenu（大選單）與 mobile-navigation（手機抽屜），這份版型把那兩個都拿掉了，
-      2026-09-10 實測本頁各 0 個元素，載了是零效果的多一個請求。
-      比對三份版型時看到這裡少一支，不是漏掉。
-    {%- endcomment -%}
+    {{ 'ts-perf.css' | asset_url | stylesheet_tag }}
+    {{ 'gc-header.css' | asset_url | stylesheet_tag }}
+    {{ 'gc-mega.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'gc-mega.js' | asset_url }}" defer></script>
+    <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
+    {% render 'gc-air-navigation' %}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
@@ -140,7 +130,7 @@
     {% assign feature_classes = feature_classes | append: ' features--image-zoom' %}
   {%- endif -%}
 
-  <body class="no-focus-outline {{ feature_classes }}" data-instant-allow-query-string>
+  <body class="no-focus-outline gc-air-navigation {{ feature_classes }}" data-instant-allow-query-string>
     {%- comment -%}Common SVG definitions that we are re-using in several places{%- endcomment -%}
     <svg class="visually-hidden">
       <linearGradient id="rating-star-gradient-half">
@@ -153,6 +143,8 @@
     <loading-bar class="loading-bar"></loading-bar>
 
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+
+      {%- section 'header' -%}
 
       {%- unless settings.cart_type == 'page' or request.page_type == 'cart' -%}
         {%- section 'mini-cart' -%}
@@ -223,7 +215,7 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}    {% section 'gc-dock' %}
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}{% render 'gc-mega' %}
 </body>
 </html>
 

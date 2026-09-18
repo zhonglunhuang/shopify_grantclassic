@@ -1,27 +1,7 @@
 {{ 'ts-air.css' | asset_url | stylesheet_tag }}
-{%- comment -%}
-  取代主題原本的公告列＋促銷彈窗＋白底導覽列（那三段由 layout/ts-air.liquid 關掉）。
-  左邊永遠留一條回首頁的路，右邊是頁內錨點與購買。
-{%- endcomment -%}
 <div class="ts-topbar" data-hide-app="{% if section.settings.hide_app_bar %}1{% else %}0{% endif %}">
   <div class="ts-topbar__in">
 
-    <a class="ts-topbar__home" href="{{ routes.root_url }}">
-      <svg viewBox="0 0 6 11" fill="none" aria-hidden="true">
-        <path d="M5 1L1 5.5L5 10" stroke="currentColor" stroke-width="1.4"
-              stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      {%- if section.settings.logo != blank -%}
-        <img class="ts-topbar__logo" src="{{ section.settings.logo | image_url: width: 400 }}"
-             alt="{{ section.settings.home_label | escape }}"
-             width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}">
-      {%- else -%}
-        {%- comment -%}主題頁首同一顆 logo，內嵌著色跟著列走{%- endcomment -%}
-        {%- render 'ts-logo' -%}
-      {%- endif -%}
-    </a>
-
-    <span class="ts-topbar__sep" aria-hidden="true"></span>
     <span class="ts-topbar__name">{{ section.settings.product_label }}</span>
 
     <nav class="ts-topbar__links" aria-label="{{ section.settings.product_label }}">
