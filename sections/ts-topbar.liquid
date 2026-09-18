@@ -2,7 +2,7 @@
 <div class="ts-topbar" data-hide-app="{% if section.settings.hide_app_bar %}1{% else %}0{% endif %}">
   <div class="ts-topbar__in">
 
-    <span class="ts-topbar__name">{{ section.settings.product_label }}</span>
+    <a class="ts-topbar__name" href="{{ product.url }}" data-gc-air-top>{{ section.settings.product_label }}</a>
 
     <nav class="ts-topbar__links" aria-label="{{ section.settings.product_label }}">
       <a href="#safety">安全</a>

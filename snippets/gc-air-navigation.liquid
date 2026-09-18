@@ -8,12 +8,24 @@
     --gc-air-offer-height: 0px;
   }
   .gc-air-navigation #shopify-section-header.shopify-section--header {
-    position: sticky;
-    top: var(--gc-air-offer-height) !important;
+    position: relative;
+    top: 0 !important;
     z-index: 50;
   }
+  .gc-air-navigation store-header.header {
+    position: relative !important;
+    top: 0 !important;
+    animation: none;
+  }
+  .gc-air-navigation #shopify-section-header.gc-air-header-away {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .gc-air-navigation .gc-air-header-away .gc-mega-host {
+    visibility: hidden !important;
+  }
   .gc-air-navigation .ts-topbar {
-    top: calc(var(--gc-air-offer-height) + var(--gc-air-header-height)) !important;
+    top: calc(var(--gc-air-offer-height) + var(--gc-air-header-visible, var(--gc-air-header-height))) !important;
     z-index: 40;
     background: rgba(29, 29, 31, .94);
   }
@@ -26,17 +38,33 @@
   }
   .gc-air-navigation .ts-topbar__in {
     max-width: none;
-    padding-inline: var(--container-gutter, 32px);
+    padding-left: var(--gc-air-content-left, var(--container-gutter, 32px));
+    padding-right: var(--gc-air-content-right, var(--container-gutter, 32px));
   }
   .gc-air-navigation .ts-topbar__name {
     margin-left: 0;
     margin-right: auto;
+    cursor: pointer;
+  }
+  .gc-air-navigation .ts-topbar__name:hover {
+    color: #fff;
+  }
+  .gc-air-navigation .ts-topbar__name:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
   }
   .gc-air-navigation #main [id] {
-    scroll-margin-top: calc(var(--gc-air-offer-height) + var(--gc-air-header-height) + var(--gc-air-product-height) + 16px);
+    scroll-margin-top: calc(var(--gc-air-offer-height) + var(--gc-air-product-height) + 16px);
   }
   .gc-air-navigation .gc-mega__panes {
     max-height: calc(100dvh - var(--gc-air-offer-height) - var(--gc-air-header-height) - 180px);
+  }
+  @media (min-width: 741px) {
+    .gc-air-navigation .header .header__wrapper {
+      height: 63px;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
   }
   @media (max-width: 740px) {
     .gc-air-navigation { --gc-air-header-height: 55px; }
@@ -49,7 +77,7 @@
   (function () {
     function init() {
       var body = document.body;
-      var header = document.getElementById('shopify-section-header');
+      var header = document.querySelector('#shopify-section-header.shopify-section--header');
       var product = document.querySelector('.ts-topbar');
       if (!header || !product || body.dataset.gcAirNavReady) return;
       body.dataset.gcAirNavReady = 'true';
@@ -61,9 +89,18 @@
       }
       function measure() {
         frame = 0;
-        set('--gc-air-header-height', header.getBoundingClientRect().height);
+        var rect = header.getBoundingClientRect();
+        var offerHeight = offer ? offer.getBoundingClientRect().height : 0;
+        var visible = Math.max(0, Math.min(rect.height, rect.bottom - offerHeight));
+        var logo = header.querySelector('.header__logo');
+        var wrapper = header.querySelector('.header__wrapper');
+        set('--gc-air-header-height', rect.height);
+        set('--gc-air-header-visible', visible);
         set('--gc-air-product-height', product.getBoundingClientRect().height);
-        set('--gc-air-offer-height', offer ? offer.getBoundingClientRect().height : 0);
+        set('--gc-air-offer-height', offerHeight);
+        if (logo) set('--gc-air-content-left', logo.getBoundingClientRect().left);
+        if (wrapper) set('--gc-air-content-right', Math.max(0, document.documentElement.clientWidth - wrapper.getBoundingClientRect().right));
+        header.classList.toggle('gc-air-header-away', visible === 0);
       }
       function schedule() {
         if (!frame) frame = requestAnimationFrame(measure);
@@ -83,7 +120,14 @@
       }
       new MutationObserver(findOffer).observe(body, { childList: true });
       window.addEventListener('resize', schedule, { passive: true });
+      window.addEventListener('scroll', schedule, { passive: true });
       window.addEventListener('pageshow', schedule);
+      var topLink = product.querySelector('[data-gc-air-top]');
+      if (topLink) topLink.addEventListener('click', function (event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      });
       findOffer();
       measure();
     }
