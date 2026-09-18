@@ -237,15 +237,17 @@
   // 這樣價條不會蓋住頁首、頁首也不會蓋住價條（Air／Pro 的頁首叫 ts-top、Focal 的叫 header，
   // 不認 class 名，用「貼在最上面、固定或黏住、不高於 200px、寬度接近整個視窗」認）。
   var _stickyEls = null;
-  function stickyHeaders() {
-    if (_stickyEls) return _stickyEls;
+  function stickyHeaders(refresh) {
+    if (_stickyEls && !refresh) return _stickyEls;
+    var previous = _stickyEls || [];
     var out = [];
     var els = document.body.querySelectorAll('header, nav, div, section');
     for (var i = 0; i < els.length && i < 4000; i++) {
       var el = els[i];
       if (el.classList.contains('gct-bar')) continue;
       var r = el.getBoundingClientRect();
-      if (r.height <= 0 || r.height > 200 || r.top > 2 || r.width < innerWidth * 0.9) continue;
+      // Keep headers already moved below the offer bar when rescanning after a resize.
+      if (r.height <= 0 || r.height > 200 || (r.top > 2 && previous.indexOf(el) < 0) || r.width < innerWidth * 0.9) continue;
       var pos = getComputedStyle(el).position;
       if (pos !== 'fixed' && pos !== 'sticky') continue;
       out.push(el);
@@ -401,8 +403,13 @@
     bindCopy(bar);
     placeBar(bar);
     var raf = null;
-    window.addEventListener('resize', function () { if (raf) return; raf = requestAnimationFrame(function () { raf = null; _stickyEls = null; placeBar(bar); }); });
-    setTimeout(function () { _stickyEls = null; placeBar(bar); }, 900);
+    function scheduleBar() {
+      if (raf) return;
+      raf = requestAnimationFrame(function () { raf = null; stickyHeaders(true); placeBar(bar); });
+    }
+    window.addEventListener('resize', scheduleBar);
+    if (window.ResizeObserver) new ResizeObserver(scheduleBar).observe(bar);
+    setTimeout(scheduleBar, 900);
 
     // 換色／換版本就重畫價條（價格與可複製的碼都要跟著換）。主題換變體的做法各不相同，
     // 所以三種訊號都收：表單欄位變動、網址的 variant 參數變動、以及主題自己發的事件。
