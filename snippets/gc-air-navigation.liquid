@@ -31,6 +31,9 @@
     border-bottom: 0;
     box-shadow: none;
   }
+  .gc-air-navigation .gct-bar {
+    box-shadow: none;
+  }
   .gc-air-navigation #shopify-section-header.shopify-section--header:has(.drawer[open]),
   .gc-air-navigation .drawer {
     z-index: 80;
@@ -127,8 +130,7 @@
       function measure() {
         frame = 0;
         var rect = header.getBoundingClientRect();
-        // Match the whole-pixel body offset applied by gc-team.js.
-        var offerHeight = offer ? Math.round(offer.getBoundingClientRect().height) : 0;
+        var offerHeight = offer ? offer.getBoundingClientRect().height : 0;
         var visible = Math.max(0, Math.min(rect.height, rect.bottom - offerHeight));
         var logo = header.querySelector('.header__logo');
         var leftAnchor = window.matchMedia('(max-width: 740px)').matches

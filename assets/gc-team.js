@@ -256,7 +256,8 @@
     return out;
   }
   function placeBar(bar) {
-    var h = Math.round(bar.getBoundingClientRect().height);
+    var h = bar.getBoundingClientRect().height;
+    if (!document.body.classList.contains('gc-air-navigation')) h = Math.round(h);
     if (!h) return;
     document.documentElement.style.setProperty('--gct-bar-h', h + 'px');
     document.body.style.paddingTop = 'calc(' + (document.body.getAttribute('data-gct-base') || '0px') + ' + ' + h + 'px)';
