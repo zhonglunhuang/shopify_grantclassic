@@ -128,6 +128,13 @@
     {% render 'css-variables', direction: direction %}
     {% render 'js-variables', direction: direction %}
 
+    {{ 'gc-header.css' | asset_url | stylesheet_tag }}
+    {{ 'gc-mega.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'gc-mega.js' | asset_url }}" defer></script>
+    <script src="{{ 'gc-header.js' | asset_url }}" defer></script>
+    {% render 'gc-air-navigation' %}
+    {% render 'gc-pro-navigation' %}
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
     <script src="{{ 'vendor.js' | asset_url }}" defer></script>
@@ -154,7 +161,7 @@
     {% assign feature_classes = feature_classes | append: ' features--image-zoom' %}
   {%- endif -%}
 
-  <body class="no-focus-outline {{ feature_classes }}" data-instant-allow-query-string>
+  <body class="no-focus-outline gc-air-navigation {{ feature_classes }}" data-instant-allow-query-string>
     {%- comment -%}Common SVG definitions that we are re-using in several places{%- endcomment -%}
     <svg class="visually-hidden">
       <linearGradient id="rating-star-gradient-half">
@@ -167,6 +174,7 @@
     <loading-bar class="loading-bar"></loading-bar>
 
     {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+      {%- section 'header' -%}
 
       {%- unless settings.cart_type == 'page' or request.page_type == 'cart' -%}
         {%- section 'mini-cart' -%}
@@ -237,7 +245,7 @@
 
  {% include 'smile-initializer' %}
 
-{%- render "ecom_footer"-%}    {% section 'gc-dock' %}</body>
+{%- render "ecom_footer"-%}    {% section 'gc-dock' %}{% render 'gc-mega' %}</body>
 </html>
 
 <style>
