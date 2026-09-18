@@ -1,7 +1,7 @@
 {% doc %}
   Coordinates the Air global header, product navigation and optional campaign bar.
 {% enddoc %}
-{% if product.handle == 'titanshield-air' %}
+{% if product.handle == 'titanshield-air' or product.handle == 'titanshield_10000' %}
   {% render 'gc-dark-navigation' %}
 {% endif %}
 <style>
