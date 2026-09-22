@@ -495,6 +495,9 @@
     "approx": "Approx. NT$",
     "per": " / installment",
     "details": "Installment details",
-    "terms": "Estimate based on your current selection, including quantity, bundle and add-ons. Eligible banks, minimum spend and final amounts are confirmed at checkout. Remainders are adjusted in the first installment."
+    "terms": "Estimate based on your current selection, including quantity, bundle and add-ons. Eligible banks, minimum spend and final amounts are confirmed at checkout. Remainders are adjusted in the first installment.",
+    "cart_monthly": "Approx. per installment: NT$",
+    "cart_hint": "At checkout, choose “ECPay - Credit card installments”.",
+    "cart_terms": "Estimated from the discounted cart total, before checkout shipping charges or further deductions. Final amounts, eligible banks and minimum spend are confirmed on the payment page. Remainders are adjusted in the first installment."
   }
 }
