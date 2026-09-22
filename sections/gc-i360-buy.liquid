@@ -199,6 +199,7 @@
       </a>
 
 
+      {% render 'gc-installment-preview', variant: cur %}
       {%- if s.promo_pos == 'top' -%}
       {%- if s.promo_title != blank and s.promo_style == 'dark' -%}
       {%- comment -%} 深色會員卡（TORRAS 式）：左方塊 logo、白標題、灰副句用細直線分隔、右邊圓形箭頭；有網址整張可點 {%- endcomment -%}
@@ -465,7 +466,7 @@
       <span class="gi__qn" data-gi-qn aria-live="polite">1</span>
       <button type="button" class="gi__qb" data-gi-qp aria-label="增加數量">+</button>
     </div>
-    <p class="gi__barp"><b data-gi-price>{{ cur.price | money }}</b><s data-gi-cmp hidden></s><small class="gi__qhint" data-gi-qhint hidden></small></p>
+    <p class="gi__barp"><b data-gi-price>{{ cur.price | money }}</b><s data-gi-cmp hidden></s><small class="gi__qhint" data-gi-qhint hidden></small>{% render 'gc-installment-preview', variant: cur, compact: true %}</p>
     <button type="button" class="gi__cta" data-gi-add>{{ s.cta_label | default: '加入購物車' }}</button>
   </div>
 </section>

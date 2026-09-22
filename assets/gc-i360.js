@@ -134,6 +134,8 @@
       var bp = total;
       var priceEl = $('[data-gi-price]', root), cmpEl = $('[data-gi-cmp]', root);
       if (priceEl) tween(priceEl, bp.now);
+      $$('[data-gi-installment-total]', root).forEach(function (el) { el.textContent = 'NT$' + Math.round(bp.now / 100).toLocaleString('en-US'); });
+      $$('[data-gi-installment-monthly]', root).forEach(function (el) { el.textContent = Math.floor(bp.now / 600).toLocaleString('en-US'); });
       if (cmpEl) { cmpEl.hidden = !(bp.was > bp.now); cmpEl.textContent = money(bp.was); }
       // 團購價生效時底欄掛記號：手機版平常藏起來的劃線原價，這時要露出來（gc-i360.css）
       if (priceEl && priceEl.parentNode) priceEl.parentNode.classList.toggle('gi__barp--team', mainPrice().now !== cur.price);
@@ -297,6 +299,7 @@
     var barEl = $('[data-gi-bar]', root);
     function setBarVar() { if (barEl) document.documentElement.style.setProperty('--gi-bar', barEl.getBoundingClientRect().height + 'px'); }
     setBarVar(); window.addEventListener('resize', setBarVar);
+    if (barEl && $('[data-gi-installment]', root)) new ResizeObserver(setBarVar).observe(barEl);
     // 往下捲：浮動小工具淡出；往上捲或停 450ms：回來
     var lastY = window.scrollY, idleT;
     window.addEventListener('scroll', function () {

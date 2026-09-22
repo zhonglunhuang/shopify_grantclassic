@@ -784,5 +784,13 @@
       "headingtext_ke5l5ure39_html": "",
       "headingtext_qx9733j8ss_html": ""
     }
+  },
+  "gc_installment": {
+    "subtotal": "目前選購小計",
+    "plan": "6 期 0 利率",
+    "approx": "每期約 NT$",
+    "per": "／期",
+    "details": "分期說明",
+    "terms": "選擇信用卡分期付款，預估金額依目前選購小計計算；數量、組合及加購變更時同步更新。實際可用銀行、適用門檻與金額以結帳頁為準，除不盡的金額由首期調整。"
   }
 }

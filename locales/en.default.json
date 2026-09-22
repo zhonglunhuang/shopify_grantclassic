@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin language editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -77,13 +77,13 @@
       "account": "Account",
       "cart": "Cart",
       "language": "Language",
-      "country": "Country\/region"
+      "country": "Country/region"
     }
   },
   "footer": {
     "general": {
       "language": "Language",
-      "country": "Country\/region",
+      "country": "Country/region",
       "we_accept": "We accept"
     },
     "newsletter": {
@@ -194,7 +194,7 @@
       "need_help": "Need help?",
       "view_details": "View details",
       "include_taxes": "Tax included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">Shipping calculated<\/a> at checkout",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">Shipping calculated</a> at checkout",
       "reviews_count": {
         "zero": "No reviews",
         "one": "{{ count }} review",
@@ -217,7 +217,7 @@
         "other": "Only {{count}} units left"
       },
       "contact_us": "Contact us",
-      "quick_buy": "<tc>Quick Buy<\/tc>"
+      "quick_buy": "<tc>Quick Buy</tc>"
     }
   },
   "store_availability": {
@@ -341,12 +341,12 @@
       "fulfillment_status": "Fulfillment status",
       "view_details": "View order details",
       "cancelled_at": "Cancelled at: {{date}}. Reason: {{reason}}",
-      "fulfillment_with_url_and_number_html": "All products have been sent on {{date}}. Track the shipment with number {{tracking_number}} or by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here<\/a>.",
-      "fulfillment_with_url_html": "All products have been sent on {{date}}. Track the shipment by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here<\/a>.",
+      "fulfillment_with_url_and_number_html": "All products have been sent on {{date}}. Track the shipment with number {{tracking_number}} or by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here</a>.",
+      "fulfillment_with_url_html": "All products have been sent on {{date}}. Track the shipment by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here</a>.",
       "fulfillment_with_number_html": "All products have been sent on {{date}}. Track the shipment with number {{tracking_number}}.",
       "fulfillment_html": "All products have been sent on {{date}}.",
-      "line_fulfillment_with_url_and_number_html": "This product has been sent on {{date}}. Track the shipment with number {{tracking_number}} or by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here<\/a>.",
-      "line_fulfillment_with_url_html": "This product has been sent on {{date}}. Track the shipment by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here<\/a>.",
+      "line_fulfillment_with_url_and_number_html": "This product has been sent on {{date}}. Track the shipment with number {{tracking_number}} or by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here</a>.",
+      "line_fulfillment_with_url_html": "This product has been sent on {{date}}. Track the shipment by <a href=\"{{tracking_url}}\" target=\"_blank\">clicking here</a>.",
       "line_fulfillment_with_number_html": "This product has been sent on {{date}}. Track the shipment with number {{tracking_number}}.",
       "line_fulfillment_html": "This product has been sent on {{date}}.",
       "total": "Total",
@@ -488,5 +488,13 @@
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
     }
+  },
+  "gc_installment": {
+    "subtotal": "Selected subtotal",
+    "plan": "6 interest-free installments",
+    "approx": "Approx. NT$",
+    "per": " / installment",
+    "details": "Installment details",
+    "terms": "Estimate based on your current selection, including quantity, bundle and add-ons. Eligible banks, minimum spend and final amounts are confirmed at checkout. Remainders are adjusted in the first installment."
   }
 }

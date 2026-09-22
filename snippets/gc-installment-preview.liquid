@@ -1,0 +1,49 @@
+{% doc %}
+  @param {variant} variant - Selected product variant.
+  @param {boolean} [compact] - Compact purchase-bar presentation.
+{% enddoc %}
+{% if product.handle == 'solid-state-power-bank-titanshield-10000mah' %}
+{% assign monthly = variant.price | divided_by: 600 %}
+{% if compact %}
+  <small class="gi__installment-compact"><span>{{ 'gc_installment.plan' | t }}</span><span>{{ 'gc_installment.approx' | t }}<span data-gi-installment-monthly>{{ monthly }}</span></span></small>
+{% else %}
+  <div class="gi__installment" data-gi-installment>
+    <p class="gi__installment-label">{{ 'gc_installment.subtotal' | t }}</p>
+    <p class="gi__installment-total" data-gi-installment-total>{{ variant.price | money_with_currency }}</p>
+    <div class="gi__installment-line" aria-live="polite" aria-atomic="true">
+      <span class="gi__installment-plan">{{ 'gc_installment.plan' | t }}</span>
+      <span>{{ 'gc_installment.approx' | t }}<strong data-gi-installment-monthly>{{ monthly }}</strong></span>
+    </div>
+    <details class="gi__installment-details">
+      <summary>{{ 'gc_installment.details' | t }}</summary>
+      <p>{{ 'gc_installment.terms' | t }}</p>
+    </details>
+  </div>
+  <style>
+    .gi .gi__installment { margin: 22px 0 28px; color: #1d1d1f; }
+    .gi .gi__installment-label { margin: 0 0 5px; color: #636368; font-size: 12px; }
+    .gi .gi__installment-total { margin: 0 0 10px; font-size: 32px; font-weight: 650; line-height: 1.2; letter-spacing: -.6px; font-variant-numeric: tabular-nums; }
+    .gi .gi__installment-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: 15px; line-height: 1.6; }
+    .gi .gi__installment-plan { padding: 2px 9px; border-radius: 4px; background: #f2f3f5; font-size: 13px; font-weight: 600; }
+    .gi .gi__installment-line strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .gi .gi__installment-details summary { width: fit-content; min-height: 36px; padding: 9px 0; font-size: 13px; color: #515156; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .gi .gi__installment-details summary:focus-visible { outline: 2px solid #006edb; outline-offset: 3px; }
+    .gi .gi__installment-details p { margin: 6px 0; max-width: 48em; font-size: 13px; color: #515156; line-height: 1.7; }
+    .gi:has([data-gi-installment]) .gi__barp .gi__qhint { display: none; }
+    .gi .gi__barp .gi__installment-compact { display: flex; gap: 6px; margin-top: 4px; font-size: 12px; font-weight: 400; line-height: 1.35; color: #515156; letter-spacing: 0; }
+    @media (max-width: 599px) {
+      .gi .gi__installment-total { font-size: 28px; }
+      .gi:has([data-gi-installment]) .gi__bar { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 12px; height: auto; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
+      .gi:has([data-gi-installment]) .gi__barp { grid-column: 1 / -1; grid-row: 1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin: 0; font-size: 22px; line-height: 1.3; }
+      .gi:has([data-gi-installment]) .gi__qty { grid-column: 1; grid-row: 2; margin: 0; height: 44px; }
+      .gi:has([data-gi-installment]) .gi__qty .gi__qb { width: 40px; height: 42px; }
+      .gi:has([data-gi-installment]) .gi__qty .gi__qn { min-width: 24px; }
+      .gi:has([data-gi-installment]) .gi__bar .gi__cta { grid-column: 2; grid-row: 2; width: 100%; min-width: 0; margin: 0; padding: 0 16px; height: 44px; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; text-align: center; }
+      .gi .gi__barp .gi__installment-compact { flex-direction: row; flex-wrap: wrap; gap: 3px 8px; margin: 0; font-size: 13px; line-height: 1.5; }
+      .gi .gi__barp .gi__installment-compact > span:last-child { color: #1d1d1f; font-weight: 500; }
+      body.gi-has-bar:has([data-gi-installment]) { padding-bottom: var(--gi-bar, 110px); }
+    }
+  </style>
+{% endif %}
+
+{% endif %}
