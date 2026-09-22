@@ -1,0 +1,54 @@
+{% doc %}
+  Installment estimate for Air/Pro configurators.
+  @param {variant} variant - Initially selected variant.
+  @param {boolean} [compact] - Purchase-bar presentation.
+  @param {boolean} [show_total] - Show selected subtotal above the estimate.
+{% enddoc %}
+{% if cart.currency.iso_code == 'TWD' %}
+  {% assign monthly = variant.price | divided_by: 600 %}
+  <gc-product-installment class="gc-product-installment{% if compact %} gc-product-installment--compact{% endif %}">
+    {% if show_total %}
+      <p class="gc-product-installment__label">{{ 'gc_installment.subtotal' | t }}</p>
+      <p class="gc-product-installment__total" data-gc-installment-total>{{ variant.price | money_with_currency }}</p>
+    {% endif %}
+    <div class="gc-product-installment__line" aria-live="polite" aria-atomic="true">
+      <span class="gc-product-installment__plan">{{ 'gc_installment.plan' | t }}</span>
+      <span>{{ 'gc_installment.approx' | t }}<strong data-gc-installment-monthly>{{ monthly }}</strong></span>
+    </div>
+    {% unless compact %}
+      <details class="gc-product-installment__details">
+        <summary>{{ 'gc_installment.details' | t }}</summary>
+        <p>{{ 'gc_installment.terms' | t }}</p>
+      </details>
+    {% endunless %}
+  </gc-product-installment>
+{% endif %}
+
+{% stylesheet %}
+  gc-product-installment.gc-product-installment { display: block; margin: 16px 0; color: #1d1d1f; text-align: left; }
+  .gc-product-installment .gc-product-installment__line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: 15px; line-height: 1.6; }
+  .gc-product-installment .gc-product-installment__plan { padding: 2px 9px; border-radius: 4px; background: #f2f3f5; font-size: 13px; font-weight: 600; }
+  .gc-product-installment strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .gc-product-installment .gc-product-installment__label { margin: 0 0 5px; color: #636368; font-size: 12px; }
+  .gc-product-installment .gc-product-installment__total { margin: 0 0 10px; font-size: 28px; font-weight: 650; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .gc-product-installment .gc-product-installment__details summary { width: fit-content; min-height: 36px; padding: 9px 0; font-size: 13px; color: #515156; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .gc-product-installment .gc-product-installment__details summary:focus-visible { outline: 2px solid #006edb; outline-offset: 3px; }
+  .gc-product-installment .gc-product-installment__details p { margin: 6px 0; max-width: 48em; font-size: 13px; color: #515156; line-height: 1.7; }
+  .gc-shop:has(.gc-product-installment) .gc-shop__from { display: none; }
+  .gc-shop__wrap > .gc-product-installment { margin: 24px 0 0; text-align: center; }
+  .gc-shop__wrap > .gc-product-installment .gc-product-installment__line { justify-content: center; }
+  .gc-shop__wrap > .gc-product-installment summary { margin: 0 auto; }
+  gc-product-installment.gc-product-installment--compact { margin: 4px 0 0; }
+  .gc-product-installment--compact .gc-product-installment__line { justify-content: flex-end; gap: 4px 8px; font-size: 12px; }
+  .gc-product-installment--compact .gc-product-installment__plan { padding: 0; background: transparent; font-size: inherit; font-weight: 400; }
+  @media (max-width: 599px) {
+    .gc-shop:has(.gc-product-installment) .gc-shop__sumin { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
+    .gc-shop:has(.gc-product-installment) .gc-shop__sump { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin: 0; text-align: left; }
+    .gc-shop:has(.gc-product-installment) .gc-shop__sump > b { font-size: 22px; }
+    .gc-shop:has(.gc-product-installment) .gc-shop__sump > small { display: none; }
+    .gc-shop:has(.gc-product-installment) .gc-shop__cta { min-height: 44px; width: 100%; }
+    .gc-shop .gc-product-installment--compact { margin: 0; }
+    .gc-product-installment--compact .gc-product-installment__line { font-size: 13px; }
+  }
+{% endstylesheet %}
+

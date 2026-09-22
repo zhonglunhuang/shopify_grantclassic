@@ -2,7 +2,8 @@
   @param {variant} variant - Selected product variant.
   @param {boolean} [compact] - Compact purchase-bar presentation.
 {% enddoc %}
-{% if product.handle == 'solid-state-power-bank-titanshield-10000mah' %}
+{% unless product.template_suffix == '-2' or product.title contains '手機殼' or product.type contains '手機殼' %}
+{% if cart.currency.iso_code == 'TWD' %}
 {% assign monthly = variant.price | divided_by: 600 %}
 {% if compact %}
   <small class="gi__installment-compact"><span>{{ 'gc_installment.plan' | t }}</span><span>{{ 'gc_installment.approx' | t }}<span data-gi-installment-monthly>{{ monthly }}</span></span></small>
@@ -47,3 +48,5 @@
 {% endif %}
 
 {% endif %}
+
+{% endunless %}

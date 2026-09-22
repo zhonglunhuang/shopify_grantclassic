@@ -64,7 +64,18 @@
     stage.innerHTML = variants.map(function (v, i) { return '<img src="' + esc(v.img) + '" alt="" data-vi="' + i + '"' + (i === S.vi ? '' : ' hidden') + '>'; }).join('');
     var toast = document.createElement('div'); toast.className = 'gc-shop__toast'; root.appendChild(toast); var tt;
     function say(m) { toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove('on'); }, 3200); }
-    function cur() { return variants[S.vi]; }
+    // Follow the same GrantOS price source as the shared product configurator.
+    // Installment estimates and the selected subtotal must use the active offer.
+    var teamPrices = (window.__gcTeamPrices && typeof window.__gcTeamPrices === 'object') ? window.__gcTeamPrices : {};
+    function cur() {
+      var v = variants[S.vi], t = teamPrices[String(v.id)];
+      if (t && t.now > 0 && t.was > t.now) return Object.assign({}, v, { price: t.now, cmp: t.was });
+      return v;
+    }
+    document.addEventListener('gc-team:prices', function (e) {
+      teamPrices = (e.detail && typeof e.detail === 'object') ? e.detail : {};
+      render();
+    });
     function volPct(n) { var p = 0; qt.forEach(function (t) { if (n >= t.q) p = t.p; }); return p; }
     function addPct(n) { return (!at.length || n <= 0) ? 0 : (at[Math.min(n, at.length) - 1] || 0); }
     function inBundle(h) { return S.bundle !== null && bundles[S.bundle].items.indexOf(h) >= 0; }
@@ -132,6 +143,8 @@
       var t = total(), parts = []; if (hasColor) parts.push(v.color); parts.push(qtyName()); if (S.bundle !== null) parts.push(bundles[S.bundle].name); var extra = selAdds().filter(function (a) { return !inBundle(a.handle); }).length; if (extra) parts.push('＋' + extra + ' 件加購');
       $('[data-ss]', sum).textContent = parts.join('・');
       tween($('[data-st]', sum), t.now); $('[data-sw]', sum).textContent = t.was > t.now ? '原價 ' + money(t.was) + '，省 ' + money(t.was - t.now) : '';
+      $$('[data-gc-installment-monthly]', root).forEach(function (el) { el.textContent = Math.floor(t.now / 600).toLocaleString('en-US'); });
+      $$('[data-gc-installment-total]', root).forEach(function (el) { el.textContent = money(t.now); });
       var add = $('[data-add]', sum); add.disabled = !v.avail; if (!v.avail) add.textContent = '暫時缺貨'; else if (!add.getAttribute('aria-busy')) add.textContent = '加入購物車';
     }
     function goto(i) { S.open = i; render(); }
