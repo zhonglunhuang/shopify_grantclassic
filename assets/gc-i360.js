@@ -256,7 +256,8 @@
       }
       buttons.forEach(function (b) { b.disabled = false; b.removeAttribute('aria-busy'); });
       if (res.ok) {
-        if (cartType === 'page') { location.href = (routes.cartUrl || '/cart'); return; }
+        // 買就送（GOS-0589）：整頁跳購物車之前，先等 gc-promo 把贈品補進去（最多 3 秒）；沒裝 gc-promo 就照舊
+        if (cartType === 'page') { if (window.gcPromoSettle) { try { await window.gcPromoSettle(3000); } catch (e) {} } location.href = (routes.cartUrl || '/cart'); return; }
         if (form) form.dispatchEvent(new CustomEvent('variant:added', { bubbles: true, detail: { variant: json.items ? json.items[0] : json } }));
         fetch((routes.cartUrl || '/cart') + '.js').then(async function (r2) {
           var cart = await r2.json();

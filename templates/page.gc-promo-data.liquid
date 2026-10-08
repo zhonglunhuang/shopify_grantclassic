@@ -1,0 +1,7 @@
+{%- comment -%}
+資料版型（GOS-0268）：`/pages/gc-promo?view=gc-promo-data` 回那份 metafield JSON，
+商品頁的腳本靠它知道現在有哪些買就送活動。跟團購的 page.gc-team-data.liquid 同一個做法。
+沒有 layout、沒有多餘字元——整個回應就是那串 JSON。
+{%- endcomment -%}
+{%- layout none -%}
+{{- page.metafields.gc_promo.data.value | json -}}
