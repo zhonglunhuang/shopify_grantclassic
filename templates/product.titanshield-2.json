@@ -51,11 +51,18 @@
       "settings": {
         "title_override": "",
         "right_pct": 40,
+        "variant_img_fallback": "sibling",
+        "tag_text": "示意圖，實品為 %s",
+        "variant_cards": "auto",
         "tabs": "產品:variant,細節:2,物品:items,影片:video",
+        "promo_pos": "bottom",
+        "promo_style": "dark",
+        "promo_icon": "club",
         "promo_title": "加入 GC Club，下單就累點",
         "promo_text": "消費累點 | 點數折現 | 會員專屬優惠",
         "promo_link": "",
         "promo_url": "/pages/gc-member-points",
+        "qcards_label": "買多件優惠",
         "bundle_label": "套餐",
         "contents_label": "",
         "contents_url": "",
@@ -68,10 +75,7 @@
         "gift_text": "登錄序號即享，保固從一年延長為兩年。",
         "gift_url": "/pages/warranty-policy",
         "cta_label": "加入購物車",
-        "cta_style": "red",
-        "promo_icon": "club",
-        "promo_style": "dark",
-        "promo_pos": "bottom"
+        "cta_style": "red"
       }
     },
     "slideshow_TEHnJw": {
@@ -380,7 +384,7 @@
         "image_RWMwzy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1000X1000_08.jpg",
+            "image": "shopify://shop_images/1000X1000_08_569b0504-6bfb-4c9c-a308-89e20119cb1b.jpg",
             "text_position": "middle_center",
             "subheading": "",
             "title": "",
